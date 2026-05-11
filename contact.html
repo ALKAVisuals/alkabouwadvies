@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#b3944d">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//images.unsplash.com">
+    <title>Contact | Alka's Bouwadvies</title>
+    <meta name="description" content="Neem contact op met Alka's Bouwadvies voor vragen, offertes of advies over bouwtekeningen en omgevingsvergunningen. Wij reageren binnen 24 uur.">
+    <meta name="keywords" content="bouwtekening, omgevingsvergunning, bouwkundig advies, tekenbureau, ABW gecertificeerd, contact">
+    <meta name="author" content="Alka's Bouwadvies">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Contact | Alka's Bouwadvies">
+    <meta property="og:description" content="Neem contact op met Alka's Bouwadvies. Wij reageren binnen 24 uur.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alkasbouwadvies.nl/contact.html">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1486406146926-4e5f38372456?w=1200&h=630&fit=crop&q=80">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://alkasbouwadvies.nl/contact.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <style>
+        /* ═══════════ CSS VARIABLES ═══════════ */
+        :root {
+            --bg: #fafafa;
+            --bg-dark: #0f0f0f;
+            --text: #1a1a1a;
+            --text-light: #666666;
+            --accent: #b3944d;
+            --accent-light: #d4b76a;
+            --white: #ffffff;
+            --gray: #e5e5e5;
+            --gray-dark: #d0d0d0;
+            --error: #dc2626;
+            --success: #16a34a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        ::selection { background: var(--accent); color: var(--text); }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ═══════════ SKIP LINK ═══════════ */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            background: var(--accent);
+            color: var(--text);
+            padding: 0.75rem 1.5rem;
+            z-index: 10002;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ═══════════ PROGRESS BAR ═══════════ */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--accent);
+            z-index: 10001;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ═══════════ TOAST ═══════════ */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .toast {
+            padding: 1rem 1.5rem;
+            background: var(--bg-dark);
+            color: var(--white);
+            font-size: 0.875rem;
+            border-radius: 0;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+
+        /* ═══════════ NAVIGATION ═══════════ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            height: 80px;
+            padding: 0 4vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: transparent;
+        }
+        nav.scrolled {
+            background: rgba(250, 250, 250, 0.92);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            box-shadow: 0 1px 30px rgba(0, 0, 0, 0.04);
+        }
+        .logo {
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            z-index: 101;
+        }
+        .nav-logo-img {
+            height: 50px;
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .logo:hover .nav-logo-img { transform: scale(1.05); }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+            height: 100%;
+        }
+        .nav-links > li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            position: relative;
+            padding: 0.25rem 0;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.25rem;
+        }
+        .nav-links a.active::after { width: 0; }
+
+        .nav-cta {
+            padding: 0.6rem 1.25rem;
+            background: var(--accent);
+            color: var(--bg);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .nav-cta:hover { opacity: 0.85; }
+
+        /* Dropdown */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            border: 1px solid var(--gray);
+            width: 720px;
+            display: flex;
+            flex-direction: row;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.28s ease, transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 24px 56px rgba(0, 0, 0, 0.09);
+            z-index: 102;
+            overflow: hidden;
+        }
+        .nav-links > li > a:hover ~ .nav-dropdown,
+        .nav-links > li > a:focus ~ .nav-dropdown,
+        .nav-dropdown:hover {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateX(-50%) translateY(0);
+        }
+        .dropdown-left {
+            flex: 0 0 300px;
+            padding: 0.75rem 0;
+            border-right: 1px solid var(--gray);
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+        }
+        .dropdown-left .dropdown-item {
+            display: block;
+            padding: 0.9rem 1.5rem;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .dropdown-left .dropdown-item.hovered,
+        .dropdown-left .dropdown-item:hover {
+            background: rgba(179, 148, 77, 0.08);
+            color: var(--accent);
+        }
+        .dropdown-right {
+            flex: 1;
+            padding: 1.5rem;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .dropdown-right.visible { display: flex; }
+        .dropdown-info p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .dropdown-cta-btn {
+            display: inline-block;
+            padding: 0.6rem 1.25rem;
+            background: var(--accent);
+            color: var(--bg);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        .dropdown-cta-btn:hover { opacity: 0.85; }
+
+        /* Mobile nav */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 101;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--text);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .menu-toggle.active span:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { transform: translateY(-3.75px) rotate(-45deg); }
+
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-top: 6rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            gap: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            overflow-y: auto;
+        }
+        .mobile-nav.open { opacity: 1; pointer-events: all; }
+        .mobile-nav a {
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text);
+            padding: 0.85rem 0;
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid var(--gray);
+            transition: color 0.3s ease;
+        }
+        .mobile-nav a:hover { color: var(--accent); }
+
+        /* ═══════════ HERO ═══════════ */
+        .contact-hero {
+            padding: 12rem 4vw 6rem;
+            text-align: center;
+        }
+        .contact-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .contact-hero h1 em {
+            font-style: normal;
+            color: var(--accent);
+        }
+        .contact-hero p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* ═══════════ CONTACT SECTION ═══════════ */
+        .contact-section {
+            padding: 4rem 4vw 8rem;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info-block h2 {
+            font-size: 0.6875rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        .contact-info-block h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .contact-info-block > p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray);
+        }
+        .contact-detail-item:last-child { border-bottom: none; }
+        .contact-detail-item strong {
+            display: block;
+            font-size: 0.6875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .contact-detail-item a {
+            color: var(--text);
+            font-size: 1.125rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .contact-detail-item a:hover { color: var(--accent); }
+
+        /* ═══════════ CONTACT FORM ═══════════ */
+        .contact-form-block {
+            background: var(--white);
+            padding: 2.5rem;
+            border: 1px solid var(--gray);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 0;
+            border: none;
+            border-bottom: 1px solid var(--gray);
+            font-family: inherit;
+            font-size: 0.9375rem;
+            color: var(--text);
+            background: transparent;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-group label {
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            font-size: 0.8125rem;
+            color: var(--text-light);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            font-size: 0.6875rem;
+            color: var(--accent);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: transparent; }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            font-family: inherit;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .submit-btn:hover { opacity: 0.85; }
+
+        /* ═══════════ QUICK CONTACT ═══════════ */
+        .quick-contact {
+            padding: 6rem 4vw;
+            background: var(--bg-dark);
+            text-align: center;
+        }
+        .quick-contact h2 {
+            font-size: 0.6875rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        .quick-contact p {
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+        .quick-contact-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .quick-btn {
+            padding: 1rem 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .quick-btn.primary {
+            background: var(--accent);
+            color: var(--bg);
+        }
+        .quick-btn.secondary {
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--white);
+        }
+        .quick-btn:hover { opacity: 0.85; }
+
+        /* ═══════════ FOOTER ═══════════ */
+        footer {
+            background: var(--bg-dark);
+            padding: 4rem 4vw 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .footer-brand p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.875rem;
+            line-height: 1.7;
+            margin-top: 1rem;
+        }
+        .footer-nav h5 {
+            color: var(--white);
+            font-size: 0.6875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+        .footer-nav ul { list-style: none; }
+        .footer-nav li { margin-bottom: 0.6rem; }
+        .footer-nav a {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8125rem;
+            transition: color 0.3s ease;
+        }
+        .footer-nav a:hover { color: var(--accent); }
+        .footer-newsletter p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .newsletter-form { display: flex; gap: 0.5rem; }
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            font-family: inherit;
+            font-size: 0.8125rem;
+        }
+        .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+        .newsletter-form button {
+            padding: 0.75rem 1.25rem;
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            font-family: inherit;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        .newsletter-form button:hover { opacity: 0.85; }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer-copy {
+            color: rgba(255,255,255,0.3);
+            font-size: 0.75rem;
+        }
+        .footer-legal { display: flex; gap: 1.5rem; }
+        .footer-legal a {
+            color: rgba(255,255,255,0.3);
+            font-size: 0.75rem;
+            transition: color 0.3s ease;
+        }
+        .footer-legal a:hover { color: var(--accent); }
+
+        /* ═══════════ BACK TO TOP ═══════════ */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--text);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 99;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .back-to-top.visible { opacity: 1; transform: translateY(0); }
+        .back-to-top:hover { background: var(--accent); }
+
+        /* ═══════════ FOCUS STATES ═══════════ */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* ═══════════ RESPONSIVE ═══════════ */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .menu-toggle { display: flex; }
+            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .quick-contact-actions { flex-direction: column; }
+        }
+        @media (max-width: 480px) {
+            .footer-top { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Ga naar inhoud</a>
+
+    <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- ═══════════ MOBILE NAV ═══════════ -->
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="dakkapel.html" class="mobile-link">Dakkapel</a>
+        <a href="dakopbouw-vergunningen.html" class="mobile-link">Dakopbouw</a>
+        <a href="aanbouw-uitbouw.html" class="mobile-link">Aanbouw & Uitbouw</a>
+        <a href="erker.html" class="mobile-link">Erker</a>
+        <a href="mantelzorg.html" class="mobile-link">Mantelzorgwoning</a>
+        <a href="bed-breakfast.html" class="mobile-link">Bed & Breakfast</a>
+        <a href="nokverhoging.html" class="mobile-link">Nokverhoging</a>
+        <a href="bijgebouw.html" class="mobile-link">Bijgebouwen</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- ═══════════ DESKTOP NAVIGATION ═══════════ -->
+    <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
+            <img src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
+        </a>
+        <ul class="nav-links" role="menubar">
+            <li role="none">
+                <a href="index.html#diensten" role="menuitem" data-section="diensten">Diensten</a>
+                <div class="nav-dropdown" id="diensten-dropdown" aria-label="Diensten submenu">
+                    <div class="dropdown-left">
+                        <a class="dropdown-item hovered" data-sub="bouwtekeningen" href="index.html#diensten">Bouwkundige tekeningen</a>
+                        <a class="dropdown-item" data-sub="vergunning" href="index.html#diensten">Omgevingsvergunning aanvragen</a>
+                        <a class="dropdown-item" data-sub="digitaliseren" href="index.html#diensten">Bouwtekeningen digitaliseren</a>
+                        <a class="dropdown-item" data-sub="advies" href="index.html#diensten">Bouwkundig advies</a>
+                    </div>
+                    <div class="dropdown-right visible" id="sub-bouwtekeningen">
+                        <div class="dropdown-list">
+                            <a href="dakkapel.html"><span class="list-item-title">Bouwtekeningen dakkapel</span><span class="list-item-desc">Meer licht en ruimte op zolder</span></a>
+                            <a href="bijgebouw.html"><span class="list-item-title">Bouwtekeningen bijgebouw</span><span class="list-item-desc">Professionele tekening voor schuren en tuinmuren</span></a>
+                            <a href="nokverhoging.html"><span class="list-item-title">Bouwtekeningen nokverhoging</span><span class="list-item-desc">Voor maximale hoogte en volume</span></a>
+                            <a href="bed-breakfast.html"><span class="list-item-title">Bouwtekeningen bed and breakfast</span><span class="list-item-desc">Ontwerp voor commercieel verblijf</span></a>
+                            <a href="erker.html"><span class="list-item-title">Bouwtekeningen erker</span><span class="list-item-desc">Karakter en ruimte toevoegen aan de gevel</span></a>
+                            <a href="mantelzorg.html"><span class="list-item-title">Bouwtekeningen mantelzorgwoning</span><span class="list-item-desc">Zorgvuldige integratie in de woning</span></a>
+                            <a href="aanbouw-uitbouw.html"><span class="list-item-title">Bouwtekeningen uitbouw</span><span class="list-item-desc">Optimale uitbreiding van uw woonoppervlak</span></a>
+                            <a href="dakopbouw-vergunningen.html"><span class="list-item-title">Bouwtekeningen dakopbouw</span><span class="list-item-desc">Een extra verdieping toevoegen</span></a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-vergunning">
+                        <div class="dropdown-info">
+                            <p>Wij verzorgen de complete aanvraag van uw omgevingsvergunning. Van het indienen tot contact met de gemeente.</p>
+                            <a href="contact.html" class="dropdown-cta-btn">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-digitaliseren">
+                        <div class="dropdown-info">
+                            <p>Wij zetten uw papieren tekeningen om naar professionele digitale bestanden.</p>
+                            <a href="contact.html" class="dropdown-cta-btn">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-advies">
+                        <div class="dropdown-info">
+                            <p>Wij analyseren uw bestemmingsplan en geven concreet advies over wat mogelijk is.</p>
+                            <a href="contact.html" class="dropdown-cta-btn">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li role="none"><a href="index.html#prijzen" role="menuitem">Prijzen</a></li>
+            <li role="none"><a href="index.html#calculator" role="menuitem">Calculator</a></li>
+            <li role="none"><a href="index.html#projecten" role="menuitem">Projecten</a></li>
+            <li role="none"><a href="index.html#over-ons" role="menuitem">Over Ons</a></li>
+            <li role="none"><a href="index.html#faq" role="menuitem">FAQ</a></li>
+            <li role="none"><a href="contact.html" role="menuitem" class="active">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span><span></span>
+        </button>
+    </nav>
+
+    <main>
+        <!-- ═══════════ HERO ═══════════ -->
+        <section class="contact-hero">
+            <h1>Neem <em>contact</em> op</h1>
+            <p>Heeft u een vraag of wilt u een vrijblijvende offerte aanvragen? Vul het formulier in of neem direct contact op. Wij reageren binnen 24 uur.</p>
+        </section>
+
+        <!-- ═══════════ CONTACT GRID ═══════════ -->
+        <section class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-info-block fade-up">
+                    <h2>Contactgegevens</h2>
+                    <h3>We staan voor u klaar</h3>
+                    <p>Of u nu een simpele vraag heeft, een offerte wilt aanvragen, of direct wilt starten met uw project — ons team staat klaar om u te helpen.</p>
+
+                    <div class="contact-detail-item">
+                        <strong>E-mail</strong>
+                        <a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a>
+                    </div>
+                    <div class="contact-detail-item">
+                        <strong>Telefoon</strong>
+                        <a href="tel:+31649240412">+31 (0)6 49 24 04 12</a>
+                    </div>
+                    <div class="contact-detail-item">
+                        <strong>Openingstijden</strong>
+                        <span>Maandag t/m vrijdag: 09:00 – 17:30</span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <strong>Antwoordtijd</strong>
+                        <span>Binnen 24 uur op werkdagen</span>
+                    </div>
+                </div>
+
+                <div class="contact-form-block fade-up">
+                    <form class="contact-form" name="contact" method="POST" data-netlify="true" novalidate>
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" placeholder=" " required>
+                            <label for="name">Naam</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" placeholder=" " required>
+                            <label for="email">E-mail</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" id="phone" placeholder=" ">
+                            <label for="phone">Telefoon (optioneel)</label>
+                        </div>
+                        <div class="form-group">
+                            <select name="subject" id="subject" required>
+                                <option value="" disabled selected></option>
+                                <option value="offerte">Offerte aanvragen</option>
+                                <option value="advies">Bouwkundig advies</option>
+                                <option value="vergunning">Omgevingsvergunning</option>
+                                <option value="overig">Overig</option>
+                            </select>
+                            <label for="subject">Onderwerp</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" id="message" placeholder=" " required></textarea>
+                            <label for="message">Uw bericht</label>
+                        </div>
+                        <button type="submit" class="submit-btn">Verstuur bericht</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════ QUICK CONTACT ═══════════ -->
+        <section class="quick-contact">
+            <h2>Direct contact</h2>
+            <p>Liever even bellen of mailen? Dat kan natuurlijk ook.</p>
+            <div class="quick-contact-actions">
+                <a href="tel:+31649240412" class="quick-btn primary">
+                    <i class="fa-solid fa-phone"></i>&nbsp; Bel ons
+                </a>
+                <a href="mailto:info@alkasbouwadvies.nl" class="quick-btn secondary">
+                    <i class="fa-solid fa-envelope"></i>&nbsp; Mail ons
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-link">
+                    <img src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img">
+                </a>
+                <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in 170+ gemeentes door heel Nederland.</p>
+            </div>
+            <div class="footer-nav">
+                <h5>Diensten</h5>
+                <ul>
+                    <li><a href="dakkapel.html">Dakkapel</a></li>
+                    <li><a href="dakopbouw-vergunningen.html">Dakopbouw</a></li>
+                    <li><a href="aanbouw-uitbouw.html">Aanbouw & Uitbouw</a></li>
+                    <li><a href="erker.html">Erker</a></li>
+                    <li><a href="mantelzorg.html">Mantelzorgwoning</a></li>
+                    <li><a href="bijgebouw.html">Bijgebouwen</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li>
+                    <li><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></li>
+                    <li><a href="contact.html">Contactformulier</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h5>Nieuwsbrief</h5>
+                <p>Ontvang bouwkundige tips en wijzigingen in wetgeving.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Uw e-mailadres" required>
+                    <button type="submit">Inschrijven</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">© 2025–2026 Alka's Bouwadvies — ABW-Gecertificeerd</div>
+            <div class="footer-legal">
+                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Privacybeleid</a>
+                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Algemene Voorwaarden</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Terug naar boven">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const lenis = new Lenis({ duration: 1.4, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(time => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+
+        const progressBar = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.style.width = ((scrollTop / docHeight) * 100) + '%';
+        }, { passive: true });
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            container.appendChild(toast);
+            requestAnimationFrame(() => toast.classList.add('show'));
+            setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 500); }, 4000);
+        }
+
+        function initAnimations() {
+            gsap.to('.contact-hero h1', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' });
+            gsap.to('.contact-hero p', { y: 0, opacity: 1, duration: 1, delay: 0.2, ease: 'power3.out' });
+            ScrollTrigger.batch('.fade-up', {
+                onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.12, duration: 0.9 }),
+                start: 'top 88%',
+                once: false
+            });
+            ScrollTrigger.refresh();
+        }
+        window.addEventListener('load', initAnimations);
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        document.getElementById('back-to-top').addEventListener('click', () => lenis.scrollTo(0));
+        document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 500);
+        window.addEventListener('scroll', () => {
+            document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 500);
+        }, { passive: true });
+
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('mobile-nav').classList.toggle('open');
+        });
+
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast('Uw bericht is succesvol verzonden! Wij nemen spoedig contact met u op.');
+            e.target.reset();
+        });
+
+        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast('Bedankt voor uw inschrijving!');
+            e.target.reset();
+        });
+
+        // Dropdown
+        (function() {
+            const items = document.querySelectorAll('.dropdown-left .dropdown-item');
+            const panels = document.querySelectorAll('.dropdown-right');
+            if (!items.length) return;
+            items.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    items.forEach(i => i.classList.remove('hovered'));
+                    item.classList.add('hovered');
+                    const subId = item.getAttribute('data-sub');
+                    panels.forEach(p => p.classList.remove('visible'));
+                    if (subId) { const panel = document.getElementById('sub-' + subId); if (panel) panel.classList.add('visible'); }
+                });
+            });
+            const container = document.getElementById('diensten-dropdown');
+            if (container) {
+                container.addEventListener('mouseleave', () => {
+                    items.forEach(i => i.classList.remove('hovered'));
+                    const first = items[0];
+                    if (first) {
+                        first.classList.add('hovered');
+                        const subId = first.getAttribute('data-sub');
+                        panels.forEach(p => p.classList.remove('visible'));
+                        if (subId) { const panel = document.getElementById('sub-' + subId); if (panel) panel.classList.add('visible'); }
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
