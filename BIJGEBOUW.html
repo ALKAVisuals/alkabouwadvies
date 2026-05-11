@@ -2067,19 +2067,108 @@
         <a href="#contact" class="mobile-link">Contact</a>
     </div>
 
-    <nav id="navbar">
-        <a href="ALKA2.html" class="logo"><img src="IMAGE/LOGO/logo.png" alt="Alka's Bouwadvies" class="nav-logo-img"></a>
-        <ul class="nav-links">
-            <li><a href="ALKA2.html">Home</a></li>
-            <li><a href="dakkapel.html">Dakkapel</a></li>
-            <li><a href="dakopbouw.html">Dakopbouw</a></li>
-            <li><a href="aanbouw-uitbouw.html">Aanbouw & Uitbouw</a></li>
-            <li><a href="#prijzen">Prijzen</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">Contact</a></li>
+    <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <a href="#" class="logo" aria-label="Alka's Bouwadvies - Home">
+            <img src="IMAGE/LOGO/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
+        </a>
+        <ul class="nav-links" role="menubar">
+            <li role="none">
+                <a href="#diensten" role="menuitem" data-section="diensten">Diensten</a>
+                <div class="nav-dropdown" id="diensten-dropdown" aria-label="Diensten submenu">
+                    <div class="dropdown-left">
+                        <a class="dropdown-item hovered"
+                           data-sub="bouwtekeningen"
+                           aria-haspopup="true"
+                           aria-expanded="true"
+                           href="#diensten">Bouwkunde tekeningen</a>
+                        <a class="dropdown-item"
+                           data-sub="vergunning"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           href="#diensten">Omgevingsvergunning aanvragen</a>
+                        <a class="dropdown-item"
+                           data-sub="digitaliseren"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           href="#diensten">Bouwtekeningen digitaliseren</a>
+                        <a class="dropdown-item"
+                           data-sub="advies"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           href="#diensten">Bouwkundig advies</a>
+                    </div>
+                    <div class="dropdown-right visible" id="sub-bouwtekeningen">
+                        <div class="dropdown-list">
+                            <a href="DAKKAPEL.html">
+                                <span class="list-item-title">Bouwtekeningen dakkapel</span>
+                                <span class="list-item-desc">Meer licht en ruimte op zolder</span>
+                            </a>
+                            <a href="BIJGEBOUW.html">
+                                <span class="list-item-title">Bouwtekeningen bijgebouw</span>
+                                <span class="list-item-desc">Professionele tekening voor schuren en tuinmuren</span>
+                            </a>
+                            <a href="Nokverhoging Bouwtekening & Omgevingsvergunning.html">
+                                <span class="list-item-title">Bouwtekeningen nokverhoging</span>
+                                <span class="list-item-desc">Voor maximale hoogte en volume</span>
+                            </a>
+                            <a href="B&B.html">
+                                <span class="list-item-title">Bouwtekeningen bed and breakfast</span>
+                                <span class="list-item-desc">Ontwerp voor commercieel verblijf</span>
+                            </a>
+                            <a href="ERKER.html">
+                                <span class="list-item-title">Bouwtekeningen erker</span>
+                                <span class="list-item-desc">Karakter en ruimte toevoegen aan de gevel</span>
+                            </a>
+                            <a href="MANTELZORG.html">
+                                <span class="list-item-title">Bouwtekeningen mantelzorgwoning</span>
+                                <span class="list-item-desc">Zorgvuldige integratie in de woning</span>
+                            </a>
+                            <a href="AANBOUW&UITBOUW.html">
+                                <span class="list-item-title">Bouwtekeningen uitbouw</span>
+                                <span class="list-item-desc">Optimale uitbreiding van uw woonoppervlak</span>
+                            </a>
+                            <a href="DAKOPBOUW&VERGUNNINGEN.html">
+                                <span class="list-item-title">Bouwtekeningen dakopbouw</span>
+                                <span class="list-item-desc">Een extra verdieping toevoegen</span>
+                            </a>
+                            <a href="#diensten">
+                                <span class="list-item-title">Bouwtekeningen gevelwijziging</span>
+                                <span class="list-item-desc">Moderniseren van de buitenzijde</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-vergunning">
+                        <div class="dropdown-info">
+                            <p>Ik verzorg de complete aanvraag van uw omgevingsvergunning. Van het indienen van de stukken tot het onderhouden van contact met de gemeente — u heeft er geen omkijken naar.</p>
+                            <a href="#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-digitaliseren">
+                        <div class="dropdown-info">
+                            <p>Heeft u papieren bouwtekeningen die gedigitaliseerd moeten worden? Ik zet uw oude tekeningen om naar professionele digitale bestanden, geschikt voor vergunningsaanvragen en aannemers.</p>
+                            <a href="#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-advies">
+                        <div class="dropdown-info">
+                            <p>Ik analyseer uw bestemmingsplan en geef concreet advies over wat er mogelijk is op uw perceel. Voorkom verrassingen en weet exact waar u aan toe bent voordat u begint met ontwerpen.</p>
+                            <a href="#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li role="none"><a href="#prijzen" role="menuitem" data-section="prijzen">Prijzen</a></li>
+            <li role="none"><a href="#calculator" role="menuitem" data-section="calculator">Calculator</a></li>
+            <li role="none"><a href="#projecten" role="menuitem" data-section="projecten">Projecten</a></li>
+            <li role="none"><a href="#over-ons" role="menuitem" data-section="over-ons">Over Ons</a></li>
+            <li role="none"><a href="#faq" role="menuitem" data-section="faq">FAQ</a></li>
+            <li role="none"><a href="#reviews" role="menuitem" data-section="reviews">Reviews</a></li>
+            <li role="none"><a href="#contact" role="menuitem" data-section="contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="nav-cta">Advies aanvragen →</a>
-        <button class="menu-toggle" id="menu-toggle"><span></span><span></span></button>
+        <a href="#contact" class="nav-cta" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span><span></span>
+        </button>
     </nav>
 
     <main>
@@ -2371,37 +2460,14 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo" aria-label="Voettekst">
         <div class="footer-top">
-            <div class="footer-brand">
-                <a href="ALKA2.html" class="footer-logo-link"><img src="IMAGE/LOGO/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a>
-                <p>Bouwkundig teken- en adviesbureau. ABW-gecertificeerd en actief in heel Nederland. Gespecialiseerd in bijgebouwen, bouwtekeningen en omgevingsvergunningen.</p>
-            </div>
-            <div class="footer-nav">
-                <h5>Onze Diensten</h5>
-                <ul>
-                    <li><a href="ALKA2.html">Home</a></li>
-                    <li><a href="dakkapel.html">Dakkapel</a></li>
-                    <li><a href="dakopbouw.html">Dakopbouw</a></li>
-                    <li><a href="aanbouw-uitbouw.html">Aanbouw & Uitbouw</a></li>
-                    <li><a href="#prijzen">Prijzen</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-nav">
-                <h5>Contact</h5>
-                <ul>
-                    <li><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li>
-                    <li><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></li>
-                </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h5>Nieuwsbrief</h5>
-                <p>Blijf op de hoogte van wetgeving en praktische tips voor uw bijgebouw.</p>
-                <form class="newsletter-form"><input type="email" placeholder="Uw e-mailadres" required><button type="submit">Inschrijven</button></form>
-            </div>
+            <div class="footer-brand"><a href="#" class="footer-logo-link"><img src="IMAGE/LOGO/logo.png" alt="Alka's Bouwadvies Logo" class="footer-logo-img"></a><p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in 170+ gemeentes door heel Nederland. 100% ontzorgd van schets tot vergunning.</p></div>
+            <div class="footer-nav"><h5>Navigatie</h5><ul><li><a href="#diensten">Diensten</a></li><li><a href="#prijzen">Prijzen</a></li><li><a href="#calculator">Prijsindicatie</a></li><li><a href="#projecten">Projecten</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul></div>
+            <div class="footer-nav"><h5>Contact</h5><ul><li><a href="mailto:info@alkasbouwadvies.nl" aria-label="E-mail naar info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li><li><a href="tel:+31612345678" aria-label="Bel +31 6 12 34 56 78">+31 (0)6 12 34 56 78</a></li><li><a href="https://alkasbouwadvies.nl" aria-label="Bezoek alkasbouwadvies.nl">alkasbouwadvies.nl</a></li></ul></div>
+            <div class="footer-newsletter"><h5>Nieuwsbrief</h5><p>Ontvang bouwkundige tips, wijzigingen in wetgeving en inspiratie direct in uw inbox. Geen spam, enkel waarde.</p><form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" aria-label="Nieuwsbrief inschrijving"><input type="email" name="newsletter-email" placeholder="Uw e-mailadres" required aria-required="true" aria-label="E-mailadres voor nieuwsbrief"><button type="submit" aria-label="Inschrijven voor nieuwsbrief">Inschrijven</button></form></div>
         </div>
-        <div class="footer-bottom"><div class="footer-copy">© 2025–2026 Alka's Bouwadvies</div><div class="footer-legal"><a href="#">Privacy</a><a href="#">Voorwaarden</a></div></div>
+        <div class="footer-bottom"><div class="footer-copy">© 2025–2026 Alka's Bouwadvies — ABW-Gecertificeerd — Onderdeel van ALKA Group</div><div class="footer-legal"><a href="#">Privacybeleid</a><a href="#">Algemene Voorwaarden</a><a href="#">Cookiebeleid</a></div></div>
     </footer>
 
     <button class="back-to-top" id="back-to-top" aria-label="Terug naar boven"><i class="fa-solid fa-chevron-up"></i></button>
