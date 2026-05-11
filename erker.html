@@ -2533,7 +2533,33 @@
                 transform: rotate(360deg);
             }
         }
-    </style>
+    
+        /* ═══════════ INLINE STYLE REPLACEMENTS ═══════════ */
+        .aspect-4-5 { aspect-ratio: 4/5; }
+        .border-accent { border-color: var(--accent); }
+        .grid-1-col { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .grid-2-col { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .grid-3-col { grid-template-columns: repeat(3, 1fr); }
+        .icon-error { color: var(--error); }
+        .icon-success { color: var(--success); }
+        .max-650-auto.mb-3 { max-width: 650px; margin: 0 auto 3rem; line-height: 1.75; }
+        .max-650-auto.mb-3.text-light { color: var(--text-light); }
+        .max-700.mb-4.text-light { max-width: 700px; margin-bottom: 4rem; color: var(--text-light); line-height: 1.8; }
+        .mb-4 { margin-bottom: 4rem; }
+        .mt-3 { margin-top: 3rem; }
+        .mt-3.text-center-narrow.disclaimer { margin-top: 3rem; font-size: 0.9375rem; color: var(--text-light); max-width: 700px; text-align: center; margin-left: auto; margin-right: auto; }
+        .section-bg { background: var(--bg); padding: 10rem 4vw; border-top: 1px solid var(--gray); }
+        .section-white { background: var(--white); padding: 10rem 4vw; border-top: 1px solid var(--gray); }
+        .text-center { text-align: center; }
+        .text-center-narrow { text-align: center; max-width: 700px; margin: 0 auto; }
+        .text-center-wide { text-align: center; max-width: 800px; margin: 0 auto; }
+        .text-center-1200 { text-align: center; max-width: 1200px; margin: 0 auto; }
+        .text-center-1400 { text-align: center; max-width: 1400px; margin: 0 auto; }
+
+        /* ═══════════ PAGE-SPECIFIC INLINE REPLACEMENTS ═══════════ */
+        .max-1200-auto { max-width: 1200px; margin: 0 auto; }
+        .max-1400-auto { max-width: 1400px; margin: 0 auto; }
+</style>
 </head>
 <body>
     <a href="#main" class="skip-link">Ga naar inhoud</a>
@@ -2782,7 +2808,7 @@
                     </div>
                 </div>
                 <div class="vergunning-plicht-visual fade-in">
-                    <div class="waardestijging-visual" style="aspect-ratio:4/5;">
+                    <div class="waardestijging-visual" class="aspect-4-5">
                         <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&h=1000&fit=crop&q=80" alt="Stijlvolle erker geïntegreerd in klassieke gevelarchitectuur">
                     </div>
                 </div>
@@ -2968,11 +2994,11 @@
         </section>
 
         <!-- DE 3 GROOTSTE VALKUILEN -->
-        <section class="valkuilen" id="valkuilen" style="background: var(--white); padding: 10rem 4vw; border-top: 1px solid var(--gray);">
-            <div class="valkuilen-inner" style="max-width: 1200px; margin: 0 auto;">
+        <section class="valkuilen" id="valkuilen" class="section-white">
+            <div class="valkuilen-inner" class="max-1200-auto">
                 <div class="section-label fade-up">Voorkom een kostbare misstap</div>
-                <h2 class="section-title fade-up" style="margin-bottom: 4rem;">De 3 <em>Architectonische Fouten</em> Die Wij Herstellen</h2>
-                <div class="valkuilen-grid" style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+                <h2 class="section-title fade-up" class="mb-4">De 3 <em>Architectonische Fouten</em> Die Wij Herstellen</h2>
+                <div class="valkuilen-grid" class="grid-1-col">
                     <!-- Valkuil 1 -->
                     <div class="vergunning-plicht-point fade-up">
                         <span class="vp-icon"><i class="fa-solid fa-pencil-ruler"></i></span>
@@ -3002,26 +3028,26 @@
         </section>
 
         <!-- VERGUNNINGSVRIJ VS VERGUNNINGSPLICHTIG -->
-        <section class="erker-types" id="vergunning-check" style="background: var(--bg); padding: 10rem 4vw; border-top: 1px solid var(--gray);">
-            <div class="erker-types-inner" style="max-width: 1200px; margin: 0 auto;">
+        <section class="erker-types" id="vergunning-check" class="section-bg">
+            <div class="erker-types-inner" class="max-1200-auto">
                 <div class="section-label fade-up">De juridische realiteit</div>
                 <h2 class="section-title fade-up">Wanneer is uw erker écht <em>vergunningsvrij</em>?</h2>
-                <p class="fade-up" style="max-width: 700px; margin-bottom: 4rem; color: var(--text-light); line-height: 1.8;">Veel huiseigenaren gaan uit van de vuistregel "achter mag altijd". Dat is een kostbare misvatting. Onder de Omgevingswet 2024, die in 2026 volledig van kracht is, gelden strikte criteria. Een onvolledige inschatting van uw kant kan leiden tot een bouwstop en een dwangsom. Wees geen jurist van uw eigen project; laat u vooraf exact adviseren.</p>
-                <div class="erker-types-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <p class="fade-up" class="max-700 mb-4 text-light">Veel huiseigenaren gaan uit van de vuistregel "achter mag altijd". Dat is een kostbare misvatting. Onder de Omgevingswet 2024, die in 2026 volledig van kracht is, gelden strikte criteria. Een onvolledige inschatting van uw kant kan leiden tot een bouwstop en een dwangsom. Wees geen jurist van uw eigen project; laat u vooraf exact adviseren.</p>
+                <div class="erker-types-grid" class="grid-2-col">
                     <!-- Card: Vergunningplichtig -->
-                    <div class="erker-type-card fade-up" style="border-color: var(--accent);">
+                    <div class="erker-type-card fade-up" class="border-accent">
                         <span class="erker-type-icon"><i class="fa-solid fa-file-signature"></i></span>
                         <h3>Vrijwel zeker <em>vergunningplichtig</em></h3>
                         <ul>
-                            <li><i class="fa-solid fa-circle-xmark" style="color: var(--error);"></i> Aan de voor- of zijkant van de woning</li>
-                            <li><i class="fa-solid fa-circle-xmark" style="color: var(--error);"></i> Monument of beschermd stadsgezicht</li>
-                            <li><i class="fa-solid fa-circle-xmark" style="color: var(--error);"></i> Constructie boven openbare grond</li>
-                            <li><i class="fa-solid fa-circle-xmark" style="color: var(--error);"></i> Afwijkend van bestemmingsplan</li>
+                            <li><i class="fa-solid fa-circle-xmark icon-error"></i Aan de voor- of zijkant van de woning</li>
+                            <li><i class="fa-solid fa-circle-xmark icon-error"></i Monument of beschermd stadsgezicht</li>
+                            <li><i class="fa-solid fa-circle-xmark icon-error"></i Constructie boven openbare grond</li>
+                            <li><i class="fa-solid fa-circle-xmark icon-error"></i Afwijkend van bestemmingsplan</li>
                         </ul>
                     </div>
                     <!-- Card: Mogelijk Vergunningsvrij -->
                     <div class="erker-type-card fade-up">
-                        <span class="erker-type-icon"><i class="fa-solid fa-circle-check" style="color: var(--success);"></i></span>
+                        <span class="erker-type-icon"><i class="fa-solid fa-circle-check icon-success"></i</span>
                         <h3>Mogelijk <em>vergunningsvrij</em></h3>
                         <ul>
                             <li><i class="fa-solid fa-check"></i> Uitsluitend aan de achterzijde</li>
@@ -3031,19 +3057,19 @@
                         </ul>
                     </div>
                 </div>
-                <p class="fade-up" style="margin-top: 3rem; font-size: 0.9375rem; color: var(--text-light); max-width: 700px; text-align: center; margin-left: auto; margin-right: auto;">Laat u niets wijsmaken: de definitieve kwalificatie hangt af van het ter plekke geldende bestemmingsplan. Onze gratis intake begint daarom altijd met een complete planologische scan.</p>
+                <p class="fade-up" class="mt-3 text-center-narrow disclaimer">Laat u niets wijsmaken: de definitieve kwalificatie hangt af van het ter plekke geldende bestemmingsplan. Onze gratis intake begint daarom altijd met een complete planologische scan.</p>
             </div>
         </section>
 
         <!-- MATERIAALADVIES & WELSTAND -->
-        <section class="erker-types" id="materiaaladvies" style="background: var(--white); padding: 10rem 4vw; border-top: 1px solid var(--gray);">
-            <div class="erker-types-inner" style="max-width: 1400px; margin: 0 auto;">
+        <section class="erker-types" id="materiaaladvies" class="section-white">
+            <div class="erker-types-inner" class="max-1400-auto">
                 <div class="erker-types-header fade-up">
                     <div class="section-label">De sleutel tot goedkeuring</div>
                     <h2 class="section-title">Het <em>verkeerde kozijn</em> kan uw droom om zeep helpen.</h2>
                     <p>De Welstandscommissie kijkt verder dan alleen de vorm. Materiaalkeuze, profilering en kleur bepalen of uw erker als harmonieus of storend wordt gezien.</p>
                 </div>
-                <div class="erker-types-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="erker-types-grid" class="grid-3-col">
                     <!-- Hout -->
                     <div class="erker-type-card fade-up">
                         <span class="erker-type-icon"><i class="fa-solid fa-tree"></i></span>
@@ -3069,7 +3095,7 @@
         <!-- PRICING -->
         <section class="pricing" id="prijzen">
             <div class="pricing-inner">
-                <div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>erker</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. U weet vooraf precies waar u aan toe bent — geen verborgen kosten.</p></div>
+                <div class="fade-up" class="text-center-narrow"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>erker</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. U weet vooraf precies waar u aan toe bent — geen verborgen kosten.</p></div>
                 <div class="pricing-grid" id="pricing-grid">
                     <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€250<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> Complete set</li><li><i class="fa-solid fa-check"></i> Gevelaanzichten, doorsneden</li><li><i class="fa-solid fa-check"></i> 100% welstandsgarantie</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('erker-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn erker. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
                     <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€495<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit basispakket</strong></li><li><i class="fa-solid fa-check"></i> Constructieberekening (consoles/fundering)</li><li><i class="fa-solid fa-check"></i> NEN-EN 1990 rapportage</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('erker-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\' voor mijn erker. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
@@ -3114,7 +3140,7 @@
         <!-- FAQ -->
         <section class="faq" id="faq">
             <div class="faq-inner">
-                <div class="fade-up" style="text-align: center;"><div class="section-label">Veelgestelde vragen</div><h2 class="section-title">Alles wat u wilt weten over <em>erkers</em>.</h2></div>
+                <div class="fade-up" class="text-center"><div class="section-label">Veelgestelde vragen</div><h2 class="section-title">Alles wat u wilt weten over <em>erkers</em>.</h2></div>
                 <div class="faq-container">
                     <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat is het verschil tussen een Franse erker en een k welstandscommissie beoordeelt het ontwerp op vorm, materiaalgebruik en integratie in het straatbeeld. Onze ervaring met meer dan 50 welstandscommissies vergroot uw kans op goedkeuring aanzienlijk.</p></div></div>
                     <div class="faq-item fade-up"><div class="faq-trigger"><span>Mag ik een erker plaatsen in een beschermd stadsgezicht of op een monument?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Ja, dat kan, maar de eisen zijn strenger. Het ontwerp moet aansluiten bij de historische architectuur en de karakteristieke kenmerken van het pand respecteren. Wij hebben ruime ervaring met monumentencommissies en beschermde stadsgezichten en zorgen voor een overtuigend, architectonisch onderbouwd voorstel.</p></div></div>
@@ -3127,7 +3153,7 @@
         <!-- CONTACT -->
         <section class="contact" id="contact">
             <div class="contact-inner">
-                <div class="contact-info fade-up"><div class="section-label">Samen starten</div><h3>Uw erker<br><em style="font-style:normal;color:var(--accent);">verdient een architectonisch doordacht ontwerp.</em></h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek. Wij denken graag met u mee over de beste manier om licht en karakter toe te voegen aan uw gevel.</p>
+                <div class="contact-info fade-up"><div class="section-label">Samen starten</div><h3>Uw erker<br><em class="text-accent-normal">verdient een architectonisch doordacht ontwerp.</em></h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek. Wij denken graag met u mee over de beste manier om licht en karakter toe te voegen aan uw gevel.</p>
                     <div class="contact-detail"><strong>E-mail</strong><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></div>
                     <div class="contact-detail"><strong>Telefoon</strong><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></div>
                 </div>

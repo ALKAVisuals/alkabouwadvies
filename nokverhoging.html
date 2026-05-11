@@ -2360,7 +2360,36 @@
                 transform: rotate(360deg);
             }
         }
-    </style>
+    
+        /* ═══════════ INLINE STYLE REPLACEMENTS ═══════════ */
+        .aspect-4-5 { aspect-ratio: 4/5; }
+        .border-accent { border-color: var(--accent); }
+        .grid-1-col { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .grid-2-col { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .grid-3-col { grid-template-columns: repeat(3, 1fr); }
+        .icon-error { color: var(--error); }
+        .icon-success { color: var(--success); }
+        .max-650-auto.mb-3 { max-width: 650px; margin: 0 auto 3rem; line-height: 1.75; }
+        .max-650-auto.mb-3.text-light { color: var(--text-light); }
+        .max-700.mb-4.text-light { max-width: 700px; margin-bottom: 4rem; color: var(--text-light); line-height: 1.8; }
+        .mb-4 { margin-bottom: 4rem; }
+        .mt-3 { margin-top: 3rem; }
+        .mt-3.text-center-narrow.disclaimer { margin-top: 3rem; font-size: 0.9375rem; color: var(--text-light); max-width: 700px; text-align: center; margin-left: auto; margin-right: auto; }
+        .section-bg { background: var(--bg); padding: 10rem 4vw; border-top: 1px solid var(--gray); }
+        .section-white { background: var(--white); padding: 10rem 4vw; border-top: 1px solid var(--gray); }
+        .text-center { text-align: center; }
+        .text-center-narrow { text-align: center; max-width: 700px; margin: 0 auto; }
+        .text-center-wide { text-align: center; max-width: 800px; margin: 0 auto; }
+        .text-center-1200 { text-align: center; max-width: 1200px; margin: 0 auto; }
+        .text-center-1400 { text-align: center; max-width: 1400px; margin: 0 auto; }
+
+        /* ═══════════ PAGE-SPECIFIC INLINE REPLACEMENTS ═══════════ */
+        .border-ccc.text-999 { border-color: #ccc; color: #999; }
+        .opacity-60 { opacity: 0.6; }
+        .small-text-light.mb-1 { font-size: 0.75rem; color: var(--text-light); margin-bottom: 1rem; }
+        .small-text-light.mb-1.fw-600 { font-size: 0.75rem; color: var(--text-light); margin-bottom: 1rem; font-weight: 600; }
+        .text-ccc { color: #ccc; }
+</style>
 </head>
 <body>
     <a href="#main" class="skip-link">Ga naar inhoud</a>
@@ -2620,7 +2649,7 @@
                     </div>
                 </div>
                 <div class="vergunning-plicht-visual fade-in">
-                    <div class="waardestijging-visual" style="aspect-ratio:4/5;">
+                    <div class="waardestijging-visual" class="aspect-4-5">
                         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=1000&fit=crop&q=80" alt="Stijlvolle nokverhoging geïntegreerd in de bestaande woningarchitectuur">
                     </div>
                 </div>
@@ -2730,18 +2759,18 @@
         <!-- PRICING -->
         <section class="pricing" id="prijzen">
             <div class="pricing-inner">
-                <div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies de juiste <em>zekerheid</em> voor uw nokverhoging.</h2><p>Een nokverhoging is complex. Een incomplete aanvraag is een garantie op vertraging en burenproblemen. Deze pakketten zijn uw verzekering tegen die risico's.</p></div>
+                <div class="fade-up" class="text-center-narrow"><div class="section-label">Investering</div><h2 class="section-title">Kies de juiste <em>zekerheid</em> voor uw nokverhoging.</h2><p>Een nokverhoging is complex. Een incomplete aanvraag is een garantie op vertraging en burenproblemen. Deze pakketten zijn uw verzekering tegen die risico's.</p></div>
                 <div class="pricing-grid" id="pricing-grid">
-                    <div class="price-card fade-up" style="opacity: 0.6;">
+                    <div class="price-card fade-up" class="opacity-60">
                         <h3>Alleen Bouwtekening</h3>
                         <div class="price-value">€330<span>/ eenmalig</span></div>
                         <ul class="price-features">
                             <li><i class="fa-solid fa-check"></i> Complete tekeningenset</li>
                             <li><i class="fa-solid fa-check"></i> Gevelaanzichten, doorsneden</li>
-                            <li><i class="fa-solid fa-xmark" style="color: #ccc;"></i> Géén constructieberekening</li>
+                            <li><i class="fa-solid fa-xmark" class="text-ccc"></i> Géén constructieberekening</li>
                         </ul>
-                        <p style="font-size: 0.75rem; color: var(--text-light); margin-bottom: 1rem;">Let op: Voor een nokverhoging volstaat dit vrijwel nooit als zelfstandig pakket. De gemeente eist bijna altijd een constructiedossier.</p>
-                        <a href="#contact" class="price-btn" style="border-color: #ccc; color: #999;" onclick="event.preventDefault(); setContactForm('nok-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn nokverhoging. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a>
+                        <p class="small-text-light mb-1">Let op: Voor een nokverhoging volstaat dit vrijwel nooit als zelfstandig pakket. De gemeente eist bijna altijd een constructiedossier.</p>
+                        <a href="#contact" class="price-btn" class="border-ccc text-999" onclick="event.preventDefault(); setContactForm('nok-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn nokverhoging. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a>
                     </div>
                     <div class="price-card featured fade-up">
                         <h3>Tekening + Constructie</h3>
@@ -2761,7 +2790,7 @@
                             <li><i class="fa-solid fa-check"></i> Proactief participatietraject buren</li>
                             <li><i class="fa-solid fa-check"></i> Volledige begeleiding tot verlening</li>
                         </ul>
-                        <p style="font-size: 0.75rem; color: var(--text-light); margin-bottom: 1rem; font-weight: 600;">Dit is de enige veilige keuze bij gespannen burenrelaties of funderingsvragen.</p>
+                        <p class="small-text-light mb-1 fw-600">Dit is de enige veilige keuze bij gespannen burenrelaties of funderingsvragen.</p>
                         <a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('nok-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\' voor mijn nokverhoging. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a>
                     </div>
                 </div>
@@ -2777,7 +2806,7 @@
         <!-- CONTACT -->
         <section class="contact" id="contact">
             <div class="contact-inner">
-                <div class="contact-info fade-up"><div class="section-label">Samen starten</div><h3>Maximaliseer<br><em style="font-style:normal;color:var(--accent);">de waarde van mijn woning.</em></h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek. Wij analyseren uw dak, uw fundering en het bestemmingsplan tot in detail, zodat u van tevoren precies weet waar u aan toe bent.</p>
+                <div class="contact-info fade-up"><div class="section-label">Samen starten</div><h3>Maximaliseer<br><em class="text-accent-normal">de waarde van mijn woning.</em></h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek. Wij analyseren uw dak, uw fundering en het bestemmingsplan tot in detail, zodat u van tevoren precies weet waar u aan toe bent.</p>
                     <div class="contact-detail"><strong>E-mail</strong><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></div>
                     <div class="contact-detail"><strong>Telefoon</strong><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></div>
                 </div>

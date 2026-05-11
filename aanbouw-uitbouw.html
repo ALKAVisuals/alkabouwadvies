@@ -2529,7 +2529,32 @@
                 left: auto;
             }
         }
-    </style>
+    
+        /* ═══════════ INLINE STYLE REPLACEMENTS ═══════════ */
+        .aspect-4-5 { aspect-ratio: 4/5; }
+        .border-accent { border-color: var(--accent); }
+        .grid-1-col { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .grid-2-col { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .grid-3-col { grid-template-columns: repeat(3, 1fr); }
+        .icon-error { color: var(--error); }
+        .icon-success { color: var(--success); }
+        .max-650-auto.mb-3 { max-width: 650px; margin: 0 auto 3rem; line-height: 1.75; }
+        .max-650-auto.mb-3.text-light { color: var(--text-light); }
+        .max-700.mb-4.text-light { max-width: 700px; margin-bottom: 4rem; color: var(--text-light); line-height: 1.8; }
+        .mb-4 { margin-bottom: 4rem; }
+        .mt-3 { margin-top: 3rem; }
+        .mt-3.text-center-narrow.disclaimer { margin-top: 3rem; font-size: 0.9375rem; color: var(--text-light); max-width: 700px; text-align: center; margin-left: auto; margin-right: auto; }
+        .section-bg { background: var(--bg); padding: 10rem 4vw; border-top: 1px solid var(--gray); }
+        .section-white { background: var(--white); padding: 10rem 4vw; border-top: 1px solid var(--gray); }
+        .text-center { text-align: center; }
+        .text-center-narrow { text-align: center; max-width: 700px; margin: 0 auto; }
+        .text-center-wide { text-align: center; max-width: 800px; margin: 0 auto; }
+        .text-center-1200 { text-align: center; max-width: 1200px; margin: 0 auto; }
+        .text-center-1400 { text-align: center; max-width: 1400px; margin: 0 auto; }
+
+        /* ═══════════ PAGE-SPECIFIC INLINE REPLACEMENTS ═══════════ */
+        .hidden { display: none; }
+</style>
 </head>
 <body>
     <a href="#main" class="skip-link">Ga naar inhoud</a>
@@ -2880,7 +2905,7 @@
                         <a href="#contact" class="wizard-cta-btn" id="result-cta">
                             <i class="fa-solid fa-calendar-check"></i> Plan direct mijn gratis expert-check in
                         </a>
-                        <button id="wizard-reset-btn" style="display:none;">
+                        <button id="wizard-reset-btn" class="hidden">
                             <i class="fa-solid fa-arrow-rotate-left"></i> Opnieuw testen
                         </button>
                     </div>
@@ -2998,7 +3023,7 @@
         <!-- PRICING -->
         <section class="pricing" id="prijzen">
             <div class="pricing-inner">
-                <div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>aanbouw</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. U weet vooraf precies waar u aan toe bent — geen verborgen kosten.</p></div>
+                <div class="fade-up" class="text-center-narrow"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>aanbouw</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. U weet vooraf precies waar u aan toe bent — geen verborgen kosten.</p></div>
                 <div class="pricing-grid" id="pricing-grid">
                     <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€330<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> Complete set</li><li><i class="fa-solid fa-check"></i> Plattegrond, gevels, doorsneden</li><li><i class="fa-solid fa-check"></i> 100% goedkeuringsgarantie</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('aanbouw-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn aanbouw/uitbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
                     <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€675<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit basispakket</strong></li><li><i class="fa-solid fa-check"></i> Volledige constructieberekening</li><li><i class="fa-solid fa-check"></i> NEN-normering rapportage</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('aanbouw-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\' voor mijn aanbouw/uitbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
@@ -3047,7 +3072,7 @@
         <!-- CONTACT -->
         <section class="contact" id="contact">
             <div class="contact-inner">
-                <div class="contact-info fade-up"><div class="section-label">Samen starten</div><h3>Uw aanbouw<br><em style="font-style:normal;color:var(--accent);">verdient een gedegen voorbereiding.</em></h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek. Wij denken graag met u mee over de beste aanpak voor uw aanbouw of uitbouw.</p>
+                <div class="contact-info fade-up"><div class="section-label">Samen starten</div><h3>Uw aanbouw<br><em class="text-accent-normal">verdient een gedegen voorbereiding.</em></h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek. Wij denken graag met u mee over de beste aanpak voor uw aanbouw of uitbouw.</p>
                     <div class="contact-detail"><strong>E-mail</strong><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></div>
                     <div class="contact-detail"><strong>Telefoon</strong><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></div>
                 </div>
