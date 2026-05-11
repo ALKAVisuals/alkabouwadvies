@@ -509,8 +509,8 @@
             overflow: hidden;
         }
         /* ═══════════ FIX: Dropdown alleen tonen bij expliciete hover/focus op de link, of als het menu zelf wordt gehoverd ═══════════ */
-        .nav-links > li > a:hover ~ .nav-dropdown,
-        .nav-links > li > a:focus ~ .nav-dropdown,
+        .nav-links > li:hover .nav-dropdown,
+        .nav-links > li:focus-within .nav-dropdown,
         .nav-dropdown:hover {
             opacity: 1;
             pointer-events: all;
