@@ -45,6 +45,23 @@
             --error: #dc2626;
             --success: #16a34a;
         }
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            background: var(--accent);
+            color: var(--text);
+            padding: 0.75rem 1.5rem;
+            z-index: 10002;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
 
         * {
             margin: 0;
@@ -2269,6 +2286,8 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Ga naar inhoud</a>
+
     <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
     <div class="toast-container" id="toast-container"></div>
 
