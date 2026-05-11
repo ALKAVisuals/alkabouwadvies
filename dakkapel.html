@@ -8,8 +8,8 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//images.unsplash.com">
-    <title>Dakkapel Bouwtekening & Vergunning — Complete Gids | Alka's Bouwadvies</title>
-    <meta name="description" content="Alles over de dakkapel bouwtekening en omgevingsvergunning. Van vergunningsvrije regels tot constructieberekening. ABW-gecertificeerd, 100% goedkeuringsgarantie. Deskundig advies vanaf €250.">
+    <title>Dakkapel Bouwtekening & Vergunning | Alka's Bouwadvies</title>
+    <meta name="description" content="Alles over de dakkapel bouwtekening en omgevingsvergunning. Van vergunningsvrije regels tot constructieberekening. ABW-gecertificeerd, 100% goedkeuringsgarantie.">
     <meta name="keywords" content="dakkapel bouwtekening, dakkapel vergunning, omgevingsvergunning dakkapel, vergunningsvrije dakkapel, constructieberekening dakkapel, dakkapel tekening aanvragen, Omgevingswet dakkapel">
     <meta name="author" content="Alka's Bouwadvies">
     <meta name="robots" content="index, follow">
@@ -2043,6 +2043,21 @@
         .text-center-wide { text-align: center; max-width: 800px; margin: 0 auto; }
         .text-center-1200 { text-align: center; max-width: 1200px; margin: 0 auto; }
         .text-center-1400 { text-align: center; max-width: 1400px; margin: 0 auto; }
+
+        /* ═══════════ FOCUS STATES (toegankelijkheid) ═══════════ */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
 </style>
 </head>
 <body>
@@ -2059,7 +2074,7 @@
 
     <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
-            <img src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
+            <img loading="eager" src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
         </a>
         <ul class="nav-links" role="menubar">
             <li role="none">
@@ -2177,7 +2192,7 @@
                 </div>
             </div>
             <div class="hero-right">
-                <img src="images/Dakkapel_.png" alt="Dakkapel" class="hero-right-img">                
+                <img loading="lazy" src="images/Dakkapel_.png" alt="Dakkapel" class="hero-right-img">                
                 <div class="hero-right-badge"><strong>€250</strong><span>Vanaf — excl. BTW</span></div>
                 <div class="hero-geo-line"></div>
             </div>
@@ -2234,7 +2249,7 @@
                         <li class="constructie-point"><div class="cp-num">04</div><div class="cp-body"><strong>Verzekerbaarheid</strong><p>Bij schade zonder goedgekeurde berekening keert de verzekeraar vaak niet uit. Voorkom discussie.</p></div></li>
                     </ul>
                 </div>
-                <div class="constructie-visual fade-in"><div class="constructie-accent-line"></div><div class="constructie-img-wrap"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=1000&fit=crop&q=80" alt="Constructietekening"><div class="constructie-img-overlay"></div><div class="constructie-caption"><strong>Doorsnede</strong><span>Conform Bouwbesluit</span></div></div></div>
+                <div class="constructie-visual fade-in"><div class="constructie-accent-line"></div><div class="constructie-img-wrap"><img loading="lazy" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=1000&fit=crop&q=80" alt="Constructietekening"><div class="constructie-img-overlay"></div><div class="constructie-caption"><strong>Doorsnede</strong><span>Conform Bouwbesluit</span></div></div></div>
             </div>
         </section>
 
@@ -2338,7 +2353,7 @@
     </main>
 
     <footer>
-        <div class="footer-top"><div class="footer-brand"><a href="index.html" class="footer-logo-link"><img src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a><p>Bouwkundig teken- en adviesbureau. ABW-gecertificeerd en actief in heel Nederland. Gespecialiseerd in dakkapel bouwtekeningen en omgevingsvergunningen.</p></div><div class="footer-nav"><h5>Navigatie</h5><ul><li><a href="index.html#diensten">Diensten</a></li><li><a href="index.html#prijzen">Prijzen</a></li><li><a href="index.html#contact">Contact</a></li></ul></div><div class="footer-nav"><h5>Contact</h5><ul><li><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li><li><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></li></ul></div><div class="footer-newsletter"><h5>Nieuwsbrief</h5><p>Blijf op de hoogte van wijzigingen in de regelgeving en praktische tips.</p><form class="newsletter-form"><input type="email" placeholder="Uw e-mailadres" required><button type="submit">Inschrijven</button></form></div></div>
+        <div class="footer-top"><div class="footer-brand"><a href="index.html" class="footer-logo-link"><img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a><p>Bouwkundig teken- en adviesbureau. ABW-gecertificeerd en actief in heel Nederland. Gespecialiseerd in dakkapel bouwtekeningen en omgevingsvergunningen.</p></div><div class="footer-nav"><h5>Navigatie</h5><ul><li><a href="index.html#diensten">Diensten</a></li><li><a href="index.html#prijzen">Prijzen</a></li><li><a href="index.html#contact">Contact</a></li></ul></div><div class="footer-nav"><h5>Contact</h5><ul><li><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li><li><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></li></ul></div><div class="footer-newsletter"><h5>Nieuwsbrief</h5><p>Blijf op de hoogte van wijzigingen in de regelgeving en praktische tips.</p><form class="newsletter-form"><input type="email" placeholder="Uw e-mailadres" required><button type="submit">Inschrijven</button></form></div></div>
         <div class="footer-bottom"><div class="footer-copy">© 2025–2026 Alka's Bouwadvies</div><div class="footer-legal"><a href="javascript:void(0)" title="Binnenkort beschikbaar">Privacy</a><a href="javascript:void(0)" title="Binnenkort beschikbaar">Voorwaarden</a></div></div>
     </footer>
 

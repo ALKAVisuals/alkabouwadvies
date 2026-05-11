@@ -8,8 +8,8 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//images.unsplash.com">
-    <title>Dakopbouw Bouwtekening & Vergunning — Complete Gids | Alka's Bouwadvies</title>
-    <meta name="description" content="Alles over de dakopbouw bouwtekening en omgevingsvergunning. Van constructieberekening tot vergunningsaanvraag. ABW-gecertificeerd, 100% goedkeuringsgarantie. Deskundig advies vanaf €330.">
+    <title>Dakopbouw Bouwtekening & Vergunning | Alka's Bouwadvies</title>
+    <meta name="description" content="Dakopbouw bouwtekening en omgevingsvergunning. Van constructieberekening tot vergunningaanvraag. ABW-gecertificeerd.">
     <meta name="keywords" content="dakopbouw bouwtekening, dakopbouw vergunning aanvragen, omgevingsvergunning dakopbouw, constructieberekening dakopbouw, dakopbouw tekening, nokverhoging vergunning, Omgevingswet dakopbouw">
     <meta name="author" content="Alka's Bouwadvies">
     <meta name="robots" content="index, follow">
@@ -2092,6 +2092,21 @@
         .text-center-wide { text-align: center; max-width: 800px; margin: 0 auto; }
         .text-center-1200 { text-align: center; max-width: 1200px; margin: 0 auto; }
         .text-center-1400 { text-align: center; max-width: 1400px; margin: 0 auto; }
+
+        /* ═══════════ FOCUS STATES (toegankelijkheid) ═══════════ */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
 </style>
 </head>
 <body>
@@ -2111,7 +2126,7 @@
 
     <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
-            <img src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
+            <img loading="eager" src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
         </a>
         <ul class="nav-links" role="menubar">
             <li role="none">
@@ -2229,7 +2244,7 @@
                 </div>
             </div>
             <div class="hero-right">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=900&fit=crop&q=80" alt="Moderne dakopbouw met veel glas en strakke lijnen" class="hero-right-img">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=900&fit=crop&q=80" alt="Moderne dakopbouw met veel glas en strakke lijnen" class="hero-right-img">
                 <div class="hero-right-badge"><strong>€330</strong><span>Vanaf — excl. BTW</span></div>
                 <div class="hero-geo-line"></div>
             </div>
@@ -2257,7 +2272,7 @@
         <section class="waardestijging" id="waardestijging">
             <div class="waardestijging-inner">
                 <div class="waardestijging-visual">
-                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop&q=80" alt="Moderne dakopbouw verhoogt woningwaarde">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop&q=80" alt="Moderne dakopbouw verhoogt woningwaarde">
                 </div>
                 <div class="waardestijging-content">
                     <div class="section-label">Slimme investering</div>
@@ -2331,7 +2346,7 @@
                 </div>
                 <div class="vergunning-plicht-visual fade-in">
                     <div class="vergunning-plicht-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=1000&fit=crop&q=80" alt="Dakopbouw vergunning">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=1000&fit=crop&q=80" alt="Dakopbouw vergunning">
                         <div class="vergunning-plicht-caption"><strong>Dakopbouw</strong><span>Altijd maatwerk — altijd vergunningsplichtig</span></div>
                     </div>
                 </div>
@@ -2394,7 +2409,7 @@
                         <li class="constructie-point"><div class="cp-num">04</div><div class="cp-body"><strong>Verzekerbaarheid</strong><p>Bij schade zonder goedgekeurde berekening keert de verzekeraar vaak niet uit.</p></div></li>
                     </ul>
                 </div>
-                <div class="constructie-visual fade-in"><div class="constructie-accent-line"></div><div class="constructie-img-wrap"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=1000&fit=crop&q=80" alt="Constructietekening dakopbouw"><div class="constructie-img-overlay"></div><div class="constructie-caption"><strong>Doorsnede dakopbouw</strong><span>Conform Bouwbesluit</span></div></div></div>
+                <div class="constructie-visual fade-in"><div class="constructie-accent-line"></div><div class="constructie-img-wrap"><img loading="lazy" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=1000&fit=crop&q=80" alt="Constructietekening dakopbouw"><div class="constructie-img-overlay"></div><div class="constructie-caption"><strong>Doorsnede dakopbouw</strong><span>Conform Bouwbesluit</span></div></div></div>
             </div>
         </section>
 
@@ -2482,7 +2497,7 @@
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
-                <a href="index.html" class="footer-logo-link"><img src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a>
+                <a href="index.html" class="footer-logo-link"><img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a>
                 <p>Bouwkundig teken- en adviesbureau. ABW-gecertificeerd en actief in heel Nederland. Gespecialiseerd in dakopbouw bouwtekeningen en omgevingsvergunningen.</p>
             </div>
             <div class="footer-nav">

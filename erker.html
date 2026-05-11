@@ -8,8 +8,8 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//images.unsplash.com">
-    <title>Erker Bouwtekening & Omgevingsvergunning — Architectonisch Advies | Alka's Bouwadvies</title>
-    <meta name="description" content="Een erker tilt uw gevelarchitectuur naar een hoger plan. Bouwtekening, constructieberekening en welstandsadvies voor een panoramisch, lichtrijk resultaat. ABW-gecertificeerd, 100% goedkeuringsgarantie. Deskundig advies vanaf €250.">
+    <title>Erker Bouwtekening & Omgevingsvergunning | Alka's Bouwadvies</title>
+    <meta name="description" content="Erker bouwtekening en omgevingsvergunning. Bouwtekening, constructieberekening en welstandsadvies. ABW-gecertificeerd, 100% goedkeuringsgarantie.">
     <meta name="keywords" content="erker bouwtekening, omgevingsvergunning erker, constructieberekening erker, gevelarchitectuur, lichtinval, panoramisch uitzicht, consoles, welstandsadvies erker, architectonisch detail, erker plaatsen vergunning, Franse erker, klassieke erker">
     <meta name="author" content="Alka's Bouwadvies">
     <meta name="robots" content="index, follow">
@@ -2559,6 +2559,21 @@
         /* ═══════════ PAGE-SPECIFIC INLINE REPLACEMENTS ═══════════ */
         .max-1200-auto { max-width: 1200px; margin: 0 auto; }
         .max-1400-auto { max-width: 1400px; margin: 0 auto; }
+
+        /* ═══════════ FOCUS STATES (toegankelijkheid) ═══════════ */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
 </style>
 </head>
 <body>
@@ -2579,7 +2594,7 @@
 
     <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
-            <img src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
+            <img loading="eager" src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
         </a>
         <ul class="nav-links" role="menubar">
             <li role="none">
@@ -2697,7 +2712,7 @@
                 </div>
             </div>
             <div class="hero-right">
-                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=900&fit=crop&q=80" alt="Design-erker met panoramisch glas dat daglicht optimaal benut" class="hero-right-img">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=900&fit=crop&q=80" alt="Design-erker met panoramisch glas dat daglicht optimaal benut" class="hero-right-img">
                 <div class="hero-right-badge"><strong>€250</strong><span>Vanaf — excl. BTW</span></div>
                 <div class="hero-geo-line"></div>
             </div>
@@ -2725,7 +2740,7 @@
         <section class="waardestijging" id="waardestijging">
             <div class="waardestijging-inner">
                 <div class="waardestijging-visual">
-                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&h=600&fit=crop&q=80" alt="Luxe erker als architectonisch statement aan de voorgevel">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&h=600&fit=crop&q=80" alt="Luxe erker als architectonisch statement aan de voorgevel">
                 </div>
                 <div class="waardestijging-content">
                     <div class="section-label">Licht, zicht en karakter</div>
@@ -2749,7 +2764,7 @@
                 <div class="erker-types-grid">
                     <div class="erker-type-card fade-up">
                         <div class="erker-type-visual">
-                            <img src="https://images.unsplash.com/photo-1600566753086-00f18f6b0054?w=600&h=400&fit=crop&q=80" alt="Franse erker die tot de vloer doorloopt met panoramisch uitzicht">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1600566753086-00f18f6b0054?w=600&h=400&fit=crop&q=80" alt="Franse erker die tot de vloer doorloopt met panoramisch uitzicht">
                         </div>
                         <h3>Franse erker</h3>
                         <p>Loopt door tot aan de vloer en creëert een dramatisch, onbelemmerd uitzicht. De volledig glazen puien laten het buitenlicht ongehinderd naar binnen stromen.</p>
@@ -2762,7 +2777,7 @@
                     </div>
                     <div class="erker-type-card fade-up">
                         <div class="erker-type-visual">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop&q=80" alt="Klassieke erker met vensterbank en strakke lijnen">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop&q=80" alt="Klassieke erker met vensterbank en strakke lijnen">
                         </div>
                         <h3>Klassieke erker</h3>
                         <p>Rust op een borstwering of vensterbank en biedt een tijdloze, elegante toevoeging aan elke gevel. Perfect als zitplek met uitzicht op de straat of tuin.</p>
@@ -2809,7 +2824,7 @@
                 </div>
                 <div class="vergunning-plicht-visual fade-in">
                     <div class="waardestijging-visual" class="aspect-4-5">
-                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&h=1000&fit=crop&q=80" alt="Stijlvolle erker geïntegreerd in klassieke gevelarchitectuur">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&h=1000&fit=crop&q=80" alt="Stijlvolle erker geïntegreerd in klassieke gevelarchitectuur">
                     </div>
                 </div>
             </div>
@@ -2949,7 +2964,7 @@
                         <li class="constructie-point"><div class="cp-num">04</div><div class="cp-body"><strong>Verzekerbaarheid</strong><p>Bij schade zonder goedgekeurde berekening keert uw verzekeraar vaak niet uit. Voorkom onnodig risico met een gecertificeerde berekening.</p></div></li>
                     </ul>
                 </div>
-                <div class="constructie-visual fade-in"><div class="constructie-accent-line"></div><div class="constructie-img-wrap"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=1000&fit=crop&q=80" alt="Technische detailtekening van consoleconstructie voor erker"><div class="constructie-img-overlay"></div><div class="constructie-caption"><strong>Detail: console & draagmuur</strong><span>Conform Bouwbesluit</span></div></div></div>
+                <div class="constructie-visual fade-in"><div class="constructie-accent-line"></div><div class="constructie-img-wrap"><img loading="lazy" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=1000&fit=crop&q=80" alt="Technische detailtekening van consoleconstructie voor erker"><div class="constructie-img-overlay"></div><div class="constructie-caption"><strong>Detail: console & draagmuur</strong><span>Conform Bouwbesluit</span></div></div></div>
             </div>
         </section>
 
@@ -2964,7 +2979,7 @@
                 <div class="showcase-grid">
                     <div class="showcase-item fade-up">
                         <div class="showcase-img">
-                            <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&h=450&fit=crop&q=80" alt="Klassieke erker met vensterbank in Den Haag">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&h=450&fit=crop&q=80" alt="Klassieke erker met vensterbank in Den Haag">
                         </div>
                         <div class="showcase-info">
                             <h3>Klassieke erker in Den Haag</h3>
@@ -2973,7 +2988,7 @@
                     </div>
                     <div class="showcase-item fade-up">
                         <div class="showcase-img">
-                            <img src="https://images.unsplash.com/photo-1600566753086-00f18f6b0054?w=600&h=450&fit=crop&q=80" alt="Franse erker met vloer-tot-plafond glas in Utrecht">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1600566753086-00f18f6b0054?w=600&h=450&fit=crop&q=80" alt="Franse erker met vloer-tot-plafond glas in Utrecht">
                         </div>
                         <div class="showcase-info">
                             <h3>Franse erker in Utrecht</h3>
@@ -2982,7 +2997,7 @@
                     </div>
                     <div class="showcase-item fade-up">
                         <div class="showcase-img">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=450&fit=crop&q=80" alt="Moderne erker met panoramisch glas in Rotterdam">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=450&fit=crop&q=80" alt="Moderne erker met panoramisch glas in Rotterdam">
                         </div>
                         <div class="showcase-info">
                             <h3>Panoramische erker in Rotterdam</h3>
@@ -3181,7 +3196,7 @@
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
-                <a href="index.html" class="footer-logo-link"><img src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a>
+                <a href="index.html" class="footer-logo-link"><img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a>
                 <p>Bouwkundig teken- en adviesbureau. ABW-gecertificeerd en actief in heel Nederland. Gespecialiseerd in erker-ontwerpen, bouwtekeningen en omgevingsvergunningen voor gevelwijzigingen.</p>
             </div>
             <div class="footer-nav">

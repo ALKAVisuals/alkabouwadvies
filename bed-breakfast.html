@@ -8,8 +8,8 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//images.unsplash.com">
-    <title>Bed & Breakfast Bouwtekening & Omgevingsvergunning — Ondernemend Advies | Alka's Bouwadvies</title>
-    <meta name="description" content="Start uw rendabele Bed & Breakfast met een waterdichte vergunning. Bouwtekening, constructieberekening en ruimtelijke onderbouwing voor een soepele gebruikswijziging. ABW-gecertificeerd, 100% goedkeuringsgarantie. Deskundig advies vanaf €250.">
+    <title>B&B Bouwtekening & Vergunning | Alka's Bouwadvies</title>
+    <meta name="description" content="Bouwtekening en omgevingsvergunning voor uw Bed & Breakfast. ABW-gecertificeerd teken- en adviesbureau. Van ontwerp tot verleende vergunning.">
     <meta name="keywords" content="bed and breakfast bouwtekening, omgevingsvergunning B&B, gebruikswijziging woning, bestemmingsplan horeca, ruimtelijke onderbouwing, brandveiligheid B&B, parkeernormen, investering B&B, logiesvergunning, B&B starten">
     <meta name="author" content="Alka's Bouwadvies">
     <meta name="robots" content="index, follow">
@@ -2262,6 +2262,21 @@
 
         /* ═══════════ PAGE-SPECIFIC INLINE REPLACEMENTS ═══════════ */
         .text-center.mt-2.small-text-light { text-align: center; margin-top: 2rem; font-size: 0.875rem; color: var(--text-light); }
+
+        /* ═══════════ FOCUS STATES (toegankelijkheid) ═══════════ */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
 </style>
 </head>
 <body>
@@ -2283,7 +2298,7 @@
 
     <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
-            <img src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
+            <img loading="eager" src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
         </a>
         <ul class="nav-links" role="menubar">
             <li role="none">
@@ -2401,7 +2416,7 @@
                 </div>
             </div>
             <div class="hero-right">
-                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&h=900&fit=crop&q=80" alt="Sfeervolle Bed & Breakfast ingerichte gastenkamer met aandacht voor design en comfort" class="hero-right-img">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&h=900&fit=crop&q=80" alt="Sfeervolle Bed & Breakfast ingerichte gastenkamer met aandacht voor design en comfort" class="hero-right-img">
                 <div class="hero-right-badge"><strong>€1.140</strong><span>Vanaf — excl. BTW</span></div>
                 <div class="hero-geo-line"></div>
             </div>
@@ -2429,7 +2444,7 @@
         <section class="waardestijging" id="investering">
             <div class="waardestijging-inner">
                 <div class="waardestijging-visual">
-                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&q=80" alt="Eigenaren verwelkomen gasten in hun stijlvolle Bed & Breakfast">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&q=80" alt="Eigenaren verwelkomen gasten in hun stijlvolle Bed & Breakfast">
                 </div>
                 <div class="waardestijging-content">
                     <div class="section-label">Investering & Rendement</div>
@@ -2524,7 +2539,7 @@
                 </div>
                 <div class="vergunning-plicht-visual fade-in">
                     <div class="waardestijging-visual" class="aspect-4-5">
-                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=1000&fit=crop&q=80" alt="Gasten genieten van een ontbijt in een zorgvuldig ontworpen B&B">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=1000&fit=crop&q=80" alt="Gasten genieten van een ontbijt in een zorgvuldig ontworpen B&B">
                     </div>
                 </div>
             </div>
@@ -2661,7 +2676,7 @@
                 <div class="showcase-grid">
                     <div class="showcase-item fade-up">
                         <div class="showcase-img">
-                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=450&fit=crop&q=80" alt="B&B aan het water in Giethoorn">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=450&fit=crop&q=80" alt="B&B aan het water in Giethoorn">
                         </div>
                         <div class="showcase-info">
                             <h3>B&B aan het water — Giethoorn</h3>
@@ -2670,7 +2685,7 @@
                     </div>
                     <div class="showcase-item fade-up">
                         <div class="showcase-img">
-                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=450&fit=crop&q=80" alt="Stads-B&B in monumentaal pand Utrecht">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=450&fit=crop&q=80" alt="Stads-B&B in monumentaal pand Utrecht">
                         </div>
                         <div class="showcase-info">
                             <h3>Stads-B&B in monument — Utrecht</h3>
@@ -2679,7 +2694,7 @@
                     </div>
                     <div class="showcase-item fade-up">
                         <div class="showcase-img">
-                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=450&fit=crop&q=80" alt="Luxe B&B in vrijstaande villa">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=450&fit=crop&q=80" alt="Luxe B&B in vrijstaande villa">
                         </div>
                         <div class="showcase-info">
                             <h3>Luxe B&B in villa — Amersfoort</h3>
@@ -2747,7 +2762,7 @@
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
-                <a href="index.html" class="footer-logo-link"><img src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a>
+                <a href="index.html" class="footer-logo-link"><img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a>
                 <p>Bouwkundig teken- en adviesbureau. ABW-gecertificeerd en actief in heel Nederland. Gespecialiseerd in B&B-vergunningen, ruimtelijke onderbouwingen en gebruikswijzigingen.</p>
             </div>
             <div class="footer-nav">

@@ -8,8 +8,8 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//images.unsplash.com">
-    <title>Bijgebouw Bouwtekening & Omgevingsvergunning — Van Schuur tot Thuiskantoor | Alka's Bouwadvies</title>
-    <meta name="description" content="Een bijgebouw dat écht mag blijven staan. Bouwtekening, constructieberekening en vergunningscheck voor uw schuur, garage, tuinhuis of praktijkruimte. Voorkom bouwboetes en benut uw perceel optimaal. ABW-gecertificeerd, vaste prijzen vanaf €250.">
+    <title>Bijgebouw Bouwtekening & Vergunning | Alka's Bouwadvies</title>
+    <meta name="description" content="Bouwtekening en vergunning voor bijgebouwen, schuren en tuinmuren. ABW-gecertificeerd. Snelle levertijd en vaste prijzen.">
     <meta name="keywords" content="bijgebouw bouwtekening, omgevingsvergunning bijgebouw, schuur bouwen vergunning, garage bouwtekening, tuinhuis vergunningsvrij, bebouwingspercentage, achtererfgebied, bijgebouw regels 2026, legaal bouwen, perceeloptimalisatie, BENG eisen, brandveiligheid bijgebouw">
     <meta name="author" content="Alka's Bouwadvies">
     <meta name="robots" content="index, follow">
@@ -2311,6 +2311,21 @@
         .border-top-success { border-top: 3px solid var(--success); }
         .text-error { color: var(--error); }
         .text-success { color: var(--success); }
+
+        /* ═══════════ FOCUS STATES (toegankelijkheid) ═══════════ */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
 </style>
 </head>
 <body>
@@ -2331,7 +2346,7 @@
 
     <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
-            <img src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
+            <img loading="eager" src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
         </a>
         <ul class="nav-links" role="menubar">
             <li role="none">
@@ -2449,7 +2464,7 @@
                 </div>
             </div>
             <div class="hero-right">
-                <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=1200&h=900&fit=crop&q=80" alt="Stijlvol modern tuinhuis als bijgebouw in een groene tuin" class="hero-right-img">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=1200&h=900&fit=crop&q=80" alt="Stijlvol modern tuinhuis als bijgebouw in een groene tuin" class="hero-right-img">
                 <div class="hero-right-badge"><strong>€250</strong><span>Vanaf — excl. BTW</span></div>
                 <div class="hero-geo-line"></div>
             </div>
@@ -2481,7 +2496,7 @@
         <section class="complexiteit" id="complexiteit">
             <div class="complexiteit-inner">
                 <div class="complexiteit-visual">
-                    <img src="https://images.unsplash.com/photo-1591836926105-4c5d2f84f4e8?w=800&h=600&fit=crop&q=80" alt="Schets van een perceel met bebouwingsgrenzen en een bijgebouw">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1591836926105-4c5d2f84f4e8?w=800&h=600&fit=crop&q=80" alt="Schets van een perceel met bebouwingsgrenzen en een bijgebouw">
                 </div>
                 <div class="complexiteit-content">
                     <div class="section-label">De juridische realiteit</div>
@@ -2589,7 +2604,7 @@
                 <div class="fout-goed-grid">
                     <div class="fg-card fade-up" class="border-top-success">
                         <div class="fg-visual">
-                            <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&h=400&fit=crop&q=80" alt="Vergunningsvrij tuinhuis als opslag">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&h=400&fit=crop&q=80" alt="Vergunningsvrij tuinhuis als opslag">
                         </div>
                         <h3 class="text-success">Veelal Vergunningsvrij</h3>
                         <ul>
@@ -2601,7 +2616,7 @@
                     </div>
                     <div class="fg-card fade-up" class="border-top-error">
                         <div class="fg-visual">
-                            <img src="https://images.unsplash.com/photo-1598928506311-c55f7c0c7b1e?w=600&h=400&fit=crop&q=80" alt="Thuiskantoor waarvoor een vergunning nodig is">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1598928506311-c55f7c0c7b1e?w=600&h=400&fit=crop&q=80" alt="Thuiskantoor waarvoor een vergunning nodig is">
                         </div>
                         <h3 class="text-error">Vaak Vergunningplichtig</h3>
                         <ul>
@@ -2710,7 +2725,7 @@
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
-                <a href="index.html" class="footer-logo-link"><img src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a>
+                <a href="index.html" class="footer-logo-link"><img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img"></a>
                 <p>Bouwkundig teken- en adviesbureau. ABW-gecertificeerd en actief in heel Nederland. Gespecialiseerd in bijgebouwen, bouwtekeningen en omgevingsvergunningen.</p>
             </div>
             <div class="footer-nav">
