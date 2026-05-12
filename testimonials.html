@@ -156,9 +156,29 @@
 
     <main>
         <!-- ═══════════ HERO ═══════════ -->
-        <section class="testimonials-hero">
-            <h1>Wat onze klanten <em>zeggen</em></h1>
-            <p>Meer dan 650 tevreden opdrachtgevers vertrouwen op onze expertise. Lees hun ervaringen.</p>
+        <section class="hero-split">
+            <div class="hero-left">
+                <h1 class="hero-h1">Wat onze klanten <em>zeggen</em></h1>
+                <ul class="hero-usps">
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><div class="usp-text"><strong>4.9 sterren</strong><span>Gemiddelde beoordeling</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="usp-text"><strong>650+ klanten</strong><span>Tevreden opdrachtgevers</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="usp-text"><strong>98% goedkeuring</strong><span>Vergunningen verleend</span></div></li>
+                </ul>
+                <div class="hero-cta-row">
+                    <a href="contact.html" class="hero-cta-primary">Geef uw review <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                </div>
+            </div>
+            <div class="hero-right" style="background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; gap: 0.25rem; color: #b3944d; font-size: 1.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p style="color: #b3944d; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.1em;">4.9 / 5.0</p>
+                <p style="color: #666; font-size: 0.75rem;">650+ reviews<br>98% goedkeuringspercentage</p>
+            </div>
         </section>
 
         <!-- ═══════════ STATS ═══════════ -->
@@ -300,6 +320,11 @@
             <p>Bent u tevreden over onze dienstverlading? Wij horen graag uw mening.</p>
             <a href="contact.html" class="cta-btn">Neem contact op</a>
         </section>
+    
+        <!-- Mobile Sticky CTA -->
+        <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+            <a href="contact.html" class="sticky-cta-btn">Offerte aanvragen</a>
+        </div>
     </main>
 
     <footer>
@@ -460,5 +485,15 @@
             }
         })();
     </script>
+
+        // Mobile Sticky CTA
+        const stickyCta = document.getElementById('mobile-sticky-cta');
+        if (stickyCta) {
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth <= 768) {
+                    stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+                }
+            });
+        }
 </body>
 </html>

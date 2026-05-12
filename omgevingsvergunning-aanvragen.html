@@ -331,6 +331,11 @@
                 </div>
             </div>
         </section>
+    
+        <!-- Mobile Sticky CTA -->
+        <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+            <a href="contact.html" class="sticky-cta-btn">Offerte aanvragen</a>
+        </div>
     </main>
 
     <footer>
@@ -537,5 +542,15 @@
             }
         })();
 </script>
+
+        // Mobile Sticky CTA
+        const stickyCta = document.getElementById('mobile-sticky-cta');
+        if (stickyCta) {
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth <= 768) {
+                    stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+                }
+            });
+        }
 </body>
 </html>

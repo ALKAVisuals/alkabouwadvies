@@ -158,9 +158,25 @@
 
     <main>
         <!-- ═══════════ HERO ═══════════ -->
-        <section class="contact-hero">
-            <h1>Neem <em>contact</em> op</h1>
-            <p>Heeft u een vraag of wilt u een vrijblijvende offerte aanvragen? Vul het formulier in of neem direct contact op. Wij reageren binnen 24 uur.</p>
+        <section class="hero-split">
+            <div class="hero-left">
+                <h1 class="hero-h1">Neem <em>contact</em> op</h1>
+                <ul class="hero-usps">
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="usp-text"><strong>Telefoon</strong><span>+31 (0)6 49 24 04 12</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="usp-text"><strong>E-mail</strong><span>info@alkasbouwadvies.nl</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="usp-text"><strong>Antwoord binnen</strong><span>24 uur op werkdagen</span></div></li>
+                </ul>
+                <div class="hero-cta-row">
+                    <a href="tel:+31649240412" class="hero-cta-primary">Bel direct <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                </div>
+            </div>
+            <div class="hero-right" style="background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1.5rem;">
+                <div style="text-align: center;">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#b3944d" stroke-width="1" opacity="0.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <p style="color: #b3944d; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.1em; margin-top: 1rem;">MA-VR 09:00-17:30</p>
+                    <p style="color: #666; font-size: 0.75rem; margin-top: 0.5rem;">Binnen 24 uur<br>op werkdagen</p>
+                </div>
+            </div>
         </section>
 
         <!-- ═══════════ CONTACT GRID ═══════════ -->
@@ -236,6 +252,11 @@
                 </a>
             </div>
         </section>
+    
+        <!-- Mobile Sticky CTA -->
+        <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+            <a href="contact.html" class="sticky-cta-btn">Offerte aanvragen</a>
+        </div>
     </main>
 
     <!-- ═══════════ FOOTER ═══════════ -->
@@ -405,5 +426,15 @@
             }
         })();
     </script>
+
+        // Mobile Sticky CTA
+        const stickyCta = document.getElementById('mobile-sticky-cta');
+        if (stickyCta) {
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth <= 768) {
+                    stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+                }
+            });
+        }
 </body>
 </html>

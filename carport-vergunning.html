@@ -165,7 +165,11 @@
                 </div>
             </div>
             <div class="hero-right">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=1000&fit=crop&q=80" alt="Carport" class="hero-right-img">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=1000&fit=crop&q=80" alt="Carport" class="hero-right-img" onerror="this.style.display='none'">
+                <div class="hero-right-fallback" style="position: absolute; inset: 0; background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#b3944d" stroke-width="1" opacity="0.4"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-4a2 2 0 0 1 4 0v4M9 10h6M9 14h6"/></svg>
+                    <p style="color: #b3944d; font-size: 0.75rem; letter-spacing: 0.1em; font-weight: 600;">CARPORT VERGUNNING</p>
+                </div>
             </div>
         </section>
 
@@ -326,6 +330,11 @@
                 </div>
             </div>
         </section>
+    
+        <!-- Mobile Sticky CTA -->
+        <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+            <a href="contact.html" class="sticky-cta-btn">Offerte aanvragen</a>
+        </div>
     </main>
 
     <footer>
@@ -532,5 +541,15 @@
             }
         })();
 </script>
+
+        // Mobile Sticky CTA
+        const stickyCta = document.getElementById('mobile-sticky-cta');
+        if (stickyCta) {
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth <= 768) {
+                    stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+                }
+            });
+        }
 </body>
 </html>
