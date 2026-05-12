@@ -1,0 +1,7 @@
+# Screenshots & temp files
+screenshots/
+screenshots-*/
+compare/
+compare-shots/
+*.py
+css/styles-clean.css
