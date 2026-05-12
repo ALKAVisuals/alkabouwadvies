@@ -665,12 +665,14 @@
             });
             document.querySelectorAll('.stat-item h4[data-count]').forEach(stat => {
                 const target = parseInt(stat.dataset.count);
+                const hasPlus = stat.innerHTML.includes('+');
                 ScrollTrigger.create({
                     trigger: stat, start: 'top 100%', once: true,
                     onEnter: () => gsap.to(stat, {
                         duration: 2.5, ease: 'power2.out',
                         onUpdate: function() {
-                            stat.innerHTML = `<em>${Math.round(target * this.progress())}</em>+`;
+                            const suffix = hasPlus ? '+' : '';
+                            stat.innerHTML = `<em>${Math.round(target * this.progress())}</em>${suffix}`;
                         }
                     })
                 });
