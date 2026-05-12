@@ -568,7 +568,22 @@
             }, 4000);
         }
 
+        // Preloader with mobile fallback
         const preloaderTl = gsap.timeline();
+        
+        // Safety timeout: always hide preloader after 4 seconds max
+        const preloaderTimeout = setTimeout(() => {
+            const preloader = document.getElementById('preloader');
+            if (preloader && preloader.style.display !== 'none') {
+                preloader.style.opacity = '0';
+                preloader.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    document.body.classList.remove('is-loading');
+                }, 500);
+            }
+        }, 4000);
+        
         preloaderTl
             .to('.preloader-brand', { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
             .to('.preloader-text', { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=0.4')
@@ -590,6 +605,7 @@
                 ease: 'power3.inOut',
                 delay: 0.2,
                 onComplete: () => {
+                    clearTimeout(preloaderTimeout);
                     document.getElementById('preloader').style.display = 'none';
                     document.querySelector('.hero-bg').classList.add('loaded');
                     initHeroAnimations();

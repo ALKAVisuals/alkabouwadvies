@@ -5595,8 +5595,8 @@ wizard-reset-btn {
                 font-size: 1rem !important;
             }
 
-            /* Add padding bottom for sticky CTA */
-            body {
+            /* Add padding bottom for sticky CTA - only when visible */
+            body:has(.mobile-sticky-cta[style*="display: flex"]) {
                 padding-bottom: 60px !important;
             }
 
