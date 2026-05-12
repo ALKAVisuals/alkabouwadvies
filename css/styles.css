@@ -3704,7 +3704,6 @@ a:focus-visible,
     height: 1px;
     background: linear-gradient(to right, transparent, rgba(179, 148, 77, 0.3), transparent);
 }
-}
 
 /* === ORIGINAL DESIGN CSS (restored from backup) === */
 .aanlever-icon {
@@ -5678,3 +5677,22 @@ wizard-reset-btn {
             }
 
 
+            /* === ADDITIONS: missing grid stacks === */
+            .calc-options,
+            .over-ons-inner,
+            .over-ons-stats,
+            .reviews-grid,
+            .waarom-inner,
+            .legal-highlight,
+            .tech-grid,
+            .complexiteit-grid,
+            .erker-types-grid,
+            .fout-goed-grid,
+            .mantelzorg-types-grid,
+            .roi-inner,
+            .roi-vergelijking,
+            .vergunning-check-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+}
