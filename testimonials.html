@@ -498,29 +498,36 @@
 <script>
     // ═══ PAKKET DOORSTUREN NAAR CONTACT ═══
     (function() {
+        function updateSubjectOption(subjectField, value, text) {
+            if (!subjectField) return;
+            var existing = subjectField.querySelector('option[value="' + value + '"]');
+            if (existing) {
+                existing.textContent = text;
+            } else {
+                var newOpt = document.createElement('option');
+                newOpt.value = value;
+                newOpt.textContent = text;
+                subjectField.appendChild(newOpt);
+            }
+            subjectField.value = value;
+            subjectField.dispatchEvent(new Event('change'));
+        }
+        
         window.addEventListener('DOMContentLoaded', function() {
-            var subjectOpgeslagen = localStorage.getItem('geselecteerd_subject');
-            var berichtOpgeslagen = localStorage.getItem('geselecteerd_bericht');
+            var subjectText = localStorage.getItem('wac_subject');
+            var berichtText = localStorage.getItem('wac_bericht');
             
-            if (subjectOpgeslagen) {
-                var subjectField = document.getElementById('subject');
-                if (subjectField) {
-                    var newOpt = document.createElement('option');
-                    newOpt.value = 'pakket';
-                    newOpt.textContent = subjectOpgeslagen;
-                    subjectField.appendChild(newOpt);
-                    subjectField.value = 'pakket';
-                    subjectField.dispatchEvent(new Event('change'));
-                }
-                localStorage.removeItem('geselecteerd_subject');
+            if (subjectText) {
+                updateSubjectOption(document.getElementById('subject'), 'wac_pakket', subjectText);
+                localStorage.removeItem('wac_subject');
             }
             
-            if (berichtOpgeslagen) {
+            if (berichtText) {
                 var berichtField = document.getElementById('message');
                 if (berichtField) {
-                    berichtField.value = berichtOpgeslagen;
+                    berichtField.value = berichtText;
                 }
-                localStorage.removeItem('geselecteerd_bericht');
+                localStorage.removeItem('wac_bericht');
             }
         });
     })();

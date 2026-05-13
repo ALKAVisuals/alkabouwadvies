@@ -4373,6 +4373,31 @@
 <script>
     // ═══ PAKKET & CALCULATOR → CONTACTFORMULIER DOORSTUREN ═══
     (function() {
+        
+        // Helper: voeg of update een custom optie in de subject dropdown
+        function updateSubjectOption(subjectField, value, text) {
+            if (!subjectField) return;
+            var existing = subjectField.querySelector('option[value="' + value + '"]');
+            if (existing) {
+                existing.textContent = text;
+            } else {
+                var newOpt = document.createElement('option');
+                newOpt.value = value;
+                newOpt.textContent = text;
+                subjectField.appendChild(newOpt);
+            }
+            subjectField.value = value;
+            subjectField.dispatchEvent(new Event('change'));
+        }
+
+        // Helper: update bericht veld
+        function updateBerichtField(text) {
+            var berichtField = document.getElementById('message');
+            if (berichtField) {
+                berichtField.value = text;
+            }
+        }
+
         // Pakket knoppen: intercepteer klik en stuur door
         var pakketBtns = document.querySelectorAll('.prijs-btn');
         pakketBtns.forEach(function(btn) {
@@ -4384,39 +4409,25 @@
                 if (pakketName) {
                     btn.addEventListener('click', function(e) {
                         e.preventDefault();
+                        
                         var naam = pakketName.textContent.trim();
                         var prijs = pakketPrice ? pakketPrice.textContent.trim() : '';
-                        var subjectTekst = 'Pakket: ' + naam + ' (' + prijs + ')';
+                        var subjectText = 'Pakket: ' + naam + ' (' + prijs + ')';
                         
                         // Build message text with included features
                         var features = [];
                         pakketFeatures.forEach(function(f) { features.push(f.textContent.trim()); });
-                        var berichtTekst = 'Hallo,\n\nIk ben geïnteresseerd in ' + naam + ' (' + prijs + ').\n\nInbegrepen diensten:\n• ' + features.join('\n• ') + '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
+                        var berichtText = 'Hallo,\n\nIk ben geïnteresseerd in ' + naam + ' (' + prijs + ').\n\nInbegrepen diensten:\n• ' + features.join('\n• ') + '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
                         
-                        localStorage.setItem('geselecteerd_subject', subjectTekst);
-                        localStorage.setItem('geselecteerd_bericht', berichtTekst);
+                        // Save to localStorage
+                        localStorage.setItem('wac_subject', subjectText);
+                        localStorage.setItem('wac_bericht', berichtText);
                         
-                        // Fill subject field
-                        var subjectField = document.getElementById('subject');
-                        if (subjectField) {
-                            var opties = Array.from(subjectField.options);
-                            var gevonden = opties.find(function(o) { return o.value === 'pakket'; });
-                            if (!gevonden) {
-                                var newOpt = document.createElement('option');
-                                newOpt.value = 'pakket';
-                                newOpt.textContent = subjectTekst;
-                                subjectField.appendChild(newOpt);
-                            }
-                            subjectField.value = 'pakket';
-                            subjectField.dispatchEvent(new Event('change'));
-                        }
+                        // Directly fill form fields
+                        updateSubjectOption(document.getElementById('subject'), 'wac_pakket', subjectText);
+                        updateBerichtField(berichtText);
                         
-                        // Fill message field
-                        var berichtField = document.getElementById('message');
-                        if (berichtField) {
-                            berichtField.value = berichtTekst;
-                        }
-                        
+                        // Scroll to contact form
                         var contactSection = document.getElementById('contact');
                         if (contactSection) {
                             contactSection.scrollIntoView({ behavior: 'smooth' });
@@ -4440,42 +4451,27 @@
                 var addon = addonEl ? addonEl.textContent.trim() : '';
                 var totaal = resultEl ? resultEl.textContent.trim() : '';
                 
-                var subjectTekst = 'Calculator: ' + totaal;
-                var berichtTekst = 'Hallo,\n\nIk heb een prijsindicatie berekend: ' + totaal;
+                var subjectText = 'Calculator: ' + totaal;
+                var berichtText = 'Hallo,\n\nIk heb een prijsindicatie berekend: ' + totaal;
                 if (base && base !== '-') {
-                    subjectTekst += ' (Basis: ' + base + ')';
-                    berichtTekst += '\n\nBasis: ' + base;
+                    subjectText += ' (Basis: ' + base + ')';
+                    berichtText += '\n\nBasis: ' + base;
                 }
                 if (addon && addon !== '-') {
-                    subjectTekst += ' (Extra: ' + addon + ')';
-                    berichtTekst += '\nExtra services: ' + addon;
+                    subjectText += ' (Extra: ' + addon + ')';
+                    berichtText += '\nExtra services: ' + addon;
                 }
-                berichtTekst += '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
+                berichtText += '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
                 
-                localStorage.setItem('geselecteerd_subject', subjectTekst);
-                localStorage.setItem('geselecteerd_bericht', berichtTekst);
+                // Save to localStorage
+                localStorage.setItem('wac_subject', subjectText);
+                localStorage.setItem('wac_bericht', berichtText);
                 
-                // Fill subject field
-                var subjectField = document.getElementById('subject');
-                if (subjectField) {
-                    var opties = Array.from(subjectField.options);
-                    var gevonden = opties.find(function(o) { return o.value === 'calculator'; });
-                    if (!gevonden) {
-                        var newOpt = document.createElement('option');
-                        newOpt.value = 'calculator';
-                        newOpt.textContent = subjectTekst;
-                        subjectField.appendChild(newOpt);
-                    }
-                    subjectField.value = 'calculator';
-                    subjectField.dispatchEvent(new Event('change'));
-                }
+                // Directly fill form fields
+                updateSubjectOption(document.getElementById('subject'), 'wac_calc', subjectText);
+                updateBerichtField(berichtText);
                 
-                // Fill message field
-                var berichtField = document.getElementById('message');
-                if (berichtField) {
-                    berichtField.value = berichtTekst;
-                }
-                
+                // Scroll to contact form
                 var contactSection = document.getElementById('contact');
                 if (contactSection) {
                     contactSection.scrollIntoView({ behavior: 'smooth' });
@@ -4483,34 +4479,19 @@
             });
         }
 
-        // Bij laden: check localStorage for cross-page transfer
+        // On page load: check localStorage (cross-page transfer)
         window.addEventListener('DOMContentLoaded', function() {
-            var subjectOpgeslagen = localStorage.getItem('geselecteerd_subject');
-            var berichtOpgeslagen = localStorage.getItem('geselecteerd_bericht');
+            var subjectText = localStorage.getItem('wac_subject');
+            var berichtText = localStorage.getItem('wac_bericht');
             
-            if (subjectOpgeslagen) {
-                var subjectField = document.getElementById('subject');
-                if (subjectField) {
-                    var opties = Array.from(subjectField.options);
-                    var gevonden = opties.find(function(o) { return o.value === 'pakket' || o.value === 'calculator'; });
-                    if (!gevonden) {
-                        var newOpt = document.createElement('option');
-                        newOpt.value = 'pakket';
-                        newOpt.textContent = subjectOpgeslagen;
-                        subjectField.appendChild(newOpt);
-                    }
-                    subjectField.value = 'pakket';
-                    subjectField.dispatchEvent(new Event('change'));
-                }
-                localStorage.removeItem('geselecteerd_subject');
+            if (subjectText) {
+                updateSubjectOption(document.getElementById('subject'), 'wac_pakket', subjectText);
+                localStorage.removeItem('wac_subject');
             }
             
-            if (berichtOpgeslagen) {
-                var berichtField = document.getElementById('message');
-                if (berichtField) {
-                    berichtField.value = berichtOpgeslagen;
-                }
-                localStorage.removeItem('geselecteerd_bericht');
+            if (berichtText) {
+                updateBerichtField(berichtText);
+                localStorage.removeItem('wac_bericht');
             }
         });
     })();
