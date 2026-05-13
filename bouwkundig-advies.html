@@ -64,17 +64,17 @@
                            data-sub="vergunning"
                            aria-haspopup="true"
                            aria-expanded="false"
-                           href="#diensten">Omgevingsvergunning aanvragen</a>
+                           href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning aanvragen</a>
                         <a class="dropdown-item"
                            data-sub="digitaliseren"
                            aria-haspopup="true"
                            aria-expanded="false"
-                           href="#diensten">Bouwtekeningen digitaliseren</a>
+                           href="bouwtekening-digitaliseren.html">Bouwtekeningen digitaliseren</a>
                         <a class="dropdown-item"
                            data-sub="advies"
                            aria-haspopup="true"
                            aria-expanded="false"
-                           href="#diensten">Bouwkundig advies</a>
+                           href="bouwkundig-advies.html">Bouwkundig advies</a>
                     </div>
                     <div class="dropdown-right visible" id="sub-bouwtekeningen">
                         <div class="dropdown-list">
@@ -550,5 +550,24 @@
                 }
             });
         }
+<script>
+    // ═══ PAKKET DOORSTUREN NAAR CONTACT ═══
+    (function() {
+        window.addEventListener('DOMContentLoaded', function() {
+            var opgeslagen = localStorage.getItem('geselecteerd_pakket');
+            if (opgeslagen) {
+                var subjectField = document.getElementById('subject');
+                if (subjectField) {
+                    var newOpt = document.createElement('option');
+                    newOpt.value = 'pakket';
+                    newOpt.textContent = opgeslagen;
+                    subjectField.appendChild(newOpt);
+                    subjectField.value = 'pakket';
+                }
+                localStorage.removeItem('geselecteerd_pakket');
+            }
+        });
+    })();
+</script>
 </body>
 </html>
