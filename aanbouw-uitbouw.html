@@ -3621,17 +3621,28 @@ nav.scrolled .nav-cta {
     // ═══ PAKKET DOORSTUREN NAAR CONTACT ═══
     (function() {
         window.addEventListener('DOMContentLoaded', function() {
-            var opgeslagen = localStorage.getItem('geselecteerd_pakket');
-            if (opgeslagen) {
+            var subjectOpgeslagen = localStorage.getItem('geselecteerd_subject');
+            var berichtOpgeslagen = localStorage.getItem('geselecteerd_bericht');
+            
+            if (subjectOpgeslagen) {
                 var subjectField = document.getElementById('subject');
                 if (subjectField) {
                     var newOpt = document.createElement('option');
                     newOpt.value = 'pakket';
-                    newOpt.textContent = opgeslagen;
+                    newOpt.textContent = subjectOpgeslagen;
                     subjectField.appendChild(newOpt);
                     subjectField.value = 'pakket';
+                    subjectField.dispatchEvent(new Event('change'));
                 }
-                localStorage.removeItem('geselecteerd_pakket');
+                localStorage.removeItem('geselecteerd_subject');
+            }
+            
+            if (berichtOpgeslagen) {
+                var berichtField = document.getElementById('message');
+                if (berichtField) {
+                    berichtField.value = berichtOpgeslagen;
+                }
+                localStorage.removeItem('geselecteerd_bericht');
             }
         });
     })();

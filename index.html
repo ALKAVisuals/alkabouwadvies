@@ -4380,15 +4380,23 @@
             if (card) {
                 var pakketName = card.querySelector('.prijs-name');
                 var pakketPrice = card.querySelector('.prijs-amount');
+                var pakketFeatures = card.querySelectorAll('.prijs-features li.included');
                 if (pakketName) {
                     btn.addEventListener('click', function(e) {
                         e.preventDefault();
                         var naam = pakketName.textContent.trim();
                         var prijs = pakketPrice ? pakketPrice.textContent.trim() : '';
-                        var tekst = 'Pakket: ' + naam + ' (' + prijs + ')';
+                        var subjectTekst = 'Pakket: ' + naam + ' (' + prijs + ')';
                         
-                        localStorage.setItem('geselecteerd_pakket', tekst);
+                        // Build message text with included features
+                        var features = [];
+                        pakketFeatures.forEach(function(f) { features.push(f.textContent.trim()); });
+                        var berichtTekst = 'Hallo,\n\nIk ben geïnteresseerd in ' + naam + ' (' + prijs + ').\n\nInbegrepen diensten:\n• ' + features.join('\n• ') + '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
                         
+                        localStorage.setItem('geselecteerd_subject', subjectTekst);
+                        localStorage.setItem('geselecteerd_bericht', berichtTekst);
+                        
+                        // Fill subject field
                         var subjectField = document.getElementById('subject');
                         if (subjectField) {
                             var opties = Array.from(subjectField.options);
@@ -4396,11 +4404,17 @@
                             if (!gevonden) {
                                 var newOpt = document.createElement('option');
                                 newOpt.value = 'pakket';
-                                newOpt.textContent = tekst;
+                                newOpt.textContent = subjectTekst;
                                 subjectField.appendChild(newOpt);
                             }
                             subjectField.value = 'pakket';
                             subjectField.dispatchEvent(new Event('change'));
+                        }
+                        
+                        // Fill message field
+                        var berichtField = document.getElementById('message');
+                        if (berichtField) {
+                            berichtField.value = berichtTekst;
                         }
                         
                         var contactSection = document.getElementById('contact');
@@ -4426,12 +4440,22 @@
                 var addon = addonEl ? addonEl.textContent.trim() : '';
                 var totaal = resultEl ? resultEl.textContent.trim() : '';
                 
-                var tekst = 'Calculator: ' + totaal;
-                if (base && base !== '-') tekst += ' (Basis: ' + base + ')';
-                if (addon && addon !== '-') tekst += ' (Extra: ' + addon + ')';
+                var subjectTekst = 'Calculator: ' + totaal;
+                var berichtTekst = 'Hallo,\n\nIk heb een prijsindicatie berekend: ' + totaal;
+                if (base && base !== '-') {
+                    subjectTekst += ' (Basis: ' + base + ')';
+                    berichtTekst += '\n\nBasis: ' + base;
+                }
+                if (addon && addon !== '-') {
+                    subjectTekst += ' (Extra: ' + addon + ')';
+                    berichtTekst += '\nExtra services: ' + addon;
+                }
+                berichtTekst += '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
                 
-                localStorage.setItem('geselecteerd_pakket', tekst);
+                localStorage.setItem('geselecteerd_subject', subjectTekst);
+                localStorage.setItem('geselecteerd_bericht', berichtTekst);
                 
+                // Fill subject field
                 var subjectField = document.getElementById('subject');
                 if (subjectField) {
                     var opties = Array.from(subjectField.options);
@@ -4439,11 +4463,17 @@
                     if (!gevonden) {
                         var newOpt = document.createElement('option');
                         newOpt.value = 'calculator';
-                        newOpt.textContent = tekst;
+                        newOpt.textContent = subjectTekst;
                         subjectField.appendChild(newOpt);
                     }
                     subjectField.value = 'calculator';
                     subjectField.dispatchEvent(new Event('change'));
+                }
+                
+                // Fill message field
+                var berichtField = document.getElementById('message');
+                if (berichtField) {
+                    berichtField.value = berichtTekst;
                 }
                 
                 var contactSection = document.getElementById('contact');
@@ -4453,10 +4483,12 @@
             });
         }
 
-        // Bij laden: check localStorage
+        // Bij laden: check localStorage for cross-page transfer
         window.addEventListener('DOMContentLoaded', function() {
-            var opgeslagen = localStorage.getItem('geselecteerd_pakket');
-            if (opgeslagen) {
+            var subjectOpgeslagen = localStorage.getItem('geselecteerd_subject');
+            var berichtOpgeslagen = localStorage.getItem('geselecteerd_bericht');
+            
+            if (subjectOpgeslagen) {
                 var subjectField = document.getElementById('subject');
                 if (subjectField) {
                     var opties = Array.from(subjectField.options);
@@ -4464,12 +4496,21 @@
                     if (!gevonden) {
                         var newOpt = document.createElement('option');
                         newOpt.value = 'pakket';
-                        newOpt.textContent = opgeslagen;
+                        newOpt.textContent = subjectOpgeslagen;
                         subjectField.appendChild(newOpt);
                     }
                     subjectField.value = 'pakket';
+                    subjectField.dispatchEvent(new Event('change'));
                 }
-                localStorage.removeItem('geselecteerd_pakket');
+                localStorage.removeItem('geselecteerd_subject');
+            }
+            
+            if (berichtOpgeslagen) {
+                var berichtField = document.getElementById('message');
+                if (berichtField) {
+                    berichtField.value = berichtOpgeslagen;
+                }
+                localStorage.removeItem('geselecteerd_bericht');
             }
         });
     })();
