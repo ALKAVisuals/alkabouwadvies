@@ -3608,6 +3608,24 @@ a:focus-visible,
     transform: translateX(0);
 }
 
+.usp-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.usp-text strong {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9375rem;
+}
+
+.usp-text span {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.8125rem;
+    font-weight: 400;
+}
+
 .hero-usp:hover .usp-icon {
     background: rgba(179, 148, 77, 0.15);
     border-color: var(--accent);
