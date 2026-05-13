@@ -4374,70 +4374,69 @@
     // ═══ PAKKET & CALCULATOR → CONTACTFORMULIER DOORSTUREN ═══
     (function() {
         
-        // Helper: voeg of update een custom optie in de subject dropdown
-        function updateSubjectOption(subjectField, value, text) {
-            if (!subjectField) return;
-            var existing = subjectField.querySelector('option[value="' + value + '"]');
-            if (existing) {
-                existing.textContent = text;
-            } else {
-                var newOpt = document.createElement('option');
-                newOpt.value = value;
-                newOpt.textContent = text;
-                subjectField.appendChild(newOpt);
-            }
-            subjectField.value = value;
-            subjectField.dispatchEvent(new Event('change'));
+        // Verwijder oude custom opties (zodat altijd de laatste keuze staat)
+        function clearCustomOptions(selectEl) {
+            if (!selectEl) return;
+            var toRemove = selectEl.querySelectorAll('option[data-custom="true"]');
+            toRemove.forEach(function(opt) { opt.remove(); });
         }
-
-        // Helper: update bericht veld
-        function updateBerichtField(text) {
-            var berichtField = document.getElementById('message');
-            if (berichtField) {
-                berichtField.value = text;
-            }
+        
+        // Voeg nieuwe optie toe en selecteer deze
+        function setSubject(text) {
+            var sel = document.getElementById('subject');
+            if (!sel) return;
+            clearCustomOptions(sel);
+            var opt = document.createElement('option');
+            opt.value = 'custom_' + Date.now();
+            opt.textContent = text;
+            opt.setAttribute('data-custom', 'true');
+            opt.selected = true;
+            sel.appendChild(opt);
+            sel.dispatchEvent(new Event('change'));
         }
-
-        // Pakket knoppen: intercepteer klik en stuur door
-        var pakketBtns = document.querySelectorAll('.prijs-btn');
-        pakketBtns.forEach(function(btn) {
-            var card = btn.closest('.prijs-card');
-            if (card) {
-                var pakketName = card.querySelector('.prijs-name');
-                var pakketPrice = card.querySelector('.prijs-amount');
-                var pakketFeatures = card.querySelectorAll('.prijs-features li.included');
-                if (pakketName) {
-                    btn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        var naam = pakketName.textContent.trim();
-                        var prijs = pakketPrice ? pakketPrice.textContent.trim() : '';
-                        var subjectText = 'Pakket: ' + naam + ' (' + prijs + ')';
-                        
-                        // Build message text with included features
-                        var features = [];
-                        pakketFeatures.forEach(function(f) { features.push(f.textContent.trim()); });
-                        var berichtText = 'Hallo,\n\nIk ben geïnteresseerd in ' + naam + ' (' + prijs + ').\n\nInbegrepen diensten:\n• ' + features.join('\n• ') + '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
-                        
-                        // Save to localStorage
-                        localStorage.setItem('wac_subject', subjectText);
-                        localStorage.setItem('wac_bericht', berichtText);
-                        
-                        // Directly fill form fields
-                        updateSubjectOption(document.getElementById('subject'), 'wac_pakket', subjectText);
-                        updateBerichtField(berichtText);
-                        
-                        // Scroll to contact form
-                        var contactSection = document.getElementById('contact');
-                        if (contactSection) {
-                            contactSection.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    });
-                }
-            }
+        
+        // Vul bericht veld
+        function setBericht(text) {
+            var msg = document.getElementById('message');
+            if (msg) msg.value = text;
+        }
+        
+        // Haal pakket info uit een kaart
+        function getPakketInfo(card) {
+            var naam = card.querySelector('.prijs-name');
+            var prijs = card.querySelector('.prijs-amount');
+            var features = card.querySelectorAll('.prijs-features li.included');
+            var naamText = naam ? naam.textContent.trim() : '';
+            var prijsText = prijs ? prijs.textContent.trim() : '';
+            var featureList = [];
+            features.forEach(function(f) { featureList.push(f.textContent.trim()); });
+            return {
+                naam: naamText,
+                prijs: prijsText,
+                features: featureList
+            };
+        }
+        
+        // Pakket knoppen
+        document.querySelectorAll('.prijs-btn').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var card = btn.closest('.prijs-card');
+                if (!card) return;
+                
+                var info = getPakketInfo(card);
+                var subjectText = 'Pakket: ' + info.naam + ' (' + info.prijs + ')';
+                var berichtText = 'Hallo,\n\nIk ben geïnteresseerd in ' + info.naam + ' (' + info.prijs + ').\n\nInbegrepen diensten:\n• ' + info.features.join('\n• ') + '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
+                
+                setSubject(subjectText);
+                setBericht(berichtText);
+                
+                var contact = document.getElementById('contact');
+                if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+            });
         });
-
-        // Calculator resultaat: intercepteer de CTA knop
+        
+        // Calculator CTA
         var calcCta = document.getElementById('calc-final-cta');
         if (calcCta) {
             calcCta.addEventListener('click', function(e) {
@@ -4463,37 +4462,13 @@
                 }
                 berichtText += '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
                 
-                // Save to localStorage
-                localStorage.setItem('wac_subject', subjectText);
-                localStorage.setItem('wac_bericht', berichtText);
+                setSubject(subjectText);
+                setBericht(berichtText);
                 
-                // Directly fill form fields
-                updateSubjectOption(document.getElementById('subject'), 'wac_calc', subjectText);
-                updateBerichtField(berichtText);
-                
-                // Scroll to contact form
-                var contactSection = document.getElementById('contact');
-                if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
+                var contact = document.getElementById('contact');
+                if (contact) contact.scrollIntoView({ behavior: 'smooth' });
             });
         }
-
-        // On page load: check localStorage (cross-page transfer)
-        window.addEventListener('DOMContentLoaded', function() {
-            var subjectText = localStorage.getItem('wac_subject');
-            var berichtText = localStorage.getItem('wac_bericht');
-            
-            if (subjectText) {
-                updateSubjectOption(document.getElementById('subject'), 'wac_pakket', subjectText);
-                localStorage.removeItem('wac_subject');
-            }
-            
-            if (berichtText) {
-                updateBerichtField(berichtText);
-                localStorage.removeItem('wac_bericht');
-            }
-        });
     })();
 </script>
 </body>
