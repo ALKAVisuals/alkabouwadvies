@@ -5213,6 +5213,2101 @@ wizard-reset-btn {
     transform: translateX(50px);
 }
 
+/* === MISSING CLASSES FROM ORIGINAL DESIGN === */
+.complexiteit-content,
+.constructie-content,
+.contact-info,
+.review-author-info,
+.footer-brand,
+.footer-nav,
+.footer-newsletter,
+.highlight-col,
+.included,
+.not-included,
+.modal-cta,
+.cp-body,
+.select-label-fixed,
+.stat-item,
+.vc-col-plicht,
+.vc-rule-body,
+.roi-content,
+.over-ons-stat,
+.ijdel,
+.valkuilen,
+.valkuilen-grid,
+.valkuilen-inner,
+.vergunning-plicht-content,
+.vp-body,
+.waardestijging-content {
+    /* Placeholder - inherits from parent or uses default styling */
+}
+
+/* === RESTORED FROM ORIGINAL DESIGN === */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    background: var(--text);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--accent);
+    color: var(--text);
+    transform: translateY(-4px);
+}
+
+/* TOAST */ .toast-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    z-index: 10002;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    pointer-events: none;
+}
+
+.toast {
+    background: var(--text);
+    color: var(--white);
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    pointer-events: all;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 4px;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast.success {
+    border-left: 3px solid var(--success);
+}
+
+.toast.error {
+    border-left: 3px solid var(--error);
+}
+
+/* SHARED SECTION STYLES */ .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.section-title em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.hero-right-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7) saturate(0.8);
+    transform: scale(1.05);
+    will-change: transform;
+}
+
+.hero-right-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.5) 0%, transparent 60%);
+}
+
+.hero-right-badge {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(179, 148, 77, 0.3);
+    padding: 1.25rem 1.75rem;
+    z-index: 2;
+}
+
+.hero-right-badge strong {
+    display: block;
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.hero-right-badge span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.375rem;
+    display: block;
+}
+
+.hero-geo-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(179, 148, 77, 0.3), transparent);
+}
+
+/* USP BANNER */ .usp-banner {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray);
+    padding: 2.5rem 4vw;
+    position: relative;
+    z-index: 5;
+}
+
+.usp-banner-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.usp-banner-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.usp-banner-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(179, 148, 77, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.usp-banner-item:hover .usp-banner-icon {
+    background: var(--accent);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.usp-banner-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+/* WAARDE STIJGING */ .waardestijging {
+    background: var(--bg);
+    padding: 8rem 4vw;
+    max-width: 100%;
+}
+
+.waardestijging-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.waardestijging-visual {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #1a1a1a;
+}
+
+.waardestijging-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8) saturate(0.7);
+    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.waardestijging-visual:hover img {
+    transform: scale(1.05);
+}
+
+.waardestijging-content .section-label {
+    color: var(--accent);
+}
+
+.waardestijging-content h3 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.waardestijging-content h3 em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.waardestijging-content p {
+    font-size: 1.0625rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.waardestijging-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.75rem;
+    background: var(--white);
+    border-left: 3px solid var(--accent);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.waardestijging-highlight i {
+    color: var(--accent);
+    font-size: 1.25rem;
+}
+
+/* AANBOUW VS UITBOUW */ .verschil-sectie {
+    background: var(--white);
+    padding: 10rem 4vw;
+    max-width: 100%;
+}
+
+.verschil-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.verschil-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.verschil-header p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.0625rem;
+    color: var(--text-light);
+    line-height: 1.75;
+}
+
+.verschil-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.verschil-card {
+    padding: 3rem 2.5rem;
+    border: 1px solid var(--gray);
+    background: var(--white);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.verschil-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.verschil-card:hover::before {
+    transform: scaleX(1);
+}
+
+.verschil-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.verschil-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    display: block;
+}
+
+.verschil-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.verschil-card p {
+    font-size: 0.9375rem;
+    color: var(--text-light);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+}
+
+.verschil-card ul {
+    list-style: none;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.verschil-card ul li {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.verschil-card ul li i {
+    color: var(--accent);
+    font-size: 0.75rem;
+}
+
+/* POPULAIRE VORMEN */ .populaire-vormen {
+    background: var(--bg);
+    padding: 8rem 4vw;
+    border-top: 1px solid var(--gray);
+}
+
+.populaire-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.populaire-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.populaire-header p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.0625rem;
+    color: var(--text-light);
+    line-height: 1.75;
+    margin-top: 1.5rem;
+}
+
+.populaire-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.populaire-card {
+    background: var(--white);
+    border: 1px solid var(--gray);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.populaire-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.populaire-card:hover::after {
+    transform: scaleX(1);
+}
+
+.populaire-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    border-color: var(--accent);
+}
+
+.populaire-icoon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    display: block;
+}
+
+.populaire-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+.populaire-card p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* VERGUNNINGSPLICHT */ .vergunning-plicht {
+    background: var(--bg);
+    padding: 10rem 4vw;
+    max-width: 100%;
+}
+
+.vergunning-plicht-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.vergunning-plicht-intro {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.vergunning-plicht-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vergunning-plicht-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-left: 3px solid var(--accent);
+    background: var(--white);
+    transition: all 0.3s ease;
+}
+
+.vergunning-plicht-point:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transform: translateX(4px);
+}
+
+.vp-icon {
+    color: var(--accent);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.vp-body strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.vp-body p {
+    font-size: 0.8125rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.welstand-blok {
+    background: var(--white);
+    border-left: 3px solid var(--accent);
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.welstand-blok:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.welstand-icoon {
+    color: var(--accent);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.welstand-blok p {
+    font-size: 0.9375rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.welstand-blok strong {
+    color: var(--text);
+}
+
+/* === CHECKLIST WIZARD PREMIUM STYLES === */ .checklist-sectie {
+    background: var(--white);
+    padding: 10rem 4vw;
+    border-top: 1px solid var(--gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.checklist-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.checklist-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* Glassmorphism container */ .checklist-wizard {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Progress bar */ .wizard-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    text-transform: uppercase;
+}
+
+.wizard-progress span {
+    color: var(--accent);
+    margin-right: 0.5rem;
+}
+
+.wizard-progress .step-indicator {
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background: var(--gray);
+    margin: 0 0.75rem;
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.wizard-progress .step-indicator::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Vraag transitie container */ .wizard-questions {
+    position: relative;
+    min-height: 200px;
+}
+
+.wizard-vraag {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(50px);
+}
+
+.wizard-vraag.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.wizard-vraag h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+}
+
+/* Premium Interactieve Tiles */ .wizard-opties {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.wizard-tile {
+    background: var(--white);
+    border: 1.5px solid var(--gray);
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    position: relative;
+    outline: none;
+    user-select: none;
+}
+
+.wizard-tile i {
+    font-size: 1.5rem;
+    color: var(--accent);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.25s ease;
+}
+
+.wizard-tile:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(179,148,77,0.1);
+}
+
+.wizard-tile:active {
+    transform: scale(0.95);
+}
+
+.wizard-tile.selected {
+    background: rgba(179,148,77,0.05);
+    border-color: var(--accent);
+    border-width: 2px;
+    box-shadow: 0 0 15px rgba(179,148,77,0.3), 0 0 0 4px rgba(179,148,77,0.15);
+    font-weight: 600;
+}
+
+.wizard-tile.selected i {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.checklist-wizard {
+    padding: 1.5rem;
+}
+
+.wizard-opties {
+    grid-template-columns: 1fr;
+}
+
+.wizard-back-btn {
+    background: none;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: var(--text);
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: all 0.2s;
+}
+
+.wizard-back-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* CONSTRUCTIEBEREKENING */ .constructie {
+    background: var(--bg-dark);
+    padding: 10rem 4vw;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.constructie::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(179, 148, 77, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.constructie-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.constructie-content .section-label {
+    color: var(--accent);
+}
+
+.constructie-content .section-title {
+    color: var(--white);
+}
+
+.constructie-intro {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    max-width: 480px;
+}
+
+.constructie-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.constructie-point {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.constructie-point:last-child {
+    border-bottom: none;
+}
+
+.cp-body strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+}
+
+.cp-body p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.65;
+}
+
+.constructie-visual {
+    position: relative;
+}
+
+.constructie-img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+}
+
+.constructie-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85) saturate(0.7);
+    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.constructie-img-wrap:hover img {
+    transform: scale(1.04);
+}
+
+.constructie-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 15, 15, 0.7) 0%, transparent 50%);
+}
+
+.constructie-caption {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(179, 148, 77, 0.2);
+    padding: 1.25rem 1.5rem;
+}
+
+.constructie-caption strong {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.375rem;
+}
+
+.constructie-caption span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.5;
+}
+
+.ervaringen-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ervaringen-header {
+    margin-bottom: 4rem;
+}
+
+.ervaringen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: left;
+}
+
+.ervaring-card {
+    background: var(--white);
+    border: 1px solid var(--gray);
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.ervaring-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+}
+
+.ervaring-sterren {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.ervaring-tekst {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.ervaring-auteur {
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.ervaring-auteur span {
+    display: block;
+    font-weight: 400;
+    color: var(--text-light);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.price-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: var(--white);
+    border: 1px solid var(--gray);
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    color: var(--text);
+}
+
+.price-card.featured {
+    border: 2px solid var(--accent) !important;
+    box-shadow: 0 20px 40px rgba(179, 148, 77, 0.15) !important;
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.price-card.featured::before {
+    content: 'MEEST GEKOZEN';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    color: var(--text);
+    font-size: 0.625rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 1rem;
+    white-space: nowrap;
+}
+
+.price-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.price-features {
+    list-style: none;
+    margin: 2rem 0;
+    flex-grow: 1;
+}
+
+.price-features li {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.price-features li i {
+    color: var(--accent);
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.price-card.featured .price-btn {
+    background: var(--text) !important;
+    color: var(--white) !important;
+}
+
+.price-card:hover .price-btn {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+/* CONTACT */ .contact {
+    background: var(--white);
+    padding: 10rem 4vw;
+    border-top: 1px solid var(--gray);
+}
+
+.contact-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+}
+
+.contact-info h3 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.contact-info>p {
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 3rem;
+    max-width: 400px;
+}
+
+.contact-detail {
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-detail:hover {
+    transform: translateX(4px);
+}
+
+.contact-detail strong {
+    display: block;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.contact-detail a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.0625rem;
+    transition: color 0.3s;
+}
+
+.contact-detail a:hover {
+    color: var(--accent);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.form-group.select-label-fixed label {
+    top: -0.55rem;
+    left: 0.875rem;
+    font-size: 0.6875rem;
+    color: var(--accent);
+    background: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+}
+
+.footer-brand p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.75;
+    max-width: 300px;
+}
+
+.footer-nav h5 {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.footer-nav a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.footer-nav a:hover {
+    color: var(--white);
+    transform: translateX(4px);
+}
+
+.footer-newsletter h5 {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-newsletter p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.usp-banner-inner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.waardestijging-inner {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+.verschil-grid {
+    grid-template-columns: 1fr;
+}
+
+.vergunning-plicht-inner {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+.constructie-inner {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+.contact-inner {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+.price-card.featured {
+    transform: scale(1);
+}
+
+.populaire-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.ervaringen-grid {
+    grid-template-columns: 1fr;
+}
+
+.usp-banner {
+    padding: 1.5rem 1.5rem;
+}
+
+.waardestijging, .verschil-sectie, .populaire-vormen, .vergunning-plicht, .constructie, .proces-visueel, .pricing, .faq, .checklist-sectie, .project-showcase, .klantervaringen {
+    padding: 5rem 1.5rem;
+}
+
+.contact {
+    padding: 5rem 1.5rem;
+}
+
+.populaire-grid {
+    grid-template-columns: 1fr;
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.fade-in {
+    opacity: 0;
+}
+
+.section-label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-label::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+    margin-bottom: 4rem;
+    max-width: 650px;
+    word-spacing: 0.1em;
+}
+
+.project-categorieen .section-label {
+    color: var(--accent);
+}
+
+.project-categorieen .section-title {
+    color: var(--white);
+    max-width: 800px;
+    margin-bottom: 6rem;
+}
+
+/* Modal */ .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    padding: 2rem;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: var(--white);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(40px) scale(0.95);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid var(--gray);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: var(--bg);
+    border: 1px solid var(--gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.trust-section .section-label {
+    justify-content: center;
+}
+
+.trust-section .section-title {
+    color: var(--white);
+    max-width: 900px;
+    margin: 0 auto 5.5rem;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.35;
+    word-spacing: 0.1em;
+}
+
+.calculator .section-label {
+    color: var(--accent);
+}
+
+.calculator .section-title {
+    color: var(--white);
+    max-width: 700px;
+}
+
+.calc-steps {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0rem;
+    align-items: center;
+}
+
+.calc-step {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+    transition: all 0.5s ease;
+}
+
+.calc-step.active {
+    color: var(--accent);
+}
+
+.calc-step.completed {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.calc-step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    flex-shrink: 0;
+}
+
+.calc-step.active .calc-step-num {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--text);
+}
+
+.calc-step.completed .calc-step-num {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.calc-step-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    max-width: 40px;
+}
+
+.calc-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.calc-option {
+    padding: 2rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: var(--white);
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-align: left;
+    position: relative;
+}
+
+.calc-option:hover {
+    border-color: var(--accent);
+    background: rgba(196, 163, 90, 0.05);
+    transform: translateY(-2px);
+}
+
+.calc-option.selected {
+    border-color: var(--accent);
+    background: rgba(196, 163, 90, 0.1);
+    box-shadow: 0 4px 20px rgba(196, 163, 90, 0.1);
+}
+
+.calc-option .opt-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.calc-option .opt-desc {
+    display: block;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.calc-option .opt-price {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+}
+
+.calc-option.selected .opt-price {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.calc-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.calc-result {
+    text-align: center;
+    padding: 4rem 0 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 450px;
+    position: relative;
+    z-index: 10;
+}
+
+.calc-result-amount {
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 2rem;
+    z-index: 10;
+}
+
+.calc-result-amount .currency {
+    font-size: 2rem;
+    vertical-align: super;
+}
+
+.calc-result-label {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+    z-index: 10;
+}
+
+.calc-result-details {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.calc-result-details li {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calc-result-details li:last-child {
+    border-bottom: none;
+}
+
+.calc-result-details li strong {
+    color: var(--white);
+    font-weight: 600;
+}
+
+.calc-result-details li .price {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.gallery .section-label {
+    color: var(--accent);
+}
+
+.gallery .section-title {
+    color: var(--white);
+    max-width: 700px;
+}
+
+.over-ons-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.over-ons-stat h5 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.over-ons-stat span {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.review-author-info strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.review-author-info span {
+    font-size: 0.8125rem;
+    color: var(--text-light);
+}
+
+.stat-item h4 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+    color: var(--text);
+}
+
+.stat-item h4 em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.stat-item span {
+    font-size: 0.9375rem;
+    color: var(--text-light);
+    letter-spacing: 0.02em;
+}
+
+/* Contact */ .contact {
+    background: var(--bg);
+    max-width: 100%;
+    padding: 10rem 4vw;
+}
+
+.contact-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+}
+
+.contact-info h3 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+    word-spacing: 0.1em;
+}
+
+.contact-detail a, .contact-detail span {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.0625rem;
+    transition: color 0.3s;
+}
+
+/* Toast */ .toast-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    z-index: 10002;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    pointer-events: none;
+}
+
+.toast {
+    background: var(--text);
+    color: var(--white);
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    pointer-events: all;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.footer-brand h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+}
+
+.footer-brand h4 span {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.waarom-inner, .contact-inner, .over-ons-inner {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+.over-ons-stats {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.calc-options {
+    grid-template-columns: 1fr;
+}
+
+.calc-steps {
+    flex-wrap: wrap;
+}
+
+.calc-step-line {
+    display: none;
+}
+
+section, .waarom, .contact, .prijzen, .quote, .stats-strip, .usp-strip, .gallery, .over-ons, .faq, .reviews, .calculator {
+    padding: 5rem 1.5rem;
+}
+
+.contact-info h3 {
+    font-size: 1.75rem;
+}
+
+.stat-item h4 {
+    font-size: 2.5rem;
+}
+
+.calc-result-amount {
+    font-size: 2.5rem;
+}
+
+.modal-content {
+    margin: 1rem;
+}
+
+.fade-up, .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* WAARDE STIJGING / INVESTERING */ .waardestijging {
+    background: var(--bg);
+    padding: 8rem 4vw;
+    max-width: 100%;
+}
+
+.welstand-blok:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* CHECKLIST WIZARD */ .checklist-sectie {
+    background: var(--white);
+    padding: 10rem 4vw;
+    border-top: 1px solid var(--gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.checklist-wizard {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.wizard-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    text-transform: uppercase;
+}
+
+.wizard-questions {
+    position: relative;
+    min-height: 200px;
+}
+
+.wizard-opties {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.wizard-tile {
+    background: var(--white);
+    border: 1.5px solid var(--gray);
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    position: relative;
+    outline: none;
+    user-select: none;
+}
+
+.wizard-tile:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(179, 148, 77, 0.1);
+}
+
+.wizard-tile.selected {
+    background: rgba(179, 148, 77, 0.05);
+    border-color: var(--accent);
+    border-width: 2px;
+    box-shadow: 0 0 15px rgba(179, 148, 77, 0.3), 0 0 0 4px rgba(179, 148, 77, 0.15);
+    font-weight: 600;
+}
+
+.waardestijging, .complexiteit, .vergunning-plicht, .proces-visueel, .pricing, .faq, .checklist-sectie, .project-showcase {
+    padding: 5rem 1.5rem;
+}
+
+.usp-banner-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.complexiteit-content .section-label {
+    color: var(--accent);
+}
+
+.complexiteit-content h3 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.complexiteit-content h3 em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.complexiteit-content p {
+    font-size: 1.0625rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.cp-body strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.cp-body p {
+    font-size: 0.8125rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.usp-banner-inner {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.contact-inner {
+    grid-template-columns: 1fr; gap: 4rem;
+}
+
+.usp-banner-inner {
+    grid-template-columns: 1fr;
+}
+
+.complexiteit, .vergunning-check, .fout-goed, .proces-visueel, .pricing, .faq, .checklist-sectie {
+    padding: 5rem 1.5rem;
+}
+
+.vc-col-plicht .vc-col-header {
+    border-color: var(--accent);
+}
+
+.vc-col-plicht .vc-status-dot {
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(179, 148, 77, 0.4);
+}
+
+.vc-col-plicht .vc-tag {
+    background: rgba(179, 148, 77, 0.08);
+    color: var(--accent);
+    border: 1px solid rgba(179, 148, 77, 0.2);
+}
+
+.vc-col-plicht .vc-rule-icon {
+    background: rgba(179, 148, 77, 0.08);
+}
+
+.vc-rule-body strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+}
+
+.vc-rule-body p {
+    font-size: 0.8125rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.vc-col-plicht .vc-highlight-rule {
+    border-color: var(--accent);
+}
+
+.constructie-accent-line {
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    width: 80px;
+    height: 80px;
+    border-top: 1px solid rgba(179, 148, 77, 0.3);
+    border-right: 1px solid rgba(179, 148, 77, 0.3);
+}
+
+.price-features li svg {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.highlight-col h5 {
+    color: var(--white);
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+.highlight-col p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+}
+
+.vergunning-check, .constructie, .proces, .pricing, .tech-details, .legal-framework, .faq, .aanleveren {
+    padding: 5rem 1.5rem;
+}
+
+.vergunning-plicht-visual {
+    position: relative;
+}
+
+.vergunning-plicht-img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+}
+
+.vergunning-plicht-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85) saturate(0.7);
+    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.vergunning-plicht-img-wrap:hover img {
+    transform: scale(1.04);
+}
+
+.vergunning-plicht-caption {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(179, 148, 77, 0.2);
+    padding: 1.25rem 1.5rem;
+}
+
+.vergunning-plicht-caption strong {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.375rem;
+}
+
+.vergunning-plicht-caption span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.5;
+}
+
+.form-group.select-label-fixed label {
+    top: -0.55rem;
+    left: 0.875rem;
+    font-size: 0.6875rem;
+    color: var(--accent);
+    background: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    pointer-events: none; /* blijft niet klikbaar */
+}
+
+.voordelen, .waardestijging, .vergunning-plicht, .constructie, .proces-visueel, .pricing, .faq, .aanleveren {
+    padding: 5rem 1.5rem;
+}
+
+.ervaring-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.waardestijging, .erker-types, .vergunning-plicht, .constructie, .proces-visueel, .pricing, .faq, .checklist-sectie, .project-showcase, .klantervaringen {
+    padding: 5rem 1.5rem;
+}
+
+.complexiteit-content p {
+    font-size: 1.0625rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.complexiteit, .mantelzorg-types, .vergunning-plicht, .constructie, .proces-visueel, .pricing, .faq, .checklist-sectie {
+    padding: 5rem 1.5rem;
+}
+
+.roi-content .section-label {
+    color: var(--accent);
+}
+
+.roi-content h3 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.roi-content h3 em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.roi-content p {
+    font-size: 1.0625rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.roi-blok.ijdel li i {
+    color: var(--error);
+}
+
+.roi-sectie, .complexiteit, .vergunning-plicht, .constructie, .proces-visueel, .pricing, .faq, .checklist-sectie {
+    padding: 5rem 1.5rem;
+}
+
+
 /* === MEDIA QUERIES (restored from original design) === */
 
 @media (max-width: 1024px) {
