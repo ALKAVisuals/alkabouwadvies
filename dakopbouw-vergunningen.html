@@ -2069,6 +2069,144 @@
     left: auto;
 }
 
+/* ═══ ADDED: Missing nav CSS ═══ */
+.logo span {
+            font-weight: 400;
+            color: var(--text-light);
+            font-size: 0.9375rem;
+            transition: color 0.4s ease;
+        }
+nav.scrolled .logo {
+            font-size: 1.0625rem;
+        }
+.nav-links>li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+nav.scrolled .nav-cta {
+            box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
+        }
+.menu-toggle.active span:nth-child(1) {
+            transform: translateY(3.75px) rotate(45deg);
+        }
+.menu-toggle.active span:nth-child(2) {
+            transform: translateY(-3.75px) rotate(-45deg);
+        }
+.mobile-nav.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+.mobile-nav a,
+        .mobile-nav .mobile-accordion-trigger {
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease, background 0.3s ease;
+            padding: 0.85rem 0;
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid var(--gray);
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            font-family: inherit;
+            text-align: left;
+            cursor: pointer;
+        }
+.mobile-nav.active a,
+        .mobile-nav.active .mobile-accordion-trigger {
+            opacity: 1;
+            transform: translateY(0);
+        }
+.mobile-nav a:hover,
+        .mobile-nav .mobile-accordion-trigger:hover {
+            color: var(--accent);
+        }
+.mobile-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+            padding-left: 1.25rem;
+            border-bottom: 1px solid transparent;
+        }
+.mobile-accordion-content.open {
+            max-height: 900px;
+            border-bottom-color: var(--gray);
+        }
+.mobile-accordion-content a {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            color: var(--text-light);
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.35s ease, transform 0.35s ease, color 0.3s ease;
+        }
+.mobile-accordion-content.open a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+.mobile-accordion-content a:hover {
+            color: var(--accent);
+        }
+.mobile-accordion-trigger.expanded {
+            color: var(--accent);
+            background: var(--beige-subtle);
+            border-radius: 4px;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+.mobile-nav a:nth-child(1),
+        .mobile-nav .mobile-accordion-trigger:nth-of-type(1) {
+            transition-delay: 0.05s;
+        }
+.mobile-nav a:nth-child(2),
+        .mobile-nav .mobile-accordion-trigger:nth-of-type(2) {
+            transition-delay: 0.1s;
+        }
+.mobile-nav a:nth-child(3),
+        .mobile-nav .mobile-accordion-trigger:nth-of-type(3) {
+            transition-delay: 0.15s;
+        }
+.mobile-nav a:nth-child(4) {
+            transition-delay: 0.2s;
+        }
+.mobile-nav a:nth-child(5) {
+            transition-delay: 0.25s;
+        }
+.mobile-nav a:nth-child(6) {
+            transition-delay: 0.3s;
+        }
+.mobile-nav a:nth-child(7) {
+            transition-delay: 0.35s;
+        }
+.mobile-nav a:nth-child(8) {
+            transition-delay: 0.4s;
+        }
+.mobile-nav a:nth-child(9) {
+            transition-delay: 0.45s;
+        }
+.mobile-nav a:nth-child(10) {
+            transition-delay: 0.5s;
+        }
+.mobile-nav a:nth-child(11) {
+            transition-delay: 0.55s;
+        }
+.mobile-nav a:nth-child(12) {
+            transition-delay: 0.6s;
+        }
+.mobile-nav a:nth-child(13) {
+            transition-delay: 0.65s;
+        }
 </style>
 </head>
 <body>

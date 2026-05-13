@@ -379,7 +379,18 @@ nav.scrolled .logo {
     overflow: hidden;
 }
 
-/* ═══════════ FIX: Dropdown alleen tonen bij expliciete hover/focus op de link, of als het menu zelf wordt gehoverd ═══════════ */
+/* ═══════════ FIX: Dropdown alleen tonen bij hover op li of dropdown zelf ═══════════ */
+        .nav-dropdown:hover .dropdown-right.visible,
+        .nav-links > li:hover .dropdown-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+            position: relative;
+            left: auto;
+            right: auto;
+            top: auto;
+            bottom: auto;
+        }
         .nav-links > li:hover .nav-dropdown,
         .nav-links > li:focus-within .nav-dropdown,
         .nav-dropdown:hover {
