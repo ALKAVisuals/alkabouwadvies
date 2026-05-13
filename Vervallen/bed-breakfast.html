@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#b3944d">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//images.unsplash.com">
+    <title>B&B Bouwtekening & Vergunning | Alka's Bouwadvies</title>
+    <meta name="description" content="Bouwtekening en omgevingsvergunning voor uw Bed & Breakfast. ABW-gecertificeerd teken- en adviesbureau. Van ontwerp tot verleende vergunning.">
+    <meta name="keywords" content="bed and breakfast bouwtekening, omgevingsvergunning B&B, gebruikswijziging woning, bestemmingsplan horeca, ruimtelijke onderbouwing, brandveiligheid B&B, parkeernormen, investering B&B, logiesvergunning, B&B starten">
+    <meta name="author" content="Alka's Bouwadvies">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Bed & Breakfast Bouwtekening & Omgevingsvergunning — Ondernemend Advies 2026">
+    <meta property="og:description" content="Van woonbestemming naar rendabele logies. Complete vergunningsbegeleiding voor uw B&B. ABW-gecertificeerd, inclusief constructieberekening en ruimtelijke onderbouwing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alkasbouwadvies.nl/bedbreakfast">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&h=630&fit=crop&q=80">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://alkasbouwadvies.nl/bedbreakfast">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css?v=2026051302">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js">
+    </script>
+
+    <noscript><style>.fade-up,.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+
+    
+</head>
+<body>
+    <a href="#main" class="skip-link">Ga naar inhoud</a>
+
+    <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+    <div class="toast-container" id="toast-container"></div>
+
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="dakkapel.html" class="mobile-link">Dakkapel</a>
+        <a href="dakopbouw-vergunningen.html" class="mobile-link">Dakopbouw</a>
+        <a href="aanbouw-uitbouw.html" class="mobile-link">Aanbouw & Uitbouw</a>
+        <a href="erker.html" class="mobile-link">Erker</a>
+        <a href="#prijzen" class="mobile-link">Prijzen</a>
+        <a href="#faq" class="mobile-link">FAQ</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
+            <img loading="eager" src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
+        </a>
+        <ul class="nav-links" role="menubar">
+            <li role="none">
+                <a href="index.html#diensten" role="menuitem" data-section="diensten">Diensten</a>
+                <div class="nav-dropdown" id="diensten-dropdown" aria-label="Diensten submenu">
+                    <div class="dropdown-left">
+                        <a class="dropdown-item hovered"
+                           data-sub="bouwtekeningen"
+                           aria-haspopup="true"
+                           aria-expanded="true"
+                           href="index.html#diensten">Bouwkunde tekeningen</a>
+                        <a class="dropdown-item"
+                           data-sub="vergunning"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           href="index.html#diensten">Omgevingsvergunning aanvragen</a>
+                        <a class="dropdown-item"
+                           data-sub="digitaliseren"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           href="index.html#diensten">Bouwtekeningen digitaliseren</a>
+                        <a class="dropdown-item"
+                           data-sub="advies"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           href="index.html#diensten">Bouwkundig advies</a>
+                    </div>
+                    <div class="dropdown-right visible" id="sub-bouwtekeningen">
+                        <div class="dropdown-list">
+                            <a href="dakkapel.html">
+                                <span class="list-item-title">Bouwtekeningen dakkapel</span>
+                                <span class="list-item-desc">Meer licht en ruimte op zolder</span>
+                            </a>
+                            <a href="bijgebouw.html">
+                                <span class="list-item-title">Bouwtekeningen bijgebouw</span>
+                                <span class="list-item-desc">Professionele tekening voor schuren en tuinmuren</span>
+                            </a>
+                            <a href="nokverhoging.html">
+                                <span class="list-item-title">Bouwtekeningen nokverhoging</span>
+                                <span class="list-item-desc">Voor maximale hoogte en volume</span>
+                            </a>
+                            <a href="bed-breakfast.html">
+                                <span class="list-item-title">Bouwtekeningen bed and breakfast</span>
+                                <span class="list-item-desc">Ontwerp voor commercieel verblijf</span>
+                            </a>
+                            <a href="erker.html">
+                                <span class="list-item-title">Bouwtekeningen erker</span>
+                                <span class="list-item-desc">Karakter en ruimte toevoegen aan de gevel</span>
+                            </a>
+                            <a href="mantelzorg.html">
+                                <span class="list-item-title">Bouwtekeningen mantelzorgwoning</span>
+                                <span class="list-item-desc">Zorgvuldige integratie in de woning</span>
+                            </a>
+                            <a href="aanbouw-uitbouw.html">
+                                <span class="list-item-title">Bouwtekeningen uitbouw</span>
+                                <span class="list-item-desc">Optimale uitbreiding van uw woonoppervlak</span>
+                            </a>
+                            <a href="dakopbouw-vergunningen.html">
+                                <span class="list-item-title">Bouwtekeningen dakopbouw</span>
+                                <span class="list-item-desc">Een extra verdieping toevoegen</span>
+                            </a>
+                            <a href="index.html#diensten">
+                                <span class="list-item-title">Bouwtekeningen gevelwijziging</span>
+                                <span class="list-item-desc">Moderniseren van de buitenzijde</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-vergunning">
+                        <div class="dropdown-info">
+                            <p>Ik verzorg de complete aanvraag van uw omgevingsvergunning. Van het indienen van de stukken tot het onderhouden van contact met de gemeente — u heeft er geen omkijken naar.</p>
+                            <a href="index.html#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-digitaliseren">
+                        <div class="dropdown-info">
+                            <p>Heeft u papieren bouwtekeningen die gedigitaliseerd moeten worden? Ik zet uw oude tekeningen om naar professionele digitale bestanden, geschikt voor vergunningsaanvragen en aannemers.</p>
+                            <a href="index.html#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-advies">
+                        <div class="dropdown-info">
+                            <p>Ik analyseer uw bestemmingsplan en geef concreet advies over wat er mogelijk is op uw perceel. Voorkom verrassingen en weet exact waar u aan toe bent voordat u begint met ontwerpen.</p>
+                            <a href="index.html#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li role="none"><a href="index.html#prijzen" role="menuitem" data-section="prijzen">Prijzen</a></li>
+            <li role="none"><a href="index.html#calculator" role="menuitem" data-section="calculator">Calculator</a></li>
+            <li role="none"><a href="index.html#projecten" role="menuitem" data-section="projecten">Projecten</a></li>
+            <li role="none"><a href="index.html#over-ons" role="menuitem" data-section="over-ons">Over Ons</a></li>
+            <li role="none"><a href="index.html#faq" role="menuitem" data-section="faq">FAQ</a></li>
+            <li role="none"><a href="index.html#reviews" role="menuitem" data-section="reviews">Reviews</a></li>
+            <li role="none"><a href="index.html#contact" role="menuitem" data-section="contact">Contact</a></li>
+        </ul>
+        <a href="index.html#contact" class="nav-cta" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span><span></span>
+        </button>
+    </nav>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero-split">
+            <div class="hero-left">
+                <h1 class="hero-h1">Elke week vertraging is een week <em>gemiste omzet</em>. Uw B&B moet <em>snel open</em> — en 100% legaal.</h1>
+                <ul class="hero-usps">
+                    <li class="hero-usp"><div class="usp-icon"><i class="fa-solid fa-calendar-check"></i></div><div class="usp-text"><strong>Tijd tot exploitatie verkort</strong><span>Van intake tot vergunning in gemiddeld 8 weken – klaar voor uw eerste gast</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><i class="fa-solid fa-euro-sign"></i></div><div class="usp-text"><strong>Elke dag zonder vergunning is omzetverlies</strong><span>Wij accelereren uw traject om uw investering snel te laten renderen</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="usp-text"><strong>100% Goedkeuringsgarantie</strong><span>Absolute zekerheid. U krijgt de vergunning, of wij herzien het plan tot het wél zo is. Kosteloos.</span></div></li>
+                </ul>
+                <div class="hero-cta-row">
+                    <a href="#contact" class="hero-cta-primary">Start nu uw B&B-traject <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#checklist" class="hero-cta-secondary">Check uw snelroute naar de eerste gast →</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&h=900&fit=crop&q=80" alt="Sfeervolle Bed & Breakfast ingerichte gastenkamer met aandacht voor design en comfort" class="hero-right-img">
+                <div class="hero-right-badge"><strong>€1.140</strong><span>Vanaf — excl. BTW</span></div>
+                <div class="hero-geo-line"></div>
+            </div>
+        </section>
+
+        <!-- USP BANNER -->
+        <section class="usp-banner" aria-label="Onze kernvoordelen">
+            <div class="usp-banner-inner">
+                <div class="usp-banner-item">
+                    <div class="usp-banner-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <span class="usp-banner-text">Sneller open = sneller omzet</span>
+                </div>
+                <div class="usp-banner-item">
+                    <div class="usp-banner-icon"><i class="fa-solid fa-file-shield"></i></div>
+                    <span class="usp-banner-text">Volledig legaal en verzekerbaar</span>
+                </div>
+                <div class="usp-banner-item">
+                    <div class="usp-banner-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <span class="usp-banner-text">Verhoogt WOZ- en verkoopwaarde</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- WAARDE STIJGING / INVESTERING -->
+        <section class="waardestijging" id="investering">
+            <div class="waardestijging-inner">
+                <div class="waardestijging-visual">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&q=80" alt="Eigenaren verwelkomen gasten in hun stijlvolle Bed & Breakfast">
+                </div>
+                <div class="waardestijging-content">
+                    <div class="section-label">Investering & Rendement</div>
+                    <h3>Uw vergunning is de <em>sleutel tot een waardevaste</em> bedrijfsmatige investering.</h3>
+                    <p>Zodra de gebruikswijziging is verleend, stijgt niet alleen uw omzetpotentieel — uw pand wordt aantrekkelijker voor kopers die een bewezen, legaal bedrijfspand zoeken. Een correct vergunde B&B telt mee in de WOZ-waarde en biedt zekerheid aan banken en verzekeraars. Zonder vergunning is uw investering kwetsbaar en praktisch onverkoopbaar als bedrijf.</p>
+                    <div class="waardestijging-highlight">
+                        <i class="fa-solid fa-chart-line"></i> Legale B&B’s hebben een aantoonbaar hogere vastgoedwaarde
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DE COMPLEXITEIT VAN EEN B&B -->
+        <section class="complexiteit" id="complexiteit">
+            <div class="complexiteit-inner">
+                <div class="complexiteit-header fade-up">
+                    <div class="section-label">Waarom een B&B complexer is</div>
+                    <h2 class="section-title">Drie <em>juridische lagen</em> die u niet over het hoofd mag zien.</h2>
+                    <p>Een Bed & Breakfast starten is fundamenteel anders dan een uitbouw of dakkapel. U wijzigt de functie van uw pand — en dat raakt aan het publiekrecht, het omgevingsrecht en zelfs het burenrecht.</p>
+                </div>
+                <div class="complexiteit-grid">
+                    <div class="complexiteit-card fade-up">
+                        <span class="complexiteit-icon"><i class="fa-solid fa-file-contract"></i></span>
+                        <h3>1. De Gebruikswijziging</h3>
+                        <p>Van 'wonen' naar 'horeca/logies'. Deze functiewijziging is in vrijwel elke gemeente vergunningplichtig. Zonder een goedgekeurde gebruikswijziging is uw B&B illegaal — met mogelijke dwangsommen tot gevolg.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> Vergunning gebruikswijziging noodzakelijk</li>
+                            <li><i class="fa-solid fa-check"></i> Gemeentelijke leges verschillen per regio</li>
+                            <li><i class="fa-solid fa-check"></i> Handhaving treedt streng op bij illegale exploitatie</li>
+                        </ul>
+                    </div>
+                    <div class="complexiteit-card fade-up">
+                        <span class="complexiteit-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+                        <h3>2. Het Bestemmingsplan</h3>
+                        <p>De meeste woningen vallen onder een woonbestemming. Een B&B past daar vaak niet in. U heeft dan een 'ruimtelijke onderbouwing' nodig — een document dat aantoont waarom uw plan toch aanvaardbaar is voor de woonomgeving.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> Toetsing aan het bestemmingsplan</li>
+                            <li><i class="fa-solid fa-check"></i> Ruimtelijke onderbouwing bij afwijking</li>
+                            <li><i class="fa-solid fa-check"></i> Participatie van omwonenden (burenrecht)</li>
+                        </ul>
+                    </div>
+                    <div class="complexiteit-card fade-up">
+                        <span class="complexiteit-icon"><i class="fa-solid fa-ear-listen"></i></span>
+                        <h3>3. Brandveiligheid, Akoestiek & Parkeren</h3>
+                        <p>Zodra u gasten ontvangt, gelden er strengere eisen: rookmelders, vluchtwegen, brandwerende deuren. Daarnaast eisen gemeenten vaak extra geluidsisolatie tussen gastenkamers en uw privédeel. En de parkeernorm: elke kamer kan een extra parkeerplaats vereisen, anders is afwijzing vrijwel zeker.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> Brandveiligheidseisen conform Bouwbesluit</li>
+                            <li><i class="fa-solid fa-check"></i> Akoestische scheiding gasten/privé</li>
+                            <li><i class="fa-solid fa-check"></i> Parkeernormen per gemeente (grootste afwijzingsgrond)</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- RISICO BLOK -->
+                <div class="welstand-blok fade-up" style="margin-top: 3rem;">
+                    <span class="welstand-icoon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                    <div>
+                        <p><strong>Illegale exploitatie kan u onverzekerd maken.</strong> Bij brand- of waterschade in een B&B-ruimte die niet als logiesfunctie is geregistreerd, keert uw opstal- of inboedelverzekeraar vaak niet uit. Bovendien riskeert u dwangsommen tot €25.000 en is uw bedrijfsmatige reputatie geschaad. Een gedwongen sluiting door de gemeente is definitief — en kost u niet alleen omzet, maar ook de vertrouwensband met gasten en buren. Voorkom dit, kies voor 100% zekerheid.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VERGUNNINGSPLICHT -->
+        <section class="vergunning-plicht" id="vergunning-plicht">
+            <div class="vergunning-plicht-inner">
+                <div class="vergunning-plicht-content">
+                    <div class="section-label">Vergunning & Bestemmingsplan</div>
+                    <h2 class="section-title">De <em>ruimtelijke onderbouwing</em> is uw belangrijkste troef.</h2>
+                    <p class="vergunning-plicht-intro">Wanneer het bestemmingsplan uw B&B niet toestaat, is de aanvraag niet kansloos. Een goed opgebouwde ruimtelijke onderbouwing toont aan dat uw plan geen afbreuk doet aan de woonomgeving, voorziet in voldoende parkeergelegenheid en voldoet aan alle veiligheidseisen. Wij schrijven deze onderbouwing met kennis van de lokale politieke context — want uiteindelijk beslist het college van B&W.</p>
+                    <ul class="vergunning-plicht-points">
+                        <li class="vergunning-plicht-point fade-up">
+                            <span class="vp-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+                            <div class="vp-body"><strong>Planologische afweging</strong><p>Het college weegt uw belang als ondernemer af tegen het algemeen belang van een prettige woonomgeving. Wij zorgen dat de balans in uw voordeel uitslaat.</p></div>
+                        </li>
+                        <li class="vergunning-plicht-point fade-up">
+                            <span class="vp-icon"><i class="fa-solid fa-people-group"></i></span>
+                            <div class="vp-body"><strong>Participatie & draagvlak</strong><p>Het informeren van omwonenden is vaak verplicht én verstandig. Wij adviseren u over het juiste moment en de juiste toon.</p></div>
+                        </li>
+                        <li class="vergunning-plicht-point fade-up">
+                            <span class="vp-icon"><i class="fa-solid fa-car"></i></span>
+                            <div class="vp-body"><strong>Parkeerbalans (essentieel!)</strong><p>Elke B&B-kamer vraagt doorgaans 0,5 tot 1 parkeerplaats. Wij stellen een professionele parkeerbalans op die aantoont dat uw plan geen extra parkeerdruk veroorzaakt.</p></div>
+                        </li>
+                        <li class="vergunning-plicht-point fade-up">
+                            <span class="vp-icon"><i class="fa-solid fa-clock"></i></span>
+                            <div class="vp-body"><strong>8 tot 12 weken doorlooptijd</strong><p>Houd rekening met een reguliere procedure van 8 weken, plus 6 weken bezwaartermijn. Wij begeleiden elke stap en versnellen waar mogelijk.</p></div>
+                        </li>
+                    </ul>
+                    <div class="welstand-blok fade-up">
+                        <span class="welstand-icoon"><i class="fa-solid fa-compass-drafting"></i></span>
+                        <p><strong>Onze ervaring met B&B-trajecten:</strong> In gemeenten waar B&B's niet expliciet in het bestemmingsplan staan, is maatwerk vereist. Wij hebben tientallen ruimtelijke onderbouwingen geschreven die door college én raad zijn goedgekeurd. Ook in historische binnensteden en beschermde stadsgezichten. Bovendien zorgen wij dat uw aanvraag voldoet aan de laatste brandveiligheids- en akoestische eisen.</p>
+                    </div>
+                </div>
+                <div class="vergunning-plicht-visual fade-in">
+                    <div class="waardestijging-visual" style="aspect-ratio:4/5;">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=1000&fit=crop&q=80" alt="Gasten genieten van een ontbijt in een zorgvuldig ontworpen B&B">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHECKLIST WIZARD (STRATEGISCH ACTIEPLAN) -->
+        <section class="checklist-sectie" id="checklist">
+            <div class="checklist-inner">
+                <div class="checklist-header fade-up">
+                    <div class="section-label">Strategisch Actieplan</div>
+                    <h2 class="section-title">Uw Persoonlijke <em>B&B Haalbaarheidsanalyse</em> — In 3 Stappen.</h2>
+                    <p>Beantwoord 3 cruciale vragen. Ons systeem, gebaseerd op de Omgevingswet 2026 en tientallen B&B-trajecten, geeft u een prescriptief advies over de snelste route naar een legale exploitatie.</p>
+                </div>
+                <div class="checklist-wizard fade-up">
+                    <div class="wizard-progress" id="wizard-progress">
+                        <span id="progress-text">Stap 1 van 3</span>
+                        <div class="step-indicator" id="step-fill"></div>
+                    </div>
+                    <div class="wizard-questions" id="wizard-questions">
+                        <div class="wizard-vraag active" data-step="1">
+                            <h3>1. Hoeveel gastenkamers wilt u maximaal verhuren?</h3>
+                            <div class="wizard-opties">
+                                <button class="wizard-tile" onclick="selectAnswer('kamers', '1-2')">
+                                    <i class="fa-solid fa-bed"></i> 1 tot 2 kamers
+                                </button>
+                                <button class="wizard-tile" onclick="selectAnswer('kamers', '3-5')">
+                                    <i class="fa-solid fa-hotel"></i> 3 tot 5 kamers
+                                </button>
+                                <button class="wizard-tile" onclick="selectAnswer('kamers', '6+')">
+                                    <i class="fa-solid fa-building"></i> 6 of meer kamers
+                                </button>
+                            </div>
+                        </div>
+                        <div class="wizard-vraag" data-step="2">
+                            <h3>2. Is uw woning gelegen in een woonwijk met een 'woonbestemming' volgens het bestemmingsplan?</h3>
+                            <div class="wizard-opties">
+                                <button class="wizard-tile" onclick="selectAnswer('bestemming', 'ja')">
+                                    <i class="fa-solid fa-house-chimney"></i> Ja, woonbestemming
+                                </button>
+                                <button class="wizard-tile" onclick="selectAnswer('bestemming', 'gemengd')">
+                                    <i class="fa-solid fa-store"></i> Gemengde bestemming (wonen/horeca)
+                                </button>
+                                <button class="wizard-tile" onclick="selectAnswer('bestemming', 'onzeker')">
+                                    <i class="fa-solid fa-question"></i> Weet ik niet / wil ik laten uitzoeken
+                                </button>
+                            </div>
+                        </div>
+                        <div class="wizard-vraag" data-step="3">
+                            <h3>3. Beschikt u over voldoende eigen parkeergelegenheid (oprit of garage)?</h3>
+                            <div class="wizard-opties">
+                                <button class="wizard-tile" onclick="selectAnswer('parkeren', 'ja')">
+                                    <i class="fa-solid fa-square-parking"></i> Ja, voldoende eigen plekken
+                                </button>
+                                <button class="wizard-tile" onclick="selectAnswer('parkeren', 'beperkt')">
+                                    <i class="fa-solid fa-road"></i> Beperkt, alleen openbare straatparkeerplaatsen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wizard-resultaat" id="wizard-resultaat">
+                        <div class="result-badge">OFFICIËLE DIAGNOSE — OMGEVINGSWET 2026</div>
+                        <div class="wizard-resultaat-icon" id="result-icon"></div>
+                        <h4 id="result-title"></h4>
+                        <p id="result-text"></p>
+                        <p class="result-urgentie">Let op: De gratis intakegesprekken voor de komende maand zijn bijna volgeboekt — wacht niet te lang met het veiligstellen van uw plek.</p>
+                        <a href="#contact" class="wizard-cta-btn" id="result-cta">
+                            <i class="fa-solid fa-calendar-check"></i> Plan direct mijn gratis strategisch adviesgesprek
+                        </a>
+                        <button id="wizard-reset-btn">
+                            <i class="fa-solid fa-arrow-rotate-left"></i> Opnieuw beoordelen
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MID CTA -->
+        <section class="mid-cta">
+            <div class="mid-cta-inner">
+                <div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u over de haalbaarheid?</div><h2>Voorkom een illegale situatie: wat zegt uw bestemmingsplan écht over een B&B?</h2><p>Stuur uw adres en wij voeren een gratis bestemmingsplantoets uit — volledig vrijblijvend. Binnen 24 uur weet u waar u staat en wat de snelste route naar uw vergunning is.</p></div>
+                <div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn">Gratis bestemmingsplantoets aanvragen →</a><p class="mid-cta-note">Vrijblijvend · Binnen 24 uur</p></div>
+            </div>
+        </section>
+
+        <!-- ONS PROCES -->
+        <section class="proces-visueel" id="ons-proces">
+            <div class="proces-visueel-inner">
+                <div class="proces-visueel-header fade-up">
+                    <div class="section-label">Ons Proces</div>
+                    <h2 class="section-title">Van <em>woonbestemming</em> tot verleende logiesvergunning.</h2>
+                    <p>Transparant, gestructureerd en met oog voor de commerciële én juridische haalbaarheid. Zo realiseren we samen uw Bed & Breakfast.</p>
+                </div>
+                <div class="proces-stappen-grid">
+                    <div class="proces-stap-card fade-up">
+                        <div class="proces-stap-nummer">01</div>
+                        <span class="proces-stap-icoon"><i class="fa-solid fa-magnifying-glass-location"></i></span>
+                        <h3>Planologische Intake</h3>
+                        <p>We analyseren het bestemmingsplan van uw perceel, de parkeernormen en de gemeentelijke B&B-beleidsregels. U ontvangt een eerlijk advies over de slagingskans.</p>
+                        <span class="proces-stap-tag">Dag 1-2</span>
+                    </div>
+                    <div class="proces-stap-card fade-up">
+                        <div class="proces-stap-nummer">02</div>
+                        <span class="proces-stap-icoon"><i class="fa-solid fa-pen-fancy"></i></span>
+                        <h3>Ruimtelijke Onderbouwing</h3>
+                        <p>Onze planeconomen schrijven de benodigde onderbouwing, inclusief participatieverslag, parkeerbalans en toets aan de ladder voor duurzame verstedelijking.</p>
+                        <span class="proces-stap-tag">Dag 3-7</span>
+                    </div>
+                    <div class="proces-stap-card fade-up">
+                        <div class="proces-stap-nummer">03</div>
+                        <span class="proces-stap-icoon"><i class="fa-solid fa-pencil-ruler"></i></span>
+                        <h3>Bouwtekening & Constructie</h3>
+                        <p>Indien nodig maken we bouwkundige tekeningen voor de brandcompartimentering, vluchtwegmarkering en eventuele constructieve aanpassingen volgens NEN-EN 1990.</p>
+                        <span class="proces-stap-tag">Dag 8-12</span>
+                    </div>
+                    <div class="proces-stap-card fade-up">
+                        <div class="proces-stap-nummer">04</div>
+                        <span class="proces-stap-icoon"><i class="fa-solid fa-file-signature"></i></span>
+                        <h3>Indiening & Begeleiding</h3>
+                        <p>Wij dienen de complete aanvraag in bij het Omgevingsloket, beantwoorden ambtelijke vragen en begeleiden de procedure tot aan de verleende vergunning.</p>
+                        <span class="proces-stap-tag">Week 2-12</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT SHOWCASE -->
+        <section class="project-showcase" id="project-showcase">
+            <div class="showcase-inner">
+                <div class="showcase-header fade-up">
+                    <div class="section-label">Gerealiseerd</div>
+                    <h2 class="section-title">Succesvolle <em>B&B-projecten</em></h2>
+                    <p>Bekijk een selectie van recente B&B-trajecten waarin wij de volledige vergunningsaanvraag hebben verzorgd.</p>
+                </div>
+                <div class="showcase-grid">
+                    <div class="showcase-item fade-up">
+                        <div class="showcase-img">
+                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=450&fit=crop&q=80" alt="B&B aan het water in Giethoorn">
+                        </div>
+                        <div class="showcase-info">
+                            <h3>B&B aan het water — Giethoorn</h3>
+                            <span class="showcase-tag">Vergunning in 9 weken verleend</span>
+                        </div>
+                    </div>
+                    <div class="showcase-item fade-up">
+                        <div class="showcase-img">
+                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=450&fit=crop&q=80" alt="Stads-B&B in monumentaal pand Utrecht">
+                        </div>
+                        <div class="showcase-info">
+                            <h3>Stads-B&B in monument — Utrecht</h3>
+                            <span class="showcase-tag">Vergunning in 10 weken verleend</span>
+                        </div>
+                    </div>
+                    <div class="showcase-item fade-up">
+                        <div class="showcase-img">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=450&fit=crop&q=80" alt="Luxe B&B in vrijstaande villa">
+                        </div>
+                        <div class="showcase-info">
+                            <h3>Luxe B&B in villa — Amersfoort</h3>
+                            <span class="showcase-tag">Vergunning in 8 weken verleend</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section class="pricing" id="prijzen">
+            <div class="pricing-inner">
+                <div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>B&B-ambitie</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. De juiste vergunning verhoogt de waarde van uw vastgoed aantoonbaar.</p></div>
+                <div class="pricing-grid" id="pricing-grid">
+                    <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€250<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> Complete bouwkundige set</li><li><i class="fa-solid fa-check"></i> Plattegronden, doorsneden</li><li><i class="fa-solid fa-check"></i> 100% welstandsgarantie</li><li><i class="fa-solid fa-check"></i> Geschikt voor kleine aanpassingen</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('bb-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn B&B. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
+                    <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€495<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit basispakket</strong></li><li><i class="fa-solid fa-check"></i> Constructieberekening</li><li><i class="fa-solid fa-check"></i> NEN-EN 1990 rapportage</li><li><i class="fa-solid fa-check"></i> Beoordeling brandveiligheid & akoestiek</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('bb-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\' voor mijn B&B. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
+                    <div class="price-card fade-up"><h3>Full‑Service Vergunning</h3><div class="price-value">€1.140<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit constructiepakket</strong></li><li><i class="fa-solid fa-check"></i> <strong>Inclusief volledige ruimtelijke onderbouwing</strong></li><li><i class="fa-solid fa-check"></i> Professionele parkeerbalans</li><li><i class="fa-solid fa-check"></i> Correspondentie met college B&W</li><li><i class="fa-solid fa-check"></i> Volledige indiening Omgevingsloket</li><li><i class="fa-solid fa-check"></i> Begeleiding tot opening — volledig ontzorgd</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('bb-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\' voor mijn B&B. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
+                </div>
+                <p style="text-align: center; margin-top: 2rem; font-size: 0.875rem; color: var(--text-light);">Een legale B&B-vergunning verhoogt de verkoopwaarde van uw pand aanzienlijk en maakt uw investering verzekerbaar.</p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq" id="faq">
+            <div class="faq-inner">
+                <div class="fade-up" style="text-align: center;"><div class="section-label">Veelgestelde vragen</div><h2 class="section-title">Alles wat u wilt weten over <em>uw B&B-vergunning</em>.</h2></div>
+                <div class="faq-container">
+                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Mag ik zomaar een kamer in mijn woning verhuren als Bed & Breakfast?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Nee. Zodra u een kamer structureel aanbiedt voor toeristisch of zakelijk verblijf, wijzigt het gebruik van 'wonen' naar 'logies/horeca'. Dit is in vrijwel alle Nederlandse gemeenten vergunningplichtig. Zonder vergunning riskeert u een dwangsom en sluiting van uw B&B. Laat u daarom altijd vooraf adviseren over de lokale regelgeving.</p></div></div>
+                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat is het verschil tussen een B&B en een regulier hotel?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Een B&B is doorgaans kleinschaliger (maximaal 5 tot 8 kamers, afhankelijk van de gemeente), gevestigd in een woning waar de eigenaar ook zelf woont, en biedt alleen ontbijt aan. Een hotel heeft een pure horecabestemming en andere vergunningsvereisten. De exacte scheidslijn verschilt per gemeente en is vastgelegd in het bestemmingsplan of de B&B-beleidsregels.</p></div></div>
+                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat zijn de eisen voor parkeerplaatsen bij een B&B?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Dit hangt af van het gemeentelijke parkeerbeleid en het bestemmingsplan. Meestal geldt een norm van 0,5 tot 1 parkeerplaats per kamer. Heeft u te weinig eigen plekken? Dan kan een parkeerbalans uitkomst bieden — wij tonen dan aan dat de parkeerdruk in de buurt acceptabel blijft, bijvoorbeeld door aanwezigheid van openbare parkeerplaatsen in de directe omgeving.</p></div></div>
+                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Welke brandveiligheidseisen gelden voor een B&B?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Bij een B&B bent u verplicht te voldoen aan de eisen uit het Bouwbesluit 2012 voor 'logiesfunctie'. Denk aan rookmelders in elke slaapkamer, vluchtwegmarkering, brandwerende scheidingen tussen de B&B-ruimtes en uw eigen woning, en in sommige gevallen een gebruiksmelding bij de brandweer. Bij grotere B&B's (>5 kamers) kan een volledige gebruiksvergunning brandveiligheid verplicht zijn.</p></div></div>
+                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Mag ik een B&B starten in een monument of beschermd stadsgezicht?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Ja, dat kan, maar de eisen zijn strenger. Naast de gebruikswijziging moet u rekening houden met monumentencommissies en welstand. Wij hebben ervaring met B&B-trajecten in monumentale panden en beschermde stadsgezichten en zorgen voor een overtuigend plan dat recht doet aan de historische waarde én aan uw commerciële ambitie.</p></div></div>
+                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Hoe lang duurt een B&B-vergunningstraject gemiddeld?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Reken op minimaal 8 tot 12 weken voor de reguliere procedure bij de gemeente, plus 6 weken bezwaartermijn. Wanneer het bestemmingsplan moet worden gewijzigd, kan een traject 16 tot 20 weken duren. Wij zorgen dat uw aanvraag vanaf dag één compleet is, zodat er geen onnodige vertraging ontstaat door verzoeken om aanvullende informatie.</p></div></div>
+                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat kost een B&B-vergunning inclusief alle leges?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Onze Full-Service begeleiding bedraagt €1.140 (excl. BTW). De gemeentelijke leges voor een gebruikswijziging variëren sterk per gemeente — reken op €500 tot €2.500 extra, afhankelijk van de complexiteit. Wij geven u vooraf een transparante kostenindicatie zodat u weet waar u aan toe bent.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact" id="contact">
+            <div class="contact-inner">
+                <div class="contact-info fade-up"><div class="section-label">Samen starten</div><h3>Uw Bed & Breakfast<br><em style="font-style:normal;color:var(--accent);">verdient een legale, snelle start.</em></h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek. Wij denken graag met u mee over de beste route van woonbestemming naar rendabele logies — en hoe u zo snel mogelijk uw eerste gast kunt ontvangen.</p>
+                    <div class="contact-detail"><strong>E-mail</strong><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></div>
+                    <div class="contact-detail"><strong>Telefoon</strong><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></div>
+                </div>
+                <form class="contact-form" name="contact-bb" method="POST" data-netlify="true" novalidate>
+                    <div class="form-group"><input type="text" name="name" id="name" placeholder=" " required><label for="name">Naam</label><div class="form-error" id="error-name">Vul uw naam in</div></div>
+                    <div class="form-group"><input type="email" name="email" id="email" placeholder=" " required><label for="email">E-mail</label><div class="form-error" id="error-email">Vul een geldig e-mailadres in</div></div>
+                    <div class="form-group select-label-fixed">
+                        <select name="subject" id="subject" required>
+                            <option value="" disabled selected>Kies een onderwerp</option>
+                            <option value="bb-tekening">B&B — Bouwtekening (€250)</option>
+                            <option value="bb-constructie">B&B — Tekening + Constructie (€495)</option>
+                            <option value="bb-fullservice">B&B — Full-Service Vergunning (€1.140)</option>
+                            <option value="bb-check">B&B — Gratis bestemmingsplantoets</option>
+                        </select>
+                        <label for="subject">Ik heb interesse in</label>
+                        <div class="form-error" id="error-subject">Selecteer een onderwerp</div>
+                    </div>
+                    <div class="form-group"><textarea name="message" id="message" placeholder=" " required></textarea><label for="message">Uw situatie / wensen</label><div class="form-error" id="error-message">Omschrijf kort uw situatie</div></div>
+                    <button type="submit" class="submit-btn"><span>Start mijn B&B-traject — vrijblijvend & snel</span></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-link">
+                    <img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img">
+                </a>
+                <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in 170+ gemeentes door heel Nederland.</p>
+            </div>
+            <div class="footer-nav">
+                <h5>Diensten</h5>
+                <ul>
+                    <li><a href="dakkapel.html">Dakkapel</a></li>
+                    <li><a href="dakopbouw-vergunningen.html">Dakopbouw</a></li>
+                    <li><a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a></li>
+                    <li><a href="erker.html">Erker</a></li>
+                    <li><a href="mantelzorg.html">Mantelzorgwoning</a></li>
+                    <li><a href="bijgebouw.html">Bijgebouwen</a></li>
+                    <li><a href="bed-breakfast.html">Bed &amp; Breakfast</a></li>
+                    <li><a href="nokverhoging.html">Nokverhoging</a></li>
+                    <li><a href="carport-vergunning.html">Carport</a></li>
+                    <li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li>
+                    <li><a href="bouwkundig-advies.html">Bouwkundig Advies</a></li>
+                    <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
+                    <li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li>
+                    <li><a href="tel:+316****0412">+31 (0)6 49 24 04 12</a></li>
+                    <li><a href="contact.html">Contactformulier</a></li>
+                    <li><a href="over-ons.html">Over Ons</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h5>Nieuwsbrief</h5>
+                <p>Blijf op de hoogte van wijzigingen in de regelgeving en praktische tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Uw e-mailadres" required>
+                    <button type="submit">Inschrijven</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2025&ndash;2026 Alka's Bouwadvies</div>
+            <div class="footer-legal">
+                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Privacybeleid</a>
+                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Algemene Voorwaarden</a>
+                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Cookiebeleid</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Terug naar boven"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Lenis smooth scroll initialiseren
+        const lenis = new Lenis({
+            duration: 1.2,
+            lerp: 0.1,
+            smooth: true
+        });
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(time => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+
+        // Progress bar
+        const progressBar = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.style.width = ((scrollTop / docHeight) * 100) + '%';
+        }, { passive: true });
+
+        // Toast meldingen
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = message;
+            container.appendChild(toast);
+            requestAnimationFrame(() => toast.classList.add('show'));
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 500);
+            }, 4000);
+        }
+
+        // Hoofdanimaties initialiseren
+        function initAnimations() {
+            ScrollTrigger.batch('.fade-up', {
+                onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.12, duration: 0.9 }),
+                start: 'top 88%',
+                once: false
+            });
+            ScrollTrigger.batch('.fade-in', {
+                onEnter: batch => gsap.to(batch, { opacity: 1, duration: 1.1 }),
+                start: 'top 85%',
+                once: false
+            });
+            gsap.to('.hero-usp', {
+                opacity: 1,
+                x: 0,
+                stagger: 0.15,
+                duration: 0.8,
+                delay: 0.4,
+                ease: 'power3.out'
+            });
+            gsap.from('.usp-banner-item', {
+                opacity: 0,
+                y: 20,
+                stagger: 0.1,
+                duration: 0.7,
+                scrollTrigger: {
+                    trigger: '.usp-banner',
+                    start: 'top 95%',
+                },
+                ease: 'power3.out'
+            });
+
+            ScrollTrigger.refresh();
+            setTimeout(() => ScrollTrigger.refresh(), 100);
+            setTimeout(() => ScrollTrigger.refresh(), 300);
+        }
+
+        window.addEventListener('load', () => {
+            initAnimations();
+            setTimeout(() => {
+                document.querySelectorAll('.usp-banner-item, .hero-usp').forEach(el => {
+                    if (window.getComputedStyle(el).opacity === '0') {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateX(0) translateY(0)';
+                    }
+                });
+            }, 2500);
+        });
+
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            initAnimations();
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 100);
+        }
+
+        // Navigatie schaduw bij scrollen
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // Back to top knop
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTopBtn.classList.toggle('visible', window.scrollY > 600);
+        }, { passive: true });
+        backToTopBtn.addEventListener('click', () => lenis.scrollTo(0));
+
+        // Mobiel menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileNav.classList.toggle('open');
+            menuToggle.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+            mobileNav.setAttribute('aria-hidden', !isOpen);
+            if (typeof lenis !== 'undefined') {
+                isOpen ? lenis.stop() : lenis.start();
+            }
+        });
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', false);
+                mobileNav.setAttribute('aria-hidden', true);
+                if (typeof lenis !== 'undefined') lenis.start();
+            });
+        });
+
+        // FAQ accordeon
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.faq-item').forEach(i => i !== item && i.classList.remove('active'));
+                item.classList.toggle('active');
+            });
+        });
+
+        // Contactformulier voorinvullen vanuit prijsknoppen
+        function setContactForm(subjectValue, messageText) {
+            const subjectSelect = document.getElementById('subject');
+            const messageTextarea = document.getElementById('message');
+            if (subjectSelect) {
+                subjectSelect.value = subjectValue;
+                subjectSelect.dispatchEvent(new Event('change'));
+            }
+            if (messageTextarea) {
+                messageTextarea.value = messageText;
+                messageTextarea.dispatchEvent(new Event('input'));
+            }
+            lenis.scrollTo('#contact', { offset: -80 });
+        }
+
+        // Formulier verzenden
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                showToast(
+                    'Uw B&B-aanvraag is succesvol verzonden! Wij nemen binnen 24 uur contact met u op om de mogelijkheden te bespreken.',
+                    'success');
+                contactForm.reset();
+                const subjectSelect = document.getElementById('subject');
+                if (subjectSelect) {
+                    subjectSelect.value = '';
+                    subjectSelect.dispatchEvent(new Event('change'));
+                }
+            });
+        }
+
+        // === WIZARD LOGICA (STRATEGISCH ACTIEPLAN) ===
+        class BBWizard {
+            constructor() {
+                this.answers = { kamers: null, bestemming: null, parkeren: null };
+                this.currentStep = 1;
+                this.totalSteps = 3;
+                this.wizardQuestions = document.querySelectorAll('.wizard-vraag');
+                this.progressText = document.getElementById('progress-text');
+                this.stepFill = document.getElementById('step-fill');
+                this.resultContainer = document.getElementById('wizard-resultaat');
+                this.resultIcon = document.getElementById('result-icon');
+                this.resultTitle = document.getElementById('result-title');
+                this.resultText = document.getElementById('result-text');
+                this.resetButton = document.getElementById('wizard-reset-btn');
+                this.init();
+            }
+
+            init() {
+                if (this.resetButton) {
+                    this.resetButton.addEventListener('click', () => this.reset());
+                }
+                this.updateProgress();
+            }
+
+            selectAnswer(question, value, tileElement) {
+                const activeQ = document.querySelector('.wizard-vraag.active');
+                if (!activeQ) return;
+                activeQ.querySelectorAll('.wizard-tile').forEach(t => t.classList.remove('selected'));
+                tileElement.classList.add('selected');
+                this.answers[question] = value;
+                setTimeout(() => this.nextStep(), 200);
+            }
+
+            nextStep() {
+                if (this.currentStep < this.totalSteps) {
+                    const currentQ = document.querySelector(`.wizard-vraag[data-step="${this.currentStep}"]`);
+                    const nextQ = document.querySelector(`.wizard-vraag[data-step="${this.currentStep + 1}"]`);
+                    gsap.to(currentQ, {
+                        x: -50,
+                        opacity: 0,
+                        duration: 0.3,
+                        ease: 'power2.inOut',
+                        onComplete: () => {
+                            currentQ.classList.remove('active');
+                            nextQ.classList.add('active');
+                            gsap.fromTo(nextQ, { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35,
+                                ease: 'power2.out' });
+                        }
+                    });
+                    this.currentStep++;
+                    this.updateProgress();
+                } else {
+                    this.showResult();
+                }
+            }
+
+            updateProgress() {
+                this.progressText.textContent = `Stap ${this.currentStep} van ${this.totalSteps}`;
+                this.stepFill.style.width = ((this.currentStep / this.totalSteps) * 100) + '%';
+            }
+
+            showResult() {
+                let iconHtml = '';
+                let title = '';
+                let text = '';
+                let ctaText = 'Plan direct mijn gratis strategisch adviesgesprek';
+
+                const k = this.answers.kamers;
+                const b = this.answers.bestemming;
+                const p = this.answers.parkeren;
+
+                if (k === '6+' && (b === 'ja' || b === 'onzeker') && p === 'beperkt') {
+                    iconHtml = '<i class="fa-solid fa-triangle-exclamation"></i>';
+                    title = 'Hoog risico op afwijzing — maar oplosbaar.';
+                    text = 'Uw combinatie van veel kamers, een strikte woonbestemming en beperkt parkeren is de meest complexe. De grootste bottleneck is de parkeernorm. Ons advies: begin niet met een tekening, maar met een professionele parkeerbalans. Onze planeconomen kunnen een onderbouwing schrijven die aantoont dat de parkeerdruk acceptabel blijft. Zonder deze balans is afwijzing vrijwel zeker. Plan direct een intake, dan stippelen we samen de veiligste route uit.';
+                } else if (k === '1-2' && b === 'ja' && p === 'ja') {
+                    iconHtml = '<i class="fa-solid fa-circle-check"></i>';
+                    title = 'Kansrijk traject — u komt in aanmerking voor een kleinschalige B&B-regeling.';
+                    text = 'Met slechts 1-2 kamers op een woonbestemming en voldoende eigen parkeerplaatsen, is de kans groot dat uw gemeente een versnelde B&B-procedure kent. Uw eerste stap is het laten controleren van de lokale beleidsregels. Wij kunnen u direct vertellen of een eenvoudige melding volstaat of dat we een lichte ruimtelijke onderbouwing moeten indienen. Dit traject is vaak in enkele weken af te ronden.';
+                } else if (b === 'gemengd' && p === 'ja') {
+                    iconHtml = '<i class="fa-solid fa-circle-check"></i>';
+                    title = 'Uw bestemming werkt in uw voordeel.';
+                    text = 'Omdat uw bestemmingsplan al een gemengde functie toestaat, is de procedure vaak eenvoudiger. We richten ons op een correcte brandveiligheids- en akoestiekrapportage en een beknopte parkeerparagraaf. Met onze full-service begeleiding is goedkeuring vrijwel gegarandeerd.';
+                } else {
+                    iconHtml = '<i class="fa-solid fa-file-signature"></i>';
+                    title = 'Maatwerk vereist — volledige ruimtelijke onderbouwing nodig.';
+                    text = 'Uw situatie vraagt om een gedegen aanpak. Onze adviseurs bekijken de specifieke omstandigheden: bestemmingsplan, parkeerdruk, akoestiek en lokale politieke gevoeligheid. U ontvangt een concreet stappenplan en een reële inschatting van de slagingskans. Plan nu uw gratis intake.';
+                }
+
+                this.resultIcon.innerHTML = iconHtml;
+                this.resultTitle.textContent = title;
+                this.resultText.textContent = text;
+                document.getElementById('result-cta').innerHTML = `<i class="fa-solid fa-calendar-check"></i> ${ctaText}`;
+
+                this.resultContainer.classList.add('visible');
+                if (k === '6+' && p === 'beperkt') {
+                    this.resultContainer.classList.add('vergunning-nodig');
+                    this.resultContainer.classList.remove('vergunning-vrij');
+                } else {
+                    this.resultContainer.classList.add('vergunning-vrij');
+                    this.resultContainer.classList.remove('vergunning-nodig');
+                }
+
+                gsap.fromTo(this.resultContainer, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5,
+                    ease: 'back.out(1.4)' });
+                this.resultContainer.style.display = 'block';
+                lenis.scrollTo('#checklist', { offset: -50 });
+                this.progressText.textContent = 'Resultaat';
+                this.stepFill.style.width = '100%';
+                if (this.resetButton) this.resetButton.style.display = 'inline-flex';
+            }
+
+            reset() {
+                this.answers = { kamers: null, bestemming: null, parkeren: null };
+                this.currentStep = 1;
+                gsap.set(this.resultContainer, { scale: 1, opacity: 1 });
+                this.resultContainer.classList.remove('visible', 'vergunning-nodig', 'vergunning-vrij');
+                this.resultContainer.style.display = 'none';
+                this.wizardQuestions.forEach(q => q.classList.remove('active'));
+                const firstQ = document.querySelector('.wizard-vraag[data-step="1"]');
+                if (firstQ) {
+                    firstQ.classList.add('active');
+                    gsap.fromTo(firstQ, { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35,
+                        ease: 'power2.out' });
+                }
+                document.querySelectorAll('.wizard-tile').forEach(t => t.classList.remove('selected'));
+                this.updateProgress();
+                if (this.resetButton) this.resetButton.style.display = 'none';
+                lenis.scrollTo('#checklist', { offset: -50 });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            window.wizard = new BBWizard();
+            window.selectAnswer = function(question, value) {
+                const tile = event.currentTarget;
+                if (window.wizard) window.wizard.selectAnswer(question, value, tile);
+            };
+        });
+    
+        // ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
+        (function() {
+            const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
+            const allRightPanels = document.querySelectorAll('.dropdown-right');
+            if (!dropdownLeftItems.length) return;
+
+            function showRightPanel(subId) {
+                allRightPanels.forEach(p => p.classList.remove('visible'));
+                if (subId) {
+                    const panel = document.getElementById(subId);
+                    if (panel) panel.classList.add('visible');
+                }
+            }
+
+            dropdownLeftItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                    item.classList.add('hovered');
+                    const subId = item.getAttribute('data-sub');
+                    if (subId && subId !== '') showRightPanel('sub-' + subId);
+                });
+            });
+
+            const dropdownContainer = document.getElementById('diensten-dropdown');
+            if (dropdownContainer) {
+                dropdownContainer.addEventListener('mouseleave', () => {
+                    dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                    const firstItem = dropdownLeftItems[0];
+                    if (firstItem) {
+                        firstItem.classList.add('hovered');
+                        const subId = firstItem.getAttribute('data-sub');
+                        if (subId && subId !== '') showRightPanel('sub-' + subId);
+                    }
+                });
+            }
+        })();
+</script>
+
+        // Mobile Sticky CTA
+        const stickyCta = document.getElementById('mobile-sticky-cta');
+        if (stickyCta) {
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth <= 768) {
+                    stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+                }
+            });
+        }
+</body>
+</html>
