@@ -3456,15 +3456,6 @@ to {
     left: 260px;
 }
 
-.nav-links,
-            .nav-cta {
-    display: none;
-}
-
-.menu-toggle {
-    display: flex;
-}
-
 .hero {
     padding: 0 1.5rem;
     min-height: 90vh;
