@@ -5733,3 +5733,16 @@ wizard-reset-btn {
                 color: rgba(255, 255, 255, 0.85) !important;
             }
         }
+
+/* === DESKTOP NAV FIX === */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex !important;
+    }
+    .nav-cta {
+        display: inline-flex !important;
+    }
+    .menu-toggle {
+        display: none !important;
+    }
+}
