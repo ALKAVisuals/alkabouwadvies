@@ -947,8 +947,8 @@ nav.scrolled .nav-cta {
     align-items: center;
     gap: 0.75rem;
     padding: 1rem 2rem;
-    border: 1px solid var(--text);
-    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     font-size: 0.8125rem;
     font-weight: 600;
