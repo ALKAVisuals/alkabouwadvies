@@ -4374,24 +4374,24 @@
     // ═══ PAKKET & CALCULATOR → CONTACTFORMULIER DOORSTUREN ═══
     (function() {
         
-        // Verwijder oude custom opties (zodat altijd de laatste keuze staat)
-        function clearCustomOptions(selectEl) {
-            if (!selectEl) return;
-            var toRemove = selectEl.querySelectorAll('option[data-custom="true"]');
-            toRemove.forEach(function(opt) { opt.remove(); });
-        }
+        // Map pakketten naar bestaande subject opties
+        var pakketToSubject = {
+            'Pakket A': 'dakkapel',    // meest geschikt voor dakkapel/uitbouw
+            'Pakket B': 'dakopbouw',   // meest geschikt voor dakopbouw
+            'Pakket C': 'nieuwbouw'    // compleet pakket = nieuwbouw
+        };
         
-        // Voeg nieuwe optie toe en selecteer deze
-        function setSubject(text) {
+        // Selecteer bestaande optie in dropdown
+        function selectSubject(value) {
             var sel = document.getElementById('subject');
             if (!sel) return;
-            clearCustomOptions(sel);
-            var opt = document.createElement('option');
-            opt.value = 'custom_' + Date.now();
-            opt.textContent = text;
-            opt.setAttribute('data-custom', 'true');
-            opt.selected = true;
-            sel.appendChild(opt);
+            // Check of de value bestaat in de dropdown
+            var exists = sel.querySelector('option[value="' + value + '"]');
+            if (exists) {
+                sel.value = value;
+            } else {
+                sel.value = 'overig';
+            }
             sel.dispatchEvent(new Event('change'));
         }
         
@@ -4410,11 +4410,7 @@
             var prijsText = prijs ? prijs.textContent.trim() : '';
             var featureList = [];
             features.forEach(function(f) { featureList.push(f.textContent.trim()); });
-            return {
-                naam: naamText,
-                prijs: prijsText,
-                features: featureList
-            };
+            return { naam: naamText, prijs: prijsText, features: featureList };
         }
         
         // Pakket knoppen
@@ -4425,12 +4421,16 @@
                 if (!card) return;
                 
                 var info = getPakketInfo(card);
-                var subjectText = 'Pakket: ' + info.naam + ' (' + info.prijs + ')';
-                var berichtText = 'Hallo,\n\nIk ben geïnteresseerd in ' + info.naam + ' (' + info.prijs + ').\n\nInbegrepen diensten:\n• ' + info.features.join('\n• ') + '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
                 
-                setSubject(subjectText);
+                // Selecteer de juiste bestaande optie
+                var subjectValue = pakketToSubject[info.naam] || 'overig';
+                selectSubject(subjectValue);
+                
+                // Vul bericht met pakket details
+                var berichtText = 'Hallo,\n\nIk ben geïnteresseerd in ' + info.naam + ' (' + info.prijs + ').\n\nInbegrepen diensten:\n• ' + info.features.join('\n• ') + '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
                 setBericht(berichtText);
                 
+                // Scroll naar contact
                 var contact = document.getElementById('contact');
                 if (contact) contact.scrollIntoView({ behavior: 'smooth' });
             });
@@ -4450,19 +4450,24 @@
                 var addon = addonEl ? addonEl.textContent.trim() : '';
                 var totaal = resultEl ? resultEl.textContent.trim() : '';
                 
-                var subjectText = 'Calculator: ' + totaal;
-                var berichtText = 'Hallo,\n\nIk heb een prijsindicatie berekend: ' + totaal;
-                if (base && base !== '-') {
-                    subjectText += ' (Basis: ' + base + ')';
-                    berichtText += '\n\nBasis: ' + base;
-                }
-                if (addon && addon !== '-') {
-                    subjectText += ' (Extra: ' + addon + ')';
-                    berichtText += '\nExtra services: ' + addon;
-                }
-                berichtText += '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
+                // Map calculator basis naar subject optie
+                var calcSubject = 'overig';
+                var baseLower = base.toLowerCase();
+                if (baseLower.indexOf('dakkapel') !== -1) calcSubject = 'dakkapel';
+                else if (baseLower.indexOf('dakopbouw') !== -1) calcSubject = 'dakopbouw';
+                else if (baseLower.indexOf('uitbouw') !== -1 || baseLower.indexOf('aanbouw') !== -1) calcSubject = 'uitbouw';
+                else if (baseLower.indexOf('erker') !== -1) calcSubject = 'erker';
+                else if (baseLower.indexOf('mantelzorg') !== -1) calcSubject = 'mantelzorg';
+                else if (baseLower.indexOf('bed') !== -1 || baseLower.indexOf('breakfast') !== -1) calcSubject = 'nieuwbouw';
+                else if (baseLower.indexOf('nok') !== -1) calcSubject = 'nok';
+                else if (baseLower.indexOf('bijgebouw') !== -1) calcSubject = 'bijgebouw';
                 
-                setSubject(subjectText);
+                selectSubject(calcSubject);
+                
+                var berichtText = 'Hallo,\n\nIk heb een prijsindicatie berekend: ' + totaal;
+                if (base && base !== '-') berichtText += '\n\nType: ' + base;
+                if (addon && addon !== '-') berichtText += '\nExtra services: ' + addon;
+                berichtText += '\n\nGraag ontvang ik meer informatie.\n\nMet vriendelijke groet,';
                 setBericht(berichtText);
                 
                 var contact = document.getElementById('contact');
