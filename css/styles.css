@@ -1189,7 +1189,7 @@ to {
 
 .usp-item p {
     font-size: 0.9375rem;
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.7;
     transition: color 0.3s ease;
 }
@@ -3604,8 +3604,8 @@ a:focus-visible,
     display: flex;
     align-items: center;
     gap: 1rem;
-    opacity: 0;
-    transform: translateX(-20px);
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .hero-usp:hover .usp-icon {
@@ -5694,5 +5694,24 @@ wizard-reset-btn {
             .vergunning-check-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+            }
+
+            /* === HEADER/NAV FIXES === */
+            nav {
+                padding: 0.5rem 1rem !important;
+            }
+            .nav-logo-img {
+                height: 48px !important;
+            }
+            .nav-cta {
+                padding: 0.4rem 0.75rem !important;
+                font-size: 0.75rem !important;
+            }
+            .hero-usp {
+                font-size: 0.8125rem !important;
+                gap: 0.75rem !important;
+            }
+            .usp-item p {
+                color: rgba(255, 255, 255, 0.85) !important;
             }
 }

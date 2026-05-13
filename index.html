@@ -568,10 +568,7 @@
             }, 4000);
         }
 
-        // Preloader with mobile fallback
-        const preloaderTl = gsap.timeline();
-        
-        // Safety timeout: always hide preloader after 4 seconds max
+        // Safety timeout: always hide preloader after 3 seconds max (must be before GSAP call)
         const preloaderTimeout = setTimeout(() => {
             const preloader = document.getElementById('preloader');
             if (preloader && preloader.style.display !== 'none') {
@@ -580,38 +577,48 @@
                 setTimeout(() => {
                     preloader.style.display = 'none';
                     document.body.classList.remove('is-loading');
+                    document.querySelector('.hero-bg')?.classList.add('loaded');
                 }, 500);
             }
-        }, 4000);
-        
-        preloaderTl
-            .to('.preloader-brand', { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
-            .to('.preloader-text', { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-            .to('.preloader-line', { opacity: 1, duration: 0.4 }, '-=0.2')
-            .to('#preloader-line-inner', { scaleX: 1, duration: 1.8, ease: 'power2.inOut' })
-            .to('#preloader-counter', { opacity: 1, duration: 0.3 }, '-=1.8')
-            .to('#preloader-counter', {
-                innerText: '100%',
-                duration: 1.8,
-                ease: 'power2.inOut',
-                snap: { innerText: 1 },
-                onUpdate: function() {
-                    document.getElementById('preloader-counter').innerText = Math.round(this.progress() * 100) + '%';
-                }
-            }, '-=1.8')
-            .to('.preloader', {
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power3.inOut',
-                delay: 0.2,
-                onComplete: () => {
-                    clearTimeout(preloaderTimeout);
-                    document.getElementById('preloader').style.display = 'none';
-                    document.querySelector('.hero-bg').classList.add('loaded');
-                    initHeroAnimations();
-                    initScrollAnimations();
-                }
-            });
+        }, 3000);
+
+        // Preloader animation (only if GSAP loaded)
+        if (typeof gsap !== 'undefined') {
+            try {
+                const preloaderTl = gsap.timeline();
+                preloaderTl
+                    .to('.preloader-brand', { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
+                    .to('.preloader-text', { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+                    .to('.preloader-line', { opacity: 1, duration: 0.4 }, '-=0.2')
+                    .to('#preloader-line-inner', { scaleX: 1, duration: 1.8, ease: 'power2.inOut' })
+                    .to('#preloader-counter', { opacity: 1, duration: 0.3 }, '-=1.8')
+                    .to('#preloader-counter', {
+                        innerText: '100%',
+                        duration: 1.8,
+                        ease: 'power2.inOut',
+                        snap: { innerText: 1 },
+                        onUpdate: function() {
+                            document.getElementById('preloader-counter').innerText = Math.round(this.progress() * 100) + '%';
+                        }
+                    }, '-=1.8')
+                    .to('.preloader', {
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: 'power3.inOut',
+                        delay: 0.2,
+                        onComplete: () => {
+                            clearTimeout(preloaderTimeout);
+                            document.getElementById('preloader').style.display = 'none';
+                            document.querySelector('.hero-bg')?.classList.add('loaded');
+                            if (typeof initHeroAnimations === 'function') initHeroAnimations();
+                            if (typeof initScrollAnimations === 'function') initScrollAnimations();
+                        }
+                    });
+            } catch(e) {
+                // GSAP failed — safety timeout will handle it
+                console.warn('GSAP preloader failed, using fallback');
+            }
+        }
 
         function initHeroAnimations() {
             gsap.to('.hero-label', { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2 });
