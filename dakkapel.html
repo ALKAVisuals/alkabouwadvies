@@ -63,6 +63,27 @@
                 }
             });
         }
+
+        // === INJECTED: Scrollspy (IntersectionObserver) ===
+// Scrollspy
+        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+        if (sections.length > 0) {
+            const observerOptions = { root: null, rootMargin: '-80px 0px -60% 0px', threshold: 0 };
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
+                        });
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+        }
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
     </script>
