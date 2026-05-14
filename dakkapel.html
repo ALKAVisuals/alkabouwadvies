@@ -70,7 +70,7 @@
         const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
         const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
         if (sections.length > 0) {
-            const observerOptions = { root: null, rootMargin: '-80px 0px -60% 0px', threshold: 0 };
+            const observerOptions = { root: null, rootMargin: '-80px 0px -40% 0px', threshold: 0 };
             const observerCallback = (entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2632,7 +2632,7 @@ nav.scrolled .nav-cta {
                     </div>
                 </div>
             </li>
-            <li role="none"><a href="#prijzen" role="menuitem" data-section="investering">Investering</a></li>
+            <li role="none"><a href="#investering" role="menuitem" data-section="investering">Investering</a></li>
             <li role="none"><a href="index.html#calculator" role="menuitem" data-section="calculator">Calculator</a></li>
             <li role="none"><a href="index.html#projecten" role="menuitem" data-section="projecten">Projecten</a></li>
             <li role="none"><a href="index.html#over-ons" role="menuitem" data-section="over-ons">Over Ons</a></li>
