@@ -235,21 +235,26 @@
             color: var(--accent);
         }
         .nav-cta {
-            font-size: 0.75rem;
+            padding: 0.75rem 1.75rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            font-size: 0.8125rem;
             font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--text);
-            border: 1.5px solid var(--text);
-            padding: 0.625rem 1.5rem;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
             text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .nav-cta:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: var(--text);
+            background: var(--text);
+            color: var(--white);
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
         }
         .menu-toggle {
             display: none;
@@ -1776,8 +1781,21 @@
         @media (max-width: 768px) {
             .nav-links,
             .nav-cta {
-                display: none;
-            }
+            padding: 0.75rem 1.75rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
             .menu-toggle {
                 display: flex;
             }
@@ -2089,7 +2107,20 @@ nav.scrolled .logo {
             width: 0;
         }
 nav.scrolled .nav-cta {
-            box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
+            padding: 0.75rem 1.75rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 .menu-toggle.active span:nth-child(1) {
             transform: translateY(3.75px) rotate(45deg);
@@ -2486,14 +2517,14 @@ nav.scrolled .nav-cta {
         </a>
         <ul class="nav-links" role="menubar">
             <li role="none">
-                <a href="#diensten" role="menuitem" data-section="diensten">Diensten</a>
+                <a href="index.html#diensten" role="menuitem" data-section="diensten">Diensten</a>
                 <div class="nav-dropdown" id="diensten-dropdown" aria-label="Diensten submenu">
                     <div class="dropdown-left">
                         <a class="dropdown-item hovered"
                            data-sub="bouwtekeningen"
                            aria-haspopup="true"
                            aria-expanded="true"
-                           href="#diensten">Bouwkunde tekeningen</a>
+                           href="index.html#diensten">Bouwkunde tekeningen</a>
                         <a class="dropdown-item"
                            data-sub="vergunning"
                            aria-haspopup="true"
@@ -2544,7 +2575,7 @@ nav.scrolled .nav-cta {
                                 <span class="list-item-title">Bouwtekeningen dakopbouw</span>
                                 <span class="list-item-desc">Een extra verdieping toevoegen</span>
                             </a>
-                            <a href="#diensten">
+                            <a href="index.html#diensten">
                                 <span class="list-item-title">Bouwtekeningen gevelwijziging</span>
                                 <span class="list-item-desc">Moderniseren van de buitenzijde</span>
                             </a>
@@ -2553,32 +2584,32 @@ nav.scrolled .nav-cta {
                     <div class="dropdown-right" id="sub-vergunning">
                         <div class="dropdown-info">
                             <p>Ik verzorg de complete aanvraag van uw omgevingsvergunning. Van het indienen van de stukken tot het onderhouden van contact met de gemeente — u heeft er geen omkijken naar.</p>
-                            <a href="#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
+                            <a href="index.html#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
                         </div>
                     </div>
                     <div class="dropdown-right" id="sub-digitaliseren">
                         <div class="dropdown-info">
                             <p>Heeft u papieren bouwtekeningen die gedigitaliseerd moeten worden? Ik zet uw oude tekeningen om naar professionele digitale bestanden, geschikt voor vergunningsaanvragen en aannemers.</p>
-                            <a href="#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
+                            <a href="index.html#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
                         </div>
                     </div>
                     <div class="dropdown-right" id="sub-advies">
                         <div class="dropdown-info">
                             <p>Ik analyseer uw bestemmingsplan en geef concreet advies over wat er mogelijk is op uw perceel. Voorkom verrassingen en weet exact waar u aan toe bent voordat u begint met ontwerpen.</p>
-                            <a href="#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
+                            <a href="index.html#contact" class="dropdown-cta-btn">Offerte aanvragen</a>
                         </div>
                     </div>
                 </div>
             </li>
-            <li role="none"><a href="#prijzen" role="menuitem" data-section="prijzen">Prijzen</a></li>
-            <li role="none"><a href="#calculator" role="menuitem" data-section="calculator">Calculator</a></li>
-            <li role="none"><a href="#projecten" role="menuitem" data-section="projecten">Projecten</a></li>
-            <li role="none"><a href="#over-ons" role="menuitem" data-section="over-ons">Over Ons</a></li>
-            <li role="none"><a href="#faq" role="menuitem" data-section="faq">FAQ</a></li>
-            <li role="none"><a href="#reviews" role="menuitem" data-section="reviews">Reviews</a></li>
-            <li role="none"><a href="#contact" role="menuitem" data-section="contact">Contact</a></li>
+            <li role="none"><a href="index.html#prijzen" role="menuitem" data-section="prijzen">Prijzen</a></li>
+            <li role="none"><a href="index.html#calculator" role="menuitem" data-section="calculator">Calculator</a></li>
+            <li role="none"><a href="index.html#projecten" role="menuitem" data-section="projecten">Projecten</a></li>
+            <li role="none"><a href="index.html#over-ons" role="menuitem" data-section="over-ons">Over Ons</a></li>
+            <li role="none"><a href="index.html#faq" role="menuitem" data-section="faq">FAQ</a></li>
+            <li role="none"><a href="index.html#reviews" role="menuitem" data-section="reviews">Reviews</a></li>
+            <li role="none"><a href="index.html#contact" role="menuitem" data-section="contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="nav-cta" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+        <a href="index.html#contact" class="nav-cta" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false" aria-controls="mobile-nav">
             <span></span><span></span>
         </button>
@@ -2590,7 +2621,7 @@ nav.scrolled .nav-cta {
     <div class="mobile-nav" id="mobile-nav">
         <a href="index.html#diensten" class="mobile-link">Diensten</a>
         <a href="index.html#prijzen" class="mobile-link">Prijzen</a>
-        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="index.html#contact" class="mobile-link">Contact</a>
     </div>
 
     
@@ -2606,7 +2637,7 @@ nav.scrolled .nav-cta {
                     <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="20 6 9 17 4 12"/></svg></div><div class="usp-text"><strong>100% goedkeuring</strong><span>Of wij passen kosteloos aan</span></div></li>
                 </ul>
                 <div class="hero-cta-row">
-                    <a href="#contact" class="hero-cta-primary">Vrijblijvend adviesgesprek <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                    <a href="index.html#contact" class="hero-cta-primary">Vrijblijvend adviesgesprek <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5"/></svg></a>
                     <a href="#vergunning-check" class="hero-cta-secondary">Check: heb ik een vergunning nodig?</a>
                 </div>
             </div>
@@ -2651,7 +2682,7 @@ nav.scrolled .nav-cta {
 
         <!-- MID CTA -->
         <section class="mid-cta">
-            <div class="mid-cta-inner"><div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u?</div><h2>Gratis toetsing: is uw dakkapel vergunningsvrij?</h2><p>Stuur een foto en de maten, en onze experts geven binnen 24 uur uitsluitsel.</p></div><div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn">Gratis check aanvragen →</a><p class="mid-cta-note">Vrijblijvend · Binnen 24 uur</p></div></div>
+            <div class="mid-cta-inner"><div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u?</div><h2>Gratis toetsing: is uw dakkapel vergunningsvrij?</h2><p>Stuur een foto en de maten, en onze experts geven binnen 24 uur uitsluitsel.</p></div><div class="mid-cta-actions fade-up"><a href="index.html#contact" class="mid-cta-btn">Gratis check aanvragen →</a><p class="mid-cta-note">Vrijblijvend · Binnen 24 uur</p></div></div>
         </section>
 
         <!-- CONSTRUCTIEBEREKENING -->
@@ -2730,14 +2761,14 @@ nav.scrolled .nav-cta {
         <!-- PRICING (met automatisch invullen) -->
         <section class="pricing" id="prijzen">
             <div class="pricing-inner"><div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>situatie</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. U weet vooraf precies waar u aan toe bent — geen verborgen kosten.</p></div><div class="pricing-grid" id="pricing-grid">
-                <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€250<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Complete set</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Plattegrond, gevels, doorsneden</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 100% goedkeuringsgarantie</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakkapel-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
-                <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€495<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>Alles uit basispakket</strong></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volledige constructieberekening</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> NEN-normering rapportage</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakkapel-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
-                <div class="price-card fade-up"><h3>Full‑Service Vergunning</h3><div class="price-value">€750<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>Alles uit constructiepakket</strong></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volledige indiening Omgevingsloket</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Begeleiding tot verlening</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakkapel-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
+                <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€250<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Complete set</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Plattegrond, gevels, doorsneden</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 100% goedkeuringsgarantie</li></ul><a href="index.html#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakkapel-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
+                <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€495<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>Alles uit basispakket</strong></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volledige constructieberekening</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> NEN-normering rapportage</li></ul><a href="index.html#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakkapel-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
+                <div class="price-card fade-up"><h3>Full‑Service Vergunning</h3><div class="price-value">€750<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>Alles uit constructiepakket</strong></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volledige indiening Omgevingsloket</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Begeleiding tot verlening</li></ul><a href="index.html#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakkapel-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
             </div></div>
         </section>
 
         <!-- TECH DETAILS -->
-        <section class="tech-details"><div class="tech-inner"><div class="fade-up"><div class="section-label">Techniek</div><h2 class="section-title">Waarom een <em>simpele schets</em> niet volstaat.</h2><p style="color: var(--text-light); line-height: 1.8; margin-bottom: 2rem;">Een complete bouwtekening voldoet aan het Bouwbesluit. Gemeente en aannemer kunnen alleen hiermee werken. Elk onderdeel dient een specifiek doel in de beoordeling.</p><a href="#contact" class="btn"><span>Voorbeeldtekening aanvragen →</span></a></div><div class="tech-grid fade-in">
+        <section class="tech-details"><div class="tech-inner"><div class="fade-up"><div class="section-label">Techniek</div><h2 class="section-title">Waarom een <em>simpele schets</em> niet volstaat.</h2><p style="color: var(--text-light); line-height: 1.8; margin-bottom: 2rem;">Een complete bouwtekening voldoet aan het Bouwbesluit. Gemeente en aannemer kunnen alleen hiermee werken. Elk onderdeel dient een specifiek doel in de beoordeling.</p><a href="index.html#contact" class="btn"><span>Voorbeeldtekening aanvragen →</span></a></div><div class="tech-grid fade-in">
                 <div class="tech-item"><h4>Plattegronden (bestaand & nieuw)</h4><p>De gemeente toetst hiermee of de uitbreiding binnen het bestemmingsplan past en of de maten voldoen aan de landelijke regels.</p></div>
                 <div class="tech-item"><h4>Doorsneden (verticaal)</h4><p>Beoordeling van constructieve veiligheid en isolatiewaarden (Rc) conform het Bouwbesluit. Essentieel voor de vergunning.</p></div>
                 <div class="tech-item"><h4>Gevelaanzichten</h4><p>De welstandscommissie gebruikt deze om te beoordelen of de dakkapel past in het straatbeeld en geen onevenredige afbreuk doet aan de omgeving.</p></div>
@@ -2871,7 +2902,138 @@ nav.scrolled .nav-cta {
                 contactForm.reset();
             });
         }
-    </script>
+    
+        // === INJECTED: Homepage JS block 1 (mobile nav, accordion, etc.) ===
+[
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Alka's Bouwadvies",
+            "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies voor uitbouwen, dakkapellen en erkers. Actief in 170+ gemeentes.",
+            "url": "https://alkasbouwadvies.nl",
+            "telephone": "+31612345678",
+            "email": "info@alkasbouwadvies.nl",
+            "priceRange": "&euro;&euro;",
+            "currenciesAccepted": "EUR",
+            "paymentAccepted": "Bankoverschrijving, iDEAL",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "NL",
+              "addressRegion": "Nederland"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "52.3676",
+              "longitude": "4.9041"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                "opens": "09:00",
+                "closes": "17:30"
+              }
+            ],
+            "serviceType": [
+              "Bouwkundige tekeningen",
+              "Omgevingsvergunning aanvraag",
+              "Bestemmingsplan advies",
+              "Bouwtekeningen digitaliseren",
+              "Constructieberekening"
+            ],
+            "hasCredential": "ABW Gecertificeerd",
+            "numberOfEmployees": { "@type": "QuantitativeValue", "value": "5" },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "bestRating": "5",
+              "worstRating": "1",
+              "reviewCount": "650"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Mark de Vries" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+                "reviewBody": "Binnen twee dagen had ik een eerste ontwerp op tafel. De vergunning was binnen 7 weken rond — veel sneller dan verwacht."
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Sophie Jansen" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+                "reviewBody": "De vaste prijs gaf mij rust. Geen verrassingen, geen extra rekeningen. Alka's Bouwadvies regelde alles van A tot Z."
+              }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Hoe lang duurt het vergunningstraject gemiddeld?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Een eenvoudige dakkapel of uitbouw duurt gemiddeld 6 tot 8 weken. Complexere projecten kunnen 12 tot 16 weken in beslag nemen. Wij zorgen ervoor dat uw aanvraag vanaf dag één compleet en correct is ingediend."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wat zijn de totale kosten inclusief leges?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Onze tarieven zijn vaste prijzen exclusief BTW en gemeentelijke leges. Voor de meeste uitbouwen en dakkapellen liggen de totale kosten (inclusief leges) tussen de &euro;400 en &euro;700. Wij geven u vooraf een transparante kostenindicatie."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is een omgevingsvergunning altijd nodig?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Niet altijd. Veel kleine verbouwingen vallen onder 'vergunningsvrij bouwen'. Wij beoordelen gratis of uw plan vergunningsplichtig is en adviseren u over de beste route."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "In welke gemeentes zijn jullie actief?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Wij zijn actief in meer dan 170 gemeentes door heel Nederland. Van Amsterdam tot Zeeland, en van Groningen tot Limburg."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wat gebeurt er als de gemeente bezwaar maakt?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Mocht er een vraag of opmerking vanuit de gemeente komen, dan fungeren wij als uw aanspreekpunt. Wij beantwoorden alle technische vragen, passen de tekeningen aan indien nodig, en zorgen dat het traject soepel verloopt — zonder extra kosten."
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "serviceType": "Bouwkundige tekeningen en omgevingsvergunningen",
+                "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Alka's Bouwadvies"
+                },
+                "areaServed": "NL",
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "lowPrice": "250",
+                    "highPrice": "1140",
+                    "priceCurrency": "EUR"
+                },
+                "description": "Professionele bouwtekeningen voor dakkapellen, uitbouwen en nieuwbouw. Inclusief begeleiding bij de omgevingsvergunning."
+                }
+            ]
+          }
+        ]
+</script>
 
 <footer>
         <div class="footer-top">
