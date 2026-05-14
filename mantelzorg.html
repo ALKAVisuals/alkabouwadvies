@@ -4013,6 +4013,34 @@ nav.scrolled .nav-cta {
                 }
             });
         }
+
+        // === TOOL→CONTACT: Diagnose Mantelzorgwoning ===
+        (function() {
+            const toolBtn = document.querySelector('.wizard-cta-btn');
+            if (toolBtn) {
+                toolBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const subjectField = document.getElementById('subject');
+                    if (subjectField) {
+                        // Add option if not exists
+                        let opt = subjectField.querySelector('option[value="diagnose-mantelzorg"]');
+                        if (!opt) {
+                            opt = document.createElement('option');
+                            opt.value = 'diagnose-mantelzorg';
+                            opt.textContent = 'Diagnose Mantelzorgwoning';
+                            subjectField.appendChild(opt);
+                        }
+                        subjectField.value = 'diagnose-mantelzorg';
+                        subjectField.dispatchEvent(new Event('change'));
+                    }
+                    // Scroll to contact
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+        })();
 </script>
 </body>
 </html>

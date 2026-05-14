@@ -4269,6 +4269,34 @@ nav.scrolled .nav-cta {
                 }
             });
         }
+
+        // === TOOL→CONTACT: Ontwerproute Erker ===
+        (function() {
+            const toolBtn = document.querySelector('.wizard-cta-btn');
+            if (toolBtn) {
+                toolBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const subjectField = document.getElementById('subject');
+                    if (subjectField) {
+                        // Add option if not exists
+                        let opt = subjectField.querySelector('option[value="ontwerproute-erker"]');
+                        if (!opt) {
+                            opt = document.createElement('option');
+                            opt.value = 'ontwerproute-erker';
+                            opt.textContent = 'Ontwerproute Erker';
+                            subjectField.appendChild(opt);
+                        }
+                        subjectField.value = 'ontwerproute-erker';
+                        subjectField.dispatchEvent(new Event('change'));
+                    }
+                    // Scroll to contact
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+        })();
 </script>
 </body>
 </html>

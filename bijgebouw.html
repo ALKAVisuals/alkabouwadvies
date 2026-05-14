@@ -3525,6 +3525,34 @@ nav.scrolled .nav-cta {
                 }
             });
         }
+
+        // === TOOL→CONTACT: Vergunningscheck Bijgebouw ===
+        (function() {
+            const toolBtn = document.querySelector('.wizard-cta-btn');
+            if (toolBtn) {
+                toolBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const subjectField = document.getElementById('subject');
+                    if (subjectField) {
+                        // Add option if not exists
+                        let opt = subjectField.querySelector('option[value="vergunningscheck-bijgebouw"]');
+                        if (!opt) {
+                            opt = document.createElement('option');
+                            opt.value = 'vergunningscheck-bijgebouw';
+                            opt.textContent = 'Vergunningscheck Bijgebouw';
+                            subjectField.appendChild(opt);
+                        }
+                        subjectField.value = 'vergunningscheck-bijgebouw';
+                        subjectField.dispatchEvent(new Event('change'));
+                    }
+                    // Scroll to contact
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+        })();
 </script>
 </body>
 </html>

@@ -3916,6 +3916,34 @@ nav.scrolled .nav-cta {
                 }
             });
         }
+
+        // === TOOL→CONTACT: Nok-Check Nokverhoging ===
+        (function() {
+            const toolBtn = document.querySelector('.wizard-cta-btn');
+            if (toolBtn) {
+                toolBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const subjectField = document.getElementById('subject');
+                    if (subjectField) {
+                        // Add option if not exists
+                        let opt = subjectField.querySelector('option[value="nok-check"]');
+                        if (!opt) {
+                            opt = document.createElement('option');
+                            opt.value = 'nok-check';
+                            opt.textContent = 'Nok-Check Nokverhoging';
+                            subjectField.appendChild(opt);
+                        }
+                        subjectField.value = 'nok-check';
+                        subjectField.dispatchEvent(new Event('change'));
+                    }
+                    // Scroll to contact
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+        })();
 </script>
 </body>
 </html>
