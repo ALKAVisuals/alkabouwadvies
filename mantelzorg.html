@@ -28,6 +28,25 @@
 
     <noscript>
         <style>
+
+/* ═══ DROPDOWN NAV ═══ */
+.nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--gray);border-radius:0;width:720px;display:flex;flex-direction:row;opacity:0;pointer-events:none;transition:opacity .28s ease,transform .35s cubic-bezier(.25,.46,.45,.94);box-shadow:0 24px 56px rgba(0,0,0,.09);z-index:102;overflow:hidden}
+.nav-links>li>a:hover~.nav-dropdown,.nav-links>li>a:focus~.nav-dropdown,.nav-dropdown:hover{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.dropdown-left{flex:0 0 250px;padding:.75rem 0;border-right:1px solid var(--gray);display:flex;flex-direction:column;background:var(--white)}
+.dropdown-left .dropdown-item{display:block;padding:.9rem 1.5rem;font-size:.8125rem;font-weight:500;letter-spacing:.02em;color:var(--text);text-decoration:none;transition:all .22s ease;position:relative;border:none;border-left:2px solid transparent;background:transparent;text-align:left;cursor:pointer;font-family:inherit;line-height:1.4;white-space:nowrap}
+.dropdown-left .dropdown-item:hover,.dropdown-left .dropdown-item.hovered{color:var(--accent);background:#fafafa;border-left-color:var(--accent)}
+.dropdown-right{flex:1;padding:1.25rem 1.5rem;background:#fdfdfd;opacity:0;transform:translateX(6px);transition:opacity .32s ease,transform .32s cubic-bezier(.25,.46,.45,.94);position:absolute;top:0;right:0;bottom:0;left:250px;pointer-events:none;overflow-y:auto}
+.dropdown-right.visible{opacity:1;transform:translateX(0);pointer-events:all}
+.dropdown-list a{display:block;padding:.6rem 0;text-decoration:none;color:var(--text);border-bottom:1px solid var(--gray);transition:color .2s}
+.dropdown-list a:last-child{border-bottom:none}.dropdown-list a:hover{color:var(--accent)}
+.list-item-title{display:block;font-size:.8125rem;font-weight:600;margin-bottom:.15rem}
+.list-item-desc{display:block;font-size:.75rem;color:var(--text-light);font-weight:400}
+.dropdown-info p{font-size:.8125rem;color:var(--text-light);line-height:1.6;margin-bottom:1rem}
+.dropdown-cta-btn{display:inline-block;padding:.6rem 1.25rem;background:var(--accent);color:var(--white);font-size:.8125rem;font-weight:600;text-decoration:none;border-radius:0;transition:background .2s}
+.dropdown-cta-btn:hover{background:var(--accent-light)}
+@media(max-width:768px){.nav-dropdown{display:none!important}}
+
+
             .fade-up,
             .fade-in {
                 opacity: 1 !important;
@@ -694,8 +713,9 @@ nav.scrolled .nav-cta {
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--text);
-            border: 1.5px solid var(--text);
+            background: var(--accent);
+            color: var(--white);
+            border: none;
             padding: 0.625rem 1.5rem;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             text-decoration: none;
@@ -3940,107 +3960,66 @@ nav.scrolled .nav-cta {
         });
     })();
 
-        // === INJECTED: Scrollspy ===
-// Scrollspy
-        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
-        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-        if (sections.length > 0) {
-            const observerOptions = { root: null, rootMargin: '-80px 0px -60% 0px', threshold: 0 };
-            const observerCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const activeId = entry.target.id;
-                        navLinks.forEach(link => {
-                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
-                        });
-                    }
-                });
-            };
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            sections.forEach(section => observer.observe(section));
-        }
+</script>
+<script>
+    // ═══ DESKTOP TWO-COLUMN DROPDOWN ═══
+    (function(){
+        const dli=document.querySelectorAll('.dropdown-left .dropdown-item');
+        const arp=document.querySelectorAll('.dropdown-right');
+        const dc=document.getElementById('diensten-dropdown');
+        if(!dli.length)return;
+        function showPanel(id){arp.forEach(p=>p.classList.remove('visible'));if(id){const panel=document.getElementById(id);if(panel)panel.classList.add('visible')}}
+        dli.forEach(item=>{item.addEventListener('mouseenter',()=>{dli.forEach(i=>i.classList.remove('hovered'));item.classList.add('hovered');const sid=item.getAttribute('data-sub');if(sid&&sid!=='')showPanel('sub-'+sid)})});
+        if(dc){dc.addEventListener('mouseleave',()=>{dli.forEach(i=>i.classList.remove('hovered'));const fi=dli[0];if(fi){fi.classList.add('hovered');const sid=fi.getAttribute('data-sub');if(sid&&sid!=='')showPanel('sub-'+sid)}})}
+    })();
+    // ═══ SCROLL-SPY ═══
+    (function(){
+        const secs=document.querySelectorAll('section[id]');
+        const nlinks=document.querySelectorAll('.nav-links a[data-section]');
+        if(!secs.length||!nlinks.length)return;
+        const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.getAttribute('id');nlinks.forEach(l=>l.classList.toggle('active',l.getAttribute('data-section')===id))}})},{rootMargin:'-80px 0px -40% 0px',threshold:0});
+        secs.forEach(s=>obs.observe(s));
+    })();
+    // ═══ SMOOTH SCROLL ═══
+    (function(){
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const tid=this.getAttribute('href');if(tid==='#')return;const t=document.querySelector(tid);if(t){e.preventDefault();if(typeof lenis!=='undefined')lenis.scrollTo(t,{offset:-80});else t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+    })();
+    // ═══ DIAGNOSE → CONTACT ═══
+    (function(){
+        const btn=document.getElementById('result-cta');
+        if(btn){btn.addEventListener('click',function(e){
+            e.preventDefault();
+            const subj=document.getElementById('subject');
+            const msg=document.getElementById('message');
+            if(subj){subj.value='Diagnose Mantelzorgwoning';subj.dispatchEvent(new Event('change'))}
+            if(msg){msg.value='Hallo, ik heb de diagnose gedaan en wil graag advies over een mantelzorgwoning.';msg.dispatchEvent(new Event('input'))}
+            const cs=document.getElementById('contact');
+            if(cs){if(typeof lenis!=='undefined')lenis.scrollTo(cs,{offset:-80});else cs.scrollIntoView({behavior:'smooth',block:'start'})}
+        })}
+    })();
 
-        // === INJECTED: Smooth scroll ===
-// Smooth scroll anchors
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
-            });
-        });
-
-        // === INJECTED: Desktop Dropdown ===
-// ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
-        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
-        const allRightPanels = document.querySelectorAll('.dropdown-right');
-
-        function showRightPanel(subId) {
-            allRightPanels.forEach(p => {
-                p.classList.remove('visible');
-            });
-            if (subId) {
-                const panel = document.getElementById(subId);
-                if (panel) {
-                    panel.classList.add('visible');
-                }
-            }
-        }
-
-        dropdownLeftItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                item.classList.add('hovered');
-                const subId = item.getAttribute('data-sub');
-                if (subId && subId !== '') {
-                    showRightPanel('sub-' + subId);
-                }
-            });
-        });
-
-        const dropdownContainer = document.getElementById('diensten-dropdown');
-        if (dropdownContainer) {
-            dropdownContainer.addEventListener('mouseleave', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                const firstItem = dropdownLeftItems[0];
-                if (firstItem) {
-                    firstItem.classList.add('hovered');
-                    const subId = firstItem.getAttribute('data-sub');
-                    if (subId && subId !== '') {
-                        showRightPanel('sub-' + subId);
-                    }
-                }
-            });
-        }
-
-        // === TOOL→CONTACT: Diagnose Mantelzorgwoning ===
-        (function() {
-            const toolBtn = document.querySelector('.wizard-cta-btn');
-            if (toolBtn) {
-                toolBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const subjectField = document.getElementById('subject');
-                    if (subjectField) {
-                        // Add option if not exists
-                        let opt = subjectField.querySelector('option[value="diagnose-mantelzorg"]');
-                        if (!opt) {
-                            opt = document.createElement('option');
-                            opt.value = 'diagnose-mantelzorg';
-                            opt.textContent = 'Diagnose Mantelzorgwoning';
-                            subjectField.appendChild(opt);
-                        }
-                        subjectField.value = 'diagnose-mantelzorg';
-                        subjectField.dispatchEvent(new Event('change'));
-                    }
-                    // Scroll to contact
-                    const contactSection = document.getElementById('contact');
-                    if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            }
-        })();
+    // ═══ DESKTOP TWO-COLUMN DROPDOWN ═══
+    (function(){
+        const dli=document.querySelectorAll('.dropdown-left .dropdown-item');
+        const arp=document.querySelectorAll('.dropdown-right');
+        const dc=document.getElementById('diensten-dropdown');
+        if(!dli.length)return;
+        function showPanel(id){arp.forEach(p=>p.classList.remove('visible'));if(id){const panel=document.getElementById(id);if(panel)panel.classList.add('visible')}}
+        dli.forEach(item=>{item.addEventListener('mouseenter',()=>{dli.forEach(i=>i.classList.remove('hovered'));item.classList.add('hovered');const sid=item.getAttribute('data-sub');if(sid&&sid!=='')showPanel('sub-'+sid)})});
+        if(dc){dc.addEventListener('mouseleave',()=>{dli.forEach(i=>i.classList.remove('hovered'));const fi=dli[0];if(fi){fi.classList.add('hovered');const sid=fi.getAttribute('data-sub');if(sid&&sid!=='')showPanel('sub-'+sid)}})}
+    })();
+    // ═══ SCROLL-SPY ═══
+    (function(){
+        const secs=document.querySelectorAll('section[id]');
+        const nlinks=document.querySelectorAll('.nav-links a[data-section]');
+        if(!secs.length||!nlinks.length)return;
+        const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.getAttribute('id');nlinks.forEach(l=>l.classList.toggle('active',l.getAttribute('data-section')===id))}})},{rootMargin:'-80px 0px -40% 0px',threshold:0});
+        secs.forEach(s=>obs.observe(s));
+    })();
+    // ═══ SMOOTH SCROLL ═══
+    (function(){
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const tid=this.getAttribute('href');if(tid==='#')return;const t=document.querySelector(tid);if(t){e.preventDefault();if(typeof lenis!=='undefined')lenis.scrollTo(t,{offset:-80});else t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+    })();
 </script>
 </body>
 </html>
