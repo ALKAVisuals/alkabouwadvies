@@ -27,6 +27,100 @@
     </script>
 
     <style>
+
+/* ═══ DROPDOWN NAV (injected) ═══ */
+.nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: 0;
+    width: 720px;
+    display: flex;
+    flex-direction: row;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s ease, transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.09);
+    z-index: 102;
+    overflow: hidden;
+}
+.nav-links > li > a:hover ~ .nav-dropdown,
+.nav-links > li > a:focus ~ .nav-dropdown,
+.nav-dropdown:hover {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+}
+.dropdown-left {
+    flex: 0 0 250px;
+    padding: 0.75rem 0;
+    border-right: 1px solid var(--gray);
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+}
+.dropdown-left .dropdown-item {
+    display: block;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.22s ease;
+    position: relative;
+    border: none;
+    border-left: 2px solid transparent;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+.dropdown-left .dropdown-item:hover,
+.dropdown-left .dropdown-item.hovered {
+    color: var(--accent);
+    background: #fafafa;
+    border-left-color: var(--accent);
+}
+.dropdown-right {
+    flex: 1;
+    padding: 1.25rem 1.5rem;
+    background: #fdfdfd;
+    opacity: 0;
+    transform: translateX(6px);
+    transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 250px;
+    pointer-events: none;
+    overflow-y: auto;
+}
+.dropdown-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+.dropdown-list a {
+    display: block; padding: 0.6rem 0; text-decoration: none; color: var(--text);
+    border-bottom: 1px solid var(--gray); transition: color 0.2s;
+}
+.dropdown-list a:last-child { border-bottom: none; }
+.dropdown-list a:hover { color: var(--accent); }
+.list-item-title { display: block; font-size: 0.8125rem; font-weight: 600; margin-bottom: 0.15rem; }
+.list-item-desc { display: block; font-size: 0.75rem; color: var(--text-light); font-weight: 400; }
+.dropdown-info p { font-size: 0.8125rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1rem; }
+.dropdown-cta-btn {
+    display: inline-block; padding: 0.6rem 1.25rem; background: var(--accent); color: var(--white);
+    font-size: 0.8125rem; font-weight: 600; text-decoration: none; border-radius: 0; transition: background 0.2s;
+}
+.dropdown-cta-btn:hover { background: var(--accent-light); }
+@media (max-width: 768px) { .nav-dropdown { display: none !important; } }
+
+
         :root {
             --bg: #fafafa;
             --bg-dark: #0f0f0f;
@@ -197,8 +291,9 @@
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--text);
-            border: 1.5px solid var(--text);
+            background: var(--accent);
+            color: var(--white);
+            border: none;
             padding: 0.625rem 1.5rem;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             text-decoration: none;
@@ -3151,5 +3246,77 @@ nav.scrolled .nav-cta {
             });
         }
 </script>
+
+    // ═══ DESKTOP TWO-COLUMN DROPDOWN ═══
+    (function() {
+        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
+        const allRightPanels = document.querySelectorAll('.dropdown-right');
+        const dropdownContainer = document.getElementById('diensten-dropdown');
+        if (!dropdownLeftItems.length) return;
+
+        function showRightPanel(subId) {
+            allRightPanels.forEach(p => p.classList.remove('visible'));
+            if (subId) {
+                const panel = document.getElementById(subId);
+                if (panel) panel.classList.add('visible');
+            }
+        }
+
+        dropdownLeftItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                item.classList.add('hovered');
+                const subId = item.getAttribute('data-sub');
+                if (subId && subId !== '') showRightPanel('sub-' + subId);
+            });
+        });
+
+        if (dropdownContainer) {
+            dropdownContainer.addEventListener('mouseleave', () => {
+                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                const firstItem = dropdownLeftItems[0];
+                if (firstItem) {
+                    firstItem.classList.add('hovered');
+                    const subId = firstItem.getAttribute('data-sub');
+                    if (subId && subId !== '') showRightPanel('sub-' + subId);
+                }
+            });
+        }
+    })();
+
+    // ═══ SCROLL-SPY ═══
+    (function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+        if (!sections.length || !navLinks.length) return;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('data-section') === id);
+                    });
+                }
+            });
+        }, { rootMargin: '-80px 0px -40% 0px', threshold: 0 });
+        sections.forEach(section => observer.observe(section));
+    })();
+
+    // ═══ SMOOTH SCROLL ═══
+    (function() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    if (typeof lenis !== 'undefined') lenis.scrollTo(target, { offset: -80 });
+                    else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    })();
+
 </body>
 </html>
