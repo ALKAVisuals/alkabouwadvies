@@ -3441,83 +3441,11 @@
                 grid-template-columns: 1fr;
             }
         }
-        /* ═══════════════════════════════════════════
-           METAL FX — Gold Button Effect (CSS-only)
-           Gebaseerd op metal-fx gold preset
-           ═══════════════════════════════════════════ */
-        .metal-btn {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 2.5rem;
-            font-family: inherit;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            background: linear-gradient(135deg, #b3944d 0%, #d4b76a 25%, #f5e6a3 50%, #d4b76a 75%, #b3944d 100%);
-            background-size: 200% 200%;
-            color: #1a1a1a;
-            box-shadow: 0 4px 15px rgba(179, 148, 77, 0.3), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.1);
-        }
-        .metal-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
-            transition: left 0.6s ease;
-        }
-        .metal-btn::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
-            border-radius: inherit;
-            pointer-events: none;
-        }
-        .metal-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(179, 148, 77, 0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.15);
-            animation: metalShine 2s ease-in-out infinite;
-        }
-        .metal-btn:hover::before {
-            left: 100%;
-        }
-        .metal-btn:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 10px rgba(179, 148, 77, 0.3), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 2px 4px rgba(0,0,0,0.1);
-        }
-        @keyframes metalShine {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        .metal-btn-dark {
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%, #0f0f0f 100%);
-            background-size: 200% 200%;
-            color: #b3944d;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(0,0,0,0.3);
-        }
-        .metal-btn-dark::after {
-            background: linear-gradient(180deg, rgba(179,148,77,0.1) 0%, transparent 50%, rgba(0,0,0,0.2) 100%);
-        }
-        .metal-btn-dark:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.4);
-        }
-        .metal-btn-sm { padding: 0.625rem 1.5rem; font-size: 0.75rem; }
-        .metal-btn-lg { padding: 1.25rem 3rem; font-size: 0.875rem; }
-        .metal-btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
 
     </style>
     <base target="_blank">
+
+    <link rel="stylesheet" href="css/metal-fx.css">
 </head>
 <body>
 <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
@@ -3593,19 +3521,19 @@
                     <div class="dropdown-right" id="sub-vergunning">
                         <div class="dropdown-info">
                             <p>Ik verzorg de complete aanvraag van uw omgevingsvergunning. Van het indienen van de stukken tot het onderhouden van contact met de gemeente — u heeft er geen omkijken naar.</p>
-                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm"><span class="metal-shine"></span>Offerte aanvragen</a>
                         </div>
                     </div>
                     <div class="dropdown-right" id="sub-digitaliseren">
                         <div class="dropdown-info">
                             <p>Heeft u papieren bouwtekeningen die gedigitaliseerd moeten worden? Ik zet uw oude tekeningen om naar professionele digitale bestanden, geschikt voor vergunningsaanvragen en aannemers.</p>
-                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm"><span class="metal-shine"></span>Offerte aanvragen</a>
                         </div>
                     </div>
                     <div class="dropdown-right" id="sub-advies">
                         <div class="dropdown-info">
                             <p>Ik analyseer uw bestemmingsplan en geef concreet advies over wat er mogelijk is op uw perceel. Voorkom verrassingen en weet exact waar u aan toe bent voordat u begint met ontwerpen.</p>
-                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm"><span class="metal-shine"></span>Offerte aanvragen</a>
                         </div>
                     </div>
                 </div>
@@ -3618,7 +3546,7 @@
             <li role="none"><a href="#reviews" role="menuitem" data-section="reviews">Reviews</a></li>
             <li role="none"><a href="#contact" role="menuitem" data-section="contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="nav-cta metal-btn" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+        <a href="#contact" class="nav-cta metal-btn" aria-label="Vraag direct een vrijblijvende offerte aan"><span class="metal-shine"></span>Offerte aanvragen</a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false" aria-controls="mobile-nav">
             <span></span><span></span>
         </button>
@@ -3684,8 +3612,8 @@
                 <h1>Voorkom dat uw bouwplan strandt bij de gemeente. <em>Technische perfectie. Gegarandeerd.</em></h1>
                 <p>Uw droomverbouwing mag niet stranden op technische details. Wij spreken de ambtelijke taal, kennen de eisen van welstandscommissies en zorgen dat uw aanvraag in één keer wordt goedgekeurd. Voorkom afwijzingen, vertragingen en onnodige extra kosten — met onze ABW-gecertificeerde tekeningen staat niets uw vergunning in de weg.</p>
                 <div class="hero-cta-group">
-                    <a href="#prijzen" class="hero-cta metal-btn" aria-label="Bereken uw prijs">Bereken mijn prijs</a>
-                    <a href="#contact" class="hero-cta-secondary metal-btn metal-btn-dark" aria-label="Gratis en vrijblijvend adviesgesprek aanvragen">Gratis adviesgesprek</a>
+                    <a href="#prijzen" class="hero-cta " aria-label="Bereken uw prijs">Bereken mijn prijs</a>
+                    <a href="#contact" class="hero-cta-secondary " aria-label="Gratis en vrijblijvend adviesgesprek aanvragen">Gratis adviesgesprek</a>
                 </div>
                 <div class="hero-badge"><span aria-hidden="true"></span>Binnen 5 werkdagen uw bouwtekening klaar</div>
             </div>
@@ -3783,7 +3711,7 @@
             </div>
         </section>
 
-        <section class="prijzen" id="prijzen" aria-label="Tarieven"><div class="prijzen-inner"><div class="section-label">Transparante prijzen</div><h2 class="section-title">Duidelijkheid vanaf de eerste euro</h2><div class="prijzen-toggle"><span>Excl. BTW</span><button class="toggle-switch" id="btw-toggle" role="switch" aria-checked="false" aria-label="BTW tonen of verbergen" tabindex="0"></button><span>Incl. BTW (21%)</span></div><div class="prijzen-grid"><div class="prijs-card" data-price="250"><div class="prijs-name">Pakket A</div><div class="prijs-amount"><span class="currency">&euro;</span>250<span class="period">,-</span></div><div class="prijs-sub">Per bouwplan — excl. BTW</div><ul class="prijs-features"><li class="included">Bouwkundig Advies</li><li class="included">Bouwkundige Tekeningen</li><li class="not-included">Vergunningaanvraag</li><li class="not-included">Aanspreekpunt Gemeente</li><li class="not-included">Constructieberekening</li></ul><a href="#contact" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor Pakket A">Start met Pakket A</a></div><div class="prijs-card featured" data-price="330"><div class="prijs-badge">Meest gekozen</div><div class="prijs-name">Pakket B</div><div class="prijs-amount"><span class="currency">&euro;</span>330<span class="period">,-</span></div><div class="prijs-sub">Per bouwplan — excl. BTW</div><ul class="prijs-features"><li class="included">Bouwkundig Advies</li><li class="included">Bouwkundige Tekeningen</li><li class="included">Vergunningaanvraag</li><li class="included">Aanspreekpunt Gemeente</li><li class="not-included">Constructieberekening</li></ul><a href="#contact" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor Pakket B — meest gekozen">Start met Pakket B</a></div><div class="prijs-card" data-price="1140"><div class="prijs-name">Pakket C</div><div class="prijs-amount"><span class="currency">&euro;</span>1.140<span class="period">,-</span></div><div class="prijs-sub">Per bouwplan — excl. BTW</div><ul class="prijs-features"><li class="included">Bouwkundig Advies</li><li class="included">Bouwkundige Tekeningen</li><li class="included">Vergunningaanvraag</li><li class="included">Aanspreekpunt Gemeente</li><li class="included">Constructieberekening</li></ul><a href="#contact" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor Pakket C — compleet">Start met Pakket C</a></div></div><div class="garantie-blok"><strong>Onze goedkeuringsgarantie:</strong> Is de tekening niet direct akkoord? Dan passen wij deze kosteloos aan tot de vergunning is verleend.</div><p class="prijs-disclaimer">Pakket A en Pakket B zijn geschikt voor o.a. dakkapellen, uitbouwen en erkers — hiervoor is doorgaans geen technische vergunning vereist.<br>Twijfelt u over het juiste pakket? Neem gerust contact op voor persoonlijk advies.</p></div></section>
+        <section class="prijzen" id="prijzen" aria-label="Tarieven"><div class="prijzen-inner"><div class="section-label">Transparante prijzen</div><h2 class="section-title">Duidelijkheid vanaf de eerste euro</h2><div class="prijzen-toggle"><span>Excl. BTW</span><button class="toggle-switch" id="btw-toggle" role="switch" aria-checked="false" aria-label="BTW tonen of verbergen" tabindex="0"></button><span>Incl. BTW (21%)</span></div><div class="prijzen-grid"><div class="prijs-card" data-price="250"><div class="prijs-name">Pakket A</div><div class="prijs-amount"><span class="currency">&euro;</span>250<span class="period">,-</span></div><div class="prijs-sub">Per bouwplan — excl. BTW</div><ul class="prijs-features"><li class="included">Bouwkundig Advies</li><li class="included">Bouwkundige Tekeningen</li><li class="not-included">Vergunningaanvraag</li><li class="not-included">Aanspreekpunt Gemeente</li><li class="not-included">Constructieberekening</li></ul><a href="#contact" class="prijs-btn " aria-label="Offerte aanvragen voor Pakket A">Start met Pakket A</a></div><div class="prijs-card featured" data-price="330"><div class="prijs-badge">Meest gekozen</div><div class="prijs-name">Pakket B</div><div class="prijs-amount"><span class="currency">&euro;</span>330<span class="period">,-</span></div><div class="prijs-sub">Per bouwplan — excl. BTW</div><ul class="prijs-features"><li class="included">Bouwkundig Advies</li><li class="included">Bouwkundige Tekeningen</li><li class="included">Vergunningaanvraag</li><li class="included">Aanspreekpunt Gemeente</li><li class="not-included">Constructieberekening</li></ul><a href="#contact" class="prijs-btn " aria-label="Offerte aanvragen voor Pakket B — meest gekozen">Start met Pakket B</a></div><div class="prijs-card" data-price="1140"><div class="prijs-name">Pakket C</div><div class="prijs-amount"><span class="currency">&euro;</span>1.140<span class="period">,-</span></div><div class="prijs-sub">Per bouwplan — excl. BTW</div><ul class="prijs-features"><li class="included">Bouwkundig Advies</li><li class="included">Bouwkundige Tekeningen</li><li class="included">Vergunningaanvraag</li><li class="included">Aanspreekpunt Gemeente</li><li class="included">Constructieberekening</li></ul><a href="#contact" class="prijs-btn " aria-label="Offerte aanvragen voor Pakket C — compleet">Start met Pakket C</a></div></div><div class="garantie-blok"><strong>Onze goedkeuringsgarantie:</strong> Is de tekening niet direct akkoord? Dan passen wij deze kosteloos aan tot de vergunning is verleend.</div><p class="prijs-disclaimer">Pakket A en Pakket B zijn geschikt voor o.a. dakkapellen, uitbouwen en erkers — hiervoor is doorgaans geen technische vergunning vereist.<br>Twijfelt u over het juiste pakket? Neem gerust contact op voor persoonlijk advies.</p></div></section>
 
         <section class="calculator" id="calculator" aria-label="Bouwtekening prijsindicatie calculator"><div class="calculator-inner"><div class="section-label">Offerte calculator</div><h2 class="section-title">Bereken uw prijsindicatie in 30 seconden</h2><div id="live-total-bar" style="text-align:center;margin-bottom:1rem;font-size:0.9rem;color:var(--accent);font-weight:600;opacity:0;pointer-events:none;transition:opacity 0.3s ease;">Tussenstand: <span id="live-price">&euro;0,-</span></div><div class="calc-container"><div class="calc-steps" role="tablist" aria-label="Calculator stappen"><div class="calc-step active" role="tab" aria-selected="true" aria-label="Stap 1 van 3: Type project"><div class="calc-step-num">1</div><span>Type project</span></div><div class="calc-step-line" aria-hidden="true"></div><div class="calc-step" role="tab" aria-selected="false" aria-label="Stap 2 van 3: Omvang"><div class="calc-step-num">2</div><span>Omvang</span></div><div class="calc-step-line" aria-hidden="true"></div><div class="calc-step" role="tab" aria-selected="false" aria-label="Stap 3 van 3: Resultaat"><div class="calc-step-num">3</div><span>Resultaat</span></div></div>
                 <div class="calc-panel active" data-step="1" role="tabpanel" aria-label="Kies uw type project"><div class="calc-question">Welk type project gaat u realiseren?</div><div class="calc-options" role="radiogroup" aria-label="Project type opties"><button class="calc-option" data-value="dakkapel" data-price="250" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Dakkapel</span><span class="opt-desc">Een dakkapel plaatsen of vervangen</span><span class="opt-price">Vanaf &euro;250,-</span></button><button class="calc-option" data-value="dakopbouw" data-price="330" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Dakopbouw</span><span class="opt-desc">Woning verhogen voor extra verdieping</span><span class="opt-price">Vanaf &euro;330,-</span></button><button class="calc-option" data-value="uitbouw" data-price="330" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Uitbouw / Aanbouw</span><span class="opt-desc">Uitbreiding aan de achter- of zijkant</span><span class="opt-price">Vanaf &euro;330,-</span></button><button class="calc-option" data-value="erker" data-price="250" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Erker</span><span class="opt-desc">Een erker toevoegen aan de gevel</span><span class="opt-price">Vanaf &euro;250,-</span></button><button class="calc-option" data-value="mantelzorg" data-price="330" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Mantelzorgwoning</span><span class="opt-desc">Woonruimte voor zorg in/aan de woning</span><span class="opt-price">Vanaf &euro;330,-</span></button><button class="calc-option" data-value="nieuwbouw" data-price="1140" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">BED & BREAKFAST</span><span class="opt-desc">Ontwerp en vergunning voor een Bed & Breakfast</span><span class="opt-price">Vanaf &euro;1.140,-</span></button><button class="calc-option" data-value="nok" data-price="330" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Nokverhoging / Doorbraak</span><span class="opt-desc">Nok verhogen of dragende wand verwijderen</span><span class="opt-price">Vanaf &euro;330,-</span></button><button class="calc-option" data-value="bijgebouw" data-price="250" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Bijgebouwen</span><span class="opt-desc">Schuur, tuinmuur of overkapping</span><span class="opt-price">Vanaf &euro;250,-</span></button></div><div class="calc-nav"><div></div><button class="calc-btn" id="calc-next-1" disabled aria-label="Ga naar stap 2">Volgende</button></div></div>
@@ -3815,7 +3743,7 @@
         <section class="contact" id="contact" aria-label="Contactformulier en contactgegevens"><div class="contact-inner"><div class="contact-info"><div class="section-label">Contact</div><h3>Start vandaag uw bouwtraject</h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek of vraag direct een offerte aan. Wij reageren altijd binnen 24 uur — en u zit nergens aan vast.</p><div class="contact-detail"><strong>E-mail</strong><a href="mailto:info@alkasbouwadvies.nl" aria-label="Stuur een e-mail naar info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></div><div class="contact-detail"><strong>Telefoon</strong><a href="tel:+31612345678" aria-label="Bel ons op +31 6 12 34 56 78">+31 (0)6 49 24 04 12</a></div><div class="contact-detail"><strong>Website</strong><a href="https://alkasbouwadvies.nl" aria-label="Bezoek onze website alkasbouwadvies.nl">alkasbouwadvies.nl</a></div></div><form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Contactformulier" novalidate><p style="display:none;" aria-hidden="true"><label>Laat dit veld leeg: <input name="bot-field" /></label></p><div class="form-group"><input type="text" name="name" id="name" placeholder=" " required aria-required="true" aria-label="Uw naam"><label for="name">Naam</label><div class="form-error" id="error-name">Vul uw naam in</div></div><div class="form-group"><input type="email" name="email" id="email" placeholder=" " required aria-required="true" aria-label="Uw e-mailadres"><label for="email">E-mail</label><div class="form-error" id="error-email">Vul een geldig e-mailadres in</div></div><div class="form-group"><input type="tel" name="phone" id="phone" placeholder=" " aria-label="Uw telefoonnummer"><label for="phone">Telefoon</label></div><div class="form-group"><select name="subject" id="subject" required><option value="" disabled selected></option><option value="dakkapel">Dakkapel (&euro;250)</option><option value="dakopbouw">Dakopbouw (&euro;330)</option><option value="uitbouw">Uitbouw / Aanbouw (&euro;330)</option><option value="erker">Erker (&euro;250)</option><option value="mantelzorg">Mantelzorgwoning (&euro;330)</option><option value="nieuwbouw">BED & BREAKFAST (&euro;1.140)</option><option value="nok">Nokverhoging / Doorbraak (&euro;330)</option><option value="bijgebouw">Bijgebouwen (&euro;250)</option><option value="digitaliseren">Bouwtekeningen digitaliseren</option><option value="advies">Advies bestemmingsplan</option><option value="overig">Overig / Vrijblijvend gesprek</option></select><label for="subject">Onderwerp</label><div class="form-error" id="error-subject">Selecteer een onderwerp</div></div><div class="form-group"><input type="text" name="gemeente" id="gemeente" placeholder=" " aria-label="Uw gemeente"><label for="gemeente">Gemeente</label></div><div class="form-group"><textarea name="message" id="message" placeholder=" " required aria-required="true" aria-label="Uw bericht"></textarea><label for="message">Bericht</label><div class="form-error" id="error-message">Vul uw bericht in</div></div><button type="submit" class="btn" id="submit-btn" aria-label="Verstuur uw aanvraag — wij reageren binnen 24 uur">Verstuur aanvraag — gratis advies</button></form></div></section>
 
         <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-            <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
+            <a href="#contact" class="sticky-cta-btn metal-btn"><span class="metal-shine"></span>Offerte aanvragen</a>
         </div>
     </main>
 
