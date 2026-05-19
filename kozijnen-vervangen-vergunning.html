@@ -3155,68 +3155,70 @@ nav.scrolled .nav-cta {
                 });
             }
         })();
+
+    // ═══ PRICING → CONTACT ═══
+    (function() {
+        var priceBtns = document.querySelectorAll('.price-btn');
+        priceBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var card = this.closest('.price-card');
+                var title = card ? card.querySelector('h3').textContent.trim() : '';
+                var subject = document.getElementById('subject');
+                var message = document.getElementById('message');
+                if (subject) { subject.value = 'Kozijnen: ' + title; subject.dispatchEvent(new Event('change')); }
+                if (message) { message.value = 'Hallo, ik ben geinteresseerd in het pakket "' + title + '" voor kozijnen vervangen.'; message.dispatchEvent(new Event('input')); }
+                var contactSection = document.getElementById('contact');
+                if (contactSection) { if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 }); else contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+    })();
+
+    // ═══ VERGUNNINGSCHECK CTA → CONTACT ═══
+    (function() {
+        var ctaBtn = document.querySelector('.mid-cta-btn');
+        if (ctaBtn) {
+            ctaBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var subject = document.getElementById('subject');
+                var message = document.getElementById('message');
+                if (subject) { subject.value = 'Vergunningscheck Kozijnen'; subject.dispatchEvent(new Event('change')); }
+                if (message) { message.value = 'Hallo, ik wil een vrijblijvende vergunningscheck voor het vervangen van kozijnen.'; message.dispatchEvent(new Event('input')); }
+                var contactSection = document.getElementById('contact');
+                if (contactSection) { if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 }); else contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        }
+    })();
+
+    // ═══ HERO CTA → CONTACT ═══
+    (function() {
+        var heroCta = document.querySelector('.hero-cta-primary');
+        if (heroCta) {
+            heroCta.addEventListener('click', function(e) {
+                e.preventDefault();
+                var subject = document.getElementById('subject');
+                var message = document.getElementById('message');
+                if (subject) { subject.value = 'Vergunningscheck Kozijnen'; subject.dispatchEvent(new Event('change')); }
+                if (message) { message.value = 'Hallo, ik wil een vrijblijvende vergunningscheck voor het vervangen van kozijnen.'; message.dispatchEvent(new Event('input')); }
+                var contactSection = document.getElementById('contact');
+                if (contactSection) { if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 }); else contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        }
+    })();
+
+    // Mobile Sticky CTA
+    const stickyCta = document.getElementById('mobile-sticky-cta');
+    if (stickyCta) {
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) {
+                stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+            }
+        });
+    }
+
 </script>
 
 
-        // ═══ PRICING → CONTACT ═══
-        (function() {
-            var priceBtns = document.querySelectorAll('.price-btn');
-            priceBtns.forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var card = this.closest('.price-card');
-                    var title = card ? card.querySelector('h3').textContent.trim() : '';
-                    var subject = document.getElementById('subject');
-                    var message = document.getElementById('message');
-                    if (subject) { subject.value = 'Kozijnen: ' + title; subject.dispatchEvent(new Event('change')); }
-                    if (message) { message.value = 'Hallo, ik ben geinteresseerd in het pakket "' + title + '" voor kozijnen vervangen.'; message.dispatchEvent(new Event('input')); }
-                    var contactSection = document.getElementById('contact');
-                    if (contactSection) { if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 }); else contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-                });
-            });
-        })();
-
-        // ═══ VERGUNNINGSCHECK CTA → CONTACT ═══
-        (function() {
-            var ctaBtn = document.querySelector('.mid-cta-btn');
-            if (ctaBtn) {
-                ctaBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var subject = document.getElementById('subject');
-                    var message = document.getElementById('message');
-                    if (subject) { subject.value = 'Vergunningscheck Kozijnen'; subject.dispatchEvent(new Event('change')); }
-                    if (message) { message.value = 'Hallo, ik wil een vrijblijvende vergunningscheck voor het vervangen van kozijnen.'; message.dispatchEvent(new Event('input')); }
-                    var contactSection = document.getElementById('contact');
-                    if (contactSection) { if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 }); else contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-                });
-            }
-        })();
-
-        // ═══ HERO CTA → CONTACT ═══
-        (function() {
-            var heroCta = document.querySelector('.hero-cta-primary');
-            if (heroCta) {
-                heroCta.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var subject = document.getElementById('subject');
-                    var message = document.getElementById('message');
-                    if (subject) { subject.value = 'Vergunningscheck Kozijnen'; subject.dispatchEvent(new Event('change')); }
-                    if (message) { message.value = 'Hallo, ik wil een vrijblijvende vergunningscheck voor het vervangen van kozijnen.'; message.dispatchEvent(new Event('input')); }
-                    var contactSection = document.getElementById('contact');
-                    if (contactSection) { if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 }); else contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-                });
-            }
-        })();
-
-        // Mobile Sticky CTA
-        const stickyCta = document.getElementById('mobile-sticky-cta');
-        if (stickyCta) {
-            window.addEventListener('scroll', () => {
-                if (window.innerWidth <= 768) {
-                    stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
-                }
-            });
-        }
 <script>
     // ═══ PAKKET DOORSTUREN NAAR CONTACT ═══
     (function() {
