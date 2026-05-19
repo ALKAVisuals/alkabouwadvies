@@ -2498,6 +2498,21 @@ nav.scrolled .nav-cta {
         }
 
 </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Alka's Bouwadvies",
+        "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies.",
+        "url": "https://alkasbouwadvies.nl",
+        "telephone": "+31649240412",
+        "email": "info@alkasbouwadvies.nl",
+        "priceRange": "EUR",
+        "address": { "@type": "PostalAddress", "addressCountry": "NL" },
+        "areaServed": "NL"
+    }
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Ga naar inhoud</a>
@@ -2801,40 +2816,51 @@ nav.scrolled .nav-cta {
         </div>
     
         <!-- CONTACT -->
-        <section id="contact" class="contact-section">
+        <section class="contact" id="contact">
             <div class="contact-inner">
-                <div class="fade-up text-center-narrow">
-                    <div class="section-label">Contact</div>
-                    <h2 class="section-title">Vraag een <em>vrijblijvend</em> adviesgesprek aan.</h2>
-                </div>
-                <div class="contact-grid">
-                    <div class="contact-info fade-up">
-                        <h3>Gegevens</h3>
-                        <ul class="contact-details">
-                            <li><i class="fas fa-envelope"></i> info@alkasbouwadvies.nl</li>
-                            <li><i class="fas fa-phone"></i> +31 (0)6 49 24 04 12</li>
-                            <li><i class="fas fa-map-marker-alt"></i> Actief in 170+ gemeentes</li>
-                        </ul>
+                <div class="contact-info">
+                    <h3>Vraag een vrijblijvend adviesgesprek aan</h3>
+                    <p>Wij denken graag met u mee over de mogelijkheden op uw perceel. Vul het formulier in of neem direct contact op.</p>
+                    <div class="contact-detail">
+                        <strong>E-mail</strong>
+                        <a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a>
                     </div>
-                    <form class="contact-form fade-up">
-                        <h3>Stel uw vraag</h3>
-                        <div class="form-row">
-                            <input type="text" name="name" placeholder="Naam" required>
-                            <input type="email" name="email" placeholder="E-mail" required>
-                        </div>
-                        <div class="form-row">
-                            <input type="tel" name="phone" placeholder="Telefoon">
-                            <select name="subject" id="subject" required>
-                                <option value="" disabled selected>Onderwerp</option>
-                                <option value="Bouwkundig Advies">Bouwkundig Advies</option>
-                                <option value="Bestemmingsplancheck">Bestemmingsplancheck</option>
-                                <option value="Anders">Anders</option>
-                            </select>
-                        </div>
-                        <textarea name="message" id="message" placeholder="Uw bericht" rows="5" required></textarea>
-                        <button type="submit" class="btn"><span>Verstuur bericht</span></button>
-                    </form>
+                    <div class="contact-detail">
+                        <strong>Telefoon</strong>
+                        <a href="tel:+31649240412">+31 (0)6 49 24 04 12</a>
+                    </div>
+                    <div class="contact-detail">
+                        <strong>Werkgebied</strong>
+                        <span>Actief in 170+ gemeentes door heel Nederland</span>
+                    </div>
                 </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder=" " required>
+                        <label>Naam</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder=" " required>
+                        <label>E-mail</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder=" ">
+                        <label>Telefoon</label>
+                    </div>
+                    <div class="form-group">
+                        <select name="subject" id="subject" required>
+                            <option value="" disabled selected>Onderwerp</option>
+                            <option value="Bouwkundig Advies">Bouwkundig Advies</option>
+                            <option value="Bestemmingsplancheck">Bestemmingsplancheck</option>
+                            <option value="Anders">Anders</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" placeholder=" " rows="5" required></textarea>
+                        <label>Uw bericht</label>
+                    </div>
+                    <button type="submit" class="btn"><span>Verstuur bericht</span></button>
+                </form>
             </div>
         </section>
 
@@ -2994,136 +3020,6 @@ nav.scrolled .nav-cta {
             });
         }
     
-        // === INJECTED: Homepage JS block 1 (mobile nav, accordion, etc.) ===
-[
-          {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Alka's Bouwadvies",
-            "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies voor uitbouwen, bouwkundig-advieslen en erkers. Actief in 170+ gemeentes.",
-            "url": "https://alkasbouwadvies.nl",
-            "telephone": "+31612345678",
-            "email": "info@alkasbouwadvies.nl",
-            "priceRange": "&euro;&euro;",
-            "currenciesAccepted": "EUR",
-            "paymentAccepted": "Bankoverschrijving, iDEAL",
-            "address": {
-              "@type": "PostalAddress",
-              "addressCountry": "NL",
-              "addressRegion": "Nederland"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": "52.3676",
-              "longitude": "4.9041"
-            },
-            "areaServed": {
-              "@type": "Country",
-              "name": "Nederland"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-                "opens": "09:00",
-                "closes": "17:30"
-              }
-            ],
-            "serviceType": [
-              "Bouwkundige tekeningen",
-              "Omgevingsvergunning aanvraag",
-              "Bestemmingsplan advies",
-              "Bouwtekeningen digitaliseren",
-              "Constructieberekening"
-            ],
-            "hasCredential": "ABW Gecertificeerd",
-            "numberOfEmployees": { "@type": "QuantitativeValue", "value": "5" },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "bestRating": "5",
-              "worstRating": "1",
-              "reviewCount": "650"
-            },
-            "review": [
-              {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Mark de Vries" },
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-                "reviewBody": "Binnen twee dagen had ik een eerste ontwerp op tafel. De vergunning was binnen 7 weken rond — veel sneller dan verwacht."
-              },
-              {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Sophie Jansen" },
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-                "reviewBody": "De vaste prijs gaf mij rust. Geen verrassingen, geen extra rekeningen. Alka's Bouwadvies regelde alles van A tot Z."
-              }
-            ]
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Hoe lang duurt het vergunningstraject gemiddeld?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Een eenvoudige bouwkundig-advies of uitbouw duurt gemiddeld 6 tot 8 weken. Complexere projecten kunnen 12 tot 16 weken in beslag nemen. Wij zorgen ervoor dat uw aanvraag vanaf dag één compleet en correct is ingediend."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Wat zijn de totale kosten inclusief leges?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Onze tarieven zijn vaste prijzen exclusief BTW en gemeentelijke leges. Voor de meeste uitbouwen en bouwkundig-advieslen liggen de totale kosten (inclusief leges) tussen de &euro;400 en &euro;700. Wij geven u vooraf een transparante kostenindicatie."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is een omgevingsvergunning altijd nodig?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Niet altijd. Veel kleine verbouwingen vallen onder 'vergunningsvrij bouwen'. Wij beoordelen gratis of uw plan vergunningsplichtig is en adviseren u over de beste route."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "In welke gemeentes zijn jullie actief?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Wij zijn actief in meer dan 170 gemeentes door heel Nederland. Van Amsterdam tot Zeeland, en van Groningen tot Limburg."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Wat gebeurt er als de gemeente bezwaar maakt?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Mocht er een vraag of opmerking vanuit de gemeente komen, dan fungeren wij als uw aanspreekpunt. Wij beantwoorden alle technische vragen, passen de tekeningen aan indien nodig, en zorgen dat het traject soepel verloopt — zonder extra kosten."
-                }
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "Service",
-                "serviceType": "Bouwkundige tekeningen en omgevingsvergunningen",
-                "provider": {
-                    "@type": "LocalBusiness",
-                    "name": "Alka's Bouwadvies"
-                },
-                "areaServed": "NL",
-                "offers": {
-                    "@type": "AggregateOffer",
-                    "lowPrice": "250",
-                    "highPrice": "1140",
-                    "priceCurrency": "EUR"
-                },
-                "description": "Professionele bouwtekeningen voor bouwkundig-advieslen, uitbouwen en nieuwbouw. Inclusief begeleiding bij de omgevingsvergunning."
-                }
-            ]
-          }
-        ]
-</script>
+    </script>
 </body>
 </html>
