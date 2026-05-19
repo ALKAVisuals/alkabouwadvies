@@ -3200,124 +3200,12 @@ nav.scrolled .nav-cta {
             }
         })();
 
-</script>
-
         // Mobile Sticky CTA
         const stickyCta = document.getElementById('mobile-sticky-cta');
         if (stickyCta) {
             window.addEventListener('scroll', () => {
                 if (window.innerWidth <= 768) {
                     stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
-                }
-            });
-        }
-<script>
-    // ═══ PAKKET DOORSTUREN NAAR CONTACT ═══
-    (function() {
-        function updateSubjectOption(subjectField, value, text) {
-            if (!subjectField) return;
-            var existing = subjectField.querySelector('option[value="' + value + '"]');
-            if (existing) {
-                existing.textContent = text;
-            } else {
-                var newOpt = document.createElement('option');
-                newOpt.value = value;
-                newOpt.textContent = text;
-                subjectField.appendChild(newOpt);
-            }
-            subjectField.value = value;
-            subjectField.dispatchEvent(new Event('change'));
-        }
-        
-        window.addEventListener('DOMContentLoaded', function() {
-            var subjectText = localStorage.getItem('wac_subject');
-            var berichtText = localStorage.getItem('wac_bericht');
-            
-            if (subjectText) {
-                updateSubjectOption(document.getElementById('subject'), 'wac_pakket', subjectText);
-                localStorage.removeItem('wac_subject');
-            }
-            
-            if (berichtText) {
-                var berichtField = document.getElementById('message');
-                if (berichtField) {
-                    berichtField.value = berichtText;
-                }
-                localStorage.removeItem('wac_bericht');
-            }
-        });
-    })();
-
-        // === INJECTED: Scrollspy ===
-// Scrollspy
-        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
-        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-        if (sections.length > 0) {
-            const observerOptions = { root: null, rootMargin: '-80px 0px -60% 0px', threshold: 0 };
-            const observerCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const activeId = entry.target.id;
-                        navLinks.forEach(link => {
-                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
-                        });
-                    }
-                });
-            };
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            sections.forEach(section => observer.observe(section));
-        }
-
-        // === INJECTED: Smooth scroll ===
-// Smooth scroll anchors
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
-            });
-        });
-
-        // === INJECTED: Desktop Dropdown ===
-// ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
-        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
-        const allRightPanels = document.querySelectorAll('.dropdown-right');
-
-        function showRightPanel(subId) {
-            allRightPanels.forEach(p => {
-                p.classList.remove('visible');
-            });
-            if (subId) {
-                const panel = document.getElementById(subId);
-                if (panel) {
-                    panel.classList.add('visible');
-                }
-            }
-        }
-
-        dropdownLeftItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                item.classList.add('hovered');
-                const subId = item.getAttribute('data-sub');
-                if (subId && subId !== '') {
-                    showRightPanel('sub-' + subId);
-                }
-            });
-        });
-
-        const dropdownContainer = document.getElementById('diensten-dropdown');
-        if (dropdownContainer) {
-            dropdownContainer.addEventListener('mouseleave', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                const firstItem = dropdownLeftItems[0];
-                if (firstItem) {
-                    firstItem.classList.add('hovered');
-                    const subId = firstItem.getAttribute('data-sub');
-                    if (subId && subId !== '') {
-                        showRightPanel('sub-' + subId);
-                    }
                 }
             });
         }
