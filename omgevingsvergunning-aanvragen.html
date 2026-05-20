@@ -1813,7 +1813,18 @@ transform: translateY(-2px);
         @media (max-width: 768px) {
             .nav-links,
             .nav-cta {
-border: none;
+            padding: 0.75rem 1.75rem;
+            border: none;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);border: none;
 border-radius: 50px;
             box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
             position: relative;
@@ -2133,8 +2144,12 @@ nav.scrolled .logo {
             width: 0;
         }
 nav.scrolled .nav-cta {
-border: none;
-border-radius: 50px;
+            padding: 0.6rem 1.25rem;
+            border: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border-radius: 50px;
             box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
             position: relative;
             overflow: hidden;
