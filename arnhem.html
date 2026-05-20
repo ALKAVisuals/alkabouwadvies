@@ -3,124 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dakopbouw Bouwtekening & Vergunning — Complete Gids | Alka's Bouwadvies</title>
-    <meta name="description" content="Alles over de dakopbouw bouwtekening en omgevingsvergunning. Van constructieberekening tot vergunningsaanvraag. ABW-gecertificeerd, 100% goedkeuringsgarantie. Deskundig advies vanaf €330.">
-    <meta name="keywords" content="dakopbouw bouwtekening, dakopbouw vergunning aanvragen, omgevingsvergunning dakopbouw, constructieberekening dakopbouw, dakopbouw tekening, nokverhoging vergunning, Omgevingswet dakopbouw">
+    <title>Omgevingsvergunning Arnhem — Alles wat u moet weten voor uw bouwproject</title>
+    <meta name="description" content="Alles over de omgevingsvergunning in Arnhem. Van vergunningsvrije regels tot dakkapel plaatsing. ABW-gecertificeerd, deskundig advies voor uw bouwproject in Arnhem.">
+    <meta name="keywords" content="omgevingsvergunning arnhem, bouwvergunning arnhem, dakkapel arnhem, bouwtekening arnhem, vergunning arnhem">
     <meta name="author" content="Alka's Bouwadvies">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Dakopbouw Bouwtekening & Vergunning — Complete Gids 2026">
-    <meta property="og:description" content="Van ontwerp tot verleende vergunning voor uw dakopbouw. ABW-gecertificeerd teken- en adviesbureau. Inclusief constructieberekening en Omgevingswet-toetsing.">
+    <meta property="og:title" content="Omgevingsvergunning Arnhem — Complete Gids 2026">
+    <meta property="og:description" content="Van vergunningsvrije regels tot dakkapel plaatsing in Arnhem. ABW-gecertificeerd teken- en adviesbureau.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://alkasbouwadvies.nl/dakopbouw">
-    <meta property="og:image" content="images/Dakopbouw_.png">
+    <meta property="og:url" content="https://alkasbouwadvies.nl/arnhem">
+    <meta property="og:image" content="images/logo.png">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://alkasbouwadvies.nl/dakopbouw">
+    <link rel="canonical" href="https://alkasbouwadvies.nl/arnhem">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
-    </script>
+    
+        
+        // === INJECTED: Desktop Dropdown ===
+// ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
+        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
+        const allRightPanels = document.querySelectorAll('.dropdown-right');
+
+        function showRightPanel(subId) {
+            allRightPanels.forEach(p => {
+                p.classList.remove('visible');
+            });
+            if (subId) {
+                const panel = document.getElementById(subId);
+                if (panel) {
+                    panel.classList.add('visible');
+                }
+            }
+        }
+
+        dropdownLeftItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                item.classList.add('hovered');
+                const subId = item.getAttribute('data-sub');
+                if (subId && subId !== '') {
+                    showRightPanel('sub-' + subId);
+                }
+            });
+        });
+
+        const dropdownContainer = document.getElementById('diensten-dropdown');
+        if (dropdownContainer) {
+            dropdownContainer.addEventListener('mouseleave', () => {
+                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                const firstItem = dropdownLeftItems[0];
+                if (firstItem) {
+                    firstItem.classList.add('hovered');
+                    const subId = firstItem.getAttribute('data-sub');
+                    if (subId && subId !== '') {
+                        showRightPanel('sub-' + subId);
+                    }
+                }
+            });
+        }
+
+        // === INJECTED: Scrollspy (IntersectionObserver) ===
+// Scrollspy
+        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+        if (sections.length > 0) {
+            const observerOptions = { root: null, rootMargin: '-80px 0px -40% 0px', threshold: 0 };
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
+                        });
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // === INJECTED: Smooth scroll anchors ===
+// Smooth scroll anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+            });
+        });
+</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js">
     </script>
 
     <style>
-
-/* ═══ DROPDOWN NAV (injected) ═══ */
-.nav-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--white);
-    border: 1px solid var(--gray);
-    border-radius: 0;
-    width: 720px;
-    display: flex;
-    flex-direction: row;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.28s ease, transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.09);
-    z-index: 102;
-    overflow: hidden;
-}
-.nav-links > li > a:hover ~ .nav-dropdown,
-.nav-links > li > a:focus ~ .nav-dropdown,
-.nav-dropdown:hover {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateX(-50%) translateY(0);
-}
-.dropdown-left {
-    flex: 0 0 250px;
-    padding: 0.75rem 0;
-    border-right: 1px solid var(--gray);
-    display: flex;
-    flex-direction: column;
-    background: var(--white);
-}
-.dropdown-left .dropdown-item {
-    display: block;
-    padding: 0.9rem 1.5rem;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    color: var(--text);
-    text-decoration: none;
-    transition: all 0.22s ease;
-    position: relative;
-    border: none;
-    border-left: 2px solid transparent;
-    background: transparent;
-    text-align: left;
-    cursor: pointer;
-    font-family: inherit;
-    line-height: 1.4;
-    white-space: nowrap;
-}
-.dropdown-left .dropdown-item:hover,
-.dropdown-left .dropdown-item.hovered {
-    color: var(--accent);
-    background: #fafafa;
-    border-left-color: var(--accent);
-}
-.dropdown-right {
-    flex: 1;
-    padding: 1.25rem 1.5rem;
-    background: #fdfdfd;
-    opacity: 0;
-    transform: translateX(6px);
-    transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 250px;
-    pointer-events: none;
-    overflow-y: auto;
-}
-.dropdown-right.visible {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: all;
-}
-.dropdown-list a {
-    display: block; padding: 0.6rem 0; text-decoration: none; color: var(--text);
-    border-bottom: 1px solid var(--gray); transition: color 0.2s;
-}
-.dropdown-list a:last-child { border-bottom: none; }
-.dropdown-list a:hover { color: var(--accent); }
-.list-item-title { display: block; font-size: 0.8125rem; font-weight: 600; margin-bottom: 0.15rem; }
-.list-item-desc { display: block; font-size: 0.75rem; color: var(--text-light); font-weight: 400; }
-.dropdown-info p { font-size: 0.8125rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1rem; }
-.dropdown-cta-btn {
-    display: inline-block; padding: 0.6rem 1.25rem; background: var(--accent); color: var(--white);
-    font-size: 0.8125rem; font-weight: 600; text-decoration: none; border-radius: 50px; transition: background 0.2s;
-}
-.dropdown-cta-btn:hover { background: var(--accent-light); }
-@media (max-width: 768px) { .nav-dropdown { display: none !important; } }
-
-
+        /* =============================================
+           CSS VARIABLES
+           ============================================= */
         :root {
             --bg: #fafafa;
             --bg-dark: #0f0f0f;
@@ -251,7 +234,7 @@
         }
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
             list-style: none;
             align-items: center;
         }
@@ -282,24 +265,23 @@
         .nav-links a:hover {
             color: var(--accent);
         }
-        .nav-links a.active {
-            color: var(--accent);
-            font-weight: 600;
-        }
         .nav-cta {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            padding: 0.75rem 1.75rem;
 border: none;
-            padding: 0.625rem 1.5rem;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
             text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .nav-cta:hover {
-border-color: var(--accent);
-            color: var(--text);
-            transform: translateY(-2px);
+transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
         }
         .menu-toggle {
             display: none;
@@ -309,7 +291,6 @@ border-color: var(--accent);
             background: none;
             border: none;
             padding: 4px;
-            z-index: 101;
         }
         .menu-toggle span {
             display: block;
@@ -372,7 +353,6 @@ border-color: var(--accent);
             transform: translateY(20px);
             opacity: 0;
             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border-radius: 4px;
         }
         .toast.show {
             transform: translateY(0);
@@ -522,12 +502,13 @@ border-color: var(--accent);
             flex-shrink: 0;
             background: rgba(179, 148, 77, 0.06);
             transition: all 0.3s ease;
-            color: var(--accent);
-            font-size: 1rem;
         }
         .hero-usp:hover .usp-icon {
             background: rgba(179, 148, 77, 0.15);
             border-color: var(--accent);
+        }
+        .usp-icon svg {
+            color: var(--accent);
         }
         .usp-text strong {
             display: block;
@@ -637,279 +618,182 @@ border-color: var(--accent);
             background: linear-gradient(to right, transparent, rgba(179, 148, 77, 0.3), transparent);
         }
 
-        /* USP BANNER */
-        .usp-banner {
-            background: var(--white);
-            border-bottom: 1px solid var(--gray);
-            padding: 2.5rem 4vw;
-            position: relative;
-            z-index: 5;
-        }
-        .usp-banner-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            text-align: center;
-        }
-        .usp-banner-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.5rem;
-            transition: all 0.3s ease;
-        }
-        .usp-banner-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(179, 148, 77, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            font-size: 0.9rem;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-        .usp-banner-item:hover .usp-banner-icon {
-            background: var(--accent);
-            color: var(--white);
-            transform: scale(1.1);
-        }
-        .usp-banner-text {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-
-        /* WAARDE STIJGING */
-        .waardestijging {
-            background: var(--bg);
-            padding: 8rem 4vw;
-            max-width: 100%;
-        }
-        .waardestijging-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
-        }
-        .waardestijging-visual {
-            position: relative;
-            aspect-ratio: 4/3;
-            overflow: hidden;
-            border-radius: 4px;
-            background: #1a1a1a;
-        }
-        .waardestijging-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.8) saturate(0.7);
-            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        .waardestijging-visual:hover img {
-            transform: scale(1.05);
-        }
-        .waardestijging-content .section-label {
-            color: var(--accent);
-        }
-        .waardestijging-content h3 {
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
-        .waardestijging-content h3 em {
-            font-style: normal;
-            color: var(--accent);
-        }
-        .waardestijging-content p {
-            font-size: 1.0625rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-        .waardestijging-highlight {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 1.75rem;
-            background: var(--white);
-            border-left: 3px solid var(--accent);
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--text);
-            letter-spacing: -0.01em;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-        }
-        .waardestijging-highlight i {
-            color: var(--accent);
-            font-size: 1.25rem;
-        }
-
-        /* Voordelen */
-        .voordelen {
+        /* VERGUNNING CHECK */
+        .vergunning-check {
             background: var(--white);
             padding: 10rem 4vw;
             max-width: 100%;
         }
-        .voordelen-inner {
+        .vergunning-check-inner {
             max-width: 1400px;
             margin: 0 auto;
         }
-        .voordelen-header {
+        .vergunning-check-header {
             text-align: center;
             margin-bottom: 6rem;
         }
-        .voordelen-header p {
+        .vergunning-check-header p {
             max-width: 600px;
             margin: 0 auto;
             font-size: 1.0625rem;
             color: var(--text-light);
             line-height: 1.75;
         }
-        .voordelen-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-        .voordeel-card {
-            text-align: center;
-            padding: 2.5rem 1.5rem;
-            border: 1px solid var(--gray);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            background: var(--white);
-        }
-        .voordeel-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-        }
-        .voordeel-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-        .voordeel-card h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.01em;
-            line-height: 1.3;
-        }
-        .voordeel-card p {
-            font-size: 0.875rem;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
 
-        /* VERGUNNINGSPLICHT */
-        .vergunning-plicht {
-            background: var(--bg);
-            padding: 10rem 4vw;
-            max-width: 100%;
-        }
-        .vergunning-plicht-inner {
-            max-width: 1400px;
-            margin: 0 auto;
+        .vergunning-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            gap: 0;
+            border: 1px solid var(--gray);
+            position: relative;
+        }
+        .vergunning-grid::before {
+            content: 'VS';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--white);
+            border: 1px solid var(--gray);
+            width: 48px;
+            height: 48px;
+            display: flex;
             align-items: center;
-        }
-        .vergunning-plicht-intro {
-            font-size: 1.125rem;
+            justify-content: center;
+            font-size: 0.6875rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
             color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
+            z-index: 2;
         }
-        .vergunning-plicht-points {
+        .vc-col {
+            padding: 3.5rem;
+            position: relative;
+        }
+        .vc-col-vrij {
+            border-right: 1px solid var(--gray);
+        }
+        .vc-col-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid;
+        }
+        .vc-col-vrij .vc-col-header {
+            border-color: var(--success);
+        }
+        .vc-col-plicht .vc-col-header {
+            border-color: var(--accent);
+        }
+        .vc-status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .vc-col-vrij .vc-status-dot {
+            background: var(--success);
+            box-shadow: 0 0 12px rgba(22, 163, 74, 0.4);
+        }
+        .vc-col-plicht .vc-status-dot {
+            background: var(--accent);
+            box-shadow: 0 0 12px rgba(179, 148, 77, 0.4);
+        }
+        .vc-col-header h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .vc-col-header .vc-tag {
+            margin-left: auto;
+            font-size: 0.625rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.375rem 0.75rem;
+            white-space: nowrap;
+        }
+        .vc-col-vrij .vc-tag {
+            background: rgba(22, 163, 74, 0.08);
+            color: var(--success);
+            border: 1px solid rgba(22, 163, 74, 0.2);
+        }
+        .vc-col-plicht .vc-tag {
+            background: rgba(179, 148, 77, 0.08);
+            color: var(--accent);
+            border: 1px solid rgba(179, 148, 77, 0.2);
+        }
+
+        .vc-rules {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.25rem;
         }
-        .vergunning-plicht-point {
+        .vc-rule {
             display: flex;
-            align-items: flex-start;
             gap: 1rem;
-            padding: 1.25rem;
-            border-left: 3px solid var(--accent);
-            background: var(--white);
+            align-items: flex-start;
+            padding: 1.125rem;
+            border: 1px solid transparent;
             transition: all 0.3s ease;
         }
-        .vergunning-plicht-point:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-            transform: translateX(4px);
+        .vc-rule:hover {
+            background: var(--bg);
+            border-color: var(--gray);
         }
-        .vp-icon {
-            color: var(--accent);
-            font-size: 1.25rem;
+        .vc-rule-icon {
+            width: 32px;
+            height: 32px;
             flex-shrink: 0;
-            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
-        .vp-body strong {
+        .vc-col-vrij .vc-rule-icon {
+            background: rgba(22, 163, 74, 0.08);
+        }
+        .vc-col-plicht .vc-rule-icon {
+            background: rgba(179, 148, 77, 0.08);
+        }
+        .vc-rule-body strong {
             display: block;
             font-size: 0.9375rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
+            font-weight: 600;
             letter-spacing: -0.01em;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
         }
-        .vp-body p {
+        .vc-rule-body p {
             font-size: 0.8125rem;
             color: var(--text-light);
             line-height: 1.6;
         }
-        .vergunning-plicht-visual {
-            position: relative;
-        }
-        .vergunning-plicht-img-wrap {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 4/5;
-        }
-        .vergunning-plicht-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.85) saturate(0.7);
-            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        .vergunning-plicht-img-wrap:hover img {
-            transform: scale(1.04);
-        }
-        .vergunning-plicht-caption {
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            right: 2rem;
-            background: rgba(15, 15, 15, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(179, 148, 77, 0.2);
+
+        .vc-highlight-rule {
+            margin-top: 1.5rem;
             padding: 1.25rem 1.5rem;
+            border-left: 3px solid;
+            background: var(--bg);
         }
-        .vergunning-plicht-caption strong {
-            display: block;
-            font-size: 0.8125rem;
+        .vc-col-vrij .vc-highlight-rule {
+            border-color: var(--success);
+        }
+        .vc-col-plicht .vc-highlight-rule {
+            border-color: var(--accent);
+        }
+        .vc-highlight-rule p {
+            font-size: 0.875rem;
+            line-height: 1.65;
+            color: var(--text);
+        }
+        .vc-highlight-rule strong {
+            color: var(--text);
             font-weight: 700;
-            color: var(--white);
-            letter-spacing: 0.02em;
-            margin-bottom: 0.375rem;
-        }
-        .vergunning-plicht-caption span {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.4);
-            line-height: 1.5;
         }
 
         /* MID CTA */
@@ -1010,112 +894,6 @@ border-color: var(--accent);
             text-align: right;
         }
 
-        /* ONS PROCES - VISUEEL STAPPENPLAN */
-        .proces-visueel {
-            background: var(--white);
-            padding: 10rem 4vw;
-            max-width: 100%;
-            border-top: 1px solid var(--gray);
-        }
-        .proces-visueel-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .proces-visueel-header {
-            text-align: center;
-            max-width: 680px;
-            margin: 0 auto 6rem;
-        }
-        .proces-visueel-header p {
-            font-size: 1.0625rem;
-            color: var(--text-light);
-            line-height: 1.75;
-            margin-top: 1.5rem;
-        }
-        .proces-stappen-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            position: relative;
-        }
-        .proces-stap-card {
-            text-align: center;
-            padding: 3rem 2rem;
-            border: 1px solid var(--gray);
-            background: var(--white);
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            z-index: 1;
-        }
-        .proces-stap-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-10px);
-            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
-        }
-        .proces-stap-nummer {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--bg);
-            border: 2px solid var(--gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.125rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin: 0 auto 1.75rem;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-        }
-        .proces-stap-card:hover .proces-stap-nummer {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: var(--white);
-            box-shadow: 0 8px 24px rgba(179, 148, 77, 0.3);
-        }
-        .proces-stap-icoon {
-            font-size: 2.25rem;
-            color: var(--accent);
-            margin-bottom: 1.25rem;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-        .proces-stap-card:hover .proces-stap-icoon {
-            transform: scale(1.15);
-        }
-        .proces-stap-card h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            margin-bottom: 0.75rem;
-            color: var(--text);
-            line-height: 1.3;
-        }
-        .proces-stap-card p {
-            font-size: 0.875rem;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-        .proces-stap-tag {
-            display: inline-block;
-            font-size: 0.625rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-top: 1.25rem;
-            padding: 0.35rem 0.75rem;
-            border: 1px solid rgba(179, 148, 77, 0.2);
-            background: rgba(179, 148, 77, 0.04);
-            transition: all 0.3s ease;
-        }
-        .proces-stap-card:hover .proces-stap-tag {
-            background: var(--accent);
-            color: var(--white);
-            border-color: var(--accent);
-        }
-
         /* CONSTRUCTIEBEREKENING */
         .constructie {
             background: var(--bg-dark);
@@ -1194,6 +972,7 @@ border-color: var(--accent);
             color: rgba(255, 255, 255, 0.4);
             line-height: 1.65;
         }
+
         .constructie-visual {
             position: relative;
         }
@@ -1250,54 +1029,87 @@ border-color: var(--accent);
             border-right: 1px solid rgba(179, 148, 77, 0.3);
         }
 
-        /* AANLEVEREN */
-        .aanleveren {
-            background: var(--white);
-            padding: 8rem 4vw;
-            border-top: 1px solid var(--gray);
-        }
-        .aanleveren-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .aanleveren-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-            margin-top: 4rem;
-            text-align: left;
-        }
-        .aanlever-item {
-            padding: 2rem;
+        /* PROCES */
+        .proces {
             background: var(--bg);
+            padding: 10rem 4vw;
+            max-width: 100%;
+        }
+        .proces-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .proces-header {
+            max-width: 680px;
+            margin-bottom: 6rem;
+        }
+        .proces-header p {
+            font-size: 1.0625rem;
+            color: var(--text-light);
+            line-height: 1.75;
+            margin-top: 1.5rem;
+        }
+        .proces-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+        }
+        .proces-steps::before {
+            content: '';
+            position: absolute;
+            top: 2.5rem;
+            left: 3.5rem;
+            right: 3.5rem;
+            height: 1px;
+            background: var(--gray);
+            z-index: 0;
+        }
+        .proces-step {
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .ps-num {
+            width: 48px;
+            height: 48px;
             border: 1px solid var(--gray);
-            transition: border-color 0.3s;
-        }
-        .aanlever-item:hover {
-            border-color: var(--accent);
-        }
-        .aanlever-icon {
-            width: 44px;
-            height: 44px;
-            background: rgba(179, 148, 77, 0.08);
-            border-radius: 50%;
+            background: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.25rem;
-            color: var(--accent);
-            font-size: 1.1rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
         }
-        .aanlever-item h4 {
-            font-size: 1rem;
+        .proces-step:hover .ps-num {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--text);
+        }
+        .ps-label {
+            font-size: 0.625rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
         }
-        .aanlever-item p {
+        .ps-title {
+            font-size: 1.0625rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+        .ps-body {
             font-size: 0.875rem;
             color: var(--text-light);
-            line-height: 1.65;
+            line-height: 1.7;
         }
 
         /* PRICING */
@@ -1381,10 +1193,9 @@ border-color: var(--accent);
             align-items: center;
             gap: 0.75rem;
         }
-        .price-features li i {
+        .price-features li svg {
             color: var(--accent);
             flex-shrink: 0;
-            font-size: 0.9rem;
         }
         .price-btn {
             width: 100%;
@@ -1409,6 +1220,100 @@ border-color: var(--accent);
             background: var(--accent);
             border-color: var(--accent);
             color: var(--text);
+        }
+
+        /* TECH DETAILS */
+        .tech-details {
+            background: var(--white);
+            padding: 10rem 4vw;
+        }
+        .tech-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .tech-item {
+            padding: 1.5rem;
+            border: 1px solid var(--gray);
+            transition: border-color 0.3s ease;
+        }
+        .tech-item:hover {
+            border-color: var(--accent);
+        }
+        .tech-item h4 {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        .tech-item p {
+            font-size: 0.8125rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* LEGAL FRAMEWORK */
+        .legal-framework {
+            background: var(--bg-dark);
+            color: var(--white);
+            padding: 10rem 4vw;
+        }
+        .legal-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        .legal-box {
+            padding: 2rem;
+            border-left: 2px solid var(--accent);
+            background: rgba(179, 148, 77, 0.04);
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        .legal-box h4 {
+            color: var(--accent-light);
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+        .legal-box p {
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.7;
+        }
+        .legal-highlight {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        .highlight-col h5 {
+            color: var(--white);
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .highlight-col p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
         }
 
         /* FAQ */
@@ -1444,10 +1349,9 @@ border-color: var(--accent);
             font-size: 1rem;
             color: var(--text);
         }
-        .faq-trigger i {
+        .faq-trigger svg {
             transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             color: var(--accent);
-            font-size: 0.875rem;
         }
         .faq-content {
             max-height: 0;
@@ -1460,11 +1364,60 @@ border-color: var(--accent);
             color: var(--text-light);
             line-height: 1.7;
         }
-        .faq-item.active .faq-trigger i {
+        .faq-item.active .faq-trigger svg {
             transform: rotate(180deg);
         }
         .faq-item.active .faq-content {
             max-height: 500px;
+        }
+
+        /* AANLEVEREN */
+        .aanleveren {
+            background: var(--white);
+            padding: 8rem 4vw;
+            border-top: 1px solid var(--gray);
+        }
+        .aanleveren-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .aanleveren-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+            text-align: left;
+        }
+        .aanlever-item {
+            padding: 2rem;
+            background: var(--bg);
+            border: 1px solid var(--gray);
+            transition: border-color 0.3s;
+        }
+        .aanlever-item:hover {
+            border-color: var(--accent);
+        }
+        .aanlever-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(179, 148, 77, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            color: var(--accent);
+        }
+        .aanlever-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .aanlever-item p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            line-height: 1.65;
         }
 
         /* CONTACT */
@@ -1577,19 +1530,6 @@ border-color: var(--accent);
             transition: all 0.3s ease;
             background: transparent;
             padding: 0 0.25rem;
-            z-index: 5;
-            white-space: nowrap;
-        }
-        .form-group.select-label-fixed label {
-            top: -0.55rem;
-            left: 0.875rem;
-            font-size: 0.6875rem;
-            color: var(--accent);
-            background: var(--white);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            pointer-events: none; /* blijft niet klikbaar */
         }
         .form-group input:focus+label,
         .form-group input:not(:placeholder-shown)+label,
@@ -1658,13 +1598,6 @@ border-color: var(--accent);
         .submit-btn:hover {
             color: var(--text);
             transform: translateY(-2px);
-        }
-
-        /* Styling voor de dropdown-opties */
-        select option {
-            color: var(--text);
-            background: var(--white);
-            font-weight: 400;
         }
 
         /* FOOTER */
@@ -1820,28 +1753,26 @@ border-color: var(--accent);
             .hero-left {
                 padding: 8rem 4vw 4rem;
             }
-            .usp-banner-inner {
+            .vergunning-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
             }
-            .voordelen-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .vergunning-grid::before {
+                display: none;
             }
-            .waardestijging-inner {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
-            .vergunning-plicht-inner {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
-            .proces-stappen-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .vc-col-vrij {
+                border-right: none;
+                border-bottom: 1px solid var(--gray);
             }
             .constructie-inner {
                 grid-template-columns: 1fr;
                 gap: 4rem;
+            }
+            .proces-steps {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+            .proces-steps::before {
+                display: none;
             }
             .contact-inner {
                 grid-template-columns: 1fr;
@@ -1858,11 +1789,17 @@ border-color: var(--accent);
             .mid-cta-actions {
                 align-items: flex-start;
             }
-            .pricing-grid {
-                grid-template-columns: 1fr !important;
+            .pricing-grid,
+            .tech-inner,
+            .legal-grid,
+            .legal-highlight {
+                grid-template-columns: 1fr;
             }
             .price-card.featured {
                 transform: scale(1);
+            }
+            .tech-inner {
+                gap: 3rem;
             }
             .aanleveren-grid {
                 grid-template-columns: 1fr;
@@ -1871,8 +1808,26 @@ border-color: var(--accent);
         @media (max-width: 768px) {
             .nav-links,
             .nav-cta {
-                display: none;
-            }
+            padding: 0.75rem 1.75rem;
+            border: none;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);border: none;
+border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
             .menu-toggle {
                 display: flex;
             }
@@ -1885,18 +1840,18 @@ border-color: var(--accent);
             .hero-right {
                 min-height: 40vh;
             }
-            .usp-banner {
-                padding: 1.5rem 1.5rem;
-            }
-            .voordelen,
-            .waardestijging,
-            .vergunning-plicht,
+            .vergunning-check,
             .constructie,
-            .proces-visueel,
+            .proces,
             .pricing,
+            .tech-details,
+            .legal-framework,
             .faq,
             .aanleveren {
                 padding: 5rem 1.5rem;
+            }
+            .vc-col {
+                padding: 2rem 1.5rem;
             }
             .contact {
                 padding: 5rem 1.5rem;
@@ -1913,7 +1868,7 @@ border-color: var(--accent);
                 gap: 1rem;
                 text-align: center;
             }
-            .voordelen-grid {
+            .proces-steps {
                 grid-template-columns: 1fr;
             }
         }
@@ -1926,9 +1881,7 @@ border-color: var(--accent);
             opacity: 0;
         }
         @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
     /* === DROPDOWN NAV CSS === */
 /* ── TWEE-KOLOMS DROPDOWN ── */
@@ -2177,6 +2130,14 @@ nav.scrolled .logo {
             align-items: center;
             height: 100%;
         }
+.nav-links a.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.25rem;
+        }
+.nav-links a.active::after {
+            width: 0;
+        }
 .menu-toggle.active span:nth-child(1) {
             transform: translateY(3.75px) rotate(45deg);
         }
@@ -2297,12 +2258,13 @@ nav.scrolled .logo {
             transition-delay: 0.65s;
         }
 
-        /* === NAV FIX === */
-        .logo span {
-            font-weight: 400;
-            color: var(--text-light);
-            font-size: 0.9375rem;
-            transition: color 0.4s ease;
+        /* === NAV FIX: overwrite dakkapel nav rules with homepage versions === */
+        nav.scrolled {
+            background: rgba(250, 250, 250, 0.92);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            padding: 1rem 4vw;
+            box-shadow: 0 1px 30px rgba(0, 0, 0, 0.04);
         }
 
         .nav-links {
@@ -2337,6 +2299,10 @@ nav.scrolled .logo {
             transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
         .nav-links a:hover::after {
             width: 100%;
         }
@@ -2351,6 +2317,52 @@ nav.scrolled .logo {
             width: 0;
         }
 
+        
+
+        .nav-cta:hover {
+transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
+        }
+
+        
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--text);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-origin: center;
+        }
+
+        .logo {
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            z-index: 101;
+        }
+
+        .nav-logo-img {
+            height: 100px !important;
+            width: auto !important;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .nav-logo-img {
+            transform: scale(1.05);
+        }
+
+        .logo span {
+            font-weight: 400;
+            color: var(--text-light);
+            font-size: 0.9375rem;
+            transition: color 0.4s ease;
+        }
+
+
+        /* === NAV FIX: complete homepage nav CSS === */
         .dropdown-left .dropdown-item {
             display: block;
             padding: 0.9rem 1.5rem;
@@ -2450,24 +2462,6 @@ nav.scrolled .logo {
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        
-
-        
-
-        .nav-cta:hover {
-transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 24px;
-            height: 1.5px;
-            background: var(--text);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transform-origin: center;
-        }
-
         .logo-ticker-wrapper {
             position: relative;
             overflow: hidden;
@@ -2518,7 +2512,28 @@ transform: translateY(-2px);
         }
 
 
+        /* === NAV FIX === */
+        .dropdown-left .dropdown-item {
+            display: block;
+            padding: 0.9rem 1.5rem;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.22s ease;
+            position: relative;
+            border: none;
+            border-left: 2px solid transparent;
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+            font-family: inherit;
+            line-height: 1.4;
+            white-space: nowrap;
+        }
 
+        
         @media (min-width: 1025px) {
             nav.scrolled .nav-cta {
                 padding: 0.6rem 1.25rem;
@@ -2725,7 +2740,7 @@ transform: translateY(-2px);
                     </div>
                 </div>
             </li>
-            <li role="none"><a href="#prijzen" role="menuitem" data-section="prijzen">Prijzen</a></li>
+            <li role="none"><a href="#investering" role="menuitem" data-section="investering">Investering</a></li>
             <li role="none"><a href="index.html#calculator" role="menuitem" data-section="calculator">Calculator</a></li>
             <li role="none"><a href="index.html#projecten" role="menuitem" data-section="projecten">Projecten</a></li>
             <li role="none"><a href="index.html#over-ons" role="menuitem" data-section="over-ons">Over Ons</a></li>
@@ -2743,11 +2758,8 @@ transform: translateY(-2px);
     <div class="toast-container" id="toast-container"></div>
 
     <div class="mobile-nav" id="mobile-nav">
-        <a href="index.html" class="mobile-link">Home</a>
-        <a href="dakkapel.html" class="mobile-link">Dakkapel</a>
         <a href="index.html#diensten" class="mobile-link">Diensten</a>
-        <a href="#prijzen" class="mobile-link">Prijzen</a>
-        <a href="#faq" class="mobile-link">FAQ</a>
+        <a href="index.html#prijzen" class="mobile-link">Prijzen</a>
         <a href="#contact" class="metal-btn metal-btn-sm mobile-link">Contact</a>
     </div>
 
@@ -2757,122 +2769,51 @@ transform: translateY(-2px);
         <!-- HERO -->
         <section class="hero-split">
             <div class="hero-left">
-                <h1 class="hero-h1">Uw dakopbouw:<br>deskundig begeleid<br>van idee tot vergunning.</h1>
+                <h1 class="hero-h1">Uw dakkapel:<br>deskundig begeleid<br>van idee tot vergunning.</h1>
                 <ul class="hero-usps">
-                    <li class="hero-usp"><div class="usp-icon"><i class="fa-solid fa-clock"></i></div><div class="usp-text"><strong>Binnen 10 werkdagen</strong><span>Inclusief aanvraag Omgevingsloket</span></div></li>
-                    <li class="hero-usp"><div class="usp-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="usp-text"><strong>ABW-gecertificeerd</strong><span>Erkend door gemeenten</span></div></li>
-                    <li class="hero-usp"><div class="usp-icon"><i class="fa-solid fa-check"></i></div><div class="usp-text"><strong>100% goedkeuring</strong><span>Of wij passen kosteloos aan</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="usp-text"><strong>Binnen 10 werkdagen</strong><span>Inclusief aanvraag Omgevingsloket</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="usp-text"><strong>ABW-gecertificeerd</strong><span>Erkend door gemeenten</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="20 6 9 17 4 12"/></svg></div><div class="usp-text"><strong>100% goedkeuring</strong><span>Of wij passen kosteloos aan</span></div></li>
                 </ul>
                 <div class="hero-cta-row">
-                    <a href="#contact" class="hero-cta-primary">Vrijblijvend adviesgesprek <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#vergunning-plicht" class="hero-cta-secondary">Check: heb ik een vergunning nodig?</a>
+                    <a href="#contact" class="hero-cta-primary">Vrijblijvend adviesgesprek <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                    <a href="#vergunning-check" class="hero-cta-secondary">Check: heb ik een vergunning nodig?</a>
                 </div>
             </div>
             <div class="hero-right">
-                <img src="images/Dakopbouw_.png" alt="Moderne dakopbouw met veel glas en strakke lijnen" class="hero-right-img">
-                <div class="hero-right-badge"><strong>€330</strong><span>Vanaf — excl. BTW</span></div>
+                <img src="images/logo.png" alt="Dakkapel" class="hero-right-img">                
+                <div class="hero-right-badge"><strong>Vanaf €250</strong><span>Vanaf — excl. BTW</span></div>
                 <div class="hero-geo-line"></div>
             </div>
         </section>
-
-        <!-- USP BANNER -->
-        <section class="usp-banner" aria-label="Onze kernvoordelen">
-            <div class="usp-banner-inner">
-                <div class="usp-banner-item">
-                    <div class="usp-banner-icon"><i class="fa-solid fa-certificate"></i></div>
-                    <span class="usp-banner-text">ABW Gecertificeerd</span>
+        <!-- VERGUNNING CHECK -->
+        <section class="vergunning-check" id="vergunning-check">
+            <div class="vergunning-check-inner">
+                <div class="vergunning-check-header fade-up">
+                    <div class="section-label">Uw situatie getoetst</div>
+                    <h2 class="section-title">Wanneer is een dakkapel <em>vergunningsvrij</em> — en wanneer niet?</h2>
+                    <p>De regels rond dakkapellen zijn precies vastgelegd in het Besluit Omgevingsrecht en de Omgevingswet. Bekijk in één oogopslag waar de grens ligt. Twijfelt u? Wij kijken graag met u mee.</p>
                 </div>
-                <div class="usp-banner-item">
-                    <div class="usp-banner-icon"><i class="fa-solid fa-thumbs-up"></i></div>
-                    <span class="usp-banner-text">100% Goedkeuringsgarantie</span>
-                </div>
-                <div class="usp-banner-item">
-                    <div class="usp-banner-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <span class="usp-banner-text">Snelste Levertijd</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- WAARDE STIJGING -->
-        <section class="waardestijging" id="waardestijging">
-            <div class="waardestijging-inner">
-                <div class="waardestijging-visual">
-                    <img src="images/Dakopbouw_.png" alt="Moderne dakopbouw verhoogt woningwaarde">
-                </div>
-                <div class="waardestijging-content">
-                    <div class="section-label">Slimme investering</div>
-                    <h3>Een dakopbouw is de <em>slimste investering</em> voor uw woning.</h3>
-                    <p>U voegt niet alleen waardevolle vierkante meters toe aan uw woning, maar verhoogt de WOZ-waarde direct met gemiddeld 15% tot 20%. Een dakopbouw levert een extra slaapkamer, kantoor of badkamer op — zonder dat u tuinruimte verliest. In de huidige woningmarkt is dit dé manier om te groeien zonder te verhuizen.</p>
-                    <div class="waardestijging-highlight">
-                        <i class="fa-solid fa-chart-line"></i> Gemiddeld 15-20% waardestijging
+                <div class="vergunning-grid fade-up">
+                    <div class="vc-col vc-col-vrij">
+                        <div class="vc-col-header"><div class="vc-status-dot"></div><h3>Vergunningsvrij</h3><span class="vc-tag">Geen vergunning</span></div>
+                        <ul class="vc-rules">
+                            <li class="vc-rule"><div class="vc-rule-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="vc-rule-body"><strong>Achterzijde</strong><p>Niet zichtbaar vanaf de openbare weg.</p></div></li>
+                            <li class="vc-rule"><div class="vc-rule-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="vc-rule-body"><strong>Max. 0,60 m hoog</strong><p>Gemeten vanaf bovenkant dakvoet tot zijwand.</p></div></li>
+                            <li class="vc-rule"><div class="vc-rule-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="vc-rule-body"><strong>Min. 0,50 m van dakranden</strong><p>Zijkanten blijven een halve meter vrij.</p></div></li>
+                            <li class="vc-rule"><div class="vc-rule-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="vc-rule-body"><strong>Max. 50% van dakvlak</strong><p>Oppervlakte niet meer dan de helft.</p></div></li>
+                        </ul>
+                        <div class="vc-highlight-rule"><p><strong>Let op:</strong> Constructieberekening blijft verplicht, ook bij een vergunningsvrije dakkapel. Het Bouwbesluit eist altijd aantoonbare stabiliteit.</p></div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- VOORDELEN / WAARDE STIJGING EXTRA -->
-        <section class="voordelen" id="voordelen">
-            <div class="voordelen-inner">
-                <div class="voordelen-header fade-up">
-                    <div class="section-label">Waarom een dakopbouw?</div>
-                    <h2 class="section-title">Extra <em>woonruimte</em> én waardestijging.</h2>
-                    <p>Een dakopbouw is een van de meest rendabele manieren om uw woning te vergroten. Ontdek de voordelen.</p>
-                </div>
-                <div class="voordelen-grid">
-                    <div class="voordeel-card fade-up">
-                        <span class="voordeel-icon"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
-                        <h3>Extra m² woonruimte</h3>
-                        <p>Creëer eenvoudig 20 tot 40 m² extra woonoppervlak, ideaal voor een extra slaapkamer, kantoor of badkamer.</p>
-                    </div>
-                    <div class="voordeel-card fade-up">
-                        <span class="voordeel-icon"><i class="fa-solid fa-chart-line"></i></span>
-                        <h3>Waardestijging woning</h3>
-                        <p>Een dakopbouw verhoogt de WOZ-waarde van uw woning met gemiddeld 15% tot 25% — een slimme investering.</p>
-                    </div>
-                    <div class="voordeel-card fade-up">
-                        <span class="voordeel-icon"><i class="fa-solid fa-house-chimney"></i></span>
-                        <h3>Geen tuinverlies</h3>
-                        <p>In tegenstelling tot een uitbouw behoudt u uw volledige tuin. U bouwt de hoogte in, niet de breedte.</p>
-                    </div>
-                    <div class="voordeel-card fade-up">
-                        <span class="voordeel-icon"><i class="fa-solid fa-sun"></i></span>
-                        <h3>Licht en uitzicht</h3>
-                        <p>Een dakopbouw biedt prachtig daglicht en vaak een schitterend uitzicht over de omgeving.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- VERGUNNINGSPLICHT -->
-        <section class="vergunning-plicht" id="vergunning-plicht">
-            <div class="vergunning-plicht-inner">
-                <div class="vergunning-plicht-content">
-                    <div class="section-label">Vergunning nodig?</div>
-                    <h2 class="section-title">Een dakopbouw is <em>vrijwel altijd</em> vergunningsplichtig.</h2>
-                    <p class="vergunning-plicht-intro">Anders dan bij dakkapellen geldt voor een dakopbouw — of nokverhoging — bijna altijd een vergunningsplicht. U wijzigt namelijk de constructie en het uiterlijk van de woning ingrijpend. Zonder vergunning bouwen riskeert een dwangsom, verplichte afbraak en problemen bij verkoop.</p>
-                    <ul class="vergunning-plicht-points">
-                        <li class="vergunning-plicht-point fade-up">
-                            <span class="vp-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
-                            <div class="vp-body"><strong>Constructieve wijziging</strong><p>De dragende constructie wordt aangepast. Een constructieberekening is verplicht.</p></div>
-                        </li>
-                        <li class="vergunning-plicht-point fade-up">
-                            <span class="vp-icon"><i class="fa-solid fa-building-shield"></i></span>
-                            <div class="vp-body"><strong>Welstandstoets</strong><p>De gemeente beoordeelt of de dakopbouw past in het straatbeeld en bij de omgeving.</p></div>
-                        </li>
-                        <li class="vergunning-plicht-point fade-up">
-                            <span class="vp-icon"><i class="fa-solid fa-file-lines"></i></span>
-                            <div class="vp-body"><strong>Bestemmingsplan check</strong><p>Wij toetsen vooraf of uw plan past binnen het bestemmingsplan en de maximale bouwhoogte.</p></div>
-                        </li>
-                        <li class="vergunning-plicht-point fade-up">
-                            <span class="vp-icon"><i class="fa-solid fa-clock"></i></span>
-                            <div class="vp-body"><strong>8 weken doorlooptijd</strong><p>Houd rekening met minimaal 8 weken behandeling door de gemeente.</p></div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="vergunning-plicht-visual fade-in">
-                    <div class="vergunning-plicht-img-wrap">
-                        <img src="images/Dakopbouw_.png" alt="Dakopbouw vergunning">
-                        <div class="vergunning-plicht-caption"><strong>Dakopbouw</strong><span>Altijd maatwerk — altijd vergunningsplichtig</span></div>
+                    <div class="vc-col vc-col-plicht">
+                        <div class="vc-col-header"><div class="vc-status-dot"></div><h3>Vergunningsplichtig</h3><span class="vc-tag">Vergunning nodig</span></div>
+                        <ul class="vc-rules">
+                            <li class="vc-rule"><div class="vc-rule-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b3944d" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></div><div class="vc-rule-body"><strong>Voorzijde</strong><p>Altijd vergunningsplichtig.</p></div></li>
+                            <li class="vc-rule"><div class="vc-rule-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b3944d" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></div><div class="vc-rule-body"><strong>Hoger dan 0,60 m</strong><p>Dan is ook achterzijde vergunningsplichtig.</p></div></li>
+                            <li class="vc-rule"><div class="vc-rule-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b3944d" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></div><div class="vc-rule-body"><strong>Monument</strong><p>Elke wijziging vergunningsplichtig.</p></div></li>
+                            <li class="vc-rule"><div class="vc-rule-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b3944d" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></div><div class="vc-rule-body"><strong>Afwijkend bestemmingsplan</strong><p>Wij toetsen lokaal beleid.</p></div></li>
+                        </ul>
+                        <div class="vc-highlight-rule"><p><strong>8 weken doorlooptijd</strong> bij de gemeente. Bouwt u zonder vergunning, dan riskeert u een dwangsom tot €20.500 en de plicht de dakkapel af te breken. Ook bij verkoop van de woning kan een illegaal bouwwerk als verborgen gebrek tot aansprakelijkheid leiden.</p></div>
                     </div>
                 </div>
             </div>
@@ -2880,44 +2821,7 @@ transform: translateY(-2px);
 
         <!-- MID CTA -->
         <section class="mid-cta">
-            <div class="mid-cta-inner">
-                <div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u?</div><h2>Gratis toetsing: wat is er mogelijk op uw dak?</h2><p>Stuur een foto en de maten, en onze experts geven binnen 24 uur uitsluitsel over de haalbaarheid.</p></div>
-                <div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn metal-btn">Gratis check aanvragen →</a><p class="mid-cta-note">Vrijblijvend · Binnen 24 uur</p></div>
-            </div>
-        </section>
-
-        <!-- ONS PROCES - VISUEEL STAPPENPLAN -->
-        <section class="proces-visueel" id="ons-proces">
-            <div class="proces-visueel-inner">
-                <div class="proces-visueel-header fade-up">
-                    <div class="section-label">Ons Proces</div>
-                    <h2 class="section-title">Van <em>inventarisatie</em> tot verleende vergunning.</h2>
-                    <p>Transparant, gestructureerd en zonder verrassingen. Zo werkt ons beproefde stappenplan voor uw dakopbouw.</p>
-                </div>
-                <div class="proces-stappen-grid">
-                    <div class="proces-stap-card fade-up">
-                        <div class="proces-stap-nummer">01</div>
-                        <span class="proces-stap-icoon"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
-                        <h3>Ontwerp & Inventarisatie</h3>
-                        <p>We checken het bestemmingsplan en bespreken uw wensen. U ontvangt een eerste schetsontwerp dat perfect aansluit bij de mogelijkheden van uw woning.</p>
-                        <span class="proces-stap-tag">Dag 1-3</span>
-                    </div>
-                    <div class="proces-stap-card fade-up">
-                        <div class="proces-stap-nummer">02</div>
-                        <span class="proces-stap-icoon"><i class="fa-solid fa-pencil-ruler"></i></span>
-                        <h3>Technisch Tekenwerk</h3>
-                        <p>Onze constructeurs maken de officiële constructieberekening en detailtekeningen. Alles conform NEN-normen en het Bouwbesluit — klaar voor de gemeente.</p>
-                        <span class="proces-stap-tag">Dag 4-7</span>
-                    </div>
-                    <div class="proces-stap-card fade-up">
-                        <div class="proces-stap-nummer">03</div>
-                        <span class="proces-stap-icoon"><i class="fa-solid fa-file-signature"></i></span>
-                        <h3>Vergunningsaanvraag</h3>
-                        <p>Wij dienen de complete aanvraag in bij het Omgevingsloket en begeleiden u tot de vergunning definitief is verleend. U blijft volledig op de hoogte.</p>
-                        <span class="proces-stap-tag">Week 2-8</span>
-                    </div>
-                </div>
-            </div>
+            <div class="mid-cta-inner"><div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u?</div><h2>Gratis toetsing: is uw dakkapel vergunningsvrij?</h2><p>Stuur een foto en de maten, en onze experts geven binnen 24 uur uitsluitsel.</p></div><div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn metal-btn">Gratis check aanvragen →</a><p class="mid-cta-note">Vrijblijvend · Binnen 24 uur</p></div></div>
         </section>
 
         <!-- CONSTRUCTIEBEREKENING -->
@@ -2926,16 +2830,21 @@ transform: translateY(-2px);
                 <div class="constructie-content">
                     <div class="section-label">Constructieberekening</div>
                     <h2 class="section-title">Waarom u een <em>berekening</em> niet mag overslaan.</h2>
-                    <p class="constructie-intro">Een dakopbouw verhoogt de nok en wijzigt de dragende constructie. Zonder berekening riskeert u instabiliteit, scheurvorming en afkeuring door de gemeente. De constructeur is eindverantwoordelijk: fouten kunnen leiden tot gevaarlijke situaties en hoge herstelkosten.</p>
+                    <p class="constructie-intro">Een dakkapel snijdt in uw dak. Zonder berekening riskeert u scheurvorming, doorzakking en verzekeringsproblemen. De constructeur is eindverantwoordelijk: fouten kunnen leiden tot gevaarlijke situaties en hoge herstelkosten.</p>
                     <ul class="constructie-points">
-                        <li class="constructie-point"><div class="cp-num">01</div><div class="cp-body"><strong>Draagconstructie</strong><p>Welke spanten en balken moeten worden aangepast? Berekend volgens NEN-EN 1990/1995.</p></div></li>
-                        <li class="constructie-point"><div class="cp-num">02</div><div class="cp-body"><strong>Wind- en sneeuwbelasting</strong><p>Stabiliteit conform NEN-EN 1991. Essentieel bij verhoogde nok.</p></div></li>
-                        <li class="constructie-point"><div class="cp-num">03</div><div class="cp-body"><strong>Fundering check</strong><p>Kan de bestaande fundering de extra verdieping dragen? Wij rekenen het na.</p></div></li>
-                        <li class="constructie-point"><div class="cp-num">04</div><div class="cp-body"><strong>Verzekerbaarheid</strong><p>Bij schade zonder goedgekeurde berekening keert de verzekeraar vaak niet uit.</p></div></li>
+                        <li class="constructie-point"><div class="cp-num">01</div><div class="cp-body"><strong>Draagconstructie</strong><p>Welke spanten mogen weg? Berekend volgens NEN-EN 1990/1995. Foutieve aannames kunnen het dak doen doorbuigen.</p></div></li>
+                        <li class="constructie-point"><div class="cp-num">02</div><div class="cp-body"><strong>Wind- en sneeuw</strong><p>Stabiliteit conform NEN-EN 1991. Zonder toetsing kan de kap bij storm bezwijken.</p></div></li>
+                        <li class="constructie-point"><div class="cp-num">03</div><div class="cp-body"><strong>Doorbuiging</strong><p>Blijft ruim binnen de wettelijke marge. Te grote doorbuiging veroorzaakt scheuren in plafonds en muren.</p></div></li>
+                        <li class="constructie-point"><div class="cp-num">04</div><div class="cp-body"><strong>Verzekerbaarheid</strong><p>Bij schade zonder goedgekeurde berekening keert de verzekeraar vaak niet uit. Voorkom discussie.</p></div></li>
                     </ul>
                 </div>
-                <div class="constructie-visual fade-in"><div class="constructie-accent-line"></div><div class="constructie-img-wrap"><img src="images/Dakopbouw_.png" alt="Constructietekening dakopbouw"><div class="constructie-img-overlay"></div><div class="constructie-caption"><strong>Doorsnede dakopbouw</strong><span>Conform Bouwbesluit</span></div></div></div>
+                <div class="constructie-visual fade-in"><div class="constructie-accent-line"></div><div class="constructie-img-wrap"><img src="images/logo.png" alt="Constructietekening"><div class="constructie-img-overlay"></div><div class="constructie-caption"><strong>Doorsnede</strong><span>Conform Bouwbesluit</span></div></div></div>
             </div>
+        </section>
+
+        <!-- PROCES -->
+        <section class="proces" id="werkwijze">
+            <div class="proces-inner"><div class="proces-header fade-up"><div class="section-label">Werkwijze</div><h2 class="section-title">Van <em>intake</em> tot verleende vergunning.</h2><p>Transparant en zonder verrassingen.</p></div><div class="proces-steps"><div class="proces-step fade-up"><div class="ps-num">01</div><div class="ps-label">Intake</div><h3 class="ps-title">Kennismaking</h3><p class="ps-body">We bespreken uw wensen en verzamelen maten.</p></div><div class="proces-step fade-up"><div class="ps-num">02</div><div class="ps-label">Ontwerp</div><h3 class="ps-title">Bouwtekening</h3><p class="ps-body">Complete set binnen 5 werkdagen.</p></div><div class="proces-step fade-up"><div class="ps-num">03</div><div class="ps-label">Berekening</div><h3 class="ps-title">Constructie</h3><p class="ps-body">Officiële berekening voor vergunning.</p></div><div class="proces-step fade-up"><div class="ps-num">04</div><div class="ps-label">Vergunning</div><h3 class="ps-title">Indiening</h3><p class="ps-body">Wij handelen de hele aanvraag af.</p></div></div></div>
         </section>
 
         <!-- AANLEVEREN -->
@@ -2948,85 +2857,96 @@ transform: translateY(-2px);
                 </div>
                 <div class="aanleveren-grid">
                     <div class="aanlever-item fade-up">
-                        <div class="aanlever-icon"><i class="fa-solid fa-camera"></i></div>
-                        <h4>Foto's dak en zolder</h4><p>Binnen en buiten, inclusief de zolderverdieping.</p>
+                        <div class="aanlever-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+                        <h4>Foto's dak</h4><p>Binnen en buiten, inclusief zolder.</p>
                     </div>
                     <div class="aanlever-item fade-up">
-                        <div class="aanlever-icon"><i class="fa-solid fa-desktop"></i></div>
-                        <h4>Bestaande bouwtekening</h4><p>Indien aanwezig; anders maken wij een werktekening op basis van inmeting.</p>
+                        <div class="aanlever-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                        <h4>Bestaande bouwtekening</h4><p>Indien aanwezig; anders maken wij een werktekening.</p>
                     </div>
                     <div class="aanlever-item fade-up">
-                        <div class="aanlever-icon"><i class="fa-solid fa-ruler-combined"></i></div>
-                        <h4>Gewenste afmetingen</h4><p>Hoogte nokverhoging, gewenste indeling. Wij adviseren graag.</p>
+                        <div class="aanlever-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                        <h4>Gewenste afmetingen</h4><p>Breedte, hoogte, diepte. Wij adviseren graag.</p>
                     </div>
                     <div class="aanlever-item fade-up">
-                        <div class="aanlever-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-                        <h4>Adres en gemeente</h4><p>Voor toetsing bestemmingsplan en lokale regelgeving.</p>
+                        <div class="aanlever-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <h4>Adres en gemeente</h4><p>Voor toetsing bestemmingsplan.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PRICING -->
-        <section class="pricing" id="prijzen">
-            <div class="pricing-inner">
-                <div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>dakopbouw</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. U weet vooraf precies waar u aan toe bent — geen verborgen kosten.</p></div>
-                <div class="pricing-grid" id="pricing-grid">
-                    <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€330<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> Complete set</li><li><i class="fa-solid fa-check"></i> Plattegrond, gevels, doorsneden</li><li><i class="fa-solid fa-check"></i> 100% goedkeuringsgarantie</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakopbouw-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn dakopbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
-                    <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€675<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit basispakket</strong></li><li><i class="fa-solid fa-check"></i> Volledige constructieberekening</li><li><i class="fa-solid fa-check"></i> NEN-normering rapportage</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakopbouw-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\' voor mijn dakopbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
-                    <div class="price-card fade-up"><h3>Full‑Service Vergunning</h3><div class="price-value">€1.140<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit constructiepakket</strong></li><li><i class="fa-solid fa-check"></i> Volledige indiening Omgevingsloket</li><li><i class="fa-solid fa-check"></i> Begeleiding tot verlening</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakopbouw-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\' voor mijn dakopbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
+        <!-- DIY VS PRO -->
+        <section class="aanleveren" id="diy-pro" style="background: var(--bg);">
+            <div class="aanleveren-inner">
+                <div class="fade-up">
+                    <div class="section-label">Overweging</div>
+                    <h2 class="section-title">Zelf tekenen of <em>uitbesteden?</em></h2>
+                    <p style="color: var(--text-light); max-width: 650px; margin: 0 auto 3rem; line-height: 1.75;">Een bouwtekening lijkt simpel, maar fouten worden genadeloos afgestraft. Ontdek waarom de meeste aanvragers vastlopen en hoe u tijd en geld bespaart.</p>
+                </div>
+                <div class="aanleveren-grid">
+                    <div class="aanlever-item fade-up" style="border-left: 4px solid var(--error);">
+                        <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Zelf tekenen</h4>
+                        <p style="font-size:0.875rem; color:var(--text-light); line-height:1.65;">U maakt zelf een schets of gebruikt een online tool. De gemeente beoordeelt deze echter op volledigheid en juistheid. Ontbreekt er een detail, dan wordt de aanvraag aangehouden of geweigerd. U betaalt opnieuw legeskosten, verliest weken en loopt het risico dat de vergunning definitief niet wordt verleend. Bij een weigering kunt u geen bezwaar maken op basis van onervarenheid.</p>
+                    </div>
+                    <div class="aanlever-item fade-up" style="border-left: 4px solid var(--accent);">
+                        <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Uitbesteden aan Alka's</h4>
+                        <p style="font-size:0.875rem; color:var(--text-light); line-height:1.65;">Wij leveren een complete, goedgekeurde tekening incl. constructieberekening. U ontvangt een set die voldoet aan het Bouwbesluit, de Omgevingswet en de eisen van uw gemeente. Dankzij onze 100% goedkeuringsgarantie weet u zeker dat de vergunning wordt verleend — of wij passen kosteloos aan. Zo voorkomt u dubbel legeskosten en weken vertraging.</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- PRICING (met automatisch invullen) -->
+        <section class="pricing" id="investering">
+            <div class="pricing-inner"><div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>situatie</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. U weet vooraf precies waar u aan toe bent — geen verborgen kosten.</p></div><div class="pricing-grid" id="pricing-grid">
+                <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€250<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Complete set</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Plattegrond, gevels, doorsneden</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 100% goedkeuringsgarantie</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakkapel-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
+                <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€495<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>Alles uit basispakket</strong></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volledige constructieberekening</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> NEN-normering rapportage</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakkapel-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
+                <div class="price-card fade-up"><h3>Full‑Service Vergunning</h3><div class="price-value">€750<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>Alles uit constructiepakket</strong></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volledige indiening Omgevingsloket</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Begeleiding tot verlening</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakkapel-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
+            </div></div>
+        </section>
+
+        <!-- TECH DETAILS -->
+        <section class="tech-details"><div class="tech-inner"><div class="fade-up"><div class="section-label">Techniek</div><h2 class="section-title">Waarom een <em>simpele schets</em> niet volstaat.</h2><p style="color: var(--text-light); line-height: 1.8; margin-bottom: 2rem;">Een complete bouwtekening voldoet aan het Bouwbesluit. Gemeente en aannemer kunnen alleen hiermee werken. Elk onderdeel dient een specifiek doel in de beoordeling.</p><a href="#contact" class="btn"><span>Voorbeeldtekening aanvragen →</span></a></div><div class="tech-grid fade-in">
+                <div class="tech-item"><h4>Plattegronden (bestaand & nieuw)</h4><p>De gemeente toetst hiermee of de uitbreiding binnen het bestemmingsplan past en of de maten voldoen aan de landelijke regels.</p></div>
+                <div class="tech-item"><h4>Doorsneden (verticaal)</h4><p>Beoordeling van constructieve veiligheid en isolatiewaarden (Rc) conform het Bouwbesluit. Essentieel voor de vergunning.</p></div>
+                <div class="tech-item"><h4>Gevelaanzichten</h4><p>De welstandscommissie gebruikt deze om te beoordelen of de dakkapel past in het straatbeeld en geen onevenredige afbreuk doet aan de omgeving.</p></div>
+                <div class="tech-item"><h4>Detailtekeningen</h4><p>Tonnen waterkeringen, loodaansluitingen en dagkanten. De gemeente controleert op waterdichtheid en voorkoming van koudebruggen.</p></div>
+            </div></div></section>
+
+        <!-- LEGAL FRAMEWORK -->
+        <section class="legal-framework"><div class="legal-inner"><div class="fade-up" style="text-align: center; max-width: 800px; margin: 0 auto;"><div class="section-label">Juridisch kader</div><h2 class="section-title" style="color: var(--white);">Bouwen binnen de <em>Omgevingswet</em>.</h2><p style="color: rgba(255,255,255,0.45); max-width: 600px; margin: 1rem auto 0; line-height: 1.7;">Sinds 2024 zijn de regels overzichtelijker, maar de principes voor dakkapellen zijn ongewijzigd. Het Besluit Omgevingsrecht en lokale bestemmingsplannen blijven leidend.</p></div><div class="legal-grid"><div class="legal-box fade-up"><h4>Besluit Omgevingsrecht (Bor)</h4><p>Landelijke regels voor vergunningsvrij bouwen. Wij toetsen aan bijlage II, artikel 2 en 3.</p></div><div class="legal-box fade-up"><h4>Welstandseisen</h4><p>Onze tekeningen houden vanaf het begin rekening met het straatbeeld, zoals vereist door de gemeentelijke welstandscommissie.</p></div><div class="legal-box fade-up"><h4>Bestemmingsplan</h4><p>Voorkom verrassingen: wij controleren uw lokale plan, inclusief maximale bouwhoogtes en afwijkingen.</p></div></div><div class="legal-highlight fade-up"><div class="highlight-col"><h5>0,60 meter-regel</h5><p>De belangrijkste maat. Blijft u onder de 0,60 m en voldoet u aan de overige eisen? Dan is uw dakkapel aan de achterzijde vergunningsvrij. Let op: meet exact, een overschrijding van enkele centimeters maakt de hele kap vergunningsplichtig.</p></div><div class="highlight-col"><h5>Voorzijde = altijd vergunning</h5><p>Een dakkapel aan de voorkant vraagt altijd een omgevingsvergunning. Reken op minimaal 8 weken. Bouwen zonder vergunning leidt tot een dwangsom en verplicht herstel.</p></div></div></div></section>
 
         <!-- FAQ -->
-        <section class="faq" id="faq">
-            <div class="faq-inner">
-                <div class="fade-up" style="text-align: center;"><div class="section-label">Veelgestelde vragen</div><h2 class="section-title">Alles wat u wilt weten over <em>dakopbouw</em>.</h2></div>
-                <div class="faq-container">
-                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Is een dakopbouw altijd vergunningsplichtig?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Ja, een dakopbouw is vrijwel altijd vergunningsplichtig. U wijzigt de constructie van de woning en het uiterlijk aanzienlijk. De gemeente toetst aan het bestemmingsplan, de welstand en het Bouwbesluit. Zonder vergunning bouwen kan leiden tot een dwangsom en verplichte afbraak.</p></div></div>
-                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat kost een dakopbouw inclusief bouwtekening en vergunning?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Onze tarieven voor tekening en vergunning starten bij €330 (excl. BTW). De totale bouwkosten van een dakopbouw liggen gemiddeld tussen €15.000 en €40.000, afhankelijk van de omvang en afwerking. Wij kunnen u indicaties geven op basis van uw specifieke situatie.</p></div></div>
-                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Hoe lang duurt het vergunningstraject voor een dakopbouw?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Gemiddeld 8 tot 12 weken, met een mogelijke verlenging van 6 weken. De gemeente toetst uitgebreid omdat een dakopbouw een ingrijpende wijziging is. Wij zorgen dat uw aanvraag compleet en correct is ingediend om vertraging te voorkomen.</p></div></div>
-                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Is een constructieberekening verplicht bij een dakopbouw?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Ja, absoluut. Omdat u de nok verhoogt en de draagconstructie wijzigt, eist de gemeente altijd een constructieberekening. Deze toont aan dat de nieuwe constructie veilig is en voldoet aan de NEN-normen.</p></div></div>
-                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat zijn de legeskosten voor een dakopbouw vergunning?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>De legeskosten verschillen per gemeente en zijn afhankelijk van de bouwsom. Gemiddeld liggen de legeskosten voor een dakopbouw tussen de €250 en €600. Deze kosten komen bovenop onze tarieven.</p></div></div>
-                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Kan mijn fundering een extra verdieping dragen?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Dit laten wij controleren door onze constructeur. In de meeste gevallen is de fundering toereikend, maar bij oudere woningen kan verzwaring nodig zijn. Wij nemen dit mee in de constructieberekening.</p></div></div>
-                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat als mijn buren bezwaar maken tegen mijn dakopbouw?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Tijdens de vergunningsprocedure kunnen buren een zienswijze indienen. De gemeente weegt deze mee. Onze tekeningen houden rekening met privacy, schaduwwerking en straatbeeld om bezwaren zoveel mogelijk te voorkomen.</p></div></div>
-                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat is het verschil tussen een dakopbouw en een dakkapel?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Een dakkapel is een uitbouw op het bestaande dakvlak, vaak vergunningsvrij aan de achterzijde. Een dakopbouw verhoogt de nok van de woning en creëert een volledige extra verdieping — dit is altijd vergunningsplichtig en constructief ingrijpender.</p></div></div>
-                </div>
-            </div>
-        </section>
+        <section class="faq" id="faq"><div class="faq-inner"><div class="fade-up" style="text-align: center;"><div class="section-label">Veelgestelde vragen</div><h2 class="section-title">Alles wat u wilt weten over <em>dakkapellen</em>.</h2></div><div class="faq-container">
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat zijn de legeskosten?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>Gemiddeld tussen de €150 en €400, afhankelijk van uw gemeente. Deze kosten zijn voor de behandeling van de aanvraag en komen bovenop onze tarieven.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat bij een weigering?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>Wij passen kosteloos aan tot de vergunning is verleend. U betaalt niet opnieuw voor onze werkzaamheden.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Is een berekening echt nodig bij prefab?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>Ja, omdat de draagconstructie van het dak wordt aangepast. De gemeente eist een berekening als bewijs van stabiliteit.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Hoe lang duurt de aanvraag?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>Gemiddeld 8 weken, met een mogelijke verlenging van 6 weken. Wij volgen de procedure actief.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Kan een dakkapel vergunningsvrij aan de zijkant?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>Als de zijgevel niet aan de openbare weg grenst, gelden de regels voor de achterzijde. Grenst de zijgevel wél aan de openbare weg, dan is een vergunning nodig.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Kan ik de tekening gebruiken voor offertes?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>Absoluut. Onze maatvaste tekeningen zijn perfect voor een nauwkeurige prijsopgave van aannemers.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat kost een dakkapel inclusief plaatsing?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>Tussen €3.000 en €7.000, afhankelijk van afmetingen en afwerking. Wij plaatsen niet zelf, maar kunnen u wel indicaties geven.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Verschil Wabo en Omgevingswet?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>De regels zijn grotendeels gelijk gebleven; de aanvraag loopt nu via het Omgevingsloket.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Mag ik een dakkapel zelf bouwen zonder tekening?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>Zelf bouwen mag, maar zonder goedgekeurde tekening en eventuele vergunning riskeert u een dwangsom en problemen bij verkoop. De gemeente accepteert alleen officiële stukken.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat als mijn dakkapel niet voldoet aan de welstand?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>De welstandscommissie kan de vergunning weigeren als het ontwerp niet past. Onze tekeningen anticiperen hierop en houden rekening met de lokale criteria.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Kan ik met terugwerkende kracht een vergunning krijgen?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>In theorie mogelijk, maar de gemeente handhaaft streng op illegale bouw. Vaak moet de dakkapel eerst in overeenstemming met de regels worden gebracht. Voorkom hoge kosten door vooraf te informeren.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Hoe weet ik of mijn bestaande dakkapel illegaal is?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>Als u geen vergunning hebt en de dakkapel staat aan de voorzijde, of is hoger dan 0,60 m en niet aan de achterzijde, is de kans groot dat deze illegaal is. Neem contact op voor een vrijblijvende check.</p></div></div>
+            <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat kost een constructieberekening gemiddeld?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-content"><p>Bij ons zit de berekening in het pakket 'Tekening + Constructie' voor €495. Losse berekeningen variëren in de markt tussen €300 en €600.</p></div></div>
+        </div></div></section>
 
         <!-- CONTACT -->
-        <section class="contact" id="contact">
-            <div class="contact-inner">
-                <div class="contact-info fade-up"><div class="section-label">Samen starten</div><h3>Uw dakopbouw<br><em style="font-style:normal;color:var(--accent);">verdient een gedegen voorbereiding.</em></h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek. Wij denken graag met u mee over de beste aanpak voor uw dakopbouw.</p>
-                    <div class="contact-detail"><strong>E-mail</strong><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></div>
-                    <div class="contact-detail"><strong>Telefoon</strong><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></div>
-                </div>
-                <form class="contact-form" name="contact-dakopbouw" method="POST" data-netlify="true" novalidate>
-                    <div class="form-group"><input type="text" name="name" id="name" placeholder=" " required><label for="name">Naam</label><div class="form-error" id="error-name">Vul uw naam in</div></div>
-                    <div class="form-group"><input type="email" name="email" id="email" placeholder=" " required><label for="email">E-mail</label><div class="form-error" id="error-email">Vul een geldig e-mailadres in</div></div>
-                    <div class="form-group select-label-fixed">
-                        <select name="subject" id="subject" required>
-                            <option value="" disabled selected>Kies een onderwerp</option>
-                            <option value="dakopbouw-tekening">Dakopbouw — Bouwtekening (€330)</option>
-                            <option value="dakopbouw-constructie">Dakopbouw — Tekening + Constructie (€675)</option>
-                            <option value="dakopbouw-fullservice">Dakopbouw — Full-Service Vergunning (€1.140)</option>
-                            <option value="dakopbouw-check">Dakopbouw — Gratis haalbaarheidscheck</option>
-                        </select>
-                        <label for="subject">Ik heb interesse in</label>
-                        <div class="form-error" id="error-subject">Selecteer een onderwerp</div>
-                    </div>
-                    <div class="form-group"><textarea name="message" id="message" placeholder=" " required></textarea><label for="message">Uw situatie / wensen</label><div class="form-error" id="error-message">Omschrijf kort uw situatie</div></div>
-                    <button type="submit" class="submit-btn"><span>Verstuur — vrijblijvend advies</span></button>
-                </form>
-            </div>
-        </section>
+        <section class="contact" id="contact"><div class="contact-inner"><div class="contact-info fade-up"><div class="section-label">Samen starten</div><h3>Uw dakkapel<br><em style="font-style:normal;color:var(--accent);">verdient een gedegen voorbereiding.</em></h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek. Wij denken graag met u mee over de beste aanpak voor uw situatie.</p><div class="contact-detail"><strong>E-mail</strong><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></div><div class="contact-detail"><strong>Telefoon</strong><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></div></div><form class="contact-form" name="contact-dakkapel" method="POST" data-netlify="true" novalidate>
+            <div class="form-group"><input type="text" name="name" id="name" placeholder=" " required><label for="name">Naam</label><div class="form-error" id="error-name">Vul uw naam in</div></div>
+            <div class="form-group"><input type="email" name="email" id="email" placeholder=" " required><label for="email">E-mail</label><div class="form-error" id="error-email">Vul een geldig e-mailadres in</div></div>
+            <div class="form-group"><select name="subject" id="subject" required><option value="" disabled selected></option><option value="dakkapel-tekening">Dakkapel — Bouwtekening (€250)</option><option value="dakkapel-constructie">Dakkapel — Tekening + Constructie (€495)</option><option value="dakkapel-fullservice">Dakkapel — Full-Service Vergunning (€750)</option><option value="dakkapel-check">Gratis vergunningscheck</option></select><label for="subject">Ik heb interesse in</label><div class="form-error" id="error-subject">Selecteer een onderwerp</div></div>
+            <div class="form-group"><textarea name="message" id="message" placeholder=" " required></textarea><label for="message">Uw situatie / wensen</label><div class="form-error" id="error-message">Omschrijf kort uw situatie</div></div>
+            <button type="submit" class="submit-btn"><span>Verstuur — vrijblijvend advies</span></button>
+        </form></div></section>
     </main>
 
     
 
-    <button class="back-to-top" id="back-to-top" aria-label="Terug naar boven"><i class="fa-solid fa-chevron-up"></i></button>
+    <button class="back-to-top" id="back-to-top" aria-label="Terug naar boven"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
@@ -3051,41 +2971,26 @@ transform: translateY(-2px);
             toast.innerHTML = message;
             container.appendChild(toast);
             requestAnimationFrame(() => toast.classList.add('show'));
-            setTimeout(() => { toast.classList.remove('show');
-                setTimeout(() => toast.remove(), 500); }, 4000);
+            setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 500); }, 4000);
         }
 
-        // start animaties
+        // start animaties (geen preloader)
         function initAnimations() {
+            // Batch voor alle fade-up elementen (inclusief price cards, legal-box, faq-item, etc.)
             ScrollTrigger.batch('.fade-up', {
                 onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.12, duration: 0.9 }),
                 start: 'top 88%',
                 once: false
             });
+
+            // Batch voor fade-in elementen (bv. constructie visual)
             ScrollTrigger.batch('.fade-in', {
                 onEnter: batch => gsap.to(batch, { opacity: 1, duration: 1.1 }),
                 start: 'top 85%',
                 once: false
             });
-            gsap.to('.hero-usp', {
-                opacity: 1,
-                x: 0,
-                stagger: 0.15,
-                duration: 0.8,
-                delay: 0.4,
-                ease: 'power3.out'
-            });
-            gsap.from('.usp-banner-item', {
-                opacity: 0,
-                y: 20,
-                stagger: 0.1,
-                duration: 0.7,
-                scrollTrigger: {
-                    trigger: '.usp-banner',
-                    start: 'top 95%',
-                },
-                ease: 'power3.out'
-            });
+
+            // Verberg initieel niks extra, want CSS doet al opacity:0. Refresh zorgt dat ScrollTrigger opnieuw kijkt.
             ScrollTrigger.refresh();
         }
 
@@ -3095,35 +3000,6 @@ transform: translateY(-2px);
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
-
-        // Scroll-spy voor actieve navigatie
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-links a');
-        const navLinksArray = Array.from(navLinks).filter(link => link.getAttribute('href').startsWith('#'));
-
-        function updateActiveNav() {
-            let currentSectionId = '';
-            const scrollPos = window.scrollY + 150;
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    currentSectionId = section.getAttribute('id');
-                }
-            });
-            navLinksArray.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === currentSectionId) {
-                    link.classList.add('active');
-                }
-            });
-            if (!currentSectionId) {
-                navLinksArray.forEach(link => link.classList.remove('active'));
-            }
-        }
-
-        window.addEventListener('scroll', updateActiveNav, { passive: true });
-        window.addEventListener('load', updateActiveNav);
 
         // back to top
         document.getElementById('back-to-top').addEventListener('click', () => lenis.scrollTo(0));
@@ -3136,8 +3012,7 @@ transform: translateY(-2px);
         // FAQ accordion
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
-                document.querySelectorAll('.faq-item').forEach(i => i !== item && i.classList.remove(
-                    'active'));
+                document.querySelectorAll('.faq-item').forEach(i => i !== item && i.classList.remove('active'));
                 item.classList.toggle('active');
             });
         });
@@ -3157,26 +3032,147 @@ transform: translateY(-2px);
             lenis.scrollTo('#contact', { offset: -80 });
         }
 
-        // Geen automatische voorinvulling meer op paginalading; alleen na klik op een pakket.
-
         // form submit
         const contactForm = document.querySelector('.contact-form');
         if (contactForm) {
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                showToast(
-                    'Uw dakopbouw-aanvraag is succesvol verzonden! Wij nemen binnen 24 uur contact met u op om uw dakopbouw te bespreken.',
-                    'success');
+                showToast('Uw aanvraag is succesvol verzonden! Wij nemen spoedig contact met u op.');
                 contactForm.reset();
-                // Na verzenden blijven de velden leeg; geen automatische invulling meer.
-                const subjectSelect = document.getElementById('subject');
-                if (subjectSelect) {
-                    subjectSelect.value = ''; // terug naar placeholder
-                    subjectSelect.dispatchEvent(new Event('change'));
-                }
             });
         }
-    </script>
+    
+        // === INJECTED: Homepage JS block 1 (mobile nav, accordion, etc.) ===
+[
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Alka's Bouwadvies",
+            "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies voor uitbouwen, dakkapellen en erkers. Actief in 170+ gemeentes.",
+            "url": "https://alkasbouwadvies.nl",
+            "telephone": "+31612345678",
+            "email": "info@alkasbouwadvies.nl",
+            "priceRange": "&euro;&euro;",
+            "currenciesAccepted": "EUR",
+            "paymentAccepted": "Bankoverschrijving, iDEAL",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "NL",
+              "addressRegion": "Nederland"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "52.3676",
+              "longitude": "4.9041"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                "opens": "09:00",
+                "closes": "17:30"
+              }
+            ],
+            "serviceType": [
+              "Bouwkundige tekeningen",
+              "Omgevingsvergunning aanvraag",
+              "Bestemmingsplan advies",
+              "Bouwtekeningen digitaliseren",
+              "Constructieberekening"
+            ],
+            "hasCredential": "ABW Gecertificeerd",
+            "numberOfEmployees": { "@type": "QuantitativeValue", "value": "5" },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "bestRating": "5",
+              "worstRating": "1",
+              "reviewCount": "650"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Mark de Vries" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+                "reviewBody": "Binnen twee dagen had ik een eerste ontwerp op tafel. De vergunning was binnen 7 weken rond — veel sneller dan verwacht."
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Sophie Jansen" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+                "reviewBody": "De vaste prijs gaf mij rust. Geen verrassingen, geen extra rekeningen. Alka's Bouwadvies regelde alles van A tot Z."
+              }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Hoe lang duurt het vergunningstraject gemiddeld?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Een eenvoudige dakkapel of uitbouw duurt gemiddeld 6 tot 8 weken. Complexere projecten kunnen 12 tot 16 weken in beslag nemen. Wij zorgen ervoor dat uw aanvraag vanaf dag één compleet en correct is ingediend."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wat zijn de totale kosten inclusief leges?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Onze tarieven zijn vaste prijzen exclusief BTW en gemeentelijke leges. Voor de meeste uitbouwen en dakkapellen liggen de totale kosten (inclusief leges) tussen de &euro;400 en &euro;700. Wij geven u vooraf een transparante kostenindicatie."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is een omgevingsvergunning altijd nodig?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Niet altijd. Veel kleine verbouwingen vallen onder 'vergunningsvrij bouwen'. Wij beoordelen gratis of uw plan vergunningsplichtig is en adviseren u over de beste route."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "In welke gemeentes zijn jullie actief?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Wij zijn actief in meer dan 170 gemeentes door heel Nederland. Van Amsterdam tot Zeeland, en van Groningen tot Limburg."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wat gebeurt er als de gemeente bezwaar maakt?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Mocht er een vraag of opmerking vanuit de gemeente komen, dan fungeren wij als uw aanspreekpunt. Wij beantwoorden alle technische vragen, passen de tekeningen aan indien nodig, en zorgen dat het traject soepel verloopt — zonder extra kosten."
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "serviceType": "Bouwkundige tekeningen en omgevingsvergunningen",
+                "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Alka's Bouwadvies"
+                },
+                "areaServed": "NL",
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "lowPrice": "250",
+                    "highPrice": "1140",
+                    "priceCurrency": "EUR"
+                },
+                "description": "Professionele bouwtekeningen voor dakkapellen, uitbouwen en nieuwbouw. Inclusief begeleiding bij de omgevingsvergunning."
+                }
+            ]
+          }
+        ]
+</script>
 
 <footer>
         <div class="footer-top">
@@ -3282,18 +3278,82 @@ transform: translateY(-2px);
         });
     })();
 
-    // ═══ DESKTOP TWO-COLUMN DROPDOWN ═══
-    (function() {
+        // === INJECTED: Scrollspy ===
+// Scrollspy
+        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+        if (sections.length > 0) {
+            const observerOptions = { root: null, rootMargin: '-80px 0px -40% 0px', threshold: 0 };
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
+                        });
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // === INJECTED: Smooth scroll ===
+// Smooth scroll anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+            });
+        });
+
+        // === INJECTED: Scrollspy ===
+// Scrollspy
+        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+        if (sections.length > 0) {
+            const observerOptions = { root: null, rootMargin: '-80px 0px -60% 0px', threshold: 0 };
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
+                        });
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // === INJECTED: Smooth scroll ===
+// Smooth scroll anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+            });
+        });
+
+        // === INJECTED: Desktop Dropdown ===
+// ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
         const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
         const allRightPanels = document.querySelectorAll('.dropdown-right');
-        const dropdownContainer = document.getElementById('diensten-dropdown');
-        if (!dropdownLeftItems.length) return;
 
         function showRightPanel(subId) {
-            allRightPanels.forEach(p => p.classList.remove('visible'));
+            allRightPanels.forEach(p => {
+                p.classList.remove('visible');
+            });
             if (subId) {
                 const panel = document.getElementById(subId);
-                if (panel) panel.classList.add('visible');
+                if (panel) {
+                    panel.classList.add('visible');
+                }
             }
         }
 
@@ -3302,10 +3362,13 @@ transform: translateY(-2px);
                 dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
                 item.classList.add('hovered');
                 const subId = item.getAttribute('data-sub');
-                if (subId && subId !== '') showRightPanel('sub-' + subId);
+                if (subId && subId !== '') {
+                    showRightPanel('sub-' + subId);
+                }
             });
         });
 
+        const dropdownContainer = document.getElementById('diensten-dropdown');
         if (dropdownContainer) {
             dropdownContainer.addEventListener('mouseleave', () => {
                 dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
@@ -3313,46 +3376,12 @@ transform: translateY(-2px);
                 if (firstItem) {
                     firstItem.classList.add('hovered');
                     const subId = firstItem.getAttribute('data-sub');
-                    if (subId && subId !== '') showRightPanel('sub-' + subId);
+                    if (subId && subId !== '') {
+                        showRightPanel('sub-' + subId);
+                    }
                 }
             });
         }
-    })();
-
-    // ═══ SCROLL-SPY ═══
-    (function() {
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-        if (!sections.length || !navLinks.length) return;
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.toggle('active', link.getAttribute('data-section') === id);
-                    });
-                }
-            });
-        }, { rootMargin: '-80px 0px -40% 0px', threshold: 0 });
-        sections.forEach(section => observer.observe(section));
-    })();
-
-    // ═══ SMOOTH SCROLL ═══
-    (function() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    if (typeof lenis !== 'undefined') lenis.scrollTo(target, { offset: -80 });
-                    else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    })();
-
 </script>
 
     <!-- Mobile Sticky CTA -->
