@@ -712,11 +712,7 @@ border: none;
 transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
         }
-        nav.scrolled .nav-cta {
-            box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
-        }
-
-        /* Menu toggle (hamburger) */
+                /* Menu toggle (hamburger) */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -3422,6 +3418,14 @@ color: var(--white);
             }
             .proces-steps {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            nav.scrolled .nav-cta {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.75rem;
+                box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
             }
         }
         /* ═══════════════════════════════════════════

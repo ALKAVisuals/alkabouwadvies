@@ -2586,9 +2586,6 @@ nav.scrolled .logo {
             align-items: center;
             height: 100%;
         }
-nav.scrolled .nav-cta {
-            box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
-        }
 .menu-toggle.active span:nth-child(1) {
             transform: translateY(3.75px) rotate(45deg);
         }
@@ -2930,6 +2927,14 @@ transform: translateY(-2px);
         }
 
 
+
+        @media (min-width: 1025px) {
+            nav.scrolled .nav-cta {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.75rem;
+                box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
+            }
+        }
         /* ═══════════════════════════════════════════
            METAL FX — Gold Button Effect (CSS-only)
            Gebaseerd op metal-fx gold preset
