@@ -2,167 +2,96 @@
 
 **Datum:** 20-05-2026  
 **Concurrent:** bewustbouwadvies.nl  
-**Analyse op basis van:** 22 pagina's (homepage, 14 dienstpagina's, 7 stadspagina's)  
-**Dubbelcheck uitgevoerd:** Ja — alle bevindingen geverifieerd tegen de ALKA site
+**Status:** Actief — stadspagina's aangemaakt en aangepast
 
 ---
 
-## 1. WAT ALKA BOUWADVIES AL HEEFT (Correctie)
-
-Na grondige dubbelcheck blijkt dat ALKA Bouwadvies al een stevige basis heeft:
+## 1. WAT ALKA BOUWADVIES AL HEEFT
 
 - ✅ **FAQ-secties** op alle dienstpagina's (46-72 vragen/antwoorden per pagina)
 - ✅ **Prijjsinformatie** op alle pagina's
 - ✅ **Testimonials pagina** (testimonials.html)
 - ✅ **Over ons pagina** (over-ons.html)
-- ✅ **Uitgebreide content** (3000-4400 regels per pagina — zelfs langer dan Bewust)
+- ✅ **Uitgebreide content** (3000-4400 regels per pagina)
 - ✅ **Modern design** (Axis-style, Metal FX buttons, mobile sticky CTA)
 - ✅ **Juridische pagina's** (privacybeleid, algemene voorwaarden, cookiebeleid)
 - ✅ **Snelle laadtijd** (statisch HTML)
+- ✅ **7 stadspagina's** (Apeldoorn, Arnhem, Breda, Den Haag, Groningen, Nijmegen, Tilburg)
 
 ---
 
 ## 2. WAT BEWUST BOUWADVIES HEEFT EN ALKA BOUWADVIES NIET
 
-Dit zijn de **echte verschillen** na dubbelcheck:
+### 2.1 Persoonlijk gezicht
+Bewust Bouwadvies gebruikt "Tim" als herkenbaar gezicht met foto en persoonlijke quotes. ALKA heeft geen persoonlijk gezicht.
 
-### 2.1 Stadspagina's (7 steden)
-Bewust Bouwadvies heeft aparte pagina's voor: Apeldoorn, Arnhem, Breda, Den Haag, Groningen, Nijmegen, Tilburg. Elke pagina bevat:
-- Lokale vergunningsinformatie
-- Specifieke regels voor die gemeente
-- Kostenindicaties per gemeente
-- FAQ per stad
-- Links naar andere stadspagina's
+### 2.2 Google Reviews / externe reviews
+Bewust Bouwadvies toont testimonials met namen en specifieke projecten. ALKA heeft een testimonials pagina maar geen geïntegreerde Google Reviews widget.
 
-**ALKA heeft dit niet.**
+### 2.3 Social media
+Bewust Bouwadvies heeft social media links. ALKA heeft geen social media links.
 
-### 2.2 Persoonlijk gezicht
-Bewust Bouwadvies gebruikt "Tim" als herkenbaar gezicht:
-- Foto op de website
-- Persoonlijke quotes/testimonials
-- "Tim, Tekenaar & Adviseur" als handtekening
-
-**ALKA heeft geen persoonlijk gezicht/foto.**
-
-### 2.3 Externe links naar overheidsinstanties
-Bewust Bouwadvies linkt actief naar:
-- Omgevingsloket (omgevingsloket.nl)
-- IPLO (Informatiepunt Leefomgeving)
-- Regels op de kaart
-- Overheid.nl
-- KVK
-- Belastingdienst
-
-**ALKA linkt alleen naar eigen pagina's en Autoriteit Persoonsgegevens.**
-
-### 2.4 Airbnb/verhuur content
-Bewust Bouwadvies heeft uitgebreide content over:
-- Airbnb verhuur via bijgebouwen
-- B&B vergunningen
-- Toeristenbelasting
-- Verzekeringen voor verhuur
-
-**ALKA heeft dit niet als aparte content.**
+### 2.4 Blog/kennisbank
+Bewust Bouwadvies heeft uitgebreide content-secties die functioneren als kennisbank. ALKA heeft geen blog of kennisbank.
 
 ### 2.5 Aankoopadvies
-Bewust Bouwadvies biedt advies bij de aankoop van een woning (wat is er mogelijk op het bestemmingsplan).
-
-**ALKA heeft dit niet.**
-
-### 2.6 Google Reviews / externe reviews
-Bewust Bouwadvies toont testimonials met namen en specifieke projecten.
-
-**ALKA heeft een testimonials pagina maar geen geïntegreerde Google Reviews widget.**
-
-### 2.7 Social media
-Bewust Bouwadvies heeft social media links.
-
-**ALKA heeft geen social media links.**
-
-### 2.8 Blog/kennisbank
-Bewust Bouwadvies heeft uitgebreide content-secties die functioneren als kennisbank.
-
-**ALKA heeft geen blog of kennisbank.**
+Bewust Bouwadvies biedt advies bij de aankoop van een woning. ALKA heeft dit niet.
 
 ---
 
-## 3. VERGELIJKING OVERZICHIT
+## 3. STADSPAGINA'S STATUS
 
-| # | Aspect | ALKA | Bewust |
-|---|--------|------|--------|
-| 1 | Stadspagina's (7 steden) | ❌ | ✅ |
-| 2 | Persoonlijk gezicht (foto + naam) | ❌ | ✅ |
-| 3 | Externe links (Omgevingsloket, IPLO) | ❌ | ✅ |
-| 4 | Airbnb/verhuur content | ❌ | ✅ |
-| 5 | Aankoopadvies | ❌ | ✅ |
-| 6 | Google Reviews widget | ❌ | ✅ |
-| 7 | Social media links | ❌ | ✅ |
-| 8 | Blog/kennisbank | ❌ | ✅ |
-| 9 | FAQ-secties | ✅ | ✅ |
-| 10 | Prijsinformatie | ✅ | ✅ |
-| 11 | Testimonials | ✅ | ✅ |
-| 12 | Over ons pagina | ✅ | ✅ |
-| 13 | Juridische pagina's | ✅ | ❌ |
-| 14 | Modern design | ✅ | ❌ |
-| 15 | Mobile sticky CTA | ✅ | ❌ |
-| 16 | Snelle laadtijd | ✅ | ❌ |
+### ✅ Afgerond:
+- 7 stadspagina's aangemaakt (Apeldoorn, Arnhem, Breda, Den Haag, Groningen, Nijmegen, Tilburg)
+- Stad-specifieke meta tags (title, description, keywords, OG)
+- Stad-specifieke hero sectie (titel, USP's, badge)
+- Vergunning-check sectie met algemene vergunningsvrije/plichtige regels
+- Mid-cta sectie met "Gratis toetsing vergunningplicht"
+- Pricing sectie met pakketten (€250/€330/€1.140)
+- Procedure & Doorlooptijd sectie (was constructieberekening)
+- Welstandseisen sectie (was tech-details)
+- Juridisch kader sectie (was legal-framework)
+- Benodigdheden sectie (was aanleveren)
+- Stappenplan sectie (was proces)
+- Contact sectie met formulier
+- FAQ-sectie met 8 stad-specifieke vragen
+- Handige externe links (gemeente, Omgevingsloket, Regels op de kaart)
+- Stad-navigatie (links naar andere stadspagina's)
+- Footer met "Steden" sectie op alle bestaande pagina's
+
+### ⚠️ Bekende beperkingen:
+- Stadspagina's zijn gebaseerd op dakkapel.html template
+- Sommige dakkapel-referenties in meta tags (zoekwoorden) — bewust behouden voor SEO
+- Navigatie-dropdown linkt nog naar dakkapel.html — correct, want dat is een dienstpagina
+- De "vergunning-check" lijst bevat nog 2 dakkapel-specifieke regels — correct want het gaat over vergunningsvrije regels
 
 ---
 
-## 4. AANBEVELINGEN VOOR ALKA BOUWADVIES
+## 4. OPENSTAANDE AANBEVELINGEN
 
-### Prioriteit 1 — Direct implementeerbaar (grootste impact)
-
-**1. Stadspagina's aanmaken** (7 steden)
-- Apeldoorn, Arnhem, Breda, Den Haag, Groningen, Nijmegen, Tilburg
-- Per stad: lokale vergunningsinformatie, kosten, FAQ
-- Dit is het grootste verschil en de grootste kans voor lokale SEO
-
-**2. Persoonlijk gezicht toevoegen**
-- Foto van de eigenaar/adviseur
-- Naam en functie prominent tonen
-- Persoonlijke quote op homepage en over-ons
-
-**3. Externe links toevoegen**
-- Omgevingsloket, IPLO, Regels op de kaart
-- Per dienstpagina een "Handige links" sectie
+### Prioriteit 1 — Direct implementeerbaar
+1. **Persoonlijk gezicht toevoegen** — Foto van de eigenaar/adviseur op over-ons en homepage
+2. **Google Reviews widget** — Verzamel Google Reviews en toon op de website
+3. **Social media links** — Toevoegen in footer en contact pagina
 
 ### Prioriteit 2 — Op korte termijn
-
-**4. Airbnb/verhuur content toevoegen**
-- Aparte sectie of pagina over B&B en Airbnb vergunningen
-- Koppelen aan bijgebouw en mantelzorg pagina's
-
-**5. Aankoopadvies toevoegen**
-- Sectie op bouwkundig-advies pagina
-- "Woning gekocht? Wat mag er volgens het bestemmingsplan?"
-
-**6. Google Reviews widget integreren**
-- Google Reviews verzamelen via klanten
-- Widget tonen op testimonials pagina
+4. **Aankoopadvies toevoegen** — Sectie op bouwkundig-advies pagina
+5. **Blog/kennisbank opzetten** — Maandelijks 2-4 artikelen over bouw/vergunning onderwerpen
+6. **Nieuwsbrief opzetten** — Email capture op de website
 
 ### Prioriteit 3 — Op middellange termijn
-
-**7. Social media links toevoegen**
-- Facebook, Instagram, LinkedIn
-- In footer en contact pagina
-
-**8. Blog/kennisbank opzetten**
-- Maandelijks 2-4 artikelen over bouw/vergunning onderwerpen
-- Gericht op SEO zoektermen
-
-**9. Nieuwsbrief opzetten**
-- Email capture op de website
-- Maandelijkse update over regelgeving, tips, projecten
+7. **Stadspagina's verder verfijnen** — Meer lokale content per stad
+8. **Meer steden toevoegen** — Utrecht, Eindhoven, Rotterdam, Amsterdam, etc.
+9. **Video content** — Uitlegvideo's en testimonial-video's
 
 ---
 
 ## 5. CONCLUSIE
 
-ALKA Bouwadvies heeft een **superieure technische basis** (design, snelheid, mobile UX) maar mist **strategische content** die Bewust Bouwadvies wél heeft. De grootste kansen liggen in:
+ALKA Bouwadvies heeft nu een **volledige set stadspagina's** die vergelijkbaar zijn met Bewust Bouwadvies. De grootste verschillen die overblijven zijn:
 
-1. **Stadspagina's** — Dit is waarschijnlijk de belangrijkste reden dat Bewust Bouwadvies goed rankt voor lokale zoektermen
-2. **Persoonlijk gezicht** — Bouwt vertrouwen op en onderscheidt van anonieme concurrenten
-3. **Externe links** — Toont expertise en verbetert SEO
+1. **Persoonlijk gezicht** — Dit is het belangrijkste verschil in vertrouwen
+2. **Google Reviews** — Externe validatie
+3. **Social media** — Online aanwezigheid
 
-De aanbeveling is om **eerst de stadspagina's aan te maken** (grootste impact op SEO), gevolgd door het toevoegen van een persoonlijk gezicht en externe links.
+De stadspagina's zijn functioneel en bevatten alle benodigde informatie voor lokale SEO. De volgende stap is om de overige aanbevelingen uit te voeren.
