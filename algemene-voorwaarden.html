@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algemene Voorwaarden — ALKA Bouwadvies</title>
+    <meta name="description" content="Algemene voorwaarden van ALKA Bouwadvies. Lees onze voorwaarden voor dienstverlening, betalingen en aansprakelijkheid.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Algemene Voorwaarden — ALKA Bouwadvies">
+    <meta property="og:description" content="Algemene voorwaarden van ALKA Bouwadvies.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://alkasbouwadvies.nl/algemene-voorwaarden">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <style>
+        :root {
+            --bg: #fafafa; --bg-dark: #1a1a1a; --text: #1a1a1a; --text-light: #6b6b6b;
+            --accent: #c4a35a; --white: #ffffff; --gray: #e5e5e5; --gray-dark: #333333;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 1.5rem 4vw; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        nav.scrolled { background: rgba(250, 250, 250, 0.92); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); padding: 1rem 4vw; box-shadow: 0 1px 30px rgba(0, 0, 0, 0.04); }
+        .logo { position: relative; display: flex; align-items: center; text-decoration: none; z-index: 101; }
+        .nav-logo-img { height: 100px !important; transition: height 0.4s ease; }
+        .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+        .nav-links a { font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text); text-decoration: none; position: relative; transition: color 0.3s; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta { padding: 0.75rem 1.75rem; border: none; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.05em; border-radius: 50px; box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25); position: relative; overflow: hidden; white-space: nowrap; text-decoration: none; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35); }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .menu-toggle span { display: block; width: 24px; height: 1.5px; background: var(--text); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-origin: center; }
+        .hero-legal { padding: 12rem 4vw 6rem; max-width: 800px; margin: 0 auto; }
+        .hero-legal h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; }
+        .hero-legal p { font-size: 1.125rem; color: var(--text-light); }
+        .legal-content { max-width: 800px; margin: 0 auto; padding: 0 4vw 6rem; }
+        .legal-content h2 { font-size: 1.5rem; font-weight: 600; margin: 3rem 0 1rem; color: var(--text); }
+        .legal-content h3 { font-size: 1.125rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+        .legal-content p { margin-bottom: 1rem; color: var(--text-light); }
+        .legal-content ul { margin: 1rem 0 1.5rem 1.5rem; color: var(--text-light); }
+        .legal-content li { margin-bottom: 0.5rem; }
+        .legal-content a { color: var(--accent); text-decoration: underline; }
+        .legal-content strong { color: var(--text); }
+        .contact { background: var(--bg-dark); color: var(--white); padding: 10rem 4vw; }
+        .contact-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
+        .contact-info h3 { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.2; margin-bottom: 1.5rem; }
+        .contact-info p { color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
+        .contact-detail { margin-bottom: 1.5rem; }
+        .contact-detail strong { display: block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.25rem; }
+        .contact-detail a { color: var(--white); text-decoration: none; font-size: 1.125rem; transition: color 0.3s; }
+        .contact-detail a:hover { color: var(--accent); }
+        .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+        .form-group { position: relative; }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem 1.125rem; border: 1px solid var(--gray); background: var(--white); font-family: inherit; font-size: 1rem; color: var(--text); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); border-radius: 0; -webkit-appearance: none; appearance: none; line-height: 1.5; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(196, 163, 90, 0.08); }
+        .form-group label { position: absolute; top: 1rem; left: 1.125rem; font-size: 0.8125rem; color: var(--text-light); pointer-events: none; transition: all 0.3s; }
+        .form-group input:not(:placeholder-shown) + label, .form-group textarea:not(:placeholder-shown) + label { top: -0.5rem; left: 0.75rem; font-size: 0.6875rem; background: var(--white); padding: 0 0.375rem; color: var(--accent); }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .btn { display: inline-flex; align-items: center; gap: 0.625rem; padding: 1rem 2.25rem; background: var(--text); color: var(--white); font-family: inherit; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); text-decoration: none; }
+        .btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--accent); transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); z-index: 0; }
+        .btn span { position: relative; z-index: 1; }
+        .btn:hover::before { left: 0; }
+        .btn:hover { color: var(--text); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(196, 163, 90, 0.25); }
+        .footer { background: var(--text); color: var(--white); padding: 4rem 4vw 2rem; }
+        .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; }
+        .footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.875rem; margin-top: 1rem; line-height: 1.7; }
+        .footer h4 { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1.5rem; }
+        .footer a { display: block; color: rgba(255,255,255,0.6); font-size: 0.875rem; text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s; }
+        .footer a:hover { color: var(--white); }
+        .footer-bottom { max-width: 1400px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+        .footer-legal { display: flex; gap: 2rem; }
+        .footer-legal a { color: rgba(255,255,255,0.4); font-size: 0.75rem; text-decoration: none; transition: color 0.3s; }
+        .footer-legal a:hover { color: var(--white); }
+        .metal-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2.5rem; font-family: inherit; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 50px; cursor: pointer; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); background: linear-gradient(135deg, #b3944d 0%, #d4b76a 25%, #f5e6a3 50%, #d4b76a 75%, #b3944d 100%); background-size: 200% 200%; color: #1a1a1a; box-shadow: 0 4px 15px rgba(179, 148, 77, 0.3), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.1); }
+        .metal-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%); transition: left 0.6s ease; }
+        .metal-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 50%, rgba(0,0,0,0.1) 100%); border-radius: inherit; pointer-events: none; }
+        .metal-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(179, 148, 77, 0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.15); animation: metalShine 2s ease-in-out infinite; }
+        .metal-btn:hover::before { left: 100%; }
+        .metal-btn:active { transform: translateY(0); box-shadow: 0 2px 10px rgba(179, 148, 77, 0.3), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 2px 4px rgba(0,0,0,0.1); }
+        @keyframes metalShine { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .metal-btn-sm { padding: 0.625rem 1.5rem; font-size: 0.75rem; }
+        .mobile-sticky-cta { position: fixed; bottom: 0; left: 0; width: 100%; padding: 1rem; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-top: 1px solid var(--gray); z-index: 999; display: none; justify-content: center; box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05); }
+        .sticky-cta-btn { color: var(--white); text-decoration: none; padding: 0.8rem 2rem; font-size: 0.85rem; font-weight: 600; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.05em; width: 100%; text-align: center; transition: background 0.3s ease; }
+        @media (max-width: 1024px) { .contact-inner { grid-template-columns: 1fr; gap: 4rem; } .footer-inner { grid-template-columns: 1fr 1fr; } .mobile-sticky-cta { display: flex; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .menu-toggle { display: flex; } .hero-legal { padding: 10rem 1.5rem 4rem; } .legal-content { padding: 0 1.5rem 4rem; } .contact { padding: 6rem 1.5rem; } .footer-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; } }
+        @media (min-width: 1025px) { nav.scrolled .nav-cta { padding: 0.6rem 1.25rem; font-size: 0.75rem; box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2); } }
+    </style>
+</head>
+<body>
+<nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
+    <a href="index.html" class="logo" aria-label="ALKA Bouwadvies - Home">
+        <img loading="eager" src="images/logo.png" alt="ALKA Bouwadvies Logo" class="nav-logo-img">
+    </a>
+    <ul class="nav-links" role="menubar">
+        <li role="none"><a href="index.html#diensten" role="menuitem">Diensten</a></li>
+        <li role="none"><a href="index.html#prijzen" role="menuitem">Prijzen</a></li>
+        <li role="none"><a href="index.html#over-ons" role="menuitem">Over Ons</a></li>
+        <li role="none"><a href="index.html#contact" role="menuitem">Contact</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta metal-btn" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false">
+        <span></span><span></span>
+    </button>
+</nav>
+
+<main>
+    <section class="hero-legal">
+        <h1>Algemene Voorwaarden</h1>
+        <p>Laatst bijgewerkt: mei 2026</p>
+    </section>
+
+    <section class="legal-content">
+        <h2>1. Definities</h2>
+        <p>In deze algemene voorwaarden wordt verstaan onder:</p>
+        <ul>
+            <li><strong>Opdrachtnemer:</strong> ALKA Bouwadvies, KvK 95153756</li>
+            <li><strong>Opdrachtgever:</strong> de natuurlijke of rechtspersoon die een opdracht verstrekt aan opdrachtnemer</li>
+            <li><strong>Opdracht:</strong> iedere overeenkomst tussen opdrachtgever en opdrachtnemer, elke wijziging of aanvulling daarop, alsmede alle (rechts)handelingen ter voorbereiding en ter uitvoering van die overeenkomst</li>
+            <li><strong>Diensten:</strong> alle door opdrachtnemer verleende diensten, waaronder maar niet beperkt tot bouwtekeningen, vergunningsaanvragen, bouwbegeleiding en advies</li>
+        </ul>
+
+        <h2>2. Toepasselijkheid</h2>
+        <p>Deze algemene voorwaarden zijn van toepassing op elk aanbod, elke offerte en elke overeenkomst tussen opdrachtnemer en opdrachtgever, voor zover van deze voorwaarden niet door partijen uitdrukkelijk en schriftelijk is afgeweken.</p>
+
+        <h2>3. Offertes en aanbiedingen</h2>
+        <p>Offertes en aanbiedingen zijn vrijblijvend, tenzij uitdrukkelijk anders aangegeven. Opdrachtnemer kan haar aanbod binnen 14 dagen na aanvaarding nog herroepen. Een offerte is 30 dagen geldig, tenzij een andere termijn is vermeld.</p>
+
+        <h2>4. Totstandkoming van de overeenkomst</h2>
+        <p>De overeenkomst komt tot stand op het moment dat de opdrachtgever het aanbod van opdrachtnemer schriftelijk (per e-mail) heeft aanvaard en opdrachtnemer deze aanvaarding heeft bevestigd.</p>
+
+        <h2>5. Uitvoering van de opdracht</h2>
+        <p>Opdrachtnemer zal de opdracht naar beste inzicht en vermogen en overeenkomstig de eisen van goed vakmanschap uitvoeren. Opdrachtnemer heeft een inspanningsverplichting, geen resultaatsverplichting.</p>
+        <p>Indien en voor zover een goede uitvoering van de opdracht dit vereist, heeft opdrachtnemer het recht bepaalde werken te laten verrichten door derden. De toepasselijkheid van artikel 7:404 en 7:407 lid 2 van het Burgerlijk Wetboek is uitgesloten.</p>
+
+        <h2>6. Medewerking opdrachtgever</h2>
+        <p>Opdrachtgever draagt er zorg voor dat alle gegevens, waarvan opdrachtnemer aangeeft dat deze noodzakelijk zijn of waarvan opdrachtgever redelijkerwijs behoort te begrijpen dat deze noodzakelijk zijn voor het uitvoeren van de opdracht, tijdig aan opdrachtnemer worden verstrekt. Indien de voor de uitvoering van de opdracht benodigde gegevens niet tijdig aan opdrachtnemer worden verstrekt, heeft opdrachtnemer het recht de uitvoering van de opdracht op te schorten en/of de uit de vertraging voortvloeiende extra kosten volgens de alsdan gebruikelijke tarieven aan opdrachtgever in rekening te brengen.</p>
+
+        <h2>7. Prijzen en betaling</h2>
+        <p>Alle prijzen zijn in euro's en exclusief BTW (21%) en eventuele andere overheidsheffingen, tenzij uitdrukkelijk anders vermeld.</p>
+        <p>Betaling dient te geschieden binnen 14 dagen na factuurdatum, op een door opdrachtnemer aan te geven wijze in de valuta waarin is gefactureerd. Opdrachtnemer is gerechtigd om facturen digitaal (per e-mail) aan opdrachtgever toe te zenden.</p>
+        <p>Indien de opdrachtgever in gebreke blijft in de tijdige betaling van een factuur, dan is de opdrachtgever van rechtswege in verzuim. De opdrachtgever is alsdan de wettelijke rente verschuldigd. Indien opdrachtgever in verzuim is in de (tijdige) betaling van een factuur, dan komt opdrachtnemer gerechtigd de uitvoering van de opdracht op te schorten tot het moment dat opdrachtgever aan zijn betalingsverplichting heeft voldaan.</p>
+
+        <h2>8. Aansprakelijkheid</h2>
+        <p>Opdrachtnemer is niet aansprakelijk voor schade, van welke aard ook, doordat opdrachtnemer is uitgegaan van door of namens opdrachtgever verstrekte onjuiste en/of onvolledige gegevens.</p>
+        <p>De totale aansprakelijkheid van opdrachtnemer jegens opdrachtgever wegens toerekenbare tekortkoming in de nakoming van de overeenkomst is beperkt tot vergoeding van directe schade tot maximaal het bedrag dat in het desbetreffende geval door de aansprakelijkheidsverzekering van opdrachtnemer wordt uitgekeerd, vermeerderd met het eigen risico dat op grond van de polisvoorwaarden voor rekening van opdrachtnemer komt.</p>
+        <p>Indien om welke reden dan ook geen uitkering op de aansprakelijkheidsverzekering plaatsvindt, is de aansprakelijkheid beperkt tot het factuurbedrag van de betreffende opdracht.</p>
+
+        <h2>9. Intellectuele eigendomsrechten</h2>
+        <p>Alle intellectuele eigendomsrechten op de door opdrachtnemer vervaardigde werken — waaronder bouwtekeningen, berekeningen, rapporten en adviezen — berusten bij opdrachtnemer, tenzij partijen uitdrukkelijk anders zijn overeengekomen.</p>
+        <p>Opdrachtgever verkrijgt na volledige betaling het recht om de vervaardigde werken te gebruiken voor het doel waarvoor zij zijn vervaardigd. Het is opdrachtgever niet toegestaan de werken te verveelvoudigen, openbaar te maken of aan derden ter beschikking te stellen zonder voorafgaande schriftelijke toestemming van opdrachtnemer.</p>
+
+        <h2>10. Geheimhouding</h2>
+        <p>Beide partijen zijn verplicht tot geheimhouding van alle vertrouwelijke gegevens die zij in het kader van de opdracht van elkaar of uit andere bron hebben verkregen. Indien, op grond van een wettelijke bepaling of een rechterlijke uitspraak, opdrachtnemer gehouden is vertrouwelijke gegevens aan door de wet of de bevoegde rechter aangewezen derden mede te verstrekken, en opdrachtnemer zich ter zake niet kan beroepen op een wettelijk dan wel door de bevoegde rechter erkend of toegestaan recht van verschoning, dan is opdrachtnemer niet gehouden tot schadevergoeding of schadeloosstelling en is opdrachtgever niet gerechtigd tot ontbinding van de overeenkomst op grond van enige schade hierdoor ontstaan.</p>
+
+        <h2>11. Ontbinding</h2>
+        <p>Opdrachtnemer is bevoegd de overeenkomst te ontbinden of de uitvoering van de opdracht op te schorten, indien:</p>
+        <ul>
+            <li>Opdrachtgever de verplichtingen uit de overeenkomst niet, niet volledig of niet tijdig nakomt</li>
+            <li>Na het sluiten van de overeenkomst omstandigheden bekend worden die goede grond geven te vrezen dat opdrachtgever de verplichtingen niet zal nakomen</li>
+            <li>Opdrachtgever bij het sluiten van de overeenkomst verzocht is om zekerheid te stellen voor de voldoening van zijn verplichtingen uit de overeenkomst en deze zekerheid uitblijft of onvoldoende is</li>
+        </ul>
+        <p>Voorts is opdrachtnemer bevoegd de overeenkomst te ontbinden indien zich omstandigheden voordoen welke van dien aard zijn dat nakoming van de overeenkomst onmogelijk is of indien er zich anderszins omstandigheden voordoen die van dien aard zijn dat ongewijzigde instandhouding van de overeenkomst in redelijkheid niet van opdrachtnemer kan worden gevergd.</p>
+
+        <h2>12. Klachten</h2>
+        <p>Klachten over de verrichte werken dienen door opdrachtgever binnen 14 dagen na ontdekking, maar uiterlijk binnen 30 dagen na voltooiing van de betreffende werken, schriftelijk te worden gemeld aan opdrachtnemer. De klacht dient een zo gedetailleerd mogelijke omschrijving van de tekortkoming te bevatten, zodat opdrachtnemer in staat is adequaat te reageren.</p>
+
+        <h2>13. Toepasselijk recht en geschillenbeslechting</h2>
+        <p>Op alle overeenkomsten tussen opdrachtnemer en opdrachtgever is uitsluitend Nederlands recht van toepassing. Geschillen worden bij uitslechting voorgelegd aan de bevoegde rechter in het arrondissement waar opdrachtnemer is gevestigd.</p>
+
+        <h2>14. Wijzigingen</h2>
+        <p>Opdrachtnemer behoudt het recht om deze algemene voorwaarden te wijzigen. De meest actuele versie is altijd beschikbaar op deze pagina.</p>
+
+        <h2>15. Contact</h2>
+        <p>Vragen over deze algemene voorwaarden? Neem contact op met:</p>
+        <p><strong>ALKA Bouwadvies</strong><br>
+        E-mail: <a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a><br>
+        Telefoon: <a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></p>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-inner">
+            <div class="contact-info">
+                <h3>Heeft u vragen over onze voorwaarden?</h3>
+                <p>Neem contact met ons op. Wij helpen u graag verder met vragen over onze algemene voorwaarden.</p>
+                <div class="contact-detail"><strong>E-mail</strong><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></div>
+                <div class="contact-detail"><strong>Telefoon</strong><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></div>
+            </div>
+            <form class="contact-form" name="contact-voorwaarden" method="POST" data-netlify="true" novalidate>
+                <div class="form-group"><input type="text" name="name" id="name" placeholder=" " required><label for="name">Naam</label></div>
+                <div class="form-group"><input type="email" name="email" id="email" placeholder=" " required><label for="email">E-mail</label></div>
+                <div class="form-group"><input type="tel" name="phone" id="phone" placeholder=" "><label for="phone">Telefoon</label></div>
+                <div class="form-group"><textarea name="message" id="message" placeholder=" " required></textarea><label for="message">Uw vraag</label></div>
+                <button type="submit" class="btn"><span>Verstuur</span></button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="index.html" class="logo"><img loading="lazy" src="images/logo.png" alt="ALKA Bouwadvies Logo" style="height:60px;"></a>
+            <p>Onafhankelijk bouwadviesbureau. Gespecialiseerd in bouwtekeningen, vergunningen en bouwbegeleiding.</p>
+        </div>
+        <div>
+            <h4>Diensten</h4>
+            <a href="dakkapel.html">Dakkapel</a>
+            <a href="dakopbouw-vergunningen.html">Dakopbouw</a>
+            <a href="aanbouw-uitbouw.html">Aanbouw / Uitbouw</a>
+            <a href="bouwkundig-advies.html">Bouwkundig Advies</a>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a>
+            <a href="tel:+31649240412">+31 (0)6 49 24 04 12</a>
+            <a href="index.html#contact">Contactformulier</a>
+        </div>
+        <div>
+            <h4>Juridisch</h4>
+            <a href="privacybeleid.html">Privacybeleid</a>
+            <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+            <a href="cookiebeleid.html">Cookiebeleid</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 ALKA Bouwadvies. KvK 95153756. Alle rechten voorbehouden.</p>
+        <div class="footer-legal">
+            <a href="privacybeleid.html">Privacy</a>
+            <a href="algemene-voorwaarden.html">Voorwaarden</a>
+            <a href="cookiebeleid.html">Cookies</a>
+        </div>
+    </div>
+</footer>
+
+<div class="mobile-sticky-cta" id="mobile-sticky-cta">
+    <a href="index.html#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
+</div>
+
+<script>
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        const stickyCta = document.getElementById('mobile-sticky-cta');
+        if (stickyCta) { stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none'; }
+    }, { passive: true });
+    const menuToggle = document.getElementById('menu-toggle');
+    if (menuToggle) { menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('active'); }); }
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Algemene Voorwaarden — ALKA Bouwadvies",
+    "description": "Algemene voorwaarden van ALKA Bouwadvies.",
+    "url": "https://alkasbouwadvies.nl/algemene-voorwaarden",
+    "publisher": { "@type": "Organization", "name": "ALKA Bouwadvies", "url": "https://alkasbouwadvies.nl" }
+}
+</script>
+</body>
+</html>
