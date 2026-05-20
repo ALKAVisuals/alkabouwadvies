@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aankoopadvies & Bestemmingsplan Check | ALKA Bouwadvies</title>
+    <meta name="description" content="Aankoopadvies voor uw nieuwe woning. Wij checken het bestemmingsplan en adviseren over wat er mogelijk is. Voorkom verrassingen na aankoop.">
+    <meta name="keywords" content="aankoopadvies, bestemmingsplan check, woning kopen, bouwmogelijkheden, ALKA Bouwadvies">
+    <meta name="author" content="ALKA Bouwadvies">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Aankoopadvies & Bestemmingsplan Check | ALKA Bouwadvies">
+    <meta property="og:description" content="Aankoopadvies voor uw nieuwe woning. Wij checken het bestemmingsplan en adviseren over wat er mogelijk is.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alkasbouwadvies.nl/aankoopadvies.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://alkasbouwadvies.nl/aankoopadvies.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ALKA Bouwadvies",
+      "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en aankoopadvies.",
+      "url": "https://alkasbouwadvies.nl",
+      "telephone": "+31649240412",
+      "email": "info@alkasbouwadvies.nl",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "address": {"@type": "PostalAddress", "addressCountry": "NL"},
+      "areaServed": [{"@type": "Country", "name": "Nederland"}],
+      "openingHours": ["Mo-Fr 09:00-17:00"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Wat is aankoopadvies?", "acceptedAnswer": {"@type": "Answer", "text": "Bij aankoopadvies checken wij voor u wat er mogelijk is op het perceel van de woning die u wilt kopen. Wij analyseren het bestemmingsplan en adviseren over bouwmogelijkheden, uitbreidingsmogelijkheden en eventuele beperkingen."}},
+        {"@type": "Question", "name": "Waarom is aankoopadvies belangrijk?", "acceptedAnswer": {"@type": "Answer", "text": "Zonder aankoopadvies koopt u een woning zonder te weten wat er mogelijk is. Misschien wilt u een uitbouw, dakkapel of dakopbouw realiseren, maar het bestemmingsplan staat dit niet toe. Wij voorkomen deze verrassingen."}},
+        {"@type": "Question", "name": "Hoeveel kost aankoopadvies?", "acceptedAnswer": {"@type": "Answer", "text": "Aankoopadvies start vanaf €150. Dit is een eenmalige investering die u vele malen terugverdiegt doordat u geen onverwachte kosten krijgt na aankoop."}},
+        {"@type": "Question", "name": "Hoe snel krijgt u de uitkomsten?", "acceptedAnswer": {"@type": "Answer", "text": "Binnen 5 werkdagen ontvangt u een duidelijk adviesrapport met de mogelijkheden en beperkingen van het perceel."}}
+      ]
+    }
+    </script>
+    <style>
+        :root{--bg:#fafafa;--bg-dark:#0f0f0f;--text:#1a1a1a;--text-light:#666;--accent:#b3944d;--accent-light:#d4b76a;--white:#fff;--gray:#e5e5e5;--success:#16a34a;--error:#dc2626}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html.lenis,html.lenis body{height:auto}
+        .lenis.lenis-smooth{scroll-behavior:auto!important}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+        ::selection{background:var(--accent);color:var(--text)}
+        img{max-width:100%;display:block}
+        a{text-decoration:none}
+        .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:10001;width:0%;transition:width 0.1s linear}
+        .back-to-top{position:fixed;bottom:2rem;right:2rem;width:48px;height:48px;background:var(--text);color:var(--white);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:99;opacity:0;transform:translateY(20px);transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+        .back-to-top.visible{opacity:1;transform:translateY(0)}
+        .back-to-top:hover{background:var(--accent);color:var(--text);transform:translateY(-4px)}
+        nav{position:fixed;top:0;left:0;width:100%;z-index:100;height:80px;padding:0 4vw;display:flex;justify-content:space-between;align-items:center;transition:all 0.6s cubic-bezier(0.25,0.46,0.45,0.94);background:transparent}
+        nav.scrolled{background:rgba(250,250,250,0.92);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);padding:1rem 4vw;box-shadow:0 1px 30px rgba(0,0,0,0.04)}
+        .logo{position:relative;display:flex;align-items:center;text-decoration:none;z-index:101}
+        .nav-logo-img{height:100px!important;width:auto!important;display:block;transition:transform 0.3s ease}
+        .logo:hover .nav-logo-img{transform:scale(1.05)}
+        .nav-links{display:flex;gap:3rem;list-style:none;align-items:center}
+        .nav-links a{text-decoration:none;color:var(--text);font-size:0.8125rem;font-weight:500;letter-spacing:0.02em;position:relative;padding:0.25rem 0;transition:color 0.3s ease}
+        .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--accent);transition:width 0.4s cubic-bezier(0.25,0.46,0.45,0.94)}
+        .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+        .nav-links a:hover{color:var(--accent)}
+        .nav-cta{padding:0.75rem 1.75rem;border:none;font-size:0.8125rem;font-weight:600;letter-spacing:0.05em;border-radius:50px;box-shadow:0 4px 15px rgba(196,163,90,0.25);position:relative;overflow:hidden;white-space:nowrap;text-decoration:none;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)}
+        .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(196,163,90,0.35)}
+        .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+        .menu-toggle span{display:block;width:24px;height:1.5px;background:var(--text);transition:all 0.4s ease}
+        .mobile-nav{position:fixed;inset:0;background:var(--white);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transform:translateX(100%);transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
+        .mobile-nav.open{transform:translateX(0)}
+        .mobile-link{font-size:1.75rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.02em;transition:color 0.3s ease}
+        .mobile-link:hover{color:var(--accent)}
+        .section-label{display:inline-flex;align-items:center;gap:0.75rem;font-size:0.6875rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+        .section-label::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+        .section-title{font-size:clamp(2rem,4vw,3.25rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1.5rem}
+        .section-title em{font-style:normal;color:var(--accent)}
+        .btn{display:inline-flex;align-items:center;gap:0.625rem;padding:1rem 2.25rem;background:var(--text);color:var(--white);font-family:inherit;font-size:0.8125rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border:none;cursor:pointer;position:relative;overflow:hidden;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);text-decoration:none}
+        .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(196,163,90,0.25)}
+        .hero-split{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+        .hero-left{background:var(--bg-dark);display:flex;flex-direction:column;justify-content:center;padding:10rem 5vw 6rem;position:relative;z-index:2}
+        .hero-h1{font-size:clamp(2.25rem,4vw,3.75rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;color:var(--white);margin-bottom:2.5rem}
+        .hero-h1 em{font-style:normal;color:var(--accent)}
+        .hero-usps{list-style:none;display:flex;flex-direction:column;gap:1rem;margin-bottom:3rem}
+        .hero-usp{display:flex;align-items:center;gap:1rem}
+        .usp-icon{width:40px;height:40px;border:1px solid rgba(179,148,77,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(179,148,77,0.06)}
+        .usp-icon svg{color:var(--accent)}
+        .usp-text strong{display:block;font-size:0.9375rem;font-weight:600;color:var(--white);letter-spacing:-0.01em}
+        .usp-text span{font-size:0.8125rem;color:rgba(255,255,255,0.4)}
+        .hero-cta-row{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+        .hero-cta-primary{display:inline-flex;align-items:center;gap:0.75rem;padding:1rem 2.25rem;background:var(--accent);color:var(--text);font-size:0.8125rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)}
+        .hero-cta-primary:hover{background:var(--white);transform:translateY(-2px);box-shadow:0 12px 30px rgba(179,148,77,0.3)}
+        .hero-right{position:relative;overflow:hidden;background:#111}
+        .hero-right-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.7) saturate(0.8)}
+        .hero-right-badge{position:absolute;bottom:3rem;left:3rem;background:rgba(15,15,15,0.85);backdrop-filter:blur(16px);border:1px solid rgba(179,148,77,0.3);padding:1.25rem 1.75rem;z-index:2}
+        .hero-right-badge strong{display:block;font-size:2.25rem;font-weight:800;color:var(--accent);letter-spacing:-0.04em;line-height:1}
+        .hero-right-badge span{font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:0.375rem;display:block}
+        .content-section{background:var(--white);padding:8rem 4vw}
+        .content-inner{max-width:1200px;margin:0 auto}
+        .content-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+        .content-text p{font-size:1.0625rem;color:var(--text-light);line-height:1.8;margin-bottom:1.5rem}
+        .content-text ul{list-style:none;display:flex;flex-direction:column;gap:1rem;margin:2rem 0}
+        .content-text li{display:flex;gap:1rem;align-items:flex-start;font-size:0.9375rem;line-height:1.6}
+        .content-text li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0}
+        .checklist{background:var(--bg);padding:3rem;border:1px solid var(--gray)}
+        .checklist h3{font-size:1.25rem;font-weight:700;margin-bottom:1.5rem}
+        .checklist ul{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
+        .checklist li{display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9rem;color:var(--text-light)}
+        .checklist li::before{content:'→';color:var(--accent);font-weight:700}
+        .pricing{background:var(--bg);padding:8rem 4vw}
+        .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem;max-width:1200px;margin-left:auto;margin-right:auto}
+        .price-card{background:var(--white);border:1px solid var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)}
+        .price-card.featured{border:2px solid var(--accent);box-shadow:0 20px 40px rgba(179,148,77,0.15);transform:scale(1.05);z-index:2}
+        .price-card.featured::before{content:'AANBEVOLEN';position:absolute;top:0;left:50%;transform:translate(-50%,-50%);background:var(--accent);color:var(--text);font-size:0.625rem;font-weight:800;letter-spacing:0.1em;padding:0.4rem 1rem;white-space:nowrap}
+        .price-card h3{font-size:1.25rem;font-weight:700;margin-bottom:1rem;letter-spacing:-0.02em}
+        .price-value{font-size:3rem;font-weight:800;color:var(--text);margin-bottom:0.5rem}
+        .price-value span{font-size:1rem;color:var(--text-light);font-weight:400}
+        .price-features{list-style:none;margin:2rem 0;flex-grow:1}
+        .price-features li{font-size:0.875rem;color:var(--text-light);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem}
+        .price-features li svg{color:var(--accent);flex-shrink:0}
+        .price-btn{width:100%;text-align:center;padding:1rem;border:1px solid var(--text);color:var(--text);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;transition:all 0.3s ease;cursor:pointer;text-decoration:none;display:inline-block}
+        .price-card.featured .price-btn{background:var(--text)!important;color:var(--white)!important}
+        .price-card:hover .price-btn{background:var(--accent);border-color:var(--accent);color:var(--text)}
+        .faq{background:var(--bg);padding:8rem 4vw}
+        .faq-inner{max-width:800px;margin:0 auto}
+        .faq-container{margin-top:4rem;display:flex;flex-direction:column;gap:1rem}
+        .faq-item{background:var(--white);border:1px solid var(--gray);cursor:pointer;transition:all 0.3s ease}
+        .faq-item:hover{border-color:var(--accent)}
+        .faq-trigger{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:1rem;color:var(--text)}
+        .faq-trigger svg{transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);color:var(--accent)}
+        .faq-content{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94)}
+        .faq-content p{padding:0 2rem 1.5rem 2rem;font-size:0.875rem;color:var(--text-light);line-height:1.7}
+        .faq-item.active .faq-trigger svg{transform:rotate(180deg)}
+        .faq-item.active .faq-content{max-height:500px}
+        .cta-section{background:var(--text);padding:6rem 4vw;text-align:center}
+        .cta-section h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:var(--white);margin-bottom:1rem}
+        .cta-section p{color:rgba(255,255,255,0.5);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
+        .cta-btn{display:inline-flex;align-items:center;gap:0.75rem;padding:1rem 2.5rem;background:var(--accent);color:var(--text);font-size:0.8125rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)}
+        .cta-btn:hover{background:var(--white);transform:translateY(-2px)}
+        footer{background:var(--bg-dark);color:var(--white);padding:4rem 4vw 2rem}
+        .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+        .footer-brand p{color:rgba(255,255,255,0.5);font-size:0.875rem;line-height:1.7;margin-top:1rem}
+        .footer-nav h5{font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;color:var(--accent)}
+        .footer-nav ul{list-style:none}
+        .footer-nav li{margin-bottom:0.5rem}
+        .footer-nav a{color:rgba(255,255,255,0.5);font-size:0.8125rem;text-decoration:none;transition:color 0.3s ease}
+        .footer-nav a:hover{color:var(--accent)}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(255,255,255,0.3)}
+        .footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none}
+        .footer-bottom a:hover{color:var(--accent)}
+        .mobile-sticky-cta{position:fixed;bottom:0;left:0;width:100%;padding:1rem;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-top:1px solid var(--gray);z-index:999;display:none;justify-content:center;box-shadow:0 -5px 20px rgba(0,0,0,0.05)}
+        .sticky-cta-btn{color:var(--white);text-decoration:none;padding:0.8rem 2rem;font-size:0.85rem;font-weight:600;border-radius:50px;text-transform:uppercase;letter-spacing:0.05em;width:100%;text-align:center;transition:background 0.3s ease}
+        @media(max-width:1024px){.hero-split{grid-template-columns:1fr;min-height:auto}.hero-right{min-height:50vh;display:block}.hero-left{padding:8rem 4vw 4rem}.content-grid{grid-template-columns:1fr;gap:3rem}.pricing-grid{grid-template-columns:1fr}.price-card.featured{transform:scale(1)}.footer-top{grid-template-columns:1fr 1fr}}
+        @media(max-width:768px){.nav-links,.nav-cta{display:none}.menu-toggle{display:flex}.nav-logo-img{height:60px!important}.hero-left{padding:6rem 1.5rem 3rem}.content-section,.faq,.pricing{padding:4rem 1.5rem}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:1rem;text-align:center}}
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link" style="position:absolute;top:-100%;left:0;background:var(--accent);color:var(--text);padding:0.5rem 1rem;z-index:9999">Ga naar inhoud</a>
+    <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="ALKA Bouwadvies" class="nav-logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#diensten">Diensten</a></li>
+            <li><a href="index.html#prijzen">Prijzen</a></li>
+            <li><a href="over-ons.html">Over Ons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta metal-btn" style="background:linear-gradient(135deg,#b3944d 0%,#d4b76a 25%,#f5e6a3 50%,#d4b76a 75%,#b3944d 100%);color:#1a1a1a;border:none;border-radius:50px;cursor:pointer;font-family:inherit;font-size:0.8125rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.75rem 1.75rem;">Offerte aanvragen</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+            <span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html#diensten" class="mobile-link">Diensten</a>
+        <a href="index.html#prijzen" class="mobile-link">Prijzen</a>
+        <a href="over-ons.html" class="mobile-link">Over Ons</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+        <a href="contact.html" class="mobile-link" style="background:linear-gradient(135deg,#b3944d 0%,#d4b76a 25%,#f5e6a3 50%,#d4b76a 75%,#b3944d 100%);color:#1a1a1a;border-radius:50px;padding:0.75rem 1.75rem;text-align:center;">Offerte aanvragen</a>
+    </div>
+
+    <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+        <a href="contact.html" class="sticky-cta-btn metal-btn" style="background:linear-gradient(135deg,#b3944d 0%,#d4b76a 25%,#f5e6a3 50%,#d4b76a 75%,#b3944d 100%);color:#1a1a1a;">Offerte aanvragen</a>
+    </div>
+
+    <main>
+        <section class="hero-split">
+            <div class="hero-left">
+                <h1 class="hero-h1">Aankoopadvies:<br>weet wat u <em>koopt</em></h1>
+                <ul class="hero-usps">
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><div class="usp-text"><strong>Bestemmingsplan check</strong><span>Volledige analyse van het perceel</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="usp-text"><strong>Binnen 5 werkdagen</strong><span>Snelle uitkomst, geen wachttijd</span></div></li>
+                    <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="usp-text"><strong>Vanaf €150</strong><span>Betaalbaar advies, kosteloos terugverdiend</span></div></li>
+                </ul>
+                <div class="hero-cta-row">
+                    <a href="#contact" class="hero-cta-primary">Aankoopadvies aanvragen →</a>
+                    <a href="#wat-doen-wij" class="hero-cta-secondary" style="color:rgba(255,255,255,0.5);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:2px;">Wat doen wij precies?</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="images/logo.png" alt="ALKA Bouwadvies - Aankoopadvies" class="hero-right-img">
+                <div class="hero-right-badge"><strong>Vanaf €150</strong><span>Aankoopadvies</span></div>
+            </div>
+        </section>
+
+        <section class="content-section" id="wat-doen-wij">
+            <div class="content-inner">
+                <div class="content-grid">
+                    <div class="content-text">
+                        <div class="section-label">Wat wij doen</div>
+                        <h2 class="section-title">Uw aankoop, <em>gefinetunerd</em></h2>
+                        <p>Bent u op zoek naar een nieuwe woning of heeft u een woning gevonden die u wilt kopen? Dan is aankoopadvies essentieel. Wij analyseren voor u wat er mogelijk is op het perceel en adviseren over de bouwmogelijkheden.</p>
+                        <p>Veel kopers ontdekken pas na de aankoop dat hun droomproject — een uitbouw, dakkapel of dakopbouw — niet mogelijk is volgens het bestemmingsplan. Wij voorkomen deze verrassingen.</p>
+                        <ul>
+                            <li>Volledige analyse van het bestemmingsplan</li>
+                            <li>Advies over bouwmogelijkheden en beperkingen</li>
+                            <li>Inschatting van vergunningskosten</li>
+                            <li>Advies over welstandseisen</li>
+                            <li>Rapport met concrete aanbevelingen</li>
+                        </ul>
+                    </div>
+                    <div class="checklist">
+                        <h3>Wat wij voor u checken:</h3>
+                        <ul>
+                            <li>Bestemmingsplan en functie-aanduiding</li>
+                            <li>Bouwhoogte en bouwvolume</li>
+                            <li>Afstandseisen tot perceelgrenzen</li>
+                            <li>Welstandseisen en architectonische kaders</li>
+                            <li>Beschermde gebieden of monumenten</li>
+                            <li>Parkeereisen en groenvoorziening</li>
+                            <li>Mogelijkheden voor uitbreiding</li>
+                            <li>Eventuele plichten of beperkingen</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing" id="prijzen">
+            <div class="content-inner" style="text-align:center;">
+                <div class="section-label">Prijzen</div>
+                <h2 class="section-title">Transparante <em>tarieven</em></h2>
+                <p style="color:var(--text-light);max-width:600px;margin:0 auto;">Aankoopadvies is een eenmalige investering die u vele malen terugverdiegt. Voorkom onverwachte kosten na aankoop.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Basisscan</h3>
+                    <div class="price-value">€150<span> excl. BTW</span></div>
+                    <ul class="price-features">
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bestemmingsplan check</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bouwmogelijkheden overzicht</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Kort adviesrapport</li>
+                    </ul>
+                    <a href="#contact" class="price-btn">Aanvragen</a>
+                </div>
+                <div class="price-card featured">
+                    <h3>Uitgebreid advies</h3>
+                    <div class="price-value">€350<span> excl. BTW</span></div>
+                    <ul class="price-features">
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Alles uit Basisscan</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Volledige bestemmingsplan analyse</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Welstandseisen check</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gedetailleerd adviesrapport</li>
+                    </ul>
+                    <a href="#contact" class="price-btn">Aanvragen</a>
+                </div>
+                <div class="price-card">
+                    <h3>Premium</h3>
+                    <div class="price-value">€550<span> excl. BTW</span></div>
+                    <ul class="price-features">
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Alles uit Uitgebreid</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijke toelichting</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Advies over meerdere scenario's</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#b3944d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Telefonische nazorg (30 min)</li>
+                    </ul>
+                    <a href="#contact" class="price-btn">Aanvragen</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq" id="faq">
+            <div class="faq-inner">
+                <div class="section-label">Veelgestelde Vragen</div>
+                <h2 class="section-title">Veelgestelde vragen over <em>aankoopadvies</em></h2>
+                <div class="faq-container">
+                    <div class="faq-item"><div class="faq-trigger"><span>Wat is aankoopadvies?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="faq-content"><p>Bij aankoopadvies checken wij voor u wat er mogelijk is op het perceel van de woning die u wilt kopen. Wij analyseren het bestemmingsplan en adviseren over bouwmogelijkheden, uitbreidingsmogelijkheden en eventuele beperkingen. Zo weet u precies waar u aan toe bent voordat u koopt.</p></div></div>
+                    <div class="faq-item"><div class="faq-trigger"><span>Waarom is aankoopadvies belangrijk?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="faq-content"><p>Zonder aankoopadvies koopt u een woning zonder te weten wat er mogelijk is. Misschien wilt u een uitbouw, dakkapel of dakopbouw realiseren, maar het bestemmingsplan staat dit niet toe. Of er gelden welstandseisen die uw plannen beperken. Wij voorkomen deze verrassingen en besparen u duizenden euro's aan onverwachte kosten.</p></div></div>
+                    <div class="faq-item"><div class="faq-trigger"><span>Hoeveel kost aankoopadvies?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="faq-content"><p>Aankoopadvies start vanaf €150 voor een basisscan. Een uitgebreid advies met gedetailleerd rapport kost €350. Dit is een eenmalige investering die u vele malen terugverdiegt doordat u geen onverwachte kosten krijgt na aankoop.</p></div></div>
+                    <div class="faq-item"><div class="faq-trigger"><span>Hoe snel krijgt u de uitkomsten?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="faq-content"><p>Binnen 5 werkdagen na ontvangst van de adresgegevens ontvangt u uw adviesrapport. Dit is snel genoeg om tijdens de bedenktijd van uw aankoopbeslissing te gebruiken.</p></div></div>
+                    <div class="faq-item"><div class="faq-trigger"><span>Kan ik ook na aankoop nog advies krijgen?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="faq-content"><p>Natuurlijk. Ook na aankoop kunt u ons raadplegen voor advies over uw bouwplannen. Wij kunnen dan een volledige vergunningsbegeleiding verzorgen. Het aankoopadvies is echter het meest waardevol vóór de aankoop, zodat u geen verrassingen krijgt.</p></div></div>
+                    <div class="faq-item"><div class="faq-trigger"><span>In welke gemeenten zijn jullie actief?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="faq-content"><p>Wij zijn actief in heel Nederland. Het bestemmingsplan is voor elke gemeente online beschikbaar, dus wij kunnen overal advies geven. Voor een persoonlijke bezoek aan het perceel reizen wij ook door het hele land.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" id="contact">
+            <h2>Aankoopadvies aanvragen?</h2>
+            <p>Vul het formulier in en wij nemen binnen 24 uur contact met u op. U zit nergens aan vast.</p>
+            <a href="contact.html" class="cta-btn">Neem contact op →</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html"><img src="images/logo.png" alt="ALKA Bouwadvies" style="height:60px;"></a>
+                <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in heel Nederland.</p>
+            </div>
+            <div class="footer-nav">
+                <h5>Diensten</h5>
+                <ul>
+                    <li><a href="dakkapel.html">Dakkapel</a></li>
+                    <li><a href="aanbouw-uitbouw.html">Aanbouw & Uitbouw</a></li>
+                    <li><a href="erker.html">Erker</a></li>
+                    <li><a href="bijgebouw.html">Bijgebouwen</a></li>
+                    <li><a href="dakopbouw-vergunningen.html">Dakopbouw</a></li>
+                    <li><a href="nokverhoging.html">Nokverhoging</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h5>Meer</h5>
+                <ul>
+                    <li><a href="bed-breakfast.html">Bed & Breakfast</a></li>
+                    <li><a href="mantelzorg.html">Mantelzorgwoning</a></li>
+                    <li><a href="carport-vergunning.html">Carport</a></li>
+                    <li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li>
+                    <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
+                    <li><a href="aankoopadvies.html">Aankoopadvies</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="contact.html">Contactformulier</a></li>
+                    <li><a href="over-ons.html">Over Ons</a></li>
+                    <li><a href="testimonials.html">Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 ALKA Bouwadvies | KVK 95153756</span>
+            <span><a href="privacybeleid.html">Privacy</a> · <a href="algemene-voorwaarden.html">Voorwaarden</a> · <a href="cookiebeleid.html">Cookies</a></span>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Terug naar boven">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (menuToggle && mobileNav) {
+            menuToggle.addEventListener('click', () => {
+                mobileNav.classList.toggle('open');
+                menuToggle.classList.toggle('active');
+            });
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('open');
+                    menuToggle.classList.remove('active');
+                });
+            });
+        }
+
+        // Nav scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // Back to top
+        const backToTop = document.getElementById('back-to-top');
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                backToTop.classList.toggle('visible', window.scrollY > 600);
+            }, { passive: true });
+            backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
+
+        // Mobile sticky CTA
+        const stickyCta = document.getElementById('mobile-sticky-cta');
+        if (stickyCta) {
+            window.addEventListener('scroll', () => {
+                stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+            }, { passive: true });
+        }
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('progress-bar');
+            if (bar) {
+                const max = document.documentElement.scrollHeight - window.innerHeight;
+                bar.style.width = max > 0 ? (window.scrollY / max * 100) + '%' : '0%';
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>
