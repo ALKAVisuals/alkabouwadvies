@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dakkapel Bouwtekening & Vergunning — Complete Gids | Alka's Bouwadvies</title>
-    <meta name="description" content="Alles over de dakkapel bouwtekening en omgevingsvergunning. Van vergunningsvrije regels tot constructieberekening. ABW-gecertificeerd, 100% goedkeuringsgarantie. Deskundig advies vanaf €250.">
+    <title>Dakkapel Bouwtekening & Vergunning | Alka's Bouwadvies</title>
+    <meta name="description" content="Dakkapel bouwtekening & vergunning aanvragen. Van vergunningsvrije regels tot constructieberekening. ABW-gecertificeerd, 100% goedkeuringsgarantie.">
     <meta name="keywords" content="dakkapel bouwtekening, dakkapel vergunning, omgevingsvergunning dakkapel, vergunningsvrije dakkapel, constructieberekening dakkapel, dakkapel tekening aanvragen, Omgevingswet dakkapel">
     <meta name="author" content="Alka's Bouwadvies">
     <meta name="robots" content="index, follow">
@@ -18,87 +18,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
-    
-        
-        // === INJECTED: Desktop Dropdown ===
-// ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
-        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
-        const allRightPanels = document.querySelectorAll('.dropdown-right');
-
-        function showRightPanel(subId) {
-            allRightPanels.forEach(p => {
-                p.classList.remove('visible');
-            });
-            if (subId) {
-                const panel = document.getElementById(subId);
-                if (panel) {
-                    panel.classList.add('visible');
-                }
-            }
-        }
-
-        dropdownLeftItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                item.classList.add('hovered');
-                const subId = item.getAttribute('data-sub');
-                if (subId && subId !== '') {
-                    showRightPanel('sub-' + subId);
-                }
-            });
-        });
-
-        const dropdownContainer = document.getElementById('diensten-dropdown');
-        if (dropdownContainer) {
-            dropdownContainer.addEventListener('mouseleave', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                const firstItem = dropdownLeftItems[0];
-                if (firstItem) {
-                    firstItem.classList.add('hovered');
-                    const subId = firstItem.getAttribute('data-sub');
-                    if (subId && subId !== '') {
-                        showRightPanel('sub-' + subId);
-                    }
-                }
-            });
-        }
-
-        // === INJECTED: Scrollspy (IntersectionObserver) ===
-// Scrollspy
-        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
-        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-        if (sections.length > 0) {
-            const observerOptions = { root: null, rootMargin: '-80px 0px -40% 0px', threshold: 0 };
-            const observerCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const activeId = entry.target.id;
-                        navLinks.forEach(link => {
-                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
-                        });
-                    }
-                });
-            };
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            sections.forEach(section => observer.observe(section));
-        }
-
-        // === INJECTED: Smooth scroll anchors ===
-// Smooth scroll anchors
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
-            });
-        });
-</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
     <style>
         /* =============================================
@@ -3035,16 +2957,75 @@ nav.scrolled .nav-cta {
                 contactForm.reset();
             });
         }
-    
-        // === INJECTED: Homepage JS block 1 (mobile nav, accordion, etc.) ===
-[
-          {
+
+        // === Desktop Dropdown ===
+        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
+        const allRightPanels = document.querySelectorAll('.dropdown-right');
+        function showRightPanel(subId) {
+            allRightPanels.forEach(p => p.classList.remove('visible'));
+            if (subId) {
+                const panel = document.getElementById(subId);
+                if (panel) panel.classList.add('visible');
+            }
+        }
+        dropdownLeftItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                item.classList.add('hovered');
+                const subId = item.getAttribute('data-sub');
+                if (subId && subId !== '') showRightPanel('sub-' + subId);
+            });
+        });
+        const dropdownContainer = document.getElementById('diensten-dropdown');
+        if (dropdownContainer) {
+            dropdownContainer.addEventListener('mouseleave', () => {
+                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                const firstItem = dropdownLeftItems[0];
+                if (firstItem) {
+                    firstItem.classList.add('hovered');
+                    const subId = firstItem.getAttribute('data-sub');
+                    if (subId && subId !== '') showRightPanel('sub-' + subId);
+                }
+            });
+        }
+
+        // === Scrollspy ===
+        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+        if (sections.length > 0) {
+            const observerOptions = { root: null, rootMargin: '-80px 0px -40% 0px', threshold: 0 };
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
+                        });
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // === Smooth scroll anchors ===
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+            });
+        });
+    </script>
+    <script type="application/ld+json">
+        {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Alka's Bouwadvies",
             "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies voor uitbouwen, dakkapellen en erkers. Actief in 170+ gemeentes.",
             "url": "https://alkasbouwadvies.nl",
-            "telephone": "+31612345678",
+            "telephone": "+316****5678",
             "email": "info@alkasbouwadvies.nl",
             "priceRange": "&euro;&euro;",
             "currenciesAccepted": "EUR",
@@ -3101,8 +3082,10 @@ nav.scrolled .nav-cta {
                 "reviewBody": "De vaste prijs gaf mij rust. Geen verrassingen, geen extra rekeningen. Alka's Bouwadvies regelde alles van A tot Z."
               }
             ]
-          },
-          {
+        }
+    </script>
+    <script type="application/ld+json">
+        {
             "@context": "https://schema.org",
             "@type": "FAQPage",
             "mainEntity": [
@@ -3145,28 +3128,29 @@ nav.scrolled .nav-cta {
                   "@type": "Answer",
                   "text": "Mocht er een vraag of opmerking vanuit de gemeente komen, dan fungeren wij als uw aanspreekpunt. Wij beantwoorden alle technische vragen, passen de tekeningen aan indien nodig, en zorgen dat het traject soepel verloopt — zonder extra kosten."
                 }
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "Service",
-                "serviceType": "Bouwkundige tekeningen en omgevingsvergunningen",
-                "provider": {
-                    "@type": "LocalBusiness",
-                    "name": "Alka's Bouwadvies"
-                },
-                "areaServed": "NL",
-                "offers": {
-                    "@type": "AggregateOffer",
-                    "lowPrice": "250",
-                    "highPrice": "1140",
-                    "priceCurrency": "EUR"
-                },
-                "description": "Professionele bouwtekeningen voor dakkapellen, uitbouwen en nieuwbouw. Inclusief begeleiding bij de omgevingsvergunning."
-                }
+              }
             ]
-          }
-        ]
-</script>
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Bouwkundige tekeningen en omgevingsvergunningen",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "Alka's Bouwadvies"
+            },
+            "areaServed": "NL",
+            "offers": {
+                "@type": "AggregateOffer",
+                "lowPrice": "250",
+                "highPrice": "1140",
+                "priceCurrency": "EUR"
+            },
+            "description": "Professionele bouwtekeningen voor dakkapellen, uitbouwen en nieuwbouw. Inclusief begeleiding bij de omgevingsvergunning."
+        }
+    </script>
 
 <footer>
         <div class="footer-top">
@@ -3199,7 +3183,7 @@ nav.scrolled .nav-cta {
                 <ul>
                     <li><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li>
                     <li><a href="tel:+316****0412">+31 (0)6 49 24 04 12</a></li>
-                    <li><a href="contact.html">Contactformulier</a></li>
+                    <li><a href="#contact">Contactformulier</a></li>
                     <li><a href="over-ons.html">Over Ons</a></li>
                 </ul>
             </div>
@@ -3257,111 +3241,6 @@ nav.scrolled .nav-cta {
             }
         });
     })();
-
-        // === INJECTED: Scrollspy ===
-// Scrollspy
-        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
-        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-        if (sections.length > 0) {
-            const observerOptions = { root: null, rootMargin: '-80px 0px -40% 0px', threshold: 0 };
-            const observerCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const activeId = entry.target.id;
-                        navLinks.forEach(link => {
-                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
-                        });
-                    }
-                });
-            };
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            sections.forEach(section => observer.observe(section));
-        }
-
-        // === INJECTED: Smooth scroll ===
-// Smooth scroll anchors
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
-            });
-        });
-
-        // === INJECTED: Scrollspy ===
-// Scrollspy
-        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
-        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-        if (sections.length > 0) {
-            const observerOptions = { root: null, rootMargin: '-80px 0px -60% 0px', threshold: 0 };
-            const observerCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const activeId = entry.target.id;
-                        navLinks.forEach(link => {
-                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
-                        });
-                    }
-                });
-            };
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            sections.forEach(section => observer.observe(section));
-        }
-
-        // === INJECTED: Smooth scroll ===
-// Smooth scroll anchors
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
-            });
-        });
-
-        // === INJECTED: Desktop Dropdown ===
-// ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
-        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
-        const allRightPanels = document.querySelectorAll('.dropdown-right');
-
-        function showRightPanel(subId) {
-            allRightPanels.forEach(p => {
-                p.classList.remove('visible');
-            });
-            if (subId) {
-                const panel = document.getElementById(subId);
-                if (panel) {
-                    panel.classList.add('visible');
-                }
-            }
-        }
-
-        dropdownLeftItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                item.classList.add('hovered');
-                const subId = item.getAttribute('data-sub');
-                if (subId && subId !== '') {
-                    showRightPanel('sub-' + subId);
-                }
-            });
-        });
-
-        const dropdownContainer = document.getElementById('diensten-dropdown');
-        if (dropdownContainer) {
-            dropdownContainer.addEventListener('mouseleave', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                const firstItem = dropdownLeftItems[0];
-                if (firstItem) {
-                    firstItem.classList.add('hovered');
-                    const subId = firstItem.getAttribute('data-sub');
-                    if (subId && subId !== '') {
-                        showRightPanel('sub-' + subId);
-                    }
-                }
-            });
-        }
-</script>
+    </script>
 </body>
 </html>
