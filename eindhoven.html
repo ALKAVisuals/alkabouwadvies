@@ -3540,5 +3540,27 @@ transform: translateY(-2px);
                 if (!isActive) item.classList.add('active');
             });
         });
+
+        // Fade-in animations: make elements visible when they enter viewport
+        const fadeElements = document.querySelectorAll('.fade-up, .fade-in');
+        if ('IntersectionObserver' in window) {
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        fadeObserver.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+            fadeElements.forEach(el => fadeObserver.observe(el));
+        } else {
+            // Fallback: make all visible immediately
+            fadeElements.forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        }
+
 </body>
 </html>
