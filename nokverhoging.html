@@ -223,17 +223,14 @@
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            background: var(--accent);
-            color: var(--white);
-            border: none;
+border: none;
             padding: 0.625rem 1.5rem;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             text-decoration: none;
         }
 
         .nav-cta:hover {
-            background: var(--accent);
-            border-color: var(--accent);
+border-color: var(--accent);
             color: var(--text);
             transform: translateY(-2px);
         }
@@ -2483,9 +2480,7 @@
         }
 
         .nav-cta:hover {
-            background: var(--text);
-            color: var(--white);
-            transform: translateY(-2px);
+transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
         }
 
@@ -2548,6 +2543,14 @@
         }
 
 
+
+        @media (min-width: 1025px) {
+            nav.scrolled .nav-cta {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.75rem;
+                box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
+            }
+        }
         /* ═══════════════════════════════════════════
            METAL FX — Gold Button Effect (CSS-only)
            Gebaseerd op metal-fx gold preset
@@ -2623,6 +2626,37 @@
         .metal-btn-lg { padding: 1.25rem 3rem; font-size: 0.875rem; }
         .metal-btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
 
+
+        /* ── MOBILE STICKY CTA ── */
+        .mobile-sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--gray);
+            z-index: 999;
+            display: none;
+            justify-content: center;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+        }
+        .sticky-cta-btn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: 100%;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        .sticky-cta-btn:hover {
+        }
     </style>
     <style>
             .fade-up,
@@ -2948,27 +2982,11 @@ nav.scrolled .logo {
 .nav-links a.active::after {
             width: 0;
         }
-.nav-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
-.nav-cta:hover::before {
-            left: 100%;
-        }
+
+
 .nav-cta:hover {
-            background: var(--text);
-            color: var(--white);
-            transform: translateY(-2px);
+transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
-        }
-nav.scrolled .nav-cta {
-            box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
         }
 .menu-toggle span {
             display: block;
@@ -3098,7 +3116,80 @@ nav.scrolled .nav-cta {
             transition-delay: 0.65s;
         }
 </style>
-</head>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ALKA Bouwadvies",
+      "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies.",
+      "url": "https://alkasbouwadvies.nl",
+      "telephone": "+31649240412",
+      "email": "info@alkasbouwadvies.nl",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NL"
+      },
+      "areaServed": [
+        {"@type": "Country", "name": "Nederland"},
+        {"@type": "City", "name": "Apeldoorn"},
+        {"@type": "City", "name": "Arnhem"},
+        {"@type": "City", "name": "Breda"},
+        {"@type": "City", "name": "Den Haag"},
+        {"@type": "City", "name": "Groningen"},
+        {"@type": "City", "name": "Nijmegen"},
+        {"@type": "City", "name": "Tilburg"}
+      ],
+      "openingHours": ["Mo-Fr 09:00-17:00"],
+      "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is een nokverhoging slimmer dan verhuizen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Financieel gezien vaak wel. U vermijdt overdrachtsbelasting (2%), makelaarshonoraria, en blijft in uw vertrouwde buurt. De geïnvesteerde euro's stijgen direct de waarde van uw eigen stenen. Zeker in de huidige woningmarkt is dit een stabiele, lucratieve keuze."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Wat is het 'hoedjes-effect' en hoe voorkomt Alka's dit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Het 'hoedjes-effect' ontstaat wanneer een nok te hoog wordt opgetrokken zonder oog voor de totale verhoudingen van de gevel, waardoor het lijkt alsof het dak los op de woning staat. Wij analyseren de architectonische context van uw woning en zorgen dat de nieuwe hoogte in balans is met de rest van de gevel. Dit is cruciaal voor welstand en de esthetische waarde."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Wat houdt het participatieproces onder de Omgevingswet 2026 in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "De nieuwe Omgevingswet stimuleert dat initiatiefnemers (u) al vóór de vergunningsaanvraag in overleg treden met de directe omgeving (buren). U moet kunnen aantonen dat u dit gesprek bent aangegaan en dat hun belangen zijn meegenomen. Alka's begeleidt dit proces professioneel, van een informatiepakket tot een schaduwstudie, om bezwaren te voorkomen."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Wat als de buren bezwaar maken tegen mijn nokverhoging?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Buren hebben het recht om een zienswijze in te dienen. Vaak gaan bezwaren over verlies van uitzicht, privacy of schaduwwerking. Wij pakken dit proactief aan: nog vóór de officiële indiening delen wij een schaduwdiagram en architectonische visualisatie met de buren. Dit neemt in 90% van de gevallen het bezwaar weg nog vóór het een officieel geschil wordt."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Is een constructieberekening bij een nokverhoging echt verplicht?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Technisch gezien vraagt de gemeente deze niet altijd als losse formaliteit, maar een nokverhoging is een zware constructieve ingreep. Zonder de berekening kunt u geen aansprakelijkheid of verzekeringsdekking garanderen. Wij beschouwen deze stap als essentieel en hebben deze daarom verplicht geïntegreerd in onze standaard adviesroute (Pakket B en C)."
+        }
+      }
+      ]
+    }
+    </script></head>
 <body>
 <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
@@ -3216,7 +3307,7 @@ nav.scrolled .nav-cta {
         <a href="#prijzen" class="mobile-link">Prijzen</a>
         <a href="#nok-check" class="mobile-link">Nok-Check</a>
         <a href="#faq" class="mobile-link">FAQ</a>
-        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#contact" class="metal-btn metal-btn-sm mobile-link">Contact</a>
     </div>
 
     
@@ -3368,7 +3459,7 @@ nav.scrolled .nav-cta {
         <section class="mid-cta">
             <div class="mid-cta-inner">
                 <div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u over de haalbaarheid?</div><h2>Weet u zeker dat uw fundering het extra gewicht aankan en dat uw buren akkoord gaan?</h2><p>Voorkom verborgen risico's die uw project maandenlang kunnen stilleggen. Doe de gratis Nok-Check en krijg direct inzicht in uw kansen.</p></div>
-                <div class="mid-cta-actions fade-up"><a href="#nok-check" class="mid-cta-btn">Start de Gratis Nok-Check →</a><p class="mid-cta-note">Direct resultaat · Volledig vrijblijvend</p></div>
+                <div class="mid-cta-actions fade-up"><a href="#nok-check" class="mid-cta-btn metal-btn">Start de Gratis Nok-Check →</a><p class="mid-cta-note">Direct resultaat · Volledig vrijblijvend</p></div>
             </div>
         </section>
 
@@ -3435,7 +3526,7 @@ nav.scrolled .nav-cta {
                         <h4 id="result-title"></h4>
                         <p id="result-text"></p>
                         <p class="result-urgentie">Let op: Vanwege de complexiteit van nokverhogingen zijn onze intake-plekken voor een uitgebreide haalbaarheidsanalyse beperkt. Plan uw afspraak deze week om verzekerd te zijn van een plek.</p>
-                        <a href="#contact" class="wizard-cta-btn" id="result-cta">
+                        <a href="#contact" class="wizard-cta-btn metal-btn" id="result-cta">
                             <i class="fa-solid fa-calendar-check"></i> Plan direct mijn gratis haalbaarheidsgesprek in
                         </a>
                         <button id="wizard-reset-btn">
@@ -3478,7 +3569,7 @@ nav.scrolled .nav-cta {
                             <li><i class="fa-solid fa-xmark" style="color: #ccc;"></i> Géén constructieberekening</li>
                         </ul>
                         <p style="font-size: 0.75rem; color: var(--text-light); margin-bottom: 1rem;">Let op: Voor een nokverhoging volstaat dit vrijwel nooit als zelfstandig pakket. De gemeente eist bijna altijd een constructiedossier.</p>
-                        <a href="#contact" class="price-btn" style="border-color: #ccc; color: #999;" onclick="event.preventDefault(); setContactForm('nok-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn nokverhoging. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a>
+                        <a href="#contact" class="price-btn metal-btn" style="border-color: #ccc; color: #999;" onclick="event.preventDefault(); setContactForm('nok-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn nokverhoging. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a>
                     </div>
                     <div class="price-card featured fade-up">
                         <h3>Tekening + Constructie</h3>
@@ -3488,7 +3579,7 @@ nav.scrolled .nav-cta {
                             <li><i class="fa-solid fa-check"></i> Volledige constructieberekening</li>
                             <li><i class="fa-solid fa-check"></i> NEN-EN 1990 rapportage</li>
                         </ul>
-                        <a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('nok-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\' voor mijn nokverhoging. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a>
+                        <a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('nok-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\' voor mijn nokverhoging. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a>
                     </div>
                     <div class="price-card fade-up">
                         <h3>Full‑Service Vergunning</h3>
@@ -3499,7 +3590,7 @@ nav.scrolled .nav-cta {
                             <li><i class="fa-solid fa-check"></i> Volledige begeleiding tot verlening</li>
                         </ul>
                         <p style="font-size: 0.75rem; color: var(--text-light); margin-bottom: 1rem; font-weight: 600;">Dit is de enige veilige keuze bij gespannen burenrelaties of funderingsvragen.</p>
-                        <a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('nok-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\' voor mijn nokverhoging. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a>
+                        <a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('nok-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\' voor mijn nokverhoging. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a>
                     </div>
                 </div>
                 <div class="prijs-disclaimer">
@@ -3840,6 +3931,17 @@ nav.scrolled .nav-cta {
                     <img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img">
                 </a>
                 <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in 170+ gemeentes door heel Nederland.</p>
+                    <div class="footer-social" style="margin-top: 1rem;">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-block; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
             </div>
             <div class="footer-nav">
                 <h5>Diensten</h5>
@@ -3856,9 +3958,24 @@ nav.scrolled .nav-cta {
                     <li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li>
                     <li><a href="bouwkundig-advies.html">Bouwkundig Advies</a></li>
                     <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
+                    <li><a href="aankoopadvies.html">Aankoopadvies</a></li>
                     <li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
                 </ul>
             </div>
+
+            <div class="footer-nav">
+                <h5>Steden</h5>
+                <ul>
+                    <li><a href="apeldoorn.html">Apeldoorn</a></li>
+                    <li><a href="arnhem.html">Arnhem</a></li>
+                    <li><a href="breda.html">Breda</a></li>
+                    <li><a href="den-haag.html">Den Haag</a></li>
+                    <li><a href="groningen.html">Groningen</a></li>
+                    <li><a href="nijmegen.html">Nijmegen</a></li>
+                    <li><a href="tilburg.html">Tilburg</a></li>
+                </ul>
+            </div>
+
             <div class="footer-nav">
                 <h5>Contact</h5>
                 <ul>
@@ -3880,9 +3997,9 @@ nav.scrolled .nav-cta {
         <div class="footer-bottom">
             <div class="footer-copy">&copy; 2025&ndash;2026 Alka's Bouwadvies</div>
             <div class="footer-legal">
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Privacybeleid</a>
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Algemene Voorwaarden</a>
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Cookiebeleid</a>
+                <a href="privacybeleid.html">Privacybeleid</a>
+                <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+                <a href="cookiebeleid.html">Cookiebeleid</a>
             </div>
         </div>
     </footer>
@@ -4025,5 +4142,19 @@ nav.scrolled .nav-cta {
             }
         })();
 </script>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+        <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
+    </div>
+
+
+        // Mobile sticky CTA scroll
+        window.addEventListener('scroll', () => {
+            const stickyCta = document.getElementById('mobile-sticky-cta');
+            if (stickyCta) {
+                stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+            }
+        }, { passive: true });
 </body>
 </html>

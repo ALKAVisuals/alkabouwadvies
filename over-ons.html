@@ -3,6 +3,14 @@
 <head>
 
     <style>
+
+        @media (min-width: 1025px) {
+            nav.scrolled .nav-cta {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.75rem;
+                box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
+            }
+        }
         /* ═══════════════════════════════════════════
            METAL FX — Gold Button Effect (CSS-only)
            Gebaseerd op metal-fx gold preset
@@ -65,6 +73,38 @@
         .metal-btn-sm { padding: 0.625rem 1.5rem; font-size: 0.75rem; }
         .metal-btn-lg { padding: 1.25rem 3rem; font-size: 0.875rem; }
         .metal-btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+    
+        /* ── MOBILE STICKY CTA ── */
+        .mobile-sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--gray);
+            z-index: 999;
+            display: none;
+            justify-content: center;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+        }
+        .sticky-cta-btn {
+color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: 100%;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        .sticky-cta-btn:hover {
+}
+
     </style>
 
     <meta charset="UTF-8">
@@ -99,7 +139,36 @@
     </script>
 
     
-</head>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ALKA Bouwadvies",
+      "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies.",
+      "url": "https://alkasbouwadvies.nl",
+      "telephone": "+31649240412",
+      "email": "info@alkasbouwadvies.nl",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NL"
+      },
+      "areaServed": [
+        {"@type": "Country", "name": "Nederland"},
+        {"@type": "City", "name": "Apeldoorn"},
+        {"@type": "City", "name": "Arnhem"},
+        {"@type": "City", "name": "Breda"},
+        {"@type": "City", "name": "Den Haag"},
+        {"@type": "City", "name": "Groningen"},
+        {"@type": "City", "name": "Nijmegen"},
+        {"@type": "City", "name": "Tilburg"}
+      ],
+      "openingHours": ["Mo-Fr 09:00-17:00"],
+      "sameAs": []
+    }
+    </script></head>
 <body>
     <a href="#main" class="skip-link">Ga naar inhoud</a>
 
@@ -109,7 +178,7 @@
     <div class="mobile-nav" id="mobile-nav">
         <a href="#diensten" class="mobile-link">Diensten</a>
         <a href="index.html#prijzen" class="mobile-link">Prijzen</a>
-        <a href="index.html#contact" class="mobile-link">Contact</a>
+        <a href="index.html#contact" class="metal-btn metal-btn-sm mobile-link">Contact</a>
     </div>
 
     <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
@@ -267,6 +336,26 @@
             </div>
         </section>
 
+        <!-- TEAM -->
+        <section class="team" id="team" style="background: var(--bg); padding: 6rem 4vw;">
+            <div class="team-inner" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+                <div class="section-label">Ons Team</div>
+                <h2 class="section-title">Persoonlijk <em>advies</em>, altijd.</h2>
+                <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 3rem; line-height: 1.8;">Bij ALKA Bouwadvies bent u niet aan een callcenter gebonden. U heeft direct contact met uw adviseur die uw project van A tot Z begeleidt.</p>
+                <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-top: 3rem;">
+                    <div class="team-member" style="background: var(--white); border: 1px solid var(--gray); padding: 3rem 2rem; text-align: center;">
+                        <div class="team-photo" style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; overflow: hidden; border: 3px solid var(--accent);">
+                            <img src="images/team-placeholder.svg" alt="Bouwkundig Adviseur" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Uw Naam</h3>
+                        <p style="color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Bouwkundig Adviseur</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; line-height: 1.7;">ABW-gecertificeerd adviseur met jarenlange ervaring in bouwtekeningen en omgevingsvergunningen. Actief in 170+ gemeentes.</p>
+                    </div>
+                </div>
+                <p style="color: var(--text-light); font-size: 0.85rem; margin-top: 2rem;">📷 Deze foto is een placeholder. Vervang door een professionele foto van uw adviseur.</p>
+            </div>
+        </section>
+
         <!-- WAT WIJ DOEN -->
         <section class="proces" id="diensten">
             <div class="proces-inner">
@@ -325,7 +414,7 @@
                     <p>Vraag een vrijblijvend adviesgesprek aan. Wij denken graag met u mee.</p>
                 </div>
                 <div class="mid-cta-actions fade-up">
-                    <a href="contact.html" class="mid-cta-btn">Contact opnemen &rarr;</a>
+                    <a href="contact.html" class="mid-cta-btn metal-btn">Contact opnemen &rarr;</a>
                 </div>
             </div>
         </section>
@@ -343,6 +432,17 @@
                     <img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img">
                 </a>
                 <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in 170+ gemeentes door heel Nederland.</p>
+                    <div class="footer-social" style="margin-top: 1rem;">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-block; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
             </div>
             <div class="footer-nav">
                 <h5>Diensten</h5>
@@ -359,9 +459,24 @@
                     <li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li>
                     <li><a href="bouwkundig-advies.html">Bouwkundig Advies</a></li>
                     <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
+                    <li><a href="aankoopadvies.html">Aankoopadvies</a></li>
                     <li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
                 </ul>
             </div>
+
+            <div class="footer-nav">
+                <h5>Steden</h5>
+                <ul>
+                    <li><a href="apeldoorn.html">Apeldoorn</a></li>
+                    <li><a href="arnhem.html">Arnhem</a></li>
+                    <li><a href="breda.html">Breda</a></li>
+                    <li><a href="den-haag.html">Den Haag</a></li>
+                    <li><a href="groningen.html">Groningen</a></li>
+                    <li><a href="nijmegen.html">Nijmegen</a></li>
+                    <li><a href="tilburg.html">Tilburg</a></li>
+                </ul>
+            </div>
+
             <div class="footer-nav">
                 <h5>Contact</h5>
                 <ul>
@@ -383,9 +498,9 @@
         <div class="footer-bottom">
             <div class="footer-copy">&copy; 2025&ndash;2026 Alka's Bouwadvies</div>
             <div class="footer-legal">
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Privacybeleid</a>
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Algemene Voorwaarden</a>
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Cookiebeleid</a>
+                <a href="privacybeleid.html">Privacybeleid</a>
+                <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+                <a href="cookiebeleid.html">Cookiebeleid</a>
             </div>
         </div>
     </footer>
@@ -913,33 +1028,16 @@
             display: none;
         }
 
-        .nav-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
+        
 
-        .nav-cta:hover::before {
-            left: 100%;
-        }
+        
 
         .nav-cta:hover {
-            background: var(--text);
-            color: var(--white);
-            transform: translateY(-2px);
+transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
         }
 
-        nav.scrolled .nav-cta {
-            box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
-        }
-
-        .menu-toggle span {
+                .menu-toggle span {
             display: block;
             width: 24px;
             height: 1.5px;

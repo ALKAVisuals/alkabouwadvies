@@ -115,7 +115,7 @@
 .dropdown-info p { font-size: 0.8125rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1rem; }
 .dropdown-cta-btn {
     display: inline-block; padding: 0.6rem 1.25rem; background: var(--accent); color: var(--white);
-    font-size: 0.8125rem; font-weight: 600; text-decoration: none; border-radius: 0; transition: background 0.2s;
+    font-size: 0.8125rem; font-weight: 600; text-decoration: none; border-radius: 50px; transition: background 0.2s;
 }
 .dropdown-cta-btn:hover { background: var(--accent-light); }
 @media (max-width: 768px) { .nav-dropdown { display: none !important; } }
@@ -291,16 +291,13 @@
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            background: var(--accent);
-            color: var(--white);
-            border: none;
+border: none;
             padding: 0.625rem 1.5rem;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             text-decoration: none;
         }
         .nav-cta:hover {
-            background: var(--accent);
-            border-color: var(--accent);
+border-color: var(--accent);
             color: var(--text);
             transform: translateY(-2px);
         }
@@ -2180,9 +2177,6 @@ nav.scrolled .logo {
             align-items: center;
             height: 100%;
         }
-nav.scrolled .nav-cta {
-            box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
-        }
 .menu-toggle.active span:nth-child(1) {
             transform: translateY(3.75px) rotate(45deg);
         }
@@ -2456,25 +2450,12 @@ nav.scrolled .nav-cta {
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .nav-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
+        
 
-        .nav-cta:hover::before {
-            left: 100%;
-        }
+        
 
         .nav-cta:hover {
-            background: var(--text);
-            color: var(--white);
-            transform: translateY(-2px);
+transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
         }
 
@@ -2537,6 +2518,14 @@ nav.scrolled .nav-cta {
         }
 
 
+
+        @media (min-width: 1025px) {
+            nav.scrolled .nav-cta {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.75rem;
+                box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
+            }
+        }
         /* ═══════════════════════════════════════════
            METAL FX — Gold Button Effect (CSS-only)
            Gebaseerd op metal-fx gold preset
@@ -2612,8 +2601,133 @@ nav.scrolled .nav-cta {
         .metal-btn-lg { padding: 1.25rem 3rem; font-size: 0.875rem; }
         .metal-btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
 
+
+        /* ── MOBILE STICKY CTA ── */
+        .mobile-sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--gray);
+            z-index: 999;
+            display: none;
+            justify-content: center;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+        }
+        .sticky-cta-btn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: 100%;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        .sticky-cta-btn:hover {
+        }
     </style>
-</head>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ALKA Bouwadvies",
+      "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies.",
+      "url": "https://alkasbouwadvies.nl",
+      "telephone": "+31649240412",
+      "email": "info@alkasbouwadvies.nl",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NL"
+      },
+      "areaServed": [
+        {"@type": "Country", "name": "Nederland"},
+        {"@type": "City", "name": "Apeldoorn"},
+        {"@type": "City", "name": "Arnhem"},
+        {"@type": "City", "name": "Breda"},
+        {"@type": "City", "name": "Den Haag"},
+        {"@type": "City", "name": "Groningen"},
+        {"@type": "City", "name": "Nijmegen"},
+        {"@type": "City", "name": "Tilburg"}
+      ],
+      "openingHours": ["Mo-Fr 09:00-17:00"],
+      "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is een dakopbouw altijd vergunningsplichtig?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, een dakopbouw is vrijwel altijd vergunningsplichtig. U wijzigt de constructie van de woning en het uiterlijk aanzienlijk. De gemeente toetst aan het bestemmingsplan, de welstand en het Bouwbesluit. Zonder vergunning bouwen kan leiden tot een dwangsom en verplichte afbraak."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Wat kost een dakopbouw inclusief bouwtekening en vergunning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Onze tarieven voor tekening en vergunning starten bij €330 (excl. BTW). De totale bouwkosten van een dakopbouw liggen gemiddeld tussen €15.000 en €40.000, afhankelijk van de omvang en afwerking. Wij kunnen u indicaties geven op basis van uw specifieke situatie."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Hoe lang duurt het vergunningstraject voor een dakopbouw?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gemiddeld 8 tot 12 weken, met een mogelijke verlenging van 6 weken. De gemeente toetst uitgebreid omdat een dakopbouw een ingrijpende wijziging is. Wij zorgen dat uw aanvraag compleet en correct is ingediend om vertraging te voorkomen."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Is een constructieberekening verplicht bij een dakopbouw?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, absoluut. Omdat u de nok verhoogt en de draagconstructie wijzigt, eist de gemeente altijd een constructieberekening. Deze toont aan dat de nieuwe constructie veilig is en voldoet aan de NEN-normen."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Wat zijn de legeskosten voor een dakopbouw vergunning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "De legeskosten verschillen per gemeente en zijn afhankelijk van de bouwsom. Gemiddeld liggen de legeskosten voor een dakopbouw tussen de €250 en €600. Deze kosten komen bovenop onze tarieven."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Kan mijn fundering een extra verdieping dragen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dit laten wij controleren door onze constructeur. In de meeste gevallen is de fundering toereikend, maar bij oudere woningen kan verzwaring nodig zijn. Wij nemen dit mee in de constructieberekening."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Wat als mijn buren bezwaar maken tegen mijn dakopbouw?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tijdens de vergunningsprocedure kunnen buren een zienswijze indienen. De gemeente weegt deze mee. Onze tekeningen houden rekening met privacy, schaduwwerking en straatbeeld om bezwaren zoveel mogelijk te voorkomen."
+        }
+      },      {
+        "@type": "Question",
+        "name": "Wat is het verschil tussen een dakopbouw en een dakkapel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Een dakkapel is een uitbouw op het bestaande dakvlak, vaak vergunningsvrij aan de achterzijde. Een dakopbouw verhoogt de nok van de woning en creëert een volledige extra verdieping — dit is altijd vergunningsplichtig en constructief ingrijpender."
+        }
+      }
+      ]
+    }
+    </script></head>
 <body>
 <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
@@ -2728,7 +2842,7 @@ nav.scrolled .nav-cta {
         <a href="index.html#diensten" class="mobile-link">Diensten</a>
         <a href="#prijzen" class="mobile-link">Prijzen</a>
         <a href="#faq" class="mobile-link">FAQ</a>
-        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#contact" class="metal-btn metal-btn-sm mobile-link">Contact</a>
     </div>
 
     
@@ -2862,7 +2976,7 @@ nav.scrolled .nav-cta {
         <section class="mid-cta">
             <div class="mid-cta-inner">
                 <div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u?</div><h2>Gratis toetsing: wat is er mogelijk op uw dak?</h2><p>Stuur een foto en de maten, en onze experts geven binnen 24 uur uitsluitsel over de haalbaarheid.</p></div>
-                <div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn">Gratis check aanvragen →</a><p class="mid-cta-note">Vrijblijvend · Binnen 24 uur</p></div>
+                <div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn metal-btn">Gratis check aanvragen →</a><p class="mid-cta-note">Vrijblijvend · Binnen 24 uur</p></div>
             </div>
         </section>
 
@@ -2952,9 +3066,9 @@ nav.scrolled .nav-cta {
             <div class="pricing-inner">
                 <div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>dakopbouw</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. U weet vooraf precies waar u aan toe bent — geen verborgen kosten.</p></div>
                 <div class="pricing-grid" id="pricing-grid">
-                    <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€330<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> Complete set</li><li><i class="fa-solid fa-check"></i> Plattegrond, gevels, doorsneden</li><li><i class="fa-solid fa-check"></i> 100% goedkeuringsgarantie</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakopbouw-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn dakopbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
-                    <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€675<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit basispakket</strong></li><li><i class="fa-solid fa-check"></i> Volledige constructieberekening</li><li><i class="fa-solid fa-check"></i> NEN-normering rapportage</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakopbouw-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\' voor mijn dakopbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
-                    <div class="price-card fade-up"><h3>Full‑Service Vergunning</h3><div class="price-value">€1.140<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit constructiepakket</strong></li><li><i class="fa-solid fa-check"></i> Volledige indiening Omgevingsloket</li><li><i class="fa-solid fa-check"></i> Begeleiding tot verlening</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakopbouw-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\' voor mijn dakopbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
+                    <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€330<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> Complete set</li><li><i class="fa-solid fa-check"></i> Plattegrond, gevels, doorsneden</li><li><i class="fa-solid fa-check"></i> 100% goedkeuringsgarantie</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakopbouw-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn dakopbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
+                    <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€675<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit basispakket</strong></li><li><i class="fa-solid fa-check"></i> Volledige constructieberekening</li><li><i class="fa-solid fa-check"></i> NEN-normering rapportage</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakopbouw-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\' voor mijn dakopbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
+                    <div class="price-card fade-up"><h3>Full‑Service Vergunning</h3><div class="price-value">€1.140<span>/ eenmalig</span></div><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit constructiepakket</strong></li><li><i class="fa-solid fa-check"></i> Volledige indiening Omgevingsloket</li><li><i class="fa-solid fa-check"></i> Begeleiding tot verlening</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakopbouw-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\' voor mijn dakopbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
                 </div>
             </div>
         </section>
@@ -3165,6 +3279,17 @@ nav.scrolled .nav-cta {
                     <img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img">
                 </a>
                 <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in 170+ gemeentes door heel Nederland.</p>
+                    <div class="footer-social" style="margin-top: 1rem;">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-block; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
             </div>
             <div class="footer-nav">
                 <h5>Diensten</h5>
@@ -3181,9 +3306,24 @@ nav.scrolled .nav-cta {
                     <li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li>
                     <li><a href="bouwkundig-advies.html">Bouwkundig Advies</a></li>
                     <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
+                    <li><a href="aankoopadvies.html">Aankoopadvies</a></li>
                     <li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
                 </ul>
             </div>
+
+            <div class="footer-nav">
+                <h5>Steden</h5>
+                <ul>
+                    <li><a href="apeldoorn.html">Apeldoorn</a></li>
+                    <li><a href="arnhem.html">Arnhem</a></li>
+                    <li><a href="breda.html">Breda</a></li>
+                    <li><a href="den-haag.html">Den Haag</a></li>
+                    <li><a href="groningen.html">Groningen</a></li>
+                    <li><a href="nijmegen.html">Nijmegen</a></li>
+                    <li><a href="tilburg.html">Tilburg</a></li>
+                </ul>
+            </div>
+
             <div class="footer-nav">
                 <h5>Contact</h5>
                 <ul>
@@ -3205,9 +3345,9 @@ nav.scrolled .nav-cta {
         <div class="footer-bottom">
             <div class="footer-copy">&copy; 2025&ndash;2026 Alka's Bouwadvies</div>
             <div class="footer-legal">
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Privacybeleid</a>
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Algemene Voorwaarden</a>
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Cookiebeleid</a>
+                <a href="privacybeleid.html">Privacybeleid</a>
+                <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+                <a href="cookiebeleid.html">Cookiebeleid</a>
             </div>
         </div>
     </footer>
@@ -3320,5 +3460,19 @@ nav.scrolled .nav-cta {
     })();
 
 </script>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+        <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
+    </div>
+
+
+        // Mobile sticky CTA scroll
+        window.addEventListener('scroll', () => {
+            const stickyCta = document.getElementById('mobile-sticky-cta');
+            if (stickyCta) {
+                stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+            }
+        }, { passive: true });
 </body>
 </html>

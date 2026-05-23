@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Kennisbank | ALKA Bouwadvies</title>
+    <meta name="description" content="Blog en kennisbank over bouwtekeningen, omgevingsvergunningen, bestemmingsplannen en meer. Tips en advies van onze bouwkundigen.">
+    <meta name="keywords" content="blog, kennisbank, bouwtekening, omgevingsvergunning, bestemmingsplan, tips, advies">
+    <meta name="author" content="ALKA Bouwadvies">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Blog & Kennisbank | ALKA Bouwadvies">
+    <meta property="og:description" content="Blog en kennisbank over bouwtekeningen, omgevingsvergunningen, bestemmingsplannen en meer.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alkasbouwadvies.nl/blog.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://alkasbouwadvies.nl/blog.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ALKA Bouwadvies",
+      "url": "https://alkasbouwadvies.nl",
+      "telephone": "+31649240412",
+      "email": "info@alkasbouwadvies.nl"
+    }
+    </script>
+    <style>
+        :root{--bg:#fafafa;--bg-dark:#0f0f0f;--text:#1a1a1a;--text-light:#666;--accent:#b3944d;--white:#fff;--gray:#e5e5e5}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+        img{max-width:100%;display:block}
+        a{text-decoration:none}
+        nav{position:fixed;top:0;left:0;width:100%;z-index:100;height:80px;padding:0 4vw;display:flex;justify-content:space-between;align-items:center;background:rgba(250,250,250,0.92);backdrop-filter:blur(24px)}
+        .logo img{height:60px}
+        .nav-links{display:flex;gap:3rem;list-style:none;align-items:center}
+        .nav-links a{color:var(--text);font-size:0.8125rem;font-weight:500;text-decoration:none}
+        .nav-links a:hover{color:var(--accent)}
+        .hero{background:var(--bg-dark);padding:10rem 4vw 6rem;text-align:center}
+        .hero h1{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:var(--white);margin-bottom:1rem}
+        .hero h1 em{color:var(--accent);font-style:normal}
+        .hero p{color:rgba(255,255,255,0.5);max-width:600px;margin:0 auto;font-size:1.125rem;line-height:1.8}
+        .blog-grid{padding:6rem 4vw;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:3rem}
+        .blog-card{background:var(--white);border:1px solid var(--gray);overflow:hidden;transition:all 0.3s ease}
+        .blog-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+        .blog-card-img{width:100%;height:200px;background:var(--gray);display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:0.875rem}
+        .blog-card-content{padding:2rem}
+        .blog-card-date{font-size:0.75rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+        .blog-card h3{font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;line-height:1.3}
+        .blog-card h3 a{color:var(--text);text-decoration:none}
+        .blog-card h3 a:hover{color:var(--accent)}
+        .blog-card p{color:var(--text-light);font-size:0.9rem;line-height:1.7;margin-bottom:1rem}
+        .blog-card .read-more{color:var(--accent);font-size:0.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+        .cta-section{background:var(--text);padding:6rem 4vw;text-align:center}
+        .cta-section h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:var(--white);margin-bottom:1rem}
+        .cta-section p{color:rgba(255,255,255,0.5);margin-bottom:2rem}
+        .cta-btn{display:inline-flex;align-items:center;gap:0.75rem;padding:1rem 2.5rem;background:var(--accent);color:var(--text);font-size:0.8125rem;font-weight:700;text-transform:uppercase;text-decoration:none}
+        footer{background:var(--bg-dark);color:var(--white);padding:4rem 4vw 2rem}
+        .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+        .footer-brand p{color:rgba(255,255,255,0.5);font-size:0.875rem;line-height:1.7;margin-top:1rem}
+        .footer-nav h5{font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;color:var(--accent)}
+        .footer-nav ul{list-style:none}
+        .footer-nav li{margin-bottom:0.5rem}
+        .footer-nav a{color:rgba(255,255,255,0.5);font-size:0.8125rem;text-decoration:none}
+        .footer-nav a:hover{color:var(--accent)}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:2rem;display:flex;justify-content:space-between;font-size:0.75rem;color:rgba(255,255,255,0.3)}
+        .footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none}
+        @media(max-width:768px){.nav-links{display:none}.hero{padding:8rem 1.5rem 4rem}.blog-grid{grid-template-columns:1fr;padding:4rem 1.5rem}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:1rem;text-align:center}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="ALKA Bouwadvies"></a>
+        <ul class="nav-links">
+            <li><a href="index.html#diensten">Diensten</a></li>
+            <li><a href="index.html#prijzen">Prijzen</a></li>
+            <li><a href="over-ons.html">Over Ons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Blog & <em>Kennisbank</em></h1>
+        <p>Tips, advies en kennis over bouwtekeningen, omgevingsvergunningen en bestemmingsplannen. Geschreven door onze bouwkundigen.</p>
+    </section>
+
+    <section class="blog-grid">
+        <article class="blog-card">
+            <div class="blog-card-img">📷 Afbeelding: Omgevingswet 2024</div>
+            <div class="blog-card-content">
+                <div class="blog-card-date">Mei 2026</div>
+                <h3><a href="blog/omgevingswet-2024-complete-gids.html">De Omgevingswet 2024: Alles wat u moet weten</a></h3>
+                <p>De Omgevingswet is volledig van kracht. Wat betekent dit voor uw bouwproject? Wij leggen uit wat er is veranderd en hoe u zich het beste kunt voorbereiden.</p>
+                <a href="blog/omgevingswet-2024-complete-gids.html" class="read-more">Lees meer →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <div class="blog-card-img">📷 Afbeelding: Dakkapel plaatsen</div>
+            <div class="blog-card-content">
+                <div class="blog-card-date">April 2026</div>
+                <h3><a href="blog/dakkapel-plaatsen-stappenplan.html">Dakkapel plaatsen: Het complete stappenplan</a></h3>
+                <p>Een dakkapel plaatsen begint met een goede voorbereiding. In dit artikel nemen wij u mee door alle stappen: van vergunningcheck tot oplevering.</p>
+                <a href="blog/dakkapel-plaatsen-stappenplan.html" class="read-more">Lees meer →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <div class="blog-card-img">📷 Afbeelding: Bestemmingsplan</div>
+            <div class="blog-card-content">
+                <div class="blog-card-date">Maart 2026</div>
+                <h3><a href="blog/bestemmingsplan-uitgelegd.html">Het bestemmingsplan uitgelegd: Wat mag er op uw perceel?</a></h3>
+                <p>Het bestemmingsplan bepaalt wat u op uw perceel mag bouwen. Maar hoe leest u het? En wat zijn de belangrijkste punten om te controleren? Wij leggen het uit.</p>
+                <a href="blog/bestemmingsplan-uitgelegd.html" class="read-more">Lees meer →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <div class="blog-card-img">📷 Afbeelding: Vergunning kosten</div>
+            <div class="blog-card-content">
+                <div class="blog-card-date">Februari 2026</div>
+                <h3><a href="blog/vergunningkosten-besparen.html">Vergunningkosten besparen: 7 bewezen tips</a></h3>
+                <p>Een omgevingsvergunning hoeft niet duur te zijn. Met de juiste aanpak kunt u flink besparen op legeskosten, tekeningen en doorlooptijd. Wij delen onze beste tips.</p>
+                <a href="blog/vergunningkosten-besparen.html" class="read-more">Lees meer →</a>
+            </div>
+        </article>
+    </section>
+
+    <section class="cta-section">
+        <h2>Vragen over uw project?</h2>
+        <p>Onze bouwkundigen staan klaar om u te helpen. Vraag een vrijblijvend adviesgesprek aan.</p>
+        <a href="contact.html" class="cta-btn">Neem contact op →</a>
+    </section>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html"><img src="images/logo.png" alt="ALKA Bouwadvies" style="height:60px;"></a>
+                <p>Bouwkundig teken- en adviesbureau. ABW-gecertificeerd en actief in heel Nederland.</p>
+            </div>
+            <div class="footer-nav">
+                <h5>Diensten</h5>
+                <ul>
+                    <li><a href="dakkapel.html">Dakkapel</a></li>
+                    <li><a href="aanbouw-uitbouw.html">Aanbouw & Uitbouw</a></li>
+                    <li><a href="erker.html">Erker</a></li>
+                    <li><a href="bijgebouw.html">Bijgebouwen</a></li>
+                    <li><a href="aankoopadvies.html">Aankoopadvies</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h5>Informatie</h5>
+                <ul>
+                    <li><a href="over-ons.html">Over Ons</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="testimonials.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h5>Juridisch</h5>
+                <ul>
+                    <li><a href="privacybeleid.html">Privacy</a></li>
+                    <li><a href="algemene-voorwaarden.html">Voorwaarden</a></li>
+                    <li><a href="cookiebeleid.html">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 ALKA Bouwadvies | KVK 95153756</span>
+        </div>
+    </footer>
+</body>
+</html>

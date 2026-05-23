@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dakkapel Bouwtekening & Vergunning | Alka's Bouwadvies</title>
-    <meta name="description" content="Dakkapel bouwtekening & vergunning aanvragen. Van vergunningsvrije regels tot constructieberekening. ABW-gecertificeerd, 100% goedkeuringsgarantie.">
+    <title>Dakkapel Bouwtekening & Vergunning — Complete Gids | Alka's Bouwadvies</title>
+    <meta name="description" content="Alles over de dakkapel bouwtekening en omgevingsvergunning. Van vergunningsvrije regels tot constructieberekening. ABW-gecertificeerd, 100% goedkeuringsgarantie. Deskundig advies vanaf €250.">
     <meta name="keywords" content="dakkapel bouwtekening, dakkapel vergunning, omgevingsvergunning dakkapel, vergunningsvrije dakkapel, constructieberekening dakkapel, dakkapel tekening aanvragen, Omgevingswet dakkapel">
     <meta name="author" content="Alka's Bouwadvies">
     <meta name="robots" content="index, follow">
@@ -18,9 +18,87 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+    
+        
+        // === INJECTED: Desktop Dropdown ===
+// ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
+        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
+        const allRightPanels = document.querySelectorAll('.dropdown-right');
+
+        function showRightPanel(subId) {
+            allRightPanels.forEach(p => {
+                p.classList.remove('visible');
+            });
+            if (subId) {
+                const panel = document.getElementById(subId);
+                if (panel) {
+                    panel.classList.add('visible');
+                }
+            }
+        }
+
+        dropdownLeftItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                item.classList.add('hovered');
+                const subId = item.getAttribute('data-sub');
+                if (subId && subId !== '') {
+                    showRightPanel('sub-' + subId);
+                }
+            });
+        });
+
+        const dropdownContainer = document.getElementById('diensten-dropdown');
+        if (dropdownContainer) {
+            dropdownContainer.addEventListener('mouseleave', () => {
+                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                const firstItem = dropdownLeftItems[0];
+                if (firstItem) {
+                    firstItem.classList.add('hovered');
+                    const subId = firstItem.getAttribute('data-sub');
+                    if (subId && subId !== '') {
+                        showRightPanel('sub-' + subId);
+                    }
+                }
+            });
+        }
+
+        // === INJECTED: Scrollspy (IntersectionObserver) ===
+// Scrollspy
+        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+        if (sections.length > 0) {
+            const observerOptions = { root: null, rootMargin: '-80px 0px -40% 0px', threshold: 0 };
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
+                        });
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // === INJECTED: Smooth scroll anchors ===
+// Smooth scroll anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+            });
+        });
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js">
+    </script>
 
     <style>
         /* =============================================
@@ -189,13 +267,11 @@
         }
         .nav-cta {
             padding: 0.75rem 1.75rem;
-            background: var(--accent);
-            color: var(--white);
-            border: none;
+border: none;
             font-size: 0.8125rem;
             font-weight: 600;
             letter-spacing: 0.05em;
-            border-radius: 4px;
+            border-radius: 50px;
             box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
             position: relative;
             overflow: hidden;
@@ -204,9 +280,7 @@
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .nav-cta:hover {
-            background: var(--text);
-            color: var(--white);
-            transform: translateY(-2px);
+transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
         }
         .menu-toggle {
@@ -1735,13 +1809,18 @@
             .nav-links,
             .nav-cta {
             padding: 0.75rem 1.75rem;
-            background: var(--accent);
-            color: var(--white);
             border: none;
             font-size: 0.8125rem;
             font-weight: 600;
             letter-spacing: 0.05em;
-            border-radius: 4px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);border: none;
+border-radius: 50px;
             box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
             position: relative;
             overflow: hidden;
@@ -2059,22 +2138,6 @@ nav.scrolled .logo {
 .nav-links a.active::after {
             width: 0;
         }
-nav.scrolled .nav-cta {
-            padding: 0.75rem 1.75rem;
-            background: var(--accent);
-            color: var(--white);
-            border: none;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
 .menu-toggle.active span:nth-child(1) {
             transform: translateY(3.75px) rotate(45deg);
         }
@@ -2254,27 +2317,14 @@ nav.scrolled .nav-cta {
             width: 0;
         }
 
-        .nav-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
+        
 
         .nav-cta:hover {
-            background: var(--text);
-            color: var(--white);
-            transform: translateY(-2px);
+transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
         }
 
-        .nav-cta:hover::before {
-            left: 100%;
-        }
+        
 
         .menu-toggle span {
             display: block;
@@ -2483,11 +2533,14 @@ nav.scrolled .nav-cta {
             white-space: nowrap;
         }
 
-        nav.scrolled .nav-cta {
-            box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
+        
+        @media (min-width: 1025px) {
+            nav.scrolled .nav-cta {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.75rem;
+                box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2);
+            }
         }
-
-
         /* ═══════════════════════════════════════════
            METAL FX — Gold Button Effect (CSS-only)
            Gebaseerd op metal-fx gold preset
@@ -2563,8 +2616,68 @@ nav.scrolled .nav-cta {
         .metal-btn-lg { padding: 1.25rem 3rem; font-size: 0.875rem; }
         .metal-btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
 
+
+        /* ── MOBILE STICKY CTA ── */
+        .mobile-sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--gray);
+            z-index: 999;
+            display: none;
+            justify-content: center;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+        }
+        .sticky-cta-btn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: 100%;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        .sticky-cta-btn:hover {
+        }
     </style>
-</head>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ALKA Bouwadvies",
+      "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies.",
+      "url": "https://alkasbouwadvies.nl",
+      "telephone": "+31649240412",
+      "email": "info@alkasbouwadvies.nl",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NL"
+      },
+      "areaServed": [
+        {"@type": "Country", "name": "Nederland"},
+        {"@type": "City", "name": "Apeldoorn"},
+        {"@type": "City", "name": "Arnhem"},
+        {"@type": "City", "name": "Breda"},
+        {"@type": "City", "name": "Den Haag"},
+        {"@type": "City", "name": "Groningen"},
+        {"@type": "City", "name": "Nijmegen"},
+        {"@type": "City", "name": "Tilburg"}
+      ],
+      "openingHours": ["Mo-Fr 09:00-17:00"],
+      "sameAs": []
+    }
+    </script></head>
 <body>
 <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
@@ -2676,7 +2789,7 @@ nav.scrolled .nav-cta {
     <div class="mobile-nav" id="mobile-nav">
         <a href="index.html#diensten" class="mobile-link">Diensten</a>
         <a href="index.html#prijzen" class="mobile-link">Prijzen</a>
-        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#contact" class="metal-btn metal-btn-sm mobile-link">Contact</a>
     </div>
 
     
@@ -2737,7 +2850,7 @@ nav.scrolled .nav-cta {
 
         <!-- MID CTA -->
         <section class="mid-cta">
-            <div class="mid-cta-inner"><div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u?</div><h2>Gratis toetsing: is uw dakkapel vergunningsvrij?</h2><p>Stuur een foto en de maten, en onze experts geven binnen 24 uur uitsluitsel.</p></div><div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn">Gratis check aanvragen →</a><p class="mid-cta-note">Vrijblijvend · Binnen 24 uur</p></div></div>
+            <div class="mid-cta-inner"><div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u?</div><h2>Gratis toetsing: is uw dakkapel vergunningsvrij?</h2><p>Stuur een foto en de maten, en onze experts geven binnen 24 uur uitsluitsel.</p></div><div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn metal-btn">Gratis check aanvragen →</a><p class="mid-cta-note">Vrijblijvend · Binnen 24 uur</p></div></div>
         </section>
 
         <!-- CONSTRUCTIEBEREKENING -->
@@ -2816,9 +2929,9 @@ nav.scrolled .nav-cta {
         <!-- PRICING (met automatisch invullen) -->
         <section class="pricing" id="investering">
             <div class="pricing-inner"><div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>situatie</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. U weet vooraf precies waar u aan toe bent — geen verborgen kosten.</p></div><div class="pricing-grid" id="pricing-grid">
-                <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€250<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Complete set</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Plattegrond, gevels, doorsneden</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 100% goedkeuringsgarantie</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakkapel-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
-                <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€495<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>Alles uit basispakket</strong></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volledige constructieberekening</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> NEN-normering rapportage</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakkapel-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
-                <div class="price-card fade-up"><h3>Full‑Service Vergunning</h3><div class="price-value">€750<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>Alles uit constructiepakket</strong></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volledige indiening Omgevingsloket</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Begeleiding tot verlening</li></ul><a href="#contact" class="price-btn" onclick="event.preventDefault(); setContactForm('dakkapel-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
+                <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">€250<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Complete set</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Plattegrond, gevels, doorsneden</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 100% goedkeuringsgarantie</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakkapel-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
+                <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">€495<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>Alles uit basispakket</strong></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volledige constructieberekening</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> NEN-normering rapportage</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakkapel-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
+                <div class="price-card fade-up"><h3>Full‑Service Vergunning</h3><div class="price-value">€750<span>/ eenmalig</span></div><ul class="price-features"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>Alles uit constructiepakket</strong></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volledige indiening Omgevingsloket</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Begeleiding tot verlening</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('dakkapel-fullservice', 'Ik heb interesse in het pakket \'Full-Service Vergunning\'. Graag ontvang ik meer informatie over de mogelijkheden.')">Vrijblijvend bespreken</a></div>
             </div></div>
         </section>
 
@@ -2957,75 +3070,16 @@ nav.scrolled .nav-cta {
                 contactForm.reset();
             });
         }
-
-        // === Desktop Dropdown ===
-        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
-        const allRightPanels = document.querySelectorAll('.dropdown-right');
-        function showRightPanel(subId) {
-            allRightPanels.forEach(p => p.classList.remove('visible'));
-            if (subId) {
-                const panel = document.getElementById(subId);
-                if (panel) panel.classList.add('visible');
-            }
-        }
-        dropdownLeftItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                item.classList.add('hovered');
-                const subId = item.getAttribute('data-sub');
-                if (subId && subId !== '') showRightPanel('sub-' + subId);
-            });
-        });
-        const dropdownContainer = document.getElementById('diensten-dropdown');
-        if (dropdownContainer) {
-            dropdownContainer.addEventListener('mouseleave', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                const firstItem = dropdownLeftItems[0];
-                if (firstItem) {
-                    firstItem.classList.add('hovered');
-                    const subId = firstItem.getAttribute('data-sub');
-                    if (subId && subId !== '') showRightPanel('sub-' + subId);
-                }
-            });
-        }
-
-        // === Scrollspy ===
-        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
-        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-        if (sections.length > 0) {
-            const observerOptions = { root: null, rootMargin: '-80px 0px -40% 0px', threshold: 0 };
-            const observerCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const activeId = entry.target.id;
-                        navLinks.forEach(link => {
-                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
-                        });
-                    }
-                });
-            };
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            sections.forEach(section => observer.observe(section));
-        }
-
-        // === Smooth scroll anchors ===
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
-            });
-        });
-    </script>
-    <script type="application/ld+json">
-        {
+    
+        // === INJECTED: Homepage JS block 1 (mobile nav, accordion, etc.) ===
+[
+          {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Alka's Bouwadvies",
             "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies voor uitbouwen, dakkapellen en erkers. Actief in 170+ gemeentes.",
             "url": "https://alkasbouwadvies.nl",
-            "telephone": "+316****5678",
+            "telephone": "+31612345678",
             "email": "info@alkasbouwadvies.nl",
             "priceRange": "&euro;&euro;",
             "currenciesAccepted": "EUR",
@@ -3082,10 +3136,8 @@ nav.scrolled .nav-cta {
                 "reviewBody": "De vaste prijs gaf mij rust. Geen verrassingen, geen extra rekeningen. Alka's Bouwadvies regelde alles van A tot Z."
               }
             ]
-        }
-    </script>
-    <script type="application/ld+json">
-        {
+          },
+          {
             "@context": "https://schema.org",
             "@type": "FAQPage",
             "mainEntity": [
@@ -3128,29 +3180,28 @@ nav.scrolled .nav-cta {
                   "@type": "Answer",
                   "text": "Mocht er een vraag of opmerking vanuit de gemeente komen, dan fungeren wij als uw aanspreekpunt. Wij beantwoorden alle technische vragen, passen de tekeningen aan indien nodig, en zorgen dat het traject soepel verloopt — zonder extra kosten."
                 }
-              }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "serviceType": "Bouwkundige tekeningen en omgevingsvergunningen",
+                "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Alka's Bouwadvies"
+                },
+                "areaServed": "NL",
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "lowPrice": "250",
+                    "highPrice": "1140",
+                    "priceCurrency": "EUR"
+                },
+                "description": "Professionele bouwtekeningen voor dakkapellen, uitbouwen en nieuwbouw. Inclusief begeleiding bij de omgevingsvergunning."
+                }
             ]
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "Bouwkundige tekeningen en omgevingsvergunningen",
-            "provider": {
-                "@type": "LocalBusiness",
-                "name": "Alka's Bouwadvies"
-            },
-            "areaServed": "NL",
-            "offers": {
-                "@type": "AggregateOffer",
-                "lowPrice": "250",
-                "highPrice": "1140",
-                "priceCurrency": "EUR"
-            },
-            "description": "Professionele bouwtekeningen voor dakkapellen, uitbouwen en nieuwbouw. Inclusief begeleiding bij de omgevingsvergunning."
-        }
-    </script>
+          }
+        ]
+</script>
 
 <footer>
         <div class="footer-top">
@@ -3159,6 +3210,17 @@ nav.scrolled .nav-cta {
                     <img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img">
                 </a>
                 <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in 170+ gemeentes door heel Nederland.</p>
+                    <div class="footer-social" style="margin-top: 1rem;">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-block; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
             </div>
             <div class="footer-nav">
                 <h5>Diensten</h5>
@@ -3175,15 +3237,30 @@ nav.scrolled .nav-cta {
                     <li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li>
                     <li><a href="bouwkundig-advies.html">Bouwkundig Advies</a></li>
                     <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
+                    <li><a href="aankoopadvies.html">Aankoopadvies</a></li>
                     <li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
                 </ul>
             </div>
+
+            <div class="footer-nav">
+                <h5>Steden</h5>
+                <ul>
+                    <li><a href="apeldoorn.html">Apeldoorn</a></li>
+                    <li><a href="arnhem.html">Arnhem</a></li>
+                    <li><a href="breda.html">Breda</a></li>
+                    <li><a href="den-haag.html">Den Haag</a></li>
+                    <li><a href="groningen.html">Groningen</a></li>
+                    <li><a href="nijmegen.html">Nijmegen</a></li>
+                    <li><a href="tilburg.html">Tilburg</a></li>
+                </ul>
+            </div>
+
             <div class="footer-nav">
                 <h5>Contact</h5>
                 <ul>
                     <li><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li>
                     <li><a href="tel:+316****0412">+31 (0)6 49 24 04 12</a></li>
-                    <li><a href="#contact">Contactformulier</a></li>
+                    <li><a href="contact.html">Contactformulier</a></li>
                     <li><a href="over-ons.html">Over Ons</a></li>
                 </ul>
             </div>
@@ -3199,9 +3276,9 @@ nav.scrolled .nav-cta {
         <div class="footer-bottom">
             <div class="footer-copy">&copy; 2025&ndash;2026 Alka's Bouwadvies</div>
             <div class="footer-legal">
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Privacybeleid</a>
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Algemene Voorwaarden</a>
-                <a href="javascript:void(0)" title="Binnenkort beschikbaar">Cookiebeleid</a>
+                <a href="privacybeleid.html">Privacybeleid</a>
+                <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+                <a href="cookiebeleid.html">Cookiebeleid</a>
             </div>
         </div>
     </footer>
@@ -3241,6 +3318,125 @@ nav.scrolled .nav-cta {
             }
         });
     })();
-    </script>
+
+        // === INJECTED: Scrollspy ===
+// Scrollspy
+        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+        if (sections.length > 0) {
+            const observerOptions = { root: null, rootMargin: '-80px 0px -40% 0px', threshold: 0 };
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
+                        });
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // === INJECTED: Smooth scroll ===
+// Smooth scroll anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+            });
+        });
+
+        // === INJECTED: Scrollspy ===
+// Scrollspy
+        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+        if (sections.length > 0) {
+            const observerOptions = { root: null, rootMargin: '-80px 0px -60% 0px', threshold: 0 };
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
+                        });
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // === INJECTED: Smooth scroll ===
+// Smooth scroll anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+            });
+        });
+
+        // === INJECTED: Desktop Dropdown ===
+// ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
+        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
+        const allRightPanels = document.querySelectorAll('.dropdown-right');
+
+        function showRightPanel(subId) {
+            allRightPanels.forEach(p => {
+                p.classList.remove('visible');
+            });
+            if (subId) {
+                const panel = document.getElementById(subId);
+                if (panel) {
+                    panel.classList.add('visible');
+                }
+            }
+        }
+
+        dropdownLeftItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                item.classList.add('hovered');
+                const subId = item.getAttribute('data-sub');
+                if (subId && subId !== '') {
+                    showRightPanel('sub-' + subId);
+                }
+            });
+        });
+
+        const dropdownContainer = document.getElementById('diensten-dropdown');
+        if (dropdownContainer) {
+            dropdownContainer.addEventListener('mouseleave', () => {
+                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                const firstItem = dropdownLeftItems[0];
+                if (firstItem) {
+                    firstItem.classList.add('hovered');
+                    const subId = firstItem.getAttribute('data-sub');
+                    if (subId && subId !== '') {
+                        showRightPanel('sub-' + subId);
+                    }
+                }
+            });
+        }
+</script>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+        <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
+    </div>
+
+
+        // Mobile sticky CTA scroll
+        window.addEventListener('scroll', () => {
+            const stickyCta = document.getElementById('mobile-sticky-cta');
+            if (stickyCta) {
+                stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+            }
+        }, { passive: true });
 </body>
 </html>
