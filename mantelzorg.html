@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mantelzorgwoning Bouwtekening & Omgevingsvergunning — Zorgeloos Advies | Alka's Bouwadvies</title>
-    <meta name="description" content="Een mantelzorgwoning in de tuin: zorg dichtbij, zelfstandigheid behouden. Bouwtekening, constructieberekening en complete vergunningsbegeleiding. ABW-gecertificeerd, 100% goedkeuringsgarantie. Deskundig advies vanaf €250.">
+    <title>Mantelzorgwoning Bouwtekening & Omgevingsvergunning — Zor...</title>
+    <meta name="description" content="Een mantelzorgwoning in de tuin: zorg dichtbij, zelfstandigheid behouden. Bouwtekening, constructieberekening en complete vergunningsbegeleiding. ABW-gecerti...">
     <meta name="keywords" content="mantelzorgwoning bouwtekening, omgevingsvergunning mantelzorg, constructieberekening mantelzorgwoning, mantelzorgunit, zorgwoning tuin, bestemmingsplan mantelzorg, tijdelijke woonunit, mantelzorg vergunning, prefab mantelzorgwoning, mantelzorgwoning plaatsen">
     <meta name="author" content="Alka's Bouwadvies">
     <meta name="robots" content="index, follow">
@@ -4111,7 +4111,7 @@ transform: translateY(-2px);
                 <ul>
                     <li><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li>
                     <li><a href="tel:+316****0412">+31 (0)6 49 24 04 12</a></li>
-                    <li><a href="contact.html">Contactformulier</a></li>
+                    <li><a href="#contact">Contactformulier</a></li>
                     <li><a href="over-ons.html">Over Ons</a></li>
                 </ul>
             </div>
@@ -4218,32 +4218,7 @@ transform: translateY(-2px);
         dli.forEach(item=>{item.addEventListener('mouseenter',()=>{dli.forEach(i=>i.classList.remove('hovered'));item.classList.add('hovered');const sid=item.getAttribute('data-sub');if(sid&&sid!=='')showPanel('sub-'+sid)})});
         if(dc){dc.addEventListener('mouseleave',()=>{dli.forEach(i=>i.classList.remove('hovered'));const fi=dli[0];if(fi){fi.classList.add('hovered');const sid=fi.getAttribute('data-sub');if(sid&&sid!=='')showPanel('sub-'+sid)}})}
     })();
-    // ═══ SCROLL-SPY ═══
-    (function(){
-        const secs=document.querySelectorAll('section[id]');
-        const nlinks=document.querySelectorAll('.nav-links a[data-section]');
-        if(!secs.length||!nlinks.length)return;
-        const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.getAttribute('id');nlinks.forEach(l=>l.classList.toggle('active',l.getAttribute('data-section')===id))}})},{rootMargin:'-80px 0px -40% 0px',threshold:0});
-        secs.forEach(s=>obs.observe(s));
-    })();
-    // ═══ SMOOTH SCROLL ═══
-    (function(){
-        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const tid=this.getAttribute('href');if(tid==='#')return;const t=document.querySelector(tid);if(t){e.preventDefault();if(typeof lenis!=='undefined')lenis.scrollTo(t,{offset:-80});else t.scrollIntoView({behavior:'smooth',block:'start'})}})});
-    })();
-</script>
 
-<script>
-    // ═══ DESKTOP TWO-COLUMN DROPDOWN ═══
-    (function() {
-        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
-        const allRightPanels = document.querySelectorAll('.dropdown-right');
-        const dropdownContainer = document.getElementById('diensten-dropdown');
-        if (!dropdownLeftItems.length) return;
-        function showRightPanel(subId) {
-            allRightPanels.forEach(p => p.classList.remove('visible'));
-            if (subId) { const panel = document.getElementById(subId); if (panel) panel.classList.add('visible'); }
-        }
-        dropdownLeftItems.forEach(item => {
             item.addEventListener('mouseenter', () => {
                 dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
                 item.classList.add('hovered');

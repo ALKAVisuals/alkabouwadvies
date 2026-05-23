@@ -182,7 +182,7 @@ color: var(--white);
         <a href="bed-breakfast.html" class="mobile-link">Bed & Breakfast</a>
         <a href="nokverhoging.html" class="mobile-link">Nokverhoging</a>
         <a href="bijgebouw.html" class="mobile-link">Bijgebouwen</a>
-        <a href="contact.html" class="metal-btn metal-btn-sm mobile-link">Contact</a>
+        <a href="#contact" class="metal-btn metal-btn-sm mobile-link">Contact</a>
     </div>
 
     <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
@@ -300,7 +300,7 @@ color: var(--white);
                     <li class="hero-usp"><div class="usp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="usp-text"><strong>98% goedkeuring</strong><span>Vergunningen verleend</span></div></li>
                 </ul>
                 <div class="hero-cta-row">
-                    <a href="contact.html" class="hero-cta-primary">Geef uw review <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5"/></svg></a>
+                    <a href="#contact" class="hero-cta-primary">Geef uw review <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5"/></svg></a>
                 </div>
             </div>
             <div class="hero-right" style="background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
@@ -453,12 +453,12 @@ color: var(--white);
         <section class="testimonials-cta">
             <h2>Deel uw ervaring</h2>
             <p>Bent u tevreden over onze dienstverlading? Wij horen graag uw mening.</p>
-            <a href="contact.html" class="cta-btn metal-btn">Neem contact op</a>
+            <a href="#contact" class="cta-btn metal-btn">Neem contact op</a>
         </section>
     
         <!-- Mobile Sticky CTA -->
         <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-            <a href="contact.html" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
+            <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
         </div>
     </main>
 
@@ -519,7 +519,7 @@ color: var(--white);
                 <ul>
                     <li><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li>
                     <li><a href="tel:+316****0412">+31 (0)6 49 24 04 12</a></li>
-                    <li><a href="contact.html">Contactformulier</a></li>
+                    <li><a href="#contact">Contactformulier</a></li>
                     <li><a href="over-ons.html">Over Ons</a></li>
                 </ul>
             </div>
@@ -693,80 +693,6 @@ color: var(--white);
         });
     })();
 
-        // === INJECTED: Scrollspy ===
-// Scrollspy
-        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-        const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
-        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-        if (sections.length > 0) {
-            const observerOptions = { root: null, rootMargin: '-80px 0px -60% 0px', threshold: 0 };
-            const observerCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const activeId = entry.target.id;
-                        navLinks.forEach(link => {
-                            link.classList.toggle('active', link.getAttribute('data-section') === activeId);
-                        });
-                    }
-                });
-            };
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            sections.forEach(section => observer.observe(section));
-        }
-
-        // === INJECTED: Smooth scroll ===
-// Smooth scroll anchors
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
-            });
-        });
-
-        // === INJECTED: Desktop Dropdown ===
-// ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
-        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
-        const allRightPanels = document.querySelectorAll('.dropdown-right');
-
-        function showRightPanel(subId) {
-            allRightPanels.forEach(p => {
-                p.classList.remove('visible');
-            });
-            if (subId) {
-                const panel = document.getElementById(subId);
-                if (panel) {
-                    panel.classList.add('visible');
-                }
-            }
-        }
-
-        dropdownLeftItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                item.classList.add('hovered');
-                const subId = item.getAttribute('data-sub');
-                if (subId && subId !== '') {
-                    showRightPanel('sub-' + subId);
-                }
-            });
-        });
-
-        const dropdownContainer = document.getElementById('diensten-dropdown');
-        if (dropdownContainer) {
-            dropdownContainer.addEventListener('mouseleave', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                const firstItem = dropdownLeftItems[0];
-                if (firstItem) {
-                    firstItem.classList.add('hovered');
-                    const subId = firstItem.getAttribute('data-sub');
-                    if (subId && subId !== '') {
-                        showRightPanel('sub-' + subId);
-                    }
-                }
-            });
-        }
-</script>
 </body>
 </html>
         /* === NAV FIX === */
