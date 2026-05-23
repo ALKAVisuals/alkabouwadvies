@@ -1805,73 +1805,7 @@ transform: translateY(-2px);
                 grid-template-columns: 1fr;
             }
         }
-        @media (max-width: 768px) {
-            .nav-links,
-            .nav-cta {
-            padding: 0.75rem 1.75rem;
-            border: none;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);border: none;
-border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(196, 163, 90, 0.25);
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-            .menu-toggle {
-                display: flex;
-            }
-            .nav-logo-img {
-                height: 30px !important;
-            }
-            .hero-left {
-                padding: 6rem 1.5rem 3rem;
-            }
-            .hero-right {
-                min-height: 40vh;
-            }
-            .vergunning-check,
-            .constructie,
-            .proces,
-            .pricing,
-            .tech-details,
-            .legal-framework,
-            .faq,
-            .aanleveren {
-                padding: 5rem 1.5rem;
-            }
-            .vc-col {
-                padding: 2rem 1.5rem;
-            }
-            .contact {
-                padding: 5rem 1.5rem;
-            }
-            .mid-cta {
-                padding: 4rem 1.5rem;
-            }
-            .footer-top {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            .proces-steps {
-                grid-template-columns: 1fr;
-            }
-        }
+        
 
         .fade-up {
             opacity: 0;
@@ -2736,14 +2670,100 @@ transform: translateY(-2px);
 .vc-col-plicht .vc-status-dot { background: #b3944d; }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .reviews-grid { grid-template-columns: 1fr; }
-    .links-grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .contact-details { grid-template-columns: 1fr; }
-    .steden-grid { gap: 8px; }
-    .stad-card { padding: 10px 16px; font-size: 14px; }
-}
+
+        @media (max-width: 768px) {
+            .nav-links,
+            .nav-cta {
+                display: none !important;
+            }
+            .menu-toggle {
+                display: flex !important;
+            }
+            .nav-inner {
+                padding: 0.75rem 1.5rem;
+            }
+            .hero-split {
+                flex-direction: column;
+                padding: 6rem 1.5rem 3rem;
+                gap: 2rem;
+            }
+            .hero-left {
+                max-width: 100%;
+            }
+            .hero-h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            .hero-usps {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .hero-cta-row {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .hero-right {
+                display: none;
+            }
+            .section-padding {
+                padding: 3rem 1.5rem;
+            }
+            .section-title {
+                font-size: 1.75rem;
+            }
+            .section-label {
+                font-size: 0.75rem;
+            }
+            .vergunning-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .stappenplan-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            .links-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1.5rem;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            .steden-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+            .stad-card {
+                padding: 0.75rem;
+                font-size: 0.875rem;
+            }
+            .mobile-sticky-cta {
+                display: flex !important;
+            }
+        }
+
 </style>
 
     <script type="application/ld+json">
@@ -2883,13 +2903,33 @@ transform: translateY(-2px);
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
     <div class="toast-container" id="toast-container"></div>
 
-    <div class="mobile-nav" id="mobile-nav">
-        <a href="index.html#diensten" class="mobile-link">Diensten</a>
-        <a href="index.html#prijzen" class="mobile-link">Prijzen</a>
-        <a href="#contact" class="metal-btn metal-btn-sm mobile-link">Contact</a>
+        <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-inner">
+            <a href="index.html" class="mobile-link">Home</a>
+            <div class="mobile-accordion">
+                <button class="mobile-accordion-trigger" aria-expanded="false">Diensten <span class="accordion-icon">+</span></button>
+                <div class="mobile-accordion-content">
+                    <a href="dakkapel.html" class="mobile-sublink">Dakkapel</a>
+                    <a href="aanbouw-uitbouw.html" class="mobile-sublink">Aanbouw &amp; Uitbouw</a>
+                    <a href="erker.html" class="mobile-sublink">Erker</a>
+                    <a href="mantelzorg.html" class="mobile-sublink">Mantelzorgwoning</a>
+                    <a href="bijgebouw.html" class="mobile-sublink">Bijgebouwen</a>
+                    <a href="bed-breakfast.html" class="mobile-sublink">Bed &amp; Breakfast</a>
+                    <a href="nokverhoging.html" class="mobile-sublink">Nokverhoging</a>
+                    <a href="carport-vergunning.html" class="mobile-sublink">Carport</a>
+                    <a href="kozijnen-vervangen-vergunning.html" class="mobile-sublink">Kozijnen</a>
+                    <a href="dakopbouw-vergunningen.html" class="mobile-sublink">Dakopbouw</a>
+                    <a href="omgevingsvergunning-aanvragen.html" class="mobile-sublink">Omgevingsvergunning</a>
+                    <a href="bouwkundig-advies.html" class="mobile-sublink">Bouwkundig Advies</a>
+                    <a href="aankoopadvies.html" class="mobile-sublink">Aankoopadvies</a>
+                    <a href="bouwtekening-digitaliseren.html" class="mobile-sublink">Digitaliseren</a>
+                </div>
+            </div>
+            <a href="index.html#prijzen" class="mobile-link">Prijzen</a>
+            <a href="index.html#over-ons" class="mobile-link">Over Ons</a>
+            <a href="index.html#contact" class="metal-btn metal-btn-sm mobile-cta">Offerte aanvragen</a>
+        </div>
     </div>
-
-    
 
     <main>
 
@@ -3561,6 +3601,42 @@ transform: translateY(-2px);
                 el.style.transform = 'translateY(0)';
             });
         }
+
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (menuToggle && mobileNav) {
+            menuToggle.addEventListener('click', () => {
+                const isOpen = mobileNav.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            });
+            // Close on link click
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        // Mobile accordion
+        document.querySelectorAll('.mobile-accordion-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const content = trigger.nextElementSibling;
+                const isOpen = trigger.classList.toggle('active');
+                trigger.setAttribute('aria-expanded', isOpen);
+                if (isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                    content.style.maxHeight = '0';
+                }
+            });
+        });
 
 </body>
 </html>
