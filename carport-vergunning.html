@@ -3204,8 +3204,11 @@ color: var(--white);
         document.getElementById('back-to-top').addEventListener('click', () => lenis.scrollTo(0));
 
         // mobile menu
-        const menuToggle = document.getElementById('menu-toggle');
+        <script>
+const menuToggle = document.getElementById('menu-toggle');
         const mobileNav = document.getElementById('mobile-nav');
+
+        </script>
         menuToggle.addEventListener('click', () => {
             const isOpen = mobileNav.classList.toggle('open');
             menuToggle.classList.toggle('active');

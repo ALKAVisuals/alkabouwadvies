@@ -3438,6 +3438,7 @@ transform: translateY(-2px);
         </div>
     </section>
 
+</main>
 <footer>
         <div class="footer-top">
             <div class="footer-brand">
@@ -3560,8 +3561,18 @@ transform: translateY(-2px);
         <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
     </div>
 
+    <script>
+        <script>
+// Mobile sticky CTA scroll
+        window.addEventListener('scroll', () => {
+            const stickyCta = document.getElementById('mobile-sticky-cta');
+            if (stickyCta) {
+                stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+            }
+        }, { passive: true });
 
-        // Mobile sticky CTA scroll
+        </script>
+    </script>
         window.addEventListener('scroll', () => {
             const stickyCta = document.getElementById('mobile-sticky-cta');
             if (stickyCta) {

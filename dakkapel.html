@@ -3186,21 +3186,25 @@ transform: translateY(-2px);
                 localStorage.removeItem('wac_bericht');
             }
         });
-    })();
-
+        }
+    </script>
 
     <!-- Mobile Sticky CTA -->
     <div class="mobile-sticky-cta" id="mobile-sticky-cta">
         <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
     </div>
 
-
-        // Mobile sticky CTA scroll
+    <script>
+        <script>
+// Mobile sticky CTA scroll
         window.addEventListener('scroll', () => {
             const stickyCta = document.getElementById('mobile-sticky-cta');
             if (stickyCta) {
                 stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
             }
         }, { passive: true });
+
+        </script>
+    </script>
 </body>
 </html>
