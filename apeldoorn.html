@@ -19,8 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    
-        
+    <script>
         // === INJECTED: Desktop Dropdown ===
 // ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
         const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
@@ -96,9 +95,7 @@
         });
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
     <style>
         /* =============================================
@@ -3518,7 +3515,62 @@ transform: translateY(-2px);
             </div>
         </div>
     </footer>
-<script>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+        <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
+    </div>
+
+    <script>
+    // ═══ GSAP + LENIS INIT ═══
+    gsap.registerPlugin(ScrollTrigger);
+    const lenis = new Lenis({ duration: 1.4, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    // progress bar
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (progressBar && docHeight > 0) {
+            progressBar.style.width = ((scrollTop / docHeight) * 100) + '%';
+        }
+    }, { passive: true });
+
+    // back-to-top
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 400);
+        }, { passive: true });
+        backToTop.addEventListener('click', () => lenis.scrollTo(0));
+    }
+
+    // toast
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+        const toast = document.createElement('div');
+        toast.className = 'toast ' + type;
+        toast.textContent = message;
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+    }
+
+    // contact form submit
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast('Uw aanvraag is succesvol verzonden! Wij nemen spoedig contact met u op.');
+            contactForm.reset();
+        });
+    }
+    </script>
+
+    <script>
     // ═══ PAKKET DOORSTUREN NAAR CONTACT ═══
     (function() {
         function updateSubjectOption(subjectField, value, text) {
@@ -3554,47 +3606,21 @@ transform: translateY(-2px);
             }
         });
     })();
-
-
-    <!-- Mobile Sticky CTA -->
-    <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-        <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
-    </div>
+    </script>
 
     <script>
-        <script>
-// Mobile sticky CTA scroll
-        window.addEventListener('scroll', () => {
-            const stickyCta = document.getElementById('mobile-sticky-cta');
-            if (stickyCta) {
-                stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
-            }
-        }, { passive: true });
+    // Mobile sticky CTA scroll
+    window.addEventListener('scroll', () => {
+        const stickyCta = document.getElementById('mobile-sticky-cta');
+        if (stickyCta) {
+            stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+        }
+    }, { passive: true });
 
-        </script>
-    </script>
-        window.addEventListener('scroll', () => {
-            const stickyCta = document.getElementById('mobile-sticky-cta');
-            if (stickyCta) {
-                stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
-            }
-        }, { passive: true });
-
-        // FAQ accordion
-        document.querySelectorAll('.faq-trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const item = trigger.parentElement;
-                const isActive = item.classList.contains('active');
-                // Close all
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                // Toggle current
-                if (!isActive) item.classList.add('active');
-            });
-        });
-
-        // Fade-in animations: make elements visible when they enter viewport
+    // Fade-up/Fade-in IntersectionObserver
+    (function() {
         const fadeElements = document.querySelectorAll('.fade-up, .fade-in');
-        if ('IntersectionObserver' in window) {
+        if (fadeElements.length > 0 && 'IntersectionObserver' in window) {
             const fadeObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -3606,48 +3632,57 @@ transform: translateY(-2px);
             }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
             fadeElements.forEach(el => fadeObserver.observe(el));
         } else {
-            // Fallback: make all visible immediately
             fadeElements.forEach(el => {
                 el.style.opacity = '1';
                 el.style.transform = 'translateY(0)';
             });
         }
+    })();
 
+    // FAQ accordion
+    document.querySelectorAll('.faq-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const item = trigger.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        });
+    });
 
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileNav = document.getElementById('mobile-nav');
-        if (menuToggle && mobileNav) {
-            menuToggle.addEventListener('click', () => {
-                const isOpen = mobileNav.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-                menuToggle.setAttribute('aria-expanded', isOpen);
-                document.body.style.overflow = isOpen ? 'hidden' : '';
-            });
-            // Close on link click
-            mobileNav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileNav.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-
-        // Mobile accordion
-        document.querySelectorAll('.mobile-accordion-trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const content = trigger.nextElementSibling;
-                const isOpen = trigger.classList.toggle('active');
-                trigger.setAttribute('aria-expanded', isOpen);
-                if (isOpen) {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                } else {
-                    content.style.maxHeight = '0';
-                }
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileNav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
             });
         });
+    }
+
+    // Mobile accordion
+    document.querySelectorAll('.mobile-accordion-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const content = trigger.nextElementSibling;
+            const isOpen = trigger.classList.toggle('active');
+            trigger.setAttribute('aria-expanded', isOpen);
+            if (isOpen) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            } else {
+                content.style.maxHeight = '0';
+            }
+        });
+    });
+    </script>
 
 </body>
 </html>
