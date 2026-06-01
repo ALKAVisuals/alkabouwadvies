@@ -3609,14 +3609,6 @@ transform: translateY(-2px);
     </script>
 
     <script>
-    // Mobile sticky CTA scroll
-    window.addEventListener('scroll', () => {
-        const stickyCta = document.getElementById('mobile-sticky-cta');
-        if (stickyCta) {
-            stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
-        }
-    }, { passive: true });
-
     // Fade-up/Fade-in IntersectionObserver
     (function() {
         const fadeElements = document.querySelectorAll('.fade-up, .fade-in');
