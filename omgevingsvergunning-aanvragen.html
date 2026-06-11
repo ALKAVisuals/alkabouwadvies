@@ -2667,7 +2667,14 @@ color: var(--white);
         .sticky-cta-btn:hover {
 }
 
-    </style>
+    
+        /* ── STICKY CTA: HIDE ON DESKTOP ── */
+        @media (min-width: 1025px) {
+            .mobile-sticky-cta {
+                display: none !important;
+            }
+        }
+</style>
 
     <script type="application/ld+json">
     {

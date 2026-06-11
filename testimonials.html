@@ -105,7 +105,14 @@ color: var(--white);
         .sticky-cta-btn:hover {
 }
 
-    </style>
+    
+        /* ── STICKY CTA: HIDE ON DESKTOP ── */
+        @media (min-width: 1025px) {
+            .mobile-sticky-cta {
+                display: none !important;
+            }
+        }
+</style>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

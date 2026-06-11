@@ -96,7 +96,14 @@
         @media (max-width: 1024px) { .contact-inner { grid-template-columns: 1fr; gap: 4rem; } .footer-inner { grid-template-columns: 1fr 1fr; } .mobile-sticky-cta { display: flex; } }
         @media (max-width: 768px) { .nav-links { display: none; } .menu-toggle { display: flex; } .hero-legal { padding: 10rem 1.5rem 4rem; } .legal-content { padding: 0 1.5rem 4rem; } .contact { padding: 6rem 1.5rem; } .footer-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; } .cookie-table { font-size: 0.75rem; } .cookie-table th, .cookie-table td { padding: 0.5rem; } }
         @media (min-width: 1025px) { nav.scrolled .nav-cta { padding: 0.6rem 1.25rem; font-size: 0.75rem; box-shadow: 0 2px 12px rgba(196, 163, 90, 0.2); } }
-    </style>
+    
+        /* ── STICKY CTA: HIDE ON DESKTOP ── */
+        @media (min-width: 1025px) {
+            .mobile-sticky-cta {
+                display: none !important;
+            }
+        }
+</style>
 </head>
 <body>
 <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">

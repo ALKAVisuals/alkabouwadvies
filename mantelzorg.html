@@ -3151,6 +3151,13 @@ transform: translateY(-2px);
 .mobile-nav a:nth-child(13) {
             transition-delay: 0.65s;
         }
+
+        /* ── STICKY CTA: HIDE ON DESKTOP ── */
+        @media (min-width: 1025px) {
+            .mobile-sticky-cta {
+                display: none !important;
+            }
+        }
 </style>
 
     <script type="application/ld+json">
@@ -4282,11 +4289,5 @@ transform: translateY(-2px);
             }
         }, { passive: true });
     </script>
-        window.addEventListener('scroll', () => {
-            const stickyCta = document.getElementById('mobile-sticky-cta');
-            if (stickyCta) {
-                stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
-            }
-        }, { passive: true });
 </body>
 </html>
