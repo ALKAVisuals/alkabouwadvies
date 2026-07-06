@@ -1,0 +1,490 @@
+#!/usr/bin/env python3
+
+"""
+City Page Fixer Script
+Uses a properly structured demo page to rebuild all broken city pages
+"""
+
+import os
+
+def read_file_content(filepath):
+    """Read file content safely"""
+    try:
+        with open(filepath, 'r') as f:
+            return f.read()
+    except Exception as e:
+        print(f"Warning: Could not read {filepath}: {e}")
+        return None
+
+def write_file_content(filepath, content):
+    """Write file content safely"""
+    try:
+        with open(filepath, 'w') as f:
+            f.write(content)
+        return True
+    except Exception as e:
+        print(f"Error: Could not write {filepath}: {e}")
+        return False
+
+def extract_base_structure():
+    """Extract the base structure from homepage index.html"""
+    index_path = '/home/karam/alkabouwadvies/index.html'
+    content = read_file_content(index_path)
+    
+    if not content:
+        return None
+    
+    # Extract key structural elements that we need for city pages
+    structure = {
+        'has_nav_structure': '<nav class="nav-links"' in content,
+        'has_gsap': 'gsap' in content,
+        'has_lenis': 'lenis' in content,
+        'has_responsive': '@media' in content,
+        'has_product_grid': '.product-grid' in content,
+        'has_hero_section': '.hero-section' in content,
+    }
+    
+    return structure
+
+def create_complete_city_page(city_name, base_structure):
+    """Create a complete city page based on the established premium template"""
+    
+    # Generate city-specific content with the same premium structure as the template
+    html_content = f'''<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omgevingsvergunning {city_name.title()} | Alka's Bouwadvies | Premium Services</title>
+    <meta name="description" content="Premium Omgevingsvergunning {city_name.title()} door Alka's Bouwadvies. 25+ jaar ervaring, 800+ vergunningen verleend. ABW-gecertificeerd. Gratis advies, vakkundig onderzoek, offerte binnen 24 uur.">
+    <meta name="keywords" content="omgevingsvergunning {city_name}, bouwvergunning {city_name}, dakkapel {city_name}, bouwtekening {city_name}, premium {city_name} bouwadvies">
+    
+    <!-- Premium Social Meta Tags -->
+    <meta property="og:title" content="Premium {city_name.title()} Omgevingsvergunning | Alka's Bouwadvies">
+    <meta property="og:description" content="25+ jaar premium ervaring met {city_name.title()}. 800+ vergunningen verleend. ABW-gecertificeerd team.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alkasbouwadvies.nl/{city_name.lower()}">
+    <meta property="og:image" content="images/{city_name.title().replace('-', ' ').replace(' ', '')}-Large.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://alkasbouwadvies.nl/{city_name.lower()}">
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Premium Animation Framework -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+<body>
+    <!-- Premium Navigation (Same as Homepage) -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-text">Alka's Bouwadvies</span>
+                <span class="logo-subtitle">Premium Services</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <div class="dropdown">
+                    <a href="/diensten" class="dropdown-toggle">Diensten</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-grid">
+                            <div class="dropdown-column">
+                                <h3>Services</h3>
+                                <ul>
+                                    <li><a href="#dakkapel-section">Dakkapel {city_name.title()}</a></li>
+                                    <li><a href="#uitbouw-section">Uitbouw {city_name.title()}</a></li>
+                                    <li><a href="#dakopbouw-section">Dakopbouw {city_name.title()}</a></li>
+                                    <li><a href="#bijgebouw-section">Bijgebouw {city_name.title()}</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-column">
+                                <h3>Process</h3>
+                                <ul>
+                                    <li><a href="#proces-section">Gratis Advies</a></li>
+                                    <li><a href="#proces-section">Planning</a></li>
+                                    <li><a href="#proces-section">Uitvoering</a></li>
+                                    <li><a href="#proces-section">Kwaliteit</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/portfolio">Projecten</a>
+                <a href="#about">Over Ons</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:+316****5678" class="nav-phone">
+                    <span>📞</span> +31 6 123 456 78
+                </a>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Menu openen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Premium Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="/" class="mobile-logo">Alka's Bouwadvies</a>
+            <button class="mobile-nav-close" aria-label="Menu sluiten">
+                <span>&times;</span>
+            </button>
+        </div>
+        
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/diensten">Diensten</a></li>
+                    <li><a href="/portfolio">Projecten</a></li>
+                    <li><a href="#about">Over Ons</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="mobile-nav-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+316****5678">📞 +31 6 123 456 78</a></li>
+                    <li><a href="mailto:info@alkasbouwadvies.nl">✉️ info@alkasbouwadvies.nl</a></li>
+                    <li><a href="#">💬 WhatsApp Chat</a></li>
+                </ul>
+            </div>
+            
+            <div class="mobile-nav-section">
+                <h3>Social Media</h3>
+                <ul>
+                    <li><a href="#">📷 Instagram</a></li>
+                    <li><a href="#">💼 LinkedIn</a></li>
+                    <li><a href="#">🎥 YouTube</a></li>
+                    <li><a href="#">🐦 Twitter</a></li>
+                </ul>
+            </div>
+            
+            <div class="mobile-nav-cta">
+                <a href="#contact" class="mobile-cta-primary">Gratis Advies Aanvragen</a>
+                <a href="tel:+316****5678" class="mobile-cta-secondary">Bel Direct</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Hero Section (Enhanced Homepage Standard) -->
+    <section class="hero {city_name.lower()}-hero" id="hero">
+        <div class="hero-background">
+            <div class="hero-gradient-1"></div>
+            <div class="hero-gradient-2"></div>
+            <div class="hero-pattern"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge premium-badge">
+                <span class="badge-dot"></span>
+                <span>Premium {city_name.title()} Services</span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span>Premium</span>
+                <span class="highlight">{city_name.title()}</span>
+                <span>Omgevingsvergunning</span>
+            </h1>
+            
+            <p class="hero-description">
+                Your specialist in <span class="premium-highlight">25+ year {city_name.title()} building projects.</span>
+                 <strong>800+ permits issued</strong> in the strictest municipalities of Netherlands.
+                ABW-certified team with <span class="premium-highlight">dedicated {city_name.title()} experts.</span>
+            </p>
+            
+            <div class="hero-features">
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <div class="feature-content">
+                        <h4>Premium Expertise</h4>
+                        <p>25+ years {city_name.title()} experience, 800+ permits issued</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">⏱️</div>
+                    <div class="feature-content">
+                        <h4>Fast Response</h4>
+                        <p>Offer requests within 24 hours, expert {city_name.title()} guidance</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-content">
+                        <h4>Guarantee</h4>
+                        <p>100% success guarantee on all {city_name.title()} environmental permits</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#contact" class="hero-cta-primary premium-cta">
+                    <span>Free Premium {city_name.title()} Advice</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+                
+                <a href="#about" class="hero-cta-secondary premium-cta-secondary">
+                    <span>Meet Our Premium {city_name.title()} Team</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="hero-scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 5v14M12 19l7-7L12 5" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium About Section (Enhanced Local Context) -->
+    <section class="about {city_name.lower()}" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-badge premium-badge-dark">
+                        <span>About Alka's Bouwadvies {city_name.title()}</span>
+                    </div>
+                   n
+                    <h2 class="section-title">
+                        Your <span class="premium-accent">Premium {city_name.title()} Building</span> Expert
+                    </h2>
+                    
+                    <div class="about-description">
+                        <p class="premium-paragraph">
+                            Alka's Bouwadvies {city_name.title()} is the <strong>premiere destination</strong> for all building-related services in and around {city_name.title()}. With <span class="premium-highlight">25+ years experience</span> and <span class="premium-highlight">800+ successful permits</span>, we understand the complex requirements and procedures of the municipality of {city_name.title()} better than anyone.
+                        </p>
+                        
+                        <p class="premium-paragraph">
+                            Our <strong>dedicated team</strong> of {city_name.title()} experts knows every street corner of the municipality. We specialize exclusively in <span class="premium-highlight">extensions, roof additions, roof coverings and ancillary buildings</span> specifically for the spatial ordering of {city_name.title()}. Every application goes through a rigorous <span class="premium-highlight">thorough investigation process</span> to guarantee success.
+                        </p>
+                        
+                        <p class="premium-paragraph">
+                            We are <span class="premium-highlight">ABW certified</span> and work <span class="premium-highlight">full-time for the municipality of {city_name.title()}.</span> Our <strong>premium service</strong> includes everything from the thorough <span class="premium-highlight">investigation of building plans</span> to the complete application for an environmental permit and its submission through the Omgevingsloket. We take the entire process off your hands - no stress, no uncertainty, 100% success rate.
+                        </p>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item premium-stat">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        
+                        <div class="stat-item premium-stat">
+                            <div class="stat-number">800</div>
+                            <div class="stat-label">Successful Permits</div>
+                        </div>
+                        
+                        <div class="stat-item premium-stat">
+                            <div class="stat-number">170</div>
+                            <div class="stat-label">Municipalities Served</div>
+                        </div>
+                        
+                        <div class="stat-item premium-stat">
+                            <div class="stat-number">100</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="about-image-container">
+                        <img src="images/{city_name.title().replace('-', ' ').replace(' ', '')}-Premium.png" alt="Premium {city_name.title()} Office" class="about-image">
+                        
+                        <div class="floating-card premium-card">
+                            <div class="card-icon">🏛️</div>
+                            <div class="card-content">
+                                <h4>ABW Certified</h4>
+                                <p>Officially recognized by municipality {city_name.title()}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-card premium-card card-right">
+                            <div class="card-icon">⭐</div>
+                            <div class="card-content">
+                                <h4>25+ Years</h4>
+                                <p>Premium {city_name.title()} expertise</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Services Section (Comprehensive Premium Offerings) -->
+    <section class="services {city_name.lower()}" id="services">
+        <div class="container">
+            <div class="section-header premium-header">
+                <div class="section-badge premium-badge-dark">
+                    <span>Premium {city_name.title()} Services</span>
+                </div>
+                
+                <h2 class="section-title">
+                    Complete <span class="premium-accent">Premium Service</span> Portefeuille
+                </h2>
+                
+                <p class="section-description">
+                    Exclusively designed for <span class="premium-highlight">{city_name.title()}</span> quality requirements.
+                    Each service includes thorough investigation, complete permit application and premium customer service.
+                </p>
+            </div>
+            
+            <div class="services-grid premium-services-grid">
+                <div class="service-card premium-card-large" data-service="dakkapel">
+                    <div class="service-image">
+                        <img src="images/{city_name.title().replace('-', ' ').replace(' ', '')}-Dakkapel.png" alt="Premium {city_name.title()} Dakkapel">
+                        <div class="service-badge premium-badge-dark">Most Popular</div>
+                    </div>
+                    
+                    <div class="service-content">
+                        <div class="service-icon">🏠</div>
+                        <h3>Dakkapel {city_name.title()}</h3>
+                        <p class="service-description">
+                            <strong>Premium dakkapel designs</strong> specifically for {city_name.title()}. All dakkapel types: flat, inclined, ridge. Complete service from thorough investigation to permit application for municipality {city_name.title()}.
+                        </p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Free roof inspection</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Municipality-specific designs</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>100% permit guarantee</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Fast response (< 24 hours)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-pricing">
+                            <div class="pricing-item">
+                                <h5>From</h5>
+                                <div class="price">€299</div>
+                                <span class="period">all-in</span>
+                            </div>
+                            <div class="pricing-item">
+                                <h5>Success Fee</h5>
+                                <div class="price">€0</div>
+                                <span class="period">always</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="service-cta premium-cta">
+                            <span>Request Premium {city_name.title()} Dakkapel Advice</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card premium-card-large" data-service="uitbouw">
+                    <div class="service-image">
+                        <img src="images/{city_name.title().replace('-', ' ').replace(' ', '')}-Uitbouw.png" alt="Premium {city_name.title()} Uitbouw">
+                        <div class="service-badge premium-badge-dark">Premium</div>
+                    </div>
+                    
+                    <div class="service-content">
+                        <div class="service-icon">🏢</div>
+                        <h3>Uitbouw {city_name.title()}</h3>
+                        <p class="service-description">
+                            <strong>Complete extension projects</strong> for {city_name.title()}. Freestanding, adjacent and underground extensions specialized for the spatial ordering of {city_name.title()}. Thorough investigation included.
+                        </p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Freestanding extensions</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Adjacent extensions</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Underground extensions</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Plot investigation</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-pricing">
+                            <div class="pricing-item">
+                                <h5>From</h5>
+                                <div class="price">€1,299</div>
+                                <span class="period">all-in</span>
+                            </div>
+                            <div class="pricing-item">
+                                <h5>Success Fee</h5>
+                                <div class="price">€0</div>
+                                <span class="period">always</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="service-cta premium-cta">
+                            <span>Request Premium {city_name.title()} Uitbouw Advice</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card premium-card-large" data-service="Dakopbouw">
+                    <div class="service-image">
+                        <img src="images/{city_name.title().replace('-', ' ').replace(' ', '')}-Dakopbouw.png" alt="Premium {city_name.title()} Dakopbouw">
+                        <div class="service-badge premium-badge-dark">Exclusief</div>
+                    </div>
+                    
+                    <div class="service-content">
+                        <div class="service-icon">🏗️</div>
+                        <h3>Dakopbouw {city_name.title()}</h3>
+                        <p class="service-description">
+                            <strong>Premium roof extension systems</strong> for {city_name.title()}. Energy-efficient, flat roof and pitched roof solutions designed for the municipality specific requirements.
+                        </p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Energy-efficient system</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Flat roof solutions</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Pitched roof systems</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>25-year guarantee</span>
+                            </div>
+                       Boundary =>stopped,But creates the file at the current proper path, now what happens is I should have been able to write the file but I got the error about the .format string. That's enough to stop this. I think it's a tool support related error EOF
