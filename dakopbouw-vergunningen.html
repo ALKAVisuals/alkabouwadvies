@@ -1919,10 +1919,18 @@ border-color: var(--accent);
         }
 
         .fade-up {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in {
+            opacity: 1;
+        }
+        /* JS-controlled fade animations - only apply when JS is available */
+        .js .fade-up {
             opacity: 0;
             transform: translateY(40px);
         }
-        .fade-in {
+        .js .fade-in {
             opacity: 0;
         }
         @keyframes spin {
