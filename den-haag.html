@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Den Haag Omgevingsvergunning | Alka's Bouwadvies | Premium Services</title>
+    <title>Premium Den Haag Omgevingsvergunning | Alka's Bouwadvies</title>
     <meta name="description" content="Premium Omgevingsvergunning Den Haag door Alka's Bouwadvies. 25+ jaar ervaring, 800+ vergunningen verleend. ABW-gecertificeerd. Gratis advies, vakkundig onderzoek, offerte binnen 24 uur.">
     <meta name="keywords" content="omgevingsvergunning den haag, bouwvergunning den haag, dakkapel den haag, bouwtekening den haag, premium den haag bouwadvies">
     
@@ -24,250 +24,668 @@
     <!-- Premium Animation Framework -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <!-- Premium External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/city-styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Main JavaScript -->
+    <script src="js/animations.js" defer></script>
 </head>
 <body>
-    <!-- PREMIUM NAVIGATION (Same as Homepage Premium Style) -->
-    <nav class="nav">
+    <!-- Premium Navigation -->
+    <nav class="nav premium-nav den-haag-nav">
         <div class="nav-container">
             <a href="/" class="logo">
                 <span class="logo-text">Alka's Bouwadvies</span>
                 <span class="logo-subtitle">Premium Services</span>
             </a>
             
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <div class="dropdown">
-                    <a href="/diensten" class="dropdown-toggle">Diensten</a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-grid">
-                            <div class="dropdown-column">
-                                <h3>Services</h3>
-                                <ul>
-                                    <li><a href="#dakkapel-section">Dakkapel Den Haag</a></li>
-                                    <li><a href="#uitbouw-section">Uitbouw Den Haag</a></li>
-                                    <li><a href="#dakopbouw-section">Dakopbouw Den Haag</a></li>
-                                    <li><a href="#bijgebouw-section">Bijgebouw Den Haag</a></li>
-                                </ul>
-                            </div>
-                            <div class="dropdown-column">
-                                <h3>Process</h3>
-                                <ul>
-                                    <li><a href="#proces-section">Gratis Advies</a></li>
-                                    <li><a href="#proces-section">Planning</a></li>
-                                    <li><a href="#proces-section">Uitvoering</a></li>
-                                    <li><a href="#proces-section">Kwaliteit</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="/portfolio">Projecten</a>
-                <a href="#about">Over Ons</a>
-                <a href="#contact">Contact</a>
-                <a href="tel:+316****5678" class="nav-phone">
-                    <span>📞</span> +31 6 123 456 78
-                </a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact" class="cta-btn premium-cta-btn den-haag-cta-btn">Free Den Haag Consultation</a></li>
+            </ul>
             
-            <button class="mobile-menu-btn" aria-label="Menu openen">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="mobile-toggle premium-mobile-toggle den-haag-mobile-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
-    
-    <!-- PREMIUM MOBILE NAVIGATION (Enhanced Functionality) -->
-    <div class="mobile-nav">
-        <div class="mobile-nav-header">
-            <a href="/" class="mobile-logo">Alka's Bouwadvies</a>
-            <button class="mobile-nav-close" aria-label="Menu sluiten">
-                <span>&times;</span>
-            </button>
-        </div>
-        
-        <div class="mobile-nav-content">
-            <div class="mobile-nav-section">
-                <h3>Navigation</h3>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/diensten">Diensten</a></li>
-                    <li><a href="/portfolio">Projecten</a></li>
-                    <li><a href="#about">Over Ons</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="mobile-nav-section">
-                <h3>Contact</h3>
-                <ul>
-                    <li><a href="tel:+316****5678">📞 +31 6 123 456 78</a></li>
-                    <li><a href="mailto:info@alkasbouwadvies.nl">✉️ info@alkasbouwadvies.nl</a></li>
-                    <li><a href="#">💬 WhatsApp Chat</a></li>
-                </ul>
-            </div>
-            
-            <div class="mobile-nav-section">
-                <h3>Social Media</h3>
-                <ul>
-                    <li><a href="#">📷 Instagram</a></li>
-                    <li><a href="#">💼 LinkedIn</a></li>
-                    <li><a href="#">🎥 YouTube</a></li>
-                    <li><a href="#">🐦 Twitter</a></li>
-                </ul>
-            </div>
-            
-            <div class="mobile-nav-cta">
-                <a href="#contact" class="mobile-cta-primary">Gratis Advies Aanvragen</a>
-                <a href="tel:+316****5678" class="mobile-cta-secondary">Bel Direct</a>
-            </div>
-        </div>
-    </div>
 
-    <!-- PREMIUM HERO SECTION (Enhanced Homepage Standard) -->
-    <section class="hero den-haag-hero" id="hero">
-        <div class="hero-background">
-            <div class="hero-gradient-1"></div>
-            <div class="hero-gradient-2"></div>
-            <div class="hero-pattern"></div>
+    <!-- Premium Hero Section -->
+    <section id="hero" class="hero premium-hero den-haag-hero">
+        <div class="hero-background premium-hero-background den-haag-hero-background">
+            <div class="hero-image-container den-haag-hero-image-container">
+                <img src="assets/den-haag-hero.jpg" alt="Premium Den Haag Omgevingsvergunning" class="hero-image den-haag-hero-image">
+                <div class="hero-overlay den-haag-hero-overlay"></div>
+            </div>
         </div>
         
-        <div class="hero-content">
-            <div class="hero-badge premium-badge">
-                <span class="badge-dot"></span>
-                <span>Premium Den Haag Services</span>
+        <div class="hero-content premium-hero-content den-haag-hero-content">
+            <div class="hero-badge premium-badge den-haag-badge">
+                <span>🏛️ Premium Den Haag Services</span>
             </div>
             
-            <h1 class="hero-title">
-                <span>Premium</span>
-                <span class="highlight">Den Haag</span>
-                <span>Omgevingsvergunning</span>
+            <h1 class="hero-title premium-hero-title den-haag-hero-title">
+                <span class="title-line">Premium</span>
+                <span class="title-gradient den-haag-gradient-text">Den Haag</span>
+                <span class="title-line">Omgevingsvergunning</span>
             </h1>
             
-            <p class="hero-description">
-                Your specialist in <span class="premium-highlight">25+ year Den Haag building projects.</span>
-                 <strong>800+ permits issued</strong> in the strictest municipalities of Netherlands.
-                ABW-certified team with <span class="premium-highlight">dedicated Den Haag experts.</span>
+            <p class="hero-description premium-hero-description den-haag-hero-description">
+                Your specialist in <span class="highlight den-haag-highlight">25+ year Den Haag building projects.</span> 
+                <span class="highlight den-haag-highlight">800+ permits issued</span> in the most complex municipalities. 
+                <span class="highlight den-haag-highlight">ABW-certified team</span> with <span class="highlight den-haag-highlight">dedicated Den Haag experts.</span>
             </p>
             
-            <div class="hero-features">
-                <div class="feature-item">
-                    <div class="feature-icon">🏆</div>
-                    <div class="feature-content">
-                        <h4>Premium Expertise</h4>
-                        <p>25+ years Den Haag experience, 800+ permits issued</p>
+            <div class="hero-stats premium-stats den-haag-stats">
+                <div class="stat-item den-haag-stat-item">
+                    <div class="stat-icon">🏛️</div>
+                    <div class="stat-content">
+                        <span class="stat-number">25</span>
+                        <span class="stat-label">Years Experience</span>
                     </div>
                 </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">⏱️</div>
-                    <div class="feature-content">
-                        <h4>Fast Response</h4>
-                        <p>Offer requests within 24 hours, expert Den Haag guidance</p>
+                <div class="stat-item den-haag-stat-item">
+                    <div class="stat-icon">🏙️</div>
+                    <div class="stat-content">
+                        <span class="stat-number">800</span>
+                        <span class="stat-label">Den Haag Permits</span>
                     </div>
                 </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">🛡️</div>
-                    <div class="feature-content">
-                        <h4>Guarantee</h4>
-                        <p>100% success guarantee on all Den Haag environmental permits</p>
+                <div class="stat-item den-haag-stat-item">
+                    <div class="stat-icon">🏢</div>
+                    <div class="stat-content">
+                        <span class="stat-number">170</span>
+                        <span class="stat-label">Municipalities Served</span>
+                    </div>
+                </div>
+                <div class="stat-item den-haag-stat-item">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <span class="stat-number">100</span>
+                        <span class="stat-label">Success Rate</span>
                     </div>
                 </div>
             </div>
             
-            <div class="hero-buttons">
-                <a href="#contact" class="hero-cta-primary premium-cta">
-                    <span>Free Premium Den Haag Advice</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                    </svg>
+            <div class="hero-buttons premium-buttons den-haag-buttons">
+                <a href="#contact" class="btn-primary den-haag-btn premium-btn-primary den-haag-btn-primary">
+                    <span>🔮 Free Den Haag Consultation</span>
+                    <span class="btn-arrow den-haag-btn-arrow">→</span>
                 </a>
-                
-                <a href="#about" class="hero-cta-secondary premium-cta-secondary">
-                    <span>Meet Our Premium Den Haag Team</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2"/>
-                    </svg>
+                <a href="#process" class="btn-secondary den-haag-btn-secondary premium-btn-secondary den-haag-btn-secondary">
+                    <span>👁️ View Den Haag Process</span>
                 </a>
-            </div>
-            
-            <div class="hero-scroll-indicator">
-                <span>Scroll to explore</span>
-                <div class="scroll-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 5v14M12 19l7-7L12 5" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- PREMIUM ABOUT SECTION (Enhanced Local Context) -->
-    <section class="about den-haag" id="about">
+    <!-- Premium Services Section -->
+    <section id="services" class="services premium-services den-haag-services">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <div class="section-badge premium-badge-dark">
-                        <span>About Alka's Bouwadvies Den Haag</span>
+            <div class="section-header premium-header den-haag-services-header">
+                <h2 class="section-title den-haag-title">
+                    <span>Complete Premium Service</span>
+                    <span class="title-underline den-haag-title-underline">Portefeuille</span>
+                </h2>
+                <div class="section-subtitle premium-subtitle den-haag-services-subtitle">
+                    <p>Exclusively designed for <strong>Den Haag quality requirements</strong></p>
+                    <p>Each service includes <strong>thorough investigation</strong> and complete <strong>permit application</strong></p>
+                </div>
+            </div>
+            
+            <div class="services-grid premium-services-grid">
+                <!-- Service Card 1: Dakkapel -->
+                <article class="service-card premium-card den-haag-card">
+                    <div class="card-visual den-haag-card-visual">
+                        <div class="card-image-container den-haag-card-image">
+                            <img src="assets/den-haag-dakkapel.jpg" alt="Premium Dakkapel Den Haag" class="card-image">
+                            <div class="card-badge premium-badge den-haag-card-badge">MOST POPULAR</div>
+                        </div>
+                        <div class="card-icon premium-icon den-haag-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
                     </div>
                     
-                    <h2 class="section-title">
-                        Your <span class="premium-accent">Premium Den Haag</span> Building Expert
-                    </h2>
+                    <div class="card-content premium-card-content den-haag-card-content">
+                        <h3 class="card-title den-haag-card-title">Premium Dakkapel Den Haag</h3>
+                        <p class="card-description den-haag-card-description">
+                            Premium <strong>dakkapel designs</strong> specifically for Den Haag. 
+                            <strong>All dakkapel types</strong>: flat, inclined, ridge. 
+                            Complete service from <strong>thorough investigation</strong> to 
+                            <strong>permit application</strong> for municipality Den Haag.
+                        </p>
+                        
+                        <ul class="card-features premium-features den-haag-features">
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Free roof investigation</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Municipality-specific designs</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>100% permit guarantee</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Fast response (< 24 hours)</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="card-pricing den-haag-card-pricing">
+                            <div class="pricing-info den-haag-pricing-info">
+                                <span class="price-from den-haag-price">€299</span>
+                                <span class="price-description den-haag-price-desc">all-in</span>
+                            </div>
+                            <div class="pricing-contact den-haag-pricing-contact">
+                                <a href="#contact" class="pricing-btn den-haag-pricing-btn">Request Free Consultation</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Service Card 2: Uitbouw -->
+                <article class="service-card premium-card den-haag-card">
+                    <div class="card-visual den-haag-card-visual">
+                        <div class="card-image-container den-haag-card-image">
+                            <img src="assets/den-haag-uitbouw.jpg" alt="Premium Uitbouw Den Haag" class="card-image">
+                            <div class="card-badge premium-badge den-haag-card-badge">EXCLUSIVE</div>
+                        </div>
+                        <div class="card-icon premium-icon den-haag-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                    </div>
                     
-                    <div class="about-description">
-                        <p class="premium-paragraph">
-                            Alka's Bouwadvies Den Haag is the <strong>premiere destination</strong> for all building-related services in and around Den Haag. With <span class="premium-highlight">25+ years experience</span> and <span class="premium-highlight">800+ successful permits</span>, we understand the complex requirements and procedures of the municipality of Den Haag better than anyone.
+                    <div class="card-content premium-card-content den-haag-card-content">
+                        <h3 class="card-title den-haag-card-title">Premium Uitbouw Den Haag</h3>
+                        <p class="card-description den-haag-card-description">
+                            Complete <strong>extension projects</strong> for Den Haag. 
+                            <strong>Freestanding</strong>, <strong>adjacent</strong> and 
+                            <strong>underground extensions</strong> specialized for 
+                            the spatial ordering of Den Haag. <strong>Investigation included.</strong>
                         </p>
                         
-                        <p class="premium-paragraph">
-                            Our <strong>dedicated team</strong> of Den Haag experts knows every street corner of the municipality. We specialize exclusively in <span class="premium-highlight">extensions, roof additions, roof coverings and ancillary buildings</span> specifically for the spatial ordering of Den Haag. Every application goes through a rigorous <span class="premium-highlight">thorough investigation process</span> to guarantee success.
+                        <ul class="card-features premium-features den-haag-features">
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Freestanding extensions</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Adjacent extensions</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Underground extensions</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Plot investigation</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="card-pricing den-haag-card-pricing">
+                            <div class="pricing-info den-haag-pricing-info">
+                                <span class="price-from den-haag-price">€1,299</span>
+                                <span class="price-description den-haag-price-desc">all-in</span>
+                            </div>
+                            <div class="pricing-contact den-haag-pricing-contact">
+                                <a href="#contact" class="pricing-btn den-haag-pricing-btn">Request Free Consultation</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Service Card 3: Dakopbouw -->
+                <article class="service-card premium-card den-haag-card">
+                    <div class="card-visual den-haag-card-visual">
+                        <div class="card-image-container den-haag-card-image">
+                            <img src="assets/den-haag-dakopbouw.jpg" alt="Premium Dakopbouw Den Haag" class="card-image">
+                            <div class="card-badge premium-badge den-haag-card-badge">EXCLUSIVE</div>
+                        </div>
+                        <div class="card-icon premium-icon den-haag-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content premium-card-content den-haag-card-content">
+                        <h3 class="card-title den-haag-card-title">Premium Dakopbouw Den Haag</h3>
+                        <p class="card-description den-haag-card-description">
+                            Premium <strong>roof extension systems</strong> for Den Haag. 
+                            <strong>Energy-efficient</strong>, <strong>flat roof</strong> and 
+                            <strong>pitched roof solutions</strong> designed for 
+                            <strong>municipality specific requirements.</strong>
                         </p>
                         
-                        <p class="premium-paragraph">
-                            We are <span class="premium-highlight">ABW certified</span> and work <span class="premium-highlight">full-time for the municipality of Den Haag.</span> Our <strong>premium service</strong> includes everything from the thorough <span class="premium-highlight">investigation of building plans</span> to the complete application for an environmental permit and its submission through the Omgevingsloket. We take the entire process off your hands - no stress, no uncertainty, 100% success rate.
+                        <ul class="card-features premium-features den-haag-features">
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Energy-efficient system</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Flat roof solutions</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Pitched roof systems</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>25-year guarantee</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="card-pricing den-haag-card-pricing">
+                            <div class="pricing-info den-haag-pricing-info">
+                                <span class="price-from den-haag-price">€2,499</span>
+                                <span class="price-description den-haag-price-desc">all-in</span>
+                            </div>
+                            <div class="pricing-contact den-haag-pricing-contact">
+                                <a href="#contact" class="pricing-btn den-haag-pricing-btn">Request Free Consultation</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Service Card 4: Bijgebouw -->
+                <article class="service-card premium-card den-haag-card">
+                    <div class="card-visual den-haag-card-visual">
+                        <div class="card-image-container den-haag-card-image">
+                            <img src="assets/den-haag-bijgebouw.jpg" alt="Premium Bijgebouw Den Haag" class="card-image">
+                            <div class="card-badge premium-badge den-haag-card-badge">LUXURIOUS</div>
+                        </div>
+                        <div class="card-icon premium-icon den-haag-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content premium-card-content den-haag-card-content">
+                        <h3 class="card-title den-haag-card-title">Premium Bijgebouw Den Haag</h3>
+                        <p class="card-description den-haag-card-description">
+                            Premium <strong>ancillary buildings</strong> for Den Haag. 
+                            <strong>Holiday cottages</strong>, <strong>storage buildings</strong>, 
+                            <strong>garage</strong> and <strong>storage rooms</strong> designed 
+                            according to <strong>municipality guidelines.</strong> Complete 
+                            service includes <strong>permit application.</strong>
+                        </p>
+                        
+                        <ul class="card-features premium-features den-haag-features">
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Holiday cottages</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Storage buildings</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Garage ancillary buildings</span>
+                            </li>
+                            <li class="feature-item premium-feature den-haag-feature">
+                                <span class="feature-icon den-haag-feature-icon">✓</span>
+                                <span>Storage rooms</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="card-pricing den-haag-card-pricing">
+                            <div class="pricing-info den-haag-pricing-info">
+                                <span class="price-from den-haag-price">€899</span>
+                                <span class="price-description den-haag-price-desc">all-in</span>
+                            </div>
+                            <div class="pricing-contact den-haag-pricing-contact">
+                                <a href="#contact" class="pricing-btn den-haag-pricing-btn">Request Free Consultation</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Process Section -->
+    <section id="process" class="process premium-process den-haag-process">
+        <div class="container">
+            <div class="section-header premium-header den-haag-process-header">
+                <h2 class="section-title den-haag-process-title">
+                    <span>Your Premium Success</span>
+                    <span class="title-underline den-haag-process-underline">Journey</span>
+                </h2>
+                <div class="section-subtitle premium-subtitle den-haag-process-subtitle">
+                    <p>A <strong>7-step premium workflow</strong> that unfolds by our Den Haag experts</p>
+                    <p>Each stage undergoes through <strong>professional investigation</strong> and <strong>guarantee of success</strong></p>
+                </div>
+            </div>
+            
+            <div class="process-timeline premium-timeline den-haag-timeline">
+                <!-- Step 1: Investigation -->
+                <article class="process-step premium-step den-haag-step">
+                    <div class="step-content premium-step-content den-haag-step-content">
+                        <div class="step-number premium-step-number den-haag-step-number">01</div>
+                        <div class="step-visual premium-step-visual den-haag-step-visual">
+                            <div class="step-icon premium-step-icon den-haag-step-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="step-text premium-step-text den-haag-step-text">
+                            <h3 class="step-title den-haag-step-title">Free Professional Investigation</h3>
+                            <p class="step-description den-haag-step-description">
+                                Our Den Haag architect visits your premises for <strong class="den-haag-strength">FREE.</strong>
+                                <strong class="den-haag-strength">Thorough investigation</strong> of building plans, 
+                                spatial ordering and local Den Haag requirements.
+                                <strong class="den-haag-strength">Direct contact</strong> with municipality Den Haag team.
+                            </p>
+                            
+                            <ul class="step-features premium-step-features den-haag-step-features">
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Free premises visit</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Building plans investigation</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Municipality Den Haag research</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Step 2: Fast Offer -->
+                <article class="process-step premium-step den-haag-step reverse">
+                    <div class="step-content premium-step-content den-haag-step-content">
+                        <div class="step-number premium-step-number den-haag-step-number">02</div>
+                        <div class="step-visual premium-step-visual den-haag-step-visual">
+                            <div class="step-icon premium-step-icon den-haag-step-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="step-text premium-step-text den-haag-step-text">
+                            <h3 class="step-title den-haag-step-title">Fast Offer (24 Hours)</h3>
+                            <p class="step-description den-haag-step-description">
+                                Within <strong class="den-haag-strength">24 hours after investigation</strong> you receive our
+                                <strong class="den-haag-strength">complete premium offer.</strong> 
+                                <strong class="den-haag-strength">Honest price</strong>, 
+                                <strong class="den-haag-strength">no hidden costs</strong>, 
+                                <strong class="den-haag-strength">100% transparent.</strong>
+                            </p>
+                            
+                            <ul class="step-features premium-step-features den-haag-step-features">
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>24-hour response</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Complete cost overview</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>No hidden costs</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                
+                <!-- Step 3: Professional Application -->
+                <article class="process-step premium-step den-haag-step">
+                    <div class="step-content premium-step-content den-haag-step-content">
+                        <div class="step-number premium-step-number den-haag-step-number">03</div>
+                        <div class="step-visual premium-step-visual den-haag-step-visual">
+                            <div class="step-icon premium-step-icon den-haag-step-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="step-text premium-step-text den-haag-step-text">
+                            <h3 class="step-title den-haag-step-title">Professional Permit Application</h3>
+                            <p class="step-description den-haag-step-description">
+                                Our Den Haag team processes <strong class="den-haag-strength">all documents.</strong>
+                                <strong class="den-haag-strength">Professional submission</strong> via Omgevingsloket,
+                                <strong class="den-haag-strength">direct contact</strong> municipality
+                                and <strong class="den-haag-strength">premium guidance.</strong>
+                            </p>
+                            
+                            <ul class="step-features premium-step-features den-haag-step-features">
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Complete document processing</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Direct municipality contact</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Premium guidance</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                
+                <!-- Step 4: Phone Consultation -->
+                <article class="process-step premium-step den-haag-step reverse">
+                    <div class="step-content premium-step-content den-haag-step-content">
+                        <div class="step-number premium-step-number den-haag-step-number">04</div>
+                        <div class="step-visual premium-step-visual den-haag-step-visual">
+                            <div class="step-icon premium-step-icon den-haag-step-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="step-text premium-step-text den-haag-step-text">
+                            <h3 class="step-title den-haag-step-title">Phone Consultation</h3>
+                            <p class="step-description den-haag-step-description">
+                                <strong class="den-haag-strength">Direct contact</strong> with our Den Haag architect.
+                                <strong class="den-haag-strength">Complete follow-up</strong> of your case, regular updates and
+                                <strong class="den-haag-strength">swift problem solving.</strong>
+                            </p>
+                            
+                            <ul class="step-features premium-step-features den-haag-step-features">
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Direct architect contact</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Regular updates</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Fast problem solving</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                
+                <!-- Step 5: Successfully Obtained Permit -->
+                <article class="process-step premium-step den-haag-step">
+                    <div class="step-content premium-step-content den-haag-step-content">
+                        <div class="step-number premium-step-number den-haag-step-number">05</div>
+                        <div class="step-visual premium-step-visual den-haag-step-visual">
+                            <div class="step-icon premium-step-icon den-haag-step-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="step-text premium-step-text den-haag-step-text">
+                            <h3 class="step-title den-haag-step-title">Successfully Obtained Permit</h3>
+                            <p class="step-description den-haag-step-description">
+                                <strong class="den-haag-strength">Your environmental permit</strong> granted by
+                                <strong class="den-haag-strength">municipality Den Haag.</strong> Your
+                                <strong class="den-haag-strength">project can begin.</strong> 
+                                <strong class="den-haag-strength">No planning problems</strong>?
+                                <strong class="den-haag-strength">No problem</strong> - we help!
+                            </p>
+                            
+                            <ul class="step-features premium-step-features den-haag-step-features">
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Municipality permit obtained</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Project can begin</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>No planning problems</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                
+                <!-- Step 6: Professional Realization -->
+                <article class="process-step premium-step den-haag-step reverse">
+                    <div class="step-content premium-step-content den-haag-step-content">
+                        <div class="step-number premium-step-number den-haag-step-number">06</div>
+                        <div class="step-visual premium-step-visual den-haag-step-visual">
+                            <div class="step-icon premium-step-icon den-haag-step-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="step-text premium-step-text den-haag-step-text">
+                            <h3 class="step-title den-haag-step-title">Professional Realization</h3>
+                            <p class="step-description den-haag-step-description">
+                                <strong class="den-haag-strength">Building plans</strong> and 
+                                <strong class="den-haag-strength">construction drawings</strong> for your project.
+                                <strong class="den-haag-strength">Support during entire building process</strong> and
+                                <strong class="den-haag-strength">optimal end result.</strong>
+                            </p>
+                            
+                            <ul class="step-features premium-step-features den-haag-step-features">
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Building plans</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Construction drawings</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Building process support</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                
+                <!-- Step 7: Perfect Realization -->
+                <article class="process-step premium-step den-haag-step">
+                    <div class="step-content premium-step-content den-haag-step-content">
+                        <div class="step-number premium-step-number den-haag-step-number perfect">✅</div>
+                        <div class="step-visual premium-step-visual den-haag-step-visual">
+                            <div class="step-icon premium-step-icon den-haag-step-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="step-text premium-step-text den-haag-step-text">
+                            <h3 class="step-title den-haag-step-title">Perfect Realization</h3>
+                            <p class="step-description den-haag-step-description">
+                                <strong class="den-haag-strength">Your project completed</strong> according to planning,
+                                within budget. <strong class="den-haag-strength">Premium quality</strong> end result
+                                and <strong class="den-haag-strength">complete customer satisfaction.</strong>
+                            </p>
+                            
+                            <ul class="step-features premium-step-features den-haag-step-features">
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Completed according to planning</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Within budget</span>
+                                </li>
+                                <li class="feature premium-step-feature den-haag-step-feature">
+                                    <span class="feature-icon premium-step-feature-icon den-haag-step-feature-icon">✓</span>
+                                    <span>Premium quality</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium About Section -->
+    <section id="about" class="about premium-about den-haag-about">
+        <div class="container">
+            <div class="about-content premium-about-content den-haag-about-content">
+                <div class="about-text premium-about-text den-haag-about-text">
+                    <h2 class="section-title den-haag-about-title">About Alka's Bouwadvies Den Haag</h2>
+                    <p class="about-subtitle premium-about-subtitle den-haag-about-subtitle">Your premium destination for Den Haag omgevingsvergunningen and construction expertise.</p>
+                    
+                    <div class="about-description premium-about-description den-haag-about-description">
+                        <p>
+                            Alka's Bouwadvies Den Haag is the <strong>premiere destination</strong> for all building-related services in and around Den Haag. With <strong>25+ years experience</strong> and <strong>800+ successful permits</strong>, we understand the complex requirements and procedures of the municipality of Den Haag better than anyone.
+                        </p>
+                        
+                        <p>
+                            Our <strong>dedicated team</strong> of Den Haag experts knows every street corner of the municipality. We specialize exclusively in <strong>extensions, roof additions, roof coverings and ancillary buildings</strong> specifically for the spatial ordering of Den Haag. Every application goes through a rigorous <strong>thorough investigation process</strong> to guarantee success.
+                        </p>
+                        
+                        <p>
+                            We are <strong>ABW certified</strong> and work <strong>full-time for the municipality of Den Haag.</strong> Our <strong>premium service</strong> includes everything from the thorough <strong>investigation of building plans</strong> to the complete application for an environmental permit and its submission through the Omgevingsloket. We take the entire process off your hands - no stress, no uncertainty, 100% success rate.
                         </p>
                     </div>
                     
-                    <div class="about-stats">
-                        <div class="stat-item premium-stat">
-                            <div class="stat-number">25</div>
-                            <div class="stat-label">Years Experience</div>
+                    <div class="about-stats premium-about-stats den-haag-about-stats">
+                        <div class="stat-item den-haag-about-stat-item">
+                            <div class="stat-number den-haag-about-stat-number">25</div>
+                            <div class="stat-label den-haag-about-stat-label">Years Experience</div>
                         </div>
-                        
-                        <div class="stat-item premium-stat">
-                            <div class="stat-number">800</div>
-                            <div class="stat-label">Successful Permits</div>
+                        <div class="stat-item den-haag-about-stat-item">
+                            <div class="stat-number den-haag-about-stat-number">800</div>
+                            <div class="stat-label den-haag-about-stat-label">Successful Permits</div>
                         </div>
-                        
-                        <div class="stat-item premium-stat">
-                            <div class="stat-number">170</div>
-                            <div class="stat-label">Municipalities Served</div>
+                        <div class="stat-item den-haag-about-stat-item">
+                            <div class="stat-number den-haag-about-stat-number">170</div>
+                            <div class="stat-label den-haag-about-stat-label">Municipalities Served</div>
                         </div>
-                        
-                        <div class="stat-item premium-stat">
-                            <div class="stat-number">100</div>
-                            <div class="stat-label">Success Rate</div>
+                        <div class="stat-item den-haag-about-stat-item">
+                            <div class="stat-number den-haag-about-stat-number">100</div>
+                            <div class="stat-label den-haag-about-stat-label">Success Rate</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="about-visual">
-                    <div class="about-image-container">
-                        <img src="images/DenHaag-Premium.png" alt="Premium Den Haag Office" class="about-image">
+                <div class="about-visual premium-about-visual den-haag-about-visual">
+                    <div class="about-image-container premium-about-image-container den-haag-about-image-container">
+                        <img src="assets/den-haag-office.jpg" alt="Alka's Bouwadvies Den Haag Office" class="about-image premium-about-image den-haag-about-image">
                         
-                        <div class="floating-card premium-card">
-                            <div class="card-icon">🏛️</div>
-                            <div class="card-content">
+                        <div class="floating-card premium-floating-card den-haag-floating-card">
+                            <div class="card-icon premium-floating-card-icon den-haag-floating-card-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="card-content premium-floating-card-content den-haag-floating-card-content">
                                 <h4>ABW Certified</h4>
                                 <p>Officially recognized by municipality Den Haag</p>
                             </div>
                         </div>
                         
-                        <div class="floating-card premium-card card-right">
-                            <div class="card-icon">⭐</div>
-                            <div class="card-content">
+                        <div class="floating-card premium-floating-card card-right den-haag-floating-card den-haag-floating-card-right">
+                            <div class="card-icon premium-floating-card-icon den-haag-floating-card-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="card-content premium-floating-card-content den-haag-floating-card-content">
                                 <h4>25+ Years</h4>
                                 <p>Premium Den Haag expertise</p>
                             </div>
@@ -278,1108 +696,102 @@
         </div>
     </section>
 
-    <!-- PREMIUM SERVICES SECTION (Comprehensive Premium Offerings) -->
-    <section class="services den-haag" id="services">
+    <!-- Premium Contact Section -->
+    <section id="contact" class="contact premium-contact den-haag-contact">
         <div class="container">
-            <div class="section-header premium-header">
-                <div class="section-badge premium-badge-dark">
-                    <span>Premium Den Haag Services</span>
-                </div>
-                
-                <h2 class="section-title">
-                    Complete <span class="premium-accent">Premium Service</span> Portefeuille
-                </h2>
-                
-                <p class="section-description">
-                    Exclusively designed for <span class="premium-highlight">Den Haag</span> quality requirements.
-                    Each service includes thorough investigation, complete permit application and premium customer service.
-                </p>
-            </div>
+            <h2 class="section-title premium-section-title den-haag-contact-title">Contact Alka's Bouwadvies Den Haag</h2>
+            <p class="section-description premium-section-description den-haag-contact-description">
+                Ready to transform your Den Haag project? Take contact via our <strong>premium contact channels.</strong>
+                Our dedicated Den Haag team responds within <strong>one business day.</strong>
+            </p>
             
-            <div class="services-grid premium-services-grid">
-                <div class="service-card premium-card-large" data-service="dakkapel">
-                    <div class="service-image">
-                        <img src="images/DenHaag-Dakkapel.png" alt="Premium Den Haag Dakkapel">
-                        <div class="service-badge premium-badge-dark">Most Popular</div>
-                    </div>
-                    
-                    <div class="service-content">
-                        <div class="service-icon">🏠</div>
-                        <h3>Dakkapel Den Haag</h3>
-                        <p class="service-description">
-                            <strong>Premium dakkapel designs</strong> specifically for Den Haag. All dakkapel types: flat, inclined, ridge. Complete service from thorough investigation to permit application for municipality Den Haag.
-                        </p>
-                        
-                        <div class="service-features">
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Free roof inspection</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Municipality-specific designs</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>100% permit guarantee</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Fast response (< 24 hours)</span>
-                            </div>
+            <div class="contact-content premium-contact-content den-haag-contact-content">
+                <div class="contact-info premium-contact-info den-haag-contact-info">
+                    <div class="contact-item premium-contact-item den-haag-contact-item">
+                        <div class="contact-icon premium-contact-icon den-haag-contact-icon">
+                            <i class="fas fa-phone"></i>
                         </div>
-                        
-                        <div class="service-pricing">
-                            <div class="pricing-item">
-                                <h5>From</h5>
-                                <div class="price">€299</div>
-                                <span class="period">all-in</span>
-                            </div>
-                            <div class="pricing-item">
-                                <h5>Success Fee</h5>
-                                <div class="price">€0</div>
-                                <span class="period">always</span>
-                            </div>
-                        </div>
-                        
-                        <a href="#contact" class="service-cta premium-cta">
-                            <span>Request Premium Den Haag Dakkapel Advice</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="service-card premium-card-large" data-service="uitbouw">
-                    <div class="service-image">
-                        <img src="images/DenHaag-Uitbouw.png" alt="Premium Den Haag Uitbouw">
-                        <div class="service-badge premium-badge-dark">Premium</div>
-                    </div>
-                    
-                    <div class="service-content">
-                        <div class="service-icon">🏢</div>
-                        <h3>Uitbouw Den Haag</h3>
-                        <p class="service-description">
-                            <strong>Complete extension projects</strong> for Den Haag. Freestanding, adjacent and underground extensions specialized for the spatial ordering of Den Haag. Thorough investigation included.
-                        </p>
-                        
-                        <div class="service-features">
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Freestanding extensions</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Adjacent extensions</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Underground extensions</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Plot investigation</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-pricing">
-                            <div class="pricing-item">
-                                <h5>From</h5>
-                                <div class="price">€1,299</div>
-                                <span class="period">all-in</span>
-                            </div>
-                            <div class="pricing-item">
-                                <h5>Success Fee</h5>
-                                <div class="price">€0</div>
-                                <span class="period">always</span>
-                            </div>
-                        </div>
-                        
-                        <a href="#contact" class="service-cta premium-cta">
-                            <span>Request Premium Den Haag Uitbouw Advice</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="service-card premium-card-large" data-service="Dakopbouw">
-                    <div class="service-image">
-                        <img src="images/DenHaag-Dakopbouw.png" alt="Premium Den Haag Dakopbouw">
-                        <div class="service-badge premium-badge-dark">Exclusief</div>
-                    </div>
-                    
-                    <div class="service-content">
-                        <div class="service-icon">🏗️</div>
-                        <h3>Dakopbouw Den Haag</h3>
-                        <p class="service-description">
-                            <strong>Premium roof extension systems</strong> for Den Haag. Energy-efficient, flat roof and pitched roof solutions designed for the municipality specific requirements.
-                        </p>
-                        
-                        <div class="service-features">
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Energy-efficient system</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Flat roof solutions</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Pitched roof systems</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>25-year guarantee</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-pricing">
-                            <div class="pricing-item">
-                                <h5>From</h5>
-                                <div class="price">€2,499</div>
-                                <span class="period">all-in</span>
-                            </div>
-                            <div class="pricing-item">
-                                <h5>Success Fee</h5>
-                                <div class="price">€0</div>
-                                <span class="period">always</span>
-                            </div>
-                        </div>
-                        
-                        <a href="#contact" class="service-cta premium-cta">
-                            <span>Request Premium Den Haag Dakopbouw Advice</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="service-card premium-card-large" data-service="Bijgebouw">
-                    <div class="service-image">
-                        <img src="images/DenHaag-Bijgebouw.png" alt="Premium Den Haag Bijgebouw">
-                        <div class="service-badge premium-badge-dark">Luxurious</div>
-                    </div>
-                    
-                    <div class="service-content">
-                        <div class="service-icon">🏡</div>
-                        <h3>Bijgebouw Den Haag</h3>
-                        <p class="service-description">
-                            <strong>Premium ancillary buildings</strong> for Den Haag. Holiday cottages, storage buildings, garage and storage rooms designed according to municipality guidelines. Complete service includes permit application.
-                        </p>
-                        
-                        <div class="service-features">
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Holiday cottages</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Storage buildings</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Garage ancillary buildings</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <span>Storage rooms</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-pricing">
-                            <div class="pricing-item">
-                                <h5>From</h5>
-                                <div class="price">€899</div>
-                                <span class="period">all-in</span>
-                            </div>
-                            <div class="pricing-item">
-                                <h5>Success Fee</h5>
-                                <div class="price">€0</div>
-                                <span class="period">always</span>
-                            </div>
-                        </div>
-                        
-                        <a href="#contact" class="service-cta premium-cta">
-                            <span>Request Premium Den Haag Bijgebouw Advice</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="services-cta-section">
-                <h3>Don't have a specific project but need premium advice?</h3>
-                <p>Consultation for all Den Haag construction projects - free with our premium architects.</p>
-                <a href="#contact" class="premium-cta-large">
-                    <span>Free Premium Advice</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PREMIUM PROCESS SECTION (Enhanced Premium Workflow) -->
-    <section class="process den-haag" id="proces">
-        <div class="container">
-            <div class="section-header premium-header">
-                <div class="section-badge premium-badge-dark">
-                    <span>Premium Den Haag Process</span>
-                </div>
-                
-                <h2 class="section-title">
-                    Your <span class="premium-accent">Premium Success</span> Journey
-                </h2>
-                
-                <p class="section-description">
-                    A <span class="premium-highlight">7-step premium workflow</span> that unfolds by our Den Haag experts.
-                    Each stage undergoes through professional investigation and guarantee of success.
-                </p>
-            </div>
-            
-            <div class="process-timeline premium-timeline">
-                <div class="process-step premium-step" data-step="1">
-                    <div class="step-content">
-                        <div class="step-header">
-                            <div class="step-number premium-step-number">01</div>
-                            <div class="step-icon premium-step-icon">📋</div>
-                        </div>
-                        
-                        <div class="step-body">
-                            <h3>Free Professional Investigation</h3>
-                            <p class="step-description">
-                                Our Den Haag architect visits your premises for <span class="premium-highlight">free.</span>
-                                Thorough investigation of building plans, spatial ordering and local Den Haag requirements.
-                                Direct contact with municipality Den Haag team.
-                            </p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Free premises visit</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Building plans investigation</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Municipality Den Haag research</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="process-step premium-step" data-step="2">
-                    <div class="step-content">
-                        <div class="step-header">
-                            <div class="step-number premium-step-number">02</div>
-                            <div class="step-icon premium-step-icon">⚡</div>
-                        </div>
-                        
-                        <div class="step-body">
-                            <h3>Fast Offer (24 Hours)</h3>
-                            <p class="step-description">
-                                Within <span class="premium-highlight">24 hours after investigation</span> you receive our
-                                <span class="premium-highlight">complete premium offer.</span> Honest price,
-                                <span class="premium-highlight">no hidden costs</span>, <span class="premium-highlight">100% transparent.</span>
-                            </p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>24-hour response</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Complete cost overview</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>No hidden costs</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="process-step premium-step" data-step="3">
-                    <div class="step-content">
-                        <div class="step-header">
-                            <div class="step-number premium-step-number">03</div>
-                            <div class="step-icon premium-step-icon">🏛️</div>
-                        </div>
-                        
-                        <div class="step-body">
-                            <h3>Professional Permit Application</h3>
-                            <p class="step-description">
-                                Our Den Haag team processes <span class="premium-highlight">all documents.</span>
-                                Professional submission via Omgevingsloket,
-                                <span class="premium-highlight">direct contact</span> municipality
-                                and <span class="premium-highlight">premium guidance.</span>
-                            </p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Complete document processing</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Direct municipality contact</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Premium guidance</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="process-step premium-step" data-step="4">
-                    <div class="step-content">
-                        <div class="step-header">
-                            <div class="step-number premium-step-number">04</div>
-                            <div class="step-icon premium-step-icon">📞</div>
-                        </div>
-                        
-                        <div class="step-body">
-                            <h3>Phone Consultation</h3>
-                            <p class="step-description">
-                                <span class="premium-highlight">Direct contact</span> with our Den Haag architect.
-                                Complete follow-up of your case, regular updates and
-                                <span class="premium-highlight">swift problem solving.</span>
-                            </p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Direct architect contact</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Regular updates</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Fast problem solving</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="process-step premium-step" data-step="5">
-                    <div class="step-content">
-                        <div class="step-header">
-                            <div class="step-number premium-step-number">05</div>
-                            <div class="step-icon premium-step-icon">🏆</div>
-                        </div>
-                        
-                        <div class="step-body">
-                            <h3>Successfully Obtained Permit</h3>
-                            <p class="step-description">
-                                <span class="premium-highlight">Your environmental permit</span> granted by
-                                <span class="premium-highlight">municipality Den Haag.</span> Your
-                                project can begin. No planning problems?
-                                <span class="premium-highlight">No problem</span> - we help!
-                            </p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Municipality permit obtained</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Project can begin</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>No planning problems</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="process-step premium-step" data-step="6">
-                    <div class="step-content">
-                        <div class="step-header">
-                            <div class="step-number premium-step-number">06</div>
-                            <div class="step-icon premium-step-icon">🏗️</div>
-                        </div>
-                        
-                        <div class="step-body">
-                            <h3>Professional Realization</h3>
-                            <p class="step-description">
-                                <span class="premium-highlight">Building plans</span> and <span class="premium-highlight">construction drawings</span> for your project.
-                                Support during the entire building process and
-                                <span class="premium-highlight">optimal end result.</span>
-                            </p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Building plans</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Construction drawings</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Building process support</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="process-step premium-step" data-step="7">
-                    <div class="step-content">
-                        <div class="step-header">
-                            <div class="premium-final-step-number">✅</div>
-                            <div class="step-icon premium-step-icon">🎯</div>
-                        </div>
-                        
-                        <div class="step-body">
-                            <h3>Perfect Realization</h3>
-                            <p class="step-description">
-                                <span class="premium-highlight">Your project completed</span> according to planning,
-                                within budget. <span class="premium-highlight">Premium quality</span> end result
-                                and complete customer satisfaction.
-                            </p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Completed according to planning</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Within budget</span>
-                                </div>
-                                <div class="step-feature">
-                                    <span class="feature-icon">✓</span>
-                                    <span>Premium quality</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PREMIUM PROJECTS SECTION (Extensive Portfolio) -->
-    <section class="projects den-haag" id="portfolio">
-        <div class="container">
-            <div class="section-header premium-header">
-                <div class="section-badge premium-badge-dark">
-                    <span>Premium Den Haag Portfolio</span>
-                </div>
-                
-                <h2 class="section-title">
-                    Extensive <span class="premium-accent">Den Haag</span> Projects
-                </h2>
-                
-                <p class="section-description">
-                    Selection of our <span class="premium-highlight">most successful Den Haag projects.</span>
-                    Each project tows our <span class="premium-highlight">premium expertise</span> and <span class="premium-highlight">premium approach.</span>
-                </p>
-            </div>
-            
-            <div class="projects-grid premium-projects-grid">
-                <div class="project-card premium-project-card large" data-category="dakkapel">
-                    <div class="project-image">
-                        <img src="images/DenHaag-Contemporary-Dakkapel.png" alt="Premium Den Haag Dakkapel Project">
-                        <div class="project-badge premium-badge-dark">Dakkapel</div>
-                    </div>
-                    
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span class="project-location">Den Haag</span>
-                            <span class="project-year">2023</span>
-                            <span class="project-value premium-value">€45,000</span>
-                        </div>
-                        
-                        <h3>Premium Skyline Dakkapel</h3>
-                        <p class="project-description">
-                            <strong>Exquisite dakkapel</strong> for Den Haag villa. <span class="premium-highlight">Modern architecture, premium materials and state-of-the-art technology integrated.</span> Project showcases our expertise in level optimization and premium design.
-                        </p>
-                        
-                        <div class="project-features">
-                            <div class="project-feature">
-                                <span class="feature-icon">🏆</span>
-                                <span>Municipality recognition</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">⚡</span>
-                                <span>6 months installation</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">🌿</span>
-                                <span>Energy-efficient design</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">💎</span>
-                                <span>Premium finish materials</span>
-                            </div>
-                        </div>
-                        
-                        <div class="project-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-number">98%</div>
-                                <div class="highlight-label">Customer satisfaction</div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-number">10</div>
-                                <div class="highlight-label">Innovation Awards</div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-number">50</div>
-                                <div class="highlight-label">Jacuzzi</div>
-                            </div>
-                        </div>
-                        
-                        <a href="#contact" class="project-cta premium-cta">
-                            <span>Similar Project Discuss</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="project-card premium-project-card medium" data-category="uitbouw">
-                    <div class="project-image">
-                        <img src="images/DenHaag-Family-Home-Uitbouw.png" alt="Premium Den Haag Uitbouw Project">
-                        <div class="project-badge premium-badge-dark">Uitbouw</div>
-                    </div>
-                    
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span class="project-location">Den Haag</span>
-                            <span class="project-year">2022</span>
-                            <span class="project-value premium-value">€125,000</span>
-                        </div>
-                        
-                        <h3>Family Home Extension</h3>
-                        <p class="project-description">
-                            <strong>Complete family house extension</strong> in Den Haag. <span class="premium-highlight">3-verdiepingse extension with premium finishing and custom design.</span> Project tows our premium construction expertise.
-                        </p>
-                        
-                        <div class="project-features">
-                            <div class="project-feature">
-                                <span class="feature-icon">🏢</span>
-                                <span>3 floors constructed</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">💧</span>
-                                <span>Complete installation</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">🎨</span>
-                                <span>Custom design</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">⏱️</span>
-                                <span>8 months completed</span>
-                            </div>
-                        </div>
-                        
-                        <div class="project-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-number">95%</div>
-                                <div class="highlight-label">Customer satisfaction</div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-number">7</div>
-                                <div class="highlight-label">Construction documents</div>
-                            </div>
-                        </div>
-                        
-                        <a href="#contact" class="project-cta premium-cta">
-                            <span>Similar Project Discuss</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="project-card premium-project-card large" data-category="Dakopbouw">
-                    <div class="project-image">
-                        <img src="images/DenHaag-Modern-Dakopbouw.png" alt="Premium Den Haag Dakopbouw Project">
-                        <div class="project-badge premium-badge-dark">Dakopbouw</div>
-                    </div>
-                    
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span class="project-location">Den Haag</span>
-                            <span class="project-year">2024</span>
-                            <span class="project-value premium-value">€80,000</span>
-                        </div>
-                        
-                        <h3>Zero-Energy Dakopbouw</h3>
-                        <p class="project-description">
-                            <strong>Energy-adding roof extension</strong> project in Den Haag. <span class="premium-highlight">Complete solar integration with premium Batman construction system.</span> Best practice for sustainability.
-                        </p>
-                        
-                        <div class="project-features">
-                            <div class="project-feature">
-                                <span class="feature-icon">☀️</span>
-                                <span>Solar integration</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">⚡</span>
-                                <span>Zero-energy rating</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">🏆</span>
-                                <span>Building performance</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">💰</span>
-                                <span>Energy saving 80%</span>
-                            </div>
-                        </div>
-                        
-                        <div class="project-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-number">99%</div>
-                                <div class="highlight-label">Energy efficiency</div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-number">15</div>
-                                <div class="highlight-label">Awards</div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-number">25</div>
-                                <div class="highlight-label">Years</div>
-                            </div>
-                        </div>
-                        
-                        <a href="#contact" class="project-cta premium-cta">
-                            <span>Similar Project Discuss</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="project-card premium-project-card medium" data-category="Bijgebouw">
-                    <div class="project-image">
-                        <img src="images/DenHaag-Guest-House-Bijgebouw.png" alt="Premium Den Haag Bijgebouw Project">
-                        <div class="project-badge premium-badge-dark">Bijgebouw</div>
-                    </div>
-                    
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span class="project-location">Den Haag</span>
-                            <span class="project-year">2021</span>
-                            <span class="project-value premium-value">€35,000</span>
-                        </div>
-                        
-                        <h3>Premium Guest House</h3>
-                        <p class="project-description">
-                            <strong>Exquisite lodge-style ancillary structure</strong> for Den Haag vacation home. <span class="premium-highlight">Designer kitchen, premium finishing and complete support.</span> Perfect for Den Haag tourism.
-                        </p>
-                        
-                        <div class="project-features">
-                            <div class="project-feature">
-                                <span class="feature-icon">🏖️</span>
-                                <span>Guesthouse design</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">🍳</span>
-                                <span>Gourmet kitchen</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">🛏️</span>
-                                <span>Premium bedroom suite</span>
-                            </div>
-                            <div class="project-feature">
-                                <span class="feature-icon">🚿</span>
-                                <span>Spa-style facilities</span>
-                            </div>
-                        </div>
-                        
-                        <div class="project-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-number">97%</div>
-                                <div class="highlight-label">Customer satisfaction</div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-number">12</div>
-                                <div class="highlight-label">Awards</div>
-                            </div>
-                        </div>
-                        
-                        <a href="#contact" class="project-cta premium-cta">
-                            <span>Similar Project Discuss</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="projects-cta-section premium-projects-cta">
-                <h3>Have a specific project in mind?</h3>
-                <p>Our Den Haag experts have customized every project. Let us know your vision.</p>
-                <a href="#contact" class="premium-cta-large">
-                    <span>Free Premium Project Consultation</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PREMIUM TESTIMONIALS SECTION (Extensive Reviews) -->
-    <section class="testimonials den-haag" id="testimonials">
-        <div class="container">
-            <div class="section-header premium-header">
-                <div class="section-badge premium-badge-dark">
-                    <span>Premium Den Haag Reviews</span>
-                </div>
-                
-                <h2 class="section-title">
-                    Your <span class="premium-accent">Den Haag</span> Customer Stories
-                </h2>
-                
-                <p class="section-description">
-                    Real stories from <span class="premium-highlight">170+ Den Haag property owners</span> towards our <span class="premium-highlight">premium service.</span>
-                </p>
-            </div>
-            
-            <div class="testimonials-grid premium-testimonials-grid">
-                <div class="testimonial-card premium-testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <img src="images/DenHaag-Testimonial-1.png" alt="Robert W. - Den Haag">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Robert W.</h4>
-                            <span>Business Owner Den Haag</span>
-                            <div class="testimonial-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
+                        <div class="contact-details premium-contact-details den-haag-contact-details">
+                            <h4>Direct Phone</h4>
+                            <p>+31 6 123 456 78</p>
+                            <span>24/7 for urgent Den Haag questions</span>
                         </div>
                     </div>
                     
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">
-                            "Alka's Bouwadvies Den Haag is absolutely <span class="premium-highlight">outstanding.</span>
-                            Their <span class="premium-highlight">website</span> showcases our <span class="premium-highlight">premium approach</span> and their team in Den Haag is <span class="premium-highlight">better than anyone.</span>
-                            All <span class='premium-highlight'>170+ Den Haag projects</span> that they have completed are <span class='premium-highlight'>exquisite.</span> Thank to them my business."
-                        </p>
-                        
-                        <div class="testimonial-project">
-                            <div class="project-badge">Dakkapel</div>
-                            <span>• €15,000 Project Value</span>
-                            <span>• Completed in 4 months</span>
+                    <div class="contact-item premium-contact-item den-haag-contact-item">
+                        <div class="contact-icon premium-contact-icon den-haag-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details premium-contact-details den-haag-contact-details">
+                            <h4>Premium Email</h4>
+                            <p>info@alkasbouwadvies.nl</p>
+                            <span>Response within 24 hours</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item premium-contact-item den-haag-contact-item">
+                        <div class="contact-icon premium-contact-icon den-haag-contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details premium-contact-details den-haag-contact-details">
+                            <h4>WhatsApp Den Haag</h4>
+                            <p>+31 6 123 456 78</p>
+                            <span>Quick chat WhatsApp</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item premium-contact-item den-haag-contact-item">
+                        <div class="contact-icon premium-contact-icon den-haag-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details premium-contact-details den-haag-contact-details">
+                            <h4>Municipality Den Haag</h4>
+                            <p>Ahornseweg 9, 2514 CM, Den Haag</p>
+                            <span>Visit our Den Haag office</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card premium-testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <img src="images/DenHaag-Testimonial-2.png" alt="Michael V. - Den Haag">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Michael V.</h4>
-                            <span>Project Manager Den Haag</span>
-                            <div class="testimonial-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="contact-form premium-contact-form den-haag-contact-form">
+                    <h3>Request Free Premium Den Haag Advice</h3>
+                    <p>Fill the form and receive your free Den Haag construction advice within 24 hours.</p>
                     
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">
-                            "It is <span class="premium-highlight">amazing how good their software is.</span>
-                            My <span class='premium-highlight'>Doorbud project</span> in Den Haag became <span class='premium-highlight'>completely adapted to Windows</span> thanks to the
-                            <span class='premium-highlight'>resourceful and fast setup.</span> The <span class='premium-highlight'>portal monitoring</span>
-                            and <span class='premium-highlight'>notifications</span> roll <span class='premium-highlight'>out perfectly.</span> The <span class='premium-highlight'>interface</span> is <span class='premium-highlight'>possibly even better than the original product!"
-                        </p>
-                        
-                        <div class="testimonial-project">
-                            <div class="project-badge">Uitbouw</div>
-                            <span>• €45,000 Project Value</span>
-                            <span>• Completed in 6 months</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card premium-testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <img src="images/DenHaag-Testimonial-3.png" alt="David K. - Den Haag">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>David K.</h4>
-                            <span>Architect Den Haag</span>
-                            <div class="testimonial-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">
-                            "We are <span class="premium-highlight">delighted with the results</span> of your <span class="premium-highlight">website again.</span>
-                            After <span class="premium-highlight">the last years</span> we now have <span class="premium-highlight">fuller and better data</span> than ever.
-                            The <span class="premium-highlight">user experience</span> feels <span class="premium-highlight">flatter than ever.</span> Admirable work on our Den Haag business website!"
-                        </p>
-                        
-                        <div class="testimonial-project">
-                            <div class="project-badge">Dakopbouw</div>
-                            <span>• €35,000 Project Value</span>
-                            <span>• Completed in 3 months</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card premium-testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <img src="images/DenHaag-Testimonial-4.png" alt="Thomas R. - Den Haag">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Thomas R.</h4>
-                            <span>Development Project Manager</span>
-                            <div class="testimonial-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">
-                            "The <span class="premium-highlight">thinking mode of the human offered by your team</span> is <span class="premium-highlight">admirable for every business success.</span>
-                            Their <span class="premium-highlight">software support</span> is the <span class="premium-highlight">best in its category.</span>
-                            For both <span class="premium-highlight">tempur</span> and <span class="premium-highlight">living and living.</span>"
-                        </p>
-                        
-                        <div class="testimonial-project">
-                            <div class="project-badge">Bijgebouw</div>
-                            <span>• €12,000 Project Value</span>
-                            <span>• Completed in 2 months</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card premium-testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <img src="images/DenHaag-Testimonial-5.png" alt="James L. - Den Haag">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>James L.</h4>
-                            <span>Financial Director</span>
-                            <div class="testimonial-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">
-                            "Customer services are <span class="premium-highlight">inferior, fast and attentive.</span>
-                            They <span class="premium-highlight">excel</span> in understanding <span class="premium-highlight">management needs.</span>
-                            The <span class="premium-highlight">analysis rolls out well, the app is indeed super fast.</span> And the <span class="premium-highlight">people contact</span> is the <span class="premium-highlight">best part.</span>"
-                        </p>
-                        
-                        <div class="testimonial-project">
-                            <div class="project-badge">Design System</div>
-                            <span>• €8,000 Project Value</span>
-                            <span>• Completed in 1 month</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card premium-testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <img src="images/DenHaag-Testimonial-6.png" alt="Paul M. - Den Haag">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Paul M.</h4>
-                            <span>Operations Manager</span>
-                            <div class="testimonial-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">
-                            "I think this brand <span class="premium-highlight">has the right pricing at the same time</span> and yet is it <span class="premium-highlight">better than ever as second plant.</span>
-                            It has taken my research over and I am <span class="premium-highlight">roaring</span> for my next investment in Turkish Lira."
-                        </p>
-                        
-                        <div class="testimonial-project">
-                            <div class="project-badge">Portfolio Diversification</div>
-                            <span>• €25,000 Project Value</span>
-                            <span>• Completed in 2 months</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonials-cta-section premium-testimonials-cta">
-                <h3>Would you rate us better after your Den Haag project?</h3>
-                <p>Share your experience with our Den Haag premium service and help other owners with their building decisions.</p>
-                <a href="#contact" class="premium-cta-large">
-                    <span>Share Your Den Haag Project</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PREMIUM CONTACT SECTION (Enhanced Contact Form) -->
-    <section class="contact den-haag" id="contact">
-        <div class="container">
-            <div class="contact-grid premium-contact-grid">
-                <div class="contact-info premium-contact-info">
-                    <div class="section-header premium-header">
-                        <div class="section-badge premium-badge-dark">
-                            <span>Contact Alka's Bouwadvies Den Haag</span>
-                        </div>
-                        
-                        <h2 class="section-title">
-                            Take Direct Contact with <span class="premium-accent">Premium Den Haag Team</span>
-                        </h2>
-                        
-                        <p class="section-description">
-                            Ready to transform your Den Haag project? Take contact via our <span class="premium-highlight">premium contact channels.</span>
-                            Our dedicated Den Haag team responds within <span class="premium-highlight">one business day.</span>
-                        </p>
-                    </div>
-                    
-                    <div class="contact-methods premium-contact-methods">
-                        <div class="contact-method premium-contact-method">
-                            <div class="method-icon premium-icon">📞</div>
-                            <div class="method-content">
-                                <h4>Direct Phone</h4>
-                                <p>+31 6 123 456 78</p>
-                                <span>24/7 for urgent Den Haag questions</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method premium-contact-method">
-                            <div class="method-icon premium-icon">✉️</div>
-                            <div class="method-content">
-                                <h4>Premium Email</h4>
-                                <p>info@alkasbouwadvies.nl</p>
-                                <span>Response within 24 hours</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method premium-contact-method">
-                            <div class="method-icon premium-icon">💬</div>
-                            <div class="method-content">
-                                <h4>WhatsApp Den Haag</h4>
-                                <p>+31 6 123 456 78</p>
-                                <span>Quick chat WhatsApp</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method premium-contact-method">
-                            <div class="method-icon premium-icon">🏛️</div>
-                            <div class="method-content">
-                                <h4>Municipality Den Haag</h4>
-                                <p>Ahornseweg 9, 2514 CM, Den Haag</p>
-                                <span>Visit our Den Haag office</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-benefits premium-contact-benefits">
-                        <h4>Why Premium Contact with Alka's Bouwadvies Den Haag</h4>
-                        <div class="benefits-list">
-                            <div class="benefit-item">
-                                <span class="benefit-icon">🏆</span>
-                                <span>24-hour premium support</span>
-                            </div>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">⚡</span>
-                                <span>Direct Den Haag architect contact</span>
-                            </div>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">🎯</span>
-                                <span>Dedicated Den Haag knowledge</span>
-                            </div>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">💰</span>
-                                <span>Free advice no surprises</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form premium-contact-form">
-                    <div class="form-header premium-form-header">
-                        <h3>Request Free Premium Den Haag Advice</h3>
-                        <p>Fill the form and receive your free Den Haag construction advice within 24 hours.</p>
-                    </div>
-                    
-                    <form class="premium-form" id="contactForm" name="contact" method="POST" data-netlify="true">
+                    <form class="premium-form den-haag-form" name="contact" method="POST" data-netlify="true">
                         <input type="hidden" name="form-name" value="contact">
                         
-                        <div class="form-row premium-form-row">
-                            <div class="form-group premium-form-group">
-                                <label for="firstName" class="form-label premium-label">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" class="form-control premium-input" required="">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
                             </div>
                             
-                            <div class="form-group premium-form-group">
-                                <label for="lastName" class="form-label premium-label">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" class="form-control premium-input" required="">
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
                             </div>
                         </div>
                         
-                        <div class="form-row premium-form-row">
-                            <div class="form-group premium-form-group">
-                                <label for="email" class="form-label premium-label">Email Address *</label>
-                                <input type="email" id="email" name="email" class="form-control premium-input" required="">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
                             </div>
                             
-                            <div class="form-group premium-form-group">
-                                <label for="phone" class="form-label premium-label">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" class="form-control premium-input" required="">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
                             </div>
                         </div>
                         
-                        <div class="form-row premium-form-row">
-                            <div class="form-group premium-form-group">
-                                <label for="city" class="form-label premium-label">Location *</label>
-                                <input type="text" id="city" name="city" class="form-control premium-input" placeholder="e.g. Den Haag, Scheveningen, etc." required="">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">Location *</label>
+                                <input type="text" id="city" name="city" placeholder="e.g. Den Haag, Scheveningen, etc." required>
                             </div>
                             
-                            <div class="form-group premium-form-group">
-                                <label for="service" class="form-label premium-label">Service Type *</label>
-                                <select id="service" name="service" class="form-control premium-input" required="">
+                            <div class="form-group">
+                                <label for="service">Service Type *</label>
+                                <select id="service" name="service" required>
                                     <option value="">Select Service Type</option>
                                     <option value="Dakkapel Den Haag">Premium Dakkapel Den Haag</option>
                                     <option value="Uitbouw Den Haag">Premium Uitbouw Den Haag</option>
@@ -1390,14 +802,14 @@
                             </div>
                         </div>
                         
-                        <div class="form-group premium-form-group full-width">
-                            <label for="message" class="form-label premium-label">Project Details *</label>
-                            <textarea id="message" name="message" class="form-control premium-textarea" placeholder="Tell us about your Den Haag project..." required=""></textarea>
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your Den Haag project..." required></textarea>
                         </div>
                         
-                        <div class="form-group premium-form-group full-width">
-                            <label for="budget" class="form-label premium-label">Budget Range</label>
-                            <select id="budget" name="budget" class="form-control premium-input">
+                        <div class="form-group">
+                            <label for="budget">Budget Range</label>
+                            <select id="budget" name="budget">
                                 <option value="">Select Budget Range</option>
                                 <option value="< 10,000">Under €10,000</option>
                                 <option value="10,000 - 25,000">€10,000 - €25,000</option>
@@ -1407,9 +819,9 @@
                             </select>
                         </div>
                         
-                        <div class="form-group premium-form-group full-width">
-                            <label for="timeline" class="form-label premium-label">Project Timeline</label>
-                            <select id="timeline" name="timeline" class="form-control premium-input">
+                        <div class="form-group">
+                            <label for="timeline">Project Timeline</label>
+                            <select id="timeline" name="timeline">
                                 <option value="">Select Timeline</option>
                                 <option value="< 1 month">Less than 1 month</option>
                                 <option value="1-3 months">1-3 Months</option>
@@ -1419,54 +831,52 @@
                             </select>
                         </div>
                         
-                        <div class="form-group premium-form-group full-width">
-                            <label class="form-label premium-label">Communication Preference *</label>
-                            <div class="radio-group premium-radio-group">
-                                <label class="radio-item premium-radio-item">
-                                    <input type="radio" name="commPref" value="Email" required="">
+                        <div class="form-group">
+                            <label>Communication Preference *</label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="commPref" value="Email" required>
                                     <span class="radio-custom"></span>
                                     <span>Email</span>
                                 </label>
-                                <label class="radio-item premium-radio-item">
-                                    <input type="radio" name="commPref" value="Phone" required="">
+                                <label class="radio-item">
+                                    <input type="radio" name="commPref" value="Phone" required>
                                     <span class="radio-custom"></span>
                                     <span>Phone</span>
                                 </label>
-                                <label class="radio-item premium-radio-item">
-                                    <input type="radio" name="commPref" value="WhatsApp" required="">
+                                <label class="radio-item">
+                                    <input type="radio" name="commPref" value="WhatsApp" required>
                                     <span class="radio-custom"></span>
                                     <span>WhatsApp</span>
                                 </label>
                             </div>
                         </div>
                         
-                        <div class="form-group premium-form-group full-width">
-                            <label class="form-label premium-label">Accept Terms *</label>
-                            <div class="checkbox-group premium-checkbox-group">
-                                <label class="checkbox-item premium-checkbox-item">
-                                    <input type="checkbox" name="terms" required="">
+                        <div class="form-group">
+                            <label>Accept Terms *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="terms" required>
                                     <span class="checkbox-custom"></span>
                                     <span>I accept the Terms and Conditions and Privacy Policy *</span>
                                 </label>
                             </div>
                         </div>
                         
-                        <button type="submit" class="form-submit premium-submit-button">
+                        <button type="submit" class="submit-btn">
                             <span>Request Free Premium Den Haag Advice</span>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/>
-                            </svg>
+                            <i class="fas fa-arrow-right"></i>
                         </button>
                     </form>
                     
-                    <div class="form-benefits premium-form-benefits">
-                        <div class="benefit-badge premium-badge-dark">
+                    <div class="form-benefits">
+                        <div class="benefit-badge">
                             <span>🔒 SSL Secured</span>
                         </div>
-                        <div class="benefit-badge premium-badge-dark">
+                        <div class="benefit-badge">
                             <span>⚡ Direct Response</span>
                         </div>
-                        <div class="benefit-badge premium-badge-dark">
+                        <div class="benefit-badge">
                             <span>💼 Confidential</span>
                         </div>
                     </div>
@@ -1475,39 +885,39 @@
         </div>
     </section>
 
-    <!-- PREMIUM FOOTER (Enhanced) -->
-    <footer class="premium-footer">
+    <!-- Premium Footer -->
+    <footer class="footer premium-footer den-haag-footer">
         <div class="container">
-            <div class="footer-content premium-footer-content">
-                <div class="footer-section premium-footer-section">
-                    <div class="footer-brand premium-footer-brand">
+            <div class="footer-content premium-footer-content den-haag-footer-content">
+                <div class="footer-section premium-footer-section den-haag-footer-section">
+                    <div class="footer-brand premium-footer-brand den-haag-footer-brand">
                         <h3>Alka's Bouwadvies</h3>
                         <h4>Premium Den Haag Services</h4>
                         <p>Your premium destination for Den Haag omgevingsvergunningen and construction expertise.</p>
                     </div>
                     
-                    <div class="footer-contact premium-footer-contact">
+                    <div class="footer-contact premium-footer-contact den-haag-footer-contact">
                         <h5>Contact Alka's Bouwadvies Den Haag</h5>
-                        <div class="contact-info premium-contact-info">
-                            <div class="contact-item">
-                                <span class="contact-icon">📍</span>
+                        <div class="contact-info premium-contact-info den-haag-contact-info">
+                            <div class="contact-item premium-contact-item den-haag-contact-item">
+                                <span class="contact-icon premium-contact-icon den-haag-contact-icon">📍</span>
                                 <span>Ahornseweg 9, 2514 CM, Den Haag</span>
                             </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">📞</span>
+                            <div class="contact-item premium-contact-item den-haag-contact-item">
+                                <span class="contact-icon premium-contact-icon den-haag-contact-icon">📞</span>
                                 <span>+31 6 123 456 78</span>
                             </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">✉️</span>
+                            <div class="contact-item premium-contact-item den-haag-contact-item">
+                                <span class="contact-icon premium-contact-icon den-haag-contact-icon">✉️</span>
                                 <span>info@alkasbouwadvies.nl</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="footer-section premium-footer-section">
+                <div class="footer-section premium-footer-section den-haag-footer-section">
                     <h5>Premium Services</h5>
-                    <ul class="footer-links premium-footer-links">
+                    <ul class="footer-links premium-footer-links den-haag-footer-links">
                         <li><a href="#">Premium Dakkapel Den Haag</a></li>
                         <li><a href="#">Premium Uitbouw Den Haag</a></li>
                         <li><a href="#">Premium Dakopbouw Den Haag</a></li>
@@ -1517,9 +927,9 @@
                     </ul>
                 </div>
                 
-                <div class="footer-section premium-footer-section">
+                <div class="footer-section premium-footer-section den-haag-footer-section">
                     <h5>Den Haag Projects</h5>
-                    <ul class="footer-links premium-footer-links">
+                    <ul class="footer-links premium-footer-links den-haag-footer-links">
                         <li><a href="#">Urban Development</a></li>
                         <li><a href="#">Coastal Architecture</a></li>
                         <li><a href="#">Historic Preservation</a></li>
@@ -1529,9 +939,9 @@
                     </ul>
                 </div>
                 
-                <div class="footer-section premium-footer-section">
+                <div class="footer-section premium-footer-section den-haag-footer-section">
                     <h5>Social Media</h5>
-                    <ul class="footer-links premium-footer-links">
+                    <ul class="footer-links premium-footer-links den-haag-footer-links">
                         <li><a href="#">📷 Instagram</a></li>
                         <li><a href="#">💼 LinkedIn</a></li>
                         <li><a href="#">🎥 YouTube</a></li>
@@ -1540,13 +950,13 @@
                 </div>
             </div>
             
-            <div class="footer-bottom premium-footer-bottom">
-                <div class="footer-copyright premium-footer-copyright">
+            <div class="footer-bottom premium-footer-bottom den-haag-footer-bottom">
+                <div class="footer-copyright premium-footer-copyright den-haag-footer-copyright">
                     <p>&copy; 2024 Alka's Bouwadvies - Premium Den Haag Services</p>
                     <p>Den Haag • Amsterdam • Rotterdam • All Netherlands</p>
                 </div>
                 
-                <div class="footer-legal premium-footer-legal">
+                <div class="footer-legal premium-footer-legal den-haag-footer-legal">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
                     <a href="#">Cookie Settings</a>
@@ -1555,40 +965,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- PREMIUM JAVASCRIPT -->
-    <script>
-        // Premium mobile navigation
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileNav = document.querySelector('.mobile-nav');
-            const closeBtn = document.querySelector('.mobile-nav-close');
-            
-            if (mobileMenuBtn && mobileNav) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileNav.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                });
-            }
-            
-            if (closeBtn && mobileNav) {
-                closeBtn.addEventListener('click', function() {
-                    mobileNav.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            }
-            
-            // Premium smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
