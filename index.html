@@ -3503,7 +3503,14 @@ color: var(--white);
         .metal-btn-lg { padding: 1.25rem 3rem; font-size: 0.875rem; }
         .metal-btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
 
-    </style>
+    
+        /* ── STICKY CTA: HIDE ON DESKTOP ── */
+        @media (min-width: 1025px) {
+            .mobile-sticky-cta {
+                display: none !important;
+            }
+        }
+</style>
     <base target="_blank">
 </head>
 <body>
