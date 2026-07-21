@@ -3559,9 +3559,6 @@ color: var(--white);
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
     <div class="cursor-main" id="cursor" aria-hidden="true"></div>
     <div class="toast-container" id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
-    
-        <div class="preloader-counter" id="preloader-counter" aria-hidden="true">0%</div>
-    </div>
 
     <!-- ═══════════ MOBIELE NAVIGATIE ═══════════ -->
     <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Mobiel navigatiemenu" aria-hidden="true">
@@ -3801,34 +3798,12 @@ color: var(--white);
             }, 4000);
         }
 
-        const preloaderTl = gsap.timeline();
-        preloaderTl
-            .to('.preloader-brand', { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
-            .to('.preloader-text', { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-            .to('.preloader-line', { opacity: 1, duration: 0.4 }, '-=0.2')
-            .to('#preloader-line-inner', { scaleX: 1, duration: 1.8, ease: 'power2.inOut' })
-            .to('#preloader-counter', { opacity: 1, duration: 0.3 }, '-=1.8')
-            .to('#preloader-counter', {
-                innerText: '100%',
-                duration: 1.8,
-                ease: 'power2.inOut',
-                snap: { innerText: 1 },
-                onUpdate: function() {
-                    document.getElementById('preloader-counter').innerText = Math.round(this.progress() * 100) + '%';
-                }
-            }, '-=1.8')
-            .to('.preloader', {
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power3.inOut',
-                delay: 0.2,
-                onComplete: () => {
-                    document.getElementById('preloader').style.display = 'none';
-                    document.querySelector('.hero-bg').classList.add('loaded');
-                    initHeroAnimations();
-                    initScrollAnimations();
-                }
-            });
+        // init hero + scroll (preloader verwijderd)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.hero-bg').classList.add('loaded');
+            initHeroAnimations();
+            initScrollAnimations();
+        });
 
         function initHeroAnimations() {
             gsap.to('.hero-label', { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2 });
