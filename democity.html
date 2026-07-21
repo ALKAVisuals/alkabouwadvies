@@ -83,10 +83,10 @@ def create_fixed_city_page(city_name, tilburg_structure):
         return None
     
     # Generate city-specific content
-    page_title = f"Omgevingsvergunning {city_name.title()} | Alka's Bouwadvies"
+    page_title = f"Omgevingsvergunning {city_name.title()} | Technisch Bouwadvies"
     page_description = f"Omgevingsvergunning {city_name.title()} aanvragen. Deskundig advies voor dakkapel, uitbouw en dakopbouw in {city_name.title()}."
     page_keywords = f"omgevingsvergunning {city_name}, bouwvergunning {city_name}, dakkapel {city_name}, bouwtekening {city_name}"
-    og_title = f"Alka's Bouwadvies | {city_name.title()} Services"
+    og_title = f"Technisch Bouwadvies | {city_name.title()} Services"
     og_description = f"Professionele bouwtekeningen en vergunningaanvragen voor {city_name.title()}. ABW-gecertificeerd."
     
     # Create the complete HTML
@@ -98,7 +98,7 @@ def create_fixed_city_page(city_name, tilburg_structure):
     <title>{page_title}</title>
     <meta name="description" content="{page_description}">
     <meta name="keywords" content="{page_keywords}">
-    <meta name="author" content="Alka's Bouwadvies">
+    <meta name="author" content="Technisch Bouwadvies">
     <meta name="robots" content="index, follow">
     
     <!-- Social media meta tags -->
@@ -141,14 +141,14 @@ def create_fixed_city_page(city_name, tilburg_structure):
     <!-- Hero section (added - was missing in tilburg.html) -->
     <section class="hero-city">
         <h1>{city_name.title()} Stadsservices</h1>
-        <p>Professionele bouwtekeningen en omgevingsvergunningen voor {city_name.title()} en omgeving. Alka's Bouwadvies gespecialiseerd in lokale bouwprojecten.</p>
+        <p>Professionele bouwtekeningen en omgevingsvergunningen voor {city_name.title()} en omgeving. Technisch Bouwadvies gespecialiseerd in lokale bouwprojecten.</p>
         <a href="#contact" class="hero-city-cta">Gratis Advies Aanvragen</a>
     </section>
 
     <!-- Service cards section (added - was missing in tilburg.html) -->
     <section class="city-section">
         <h2>Bouwprojecten in {city_name.title()}</h2>
-        <p>Bouwadvies en vergunningsaanvragen voor {city_name.title()}: dakkapellen, uitbouwen, dakopbouw, bijgebouwen en meer. Alka's Bouwadvies kent de lokale eisen en werkt snel met gemeenten.</p>
+        <p>Bouwadvies en vergunningsaanvragen voor {city_name.title()}: dakkapellen, uitbouwen, dakopbouw, bijgebouwen en meer. Technisch Bouwadvies kent de lokale eisen en werkt snel met gemeenten.</p>
         
         <div class="product-grid">
             <div class="product-card">
@@ -196,7 +196,7 @@ def create_fixed_city_page(city_name, tilburg_structure):
     <footer class="city-footer">
         <div class="city-footer-content">
             <div class="city-footer-section">
-                <h4>Alka's Bouwadvies {city_name.title()}</h4>
+                <h4>Technisch Bouwadvies {city_name.title()}</h4>
                 <p>Bouwkundig teken- en adviesbureau gespecialiseerd in bouwprojecten in {city_name.title()} en omgeving.</p>
                 <p>Tel: +31 6 123 456 78 | Email: info@alkasbouwadvies.nl</p>
             </div>
@@ -211,7 +211,7 @@ def create_fixed_city_page(city_name, tilburg_structure):
             </div>
         </div>
         <div class="city-footer-bottom">
-            <p>© 2024 Alka's Bouwadvies - {city_name.title()} and Netherlands</p>
+            <p>© 2024 Technisch Bouwadvies - {city_name.title()} and Netherlands</p>
         </div>
     </footer>
 
