@@ -112,7 +112,26 @@ color: var(--white);
                 display: none !important;
             }
         }
-</style>
+@media (max-width: 768px) {
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+            .nav-phone {
+                display: inline-flex;
+                margin-right: 0.75rem;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .mobile-nav {
+                transform: translateX(0);
+            }
+            .mobile-nav:not(.open) {
+                transform: translateX(100%);
+            }
+        }
+    </style>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

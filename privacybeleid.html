@@ -144,7 +144,21 @@
                 display: none !important;
             }
         }
-</style>
+
+@media (max-width: 768px) {
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+            .nav-phone {
+                display: inline-flex;
+                margin-right: 0.75rem;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
 <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
