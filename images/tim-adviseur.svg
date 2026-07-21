@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="200" fill="#f5f0e8"/>
+  <!-- Hair -->
+  <ellipse cx="200" cy="140" rx="75" ry="65" fill="#3d3d3d"/>
+  <rect x="125" y="120" width="150" height="40" rx="20" fill="#3d3d3d"/>
+  <!-- Face -->
+  <ellipse cx="200" cy="190" rx="60" ry="70" fill="#f0d5b8"/>
+  <!-- Eyes -->
+  <ellipse cx="180" cy="180" rx="10" ry="6" fill="#3d3d3d"/>
+  <ellipse cx="220" cy="180" rx="10" ry="6" fill="#3d3d3d"/>
+  <ellipse cx="180" cy="178" rx="4" ry="3" fill="#fff"/>
+  <ellipse cx="220" cy="178" rx="4" ry="3" fill="#fff"/>
+  <!-- Eyebrows -->
+  <path d="M168 168 Q180 162 192 168" stroke="#3d3d3d" stroke-width="2" fill="none"/>
+  <path d="M208 168 Q220 162 232 168" stroke="#3d3d3d" stroke-width="2" fill="none"/>
+  <!-- Nose -->
+  <path d="M200 188 Q195 200 200 205" stroke="#d4a574" stroke-width="2" fill="none"/>
+  <!-- Mouth (smile) -->
+  <path d="M182 212 Q200 225 218 212" stroke="#c4836a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Glasses -->
+  <rect x="168" y="172" width="28" height="22" rx="4" stroke="#b3944d" stroke-width="2.5" fill="none"/>
+  <rect x="204" y="172" width="28" height="22" rx="4" stroke="#b3944d" stroke-width="2.5" fill="none"/>
+  <path d="M196 183 L204 183" stroke="#b3944d" stroke-width="2.5"/>
+  <path d="M168 183 L155 178" stroke="#b3944d" stroke-width="2.5"/>
+  <path d="M232 183 L245 178" stroke="#b3944d" stroke-width="2.5"/>
+  <!-- Body / Suit -->
+  <rect x="140" y="250" width="120" height="140" rx="8" fill="#2c2c2c"/>
+  <!-- Collar -->
+  <path d="M185 250 L200 275 L215 250" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <!-- Tie -->
+  <rect x="193" y="270" width="14" height="50" rx="3" fill="#b3944d"/>
+  <!-- Tie knot -->
+  <polygon points="193,270 207,270 203,280 197,280" fill="#a3843d"/>
+  <!-- Lapels -->
+  <path d="M140 250 L170 290 L170 250" fill="#333"/>
+  <path d="M260 250 L230 290 L230 250" fill="#333"/>
+  <!-- Chin/jaw detail -->
+  <path d="M150 200 Q200 250 250 200" stroke="#e0c0a0" stroke-width="1" fill="none" opacity="0.3"/>
+</svg>
