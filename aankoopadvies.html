@@ -162,39 +162,153 @@
         @media(max-width:768px){.nav-links,.nav-cta{display:none}.menu-toggle{display:flex}.nav-logo-img{height:60px!important}.hero-left{padding:6rem 1.5rem 3rem}.content-section,.faq,.pricing{padding:4rem 1.5rem}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:1rem;text-align:center}}
     
         /* ── STICKY CTA: HIDE ON DESKTOP ── */
-        @media (min-width: 1025px) {
-            .mobile-sticky-cta {
-                display: none !important;
-            }
-        }
-</style>
+        @media(min-width:1025px){.mobile-sticky-cta{display:none!important}}
+
+        /* ── NAV DROPDOWN ── */
+        .nav-dropdown{position:fixed;top:80px;left:0;right:0;background:var(--white);display:flex;gap:0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);box-shadow:0 20px 60px rgba(0,0,0,0.08);z-index:100;max-height:0;overflow:hidden;border-top:1px solid var(--gray)}
+        .nav-links>li:hover .nav-dropdown{opacity:1;visibility:visible;transform:translateY(0);max-height:600px}
+        .nav-links>li{position:static}
+        .dropdown-left{width:240px;background:var(--bg);padding:1.5rem 0;flex-shrink:0;display:flex;flex-direction:column;border-right:1px solid var(--gray)}
+        .dropdown-item{display:block;padding:0.875rem 1.75rem;font-size:0.8125rem;font-weight:500;color:var(--text);text-decoration:none;transition:all 0.25s ease;border-left:2px solid transparent;position:relative}
+        .dropdown-item.hovered,.dropdown-item:hover{background:var(--white);border-left-color:var(--accent);color:var(--accent)}
+        .dropdown-right{padding:2rem 2.5rem;flex:1;display:none;overflow-y:auto;max-height:500px}
+        .dropdown-right.visible{display:block}
+        .dropdown-list{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
+        .dropdown-list a{display:flex;flex-direction:column;padding:1rem;border:1px solid var(--gray);text-decoration:none;transition:all 0.3s ease;border-radius:4px}
+        .dropdown-list a:hover{border-color:var(--accent);background:var(--beige-subtle, rgba(179,148,77,0.07))}
+        .list-item-title{font-size:0.875rem;font-weight:600;color:var(--text);margin-bottom:0.25rem}
+        .list-item-desc{font-size:0.75rem;color:var(--text-light);line-height:1.3}
+        .dropdown-info p{font-size:0.875rem;color:var(--text-light);line-height:1.7;margin-bottom:1.5rem;max-width:400px}
+        .dropdown-cta-btn{display:inline-block}
+        .metal-btn{background:linear-gradient(135deg,#b3944d 0%,#d4b76a 25%,#f5e6a3 50%,#d4b76a 75%,#b3944d 100%);background-size:200% 200%;color:#1a1a1a;border:none;border-radius:50px;cursor:pointer;font-family:inherit;font-size:0.8125rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.75rem 1.75rem;text-decoration:none;display:inline-block;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)}
+        .metal-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(196,163,90,0.35)}
+        .metal-btn-sm{padding:0.5rem 1.25rem;font-size:0.6875rem}
+
+        /* ── FOOTER ── */
+        .footer-logo-link{display:block;margin-bottom:-2rem;text-decoration:none;margin-top:-70px}
+        .footer-logo-img{height:200px;width:auto;display:block;filter:brightness(0) invert(1);transition:transform 0.3s ease}
+        .footer-logo-link:hover .footer-logo-img{transform:scale(1.05)}
+        .footer-social a:hover{color:var(--accent)!important}
+        .footer-newsletter h5{font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;color:var(--accent)}
+        .footer-newsletter p{color:rgba(255,255,255,0.5);font-size:0.875rem;line-height:1.7;margin-bottom:1.5rem}
+        .newsletter-form{display:flex;gap:0.5rem}
+        .newsletter-form input{flex:1;padding:0.75rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:var(--white);font-family:inherit;font-size:0.8125rem}
+        .newsletter-form input::placeholder{color:rgba(255,255,255,0.3)}
+        .newsletter-form button{padding:0.75rem 1.25rem;background:var(--accent);color:var(--text);border:none;font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer}
+        .footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+        .footer-legal a{color:rgba(255,255,255,0.3);text-decoration:none;margin-left:1rem}
+        .footer-legal a:hover{color:var(--accent)}
+
+        /* ── TOAST ── */
+        .toast-container{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);z-index:10002;display:flex;flex-direction:column;gap:0.5rem;pointer-events:none}
+        .toast{background:var(--text);color:var(--white);padding:1rem 2rem;font-size:0.875rem;font-weight:500;box-shadow:0 10px 40px rgba(0,0,0,0.2);display:flex;align-items:center;gap:0.75rem;pointer-events:all;transform:translateY(20px);opacity:0;transition:all 0.5s cubic-bezier(0.25,0.46,0.45,0.94)}
+        .toast.show{transform:translateY(0);opacity:1}
+        .toast.success{border-left:3px solid var(--success)}
+        .toast.error{border-left:3px solid var(--error)}
+
+        /* ── MOBILE ACCORDION ── */
+        @media(max-width:768px){.mobile-accordion-trigger{background:none;border:none;font-size:1.75rem;font-weight:700;color:var(--text);cursor:pointer;padding:0;font-family:inherit;letter-spacing:-0.02em;transition:color 0.3s ease;display:flex;align-items:center;gap:0.75rem}
+        .mobile-accordion-trigger::after{content:'+';font-size:1.5rem;color:var(--accent);transition:transform 0.3s ease}
+        .mobile-accordion-trigger[aria-expanded="true"]::after{transform:rotate(45deg)}
+        .mobile-accordion-content{max-height:0;overflow:hidden;transition:max-height 0.4s ease;display:flex;flex-direction:column;align-items:center;gap:1rem}
+        .mobile-accordion-content.open{max-height:500px}
+        .mobile-accordion-content a{font-size:1rem;color:var(--text-light);text-decoration:none}
+
+        /* ── RESPONSIVE ── */
+        .footer-logo-img{height:100px!important}
+        .footer-top{grid-template-columns:1fr!important}
+        .footer-bottom{flex-direction:column;gap:1rem;text-align:center}
+        .footer-legal a{margin-left:0;margin-right:1rem}
+        .newsletter-form{flex-direction:column}}
+    </style>
 </head>
 <body>
-    <a href="#main" class="skip-link" style="position:absolute;top:-100%;left:0;background:var(--accent);color:var(--text);padding:0.5rem 1rem;z-index:9999">Ga naar inhoud</a>
+
     <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
-    <nav>
-        <a href="index.html" class="logo">
-            <img src="images/logo.png" alt="ALKA Bouwadvies" class="nav-logo-img">
+    <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <a href="index.html" class="logo" aria-label="Alka's Bouwadvies - Home">
+            <img loading="eager" src="images/logo.png" alt="Alka's Bouwadvies Logo" class="nav-logo-img">
         </a>
-        <ul class="nav-links">
-            <li><a href="index.html#diensten">Diensten</a></li>
-            <li><a href="index.html#prijzen">Prijzen</a></li>
-            <li><a href="over-ons.html">Over Ons</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <ul class="nav-links" role="menubar">
+            <li role="none">
+                <a href="#diensten" role="menuitem" data-section="diensten">Diensten</a>
+                <div class="nav-dropdown" id="diensten-dropdown" aria-label="Diensten submenu">
+                    <div class="dropdown-left">
+                        <a class="dropdown-item hovered" data-sub="bouwtekeningen" aria-haspopup="true" aria-expanded="true" href="#diensten">Bouwkunde tekeningen</a>
+                        <a class="dropdown-item" data-sub="vergunning" aria-haspopup="true" aria-expanded="false" href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning aanvragen</a>
+                        <a class="dropdown-item" data-sub="digitaliseren" aria-haspopup="true" aria-expanded="false" href="bouwtekening-digitaliseren.html">Bouwtekeningen digitaliseren</a>
+                        <a class="dropdown-item" data-sub="advies" aria-haspopup="true" aria-expanded="false" href="bouwkundig-advies.html">Bouwkundig advies</a>
+                    </div>
+                    <div class="dropdown-right visible" id="sub-bouwtekeningen">
+                        <div class="dropdown-list">
+                            <a href="dakkapel.html"><span class="list-item-title">Bouwtekeningen dakkapel</span><span class="list-item-desc">Meer licht en ruimte op zolder</span></a>
+                            <a href="bijgebouw.html"><span class="list-item-title">Bouwtekeningen bijgebouw</span><span class="list-item-desc">Professionele tekening voor schuren en tuinmuren</span></a>
+                            <a href="nokverhoging.html"><span class="list-item-title">Bouwtekeningen nokverhoging</span><span class="list-item-desc">Voor maximale hoogte en volume</span></a>
+                            <a href="bed-breakfast.html"><span class="list-item-title">Bouwtekeningen bed and breakfast</span><span class="list-item-desc">Ontwerp voor commercieel verblijf</span></a>
+                            <a href="erker.html"><span class="list-item-title">Bouwtekeningen erker</span><span class="list-item-desc">Karakter en ruimte toevoegen aan de gevel</span></a>
+                            <a href="mantelzorg.html"><span class="list-item-title">Bouwtekeningen mantelzorgwoning</span><span class="list-item-desc">Zorgvuldige integratie in de woning</span></a>
+                            <a href="aanbouw-uitbouw.html"><span class="list-item-title">Bouwtekeningen uitbouw</span><span class="list-item-desc">Optimale uitbreiding van uw woonoppervlak</span></a>
+                            <a href="dakopbouw-vergunningen.html"><span class="list-item-title">Bouwtekeningen dakopbouw</span><span class="list-item-desc">Een extra verdieping toevoegen</span></a>
+                            <a href="#diensten"><span class="list-item-title">Bouwtekeningen gevelwijziging</span><span class="list-item-desc">Moderniseren van de buitenzijde</span></a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-vergunning">
+                        <div class="dropdown-info">
+                            <p>Ik verzorg de complete aanvraag van uw omgevingsvergunning. Van het indienen van de stukken tot het onderhouden van contact met de gemeente — u heeft er geen omkijken naar.</p>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-digitaliseren">
+                        <div class="dropdown-info">
+                            <p>Heeft u papieren bouwtekeningen die gedigitaliseerd moeten worden? Ik zet uw oude tekeningen om naar professionele digitale bestanden, geschikt voor vergunningsaanvragen en aannemers.</p>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-advies">
+                        <div class="dropdown-info">
+                            <p>Ik analyseer uw bestemmingsplan en geef concreet advies over wat er mogelijk is op uw perceel. Voorkom verrassingen en weet exact waar u aan toe bent voordat u begint met ontwerpen.</p>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li role="none"><a href="#prijzen" role="menuitem" data-section="prijzen">Prijzen</a></li>
+            <li role="none"><a href="#over-ons" role="menuitem" data-section="over-ons">Over Ons</a></li>
+            <li role="none"><a href="#faq" role="menuitem" data-section="faq">FAQ</a></li>
+            <li role="none"><a href="#contact" role="menuitem" data-section="contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="nav-cta metal-btn" style="background:linear-gradient(135deg,#b3944d 0%,#d4b76a 25%,#f5e6a3 50%,#d4b76a 75%,#b3944d 100%);color:#1a1a1a;border:none;border-radius:50px;cursor:pointer;font-family:inherit;font-size:0.8125rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.75rem 1.75rem;">Offerte aanvragen</a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <a href="#contact" class="nav-cta metal-btn" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false" aria-controls="mobile-nav">
             <span></span><span></span>
         </button>
     </nav>
 
-    <div class="mobile-nav" id="mobile-nav">
-        <a href="index.html#diensten" class="mobile-link">Diensten</a>
-        <a href="index.html#prijzen" class="mobile-link">Prijzen</a>
-        <a href="over-ons.html" class="mobile-link">Over Ons</a>
-        <a href="#contact" class="mobile-link">Contact</a>
-        <a href="#contact" class="mobile-link" style="background:linear-gradient(135deg,#b3944d 0%,#d4b76a 25%,#f5e6a3 50%,#d4b76a 75%,#b3944d 100%);color:#1a1a1a;border-radius:50px;padding:0.75rem 1.75rem;text-align:center;">Offerte aanvragen</a>
+    <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+    <div class="toast-container" id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Mobiel navigatiemenu" aria-hidden="true">
+        <button class="mobile-accordion-trigger" id="mobile-accordion-trigger" aria-expanded="false" aria-controls="mobile-accordion-content">
+            Bouwkunde tekeningen
+        </button>
+        <div class="mobile-accordion-content" id="mobile-accordion-content">
+            <a href="dakkapel.html">Bouwtekeningen dakkapel</a>
+            <a href="bijgebouw.html">Bouwtekeningen bijgebouw</a>
+            <a href="nokverhoging.html">Bouwtekeningen nokverhoging</a>
+            <a href="bed-breakfast.html">Bouwtekeningen bed and breakfast</a>
+            <a href="erker.html">Bouwtekeningen erker</a>
+            <a href="mantelzorg.html">Bouwtekeningen mantelzorgwoning</a>
+            <a href="aanbouw-uitbouw.html">Bouwtekeningen uitbouw</a>
+            <a href="dakopbouw-vergunningen.html">Bouwtekeningen dakopbouw</a>
+            <a href="#diensten">Bouwtekeningen gevelwijziging</a>
+        </div>
+        <a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning aanvragen</a>
+        <a href="bouwtekening-digitaliseren.html">Bouwtekeningen digitaliseren</a>
+        <a href="bouwkundig-advies.html">Bouwkundig advies</a>
+        <a href="#prijzen">Prijzen</a>
+        <a href="#over-ons">Over Ons</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
     </div>
 
     <div class="mobile-sticky-cta" id="mobile-sticky-cta">
@@ -321,43 +435,80 @@
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
-                <a href="index.html"><img src="images/logo.png" alt="ALKA Bouwadvies" style="height:60px;"></a>
-                <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in heel Nederland.</p>
+                <a href="index.html" class="footer-logo-link">
+                    <img loading="lazy" src="images/logo.png" alt="Alka's Bouwadvies" class="footer-logo-img">
+                </a>
+                <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in 170+ gemeentes door heel Nederland — waaronder Amsterdam, Rotterdam, Den Haag, Utrecht, Eindhoven, Groningen, Tilburg, Almere, Breda en Nijmegen.</p>
+                    <div class="footer-social" style="margin-top: 1rem;">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-block; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
             </div>
             <div class="footer-nav">
                 <h5>Diensten</h5>
                 <ul>
                     <li><a href="dakkapel.html">Dakkapel</a></li>
-                    <li><a href="aanbouw-uitbouw.html">Aanbouw & Uitbouw</a></li>
-                    <li><a href="erker.html">Erker</a></li>
-                    <li><a href="bijgebouw.html">Bijgebouwen</a></li>
                     <li><a href="dakopbouw-vergunningen.html">Dakopbouw</a></li>
-                    <li><a href="nokverhoging.html">Nokverhoging</a></li>
-                </ul>
-            </div>
-            <div class="footer-nav">
-                <h5>Meer</h5>
-                <ul>
-                    <li><a href="bed-breakfast.html">Bed & Breakfast</a></li>
+                    <li><a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a></li>
+                    <li><a href="erker.html">Erker</a></li>
                     <li><a href="mantelzorg.html">Mantelzorgwoning</a></li>
+                    <li><a href="bijgebouw.html">Bijgebouwen</a></li>
+                    <li><a href="bed-breakfast.html">Bed &amp; Breakfast</a></li>
+                    <li><a href="nokverhoging.html">Nokverhoging</a></li>
                     <li><a href="carport-vergunning.html">Carport</a></li>
                     <li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li>
+                    <li><a href="bouwkundig-advies.html">Bouwkundig Advies</a></li>
                     <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
                     <li><a href="aankoopadvies.html">Aankoopadvies</a></li>
+                    <li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
                 </ul>
             </div>
+
+            <div class="footer-nav">
+                <h5>Steden</h5>
+                <ul>
+                    <li><a href="apeldoorn.html">Apeldoorn</a></li>
+                    <li><a href="arnhem.html">Arnhem</a></li>
+                    <li><a href="breda.html">Breda</a></li>
+                    <li><a href="den-haag.html">Den Haag</a></li>
+                    <li><a href="groningen.html">Groningen</a></li>
+                    <li><a href="nijmegen.html">Nijmegen</a></li>
+                    <li><a href="tilburg.html">Tilburg</a></li>
+                </ul>
+            </div>
+
             <div class="footer-nav">
                 <h5>Contact</h5>
                 <ul>
+                    <li><a href="mailto:info@alkasbouwadvies.nl">info@alkasbouwadvies.nl</a></li>
+                    <li><a href="tel:+316****0412">+31 (0)6 49 24 04 12</a></li>
                     <li><a href="#contact">Contactformulier</a></li>
                     <li><a href="over-ons.html">Over Ons</a></li>
-                    <li><a href="testimonials.html">Reviews</a></li>
                 </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h5>Nieuwsbrief</h5>
+                <p>Blijf op de hoogte van wijzigingen in de regelgeving en praktische tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Uw e-mailadres" required>
+                    <button type="submit">Inschrijven</button>
+                </form>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© 2026 ALKA Bouwadvies | KVK 95153756</span>
-            <span><a href="privacybeleid.html">Privacy</a> · <a href="algemene-voorwaarden.html">Voorwaarden</a> · <a href="cookiebeleid.html">Cookies</a></span>
+            <div class="footer-copy">&copy; 2025&ndash;2026 Alka's Bouwadvies | KVK: 95153756</div>
+            <div class="footer-legal">
+                <a href="privacybeleid.html">Privacybeleid</a>
+                <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+                <a href="cookiebeleid.html">Cookiebeleid</a>
+            </div>
         </div>
     </footer>
 
@@ -371,20 +522,35 @@
         const mobileNav = document.getElementById('mobile-nav');
         if (menuToggle && mobileNav) {
             menuToggle.addEventListener('click', () => {
-                mobileNav.classList.toggle('open');
+                const isOpen = mobileNav.classList.toggle('open');
                 menuToggle.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', isOpen);
+                mobileNav.setAttribute('aria-hidden', !isOpen);
             });
             mobileNav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileNav.classList.remove('open');
                     menuToggle.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', false);
+                    mobileNav.setAttribute('aria-hidden', true);
                 });
+            });
+        }
+
+        // ═══ MOBILE ACCORDION ═══
+        const accordionTrigger = document.getElementById('mobile-accordion-trigger');
+        const accordionContent = document.getElementById('mobile-accordion-content');
+        if (accordionTrigger && accordionContent) {
+            accordionTrigger.addEventListener('click', () => {
+                const expanded = accordionTrigger.getAttribute('aria-expanded') === 'true' ? false : true;
+                accordionTrigger.setAttribute('aria-expanded', expanded);
+                accordionContent.classList.toggle('open');
             });
         }
 
         // ═══ NAV SCROLL ═══
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
+            const nav = document.getElementById('navbar');
             if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
 
@@ -429,6 +595,33 @@
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
+
+        // ═══ DESKTOP DROPDOWN ═══
+        (function() {
+            const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
+            const allRightPanels = document.querySelectorAll('.dropdown-right');
+            if (!dropdownLeftItems.length) return;
+            function showRightPanel(subId) {
+                allRightPanels.forEach(p => p.classList.remove('visible'));
+                if (subId) { const panel = document.getElementById(subId); if (panel) panel.classList.add('visible'); }
+            }
+            dropdownLeftItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                    item.classList.add('hovered');
+                    const subId = item.getAttribute('data-sub');
+                    if (subId && subId !== '') showRightPanel('sub-' + subId);
+                });
+            });
+            const dropdownContainer = document.getElementById('diensten-dropdown');
+            if (dropdownContainer) {
+                dropdownContainer.addEventListener('mouseleave', () => {
+                    dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
+                    const firstItem = dropdownLeftItems[0];
+                    if (firstItem) { firstItem.classList.add('hovered'); const subId = firstItem.getAttribute('data-sub'); if (subId && subId !== '') showRightPanel('sub-' + subId); }
+                });
+            }
+        })();
     </script>
 </body>
 </html>
