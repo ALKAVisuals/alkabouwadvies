@@ -3272,7 +3272,7 @@ color: var(--white);
                 transform: translateX(0);
             }
             .nav-links>li:hover .nav-dropdown,
-            .nav-links>li:focus-within .nav-dropdown {
+            .nav-links>li>a:focus~.nav-dropdown,.nav-dropdown:focus-within{
                 transform: translateX(0) translateY(0);
             }
             .dropdown-left {
