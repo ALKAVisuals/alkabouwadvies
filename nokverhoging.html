@@ -2198,8 +2198,70 @@ border-color: var(--accent);
                 grid-template-columns: 1fr;
                 min-height: auto;
             }
-
+            .mobile-sticky-cta {
+                display: flex;
+            }
             .hero-right {
+                min-height: 50vh;
+                display: block;
+            }
+            .hero-left {
+                padding: 8rem 4vw 4rem;
+            }
+            .vergunning-grid {
+                grid-template-columns: 1fr;
+            }
+            .vergunning-grid::before {
+                display: none;
+            }
+            .vc-col-vrij {
+                border-right: none;
+                border-bottom: 1px solid var(--gray);
+            }
+            .constructie-inner {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            .proces-steps {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+            .proces-steps::before {
+                display: none;
+            }
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+            .mid-cta-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .mid-cta-actions {
+                align-items: flex-start;
+            }
+            .pricing-grid,
+            .tech-inner,
+            .legal-grid,
+            .legal-highlight {
+                grid-template-columns: 1fr;
+            }
+            .price-card.featured {
+                transform: scale(1);
+            }
+            .tech-inner {
+                gap: 3rem;
+            }
+            .aanleveren-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
                 min-height: 50vh;
                 display: block;
             }
