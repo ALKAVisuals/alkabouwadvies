@@ -263,66 +263,6 @@
             transition: width 0.1s linear;
         }
 
-        .preloader {
-            position: fixed;
-            inset: 0;
-            background: var(--bg);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
-        .preloader.done {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        .preloader-text {
-            font-size: 0.75rem;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: var(--text-light);
-            font-weight: 500;
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        .preloader-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .preloader-brand span {
-            font-weight: 400;
-            color: var(--text-light);
-        }
-        .preloader-line {
-            width: 120px;
-            height: 1px;
-            background: var(--gray);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-        }
-        .preloader-line-inner {
-            position: absolute;
-            inset: 0;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left center;
-        }
-        .preloader-counter {
-            font-size: 0.6875rem;
-            letter-spacing: 0.2em;
-            color: var(--text-light);
-            font-variant-numeric: tabular-nums;
-            opacity: 0;
-        }
-
         .cursor-main {
             position: fixed;
             top: 0;
@@ -706,8 +646,7 @@ border: none;
             text-decoration: none;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        
-        
+
         .nav-cta:hover {
 transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(196, 163, 90, 0.35);
@@ -3503,7 +3442,6 @@ color: var(--white);
         .metal-btn-lg { padding: 1.25rem 3rem; font-size: 0.875rem; }
         .metal-btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
 
-    
         /* ── STICKY CTA: HIDE ON DESKTOP ── */
         @media (min-width: 1025px) {
             .mobile-sticky-cta {
@@ -3621,10 +3559,7 @@ color: var(--white);
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
     <div class="cursor-main" id="cursor" aria-hidden="true"></div>
     <div class="toast-container" id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
-    <div class="preloader" id="preloader" role="status" aria-label="Pagina wordt geladen">
-        <div class="preloader-brand" aria-hidden="true">ALKA'S <span>Bouwadvies</span></div>
-        <div class="preloader-text" aria-hidden="true">Laden</div>
-        <div class="preloader-line" aria-hidden="true"><div class="preloader-line-inner" id="preloader-line-inner"></div></div>
+    
         <div class="preloader-counter" id="preloader-counter" aria-hidden="true">0%</div>
     </div>
 
@@ -3657,7 +3592,6 @@ color: var(--white);
     </div>
 
     <!-- ═══════════ DESKTOP NAVIGATIE ═══════════ -->
-    
 
     <main>
         <section class="hero" id="hero" aria-label="Introductie">
@@ -3791,7 +3725,6 @@ color: var(--white);
 
         <section class="over-ons" id="over-ons" aria-label="Over ons"><div class="over-ons-inner"><div class="over-ons-image"><img src="images/team-placeholder.svg" alt="Bouwkundig Adviseur ALKA Bouwadvies" loading="lazy" decoding="async"></div><div class="over-ons-content"><div class="section-label">Over ons</div><h3>Onderdeel van de ALKA Group: Visie ontmoet Constructie</h3><p>Alka's Bouwadvies is meer dan een tekenbureau. Wij zijn de schakel tussen uw droom en de complexe realiteit van wetgeving, normen en gemeentelijke procedures. Ons team bestaat uit gecertificeerde bouwkundigen met jarenlange ervaring aan beide kanten van de tafel.</p><div class="over-ons-group"><p><strong>Onze kracht?</strong> Wij spreken de ambtelijke taal. Met onze achtergrond in gemeentelijke procedures weten wij precies wat welstandscommissies eisen om in één keer goedgekeurd te worden. Die kennis vertalen wij in waterdichte tekeningen die in één keer worden goedgekeurd — en zo uw bouwdroom werkelijkheid maken.</p></div><div class="over-ons-stats"><div class="over-ons-stat"><h5>800+</h5><span>Vergunningen verleend</span></div><div class="over-ons-stat"><h5>48u</h5><span>Reactietijd gegarandeerd</span></div><div class="over-ons-stat"><h5>100%</h5><span>Goedkeuringsgarantie</span></div><div class="over-ons-stat"><h5>170+</h5><span>Gemeentes actief</span></div></div></div></div></section>
 
-
                 <section class="faq" id="faq" aria-label="Veelgestelde vragen"><div class="faq-inner"><div class="section-label">Veelgestelde vragen</div><h2 class="section-title">Alles wat u moet weten over vergunningen en kosten</h2><div class="faq-list"><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">Hoe lang duurt het vergunningstraject gemiddeld?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-1"><p>De doorlooptijd hangt af van de complexiteit van uw project. Een eenvoudige dakkapel of uitbouw duurt gemiddeld 6 tot 8 weken. Complexere projecten kunnen 12 tot 16 weken in beslag nemen. Wij zorgen ervoor dat uw aanvraag vanaf dag één compleet en correct is ingediend, zodat er geen vertraging ontstaat door aanvullingen.</p></div></div><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Wat zijn de totale kosten inclusief leges?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-2"><p>Onze tarieven zijn vaste prijzen exclusief BTW en gemeentelijke leges. De leges verschillen per gemeente en worden berekend op basis van de bouwsom. Voor de meeste uitbouwen en dakkapellen liggen de totale kosten (inclusief leges) tussen de &euro;400 en &euro;700. Wij geven u vooraf een transparante kostenindicatie.</p></div></div><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Is een omgevingsvergunning altijd nodig?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-3"><p>Niet altijd. Sinds de Omgevingswet geldt dat veel kleine verbouwingen onder het "vergunningsvrij bouwen" vallen. Voor dakkapellen, uitbouwen en erkers tot bepaalde afmetingen is geen vergunning nodig. Wij beoordelen gratis of uw plan vergunningsplichtig is en adviseren u over de beste route.</p></div></div><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Kan ik de tekeningen ook zelf gebruiken voor aannemers?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-4"><p>Absoluut. Onze bouwkundige tekeningen voldoen niet alleen aan gemeentelijke eisen, maar zijn ook geschikt als werktekening voor aannemers en uitvoerders. U ontvangt ze digitaal in PDF en DXF-formaat, klaar om te delen met iedereen die aan uw project werkt.</p></div></div><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">Wat gebeurt er als de gemeente bezwaar maakt?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-5"><p>Dankzij onze ervaring en grondige voorbereiding komt dit zelden voor. Mocht er toch een vraag of opmerking vanuit de gemeente komen, dan fungeren wij als uw aanspreekpunt. Wij beantwoorden alle technische vragen, passen de tekeningen aan indien nodig, en zorgen dat het traject soepel verloopt — zonder extra kosten.</p></div></div><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">In welke gemeentes zijn jullie actief?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-6"><p>Wij zijn actief in meer dan 170 gemeentes door heel Nederland. Van Amsterdam tot Zeeland, en van Groningen tot Limburg. Onze kennis van lokale bestemmingsplannen en welstandscriteria maakt ons uniek. Twijfelt u of wij in uw regio werken? Neem gerust contact op — de kans is groot dat wij u gewoon kunnen helpen.</p></div></div>
         <div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">Wat is het verschil tussen een omgevingsvergunning en een bouwvergunning?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-7"><p>Sinds de Omgevingswet (2024) zijn veel vergunningen samengevoegd in &eacute;&eacute;n omgevingsvergunning. Een bouwvergunning bestaat niet meer als aparte aanvraag — het valt nu onder de omgevingsvergunning. Wij regelen de complete aanvraag voor u via het Omgevingsloket.</p></div></div>
         <div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">Hoe lang is een omgevingsvergunning geldig?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-8"><p>Een omgevingsvergunning is 2 jaar geldig vanaf de datum van verlening. U moet binnen deze periode starten met de werkzaamheden. De gemeente kan in sommige gevallen een verlening verlening. Wij adviseren u over de mogelijkheden om de geldigheid te verlengen.</p></div></div>
@@ -3811,8 +3744,6 @@ color: var(--white);
             <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
         </div>
     </main>
-
-    
 
     <button class="back-to-top" id="back-to-top" aria-label="Terug naar boven">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
@@ -4466,8 +4397,6 @@ color: var(--white);
                     <li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
                 </ul>
             </div>
-
-            
 
             <div class="footer-nav">
                 <h5>Contact</h5>
