@@ -724,131 +724,168 @@ transform: translateY(-2px);
         .mobile-nav {
             position: fixed;
             inset: 0;
-            background: var(--bg);
+            background: rgba(15, 15, 15, 0.97);
             z-index: 99;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            padding-top: 6rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            gap: 0;
+            padding: 0;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.4s ease;
             overflow-y: auto;
         }
         .mobile-nav.active {
             opacity: 1;
             pointer-events: all;
         }
-        .mobile-nav a,
-        .mobile-nav .mobile-accordion-trigger {
-            font-size: 1.25rem;
-            font-weight: 600;
-            text-decoration: none;
-            color: var(--text);
-            letter-spacing: -0.02em;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease, background 0.3s ease;
-            padding: 0.85rem 0;
-            display: block;
-            width: 100%;
-            border-bottom: 1px solid var(--gray);
-            background: none;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            font-family: inherit;
-            text-align: left;
-            cursor: pointer;
+        .mobile-nav-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
         }
-        .mobile-nav.active a,
-        .mobile-nav.active .mobile-accordion-trigger {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .mobile-nav a:hover,
-        .mobile-nav .mobile-accordion-trigger:hover {
+        .mobile-nav-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
             color: var(--accent);
         }
-        .mobile-accordion-content {
+        .mobile-nav-items {
+            padding: 1rem 1.5rem 3rem;
+            flex: 1;
+        }
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0.5rem;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: color 0.3s ease, padding 0.3s ease;
+        }
+        .mobile-nav-link:hover {
+            color: var(--accent);
+            padding-left: 1rem;
+        }
+        .mobile-nav-cat {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--white);
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: inherit;
+            cursor: pointer;
+            text-align: left;
+            transition: color 0.3s ease;
+        }
+        .mobile-nav-cat svg {
+            transition: transform 0.3s ease;
+            color: var(--accent);
+        }
+        .mobile-nav-cat[aria-expanded="true"] svg {
+            transform: rotate(180deg);
+        }
+        .mobile-nav-cat:hover {
+            color: var(--accent);
+        }
+        .mobile-nav-sublist {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: max-height 0.45s ease;
+        }
+        .mobile-nav-sublist.open {
+            max-height: 1000px;
+        }
+        .mobile-nav-subcat {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             width: 100%;
-            padding-left: 1.25rem;
-            border-bottom: 1px solid transparent;
-        }
-        .mobile-accordion-content.open {
-            max-height: 900px;
-            border-bottom-color: var(--gray);
-        }
-        .mobile-accordion-content a {
-            font-size: 1rem;
+            padding: 0.75rem 0.5rem 0.75rem 1.5rem;
+            font-size: 0.9375rem;
             font-weight: 500;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-            color: var(--text-light);
-            opacity: 0;
-            transform: translateY(8px);
-            transition: opacity 0.35s ease, transform 0.35s ease, color 0.3s ease;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-family: inherit;
+            cursor: pointer;
+            text-align: left;
+            transition: color 0.3s ease;
         }
-        .mobile-accordion-content.open a {
+        .mobile-nav-subcat svg {
+            transition: transform 0.3s ease;
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .mobile-nav-subcat[aria-expanded="true"] svg {
+            transform: rotate(90deg);
+        }
+        .mobile-nav-subcat:hover {
+            color: var(--accent);
+        }
+        .mobile-nav-subitems {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .mobile-nav-subitems.open {
+            max-height: 600px;
+        }
+        .mobile-nav-subitems a {
+            display: block;
+            padding: 0.65rem 0.5rem 0.65rem 2.5rem;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+        .mobile-nav-subitems a:hover {
+            color: var(--accent);
+            padding-left: 3rem;
+        }
+        .mobile-nav-direct {
+            display: block;
+            padding: 0.75rem 0.5rem 0.75rem 1.5rem;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+        .mobile-nav-direct:hover {
+            color: var(--accent);
+            padding-left: 2rem;
+        }
+        .mobile-nav-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        .mobile-nav-close:hover {
             opacity: 1;
-            transform: translateY(0);
         }
-        .mobile-accordion-content a:hover {
-            color: var(--accent);
-        }
-        .mobile-accordion-trigger.expanded {
-            color: var(--accent);
-            background: var(--beige-subtle);
-            border-radius: 4px;
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-        }
-
-        .mobile-nav a:nth-child(1),
-        .mobile-nav .mobile-accordion-trigger:nth-of-type(1) {
+        .mobile-nav a:first-child,
+        .mobile-nav .mobile-nav-link:first-child,
+        .mobile-nav .mobile-nav-cat:first-child {
             transition-delay: 0.05s;
-        }
-        .mobile-nav a:nth-child(2),
-        .mobile-nav .mobile-accordion-trigger:nth-of-type(2) {
-            transition-delay: 0.1s;
-        }
-        .mobile-nav a:nth-child(3),
-        .mobile-nav .mobile-accordion-trigger:nth-of-type(3) {
-            transition-delay: 0.15s;
-        }
-        .mobile-nav a:nth-child(4) {
-            transition-delay: 0.2s;
-        }
-        .mobile-nav a:nth-child(5) {
-            transition-delay: 0.25s;
-        }
-        .mobile-nav a:nth-child(6) {
-            transition-delay: 0.3s;
-        }
-        .mobile-nav a:nth-child(7) {
-            transition-delay: 0.35s;
-        }
-        .mobile-nav a:nth-child(8) {
-            transition-delay: 0.4s;
-        }
-        .mobile-nav a:nth-child(9) {
-            transition-delay: 0.45s;
-        }
-        .mobile-nav a:nth-child(10) {
-            transition-delay: 0.5s;
-        }
-        .mobile-nav a:nth-child(11) {
-            transition-delay: 0.55s;
-        }
-        .mobile-nav a:nth-child(12) {
-            transition-delay: 0.6s;
         }
         .mobile-nav a:nth-child(13) {
             transition-delay: 0.65s;
@@ -3609,30 +3646,43 @@ color: var(--white);
 
     <!-- ═══════════ MOBIELE NAVIGATIE ═══════════ -->
     <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Mobiel navigatiemenu" aria-hidden="true">
-        <button class="mobile-accordion-trigger" id="mobile-accordion-trigger" aria-expanded="false" aria-controls="mobile-accordion-content">
-            Bouwkunde tekeningen
-        </button>
-        <div class="mobile-accordion-content" id="mobile-accordion-content">
-            <a href="dakkapel.html">Bouwtekeningen dakkapel</a>
-            <a href="bijgebouw.html">Bouwtekeningen bijgebouw</a>
-            <a href="nokverhoging.html">Bouwtekeningen nokverhoging</a>
-            <a href="bed-breakfast.html">Bouwtekeningen bed and breakfast</a>
-            <a href="erker.html">Bouwtekeningen erker</a>
-            <a href="mantelzorg.html">Bouwtekeningen mantelzorgwoning</a>
-            <a href="aanbouw-uitbouw.html">Bouwtekeningen uitbouw</a>
-            <a href="dakopbouw-vergunningen.html">Bouwtekeningen dakopbouw</a>
-            <a href="#diensten">Bouwtekeningen gevelwijziging</a>
+        <div class="mobile-nav-header">
+            <span class="mobile-nav-title">Menu</span>
         </div>
-        <a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning aanvragen</a>
-        <a href="bouwtekening-digitaliseren.html">Bouwtekeningen digitaliseren</a>
-        <a href="bouwkundig-advies.html">Bouwkundig advies</a>
-        <a href="#prijzen">Prijzen</a>
-        <a href="#calculator">Calculator</a>
-        <a href="#projecten">Projecten</a>
-        <a href="#over-ons">Over Ons</a>
-        <a href="#faq">FAQ</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
+        <div class="mobile-nav-items">
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-cat" aria-expanded="false">
+                    <span>Diensten</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="mobile-nav-sublist">
+                    <button class="mobile-nav-subcat" aria-expanded="false">
+                        <span>Bouwtekeningen</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
+                    </button>
+                    <div class="mobile-nav-subitems">
+                        <a href="dakkapel.html">Dakkapel</a>
+                        <a href="bijgebouw.html">Bijgebouw</a>
+                        <a href="nokverhoging.html">Nokverhoging</a>
+                        <a href="bed-breakfast.html">Bed &amp; Breakfast</a>
+                        <a href="erker.html">Erker</a>
+                        <a href="mantelzorg.html">Mantelzorgwoning</a>
+                        <a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a>
+                        <a href="dakopbouw-vergunningen.html">Dakopbouw</a>
+                    </div>
+                    <a href="omgevingsvergunning-aanvragen.html" class="mobile-nav-direct">Omgevingsvergunning</a>
+                    <a href="bouwtekening-digitaliseren.html" class="mobile-nav-direct">Digitaliseren</a>
+                    <a href="bouwkundig-advies.html" class="mobile-nav-direct">Bouwkundig advies</a>
+                </div>
+            </div>
+            <a href="#prijzen" class="mobile-nav-link">Prijzen</a>
+            <a href="#calculator" class="mobile-nav-link">Calculator</a>
+            <a href="#projecten" class="mobile-nav-link">Projecten</a>
+            <a href="#over-ons" class="mobile-nav-link">Over Ons</a>
+            <a href="#faq" class="mobile-nav-link">FAQ</a>
+            <a href="#reviews" class="mobile-nav-link">Reviews</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+        </div>
     </div>
 
     <!-- ═══════════ DESKTOP NAVIGATIE ═══════════ -->
@@ -4005,7 +4055,7 @@ color: var(--white);
             mobileNav.setAttribute('aria-hidden', !isOpen);
             isOpen ? lenis.stop() : lenis.start();
         });
-        mobileNav.querySelectorAll('a:not(.mobile-accordion-content a)').forEach(link => {
+        mobileNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('active');
                 menuToggle.classList.remove('active');
@@ -4015,29 +4065,25 @@ color: var(--white);
             });
         });
 
-        // ═══════════ MOBILE ACCORDION ═══════════
-        const mobileAccordionTrigger = document.getElementById('mobile-accordion-trigger');
-        const mobileAccordionContent = document.getElementById('mobile-accordion-content');
-        if (mobileAccordionTrigger && mobileAccordionContent) {
-            mobileAccordionTrigger.addEventListener('click', () => {
-                const isOpen = mobileAccordionContent.classList.toggle('open');
-                mobileAccordionTrigger.classList.toggle('expanded', isOpen);
-                mobileAccordionTrigger.setAttribute('aria-expanded', isOpen);
-            });
-            mobileAccordionContent.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileNav.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                    menuToggle.setAttribute('aria-expanded', false);
-                    mobileNav.setAttribute('aria-hidden', true);
-                    mobileAccordionContent.classList.remove('open');
-                    mobileAccordionTrigger.classList.remove('expanded');
-                    mobileAccordionTrigger.setAttribute('aria-expanded', false);
-                    lenis.start();
-                });
+        // ═══════════ MOBILE CATEGORY ACCORDION ═══════════
+        const catBtn = document.querySelector('.mobile-nav-cat');
+        const sublist = document.querySelector('.mobile-nav-sublist');
+        if (catBtn && sublist) {
+            catBtn.addEventListener('click', () => {
+                const isOpen = sublist.classList.toggle('open');
+                catBtn.setAttribute('aria-expanded', isOpen);
             });
         }
 
+        // ═══════════ MOBILE SUBCATEGORY ACCORDION ═══════════
+        const subcatBtn = document.querySelector('.mobile-nav-subcat');
+        const subitems = document.querySelector('.mobile-nav-subitems');
+        if (subcatBtn && subitems) {
+            subcatBtn.addEventListener('click', () => {
+                const isOpen = subitems.classList.toggle('open');
+                subcatBtn.setAttribute('aria-expanded', isOpen);
+            });
+        }
         // ═══════════ DESKTOP TWO-COLUMN DROPDOWN ═══════════
         const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
         const allRightPanels = document.querySelectorAll('.dropdown-right');
