@@ -159,7 +159,14 @@
         .mobile-sticky-cta{position:fixed;bottom:0;left:0;width:100%;padding:1rem;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-top:1px solid var(--gray);z-index:999;display:none;justify-content:center;box-shadow:0 -5px 20px rgba(0,0,0,0.05)}
         .sticky-cta-btn{color:var(--white);text-decoration:none;padding:0.8rem 2rem;font-size:0.85rem;font-weight:600;border-radius:50px;text-transform:uppercase;letter-spacing:0.05em;width:100%;text-align:center;transition:background 0.3s ease}
         @media(max-width:1024px){.hero-split{grid-template-columns:1fr;min-height:auto}.hero-right{min-height:50vh;display:block}.hero-left{padding:8rem 4vw 4rem}.content-grid{grid-template-columns:1fr;gap:3rem}.pricing-grid{grid-template-columns:1fr}.price-card.featured{transform:scale(1)}.footer-top{grid-template-columns:1fr 1fr}}
-        @media(max-width:768px){.nav-links,.nav-cta{display:none}.menu-toggle{display:flex}.nav-logo-img{height:60px!important}.hero-left{padding:6rem 1.5rem 3rem}.content-section,.faq,.pricing{padding:4rem 1.5rem}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:1rem;text-align:center}}
+        @media(max-width:768px){
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex;
+            }.nav-logo-img{height:60px!important}.hero-left{padding:6rem 1.5rem 3rem}.content-section,.faq,.pricing{padding:4rem 1.5rem}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:1rem;text-align:center}}
     
         /* ── STICKY CTA: HIDE ON DESKTOP ── */
         @media(min-width:1025px){.mobile-sticky-cta{display:none!important}}
