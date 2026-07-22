@@ -309,5 +309,94 @@
     "publisher": { "@type": "Organization", "name": "Technisch Bouwadvies", "url": "https://technischbouwadvies.nl" }
 }
 </script>
+
+<!-- ═══════════ COOKIE CONSENT BANNER ═══════════ -->
+    <div class="cookie-consent" id="cookie-consent" role="dialog" aria-label="Cookie toestemming">
+        <div class="cookie-consent-inner">
+            <p>Deze website gebruikt functionele cookies om de site goed te laten werken. <a href="cookiebeleid.html" target="_blank">Lees ons cookiebeleid</a></p>
+            <button class="cookie-accept" id="cookie-accept">Akkoord</button>
+        </div>
+    </div>
+    <style>
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            background: #0f0f0f;
+            border-top: 1px solid rgba(179, 148, 77, 0.15);
+            padding: 1rem 2rem;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .cookie-consent.show {
+            transform: translateY(0);
+        }
+        .cookie-consent-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .cookie-consent p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin: 0;
+            flex: 1;
+            min-width: 200px;
+        }
+        .cookie-consent a {
+            color: var(--accent, #b3944d);
+            text-decoration: underline;
+        }
+        .cookie-consent a:hover {
+            color: var(--white, #fff);
+        }
+        .cookie-accept {
+            flex-shrink: 0;
+            padding: 0.75rem 2rem;
+            background: var(--accent, #b3944d);
+            color: #0f0f0f;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .cookie-accept:hover {
+            background: var(--white, #fff);
+            transform: translateY(-1px);
+        }
+        @media (max-width: 768px) {
+            .cookie-consent { padding: 1rem 1.5rem; }
+            .cookie-consent-inner { flex-direction: column; text-align: center; }
+            .cookie-accept { width: 100%; }
+        }
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const banner = document.getElementById('cookie-consent');
+        const acceptBtn = document.getElementById('cookie-accept');
+        if (banner && acceptBtn) {
+            if (!localStorage.getItem('cookieConsent')) {
+                setTimeout(() => banner.classList.add('show'), 500);
+            }
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'accepted');
+                banner.classList.remove('show');
+            });
+        }
+    });
+    </script>
+
 </body>
 </html>
