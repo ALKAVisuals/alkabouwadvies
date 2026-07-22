@@ -237,10 +237,44 @@ color: var(--white);
     <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
     <div class="toast-container" id="toast-container"></div>
 
-    <div class="mobile-nav" id="mobile-nav">
-        <a href="#diensten" class="mobile-link">Diensten</a>
-        <a href="index.html#prijzen" class="mobile-link">Prijzen</a>
-        <a href="index.html#contact" class="metal-btn metal-btn-sm mobile-link">Contact</a>
+    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Mobiel navigatiemenu" aria-hidden="true">
+        <div class="mobile-nav-header">
+            <span class="mobile-nav-title">Menu</span>
+        </div>
+        <div class="mobile-nav-items">
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-cat" aria-expanded="false">
+                    <span>Diensten</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="mobile-nav-sublist">
+                    <button class="mobile-nav-subcat" aria-expanded="false">
+                        <span>Bouwtekeningen</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
+                    </button>
+                    <div class="mobile-nav-subitems">
+                        <a href="dakkapel.html">Dakkapel</a>
+                        <a href="bijgebouw.html">Bijgebouw</a>
+                        <a href="nokverhoging.html">Nokverhoging</a>
+                        <a href="bed-breakfast.html">Bed &amp; Breakfast</a>
+                        <a href="erker.html">Erker</a>
+                        <a href="mantelzorg.html">Mantelzorgwoning</a>
+                        <a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a>
+                        <a href="dakopbouw-vergunningen.html">Dakopbouw</a>
+                    </div>
+                    <a href="omgevingsvergunning-aanvragen.html" class="mobile-nav-direct">Omgevingsvergunning</a>
+                    <a href="bouwtekening-digitaliseren.html" class="mobile-nav-direct">Digitaliseren</a>
+                    <a href="bouwkundig-advies.html" class="mobile-nav-direct">Bouwkundig advies</a>
+                </div>
+            </div>
+            <a href="index.html#prijzen" class="mobile-nav-link">Prijzen</a>
+            <a href="index.html#calculator" class="mobile-nav-link">Calculator</a>
+            <a href="index.html#projecten" class="mobile-nav-link">Projecten</a>
+            <a href="index.html#over-ons" class="mobile-nav-link">Over Ons</a>
+            <a href="index.html#faq" class="mobile-nav-link">FAQ</a>
+            <a href="index.html#reviews" class="mobile-nav-link">Reviews</a>
+            <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+        </div>
     </div>
 
     <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">

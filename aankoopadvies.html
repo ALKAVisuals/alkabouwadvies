@@ -571,7 +571,7 @@
         const mobileNav = document.getElementById('mobile-nav');
         if (menuToggle && mobileNav) {
             menuToggle.addEventListener('click', () => {
-                const isOpen = mobileNav.classList.toggle('open');
+                const isOpen = mobileNav.classList.toggle('active');
                 menuToggle.classList.toggle('active');
                 menuToggle.setAttribute('aria-expanded', isOpen);
                 mobileNav.setAttribute('aria-hidden', !isOpen);
@@ -581,12 +581,32 @@
             });
             mobileNav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileNav.classList.remove('open');
+                    mobileNav.classList.remove('active');
                     menuToggle.classList.remove('active');
                     menuToggle.setAttribute('aria-expanded', false);
                     mobileNav.setAttribute('aria-hidden', true);
                     if (typeof lenis !== 'undefined') lenis.start();
                 });
+            });
+        }
+
+        // ═══════════ MOBILE CATEGORY ACCORDION ═══════════
+        const catBtn = document.querySelector('.mobile-nav-cat');
+        const sublist = document.querySelector('.mobile-nav-sublist');
+        if (catBtn && sublist) {
+            catBtn.addEventListener('click', () => {
+                const isOpen = sublist.classList.toggle('open');
+                catBtn.setAttribute('aria-expanded', isOpen);
+            });
+        }
+
+        // ═══════════ MOBILE SUBCATEGORY ACCORDION ═══════════
+        const subcatBtn = document.querySelector('.mobile-nav-subcat');
+        const subitems = document.querySelector('.mobile-nav-subitems');
+        if (subcatBtn && subitems) {
+            subcatBtn.addEventListener('click', () => {
+                const isOpen = subitems.classList.toggle('open');
+                subcatBtn.setAttribute('aria-expanded', isOpen);
             });
         }
 
