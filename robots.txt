@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alkasbouwadvies.nl/sitemap.xml
+Sitemap: https://technischbouwadvies.nl/sitemap.xml
