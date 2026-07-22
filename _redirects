@@ -1,0 +1,9 @@
+# Redirects voor TechnischBouwadvies.nl
+# Oude domein naar nieuwe domein
+https://alkasbouwadvies.nl/* https://technischbouwadvies.nl/:splat 301!
+
+# WWW naar niet-WWW
+https://www.technischbouwadvies.nl/* https://technischbouwadvies.nl/:splat 301!
+
+# 404 opvang
+/* /404.html 404

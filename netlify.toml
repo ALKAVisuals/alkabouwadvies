@@ -1,0 +1,42 @@
+# Netlify configuratie voor TechnischBouwadvies.nl
+[build]
+  publish = "."
+
+[build.processing]
+  skip_processing = true
+
+# Forms - Netlify Forms automatisch detecteren
+[build.processing.forms]
+  enabled = true
+
+# Headers voor SEO en beveiliging
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache headers voor afbeeldingen
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Redirects
+[[redirects]]
+  from = "https://alkasbouwadvies.nl/*"
+  to = "https://technischbouwadvies.nl/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.technischbouwadvies.nl/*"
+  to = "https://technischbouwadvies.nl/:splat"
+  status = 301
+  force = true
