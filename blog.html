@@ -19,24 +19,70 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #fafafa; --bg-dark: #0f0f0f; --text: #1a1a1a; --text-light: #666; --accent: #b3944d; --accent-light: #d4b76a; --white: #fff; --gray: #e5e5e5; }
+        :root { --bg: #fafafa; --bg-dark: #0f0f0f; --text: #1a1a1a; --text-light: #666; --accent: #b3944d; --accent-light: #d4b76a; --white: #fff; --gray: #e5e5e5; --gray-dark: #d0d0d0; --error: #dc2626; --success: #16a34a; --beige-subtle: rgba(179,148,77,0.07); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
-        nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; height: 80px; padding: 0 4vw; display: flex; justify-content: space-between; align-items: center; background: rgba(250,250,250,0.92); backdrop-filter: blur(24px); }
-        .logo { text-decoration: none; }
+        nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; height: 80px; padding: 0 4vw; display: flex; justify-content: space-between; align-items: center; background: rgba(250,250,250,0.92); backdrop-filter: blur(24px); transition: all 0.4s ease; }
+        nav.scrolled { background: rgba(250,250,250,0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
         .logo-text { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
         .logo-gold { color: var(--accent); }
-        .nav-links { display: flex; gap: 3rem; list-style: none; align-items: center; }
-        .nav-links a { color: var(--text); font-size: 0.8125rem; font-weight: 500; text-decoration: none; }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-cta { padding: 0.75rem 1.75rem; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.05em; }
+        .logo span { font-weight: 400; color: var(--text-light); font-size: 0.9375rem; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links > li { position: static; }
+        .nav-links > li > a { color: var(--text); font-size: 0.8125rem; font-weight: 500; text-decoration: none; padding: 0.25rem 0; transition: color 0.3s ease; position: relative; }
+        .nav-links > li > a:hover { color: var(--accent); }
+        .nav-cta { padding: 0.75rem 1.75rem; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.05em; text-decoration: none; border-radius: 50px; background: linear-gradient(135deg,#c4a35a,#a3843d); color: #0f0f0f; transition: all 0.3s ease; }
+        .nav-cta:hover { background: linear-gradient(135deg,#d4b76a,#b3944d); transform: translateY(-1px); }
+        .nav-phone { display: none; }
         .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 101; background: none; border: none; padding: 0.5rem; }
         .menu-toggle span { display: block; width: 24px; height: 1.5px; background: var(--text); transition: all 0.4s ease; }
-        .nav-phone { display: none; }
-        .blog-hero { background: var(--bg-dark); padding: 10rem 4vw 6rem; text-align: center; }
+        .progress-bar { position: fixed; top: 0; left: 0; width: 0; height: 2px; background: var(--accent); z-index: 10001; transition: width 0.1s linear; }
+
+        /* ── MOBIEL NAVIGATIE ── */
+        .mobile-nav { position: fixed; inset: 0; background: rgba(15,15,15,0.97); z-index: 99; display: flex; flex-direction: column; padding: 0; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; overflow-y: auto; }
+        .mobile-nav.active { opacity: 1; pointer-events: all; }
+        .mobile-nav-header { padding: 1.5rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+        .mobile-nav-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+        .mobile-nav-items { padding: 1rem 1.5rem 3rem; flex: 1; }
+        .mobile-nav-link { display: flex; align-items: center; padding: 1rem 0.5rem; font-size: 1.0625rem; font-weight: 600; color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .mobile-nav-link:hover { color: var(--accent); padding-left: 1rem; }
+        .mobile-nav-cat { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 1rem 0.5rem; font-size: 1.0625rem; font-weight: 600; color: var(--white); background: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.05); font-family: inherit; cursor: pointer; text-align: left; }
+        .mobile-nav-cat svg { transition: transform 0.3s ease; color: var(--accent); }
+        .mobile-nav-cat[aria-expanded="true"] svg { transform: rotate(180deg); }
+        .mobile-nav-cat:hover { color: var(--accent); }
+        .mobile-nav-sublist { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
+        .mobile-nav-sublist.open { max-height: 1000px; }
+        .mobile-nav-subcat { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0.75rem 0.5rem 0.75rem 1.5rem; font-size: 0.9375rem; font-weight: 500; color: rgba(255,255,255,0.7); background: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.03); font-family: inherit; cursor: pointer; text-align: left; }
+        .mobile-nav-subcat svg { transition: transform 0.3s ease; color: rgba(255,255,255,0.4); }
+        .mobile-nav-subcat[aria-expanded="true"] svg { transform: rotate(90deg); }
+        .mobile-nav-subcat:hover { color: var(--accent); }
+        .mobile-nav-subitems { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .mobile-nav-subitems.open { max-height: 600px; }
+        .mobile-nav-subitems a { display: block; padding: 0.65rem 0.5rem 0.65rem 2.5rem; font-size: 0.875rem; font-weight: 400; color: rgba(255,255,255,0.5); text-decoration: none; }
+        .mobile-nav-subitems a:hover { color: var(--accent); padding-left: 3rem; }
+        .mobile-nav-direct { display: block; padding: 0.75rem 0.5rem 0.75rem 1.5rem; font-size: 0.9375rem; font-weight: 500; color: rgba(255,255,255,0.7); text-decoration: none; }
+        .mobile-nav-direct:hover { color: var(--accent); padding-left: 2rem; }
+
+        /* ── DROPDOWN ── */
+        .nav-dropdown { position: fixed; top: 80px; left: 0; right: 0; background: var(--white); box-shadow: 0 20px 60px rgba(0,0,0,0.08); z-index: 98; display: flex; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; max-height: 0; overflow: hidden; }
+        .nav-links > li > a:hover ~ .nav-dropdown, .nav-dropdown:hover, .nav-links > li > a:focus ~ .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); max-height: 600px; }
+        .dropdown-left { flex: 0 0 220px; padding: 2rem; border-right: 1px solid var(--gray); display: flex; flex-direction: column; gap: 0.25rem; }
+        .dropdown-item { padding: 0.75rem 1rem; font-size: 0.875rem; color: var(--text); text-decoration: none; border-radius: 6px; transition: all 0.2s ease; }
+        .dropdown-item:hover, .dropdown-item.hovered { background: var(--beige-subtle); color: var(--accent); }
+        .dropdown-right { flex: 1; position: relative; display: none; }
+        .dropdown-right.visible { display: flex; }
+        .dropdown-list { padding: 1.5rem 2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%; }
+        .dropdown-list a { display: block; padding: 0.75rem; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+        .dropdown-list a:hover { background: var(--beige-subtle); }
+        .list-item-title { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+        .list-item-desc { display: block; font-size: 0.75rem; color: var(--text-light); }
+
+        /* ── BLOG ── */
+        .blog-hero { background: var(--bg-dark); padding: 12rem 4vw 6rem; text-align: center; margin-top: 0; }
         .section-label { font-size: 0.6875rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; font-weight: 600; }
-        .blog-hero h1 { font-size: clamp(2rem,4vw,3.5rem); font-weight: 800; color: var(--white); letter-spacing: -0.03em; line-height: 1.2; }
-        .blog-hero h1 em { font-style: normal; }
+        .blog-hero h1 { font-size: clamp(2rem,4vw,3.5rem); font-weight: 800; color: var(--white); letter-spacing: -0.03em; line-height: 1.15; max-width: 700px; margin: 0 auto; }
+        .blog-hero h1 em { font-style: normal; color: var(--accent); }
         .blog-hero p { color: rgba(255,255,255,0.5); max-width: 600px; margin: 1.5rem auto 0; font-size: 1.125rem; line-height: 1.8; }
         .blog-grid { max-width: 1200px; margin: 0 auto; padding: 6rem 4vw; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
         .blog-card { background: var(--white); border: 1px solid var(--gray); border-radius: 12px; overflow: hidden; transition: all 0.3s ease; }
@@ -48,39 +94,56 @@
         .blog-card h3 a:hover { color: var(--accent); }
         .blog-card p { color: var(--text-light); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
         .read-more { color: var(--accent); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
-        footer { background: var(--bg-dark); color: var(--white); padding: 6rem 4vw 2rem; margin-top: 0; }
-        .footer-top { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 4rem; align-items: start; }
-        .footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.9375rem; line-height: 1.75; margin-top: 1rem; }
-        .footer-logo-text { font-size: 1.75rem; font-weight: 800; color: var(--white); }
+        .metal-btn-sm { padding: 0.6rem 1.25rem; font-size: 0.75rem; }
+
+        /* ── FOOTER ── */
+        footer { background: var(--bg-dark); color: var(--white); }
+        .footer-top { padding: 6rem 4vw 4rem; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 4rem; align-items: start; }
+        .footer-logo-link { display: block; text-decoration: none; }
+        .footer-logo-text { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); display: block; }
+        .footer-logo-text .logo-gold { color: var(--accent); }
+        .footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.9375rem; line-height: 1.75; max-width: 300px; margin-top: 2rem; }
         .footer-nav h5 { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1.5rem; font-weight: 600; }
         .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0.875rem; }
-        .footer-nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.875rem; }
-        .footer-nav a:hover { color: var(--white); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(255,255,255,0.3); max-width: 1400px; margin: 2rem auto 0; }
+        .footer-nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.875rem; transition: all 0.3s ease; font-weight: 500; display: inline-block; }
+        .footer-nav a:hover { color: var(--white); transform: translateX(4px); }
+        .footer-copy { border-top: 1px solid rgba(255,255,255,0.08); padding: 2rem 4vw; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+        @media (max-width: 1024px) { .dropdown-right.visible { display: none; } }
         @media (max-width: 768px) {
             .nav-links, .nav-cta { display: none !important; }
             .nav-phone { display: inline-flex; margin-right: 0.75rem; font-size: 0.75rem; }
             .menu-toggle { display: flex; }
-            .blog-hero { padding: 7rem 1.5rem 4rem; }
+            .blog-hero { padding: 8rem 1.5rem 4rem; }
             .blog-hero h1 { font-size: 1.75rem; }
             .blog-grid { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
             .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .nav-dropdown { display: none !important; }
         }
+        @media (min-width: 1025px) { .nav-dropdown { display: flex !important; } }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="index.html" class="logo">
+<nav id="navbar">
+    <a href="index.html" class="logo" aria-label="Technisch Bouwadvies - Home">
         <span class="logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>
     </a>
     <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#diensten">Diensten</a></li>
+        <li>
+            <a href="#diensten">Diensten</a>
+            <div class="nav-dropdown">
+                <div class="dropdown-left">
+                    <a class="dropdown-item" href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a>
+                    <a class="dropdown-item" href="bouwtekening-digitaliseren.html">Digitaliseren</a>
+                    <a class="dropdown-item" href="bouwkundig-advies.html">Bouwkundig advies</a>
+                </div>
+            </div>
+        </li>
         <li><a href="index.html#prijzen">Prijzen</a></li>
         <li><a href="over-ons.html">Over Ons</a></li>
         <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
         <li><a href="index.html#contact">Contact</a></li>
     </ul>
     <a href="index.html#contact" class="nav-cta metal-btn">Offerte aanvragen</a>
@@ -89,6 +152,47 @@
         <span></span><span></span>
     </button>
 </nav>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-hidden="true">
+    <div class="mobile-nav-header"><span class="mobile-nav-title">Menu</span></div>
+    <div class="mobile-nav-items">
+        <div class="mobile-nav-group">
+            <button class="mobile-nav-cat" aria-expanded="false">
+                <span>Diensten</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mobile-nav-sublist">
+                <button class="mobile-nav-subcat" aria-expanded="false">
+                    <span>Bouwtekeningen</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
+                </button>
+                <div class="mobile-nav-subitems">
+                    <a href="dakkapel.html">Dakkapel</a>
+                    <a href="bijgebouw.html">Bijgebouw</a>
+                    <a href="nokverhoging.html">Nokverhoging</a>
+                    <a href="bed-breakfast.html">Bed &amp; Breakfast</a>
+                    <a href="erker.html">Erker</a>
+                    <a href="mantelzorg.html">Mantelzorgwoning</a>
+                    <a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a>
+                    <a href="dakopbouw-vergunningen.html">Dakopbouw</a>
+                </div>
+                <a href="omgevingsvergunning-aanvragen.html" class="mobile-nav-direct">Omgevingsvergunning</a>
+                <a href="bouwtekening-digitaliseren.html" class="mobile-nav-direct">Digitaliseren</a>
+                <a href="bouwkundig-advies.html" class="mobile-nav-direct">Bouwkundig advies</a>
+            </div>
+        </div>
+        <a href="index.html#prijzen" class="mobile-nav-link">Prijzen</a>
+        <a href="index.html#calculator" class="mobile-nav-link">Calculator</a>
+        <a href="index.html#projecten" class="mobile-nav-link">Projecten</a>
+        <a href="index.html#over-ons" class="mobile-nav-link">Over Ons</a>
+        <a href="blog.html" class="mobile-nav-link">Blog</a>
+        <a href="index.html#faq" class="mobile-nav-link">FAQ</a>
+        <a href="index.html#reviews" class="mobile-nav-link">Reviews</a>
+        <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+    </div>
+</div>
 
 <main>
     <section class="blog-hero">
@@ -115,15 +219,16 @@
             <a href="index.html" class="footer-logo-link">
                 <span class="footer-logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>
             </a>
-            <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen.</p>
+            <p>Bouwkundig teken- en adviesbureau met meer dan 800 succesvolle vergunningen. ABW-gecertificeerd en actief in 170+ gemeentes door heel Nederland.</p>
         </div>
         <div class="footer-nav">
             <h5>Diensten</h5>
             <ul>
                 <li><a href="dakkapel.html">Dakkapel</a></li>
-                <li><a href="aanbouw-uitbouw.html">Aanbouw & Uitbouw</a></li>
+                <li><a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a></li>
                 <li><a href="erker.html">Erker</a></li>
                 <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
+                <li><a href="bouwkundig-advies.html">Bouwkundig advies</a></li>
             </ul>
         </div>
         <div class="footer-nav">
@@ -140,12 +245,11 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="privacybeleid.html">Privacy</a></li>
                 <li><a href="algemene-voorwaarden.html">Voorwaarden</a></li>
+                <li><a href="cookiebeleid.html">Cookies</a></li>
             </ul>
         </div>
     </div>
-    <div class="footer-bottom">
-        <span>© 2025–2026 Technisch Bouwadvies | KVK: 95153756</span>
-    </div>
+    <div class="footer-copy">© 2025&ndash;2026 Technisch Bouwadvies | KVK: 95153756</div>
 </footer>
 
 <div class="cookie-consent" id="cookie-consent">
@@ -158,19 +262,29 @@
     .cookie-consent { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000; background: #0f0f0f; border-top: 1px solid rgba(179,148,77,0.15); padding: 1rem 2rem; transform: translateY(100%); transition: transform 0.5s ease; }
     .cookie-consent.show { transform: translateY(0); }
     .cookie-consent-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
-    .cookie-consent p { color: rgba(255,255,255,0.7); font-size: 0.875rem; margin: 0; }
+    .cookie-consent p { color: rgba(255,255,255,0.7); font-size: 0.875rem; margin: 0; flex: 1; }
     .cookie-consent a { color: #b3944d; }
     .cookie-accept { padding: 0.75rem 2rem; background: #b3944d; color: #0f0f0f; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; }
     .cookie-accept:hover { background: #fff; }
-    @media (max-width: 768px) { .cookie-consent-inner { flex-direction: column; text-align: center; } .cookie-accept { width: 100%; } }
+    @media (max-width: 768px) { .cookie-consent { padding: 1rem 1.5rem; } .cookie-consent-inner { flex-direction: column; text-align: center; } .cookie-accept { width: 100%; } }
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const b = document.getElementById('cookie-consent');
-    const a = document.getElementById('cookie-accept');
+    const b = document.getElementById('cookie-consent'), a = document.getElementById('cookie-accept');
     if (b && a && !localStorage.getItem('cookieConsent')) { setTimeout(() => b.classList.add('show'), 500); a.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'accepted'); b.classList.remove('show'); }); }
+    // Mobile menu
+    const t = document.getElementById('menu-toggle'), n = document.getElementById('mobile-nav');
+    if (t && n) { t.addEventListener('click', () => { const o = n.classList.toggle('active'); t.classList.toggle('active'); t.setAttribute('aria-expanded', o); n.setAttribute('aria-hidden', !o); }); n.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { n.classList.remove('active'); t.classList.remove('active'); })); }
+    // Mobile accordion
+    document.querySelector('.mobile-nav-cat')?.addEventListener('click', function() { const s = this.nextElementSibling; const o = s.classList.toggle('open'); this.setAttribute('aria-expanded', o); });
+    document.querySelector('.mobile-nav-subcat')?.addEventListener('click', function() { const s = this.nextElementSibling; const o = s.classList.toggle('open'); this.setAttribute('aria-expanded', o); });
+    // Progress bar
+    const p = document.getElementById('progress-bar');
+    if (p) window.addEventListener('scroll', () => { p.style.width = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100) + '%'; });
+    // Nav scroll
+    const nav = document.getElementById('navbar');
+    if (nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
 });
 </script>
-
 </body>
 </html>
