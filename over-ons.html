@@ -124,6 +124,23 @@
         .btn-outline{border:1px solid rgba(255,255,255,0.15);color:var(--white)}
         .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
         
+        /* SECTION WRAPPER */
+        .section{max-width:100%;padding:8rem 4vw;background:var(--white)}
+        .section-inner{max-width:1400px;margin:0 auto}
+        
+        /* STATS */
+        .stats{background:var(--white);border-top:1px solid var(--gray);border-bottom:1px solid var(--gray);padding:4rem 4vw}
+        .stats-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+        .stat-num{font-size:3rem;font-weight:800;letter-spacing:-0.03em;color:var(--text);line-height:1;margin-bottom:.5rem}
+        .stat-num em{font-style:normal;color:var(--accent)}
+        .stat-label{font-size:.9375rem;color:var(--text-light)}
+        
+        /* FOOTER BOTTOM */
+        .footer-bottom{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 4vw 2rem}
+        .footer-legal{display:flex;gap:2rem}
+        .footer-legal a{font-size:.8125rem;color:rgba(255,255,255,0.3);text-decoration:none;transition:color .3s}
+        .footer-legal a:hover{color:rgba(255,255,255,0.6)}
+        
         /* RESPONSIVE */
         @media(min-width:1025px){.nav-dropdown{display:flex!important}}
         @media(max-width:1024px){.dropdown-right{display:none}}
@@ -135,6 +152,8 @@
             .hero-dark h1{font-size:1.75rem}
             .grid-2{grid-template-columns:1fr;gap:2rem}
             .footer-top{grid-template-columns:1fr;gap:2rem}
+            .stats-inner{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+            .footer-bottom{flex-direction:column;gap:1rem;text-align:center}
         }
     </style>
 </head>
@@ -146,14 +165,14 @@
         </a>
         <ul class="nav-links" role="menubar">
             <li role="none">
-                <a href="#diensten" role="menuitem" data-section="diensten">Diensten</a>
+                <a href="index.html#diensten" role="menuitem">Diensten</a>
                 <div class="nav-dropdown" id="diensten-dropdown" aria-label="Diensten submenu">
                     <div class="dropdown-left">
                         <a class="dropdown-item hovered"
                            data-sub="bouwtekeningen"
                            aria-haspopup="true"
                            aria-expanded="true"
-                           href="#diensten">Bouwkunde tekeningen</a>
+                           href="index.html#diensten">Bouwkunde tekeningen</a>
                         <a class="dropdown-item"
                            data-sub="vergunning"
                            aria-haspopup="true"
@@ -204,7 +223,7 @@
                                 <span class="list-item-title">Bouwtekeningen dakopbouw</span>
                                 <span class="list-item-desc">Een extra verdieping toevoegen</span>
                             </a>
-                            <a href="#diensten">
+                            <a href="index.html#diensten">
                                 <span class="list-item-title">Bouwtekeningen gevelwijziging</span>
                                 <span class="list-item-desc">Moderniseren van de buitenzijde</span>
                             </a>
@@ -213,33 +232,33 @@
                     <div class="dropdown-right" id="sub-vergunning">
                         <div class="dropdown-info">
                             <p>Ik verzorg de complete aanvraag van uw omgevingsvergunning. Van het indienen van de stukken tot het onderhouden van contact met de gemeente — u heeft er geen omkijken naar.</p>
-                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                            <a href="index.html#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
                         </div>
                     </div>
                     <div class="dropdown-right" id="sub-digitaliseren">
                         <div class="dropdown-info">
                             <p>Heeft u papieren bouwtekeningen die gedigitaliseerd moeten worden? Ik zet uw oude tekeningen om naar professionele digitale bestanden, geschikt voor vergunningsaanvragen en aannemers.</p>
-                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                            <a href="index.html#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
                         </div>
                     </div>
                     <div class="dropdown-right" id="sub-advies">
                         <div class="dropdown-info">
                             <p>Ik analyseer uw bestemmingsplan en geef concreet advies over wat er mogelijk is op uw perceel. Voorkom verrassingen en weet exact waar u aan toe bent voordat u begint met ontwerpen.</p>
-                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                            <a href="index.html#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
                         </div>
                     </div>
                 </div>
             </li>
-            <li role="none"><a href="#prijzen" role="menuitem" data-section="prijzen">Prijzen</a></li>
-            <li role="none"><a href="#calculator" role="menuitem" data-section="calculator">Calculator</a></li>
-            <li role="none"><a href="#projecten" role="menuitem" data-section="projecten">Projecten</a></li>
-            <li role="none"><a href="#over-ons" role="menuitem" data-section="over-ons">Over Ons</a></li>
+            <li role="none"><a href="index.html#prijzen" role="menuitem">Prijzen</a></li>
+            <li role="none"><a href="index.html#calculator" role="menuitem">Calculator</a></li>
+            <li role="none"><a href="index.html#projecten" role="menuitem">Projecten</a></li>
+            <li role="none"><a href="over-ons.html" role="menuitem" aria-current="page">Over Ons</a></li>
             <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
-            <li role="none"><a href="#faq" role="menuitem" data-section="faq">FAQ</a></li>
-            <li role="none"><a href="#reviews" role="menuitem" data-section="reviews">Reviews</a></li>
-            <li role="none"><a href="#contact" role="menuitem" data-section="contact">Contact</a></li>
+            <li role="none"><a href="index.html#faq" role="menuitem">FAQ</a></li>
+            <li role="none"><a href="index.html#reviews" role="menuitem">Reviews</a></li>
+            <li role="none"><a href="index.html#contact" role="menuitem">Contact</a></li>
         </ul>
-        <a href="#contact" class="nav-cta metal-btn" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+        <a href="index.html#contact" class="nav-cta metal-btn" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
         <a href="tel:+316****0412" class="nav-phone" aria-label="Bel ons">+31 (0)6 49 24 04 12</a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false" aria-controls="mobile-nav">
             <span></span><span></span>
@@ -272,7 +291,7 @@
 <a href="index.html#prijzen" class="mobile-nav-link">Prijzen</a>
 <a href="index.html#calculator" class="mobile-nav-link">Calculator</a>
 <a href="index.html#projecten" class="mobile-nav-link">Projecten</a>
-<a href="index.html#over-ons" class="mobile-nav-link">Over Ons</a>
+<a href="over-ons.html" class="mobile-nav-link">Over Ons</a>
 <a href="blog.html" class="mobile-nav-link">Blog</a>
 <a href="index.html#faq" class="mobile-nav-link">FAQ</a>
 <a href="index.html#reviews" class="mobile-nav-link">Reviews</a>
@@ -389,7 +408,7 @@
                 <ul>
                     <li><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></li>
                     <li><a href="tel:+316****0412">+31 (0)6 49 24 04 12</a></li>
-                    <li><a href="#contact">Contactformulier</a></li>
+                    <li><a href="index.html#contact">Contactformulier</a></li>
                     <li><a href="over-ons.html">Over Ons</a></li>
                 </ul>
             </div>
