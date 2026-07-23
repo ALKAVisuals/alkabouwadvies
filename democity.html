@@ -117,6 +117,22 @@ def create_fixed_city_page(city_name, tilburg_structure):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     {tilburg_structure['js_framework']}
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Technisch Bouwadvies",
+      "url": "https://technischbouwadvies.nl",
+      "telephone": "+316****0412",
+      "email": "info@technischbouwadvies.nl",
+      "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies.",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "address": {"@type": "PostalAddress", "addressCountry": "NL"},
+      "areaServed": [{"@type": "Country", "name": "Nederland"}]
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation (based on tilburg structure) -->
