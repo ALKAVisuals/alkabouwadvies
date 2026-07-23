@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fafafa;--bg-dark:#0f0f0f;--text:#1a1a1a;--text-light:#666;--accent:#b3944d;--white:#fff;--gray:#e5e5e5}
+:root{--bg:#fafafa;--bg-dark:#0f0f0f;--text:#1a1a1a;--text-light:#666;--accent:#b3944d;--accent-light:#d4b76a;--white:#fff;--gray:#e5e5e5;--gray-dark:#d0d0d0;--beige-subtle:rgba(179,148,77,0.07)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
 
@@ -34,7 +34,28 @@ nav.scrolled{background:rgba(250,250,250,0.98);box-shadow:0 4px 20px rgba(0,0,0,
 .menu-toggle{display:none;flex-direction:column;gap:6px;cursor:pointer;z-index:101;background:none;border:none;padding:.5rem}
 .menu-toggle span{display:block;width:24px;height:1.5px;background:var(--text);transition:all .4s}
 
-/* MOBILE NAV */
+
+        /* ── DROPDOWN ── */
+        .nav-dropdown { position: fixed; top: 80px; left: 0; right: 0; background: var(--white); box-shadow: 0 20px 60px rgba(0,0,0,0.08); z-index: 98; display: flex; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; max-height: 0; overflow: hidden; }
+        .nav-links > li > a:hover ~ .nav-dropdown, .nav-dropdown:hover, .nav-links > li > a:focus ~ .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); max-height: 600px; }
+        .dropdown-left { flex: 0 0 220px; padding: 2rem; border-right: 1px solid var(--gray); display: flex; flex-direction: column; gap: 0.25rem; }
+        .dropdown-item { padding: 0.75rem 1rem; font-size: 0.875rem; color: var(--text); text-decoration: none; border-radius: 6px; transition: all 0.2s ease; }
+        .dropdown-item:hover { background: var(--beige-subtle); color: var(--accent); }
+        .dropdown-right { flex: 1; padding: 1.5rem 2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .dropdown-right a { display: block; padding: 0.75rem; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+        .dropdown-right a:hover { background: var(--beige-subtle); }
+        .list-item-title { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+        .list-item-desc { display: block; font-size: 0.75rem; color: var(--text-light); }
+        .dropdown-info { padding: 2rem; }
+        .dropdown-cta-btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 50px; font-size: 0.8125rem; font-weight: 600; background: linear-gradient(135deg, #c4a35a, #a3843d); color: #0f0f0f; text-decoration: none; margin-top: 1rem; }
+        @media (min-width: 1025px) { .nav-dropdown { display: flex !important; } }
+        @media (max-width: 1024px) { .dropdown-right { display: none; } }
+        .nav-phone { display: none; }
+        .nav-cta { padding: 0.75rem 1.75rem; border: none; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.05em; text-decoration: none; border-radius: 50px; background: linear-gradient(135deg, #c4a35a, #a3843d); color: #0f0f0f; transition: all 0.3s ease; }
+        .nav-cta:hover { background: linear-gradient(135deg, #d4b76a, #b3944d); transform: translateY(-1px); box-shadow: 0 4px 15px rgba(196, 163, 90, 0.3); }
+        .logo span { font-weight: 400; color: var(--text-light); font-size: 0.9375rem; transition: color 0.4s ease; }
+
+        /* MOBILE NAV */
 .mobile-nav{position:fixed;inset:0;background:rgba(15,15,15,0.97);z-index:99;display:flex;flex-direction:column;padding:0;opacity:0;pointer-events:none;transition:opacity .4s;overflow-y:auto}
 .mobile-nav.active{opacity:1;pointer-events:all}
 .mobile-nav-header{padding:1.5rem 2rem;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between}
@@ -132,20 +153,112 @@ footer{background:var(--bg-dark);color:var(--white);padding:6rem 4vw 2rem}
 </head>
 <body>
 
-<nav id="navbar">
-<a href="index.html" class="logo"><span class="logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span></a>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="index.html#diensten">Diensten</a></li>
-<li><a href="index.html#prijzen">Prijzen</a></li>
-<li><a href="over-ons.html">Over Ons</a></li>
-<li><a href="blog.html">Blog</a></li>
-<li><a href="index.html#contact">Contact</a></li>
-</ul>
-<a href="index.html#contact" class="nav-cta">Offerte aanvragen</a>
-<button class="menu-toggle" id="menu-toggle"><span></span><span></span></button>
-</nav>
-<div class="progress-bar" id="progress-bar"></div>
+<nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <a href="index.html" class="logo" aria-label="Technisch Bouwadvies - Home">
+            <span class="logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>
+        </a>
+        <ul class="nav-links" role="menubar">
+            <li role="none">
+                <a href="#diensten" role="menuitem" data-section="diensten">Diensten</a>
+                <div class="nav-dropdown" id="diensten-dropdown" aria-label="Diensten submenu">
+                    <div class="dropdown-left">
+                        <a class="dropdown-item hovered"
+                           data-sub="bouwtekeningen"
+                           aria-haspopup="true"
+                           aria-expanded="true"
+                           href="#diensten">Bouwkunde tekeningen</a>
+                        <a class="dropdown-item"
+                           data-sub="vergunning"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning aanvragen</a>
+                        <a class="dropdown-item"
+                           data-sub="digitaliseren"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           href="bouwtekening-digitaliseren.html">Bouwtekeningen digitaliseren</a>
+                        <a class="dropdown-item"
+                           data-sub="advies"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           href="bouwkundig-advies.html">Bouwkundig advies</a>
+                    </div>
+                    <div class="dropdown-right visible" id="sub-bouwtekeningen">
+                        <div class="dropdown-list">
+                            <a href="dakkapel.html">
+                                <span class="list-item-title">Bouwtekeningen dakkapel</span>
+                                <span class="list-item-desc">Meer licht en ruimte op zolder</span>
+                            </a>
+                            <a href="bijgebouw.html">
+                                <span class="list-item-title">Bouwtekeningen bijgebouw</span>
+                                <span class="list-item-desc">Professionele tekening voor schuren en tuinmuren</span>
+                            </a>
+                            <a href="nokverhoging.html">
+                                <span class="list-item-title">Bouwtekeningen nokverhoging</span>
+                                <span class="list-item-desc">Voor maximale hoogte en volume</span>
+                            </a>
+                            <a href="bed-breakfast.html">
+                                <span class="list-item-title">Bouwtekeningen bed and breakfast</span>
+                                <span class="list-item-desc">Ontwerp voor commercieel verblijf</span>
+                            </a>
+                            <a href="erker.html">
+                                <span class="list-item-title">Bouwtekeningen erker</span>
+                                <span class="list-item-desc">Karakter en ruimte toevoegen aan de gevel</span>
+                            </a>
+                            <a href="mantelzorg.html">
+                                <span class="list-item-title">Bouwtekeningen mantelzorgwoning</span>
+                                <span class="list-item-desc">Zorgvuldige integratie in de woning</span>
+                            </a>
+                            <a href="aanbouw-uitbouw.html">
+                                <span class="list-item-title">Bouwtekeningen uitbouw</span>
+                                <span class="list-item-desc">Optimale uitbreiding van uw woonoppervlak</span>
+                            </a>
+                            <a href="dakopbouw-vergunningen.html">
+                                <span class="list-item-title">Bouwtekeningen dakopbouw</span>
+                                <span class="list-item-desc">Een extra verdieping toevoegen</span>
+                            </a>
+                            <a href="#diensten">
+                                <span class="list-item-title">Bouwtekeningen gevelwijziging</span>
+                                <span class="list-item-desc">Moderniseren van de buitenzijde</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-vergunning">
+                        <div class="dropdown-info">
+                            <p>Ik verzorg de complete aanvraag van uw omgevingsvergunning. Van het indienen van de stukken tot het onderhouden van contact met de gemeente — u heeft er geen omkijken naar.</p>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-digitaliseren">
+                        <div class="dropdown-info">
+                            <p>Heeft u papieren bouwtekeningen die gedigitaliseerd moeten worden? Ik zet uw oude tekeningen om naar professionele digitale bestanden, geschikt voor vergunningsaanvragen en aannemers.</p>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-right" id="sub-advies">
+                        <div class="dropdown-info">
+                            <p>Ik analyseer uw bestemmingsplan en geef concreet advies over wat er mogelijk is op uw perceel. Voorkom verrassingen en weet exact waar u aan toe bent voordat u begint met ontwerpen.</p>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li role="none"><a href="#prijzen" role="menuitem" data-section="prijzen">Prijzen</a></li>
+            <li role="none"><a href="#calculator" role="menuitem" data-section="calculator">Calculator</a></li>
+            <li role="none"><a href="#projecten" role="menuitem" data-section="projecten">Projecten</a></li>
+            <li role="none"><a href="#over-ons" role="menuitem" data-section="over-ons">Over Ons</a></li>
+            <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+            <li role="none"><a href="#faq" role="menuitem" data-section="faq">FAQ</a></li>
+            <li role="none"><a href="#reviews" role="menuitem" data-section="reviews">Reviews</a></li>
+            <li role="none"><a href="#contact" role="menuitem" data-section="contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta metal-btn" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+        <a href="tel:+316****0412" class="nav-phone" aria-label="Bel ons">+31 (0)6 49 24 04 12</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span><span></span>
+        </button>
+    </nav>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
 <div class="mobile-nav" id="mobile-nav">
 <div class="mobile-nav-header"><span class="mobile-nav-title">Menu</span></div>
@@ -246,15 +359,71 @@ footer{background:var(--bg-dark);color:var(--white);padding:6rem 4vw 2rem}
 </main>
 
 <footer>
-<div class="footer-top">
-<div class="footer-brand"><span class="footer-logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>
-<p>Bouwkundig teken- en adviesbureau met jarenlange ervaring in vergunningstrajecten. Actief in 170+ gemeentes door heel Nederland.</p></div>
-<div class="footer-nav"><h5>Diensten</h5><ul><li><a href="dakkapel.html">Dakkapel</a></li><li><a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a></li><li><a href="erker.html">Erker</a></li><li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li></ul></div>
-<div class="footer-nav"><h5>Contact</h5><ul><li><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></li><li><a href="tel:+316****0412">+31 (0)6 49 24 04 12</a></li></ul></div>
-<div class="footer-nav"><h5>Overig</h5><ul><li><a href="over-ons.html">Over ons</a></li><li><a href="blog.html">Blog</a></li><li><a href="privacybeleid.html">Privacy</a></li><li><a href="algemene-voorwaarden.html">Voorwaarden</a></li></ul></div>
-</div>
-<div class="footer-copy">© 2025–2026 Technisch Bouwadvies | KVK: 95153756</div>
-</footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-link">
+                    <span class="footer-logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>
+                </a>
+                <p>Bouwkundig teken- en adviesbureau met jarenlange ervaring met vergunningstrajecten. ABW-gecertificeerd en actief in 170+ gemeentes door heel Nederland — waaronder Amsterdam, Rotterdam, Den Haag, Utrecht, Eindhoven, Groningen, Tilburg, Almere, Breda en Nijmegen.</p>
+                    <div class="footer-social" style="margin-top: 1rem;">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-block; color: var(--text-light);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+            </div>
+            <div class="footer-nav">
+                <h5>Diensten</h5>
+                <ul>
+                    <li><a href="dakkapel.html">Dakkapel</a></li>
+                    <li><a href="dakopbouw-vergunningen.html">Dakopbouw</a></li>
+                    <li><a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a></li>
+                    <li><a href="erker.html">Erker</a></li>
+                    <li><a href="mantelzorg.html">Mantelzorgwoning</a></li>
+                    <li><a href="bijgebouw.html">Bijgebouwen</a></li>
+                    <li><a href="bed-breakfast.html">Bed &amp; Breakfast</a></li>
+                    <li><a href="nokverhoging.html">Nokverhoging</a></li>
+                    <li><a href="carport-vergunning.html">Carport</a></li>
+                    <li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li>
+                    <li><a href="bouwkundig-advies.html">Bouwkundig Advies</a></li>
+                    <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
+                    <li><a href="aankoopadvies.html">Aankoopadvies</a></li>
+                    <li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></li>
+                    <li><a href="tel:+316****0412">+31 (0)6 49 24 04 12</a></li>
+                    <li><a href="#contact">Contactformulier</a></li>
+                    <li><a href="over-ons.html">Over Ons</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h5>Nieuwsbrief</h5>
+                <p>Blijf op de hoogte van wijzigingen in de regelgeving en praktische tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Uw e-mailadres" required>
+                    <button type="submit">Inschrijven</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2025&ndash;2026 Technisch Bouwadvies | KVK: 95153756</div>
+            <div class="footer-legal">
+                <a href="privacybeleid.html">Privacybeleid</a>
+                <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+                <a href="cookiebeleid.html">Cookiebeleid</a>
+            </div>
+        </div>
+    </footer>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
