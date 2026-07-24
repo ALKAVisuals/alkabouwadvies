@@ -4552,7 +4552,8 @@ transform: translateY(-2px);
 
         // Mobiel menu
         document.getElementById('menu-toggle').addEventListener('click', () => {
-            document.getElementById('mobile-nav').classList.toggle('open');
+            document.getElementById('mobile-nav').classList.toggle('active');
+            document.getElementById('menu-toggle').classList.toggle('active');
         });
 
         // FAQ accordeon
