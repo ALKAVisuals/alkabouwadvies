@@ -3460,7 +3460,22 @@ color: var(--white);
             background: var(--white, #fff);
             transform: translateY(-1px);
         }
-        @media (max-width: 768px) {
+        
+@media (max-width: 768px) {
+    .hero-left, .hero, .hero-dark { padding: 7rem 1.5rem 4rem !important; }
+    .hero h1, .hero-left h1, .hero-dark h1 { font-size: 1.75rem !important; }
+    .hero p, .hero-left p, .hero-dark p { font-size: 1rem !important; }
+    section { padding: 4rem 1.5rem !important; }
+    .diensten-grid, .pricing-grid, .stappen-grid, .proces-steps, .stads-grid,
+    .grid-2, .grid-auto, .vergunning-grid, .constructie-inner, .contact-inner { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .footer-top { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .footer-bottom { flex-direction: column !important; gap: 1rem !important; text-align: center !important; }
+    img { max-width: 100% !important; height: auto !important; }
+    table, .tabel { overflow-x: auto !important; display: block !important; }
+    .nav-logo-img { display: none !important; }
+}
+
+@media (max-width: 768px) {
             .cookie-consent { padding: 1rem 1.5rem; }
             .cookie-consent-inner { flex-direction: column; text-align: center; }
             .cookie-accept { width: 100%; }
