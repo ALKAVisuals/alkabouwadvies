@@ -4277,10 +4277,34 @@ transform: translateY(-2px);
         backToTopBtn.addEventListener('click', () => lenis.scrollTo(0));
 
         // Mobiel menu
-        document.getElementById('menu-toggle').addEventListener('click', () => {
-            document.getElementById('mobile-nav').classList.toggle('open');
-        });
-
+                const mobileNav = document.getElementById('mobile-nav');
+                const menuToggle = document.getElementById('menu-toggle');
+                const stickyCta = document.getElementById('mobile-sticky-cta');
+                menuToggle.addEventListener('click', () => {
+                    const isOpen = mobileNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                    if (stickyCta) {
+                        stickyCta.style.display = isOpen ? 'none' : '';
+                    }
+                });
+                document.getElementById('mobile-nav').querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        document.getElementById('mobile-nav').classList.remove('active');
+                        document.getElementById('menu-toggle').classList.remove('active');
+                        document.getElementById('menu-toggle').setAttribute('aria-expanded', false);
+                        if (document.getElementById('mobile-sticky-cta')) {
+                            document.getElementById('mobile-sticky-cta').style.display = '';
+                        }
+                    });
+                });
+                document.querySelector('.mobile-nav-cat')?.addEventListener('click', function() {
+                    const s = this.nextElementSibling;
+                    if (s) { const o = s.classList.toggle('open'); this.setAttribute('aria-expanded', o); }
+                });
+                document.querySelector('.mobile-nav-subcat')?.addEventListener('click', function() {
+                    const s = this.nextElementSibling;
+                    if (s) { const o = s.classList.toggle('open'); this.setAttribute('aria-expanded', o); }
+                });
         // FAQ accordeon
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
@@ -4724,11 +4748,13 @@ transform: translateY(-2px);
     h1 { font-size: 1.75rem !important; }
     h2 { font-size: 1.35rem !important; }
     .grid-2, .diensten-grid, .pricing-grid, .stappen-grid, .proces-steps,
-    .stads-grid, .grid-auto, .vergunning-grid, .constructie-inner,
-    .contact-inner, .aanleveren-grid, .gallery-grid,
-    .erker-types-grid, .ervaringen-grid, .showcase-grid, .proces-stappen-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-    .contact-info, .contact-form { width: 100% !important; }
-    .faq-container { padding: 0 !important; }
+      .stads-grid, .grid-auto, .vergunning-grid, .constructie-inner,
+      .contact-inner, .aanleveren-grid, .gallery-grid,
+      .erker-types-grid, .ervaringen-grid, .showcase-grid, .proces-stappen-grid,
+      .waardestijging-inner, .vergunning-plicht-inner,
+      .mantelzorg-types-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+      .contact-info, .contact-form { width: 100% !important; }
+      .faq-container { padding: 0 !important; }
     .btn { width: 100% !important; text-align: center !important; }
     img { max-width: 100% !important; height: auto !important; }
     table { overflow-x: auto !important; display: block !important; }
