@@ -4490,7 +4490,20 @@ color: var(--white);
             background: var(--white, #fff);
             transform: translateY(-1px);
         }
-        @media (max-width: 768px) {
+        
+@media (max-width: 768px) {
+    .hero-left, .hero, .hero-dark { padding: 7rem 1.5rem 4rem !important; }
+    h1 { font-size: 1.75rem !important; }
+    p { font-size: 1rem !important; }
+    section { padding: 4rem 1.5rem !important; }
+    .grid-2, .grid-auto, .diensten-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+    .footer-top { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .footer-bottom { flex-direction: column !important; gap: 1rem !important; text-align: center !important; }
+    img { max-width: 100% !important; height: auto !important; }
+    .nav-logo-img { display: none !important; }
+}
+
+@media (max-width: 768px) {
             .cookie-consent { padding: 1rem 1.5rem; }
             .cookie-consent-inner { flex-direction: column; text-align: center; }
             .cookie-accept { width: 100%; }
