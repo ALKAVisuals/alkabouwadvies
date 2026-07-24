@@ -4543,6 +4543,31 @@ transform: translateY(-2px);
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
 
+        // Desktop dropdown panel switcher
+        const dropdownLeftItems = document.querySelectorAll('.dropdown-left .dropdown-item');
+        const allRightPanels = document.querySelectorAll('.dropdown-right');
+        function showRightPanel(subId) {
+            allRightPanels.forEach(p => p.classList.remove('visible'));
+            if (subId) {
+                const panel = document.getElementById(subId);
+                if (panel) panel.classList.add('visible');
+            }
+        }
+        dropdownLeftItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                dropdownLeftItems.forEach(i => { i.classList.remove('hovered'); i.setAttribute('aria-expanded', 'false'); });
+                this.classList.add('hovered');
+                this.setAttribute('aria-expanded', 'true');
+                const sub = this.getAttribute('data-sub');
+                if (sub) showRightPanel('sub-' + sub);
+            });
+        });
+        const firstItem = document.querySelector('.dropdown-left .dropdown-item');
+        if (firstItem) {
+            const sub = firstItem.getAttribute('data-sub');
+            if (sub) showRightPanel('sub-' + sub);
+        }
+
         // Back to top knop
         const backToTopBtn = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
@@ -4554,6 +4579,21 @@ transform: translateY(-2px);
         document.getElementById('menu-toggle').addEventListener('click', () => {
             document.getElementById('mobile-nav').classList.toggle('active');
             document.getElementById('menu-toggle').classList.toggle('active');
+        });
+        document.getElementById('mobile-nav').querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-nav').classList.remove('active');
+                document.getElementById('menu-toggle').classList.remove('active');
+                document.getElementById('menu-toggle').setAttribute('aria-expanded', false);
+            });
+        });
+        document.querySelector('.mobile-nav-cat')?.addEventListener('click', function() {
+            const s = this.nextElementSibling;
+            if (s) { const o = s.classList.toggle('open'); this.setAttribute('aria-expanded', o); }
+        });
+        document.querySelector('.mobile-nav-subcat')?.addEventListener('click', function() {
+            const s = this.nextElementSibling;
+            if (s) { const o = s.classList.toggle('open'); this.setAttribute('aria-expanded', o); }
         });
 
         // FAQ accordeon
