@@ -4333,16 +4333,20 @@ transform: translateY(-2px);
         if (contactForm) {
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                showToast(
+                const formData = new FormData(contactForm);
+                fetch('/', { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
+                    .then(r => {
+                        if (!r.ok) throw new Error();
+                        showToast(
                     'Uw mantelzorg-aanvraag is succesvol verzonden! Wij nemen binnen 24 uur contact met u op om uw tuin en zorgsituatie te bespreken.',
                     'success');
-                contactForm.reset();
-                const subjectSelect = document.getElementById('subject');
-                if (subjectSelect) {
-                    subjectSelect.value = '';
-                    subjectSelect.dispatchEvent(new Event('change'));
-                }
-            });
+                        contactForm.reset();
+                        const subjectSelect = document.getElementById('subject'); if (subjectSelect) { subjectSelect.value = ''; subjectSelect.dispatchEvent(new Event('change')); }
+                    })
+                    .catch(() => {
+                        showToast('Er ging iets mis. Probeer het opnieuw.', 'error');
+                    });
+                });
         }
 
         // === WIZARD LOGICA (geüpgrade adviesrol) ===

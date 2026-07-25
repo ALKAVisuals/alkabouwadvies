@@ -3498,17 +3498,20 @@ transform: translateY(-2px);
         if (contactForm) {
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                showToast(
+                const formData = new FormData(contactForm);
+                fetch('/', { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
+                    .then(r => {
+                        if (!r.ok) throw new Error();
+                        showToast(
                     'Uw dakopbouw-aanvraag is succesvol verzonden! Wij nemen binnen 24 uur contact met u op om uw dakopbouw te bespreken.',
                     'success');
-                contactForm.reset();
-                // Na verzenden blijven de velden leeg; geen automatische invulling meer.
-                const subjectSelect = document.getElementById('subject');
-                if (subjectSelect) {
-                    subjectSelect.value = ''; // terug naar placeholder
-                    subjectSelect.dispatchEvent(new Event('change'));
-                }
-            });
+                        contactForm.reset();
+                        const subjectSelect = document.getElementById('subject'); if (subjectSelect) { subjectSelect.value = ''; subjectSelect.dispatchEvent(new Event('change')); }
+                    })
+                    .catch(() => {
+                        showToast('Er ging iets mis. Probeer het opnieuw.', 'error');
+                    });
+                });
         }
     </script>
 
