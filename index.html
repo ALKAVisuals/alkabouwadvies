@@ -3604,6 +3604,12 @@ color: var(--white);
             height: 88px;
             padding: 12px 2vw;
             background: transparent;
+            transform: translateY(0);
+            will-change: transform;
+            transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        nav.nav-hidden {
+            transform: translateY(calc(-100% - 12px));
         }
         nav.scrolled {
             padding: 12px 2vw;
@@ -4951,9 +4957,43 @@ color: var(--white);
             passive: true });
         backToTop.addEventListener('click', () => { lenis.scrollTo(0, { duration: 1.5 }); });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window
-                .scrollY > 50); }, { passive: true });
+        // Scroll-aware navbar: hide while moving down, reveal while moving up.
+        const navbar = document.getElementById('navbar');
+        let previousScrollY = Math.max(window.scrollY, 0);
+        let navbarScrollTicking = false;
+        const navbarHideThreshold = 140;
+        const navbarDirectionThreshold = 8;
+
+        function updateNavbarOnScroll() {
+            const currentScrollY = Math.max(window.scrollY, 0);
+            const scrollDelta = currentScrollY - previousScrollY;
+            const mobileMenuIsOpen = mobileNav.classList.contains('active');
+            const navbarHasKeyboardFocus = Boolean(navbar.querySelector(':focus-visible'));
+
+            navbar.classList.toggle('scrolled', currentScrollY > 50);
+
+            if (currentScrollY <= navbarHideThreshold || mobileMenuIsOpen || navbarHasKeyboardFocus) {
+                navbar.classList.remove('nav-hidden');
+                previousScrollY = currentScrollY;
+            } else if (scrollDelta > navbarDirectionThreshold) {
+                navbar.classList.add('nav-hidden');
+                previousScrollY = currentScrollY;
+            } else if (scrollDelta < -navbarDirectionThreshold) {
+                navbar.classList.remove('nav-hidden');
+                previousScrollY = currentScrollY;
+            }
+
+            navbarScrollTicking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!navbarScrollTicking) {
+                window.requestAnimationFrame(updateNavbarOnScroll);
+                navbarScrollTicking = true;
+            }
+        }, { passive: true });
+        navbar.addEventListener('focusin', () => navbar.classList.remove('nav-hidden'));
+        updateNavbarOnScroll();
 
         // Form Validation
         const contactForm = document.querySelector('.contact-form');
