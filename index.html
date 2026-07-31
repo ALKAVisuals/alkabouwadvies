@@ -1982,7 +1982,7 @@ transform: translateY(-2px);
         .calc-steps {
             display: flex;
             gap: 1rem;
-            margin-bottom: 0rem;
+            margin-bottom: 2.5rem;
             align-items: center;
         }
         .calc-step {
@@ -2048,11 +2048,10 @@ transform: translateY(-2px);
         .calc-question {
             font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 5.5rem;
+            margin: 0 0 2rem;
             letter-spacing: -0.02em;
             line-height: 1.5;
             word-spacing: 0.1em;
-            margin-top: -1rem;
         }
         .calc-options {
             display: grid;
@@ -3448,6 +3447,7 @@ color: var(--white);
                 grid-template-columns: repeat(3, minmax(0, 1fr));
                 gap: 0.5rem;
                 align-items: start;
+                margin-bottom: 0;
             }
             .calc-step {
                 min-width: 0;
@@ -3537,6 +3537,9 @@ color: var(--white);
             .calc-cta-secondary {
                 width: 100%;
                 padding: 1rem;
+            }
+            .back-to-top {
+                display: none;
             }
             body {
                 cursor: auto !important;
