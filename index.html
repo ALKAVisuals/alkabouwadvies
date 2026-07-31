@@ -34,7 +34,7 @@
             "name": "Technisch Bouwadvies",
             "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en bestemmingsplanadvies voor uitbouwen, dakkapellen en erkers. Actief in 170+ gemeentes.",
             "url": "https://technischbouwadvies.nl",
-            "telephone": "+31612345678",
+            "telephone": "+31649240412",
             "email": "info@technischbouwadvies.nl",
             "priceRange": "&euro;&euro;",
             "currenciesAccepted": "EUR",
@@ -2941,6 +2941,33 @@ transform: translateY(-2px);
         .contact-detail a:hover {
             color: var(--accent);
         }
+        .contact-trust-list {
+            max-width: 400px;
+            margin-top: 2.75rem;
+            padding: 1.5rem;
+            display: grid;
+            gap: 0.85rem;
+            list-style: none;
+            background: rgba(196, 163, 90, 0.06);
+            border-left: 2px solid var(--accent);
+        }
+        .contact-trust-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        .contact-trust-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.45rem;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -2971,6 +2998,23 @@ transform: translateY(-2px);
             outline: none;
             border-color: var(--accent);
             box-shadow: 0 0 0 4px rgba(196, 163, 90, 0.08);
+        }
+        .form-group input.error,
+        .form-group textarea.error,
+        .form-group select.error {
+            border-color: var(--error);
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.08);
+        }
+        .form-error {
+            display: none;
+            margin-top: 0.5rem;
+            color: var(--error);
+            font-size: 0.75rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .form-error.visible {
+            display: block;
         }
         .form-group textarea {
             min-height: 180px;
@@ -3057,6 +3101,19 @@ transform: translateY(-2px);
         .btn:disabled:hover {
             transform: none;
             background: var(--text);
+        }
+        .form-privacy {
+            margin-top: -0.75rem;
+            color: var(--text-light);
+            font-size: 0.75rem;
+            line-height: 1.6;
+        }
+        .form-privacy a {
+            color: var(--text);
+            text-underline-offset: 0.2em;
+        }
+        .form-privacy a:hover {
+            color: var(--accent);
         }
 
         /* Toast */
@@ -3409,6 +3466,13 @@ color: var(--white);
             }
             .contact-info h3 {
                 font-size: 1.75rem;
+            }
+            .contact-trust-list {
+                margin-top: 2rem;
+                padding: 1.25rem;
+            }
+            .contact-form .btn {
+                width: 100%;
             }
             .quote-inner blockquote {
                 font-size: 1.25rem;
@@ -4459,7 +4523,7 @@ color: var(--white);
 
         <section class="usp-strip" aria-label="Onze kernvoordelen">
             <div class="usp-strip-inner">
-                <div class="usp-item"><div class="usp-icon-wrapper" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h4>Binnen 48 uur persoonlijk contact</h4><p>Geen wachtrijen of onpersoonlijke systemen. Direct een ervaren adviseur aan uw zijde die uw plannen begrijpt én beoordeelt.</p></div>
+                <div class="usp-item"><div class="usp-icon-wrapper" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h4>Binnen 24 uur persoonlijk contact</h4><p>Geen wachtrijen of onpersoonlijke systemen. Direct een ervaren adviseur aan uw zijde die uw plannen begrijpt én beoordeelt.</p></div>
                 <div class="usp-item"><div class="usp-icon-wrapper" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6h-4a4 4 0 0 0-4 4v4a4 4 0 0 0 4 4h4" stroke-width="2"/><line x1="9" y1="10" x2="15" y2="10" stroke-width="2"/><line x1="9" y1="14" x2="15" y2="14" stroke-width="2"/></svg></div><h4>Vaste prijzen, nul verrassingen</h4><p>Transparante tarieven vanaf &euro;250. Geen verborgen kosten, geen naverrekening — u weet vooraf exact waar u aan toe bent.</p></div>
                 <div class="usp-item"><div class="usp-icon-wrapper" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg></div><h4>100% Goedkeuringsgarantie</h4><p>Onze tekeningen voldoen altijd aan alle gemeentelijke eisen. U loopt nooit vast in procedures — wij regelen het tot de vergunning in huis is.</p></div>
                 <div class="usp-item"><div class="usp-icon-wrapper" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10v6"></path><path d="M12 2l9 4-9 4-9-4 9-4z"></path><path d="M12 12l9 4-9 4-9-4 9-4z"></path></svg></div><h4>ABW-Gecertificeerd vakmanschap</h4><p>Gecertificeerd conform ABW-normen. Uw bouwtekeningen worden opgesteld door professionals die de gemeentelijke taal spreken.</p></div>
@@ -4519,7 +4583,7 @@ color: var(--white);
 
         <section class="projecten" id="projecten" aria-label="Gerealiseerde projecten"><div class="projecten-header"><div class="section-label">Gerealiseerde projecten</div><h2 class="section-title">ruime ervaring succesvol afgerond</h2></div><article class="project"><div class="project-image"><img src="images/Uitbouw1.png" alt="Moderne woonuitbouw in beschermd stadsgezicht Amsterdam" loading="lazy" decoding="async"><div class="project-image-overlay" aria-hidden="true"></div></div><div class="project-content"><div class="project-meta">Moderne Uitbouw — Amsterdam</div><h3>Slimme woonuitbreiding in beschermd stadsgezicht</h3><p>Complete vergunningsaanvraag voor een moderne uitbouw in een monumentale omgeving. Dankzij onze jarenlange ervaring met welstandscommissies werd de vergunning binnen 6 weken verleend — in één keer, zonder wijzigingsronde.</p><a href="#" class="project-link" aria-label="Meer details over het uitbouw project in Amsterdam">Bekijk project</a></div></article><article class="project"><div class="project-image"><img src="images/woonrenovatie en keukenaanbouw van 25 m2.png" alt="Volledige woonrenovatie met keukenaanbouw in Rotterdam" loading="lazy" decoding="async"><div class="project-image-overlay" aria-hidden="true"></div></div><div class="project-content"><div class="project-meta">Renovatie — Rotterdam</div><h3>Volledige woonrenovatie met keukenaanbouw</h3><p>Bouwkundige tekeningen en vergunningaanvraag voor een 25m² aanbouw inclusief constructieve berekening. Volledig BENG-conform en conform bestemmingsplan — opgeleverd in recordtempo.</p><a href="#" class="project-link" aria-label="Meer details over het renovatie project in Rotterdam">Bekijk project</a></div></article><article class="project"><div class="project-image"><img src="images/B&B3.jpg" alt="Vrijstaande nieuwbouwwoning op maat in Utrecht" loading="lazy" decoding="async"><div class="project-image-overlay" aria-hidden="true"></div></div><div class="project-content"><div class="project-meta">BED & BREAKFAST — Utrecht</div><h3>Luxe Bed & Breakfast op maat</h3><p>Digitalisering van bestaande concepten en vergunningaanvraag voor een volledig nieuwbouwproject. Wij begeleidden het complete traject inclusief alle correspondentie met de gemeente Utrecht — van schets tot sleutelmoment.</p><a href="#" class="project-link" aria-label="Meer details over het nieuwbouw project in Utrecht">Bekijk project</a></div></article></section>
 
-        <section class="over-ons" id="over-ons" aria-label="Over ons"><div class="over-ons-inner"><div class="over-ons-image"><img src="images/tim-adviseur.jpg" alt="Bouwkundig Adviseur Technisch Bouwadvies" loading="lazy" decoding="async"></div><div class="over-ons-content"><div class="section-label">Over ons</div><h3>Onderdeel van de Technisch Bouwadvies: Visie ontmoet Constructie</h3><p>Technisch Bouwadvies is meer dan een tekenbureau. Wij zijn de schakel tussen uw droom en de complexe realiteit van wetgeving, normen en gemeentelijke procedures. Ons team bestaat uit gecertificeerde bouwkundigen met jarenlange ervaring aan beide kanten van de tafel.</p><div class="over-ons-group"><p><strong>Onze kracht?</strong> Wij spreken de ambtelijke taal. Met onze achtergrond in gemeentelijke procedures weten wij precies wat welstandscommissies eisen om in één keer goedgekeurd te worden. Die kennis vertalen wij in waterdichte tekeningen die in één keer worden goedgekeurd — en zo uw bouwdroom werkelijkheid maken.</p></div><div class="over-ons-stats"><div class="over-ons-stat"><h5>5+</h5><span>Ervaring &amp; expertise</span></div><div class="over-ons-stat"><h5>48u</h5><span>Reactietijd gegarandeerd</span></div><div class="over-ons-stat"><h5>100%</h5><span>Goedkeuringsgarantie</span></div><div class="over-ons-stat"><h5>170+</h5><span>Gemeentes actief</span></div></div></div></div></section>
+        <section class="over-ons" id="over-ons" aria-label="Over ons"><div class="over-ons-inner"><div class="over-ons-image"><img src="images/tim-adviseur.jpg" alt="Bouwkundig Adviseur Technisch Bouwadvies" loading="lazy" decoding="async"></div><div class="over-ons-content"><div class="section-label">Over ons</div><h3>Onderdeel van de Technisch Bouwadvies: Visie ontmoet Constructie</h3><p>Technisch Bouwadvies is meer dan een tekenbureau. Wij zijn de schakel tussen uw droom en de complexe realiteit van wetgeving, normen en gemeentelijke procedures. Ons team bestaat uit gecertificeerde bouwkundigen met jarenlange ervaring aan beide kanten van de tafel.</p><div class="over-ons-group"><p><strong>Onze kracht?</strong> Wij spreken de ambtelijke taal. Met onze achtergrond in gemeentelijke procedures weten wij precies wat welstandscommissies eisen om in één keer goedgekeurd te worden. Die kennis vertalen wij in waterdichte tekeningen die in één keer worden goedgekeurd — en zo uw bouwdroom werkelijkheid maken.</p></div><div class="over-ons-stats"><div class="over-ons-stat"><h5>5+</h5><span>Ervaring &amp; expertise</span></div><div class="over-ons-stat"><h5>24u</h5><span>Reactietijd gegarandeerd</span></div><div class="over-ons-stat"><h5>100%</h5><span>Goedkeuringsgarantie</span></div><div class="over-ons-stat"><h5>170+</h5><span>Gemeentes actief</span></div></div></div></div></section>
 
                 <section class="faq" id="faq" aria-label="Veelgestelde vragen"><div class="faq-inner"><div class="section-label">Veelgestelde vragen</div><h2 class="section-title">Alles wat u moet weten over vergunningen en kosten</h2><div class="faq-list"><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">Hoe lang duurt het vergunningstraject gemiddeld?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-1"><p>De doorlooptijd hangt af van de complexiteit van uw project. Een eenvoudige dakkapel of uitbouw duurt gemiddeld 6 tot 8 weken. Complexere projecten kunnen 12 tot 16 weken in beslag nemen. Wij zorgen ervoor dat uw aanvraag vanaf dag één compleet en correct is ingediend, zodat er geen vertraging ontstaat door aanvullingen.</p></div></div><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Wat zijn de totale kosten inclusief leges?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-2"><p>Onze tarieven zijn vaste prijzen exclusief BTW en gemeentelijke leges. De leges verschillen per gemeente en worden berekend op basis van de bouwsom. Voor de meeste uitbouwen en dakkapellen liggen de totale kosten (inclusief leges) tussen de &euro;400 en &euro;700. Wij geven u vooraf een transparante kostenindicatie.</p></div></div><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Is een omgevingsvergunning altijd nodig?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-3"><p>Niet altijd. Sinds de Omgevingswet geldt dat veel kleine verbouwingen onder het "vergunningsvrij bouwen" vallen. Voor dakkapellen, uitbouwen en erkers tot bepaalde afmetingen is geen vergunning nodig. Wij beoordelen gratis of uw plan vergunningsplichtig is en adviseren u over de beste route.</p></div></div><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Kan ik de tekeningen ook zelf gebruiken voor aannemers?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-4"><p>Absoluut. Onze bouwkundige tekeningen voldoen niet alleen aan gemeentelijke eisen, maar zijn ook geschikt als werktekening voor aannemers en uitvoerders. U ontvangt ze digitaal in PDF en DXF-formaat, klaar om te delen met iedereen die aan uw project werkt.</p></div></div><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">Wat gebeurt er als de gemeente bezwaar maakt?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-5"><p>Dankzij onze ervaring en grondige voorbereiding komt dit zelden voor. Mocht er toch een vraag of opmerking vanuit de gemeente komen, dan fungeren wij als uw aanspreekpunt. Wij beantwoorden alle technische vragen, passen de tekeningen aan indien nodig, en zorgen dat het traject soepel verloopt — zonder extra kosten.</p></div></div><div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">In welke gemeentes zijn jullie actief?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-6"><p>Wij zijn actief in meer dan 170 gemeentes door heel Nederland. Van Amsterdam tot Zeeland, en van Groningen tot Limburg. Onze kennis van lokale bestemmingsplannen en welstandscriteria maakt ons uniek. Twijfelt u of wij in uw regio werken? Neem gerust contact op — de kans is groot dat wij u gewoon kunnen helpen.</p></div></div>
         <div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">Wat is het verschil tussen een omgevingsvergunning en een bouwvergunning?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-7"><p>Sinds de Omgevingswet (2024) zijn veel vergunningen samengevoegd in &eacute;&eacute;n omgevingsvergunning. Een bouwvergunning bestaat niet meer als aparte aanvraag — het valt nu onder de omgevingsvergunning. Wij regelen de complete aanvraag voor u via het Omgevingsloket.</p></div></div>
@@ -4533,12 +4597,84 @@ color: var(--white);
         <section class="quote" aria-label="Persoonlijke boodschap van adviseur"><div class="quote-inner"><blockquote>Voor u is dit geen standaard verbouwing, maar een droom die werkelijkheid wordt. Ik sta voor u klaar om deze tot een succes te maken, zonder dat uw plan vastloopt in gemeentelijke procedures.</blockquote><div class="quote-author"><img src="images/tim-adviseur.jpg" alt="Bouwkundig Adviseur" style="width:50px;height:50px;border-radius:50%;vertical-align:middle;margin-right:0.75rem;object-fit:cover;">Levi<span>Tekenaar &amp; Adviseur — Technisch Bouwadvies</span></div></div></section>
 
         <section class="stats-strip" aria-label="Onze statistieken in cijfers"><div class="stats-strip-inner"><div class="stat-item"><h4 data-count="5"><em>0</em>+</h4>
-                            <span>Jaar ervaring</span></div><div class="stat-item"><h4 data-count="170"><em>0</em>+</h4><span>Gemeentes door heel NL</span></div><div class="stat-item"><h4 data-count="48"><em>0</em> <span class="stat-suffix">uur</span></h4>
+                            <span>Jaar ervaring</span></div><div class="stat-item"><h4 data-count="170"><em>0</em>+</h4><span>Gemeentes door heel NL</span></div><div class="stat-item"><h4 data-count="24"><em>0</em> <span class="stat-suffix">uur</span></h4>
                             <span>Reactietijd</span></div><div class="stat-item"><h4 data-count="100"><em>0</em><span class="stat-suffix">%</span></h4>
                             <span>Goedkeuringsgarantie</span></div></div></section>
 
-        <section class="contact" id="contact" aria-label="Contactformulier en contactgegevens"><div class="contact-inner"><div class="contact-info"><div class="section-label">Contact</div><h3>Start vandaag uw bouwtraject</h3><p>Vul het formulier in voor een vrijblijvend adviesgesprek of vraag direct een offerte aan. Wij reageren altijd binnen 24 uur — en u zit nergens aan vast.</p><div class="contact-detail"><strong>E-mail</strong><a href="mailto:info@technischbouwadvies.nl" aria-label="Stuur een e-mail naar info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></div><div class="contact-detail"><strong>Telefoon</strong><a href="tel:+31612345678" aria-label="Bel ons op +31 6 12 34 56 78">+31 (0)6 49 24 04 12</a></div><div class="contact-detail"><strong>Website</strong><a href="https://technischbouwadvies.nl" aria-label="Bezoek onze website technischbouwadvies.nl">technischbouwadvies.nl</a></div></div><form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Contactformulier" novalidate><p style="display:none;" aria-hidden="true"><label>Laat dit veld leeg: <input name="bot-field" /></label></p>
-  <input type="hidden" name="form-name" value="contact" /><div class="form-group"><input type="text" name="name" id="name" placeholder=" " required aria-required="true" aria-label="Uw naam"><label for="name">Naam</label><div class="form-error" id="error-name">Vul uw naam in</div></div><div class="form-group"><input type="email" name="email" id="email" placeholder=" " required aria-required="true" aria-label="Uw e-mailadres"><label for="email">E-mail</label><div class="form-error" id="error-email">Vul een geldig e-mailadres in</div></div><div class="form-group"><input type="tel" name="phone" id="phone" placeholder=" " aria-label="Uw telefoonnummer"><label for="phone">Telefoon</label></div><div class="form-group"><select name="subject" id="subject" required><option value="" disabled selected></option><option value="dakkapel">Dakkapel (&euro;250)</option><option value="dakopbouw">Dakopbouw (&euro;330)</option><option value="uitbouw">Uitbouw / Aanbouw (&euro;330)</option><option value="erker">Erker (&euro;250)</option><option value="mantelzorg">Mantelzorgwoning (&euro;330)</option><option value="nieuwbouw">BED & BREAKFAST (&euro;1.140)</option><option value="nok">Nokverhoging / Doorbraak (&euro;330)</option><option value="bijgebouw">Bijgebouwen (&euro;250)</option><option value="digitaliseren">Bouwtekeningen digitaliseren</option><option value="advies">Advies bestemmingsplan</option><option value="overig">Overig / Vrijblijvend gesprek</option></select><label for="subject">Onderwerp</label><div class="form-error" id="error-subject">Selecteer een onderwerp</div></div><div class="form-group"><input type="text" name="gemeente" id="gemeente" placeholder=" " required aria-required="true" aria-label="Uw gemeente"><label for="gemeente">Gemeente</label><div class="form-error" id="error-gemeente">Vul uw gemeente in</div></div><div class="form-group"><textarea name="message" id="message" placeholder=" " required aria-required="true" aria-label="Uw bericht"></textarea><label for="message">Bericht</label><div class="form-error" id="error-message">Vul uw bericht in</div></div><button type="submit" class="btn" id="submit-btn" aria-label="Verstuur uw aanvraag — wij reageren binnen 24 uur">Verstuur aanvraag — gratis advies</button></form></div></section>
+        <section class="contact" id="contact" aria-label="Contactformulier en contactgegevens">
+            <div class="contact-inner">
+                <div class="contact-info">
+                    <div class="section-label">Contact</div>
+                    <h3>Start vandaag uw bouwtraject</h3>
+                    <p>Vul het formulier in voor een vrijblijvend adviesgesprek of vraag direct een offerte aan. Wij reageren altijd binnen 24 uur &mdash; en u zit nergens aan vast.</p>
+                    <div class="contact-detail">
+                        <strong>E-mail</strong>
+                        <a href="mailto:info@technischbouwadvies.nl" aria-label="Stuur een e-mail naar info@technischbouwadvies.nl">info@technischbouwadvies.nl</a>
+                    </div>
+                    <div class="contact-detail">
+                        <strong>Telefoon</strong>
+                        <a href="tel:+31649240412" aria-label="Bel ons op +31 6 49 24 04 12">+31 (0)6 49 24 04 12</a>
+                    </div>
+                    <div class="contact-detail">
+                        <strong>Werkgebied</strong>
+                        <span>Heel Nederland</span>
+                    </div>
+                    <ul class="contact-trust-list" aria-label="Voordelen van contact opnemen">
+                        <li>Binnen 24 uur een persoonlijke reactie</li>
+                        <li>Vrijblijvend advies, zonder verplichtingen</li>
+                        <li>Ervaring met meer dan 170 gemeentes</li>
+                    </ul>
+                </div>
+                <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Contactformulier" novalidate>
+                    <p style="display:none;" aria-hidden="true"><label>Laat dit veld leeg: <input name="bot-field" /></label></p>
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" placeholder=" " autocomplete="name" required aria-required="true" aria-describedby="error-name" aria-invalid="false">
+                        <label for="name">Naam</label>
+                        <div class="form-error" id="error-name" role="alert">Vul uw naam in</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" placeholder=" " autocomplete="email" required aria-required="true" aria-describedby="error-email" aria-invalid="false">
+                        <label for="email">E-mail</label>
+                        <div class="form-error" id="error-email" role="alert">Vul een geldig e-mailadres in</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" id="phone" placeholder=" " autocomplete="tel">
+                        <label for="phone">Telefoon (optioneel)</label>
+                    </div>
+                    <div class="form-group">
+                        <select name="subject" id="subject" required aria-required="true" aria-describedby="error-subject" aria-invalid="false">
+                            <option value="" disabled selected></option>
+                            <option value="dakkapel">Dakkapel (&euro;250)</option>
+                            <option value="dakopbouw">Dakopbouw (&euro;330)</option>
+                            <option value="uitbouw">Uitbouw / Aanbouw (&euro;330)</option>
+                            <option value="erker">Erker (&euro;250)</option>
+                            <option value="mantelzorg">Mantelzorgwoning (&euro;330)</option>
+                            <option value="nieuwbouw">Bed &amp; Breakfast (&euro;1.140)</option>
+                            <option value="nok">Nokverhoging / Doorbraak (&euro;330)</option>
+                            <option value="bijgebouw">Bijgebouwen (&euro;250)</option>
+                            <option value="digitaliseren">Bouwtekeningen digitaliseren</option>
+                            <option value="advies">Advies bestemmingsplan</option>
+                            <option value="overig">Overig / Vrijblijvend gesprek</option>
+                        </select>
+                        <label for="subject">Onderwerp</label>
+                        <div class="form-error" id="error-subject" role="alert">Selecteer een onderwerp</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="gemeente" id="gemeente" placeholder=" " autocomplete="address-level2" required aria-required="true" aria-describedby="error-gemeente" aria-invalid="false">
+                        <label for="gemeente">Gemeente</label>
+                        <div class="form-error" id="error-gemeente" role="alert">Vul uw gemeente in</div>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" placeholder=" " required aria-required="true" aria-describedby="error-message" aria-invalid="false"></textarea>
+                        <label for="message">Bericht</label>
+                        <div class="form-error" id="error-message" role="alert">Vul uw bericht in</div>
+                    </div>
+                    <button type="submit" class="btn" id="submit-btn" aria-label="Verstuur uw aanvraag — wij reageren binnen 24 uur">Verstuur aanvraag &mdash; gratis advies</button>
+                    <p class="form-privacy">Vrijblijvend en zonder verplichtingen. Wij gebruiken uw gegevens alleen voor uw aanvraag. Lees ons <a href="privacybeleid.html">privacybeleid</a>.</p>
+                </form>
+            </div>
+        </section>
 
         <div class="mobile-sticky-cta" id="mobile-sticky-cta">
             <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
@@ -5137,41 +5273,50 @@ color: var(--white);
         // Form Validation
         const contactForm = document.querySelector('.contact-form');
         if (contactForm) {
+            const setFieldState = (field, error, isValid) => {
+                field.classList.toggle('error', !isValid);
+                field.setAttribute('aria-invalid', String(!isValid));
+                error.classList.toggle('visible', !isValid);
+            };
+
+            const clearFieldState = (event) => {
+                const field = event.target;
+                if (!field.classList.contains('error')) return;
+                const errorId = field.getAttribute('aria-describedby');
+                const error = errorId ? document.getElementById(errorId) : null;
+                field.classList.remove('error');
+                field.setAttribute('aria-invalid', 'false');
+                if (error) error.classList.remove('visible');
+            };
+
+            contactForm.addEventListener('input', clearFieldState);
+            contactForm.addEventListener('change', clearFieldState);
+
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                let valid = true;
-                const name = document.getElementById('name'),
-                    nameError = document.getElementById('error-name');
-                if (!name.value.trim()) { name.classList.add('error');
-                    nameError.classList.add('visible');
-                    valid = false; } else { name.classList.remove('error');
-                    nameError.classList.remove('visible'); }
-                const email = document.getElementById('email'),
-                    emailError = document.getElementById('error-email');
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const subject = document.getElementById('subject');
+                const gemeente = document.getElementById('gemeente');
+                const message = document.getElementById('message');
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email.value)) { email.classList.add('error');
-                    emailError.classList.add('visible');
-                    valid = false; } else { email.classList.remove('error');
-                    emailError.classList.remove('visible'); }
-                const subject = document.getElementById('subject'),
-                    subjectError = document.getElementById('error-subject');
-                if (!subject.value) { subject.classList.add('error');
-                    subjectError.classList.add('visible');
-                    valid = false; } else { subject.classList.remove('error');
-                    subjectError.classList.remove('visible'); }
-                const message = document.getElementById('message'),
-                    messageError = document.getElementById('error-message');
-                if (!message.value.trim()) { message.classList.add('error');
-                    messageError.classList.add('visible');
-                    valid = false; 
 
-                const gemeente = document.getElementById('gemeente'),
-                    gemeenteError = document.getElementById('error-gemeente');
-                if (!gemeente.value.trim()) { gemeente.classList.add('error');
-                    gemeenteError.classList.add('visible');
-                    valid = false; } else { gemeente.classList.remove('error');
-                    gemeenteError.classList.remove('visible'); }} else { message.classList.remove('error');
-                    messageError.classList.remove('visible'); }
+                const validations = [
+                    { field: name, error: document.getElementById('error-name'), valid: Boolean(name.value.trim()) },
+                    { field: email, error: document.getElementById('error-email'), valid: emailRegex.test(email.value.trim()) },
+                    { field: subject, error: document.getElementById('error-subject'), valid: Boolean(subject.value) },
+                    { field: gemeente, error: document.getElementById('error-gemeente'), valid: Boolean(gemeente.value.trim()) },
+                    { field: message, error: document.getElementById('error-message'), valid: Boolean(message.value.trim()) }
+                ];
+
+                validations.forEach(({ field, error, valid: fieldIsValid }) => {
+                    setFieldState(field, error, fieldIsValid);
+                });
+
+                const firstInvalid = validations.find(({ valid: fieldIsValid }) => !fieldIsValid);
+                const valid = !firstInvalid;
+                if (firstInvalid) firstInvalid.field.focus();
+
                 if (valid) {
                     const btn = contactForm.querySelector('.btn');
                     btn.disabled = true;
@@ -5182,13 +5327,13 @@ color: var(--white);
                             btn.innerHTML = 'Verzonden!';
                             btn.style.background = 'var(--success)';
                             showToast('Uw aanvraag is succesvol verzonden! Wij nemen binnen 24 uur contact op.');
-                            setTimeout(() => { btn.innerHTML = 'Verstuur aanvraag';
+                            setTimeout(() => { btn.innerHTML = 'Verstuur aanvraag — gratis advies';
                                 btn.style.background = '';
                                 btn.disabled = false;
                                 contactForm.reset(); }, 3000);
                         })
                         .catch(() => {
-                            btn.innerHTML = 'Verstuur aanvraag';
+                            btn.innerHTML = 'Verstuur aanvraag — gratis advies';
                             btn.style.background = '';
                             btn.disabled = false;
                             showToast('Er ging iets mis. Probeer het opnieuw.', 'error');
@@ -5255,7 +5400,7 @@ color: var(--white);
                 <h5>Contact</h5>
                 <ul>
                     <li><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></li>
-                    <li><a href="tel:+316****0412">+31 (0)6 49 24 04 12</a></li>
+                    <li><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></li>
                     <li><a href="#contact">Contactformulier</a></li>
                     <li><a href="over-ons.html">Over Ons</a></li>
                 </ul>
