@@ -3459,10 +3459,35 @@ color: var(--white);
                 gap: 1.5rem;
             }
             .project-content {
-                padding: 2.5rem 1.5rem;
+                order: 2;
+                z-index: 3;
+                padding: 2.75rem 1.5rem 3.25rem;
+                overflow: visible;
+                background: var(--bg);
             }
             .project-image {
-                min-height: 40vh;
+                order: 1;
+                flex: 0 0 auto;
+                height: clamp(18rem, 86vw, 25rem);
+                min-height: 0;
+                isolation: isolate;
+            }
+            .project {
+                display: flex;
+                flex-direction: column;
+                min-height: 0;
+                overflow: visible;
+            }
+            .project-image img {
+                top: 0;
+                height: 100%;
+                transform: none !important;
+                will-change: auto;
+            }
+            .project-link {
+                min-height: 44px;
+                padding: 0.65rem 0;
+                align-self: flex-start;
             }
             .contact-info h3 {
                 font-size: 1.75rem;
@@ -4768,6 +4793,7 @@ color: var(--white);
         }
 
         function initScrollAnimations() {
+            const useProjectMotion = window.matchMedia('(min-width: 1025px)').matches;
             gsap.from('.categorie-card', {
                 scrollTrigger: { trigger: '.categorieen-grid', start: 'top 85%' },
                 y: 80, opacity: 0, duration: 1, stagger: 0.1, ease: 'power4.out'
@@ -4797,11 +4823,11 @@ color: var(--white);
             document.querySelectorAll('.project').forEach(proj => {
                 const img = proj.querySelector('.project-image img');
                 const content = proj.querySelector('.project-content');
-                if (img) gsap.to(img, {
+                if (img && useProjectMotion) gsap.to(img, {
                     scrollTrigger: { trigger: proj, start: 'top bottom', end: 'bottom top', scrub: 1.5 },
                     yPercent: -12, ease: 'none'
                 });
-                if (content) gsap.fromTo(content.children, { opacity: 0 }, {
+                if (content && useProjectMotion) gsap.fromTo(content.children, { opacity: 0 }, {
                     scrollTrigger: { trigger: content, start: 'top 75%' },
                     y: 50, opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out'
                 });
