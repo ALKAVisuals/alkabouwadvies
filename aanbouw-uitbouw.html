@@ -3468,8 +3468,144 @@ transform: translateY(-2px);
       }
       ]
     }
-    </script></head>
+    </script>    <link rel="stylesheet" href="site-header.css">
+    <script src="site-header.js" defer></script>
+</head>
 <body>
+<!-- TBA_SHARED_HEADER_START -->
+<header class="tba-site-header" data-tba-header>
+    <a class="tba-skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
+    <nav id="tba-site-nav" aria-label="Hoofdnavigatie">
+        <div class="tba-nav-shell">
+            <a href="index.html" class="tba-brand" aria-label="Technisch Bouwadvies - Home">
+                <svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+    <rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+                <span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span>
+            </a>
+
+            <ul class="tba-nav-links">
+                <li class="tba-services-item">
+                    <button class="tba-services-trigger" id="tba-services-trigger" type="button" aria-expanded="false" aria-controls="tba-services-menu">
+                        Diensten
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="tba-dropdown" id="tba-services-menu">
+                        <div class="tba-dropdown-inner">
+                            <div class="tba-dropdown-column">
+                                <span class="tba-dropdown-label">Bouwtekeningen</span>
+                                <div class="tba-dropdown-links">
+                                    <a href="dakkapel.html">Dakkapel</a>
+                                    <a href="aanbouw-uitbouw.html">Aanbouw &amp; uitbouw</a>
+                                    <a href="dakopbouw-vergunningen.html">Dakopbouw</a>
+                                    <a href="bijgebouw.html">Bijgebouw</a>
+                                    <a href="nokverhoging.html">Nokverhoging</a>
+                                    <a href="erker.html">Erker</a>
+                                    <a href="mantelzorg.html">Mantelzorgwoning</a>
+                                    <a href="bed-breakfast.html">Bed &amp; Breakfast</a>
+                                </div>
+                            </div>
+                            <div class="tba-dropdown-column">
+                                <span class="tba-dropdown-label">Advies &amp; vergunning</span>
+                                <div class="tba-dropdown-links">
+                                    <a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a>
+                                    <a href="bouwkundig-advies.html">Bouwkundig advies</a>
+                                    <a href="bouwtekening-digitaliseren.html">Tekeningen digitaliseren</a>
+                                    <a href="kozijnen-vervangen-vergunning.html">Kozijnen vervangen</a>
+                                    <a href="carport-vergunning.html">Carport</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a class="tba-nav-link" href="index.html#werkwijze">Werkwijze</a></li>
+                <li><a class="tba-nav-link" href="index.html#projecten">Projecten</a></li>
+                <li><a class="tba-nav-link" href="index.html#calculator">Prijs berekenen</a></li>
+                <li><a class="tba-nav-link" href="index.html#over-ons">Over ons</a></li>
+            </ul>
+
+            <div class="tba-nav-actions">
+                <a href="tel:+31649240412" class="tba-call" aria-label="Bel Technisch Bouwadvies op +31 6 49 24 04 12">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Bel direct</span>
+                </a>
+                <a href="index.html#contact" class="tba-nav-cta">Offerte aanvragen</a>
+            </div>
+
+            <div class="tba-mobile-controls">
+                <a href="tel:+31649240412" class="tba-mobile-call" aria-label="Bel Technisch Bouwadvies">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
+                </a>
+                <button class="tba-menu-toggle" id="tba-menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="tba-mobile-panel">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tba-menu-backdrop" aria-hidden="true"></div>
+    <aside class="tba-mobile-panel" id="tba-mobile-panel" role="dialog" aria-modal="true" aria-label="Mobiel navigatiemenu" aria-hidden="true" inert>
+        <div class="tba-mobile-header">
+            <a href="index.html" class="tba-mobile-brand" aria-label="Technisch Bouwadvies - Home">
+                <svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+    <rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+                <span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span>
+            </a>
+            <button class="tba-menu-close" id="tba-menu-close" type="button" aria-label="Menu sluiten">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <div class="tba-mobile-content">
+            <details class="tba-mobile-services">
+                <summary class="tba-mobile-summary">
+                    <span>Diensten</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <div class="tba-mobile-service-list">
+                    <a href="dakkapel.html">Dakkapel</a>
+                    <a href="aanbouw-uitbouw.html">Aanbouw &amp; uitbouw</a>
+                    <a href="dakopbouw-vergunningen.html">Dakopbouw</a>
+                    <a href="bijgebouw.html">Bijgebouw</a>
+                    <a href="nokverhoging.html">Nokverhoging</a>
+                    <a href="erker.html">Erker</a>
+                    <a href="mantelzorg.html">Mantelzorgwoning</a>
+                    <a href="bed-breakfast.html">Bed &amp; Breakfast</a>
+                    <a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a>
+                    <a href="bouwkundig-advies.html">Bouwkundig advies</a>
+                    <a href="bouwtekening-digitaliseren.html">Digitaliseren</a>
+                    <a href="kozijnen-vervangen-vergunning.html">Kozijnen</a>
+                    <a href="carport-vergunning.html">Carport</a>
+                </div>
+            </details>
+            <a href="index.html#werkwijze" class="tba-mobile-link">Werkwijze</a>
+            <a href="index.html#projecten" class="tba-mobile-link">Projecten</a>
+            <a href="index.html#prijzen" class="tba-mobile-link">Prijzen</a>
+            <a href="index.html#calculator" class="tba-mobile-link">Prijs berekenen</a>
+            <a href="index.html#over-ons" class="tba-mobile-link">Over ons</a>
+
+            <div class="tba-mobile-secondary">
+                <a href="blog.html" data-tba-page="blog">Blog</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="testimonials.html" data-tba-page="reviews">Reviews</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <a href="index.html#contact" class="tba-mobile-cta">Offerte aanvragen</a>
+            <div class="tba-mobile-contact">
+                <a href="tel:+31649240412">+31 (0)6 49 24 04 12</a>
+                <a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a>
+            </div>
+        </div>
+    </aside>
+</header>
+<!-- TBA_SHARED_HEADER_END -->
 <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" class="logo" aria-label="Technisch Bouwadvies - Home">
             <span class="logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>

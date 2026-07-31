@@ -14,7 +14,7 @@
     <meta property="og:description" content="Professionele bouwtekeningen en vergunningaanvragen. Jarenlange ervaring. ABW-gecertificeerd.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://technischbouwadvies.nl">
-    <meta property="og:image" content="images/Dakopbouw_.png">
+    <meta property="og:image" content="https://technischbouwadvies.nl/images/Dakopbouw_-homepage.webp">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://technischbouwadvies.nl">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -226,6 +226,9 @@
             padding: 0;
             box-sizing: border-box;
         }
+        html {
+            overflow-x: clip;
+        }
         html.lenis,
         html.lenis body {
             height: auto;
@@ -246,6 +249,24 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 2000;
+            padding: 0.75rem 1rem;
+            background: var(--bg-dark);
+            color: var(--white);
+            text-decoration: none;
+            transform: translateY(-200%);
+        }
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+        :where(a, button, input, select, textarea):focus-visible {
+            outline: 3px solid var(--accent-light);
+            outline-offset: 3px;
         }
         ::selection {
             background: var(--accent);
@@ -735,10 +756,12 @@ transform: translateY(-2px);
             pointer-events: none;
             transition: opacity 0.4s ease;
             overflow-y: auto;
+            visibility: hidden;
         }
         .mobile-nav.active {
             opacity: 1;
             pointer-events: all;
+            visibility: visible;
         }
         .mobile-nav-header {
             padding: 1.5rem 2rem;
@@ -1481,10 +1504,12 @@ transform: translateY(-2px);
             pointer-events: none;
             transition: opacity 0.4s ease;
             padding: 2rem;
+            visibility: hidden;
         }
         .modal-overlay.active {
             opacity: 1;
             pointer-events: all;
+            visibility: visible;
         }
         .modal-content {
             background: var(--white);
@@ -3338,6 +3363,10 @@ color: var(--white);
             }
             .menu-toggle {
                 display: flex;
+                min-width: 44px;
+                min-height: 44px;
+                align-items: center;
+                justify-content: center;
             }
             .hero {
                 padding: 0 1.5rem;
@@ -3411,13 +3440,103 @@ color: var(--white);
                 text-align: center;
             }
             .calc-container {
-                padding: 1.5rem;
+                padding: 1.25rem;
+                margin-top: 2rem;
+            }
+            .calc-steps {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 0.5rem;
+                align-items: start;
+            }
+            .calc-step {
+                min-width: 0;
+                flex-direction: column;
+                gap: 0.4rem;
+                text-align: center;
+                font-size: 0.6875rem;
+                line-height: 1.25;
+            }
+            .calc-step-num {
+                width: 32px;
+                height: 32px;
+            }
+            .calc-question {
+                margin: 2rem 0 1.25rem;
+                font-size: 1.0625rem;
+                line-height: 1.4;
+            }
+            .calc-panel[data-step="1"] .calc-options {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+            .calc-panel[data-step="1"] .calc-option {
+                min-height: 108px;
+                padding: 1rem;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .calc-panel[data-step="1"] .opt-label {
+                font-size: 0.875rem;
+                margin-bottom: 0.35rem;
+            }
+            .calc-panel[data-step="1"] .opt-desc {
+                display: none;
+            }
+            .calc-panel[data-step="1"] .opt-price {
+                opacity: 1;
+                transform: none;
+                font-size: 0.75rem;
+                margin-top: 0;
+            }
+            .calc-panel[data-step="2"] .calc-options {
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+            .calc-panel[data-step="2"] .calc-option {
+                padding: 1rem;
+            }
+            .calc-nav {
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                padding-top: 1.5rem;
+            }
+            .calc-nav > * {
+                flex: 1;
+                min-width: 0;
+            }
+            .calc-btn,
+            .calc-btn-secondary {
+                padding: 0.9rem 0.75rem;
+                font-size: 0.6875rem;
+            }
+            .calc-result {
+                min-height: 0;
+                padding: 2.5rem 0 1rem;
             }
             .calc-result-amount {
                 font-size: 2.5rem;
             }
+            .calc-result-details {
+                width: 100%;
+                padding: 1rem;
+            }
+            .calc-result-details li {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.35rem;
+            }
             .calc-cta-group {
                 flex-direction: column;
+                width: 100%;
+            }
+            .calc-cta-primary,
+            .calc-cta-secondary {
+                width: 100%;
+                padding: 1rem;
             }
             body {
                 cursor: auto !important;
@@ -3448,6 +3567,409 @@ color: var(--white);
             }
             .proces-steps {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto !important;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+            .hero h1,
+            .hero p,
+            .hero-cta-group,
+            .hero-badge,
+            .hero-scroll,
+            .hero-visual,
+            .section-label,
+            .section-title {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .logo-ticker-track {
+                transform: none !important;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Header refresh 2026 */
+        nav {
+            height: 88px;
+            padding: 12px 2vw;
+            background: transparent;
+            transform: translateY(0);
+            will-change: transform;
+            transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        nav.nav-hidden {
+            transform: translateY(calc(-100% - 12px));
+        }
+        nav.scrolled {
+            padding: 12px 2vw;
+            background: transparent;
+            box-shadow: none;
+        }
+        .nav-shell {
+            width: min(100%, 1440px);
+            height: 64px;
+            margin: 0 auto;
+            padding: 0 0.75rem 0 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(250, 250, 250, 0.9);
+            border: 1px solid rgba(15, 15, 15, 0.08);
+            border-radius: 4px;
+            box-shadow: 0 10px 34px rgba(15, 15, 15, 0.06);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+        nav.scrolled .nav-shell {
+            background: rgba(250, 250, 250, 0.98);
+            border-color: rgba(15, 15, 15, 0.12);
+            box-shadow: 0 14px 38px rgba(15, 15, 15, 0.1);
+        }
+        .logo {
+            gap: 0.7rem;
+            flex-shrink: 0;
+        }
+        .brand-mark {
+            width: 42px;
+            height: 42px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        .brand-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 0.12rem;
+            line-height: 1;
+        }
+        .logo .brand-kicker,
+        .logo .brand-name {
+            display: block;
+            font-style: normal;
+            white-space: nowrap;
+        }
+        .logo .brand-kicker {
+            color: var(--accent);
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+        }
+        .logo .brand-name {
+            color: var(--text);
+            font-size: 0.98rem;
+            font-weight: 800;
+            letter-spacing: 0.035em;
+        }
+        .nav-links {
+            margin-left: auto;
+            gap: clamp(1.25rem, 2.2vw, 2.25rem);
+        }
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+        .nav-links a.active {
+            border-bottom: 0;
+        }
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            flex-shrink: 0;
+        }
+        .nav-direct-call {
+            height: 42px;
+            padding: 0 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            border: 1px solid rgba(15, 15, 15, 0.12);
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 650;
+            white-space: nowrap;
+            transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+        .nav-direct-call:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--beige-subtle);
+        }
+        .nav-direct-call svg,
+        .nav-phone svg {
+            width: 17px;
+            height: 17px;
+        }
+        .nav-cta {
+            height: 42px;
+            padding: 0 1.2rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            box-shadow: none;
+        }
+        .nav-actions .nav-cta.metal-btn {
+            height: 42px;
+            padding: 0 1.2rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            box-shadow: none;
+        }
+        .nav-phone {
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            border: 1px solid rgba(15, 15, 15, 0.12);
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.65);
+        }
+        .menu-toggle {
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(15, 15, 15, 0.12);
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.65);
+        }
+        .menu-toggle span {
+            width: 19px;
+        }
+
+        .mobile-nav {
+            left: max(0px, calc(100vw - 440px));
+            right: auto;
+            width: min(100vw, 440px);
+            z-index: 200;
+            background: #101010;
+            opacity: 1;
+            transform: translateX(100%);
+            transition: transform 0.42s cubic-bezier(0.76, 0, 0.24, 1), visibility 0.42s;
+        }
+        .mobile-nav::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(rgba(179, 148, 77, 0.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(179, 148, 77, 0.035) 1px, transparent 1px);
+            background-size: 32px 32px;
+            mask-image: linear-gradient(to bottom, black, transparent 72%);
+        }
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+        .mobile-nav-header {
+            min-height: 76px;
+            padding: 0.75rem 1.25rem;
+            position: relative;
+            z-index: 1;
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        .mobile-nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            color: var(--white);
+        }
+        .mobile-nav-brand .brand-mark {
+            width: 38px;
+            height: 38px;
+        }
+        .mobile-nav-brand .brand-kicker {
+            display: block;
+            color: var(--accent-light);
+            font-size: 0.54rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+        }
+        .mobile-nav-brand .brand-name {
+            display: block;
+            margin-top: 0.15rem;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 750;
+            letter-spacing: 0.04em;
+        }
+        .mobile-nav-close {
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 3px;
+        }
+        .mobile-nav-close svg {
+            width: 19px;
+            height: 19px;
+        }
+        .mobile-nav-items {
+            padding: 0.9rem 1.25rem 2rem;
+            position: relative;
+            z-index: 1;
+            overflow-y: auto;
+        }
+        .mobile-nav-link,
+        .mobile-nav-cat {
+            min-height: 48px;
+            padding: 0.8rem 0.25rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-bottom-color: rgba(255, 255, 255, 0.08);
+        }
+        .mobile-nav-link:hover {
+            padding-left: 0.5rem;
+        }
+        .mobile-nav-sublist {
+            margin: 0;
+            border-left: 1px solid transparent;
+            background: transparent;
+        }
+        .mobile-nav-sublist.open {
+            margin: 0.25rem 0 0.75rem;
+            border-left-color: var(--accent);
+            background: rgba(255, 255, 255, 0.025);
+        }
+        .mobile-nav-subcat {
+            min-height: 44px;
+            padding: 0.65rem 0.75rem 0.65rem 1rem;
+        }
+        .mobile-nav-subitems a,
+        .mobile-nav-direct {
+            min-height: 42px;
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+        }
+        .mobile-nav-secondary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.45rem;
+            margin-top: 1rem;
+        }
+        .mobile-nav-secondary a {
+            padding: 0.7rem 0.35rem;
+            color: rgba(255, 255, 255, 0.58);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 550;
+        }
+        .mobile-menu-cta {
+            width: 100%;
+            min-height: 50px;
+            margin-top: 1rem;
+            border-radius: 3px;
+        }
+        .mobile-nav-contact {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem 1rem;
+        }
+        .mobile-nav-contact a {
+            color: rgba(255, 255, 255, 0.62);
+            text-decoration: none;
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 1180px) {
+            .nav-shell {
+                gap: 1rem;
+            }
+            .nav-links {
+                gap: 1.1rem;
+            }
+            .nav-direct-call span {
+                display: none;
+            }
+            .nav-direct-call {
+                width: 42px;
+                padding: 0;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 960px) {
+            nav,
+            nav.scrolled {
+                height: 72px;
+                padding: 8px 12px;
+            }
+            .nav-shell {
+                height: 56px;
+                padding: 0 0.35rem 0 0.45rem;
+                gap: 0.45rem;
+            }
+            .nav-links,
+            .nav-actions {
+                display: none !important;
+            }
+            .logo {
+                margin-right: auto;
+                gap: 0.55rem;
+            }
+            .brand-mark {
+                width: 38px;
+                height: 38px;
+            }
+            .logo .brand-kicker {
+                font-size: 0.52rem;
+            }
+            .logo .brand-name {
+                font-size: 0.88rem;
+            }
+            .nav-phone,
+            .menu-toggle {
+                display: inline-flex;
+                margin: 0;
+            }
+            .mobile-nav {
+                left: 0;
+                width: 100vw;
+            }
+            main .hero {
+                min-height: 100svh;
+                padding: 96px 1.5rem 3.5rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .nav-shell {
+                gap: 0.3rem;
+            }
+            .brand-mark {
+                width: 35px;
+                height: 35px;
+            }
+            .logo .brand-kicker {
+                font-size: 0.48rem;
+            }
+            .logo .brand-name {
+                font-size: 0.78rem;
             }
         }
 
@@ -3540,11 +4062,155 @@ color: var(--white);
             }
         }
 </style>
+    <link rel="stylesheet" href="site-header.css">
+    <script src="site-header.js" defer></script>
 </head>
 <body>
+<!-- TBA_SHARED_HEADER_START -->
+<header class="tba-site-header" data-tba-header>
+    <a class="tba-skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
+    <nav id="tba-site-nav" aria-label="Hoofdnavigatie">
+        <div class="tba-nav-shell">
+            <a href="index.html" class="tba-brand" aria-label="Technisch Bouwadvies - Home">
+                <svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+    <rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+                <span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span>
+            </a>
+
+            <ul class="tba-nav-links">
+                <li class="tba-services-item">
+                    <button class="tba-services-trigger" id="tba-services-trigger" type="button" aria-expanded="false" aria-controls="tba-services-menu">
+                        Diensten
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="tba-dropdown" id="tba-services-menu">
+                        <div class="tba-dropdown-inner">
+                            <div class="tba-dropdown-column">
+                                <span class="tba-dropdown-label">Bouwtekeningen</span>
+                                <div class="tba-dropdown-links">
+                                    <a href="dakkapel.html">Dakkapel</a>
+                                    <a href="aanbouw-uitbouw.html">Aanbouw &amp; uitbouw</a>
+                                    <a href="dakopbouw-vergunningen.html">Dakopbouw</a>
+                                    <a href="bijgebouw.html">Bijgebouw</a>
+                                    <a href="nokverhoging.html">Nokverhoging</a>
+                                    <a href="erker.html">Erker</a>
+                                    <a href="mantelzorg.html">Mantelzorgwoning</a>
+                                    <a href="bed-breakfast.html">Bed &amp; Breakfast</a>
+                                </div>
+                            </div>
+                            <div class="tba-dropdown-column">
+                                <span class="tba-dropdown-label">Advies &amp; vergunning</span>
+                                <div class="tba-dropdown-links">
+                                    <a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a>
+                                    <a href="bouwkundig-advies.html">Bouwkundig advies</a>
+                                    <a href="bouwtekening-digitaliseren.html">Tekeningen digitaliseren</a>
+                                    <a href="kozijnen-vervangen-vergunning.html">Kozijnen vervangen</a>
+                                    <a href="carport-vergunning.html">Carport</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a class="tba-nav-link" href="index.html#werkwijze">Werkwijze</a></li>
+                <li><a class="tba-nav-link" href="index.html#projecten">Projecten</a></li>
+                <li><a class="tba-nav-link" href="index.html#calculator">Prijs berekenen</a></li>
+                <li><a class="tba-nav-link" href="index.html#over-ons">Over ons</a></li>
+            </ul>
+
+            <div class="tba-nav-actions">
+                <a href="tel:+31649240412" class="tba-call" aria-label="Bel Technisch Bouwadvies op +31 6 49 24 04 12">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Bel direct</span>
+                </a>
+                <a href="index.html#contact" class="tba-nav-cta">Offerte aanvragen</a>
+            </div>
+
+            <div class="tba-mobile-controls">
+                <a href="tel:+31649240412" class="tba-mobile-call" aria-label="Bel Technisch Bouwadvies">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
+                </a>
+                <button class="tba-menu-toggle" id="tba-menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="tba-mobile-panel">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tba-menu-backdrop" aria-hidden="true"></div>
+    <aside class="tba-mobile-panel" id="tba-mobile-panel" role="dialog" aria-modal="true" aria-label="Mobiel navigatiemenu" aria-hidden="true" inert>
+        <div class="tba-mobile-header">
+            <a href="index.html" class="tba-mobile-brand" aria-label="Technisch Bouwadvies - Home">
+                <svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+    <rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+                <span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span>
+            </a>
+            <button class="tba-menu-close" id="tba-menu-close" type="button" aria-label="Menu sluiten">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <div class="tba-mobile-content">
+            <details class="tba-mobile-services">
+                <summary class="tba-mobile-summary">
+                    <span>Diensten</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <div class="tba-mobile-service-list">
+                    <a href="dakkapel.html">Dakkapel</a>
+                    <a href="aanbouw-uitbouw.html">Aanbouw &amp; uitbouw</a>
+                    <a href="dakopbouw-vergunningen.html">Dakopbouw</a>
+                    <a href="bijgebouw.html">Bijgebouw</a>
+                    <a href="nokverhoging.html">Nokverhoging</a>
+                    <a href="erker.html">Erker</a>
+                    <a href="mantelzorg.html">Mantelzorgwoning</a>
+                    <a href="bed-breakfast.html">Bed &amp; Breakfast</a>
+                    <a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a>
+                    <a href="bouwkundig-advies.html">Bouwkundig advies</a>
+                    <a href="bouwtekening-digitaliseren.html">Digitaliseren</a>
+                    <a href="kozijnen-vervangen-vergunning.html">Kozijnen</a>
+                    <a href="carport-vergunning.html">Carport</a>
+                </div>
+            </details>
+            <a href="index.html#werkwijze" class="tba-mobile-link">Werkwijze</a>
+            <a href="index.html#projecten" class="tba-mobile-link">Projecten</a>
+            <a href="index.html#prijzen" class="tba-mobile-link">Prijzen</a>
+            <a href="index.html#calculator" class="tba-mobile-link">Prijs berekenen</a>
+            <a href="index.html#over-ons" class="tba-mobile-link">Over ons</a>
+
+            <div class="tba-mobile-secondary">
+                <a href="blog.html" data-tba-page="blog">Blog</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="testimonials.html" data-tba-page="reviews">Reviews</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <a href="index.html#contact" class="tba-mobile-cta">Offerte aanvragen</a>
+            <div class="tba-mobile-contact">
+                <a href="tel:+31649240412">+31 (0)6 49 24 04 12</a>
+                <a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a>
+            </div>
+        </div>
+    </aside>
+</header>
+<!-- TBA_SHARED_HEADER_END -->
+<a class="skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
 <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
+    <div class="nav-shell">
         <a href="index.html" class="logo" aria-label="Technisch Bouwadvies - Home">
-            <span class="logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>
+            <svg class="brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <span class="brand-copy"><span class="brand-kicker">TECHNISCH</span><span class="brand-name">BOUWADVIES</span></span>
         </a>
         <ul class="nav-links" role="menubar">
             <li role="none">
@@ -3632,20 +4298,25 @@ color: var(--white);
                     </div>
                 </div>
             </li>
-            <li role="none"><a href="#prijzen" role="menuitem" data-section="prijzen">Prijzen</a></li>
-            <li role="none"><a href="#calculator" role="menuitem" data-section="calculator">Calculator</a></li>
+            <li role="none"><a href="#werkwijze" role="menuitem" data-section="werkwijze">Werkwijze</a></li>
             <li role="none"><a href="#projecten" role="menuitem" data-section="projecten">Projecten</a></li>
+            <li role="none"><a href="#prijzen" role="menuitem" data-section="prijzen">Prijzen</a></li>
             <li role="none"><a href="#over-ons" role="menuitem" data-section="over-ons">Over Ons</a></li>
-            <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
-            <li role="none"><a href="#faq" role="menuitem" data-section="faq">FAQ</a></li>
-            <li role="none"><a href="#reviews" role="menuitem" data-section="reviews">Reviews</a></li>
-            <li role="none"><a href="#contact" role="menuitem" data-section="contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="nav-cta metal-btn" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
-        <a href="tel:+316****0412" class="nav-phone" aria-label="Bel ons">+31 (0)6 49 24 04 12</a>
+        <div class="nav-actions">
+            <a href="tel:+31649240412" class="nav-direct-call" aria-label="Bel Technisch Bouwadvies op +31 6 49 24 04 12">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
+                <span>Bel direct</span>
+            </a>
+            <a href="#contact" class="nav-cta metal-btn" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+        </div>
+        <a href="tel:+31649240412" class="nav-phone" aria-label="Bel Technisch Bouwadvies">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false" aria-controls="mobile-nav">
             <span></span><span></span>
         </button>
+    </div>
     </nav>
 
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
@@ -3653,22 +4324,33 @@ color: var(--white);
     <div class="toast-container" id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <!-- ═══════════ MOBIELE NAVIGATIE ═══════════ -->
-    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Mobiel navigatiemenu" aria-hidden="true">
+    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobiel navigatiemenu" aria-hidden="true" inert>
         <div class="mobile-nav-header">
-            <span class="mobile-nav-title">Menu</span>
+            <div class="mobile-nav-brand" aria-label="Technisch Bouwadvies">
+                <svg class="brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                    <rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+                <span><span class="brand-kicker">TECHNISCH</span><span class="brand-name">BOUWADVIES</span></span>
+            </div>
+            <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Menu sluiten">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
         </div>
         <div class="mobile-nav-items">
             <div class="mobile-nav-group">
-                <button class="mobile-nav-cat" aria-expanded="false">
+                <button class="mobile-nav-cat" aria-expanded="false" aria-controls="mobile-services">
                     <span>Diensten</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                 </button>
-                <div class="mobile-nav-sublist">
-                    <button class="mobile-nav-subcat" aria-expanded="false">
+                <div class="mobile-nav-sublist" id="mobile-services">
+                    <button class="mobile-nav-subcat" aria-expanded="false" aria-controls="mobile-drawings">
                         <span>Bouwtekeningen</span>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
                     </button>
-                    <div class="mobile-nav-subitems">
+                    <div class="mobile-nav-subitems" id="mobile-drawings">
                         <a href="dakkapel.html">Dakkapel</a>
                         <a href="bijgebouw.html">Bijgebouw</a>
                         <a href="nokverhoging.html">Nokverhoging</a>
@@ -3683,21 +4365,30 @@ color: var(--white);
                     <a href="bouwkundig-advies.html" class="mobile-nav-direct">Bouwkundig advies</a>
                 </div>
             </div>
+            <a href="#werkwijze" class="mobile-nav-link">Werkwijze</a>
+            <a href="#projecten" class="mobile-nav-link">Projecten</a>
             <a href="#prijzen" class="mobile-nav-link">Prijzen</a>
             <a href="#calculator" class="mobile-nav-link">Calculator</a>
-            <a href="#projecten" class="mobile-nav-link">Projecten</a>
             <a href="#over-ons" class="mobile-nav-link">Over Ons</a>
-            <a href="#faq" class="mobile-nav-link">FAQ</a>
-            <a href="#reviews" class="mobile-nav-link">Reviews</a>
-            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <a href="blog.html" class="mobile-nav-link">Blog</a>
+            <div class="mobile-nav-secondary">
+                <a href="#faq">FAQ</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#contact" class="mobile-menu-cta metal-btn">Offerte aanvragen</a>
+            <div class="mobile-nav-contact">
+                <a href="tel:+31649240412">+31 (0)6 49 24 04 12</a>
+                <a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a>
+            </div>
         </div>
     </div>
 
     <!-- ═══════════ DESKTOP NAVIGATIE ═══════════ -->
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <section class="hero" id="hero" aria-label="Introductie">
-            <div class="hero-bg"><img src="images/Dakopbouw_.png" alt="Professioneel kantoorgebouw — Technisch Bouwadvies verzorgt bouwtekeningen en vergunningen door heel Nederland" loading="eager" decoding="async" fetchpriority="high"></div>
+            <div class="hero-bg"><img src="images/Dakopbouw_-homepage.webp" width="1600" height="867" alt="Professioneel kantoorgebouw — Technisch Bouwadvies verzorgt bouwtekeningen en vergunningen door heel Nederland" loading="eager" decoding="async" fetchpriority="high"></div>
             <div class="hero-visual" aria-hidden="true">
                 <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="200" cy="200" r="198" stroke="var(--accent)" stroke-width="1.5"/>
@@ -3728,35 +4419,35 @@ color: var(--white);
                 <h2 class="section-title">Waarvoor heeft u een bouwtekening of vergunning nodig?</h2>
                 <div class="categorieen-grid">
                     <a href="dakkapel.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/Dakkapel_.png" alt="Dakkapel bouwtekening en omgevingsvergunning" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/Dakkapel_-homepage.webp" alt="Dakkapel bouwtekening en omgevingsvergunning" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">01</span><h3>Dakkapel</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="dakopbouw-vergunningen.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/Dakopbouw_.png" alt="Dakopbouw bouwtekening en omgevingsvergunning" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/Dakopbouw_-homepage.webp" alt="Dakopbouw bouwtekening en omgevingsvergunning" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">02</span><h3>Dakopbouw</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="aanbouw-uitbouw.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/uitbouw.png" alt="Aanbouw of uitbouw bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/uitbouw-homepage.webp" alt="Aanbouw of uitbouw bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">03</span><h3>Aanbouw /<br>Uitbouw</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="erker.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/erker.png" alt="Erker bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/erker-homepage.webp" alt="Erker bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">04</span><h3>Erker</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="mantelzorg.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/Mantelzorg_.png" alt="Mantelzorgwoning bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/Mantelzorg_-homepage.webp" alt="Mantelzorgwoning bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">05</span><h3>Mantelzorg<br>woning</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="bed-breakfast.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/B&B_.png" alt="Bed & Breakfast bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/B&B_-homepage.webp" alt="Bed & Breakfast bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">06</span><h3>BED & BREAKFAST</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="nokverhoging.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/Nok_.png" alt="Nokverhoging of doorbraak bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/Nok_-homepage.webp" alt="Nokverhoging of doorbraak bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">07</span><h3>Nokverhoging /<br>Doorbraak</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="bijgebouw.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/Bijgebouw_.png" alt="Bijgebouw, schuur of tuinmuur bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/Bijgebouw_-homepage.webp" alt="Bijgebouw, schuur of tuinmuur bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">08</span><h3>Bijgebouwen /<br><small>Schuur, tuinmuur etc.</small></h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                 </div>
@@ -3772,7 +4463,7 @@ color: var(--white);
             </div>
         </section>
 
-        <section class="proces" aria-label="Hoe wij u ontzorgen">
+        <section class="proces" id="werkwijze" aria-label="Hoe wij u ontzorgen">
             <div class="proces-inner"><div class="section-label">Het proces</div><h2 class="section-title">Hoe wij u ontzorgen</h2>
                 <div class="proces-steps">
                     <div class="proces-step"><span class="proces-step-num">01</span><h4>Stap 1: Aanvraag</h4><p>Gratis adviesgesprek en prijsindicatie.</p></div>
@@ -3855,7 +4546,7 @@ color: var(--white);
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 
-    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" aria-hidden="true" inert>
         <div class="modal-content" id="modal-content">
             <button class="modal-close" id="modal-close" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
             <div class="modal-header"><h3 id="modal-title">Titel</h3><p id="modal-desc">Beschrijving</p></div>
@@ -3866,17 +4557,24 @@ color: var(--white);
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
-
-        const lenis = new Lenis({
-            duration: 1.4,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smooth: true,
-            smoothTouch: false,
-            touchMultiplier: 2
-        });
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let lenis = {
+            start() {},
+            stop() {},
+            scrollTo(target) { target.scrollIntoView({ block: 'start' }); }
+        };
+        if (!prefersReducedMotion) {
+            lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true,
+                smoothTouch: false,
+                touchMultiplier: 2
+            });
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => lenis.raf(time * 1000));
+            gsap.ticker.lagSmoothing(0);
+        }
 
         const progressBar = document.getElementById('progress-bar');
         window.addEventListener('scroll', () => {
@@ -3910,12 +4608,13 @@ color: var(--white);
         // init hero + scroll (preloader verwijderd)
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.hero-bg').classList.add('loaded');
-            initHeroAnimations();
-            initScrollAnimations();
+            if (!prefersReducedMotion) {
+                initHeroAnimations();
+                initScrollAnimations();
+            }
         });
 
         function initHeroAnimations() {
-            gsap.to('.hero-label', { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2 });
             gsap.to('.hero h1', { y: 0, opacity: 1, duration: 1.2, delay: 0.4, ease: 'power3.out' });
             gsap.to('.hero p', { y: 0, opacity: 1, duration: 1, delay: 0.6, ease: 'power3.out' });
             gsap.to('.hero-cta-group', { y: 0, opacity: 1, duration: 1, delay: 0.8, ease: 'power3.out' });
@@ -3939,7 +4638,7 @@ color: var(--white);
                 }
             });
             const batchElements = [
-                '.usp-strip-inner', '.diensten-grid', '.prijzen-grid', '.calc-container',
+                '.usp-strip-inner', '.diensten-grid', '.prijzen-grid',
                 '.gallery-grid', '.faq-list', '.reviews-grid', '.quote-inner',
                 '.stats-strip-inner', '.waarom-inner', '.contact-inner', '.proces-steps'
             ];
@@ -4065,22 +4764,36 @@ color: var(--white);
 
         // ═══════════ MOBILE NAV ═══════════
         const menuToggle = document.getElementById('menu-toggle'),
-            mobileNav = document.getElementById('mobile-nav');
+            mobileNav = document.getElementById('mobile-nav'),
+            mobileNavClose = document.getElementById('mobile-nav-close');
+        let menuReturnFocus = null;
+        function closeMobileNav() {
+            mobileNav.classList.remove('active');
+            mobileNav.setAttribute('aria-hidden', 'true');
+            mobileNav.setAttribute('inert', '');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            lenis.start();
+            if (menuReturnFocus) menuReturnFocus.focus();
+        }
         menuToggle.addEventListener('click', () => {
             const isOpen = mobileNav.classList.toggle('active');
             menuToggle.classList.toggle('active');
             menuToggle.setAttribute('aria-expanded', isOpen);
             mobileNav.setAttribute('aria-hidden', !isOpen);
+            mobileNav.toggleAttribute('inert', !isOpen);
+            if (isOpen) {
+                menuReturnFocus = menuToggle;
+                setTimeout(() => mobileNavClose?.focus(), 60);
+            }
             isOpen ? lenis.stop() : lenis.start();
         });
         mobileNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', false);
-                mobileNav.setAttribute('aria-hidden', true);
-                lenis.start();
-            });
+            link.addEventListener('click', closeMobileNav);
+        });
+        mobileNavClose?.addEventListener('click', closeMobileNav);
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && mobileNav.classList.contains('active')) closeMobileNav();
         });
 
         // ═══════════ MOBILE CATEGORY ACCORDION ═══════════
@@ -4159,6 +4872,7 @@ color: var(--white);
         const modalDesc = document.getElementById('modal-desc');
         const modalBody = document.getElementById('modal-body');
         const modalClose = document.getElementById('modal-close');
+        let modalReturnFocus = null;
         const modalData = {
             dakkapel: { title: 'Dakkapel / Dakopbouw', desc: 'Een dakkapel plaatsen of vervangen voor extra ruimte en licht.',
                 price: 'Vanaf &euro;250,- excl. BTW', features: ['Bouwkundige tekeningen op schaal',
@@ -4204,6 +4918,8 @@ color: var(--white);
             modalTitle.textContent = data.title;
             modalDesc.textContent = data.desc;
             modalBody.innerHTML = `<div class="modal-price">${data.price}</div><ul>${data.features.map(f => `<li>${f}</li>`).join('')}</ul>`;
+            modalReturnFocus = document.activeElement;
+            modalOverlay.removeAttribute('inert');
             modalOverlay.classList.add('active');
             modalOverlay.setAttribute('aria-hidden', 'false');
             lenis.stop();
@@ -4213,8 +4929,9 @@ color: var(--white);
         function closeModal() {
             modalOverlay.classList.remove('active');
             modalOverlay.setAttribute('aria-hidden', 'true');
+            modalOverlay.setAttribute('inert', '');
             lenis.start();
-            document.body.focus();
+            if (modalReturnFocus && typeof modalReturnFocus.focus === 'function') modalReturnFocus.focus();
         }
         modalClose.addEventListener('click', closeModal);
         modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
@@ -4376,9 +5093,43 @@ color: var(--white);
             passive: true });
         backToTop.addEventListener('click', () => { lenis.scrollTo(0, { duration: 1.5 }); });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window
-                .scrollY > 50); }, { passive: true });
+        // Scroll-aware navbar: hide while moving down, reveal while moving up.
+        const navbar = document.getElementById('navbar');
+        let previousScrollY = Math.max(window.scrollY, 0);
+        let navbarScrollTicking = false;
+        const navbarHideThreshold = 140;
+        const navbarDirectionThreshold = 8;
+
+        function updateNavbarOnScroll() {
+            const currentScrollY = Math.max(window.scrollY, 0);
+            const scrollDelta = currentScrollY - previousScrollY;
+            const mobileMenuIsOpen = mobileNav.classList.contains('active');
+            const navbarHasKeyboardFocus = Boolean(navbar.querySelector(':focus-visible'));
+
+            navbar.classList.toggle('scrolled', currentScrollY > 50);
+
+            if (currentScrollY <= navbarHideThreshold || mobileMenuIsOpen || navbarHasKeyboardFocus) {
+                navbar.classList.remove('nav-hidden');
+                previousScrollY = currentScrollY;
+            } else if (scrollDelta > navbarDirectionThreshold) {
+                navbar.classList.add('nav-hidden');
+                previousScrollY = currentScrollY;
+            } else if (scrollDelta < -navbarDirectionThreshold) {
+                navbar.classList.remove('nav-hidden');
+                previousScrollY = currentScrollY;
+            }
+
+            navbarScrollTicking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!navbarScrollTicking) {
+                window.requestAnimationFrame(updateNavbarOnScroll);
+                navbarScrollTicking = true;
+            }
+        }, { passive: true });
+        navbar.addEventListener('focusin', () => navbar.classList.remove('nav-hidden'));
+        updateNavbarOnScroll();
 
         // Form Validation
         const contactForm = document.querySelector('.contact-form');
