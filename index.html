@@ -14,7 +14,7 @@
     <meta property="og:description" content="Professionele bouwtekeningen en vergunningaanvragen. Jarenlange ervaring. ABW-gecertificeerd.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://technischbouwadvies.nl">
-    <meta property="og:image" content="images/Dakopbouw_.png">
+    <meta property="og:image" content="https://technischbouwadvies.nl/images/Dakopbouw_-homepage.webp">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://technischbouwadvies.nl">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -226,6 +226,9 @@
             padding: 0;
             box-sizing: border-box;
         }
+        html {
+            overflow-x: clip;
+        }
         html.lenis,
         html.lenis body {
             height: auto;
@@ -246,6 +249,24 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 2000;
+            padding: 0.75rem 1rem;
+            background: var(--bg-dark);
+            color: var(--white);
+            text-decoration: none;
+            transform: translateY(-200%);
+        }
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+        :where(a, button, input, select, textarea):focus-visible {
+            outline: 3px solid var(--accent-light);
+            outline-offset: 3px;
         }
         ::selection {
             background: var(--accent);
@@ -735,10 +756,12 @@ transform: translateY(-2px);
             pointer-events: none;
             transition: opacity 0.4s ease;
             overflow-y: auto;
+            visibility: hidden;
         }
         .mobile-nav.active {
             opacity: 1;
             pointer-events: all;
+            visibility: visible;
         }
         .mobile-nav-header {
             padding: 1.5rem 2rem;
@@ -1481,10 +1504,12 @@ transform: translateY(-2px);
             pointer-events: none;
             transition: opacity 0.4s ease;
             padding: 2rem;
+            visibility: hidden;
         }
         .modal-overlay.active {
             opacity: 1;
             pointer-events: all;
+            visibility: visible;
         }
         .modal-content {
             background: var(--white);
@@ -3338,6 +3363,10 @@ color: var(--white);
             }
             .menu-toggle {
                 display: flex;
+                min-width: 44px;
+                min-height: 44px;
+                align-items: center;
+                justify-content: center;
             }
             .hero {
                 padding: 0 1.5rem;
@@ -3451,6 +3480,35 @@ color: var(--white);
             }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto !important;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+            .hero h1,
+            .hero p,
+            .hero-cta-group,
+            .hero-badge,
+            .hero-scroll,
+            .hero-visual,
+            .section-label,
+            .section-title {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .logo-ticker-track {
+                transform: none !important;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
         @media (min-width: 1025px) {
             nav.scrolled .nav-cta {
                 padding: 0.6rem 1.25rem;
@@ -3542,6 +3600,7 @@ color: var(--white);
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
 <nav id="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <a href="index.html" class="logo" aria-label="Technisch Bouwadvies - Home">
             <span class="logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>
@@ -3653,7 +3712,7 @@ color: var(--white);
     <div class="toast-container" id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <!-- ═══════════ MOBIELE NAVIGATIE ═══════════ -->
-    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Mobiel navigatiemenu" aria-hidden="true">
+    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobiel navigatiemenu" aria-hidden="true" inert>
         <div class="mobile-nav-header">
             <span class="mobile-nav-title">Menu</span>
         </div>
@@ -3695,9 +3754,9 @@ color: var(--white);
 
     <!-- ═══════════ DESKTOP NAVIGATIE ═══════════ -->
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <section class="hero" id="hero" aria-label="Introductie">
-            <div class="hero-bg"><img src="images/Dakopbouw_.png" alt="Professioneel kantoorgebouw — Technisch Bouwadvies verzorgt bouwtekeningen en vergunningen door heel Nederland" loading="eager" decoding="async" fetchpriority="high"></div>
+            <div class="hero-bg"><img src="images/Dakopbouw_-homepage.webp" width="1600" height="867" alt="Professioneel kantoorgebouw — Technisch Bouwadvies verzorgt bouwtekeningen en vergunningen door heel Nederland" loading="eager" decoding="async" fetchpriority="high"></div>
             <div class="hero-visual" aria-hidden="true">
                 <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="200" cy="200" r="198" stroke="var(--accent)" stroke-width="1.5"/>
@@ -3728,35 +3787,35 @@ color: var(--white);
                 <h2 class="section-title">Waarvoor heeft u een bouwtekening of vergunning nodig?</h2>
                 <div class="categorieen-grid">
                     <a href="dakkapel.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/Dakkapel_.png" alt="Dakkapel bouwtekening en omgevingsvergunning" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/Dakkapel_-homepage.webp" alt="Dakkapel bouwtekening en omgevingsvergunning" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">01</span><h3>Dakkapel</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="dakopbouw-vergunningen.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/Dakopbouw_.png" alt="Dakopbouw bouwtekening en omgevingsvergunning" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/Dakopbouw_-homepage.webp" alt="Dakopbouw bouwtekening en omgevingsvergunning" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">02</span><h3>Dakopbouw</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="aanbouw-uitbouw.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/uitbouw.png" alt="Aanbouw of uitbouw bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/uitbouw-homepage.webp" alt="Aanbouw of uitbouw bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">03</span><h3>Aanbouw /<br>Uitbouw</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="erker.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/erker.png" alt="Erker bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/erker-homepage.webp" alt="Erker bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">04</span><h3>Erker</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="mantelzorg.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/Mantelzorg_.png" alt="Mantelzorgwoning bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/Mantelzorg_-homepage.webp" alt="Mantelzorgwoning bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">05</span><h3>Mantelzorg<br>woning</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="bed-breakfast.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/B&B_.png" alt="Bed & Breakfast bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/B&B_-homepage.webp" alt="Bed & Breakfast bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">06</span><h3>BED & BREAKFAST</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="nokverhoging.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/Nok_.png" alt="Nokverhoging of doorbraak bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/Nok_-homepage.webp" alt="Nokverhoging of doorbraak bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">07</span><h3>Nokverhoging /<br>Doorbraak</h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                     <a href="bijgebouw.html" class="categorie-card">
-                        <div class="categorie-image-wrapper"><img src="images/Bijgebouw_.png" alt="Bijgebouw, schuur of tuinmuur bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
+                        <div class="categorie-image-wrapper"><img src="images/Bijgebouw_-homepage.webp" alt="Bijgebouw, schuur of tuinmuur bouwtekening" loading="lazy" decoding="async" class="categorie-image"></div>
                         <div class="categorie-content"><div class="content-inner"><span class="categorie-num">08</span><h3>Bijgebouwen /<br><small>Schuur, tuinmuur etc.</small></h3><div class="categorie-cta"><span>Bekijk info</span></div></div></div>
                     </a>
                 </div>
@@ -3855,7 +3914,7 @@ color: var(--white);
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 
-    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" aria-hidden="true" inert>
         <div class="modal-content" id="modal-content">
             <button class="modal-close" id="modal-close" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
             <div class="modal-header"><h3 id="modal-title">Titel</h3><p id="modal-desc">Beschrijving</p></div>
@@ -3866,17 +3925,24 @@ color: var(--white);
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
-
-        const lenis = new Lenis({
-            duration: 1.4,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smooth: true,
-            smoothTouch: false,
-            touchMultiplier: 2
-        });
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let lenis = {
+            start() {},
+            stop() {},
+            scrollTo(target) { target.scrollIntoView({ block: 'start' }); }
+        };
+        if (!prefersReducedMotion) {
+            lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true,
+                smoothTouch: false,
+                touchMultiplier: 2
+            });
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => lenis.raf(time * 1000));
+            gsap.ticker.lagSmoothing(0);
+        }
 
         const progressBar = document.getElementById('progress-bar');
         window.addEventListener('scroll', () => {
@@ -3910,12 +3976,13 @@ color: var(--white);
         // init hero + scroll (preloader verwijderd)
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.hero-bg').classList.add('loaded');
-            initHeroAnimations();
-            initScrollAnimations();
+            if (!prefersReducedMotion) {
+                initHeroAnimations();
+                initScrollAnimations();
+            }
         });
 
         function initHeroAnimations() {
-            gsap.to('.hero-label', { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2 });
             gsap.to('.hero h1', { y: 0, opacity: 1, duration: 1.2, delay: 0.4, ease: 'power3.out' });
             gsap.to('.hero p', { y: 0, opacity: 1, duration: 1, delay: 0.6, ease: 'power3.out' });
             gsap.to('.hero-cta-group', { y: 0, opacity: 1, duration: 1, delay: 0.8, ease: 'power3.out' });
@@ -4066,21 +4133,33 @@ color: var(--white);
         // ═══════════ MOBILE NAV ═══════════
         const menuToggle = document.getElementById('menu-toggle'),
             mobileNav = document.getElementById('mobile-nav');
+        let menuReturnFocus = null;
+        function closeMobileNav() {
+            mobileNav.classList.remove('active');
+            mobileNav.setAttribute('aria-hidden', 'true');
+            mobileNav.setAttribute('inert', '');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            lenis.start();
+            if (menuReturnFocus) menuReturnFocus.focus();
+        }
         menuToggle.addEventListener('click', () => {
             const isOpen = mobileNav.classList.toggle('active');
             menuToggle.classList.toggle('active');
             menuToggle.setAttribute('aria-expanded', isOpen);
             mobileNav.setAttribute('aria-hidden', !isOpen);
+            mobileNav.toggleAttribute('inert', !isOpen);
+            if (isOpen) {
+                menuReturnFocus = menuToggle;
+                mobileNav.querySelector('button, a')?.focus();
+            }
             isOpen ? lenis.stop() : lenis.start();
         });
         mobileNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', false);
-                mobileNav.setAttribute('aria-hidden', true);
-                lenis.start();
-            });
+            link.addEventListener('click', closeMobileNav);
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && mobileNav.classList.contains('active')) closeMobileNav();
         });
 
         // ═══════════ MOBILE CATEGORY ACCORDION ═══════════
@@ -4159,6 +4238,7 @@ color: var(--white);
         const modalDesc = document.getElementById('modal-desc');
         const modalBody = document.getElementById('modal-body');
         const modalClose = document.getElementById('modal-close');
+        let modalReturnFocus = null;
         const modalData = {
             dakkapel: { title: 'Dakkapel / Dakopbouw', desc: 'Een dakkapel plaatsen of vervangen voor extra ruimte en licht.',
                 price: 'Vanaf &euro;250,- excl. BTW', features: ['Bouwkundige tekeningen op schaal',
@@ -4204,6 +4284,8 @@ color: var(--white);
             modalTitle.textContent = data.title;
             modalDesc.textContent = data.desc;
             modalBody.innerHTML = `<div class="modal-price">${data.price}</div><ul>${data.features.map(f => `<li>${f}</li>`).join('')}</ul>`;
+            modalReturnFocus = document.activeElement;
+            modalOverlay.removeAttribute('inert');
             modalOverlay.classList.add('active');
             modalOverlay.setAttribute('aria-hidden', 'false');
             lenis.stop();
@@ -4213,8 +4295,9 @@ color: var(--white);
         function closeModal() {
             modalOverlay.classList.remove('active');
             modalOverlay.setAttribute('aria-hidden', 'true');
+            modalOverlay.setAttribute('inert', '');
             lenis.start();
-            document.body.focus();
+            if (modalReturnFocus && typeof modalReturnFocus.focus === 'function') modalReturnFocus.focus();
         }
         modalClose.addEventListener('click', closeModal);
         modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
