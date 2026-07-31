@@ -1,0 +1,54 @@
+/*
+ * Shared responsive safeguards for non-city service pages.
+ * Keeps the existing page designs intact while preventing horizontal overflow.
+ */
+.hero-split,
+.hero-left,
+.hero-right,
+.footer-top,
+.footer-top > *,
+.footer-newsletter,
+.newsletter-form,
+.newsletter-form input {
+    min-width: 0;
+}
+
+.newsletter-form {
+    max-width: 100%;
+}
+
+.newsletter-form input {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .hero-split {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: auto;
+    }
+
+    .hero-left {
+        padding: 8rem 4vw 4rem;
+    }
+
+    .hero-right {
+        display: block;
+        min-height: 50vh;
+    }
+
+    .footer-top {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletter-form {
+        flex-wrap: wrap;
+    }
+
+    .newsletter-form button {
+        flex: 0 0 auto;
+    }
+}
