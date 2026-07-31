@@ -2818,6 +2818,8 @@ color: var(--white);
     <script src="site-header.js" defer></script>
     <link rel="stylesheet" href="contact-section.css">
     <script src="contact-section.js" defer></script>
+    <link rel="stylesheet" href="footer-section.css">
+    <script src="footer-section.js" defer></script>
 </head>
 <body>
 <!-- TBA_SHARED_HEADER_START -->
@@ -3436,10 +3438,14 @@ color: var(--white);
             <div class="footer-newsletter">
                 <h5>Nieuwsbrief</h5>
                 <p>Blijf op de hoogte van wijzigingen in de regelgeving en praktische tips.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Uw e-mailadres" required>
+                <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="newsletter-bot-field" data-newsletter-form="true" novalidate>
+                    <p hidden aria-hidden="true"><label>Laat dit veld leeg: <input name="newsletter-bot-field"></label></p>
+                    <input type="hidden" name="form-name" value="newsletter">
+                    <label class="newsletter-label" for="newsletter-email">E-mailadres voor de nieuwsbrief</label>
+                    <input type="email" id="newsletter-email" name="email" autocomplete="email" placeholder="Uw e-mailadres" aria-describedby="newsletter-status" required>
                     <button type="submit">Inschrijven</button>
                 </form>
+                <p class="newsletter-status" id="newsletter-status" role="status" aria-live="polite"></p>
             </div>
         </div>
         <div class="footer-bottom">
