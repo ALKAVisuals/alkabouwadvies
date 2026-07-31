@@ -28,8 +28,42 @@
         'nokverhoging.html',
         'omgevingsvergunning-aanvragen.html'
     ]);
+    const desktopServiceGroups = [
+        {
+            label: 'Bouwtekeningen',
+            description: 'Ontwerp en tekenwerk voor verbouwing en uitbreiding.',
+            services: [
+                ['dakkapel.html', 'Dakkapel', 'Meer licht en ruimte op zolder'],
+                ['aanbouw-uitbouw.html', 'Aanbouw & uitbouw', 'Vergroot uw woonoppervlak zorgvuldig'],
+                ['dakopbouw-vergunningen.html', 'Dakopbouw', 'Een complete extra verdieping'],
+                ['bijgebouw.html', 'Bijgebouw', 'Schuur, garage of tuinkamer'],
+                ['nokverhoging.html', 'Nokverhoging', 'Maximale hoogte en bruikbare ruimte'],
+                ['erker.html', 'Erker', 'Karakter en daglicht aan de gevel'],
+                ['mantelzorg.html', 'Mantelzorgwoning', 'Zorgvuldig wonen dichtbij huis'],
+                ['bed-breakfast.html', 'Bed & Breakfast', 'Professioneel ontwerp voor verblijf']
+            ]
+        },
+        {
+            label: 'Vergunningen',
+            description: 'Van vergunningcheck tot complete aanvraag bij de gemeente.',
+            services: [
+                ['omgevingsvergunning-aanvragen.html', 'Omgevingsvergunning', 'De volledige aanvraag uit handen'],
+                ['kozijnen-vervangen-vergunning.html', 'Kozijnen vervangen', 'Duidelijkheid over regels en aanvraag'],
+                ['carport-vergunning.html', 'Carport', 'Snel weten wat er op uw perceel kan']
+            ]
+        },
+        {
+            label: 'Advies & digitaliseren',
+            description: 'Technische zekerheid voor bestaande en nieuwe plannen.',
+            services: [
+                ['bouwkundig-advies.html', 'Bouwkundig advies', 'Praktisch advies van ervaren vakmensen'],
+                ['bouwtekening-digitaliseren.html', 'Tekeningen digitaliseren', 'Van papieren archief naar bruikbaar bestand']
+            ]
+        }
+    ];
 
     let menuReturnFocus = null;
+    let desktopCategoryButtons = [];
     let previousScrollY = Math.max(window.scrollY, 0);
     let scrollTicking = false;
     const hideThreshold = 140;
@@ -38,6 +72,102 @@
     function currentFilename() {
         const pathname = window.location.pathname.replace(/\/+$/, '');
         return pathname.split('/').pop() || 'index.html';
+    }
+
+    function prepareDesktopServicesMenu() {
+        const dropdownInner = header.querySelector('.tba-dropdown-inner');
+        if (!dropdownInner) return;
+
+        const filename = currentFilename();
+        const activeGroupIndex = Math.max(0, desktopServiceGroups.findIndex((group) =>
+            group.services.some(([href]) => href === filename)
+        ));
+
+        const categories = document.createElement('div');
+        categories.className = 'tba-service-categories';
+        categories.setAttribute('role', 'tablist');
+        categories.setAttribute('aria-label', 'Dienstcategorieën');
+
+        const panels = document.createElement('div');
+        panels.className = 'tba-service-panels';
+
+        desktopServiceGroups.forEach((group, index) => {
+            const tabId = `tba-service-tab-${index}`;
+            const panelId = `tba-service-panel-${index}`;
+            const category = document.createElement('button');
+            category.className = 'tba-service-category';
+            category.type = 'button';
+            category.id = tabId;
+            category.setAttribute('role', 'tab');
+            category.setAttribute('aria-controls', panelId);
+            category.innerHTML = `
+                <span>
+                    <strong>${group.label}</strong>
+                    <small>${group.services.length} ${group.services.length === 1 ? 'dienst' : 'diensten'}</small>
+                </span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            `;
+            categories.appendChild(category);
+
+            const panel = document.createElement('section');
+            panel.className = 'tba-service-panel';
+            panel.id = panelId;
+            panel.setAttribute('role', 'tabpanel');
+            panel.setAttribute('aria-labelledby', tabId);
+            panel.innerHTML = `
+                <div class="tba-service-panel-head">
+                    <span class="tba-dropdown-label">${group.label}</span>
+                    <p>${group.description}</p>
+                </div>
+                <div class="tba-service-panel-links">
+                    ${group.services.map(([href, title, description]) => `
+                        <a href="${href}" class="tba-service-option">
+                            <strong>${title}</strong>
+                            <span>${description}</span>
+                        </a>
+                    `).join('')}
+                </div>
+            `;
+            panels.appendChild(panel);
+        });
+
+        dropdownInner.replaceChildren(categories, panels);
+        desktopCategoryButtons = Array.from(categories.querySelectorAll('.tba-service-category'));
+        const servicePanels = Array.from(panels.querySelectorAll('.tba-service-panel'));
+
+        const activateCategory = (index, options) => {
+            const settings = Object.assign({ focus: false }, options);
+            desktopCategoryButtons.forEach((button, buttonIndex) => {
+                const isActive = buttonIndex === index;
+                button.classList.toggle('is-active', isActive);
+                button.setAttribute('aria-selected', String(isActive));
+                button.tabIndex = isActive ? 0 : -1;
+            });
+            servicePanels.forEach((panel, panelIndex) => {
+                const isActive = panelIndex === index;
+                panel.classList.toggle('is-active', isActive);
+                panel.hidden = !isActive;
+            });
+            if (settings.focus) desktopCategoryButtons[index]?.focus();
+        };
+
+        desktopCategoryButtons.forEach((button, index) => {
+            button.addEventListener('mouseenter', () => activateCategory(index));
+            button.addEventListener('focus', () => activateCategory(index));
+            button.addEventListener('click', () => activateCategory(index));
+            button.addEventListener('keydown', (event) => {
+                let nextIndex = null;
+                if (event.key === 'ArrowDown') nextIndex = (index + 1) % desktopCategoryButtons.length;
+                if (event.key === 'ArrowUp') nextIndex = (index - 1 + desktopCategoryButtons.length) % desktopCategoryButtons.length;
+                if (event.key === 'Home') nextIndex = 0;
+                if (event.key === 'End') nextIndex = desktopCategoryButtons.length - 1;
+                if (nextIndex === null) return;
+                event.preventDefault();
+                activateCategory(nextIndex, { focus: true });
+            });
+        });
+
+        activateCategory(activeGroupIndex);
     }
 
     function setCurrentNavigation() {
@@ -143,6 +273,12 @@
     });
 
     servicesItem?.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowDown' && event.target === servicesTrigger) {
+            event.preventDefault();
+            setServicesOpen(true);
+            desktopCategoryButtons.find((button) => button.tabIndex === 0)?.focus();
+            return;
+        }
         if (event.key === 'Escape') {
             event.preventDefault();
             setServicesOpen(false, true);
@@ -280,6 +416,7 @@
 
     nav.addEventListener('focusin', () => nav.classList.remove('tba-nav-hidden'));
 
+    prepareDesktopServicesMenu();
     setCurrentNavigation();
     prepareSkipLink();
     observeHomepageSections();
