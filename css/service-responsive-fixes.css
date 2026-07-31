@@ -22,6 +22,29 @@
     max-width: 100%;
 }
 
+.vergunning-grid,
+.vc-col,
+.vc-col-header,
+.vc-rule,
+.vc-rule-body,
+.usp-banner,
+.usp-banner-inner,
+.usp-banner-item,
+.usp-banner-text,
+.roi-inner,
+.roi-content,
+.roi-vergelijking,
+.roi-blok,
+.roi-highlight,
+.logo-ticker-wrapper {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.logo-ticker-wrapper {
+    overflow: hidden;
+}
+
 @media (min-width: 1025px) and (max-width: 1200px) {
     .hero-split {
         grid-template-columns: minmax(0, 1fr);
@@ -44,6 +67,64 @@
 }
 
 @media (max-width: 768px) {
+    .vc-col-header {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .vc-col-header h3 {
+        flex: 1 1 150px;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .vc-col-header .vc-tag {
+        flex: 0 1 auto;
+        max-width: 100%;
+        margin-left: 0;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .vc-rule-body,
+    .vc-rule-body strong,
+    .vc-rule-body p {
+        overflow-wrap: anywhere;
+    }
+
+    .usp-banner {
+        padding: 2rem 1.5rem !important;
+        overflow: hidden;
+    }
+
+    .usp-banner-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .usp-banner-item {
+        justify-content: flex-start;
+        padding: 0.75rem 0;
+        text-align: left;
+    }
+
+    .usp-banner-text {
+        overflow-wrap: anywhere;
+    }
+
+    .roi-vergelijking {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .roi-highlight {
+        display: flex;
+        width: 100%;
+        padding: 1rem 1.25rem;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
     .newsletter-form {
         flex-wrap: wrap;
     }
