@@ -1,0 +1,370 @@
+.tba-contact {
+    --contact-bg: var(--bg, #fafafa);
+    --contact-surface: var(--white, #ffffff);
+    --contact-text: var(--text, #1a1a1a);
+    --contact-muted: var(--text-light, #666666);
+    --contact-border: var(--gray, #e5e5e5);
+    --contact-accent: var(--accent, #c4a35a);
+    --contact-error: var(--error, #dc2626);
+    width: 100%;
+    max-width: 100%;
+    padding: 10rem 4vw;
+    background: var(--contact-bg);
+}
+
+.tba-contact,
+.tba-contact * {
+    box-sizing: border-box;
+}
+
+.tba-contact .contact-inner {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 6rem;
+}
+
+.tba-contact .contact-info,
+.tba-contact .contact-form {
+    min-width: 0;
+}
+
+.tba-contact .section-label {
+    position: relative;
+    margin-bottom: 1.25rem;
+    padding-left: 2.75rem;
+    color: var(--contact-accent);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.tba-contact .section-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 2rem;
+    height: 1px;
+    background: var(--contact-accent);
+}
+
+.tba-contact .contact-info h3 {
+    margin: 0 0 1.5rem;
+    color: var(--contact-text);
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+    word-spacing: 0.1em;
+}
+
+.tba-contact .contact-info > p {
+    max-width: 400px;
+    margin: 0 0 3rem;
+    color: var(--contact-muted);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.tba-contact .contact-detail {
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.tba-contact .contact-detail:hover {
+    transform: translateX(4px);
+}
+
+.tba-contact .contact-detail strong {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--contact-accent);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.tba-contact .contact-detail a,
+.tba-contact .contact-detail span {
+    color: var(--contact-text);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.tba-contact .contact-detail a:hover {
+    color: var(--contact-accent);
+}
+
+.tba-contact .contact-trust-list {
+    max-width: 400px;
+    margin: 2.75rem 0 0;
+    padding: 1.5rem;
+    display: grid;
+    gap: 0.85rem;
+    list-style: none;
+    background: color-mix(in srgb, var(--contact-accent) 6%, transparent);
+    border-left: 2px solid var(--contact-accent);
+}
+
+.tba-contact .contact-trust-list li {
+    position: relative;
+    margin: 0;
+    padding: 0 0 0 1.5rem;
+    color: var(--contact-text);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.tba-contact .contact-trust-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--contact-accent);
+}
+
+.tba-contact .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.tba-contact .form-group {
+    position: relative;
+    margin: 0;
+}
+
+.tba-contact .form-group input,
+.tba-contact .form-group textarea,
+.tba-contact .form-group select {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 1rem 1.125rem;
+    border: 1px solid var(--contact-border);
+    border-radius: 0;
+    background-color: var(--contact-surface);
+    color: var(--contact-text);
+    font: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.tba-contact .form-group input:focus,
+.tba-contact .form-group textarea:focus,
+.tba-contact .form-group select:focus {
+    outline: none;
+    border-color: var(--contact-accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--contact-accent) 8%, transparent);
+}
+
+.tba-contact .form-group input.error,
+.tba-contact .form-group textarea.error,
+.tba-contact .form-group select.error {
+    border-color: var(--contact-error);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--contact-error) 8%, transparent);
+}
+
+.tba-contact .form-group textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.tba-contact .form-group select {
+    padding-right: 2.5rem;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23666' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}
+
+.tba-contact .form-group label {
+    position: absolute;
+    left: 1.125rem;
+    top: 1.125rem;
+    margin: 0;
+    padding: 0 0.25rem;
+    background: transparent;
+    color: var(--contact-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.tba-contact .form-group input:focus + label,
+.tba-contact .form-group input:not(:placeholder-shown) + label,
+.tba-contact .form-group textarea:focus + label,
+.tba-contact .form-group textarea:not(:placeholder-shown) + label,
+.tba-contact .form-group select:focus + label,
+.tba-contact .form-group select:valid + label {
+    top: -0.55rem;
+    left: 0.875rem;
+    padding: 0 0.25rem;
+    background: var(--contact-surface);
+    color: var(--contact-accent);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.tba-contact .form-error {
+    display: none;
+    margin: 0.5rem 0 0;
+    color: var(--contact-error);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.tba-contact .form-error.visible {
+    display: block;
+}
+
+.tba-contact .contact-submit {
+    width: fit-content;
+    margin: 0.5rem 0 0;
+    padding: 1.125rem 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 0;
+    border-radius: 50px;
+    background: var(--contact-text);
+    color: var(--contact-surface);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tba-contact .contact-submit:hover {
+    background: var(--contact-accent);
+    color: var(--contact-text);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--contact-accent) 25%, transparent);
+}
+
+.tba-contact .contact-submit:focus-visible {
+    outline: 2px solid var(--contact-accent);
+    outline-offset: 4px;
+}
+
+.tba-contact .contact-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.tba-contact .form-privacy,
+.tba-contact .contact-status {
+    margin: -0.75rem 0 0;
+    color: var(--contact-muted);
+    font-size: 0.75rem;
+    line-height: 1.6;
+}
+
+.tba-contact .form-privacy a {
+    color: var(--contact-text);
+    text-underline-offset: 0.2em;
+}
+
+.tba-contact .form-privacy a:hover {
+    color: var(--contact-accent);
+}
+
+.tba-contact .contact-status:empty {
+    display: none;
+}
+
+.tba-contact .contact-status.is-success {
+    color: var(--success, #15803d);
+}
+
+.tba-contact .contact-status.is-error {
+    color: var(--contact-error);
+}
+
+@supports not (color: color-mix(in srgb, black, white)) {
+    .tba-contact .contact-trust-list {
+        background: rgba(196, 163, 90, 0.06);
+    }
+
+    .tba-contact .form-group input:focus,
+    .tba-contact .form-group textarea:focus,
+    .tba-contact .form-group select:focus {
+        box-shadow: 0 0 0 4px rgba(196, 163, 90, 0.08);
+    }
+}
+
+@media (max-width: 1024px) {
+    .tba-contact .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tba-contact {
+        padding: 5rem 1.5rem;
+    }
+
+    .tba-contact .contact-inner {
+        gap: 3rem;
+    }
+
+    .tba-contact .contact-info h3 {
+        font-size: 1.75rem;
+    }
+
+    .tba-contact .contact-info > p {
+        margin-bottom: 2.5rem;
+    }
+
+    .tba-contact .contact-trust-list {
+        margin-top: 2rem;
+        padding: 1.25rem;
+    }
+
+    .tba-contact .contact-submit {
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .tba-contact {
+        padding-right: 1.25rem;
+        padding-left: 1.25rem;
+    }
+
+    .tba-contact .contact-info h3 {
+        font-size: 1.625rem;
+    }
+
+    .tba-contact .contact-form {
+        gap: 1.5rem;
+    }
+}

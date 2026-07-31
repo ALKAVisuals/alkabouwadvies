@@ -4131,6 +4131,8 @@ color: var(--white);
 </style>
     <link rel="stylesheet" href="site-header.css">
     <script src="site-header.js" defer></script>
+    <link rel="stylesheet" href="contact-section.css">
+    <script src="contact-section.js" defer></script>
 </head>
 <body>
 <!-- TBA_SHARED_HEADER_START -->
@@ -4601,7 +4603,7 @@ color: var(--white);
                             <span>Reactietijd</span></div><div class="stat-item"><h4 data-count="100"><em>0</em><span class="stat-suffix">%</span></h4>
                             <span>Goedkeuringsgarantie</span></div></div></section>
 
-        <section class="contact" id="contact" aria-label="Contactformulier en contactgegevens">
+                        <section class="contact tba-contact" id="contact" aria-label="Contactformulier en contactgegevens">
             <div class="contact-inner">
                 <div class="contact-info">
                     <div class="section-label">Contact</div>
@@ -4625,9 +4627,9 @@ color: var(--white);
                         <li>Ervaring met meer dan 170 gemeentes</li>
                     </ul>
                 </div>
-                <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Contactformulier" novalidate>
-                    <p style="display:none;" aria-hidden="true"><label>Laat dit veld leeg: <input name="bot-field" /></label></p>
-                    <input type="hidden" name="form-name" value="contact" />
+                <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-unified-contact="true" aria-label="Contactformulier" novalidate>
+                    <p hidden aria-hidden="true"><label>Laat dit veld leeg: <input name="bot-field"></label></p>
+                    <input type="hidden" name="form-name" value="contact">
                     <div class="form-group">
                         <input type="text" name="name" id="name" placeholder=" " autocomplete="name" required aria-required="true" aria-describedby="error-name" aria-invalid="false">
                         <label for="name">Naam</label>
@@ -4670,8 +4672,9 @@ color: var(--white);
                         <label for="message">Bericht</label>
                         <div class="form-error" id="error-message" role="alert">Vul uw bericht in</div>
                     </div>
-                    <button type="submit" class="btn" id="submit-btn" aria-label="Verstuur uw aanvraag — wij reageren binnen 24 uur">Verstuur aanvraag &mdash; gratis advies</button>
+                    <button type="submit" class="btn contact-submit" aria-label="Verstuur uw aanvraag; wij reageren binnen 24 uur">Verstuur aanvraag &mdash; gratis advies</button>
                     <p class="form-privacy">Vrijblijvend en zonder verplichtingen. Wij gebruiken uw gegevens alleen voor uw aanvraag. Lees ons <a href="privacybeleid.html">privacybeleid</a>.</p>
+                    <p class="contact-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </section>
