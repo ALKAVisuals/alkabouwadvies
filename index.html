@@ -2728,6 +2728,13 @@ transform: translateY(-2px);
             gap: 2rem;
             margin-top: 4rem;
         }
+        .reviews-note {
+            max-width: 760px;
+            margin: 1.25rem 0 -1.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
         .review-card {
             padding: 2.5rem;
             border: 1px solid var(--gray);
@@ -2797,6 +2804,15 @@ transform: translateY(-2px);
             border-radius: 50%;
             object-fit: cover;
             background: var(--gray);
+        }
+        .review-avatar-placeholder {
+            display: grid;
+            flex: 0 0 48px;
+            place-items: center;
+            color: var(--text);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
         }
         .review-author-info strong {
             display: block;
@@ -4670,17 +4686,17 @@ color: var(--white);
             <h2 class="section-title">Technische Perfectie in Elke Tekening</h2>
             <div class="diensten-grid">
                 <article class="dienst-card"><div class="dienst-num">01</div><h3>Aanvraag Omgevingsvergunning</h3><p>100% ontzorgd bij uw vergunningsaanvraag. Wij begeleiden het volledige traject van indienen tot besluit — inclusief alle communicatie met gemeente en welstandscommissie.</p></article>
-                <article class="dienst-card"><div class="dienst-num">02</div><h3>Bouwkundige Tekeningen</h3><p>Nauwkeurige, gemeente-proof bouwtekeningen die direct worden goedgekeurd. Binnen 5 werkdagen geleverd, conform alle actuele regelgeving en eisen.</p></article>
+                <article class="dienst-card"><div class="dienst-num">02</div><h3>Bouwkundige tekeningen</h3><p>Een duidelijke tekeningset voor het vooraf afgesproken aanvraag- of uitvoeringsdoel. Inhoud, detailniveau en planning worden per opdracht vastgelegd.</p></article>
                 <article class="dienst-card"><div class="dienst-num">03</div><h3>Bouwtekeningen Digitaliseren</h3><p>Van papieren archief naar professioneel digitaal bestand. Geschikt voor vergunningsaanvragen, aannemers en toekomstige verbouwingen.</p></article>
                 <article class="dienst-card"><div class="dienst-num">04</div><h3>Advies Bestemmingsplan</h3><p>Weten wat er echt mogelijk is op uw perceel? Met onze ambtelijke kennis adviseren wij concreet wat haalbaar is — zonder juridische omwegen.</p></article>
             </div>
         </section>
 
         <section class="reviews" id="reviews" aria-label="Klantbeoordelingen">
-            <div class="reviews-inner"><div class="section-label">Ervaringen</div><h2 class="section-title">Wat onze klanten zeggen</h2>
+            <div class="reviews-inner"><div class="section-label">Ervaringen</div><h2 class="section-title">Voorbeeld van klantverhalen</h2><p class="reviews-note">Deze reviewkaarten blijven tijdelijk als voorbeeld in de ontwikkelversie staan. Voor de definitieve publieke oplevering worden ze vervangen door geverifieerde klantervaringen of verwijderd.</p>
                 <div class="reviews-grid">
-                    <article class="review-card"><div class="review-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg></div><p class="review-text">"Binnen twee dagen had ik een eerste ontwerp op tafel. De vergunning was binnen 7 weken rond — veel sneller dan verwacht. Professioneel, snel en heel prettig contact. Een aanrader voor iedereen die gaat verbouwen."</p><div class="review-author"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" alt="Profielfoto van klant Mark de Vries, uitbouw Amsterdam" class="review-avatar" loading="lazy" decoding="async"><div class="review-author-info"><strong>Mark de Vries</strong><span>Uitbouw, Amsterdam</span></div></div></article>
-                    <article class="review-card"><div class="review-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg></div><p class="review-text">"De vaste prijs gaf mij rust. Geen verrassingen, geen extra rekeningen. Technisch Bouwadvies regelde alles van A tot Z, inclusief het gesprek met de welstandscommissie. Mijn erker staat er nu prachtig bij."</p><div class="review-author"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&q=80" alt="Profielfoto van klant Sophie Jansen, erker Utrecht" class="review-avatar" loading="lazy" decoding="async"><div class="review-author-info"><strong>Sophie Jansen</strong><span>Erker, Utrecht</span></div></div></article>
+                    <article class="review-card"><div class="review-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg></div><p class="review-text">"Binnen twee dagen had ik een eerste ontwerp op tafel. De vergunning was binnen 7 weken rond — veel sneller dan verwacht. Professioneel, snel en heel prettig contact. Een aanrader voor iedereen die gaat verbouwen."</p><div class="review-author"><span class="review-avatar review-avatar-placeholder" aria-hidden="true">MV</span><div class="review-author-info"><strong>Mark de Vries</strong><span>Uitbouw, Amsterdam</span></div></div></article>
+                    <article class="review-card"><div class="review-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg></div><p class="review-text">"De vaste prijs gaf mij rust. Geen verrassingen, geen extra rekeningen. Technisch Bouwadvies regelde alles van A tot Z, inclusief het gesprek met de welstandscommissie. Mijn erker staat er nu prachtig bij."</p><div class="review-author"><span class="review-avatar review-avatar-placeholder" aria-hidden="true">SJ</span><div class="review-author-info"><strong>Sophie Jansen</strong><span>Erker, Utrecht</span></div></div></article>
                     <article class="review-card"><div class="review-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0L9.796 5.527H15.608L10.906 8.944L12.702 14.472L8 11.055L3.298 14.472L5.094 8.944L0.392 5.527H6.204L8 0Z"/></svg></div><p class="review-text">"Als aannemer werk ik regelmatig samen met Technisch Bouwadvies. Hun tekeningen zijn altijd nauwkeurig en compleet. Ik hoef nooit te wachten op aanvullingen of correcties. Dat scheelt mij weken op de bouwplaats."</p><div class="review-author"><div class="review-author-info"><strong>Peter Bakker</strong><span>Aannemer, Rotterdam</span></div></div></article>
                 </div>
             </div>
@@ -5547,17 +5563,6 @@ color: var(--white);
                     <span class="footer-logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>
                 </a>
                 <p>Persoonlijk bouwkundig teken- en adviesbureau voor verbouwingsplannen en vergunningstrajecten in Nederland.</p>
-                    <div class="footer-social" style="margin-top: 1rem;">
-                        <a href="#" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-block; margin-right: 0.75rem; color: var(--text-light);">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-block; color: var(--text-light);">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
-                    </div>
             </div>
             <div class="footer-nav">
                 <h5>Diensten</h5>

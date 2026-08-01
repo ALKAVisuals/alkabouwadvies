@@ -252,6 +252,30 @@
         });
     }
 
+    function routeSectionLinks() {
+        const filename = currentFilename();
+        if (filename === 'index.html' || cityPages.has(filename)) return;
+
+        const homeHref = window.location.pathname.includes('/blog/') ? '../index.html' : 'index.html';
+        header.querySelectorAll('a[href^="#"]').forEach((link) => {
+            if (link === skipLink) return;
+
+            const hash = link.getAttribute('href');
+            if (!hash || hash === '#' || document.querySelector(hash)) return;
+
+            if (hash === '#prijzen' || hash === '#investering') {
+                const pricingSection = document.querySelector('#prijzen, #pakketten, section.pricing');
+                if (pricingSection) {
+                    if (!pricingSection.id) pricingSection.id = 'prijzen';
+                    link.href = `#${pricingSection.id}`;
+                    return;
+                }
+            }
+
+            link.href = `${homeHref}${hash}`;
+        });
+    }
+
     function formatEuro(amount) {
         return new Intl.NumberFormat('nl-NL', {
             style: 'currency',
@@ -563,6 +587,7 @@
     prepareDesktopServicesMenu();
     prepareMobileServicesMenu();
     routePrimaryContactLinks();
+    routeSectionLinks();
     addVisualisationUpsell();
     normalisePricePresentation();
     setCurrentNavigation();
