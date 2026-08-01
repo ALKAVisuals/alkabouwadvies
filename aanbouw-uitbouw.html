@@ -3442,14 +3442,14 @@ transform: translateY(-2px);
         "name": "Is een constructieberekening verplicht bij een aanbouw?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Dat hangt ervan af. Bij een aanbouw met een eigen fundering is een constructieberekening meestal verplicht. Ook als u een draagmuur wilt verwijderen om de kamer open te maken, is een berekening essentieel. De gemeente kan hier altijd om vragen."
+          "text": "Bij een aanbouw of een wijziging aan een dragende constructie is doorgaans een projectspecifieke constructieve onderbouwing nodig om aan de bouwtechnische eisen te voldoen. Welke berekeningen en stukken nodig zijn, hangt af van het ontwerp, de bestaande constructie en de gekozen aanvraag- of meldingsroute."
         }
       },      {
         "@type": "Question",
         "name": "Wat zijn de legeskosten voor een aanbouw vergunning?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "De legeskosten verschillen per gemeente en zijn afhankelijk van de bouwsom. Gemiddeld liggen de legeskosten voor een aanbouw tussen de €250 en €600. Deze kosten komen bovenop onze tarieven."
+          "text": "Leges verschillen per gemeente, activiteit en project. Controleer de actuele legesverordening of kostencalculator van uw gemeente. Gemeentelijke leges vallen niet binnen onze tarieven, tenzij dit uitdrukkelijk in de offerte staat."
         }
       },      {
         "@type": "Question",
@@ -3682,7 +3682,7 @@ transform: translateY(-2px);
                     </div>
                     <div class="dropdown-right" id="sub-vergunning">
                         <div class="dropdown-info">
-                            <p>Ik verzorg de complete aanvraag van uw omgevingsvergunning. Van het indienen van de stukken tot het onderhouden van contact met de gemeente — u heeft er geen omkijken naar.</p>
+                            <p>Ik bereid de afgesproken aanvraagstukken voor, dien deze desgewenst in via het Omgevingsloket en begeleid het gemeentecontact binnen de vastgelegde opdracht.</p>
                             <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
                         </div>
                     </div>
@@ -3894,11 +3894,11 @@ transform: translateY(-2px);
                     <ul class="vergunning-plicht-points">
                         <li class="vergunning-plicht-point fade-up">
                             <span class="vp-icon"><i class="fa-solid fa-ruler-combined"></i></span>
-                            <div class="vp-body"><strong>Maximale diepte 4 meter</strong><p>Een uitbouw aan de achterzijde is vaak vergunningsvrij tot 4 meter diep, mits aan overige eisen voldaan wordt.</p></div>
+                            <div class="vp-body"><strong>Afstand en maatvoering</strong><p>De regels maken onder meer onderscheid tussen bouwen binnen en verder dan 4 meter van het oorspronkelijke hoofdgebouw. Vier meter is dus niet automatisch de maximale diepte.</p></div>
                         </li>
                         <li class="vergunning-plicht-point fade-up">
                             <span class="vp-icon"><i class="fa-solid fa-building-shield"></i></span>
-                            <div class="vp-body"><strong>Welstand & bestemmingsplan</strong><p>Bij een aanbouw aan de voor- of zijkant toetst de gemeente streng op het straatbeeld en omgevingskarakter.</p></div>
+                            <div class="vp-body"><strong>Omgevingsplan & uiterlijk</strong><p>De locatie op het perceel, het omgevingsplan en eventuele lokale regels voor het uiterlijk kunnen de vergunningroute beïnvloeden.</p></div>
                         </li>
                         <li class="vergunning-plicht-point fade-up">
                             <span class="vp-icon"><i class="fa-solid fa-file-lines"></i></span>
@@ -3906,7 +3906,7 @@ transform: translateY(-2px);
                         </li>
                         <li class="vergunning-plicht-point fade-up">
                             <span class="vp-icon"><i class="fa-solid fa-clock"></i></span>
-                            <div class="vp-body"><strong>8 weken doorlooptijd</strong><p>Houd rekening met minimaal 8 weken behandeling door de gemeente voor een reguliere procedure.</p></div>
+                            <div class="vp-body"><strong>Procedure en beslistermijn</strong><p>Bij de reguliere procedure is de beslistermijn normaal 8 weken en kan deze eenmaal met maximaal 6 weken worden verlengd. Andere factoren kunnen de totale doorlooptijd beïnvloeden.</p></div>
                         </li>
                     </ul>
                     <div class="welstand-blok fade-up">
@@ -3956,19 +3956,19 @@ transform: translateY(-2px);
                         </div>
                         <!-- Vraag 2 -->
                         <div class="wizard-vraag" data-step="2">
-                            <h3>2. Wat is de gewenste diepte van de uitbouw?</h3>
+                            <h3>2. Ligt de uitbreiding volledig binnen 4 meter van het oorspronkelijke hoofdgebouw?</h3>
                             <div class="wizard-opties">
                                 <button class="wizard-tile" onclick="selectAnswer('diepte', 'minder')">
-                                    <i class="fa-solid fa-ruler-combined"></i> Minder dan 4 meter
+                                    <i class="fa-solid fa-ruler-combined"></i> Ja
                                 </button>
                                 <button class="wizard-tile" onclick="selectAnswer('diepte', 'meer')">
-                                    <i class="fa-solid fa-maximize"></i> Meer dan 4 meter
+                                    <i class="fa-solid fa-maximize"></i> Nee of weet ik niet
                                 </button>
                             </div>
                         </div>
                         <!-- Vraag 3 -->
                         <div class="wizard-vraag" data-step="3">
-                            <h3>3. Blijft u binnen de maximale bouwhoogte van uw bestemmingsplan?</h3>
+                            <h3>3. Past de gewenste hoogte binnen de regels van het omgevingsplan?</h3>
                             <div class="wizard-opties">
                                 <button class="wizard-tile" onclick="selectAnswer('hoogte', 'ja')">
                                     <i class="fa-solid fa-circle-check"></i> Ja, waarschijnlijk wel
@@ -3982,7 +3982,7 @@ transform: translateY(-2px);
 
                     <!-- Resultaat (Diagnose Rapport) -->
                     <div class="wizard-resultaat" id="wizard-resultaat">
-                        <div class="result-badge">OFFICIËLE INDICATIE — OMGEVINGSWET 2026</div>
+                        <div class="result-badge">EERSTE ORIËNTATIE — ALTIJD CONTROLEREN</div>
                         <div class="wizard-resultaat-icon" id="result-icon"></div>
                         <h4 id="result-title"></h4>
                         <p id="result-text"></p>
@@ -4019,7 +4019,7 @@ transform: translateY(-2px);
                         <div class="proces-stap-nummer">01</div>
                         <span class="proces-stap-icoon"><i class="fa-solid fa-comments"></i></span>
                         <h3>Intake & Inventarisatie</h3>
-                        <p>We bespreken uw wensen, checken het bestemmingsplan en beoordelen de haalbaarheid. U ontvangt een helder advies op maat.</p>
+                        <p>We bespreken uw wensen, bekijken het omgevingsplan en beoordelen de eerste haalbaarheid. U ontvangt een helder advies binnen de afgesproken scope.</p>
                         <span class="proces-stap-tag">Dag 1-2</span>
                     </div>
                     <div class="proces-stap-card fade-up">
@@ -4108,7 +4108,7 @@ transform: translateY(-2px);
         <!-- PRICING -->
         <section class="pricing" id="prijzen">
             <div class="pricing-inner">
-                <div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>aanbouw</em> past.</h2><p>Alle prijzen zijn eenmalig en exclusief 21% BTW. U weet vooraf precies waar u aan toe bent — geen verborgen kosten.</p></div>
+                <div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies het pakket dat bij uw <em>aanbouw</em> past.</h2><p>Bedragen staan eerst exclusief en daarnaast inclusief 21% btw. De offerte bevestigt de scope, planning en eventuele bijkomende kosten.</p></div>
                 <div class="pricing-grid" id="pricing-grid">
                     <div class="price-card fade-up"><h3>Alleen Bouwtekening</h3><div class="price-value">&euro;330<span>excl. btw</span></div><p class="price-vat">Eenmalig &middot; &euro;399,30 incl. btw</p><ul class="price-features"><li><i class="fa-solid fa-check"></i> Complete set</li><li><i class="fa-solid fa-check"></i> Plattegrond, gevels, doorsneden</li><li><i class="fa-solid fa-check"></i> Plancontrole volgens afgesproken scope</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('aanbouw-tekening', 'Ik heb interesse in het pakket \'Alleen Bouwtekening\' voor mijn aanbouw/uitbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
                     <div class="price-card featured fade-up"><h3>Tekening + Constructie</h3><div class="price-value">&euro;675<span>excl. btw</span></div><p class="price-vat">Eenmalig &middot; &euro;816,75 incl. btw</p><ul class="price-features"><li><i class="fa-solid fa-check"></i> <strong>Alles uit basispakket</strong></li><li><i class="fa-solid fa-check"></i> Volledige constructieberekening</li><li><i class="fa-solid fa-check"></i> NEN-normering rapportage</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('aanbouw-constructie', 'Ik heb interesse in het pakket \'Tekening + Constructie\' voor mijn aanbouw/uitbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
@@ -4159,8 +4159,8 @@ transform: translateY(-2px);
                     <div class="faq-item fade-up"><div class="faq-trigger"><span>Is een uitbouw aan de achterzijde altijd vergunningsvrij?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Nee. Voor een aanbouw kunnen zowel regels voor de technische bouwactiviteit als regels uit het omgevingsplan gelden. De uitkomst hangt onder meer af van het adres, de bestaande situatie, maatvoering en het gebruik. Doe daarom de Vergunningcheck en bekijk Regels op de kaart in het Omgevingsloket.</p></div></div>
                     <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat kost een aanbouw inclusief bouwtekening en vergunning?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Onze tarieven voor tekening en vergunning starten bij €330 (excl. BTW). De totale bouwkosten van een aanbouw liggen gemiddeld tussen €12.000 en €35.000, afhankelijk van omvang en afwerking. Wij kunnen u indicaties geven op basis van uw specifieke situatie.</p></div></div>
                     <div class="faq-item fade-up"><div class="faq-trigger"><span>Hoe lang duurt het vergunningstraject voor een aanbouw?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Bij een korte procedure kan een besluit binnen 8 weken volgen, maar de behandeling kan langer duren of worden verlengd. De procedure hangt af van het plan en de lokale regels. Wij bereiden de afgesproken aanvraagstukken voor; het bevoegd gezag beoordeelt de aanvraag.</p></div></div>
-                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Is een constructieberekening verplicht bij een aanbouw?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Dat hangt ervan af. Bij een aanbouw met een eigen fundering is een constructieberekening meestal verplicht. Ook als u een draagmuur wilt verwijderen om de kamer open te maken, is een berekening essentieel. De gemeente kan hier altijd om vragen.</p></div></div>
-                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat zijn de legeskosten voor een aanbouw vergunning?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>De legeskosten verschillen per gemeente en zijn afhankelijk van de bouwsom. Gemiddeld liggen de legeskosten voor een aanbouw tussen de €250 en €600. Deze kosten komen bovenop onze tarieven.</p></div></div>
+                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Is een constructieberekening verplicht bij een aanbouw?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Bij een aanbouw of een wijziging aan een dragende constructie is doorgaans een projectspecifieke constructieve onderbouwing nodig om aan de bouwtechnische eisen te voldoen. Welke berekeningen en stukken nodig zijn, hangt af van het ontwerp, de bestaande constructie en de gekozen aanvraag- of meldingsroute.</p></div></div>
+                    <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat zijn de legeskosten voor een aanbouw vergunning?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Leges verschillen per gemeente, activiteit en project. Controleer de actuele legesverordening of kostencalculator van uw gemeente. Gemeentelijke leges vallen niet binnen onze tarieven, tenzij dit uitdrukkelijk in de offerte staat.</p></div></div>
                     <div class="faq-item fade-up"><div class="faq-trigger"><span>Kan ik een aanbouw gebruiken als extra woonruimte of kantoor?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Dat kan vaak, maar een ander of bedrijfsmatig gebruik kan gevolgen hebben voor het omgevingsplan en de bouwtechnische eisen uit het Bbl. Wij adviseren u op basis van het adres en het gewenste gebruik.</p></div></div>
                     <div class="faq-item fade-up"><div class="faq-trigger"><span>Wat is het verschil tussen een aanbouw en een uitbouw?</span><i class="fa-solid fa-chevron-down"></i></div><div class="faq-content"><p>Een aanbouw is een nieuw volume dat aan de woning wordt vastgebouwd, met een eigen fundering en dak. Een uitbouw is het vergroten van een bestaande ruimte door de gevel te verplaatsen. Een uitbouw is vaak minder ingrijpend en kan aan de achterzijde soms vergunningsvrij zijn.</p></div></div>
                 </div>
@@ -4521,12 +4521,12 @@ transform: translateY(-2px);
             }
 
             showResult() {
-                let vergunningNodig = false;
+                let extraControleNodig = false;
                 if (this.answers.zijde === 'voor' || this.answers.zijde === 'zijkant') {
-                    vergunningNodig = true;
+                    extraControleNodig = true;
                 } else if (this.answers.zijde === 'achter') {
                     if (this.answers.diepte === 'meer' || this.answers.hoogte === 'nee') {
-                        vergunningNodig = true;
+                        extraControleNodig = true;
                     }
                 }
 
@@ -4543,16 +4543,16 @@ transform: translateY(-2px);
 
                 this.resultContainer.style.display = 'block';
 
-                if (vergunningNodig) {
+                if (extraControleNodig) {
                     this.resultIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
-                    this.resultTitle.textContent = 'Vergunning nodig';
-                    this.resultText.textContent = 'Uw project is waarschijnlijk vergunningsplichtig. Vraag een gratis check aan en wij beoordelen het exact voor u.';
+                    this.resultTitle.textContent = 'Extra controle nodig';
+                    this.resultText.textContent = 'Eén of meer antwoorden vragen om een adresgerichte controle. Gebruik de officiële Vergunningcheck en laat het omgevingsplan en de bouwtechnische route beoordelen.';
                     this.resultContainer.classList.add('vergunning-nodig');
                     this.resultContainer.classList.remove('vergunning-vrij');
                 } else {
                     this.resultIcon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
-                    this.resultTitle.textContent = 'Waarschijnlijk vergunningsvrij';
-                    this.resultText.textContent = 'Uw uitbouw voldoet aan de basisvoorwaarden voor vergunningsvrij bouwen. Let op: dit is een indicatie. Wij controleren het graag definitief.';
+                    this.resultTitle.textContent = 'Controle blijft nodig';
+                    this.resultText.textContent = 'Deze antwoorden geven geen definitieve vergunninguitkomst. Controleer voor het adres zowel de technische bouwactiviteit als de omgevingsplanactiviteit via het Omgevingsloket.';
                     this.resultContainer.classList.add('vergunning-vrij');
                     this.resultContainer.classList.remove('vergunning-nodig');
                 }

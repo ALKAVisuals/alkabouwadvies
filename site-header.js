@@ -63,7 +63,7 @@
             label: 'Vergunningen',
             description: 'Van vergunningcheck tot complete aanvraag bij de gemeente.',
             services: [
-                ['omgevingsvergunning-aanvragen.html', 'Omgevingsvergunning', 'De volledige aanvraag uit handen'],
+                ['omgevingsvergunning-aanvragen.html', 'Omgevingsvergunning', 'Aanvraag en gemeentecontact binnen afgesproken scope'],
                 ['kozijnen-vervangen-vergunning.html', 'Kozijnen vervangen', 'Duidelijkheid over regels en aanvraag'],
                 ['carport-vergunning.html', 'Carport', 'Snel weten wat er op uw perceel kan']
             ]
@@ -297,6 +297,10 @@
 
         document.querySelectorAll('.price-card .price-value').forEach((price) => {
             if (price.dataset.tbaVatNormalised === 'true') return;
+            if (price.closest('.price-card')?.querySelector('.price-vat')) {
+                price.dataset.tbaVatNormalised = 'true';
+                return;
+            }
             const excludingVat = parseEuroAmount(price.textContent);
             if (excludingVat === null) return;
 
