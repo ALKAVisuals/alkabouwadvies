@@ -83,7 +83,7 @@
                 form.reset();
                 validationRules.forEach(({ field }) => setFieldState(field, true));
                 submitButton.textContent = 'Verzonden!';
-                setStatus('Uw aanvraag is verzonden. Wij nemen binnen 24 uur contact met u op.', 'success');
+                setStatus('Uw aanvraag is verzonden. Onze streeftijd is om binnen één werkdag contact op te nemen.', 'success');
             } catch (error) {
                 submitButton.textContent = defaultButtonText;
                 setStatus('Er ging iets mis. Probeer het opnieuw of bel ons direct.', 'error');
