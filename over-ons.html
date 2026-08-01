@@ -3,13 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Over Ons | Technisch Bouwadvies</title>
-    <meta http-equiv="refresh" content="0; url=index.html#over-ons">
-    <link rel="canonical" href="https://technischbouwadvies.nl/">
-    <meta name="robots" content="noindex, follow">
+    <title>Over Technisch Bouwadvies | Werkwijze &amp; samenwerking</title>
+    <meta name="description" content="Maak kennis met Technisch Bouwadvies: bouwkundig tekenwerk, heldere opdrachtafspraken, vergunningbegeleiding en 3D-uitwerking met ALKA Visuals.">
+    <meta name="author" content="Technisch Bouwadvies">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://technischbouwadvies.nl/over-ons.html">
+    <meta property="og:title" content="Over Technisch Bouwadvies">
+    <meta property="og:description" content="Persoonlijk bouwadvies, duidelijke opdrachtscope en een begrijpelijke technische uitwerking van uw bouwplan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://technischbouwadvies.nl/over-ons.html">
+    <meta property="og:image" content="https://technischbouwadvies.nl/images/website-2026/over-ons-samenwerken-aan-bouwtekening.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site-header.css">
+    <script src="site-header.js" defer></script>
+    <style>
+        :root { --ink:#111; --muted:#666; --paper:#f7f6f2; --white:#fff; --gold:#b3944d; --line:#dedbd3; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: Inter, sans-serif; color: var(--ink); background: var(--white); line-height: 1.65; }
+        a { color: inherit; }
+        :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+        img { display: block; max-width: 100%; }
+        .page-shell { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+        .eyebrow { margin-bottom: 1rem; color: var(--gold); font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+        .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: .85rem 1.4rem; border: 1px solid var(--ink); border-radius: 999px; background: var(--ink); color: var(--white); font-size: .82rem; font-weight: 700; letter-spacing: .05em; text-decoration: none; }
+        .button:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+        .button.secondary { background: transparent; color: var(--ink); }
+        .button.secondary:hover { background: var(--ink); color: var(--white); }
+
+        .hero { padding: 8rem 0 5.5rem; background: var(--paper); }
+        .hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); gap: 5rem; align-items: center; }
+        .hero h1 { max-width: 780px; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.02; letter-spacing: -.055em; }
+        .hero-copy > p:not(.eyebrow) { max-width: 700px; margin-top: 1.5rem; color: var(--muted); font-size: 1.05rem; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+        .hero-visual { position: relative; }
+        .hero-visual img { width: 100%; aspect-ratio: 4/3; border-radius: 18px; object-fit: cover; box-shadow: 0 28px 70px rgba(0,0,0,.12); }
+        .image-label { position: absolute; right: 1rem; bottom: 1rem; padding: .55rem .75rem; border-radius: 999px; background: rgba(17,17,17,.86); color: var(--white); font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+
+        .facts { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
+        .facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+        .fact { min-height: 138px; padding: 2rem; border-right: 1px solid var(--line); }
+        .fact:last-child { border-right: 0; }
+        .fact span { display: block; color: var(--gold); font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+        .fact strong { display: block; margin-top: .65rem; font-size: 1.05rem; line-height: 1.45; }
+
+        .content-section { padding: 6rem 0; }
+        .content-section.alt { background: var(--paper); }
+        .split { display: grid; grid-template-columns: minmax(260px, .75fr) minmax(0, 1.25fr); gap: 5rem; }
+        .split h2, .section-head h2, .cta h2 { font-size: clamp(2rem, 4vw, 3.3rem); line-height: 1.08; letter-spacing: -.04em; }
+        .prose { display: grid; gap: 1.15rem; color: var(--muted); }
+        .prose strong { color: var(--ink); }
+        .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
+        .principle { padding: 2rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+        .principle span, .role span { color: var(--gold); font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+        .principle h3, .role h3 { margin: .8rem 0 .65rem; font-size: 1.1rem; }
+        .principle p, .role p { color: var(--muted); font-size: .93rem; }
+
+        .section-head { max-width: 800px; margin-bottom: 2.75rem; }
+        .roles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .role { padding: 2rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+
+        .collaboration { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, .8fr); gap: 3rem; align-items: stretch; }
+        .collaboration-copy, .transparency { padding: 2.5rem; border-radius: 16px; }
+        .collaboration-copy { background: var(--ink); color: var(--white); }
+        .collaboration-copy p { margin: 1rem 0 1.5rem; color: rgba(255,255,255,.7); }
+        .collaboration-copy a { color: #d5bd7d; }
+        .transparency { border: 1px solid var(--line); background: var(--white); }
+        .transparency h3 { margin-bottom: 1rem; }
+        .transparency p { color: var(--muted); }
+
+        .cta { padding: 6rem 0; background: var(--ink); color: var(--white); text-align: center; }
+        .cta p { max-width: 680px; margin: 1.25rem auto 2rem; color: rgba(255,255,255,.68); }
+        .cta .button { border-color: var(--gold); background: var(--gold); color: var(--ink); }
+        .cta .button:hover { border-color: var(--white); background: var(--white); }
+        footer { padding: 2rem 0; border-top: 1px solid rgba(255,255,255,.12); background: var(--ink); color: rgba(255,255,255,.65); font-size: .78rem; }
+        .footer-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+        footer a { color: inherit; }
+
+        @media (max-width: 860px) {
+            .hero { padding-top: 6.5rem; }
+            .hero-grid, .split, .collaboration { grid-template-columns: 1fr; gap: 2.5rem; }
+            .facts-grid, .principles { grid-template-columns: 1fr; }
+            .fact { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+            .fact:last-child { border-bottom: 0; }
+            .roles { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 560px) {
+            .page-shell { width: min(100% - 32px, 1180px); }
+            .hero { padding-bottom: 4rem; }
+            .hero-actions { flex-direction: column; }
+            .button { width: 100%; }
+            .content-section, .cta { padding: 4.5rem 0; }
+            .principle, .role, .collaboration-copy, .transparency { padding: 1.5rem; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Over Technisch Bouwadvies",
+      "url": "https://technischbouwadvies.nl/over-ons.html",
+      "about": {
+        "@type": "ProfessionalService",
+        "name": "Technisch Bouwadvies",
+        "url": "https://technischbouwadvies.nl/",
+        "telephone": "+31649240412",
+        "email": "info@technischbouwadvies.nl",
+        "identifier": "KvK 95153756"
+      }
+    }
+    </script>
 </head>
 <body>
-    <script>window.location.replace("index.html#over-ons");</script>
-    <p>Doorverwijzen naar <a href="index.html#over-ons">Technisch Bouwadvies</a>...</p>
+    <a class="tba-skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="tba-site-header" data-tba-header>
+        <nav class="tba-nav-shell" id="tba-site-nav" aria-label="Hoofdnavigatie">
+            <a href="index.html" class="tba-brand" aria-label="Technisch Bouwadvies - Home">
+                <svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/><path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/><path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/></svg>
+                <span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span>
+            </a>
+            <ul class="tba-nav-links">
+                <li class="tba-services-item"><button class="tba-services-trigger" id="tba-services-trigger" type="button" aria-expanded="false" aria-controls="tba-services-menu">Diensten<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="tba-dropdown" id="tba-services-menu"><div class="tba-dropdown-inner"></div></div></li>
+                <li><a class="tba-nav-link" href="index.html#werkwijze">Werkwijze</a></li>
+                <li><a class="tba-nav-link" href="index.html#projecten">Projecten</a></li>
+                <li><a class="tba-nav-link" href="index.html#calculator">Prijs berekenen</a></li>
+                <li><a class="tba-nav-link" href="over-ons.html" aria-current="page">Over ons</a></li>
+            </ul>
+            <div class="tba-nav-actions"><a href="tel:+31649240412" class="tba-call" aria-label="Bel Technisch Bouwadvies op +31 6 49 24 04 12"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg><span>Bel direct</span></a><a href="contact.html" class="tba-nav-cta">Offerte aanvragen</a></div>
+            <div class="tba-mobile-controls"><a href="tel:+31649240412" class="tba-mobile-call" aria-label="Bel Technisch Bouwadvies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg></a><button class="tba-menu-toggle" id="tba-menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="tba-mobile-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button></div>
+        </nav>
+        <div class="tba-menu-backdrop" aria-hidden="true"></div>
+        <aside class="tba-mobile-panel" id="tba-mobile-panel" role="dialog" aria-modal="true" aria-label="Mobiel navigatiemenu" aria-hidden="true" inert>
+            <div class="tba-mobile-header"><a href="index.html" class="tba-mobile-brand" aria-label="Technisch Bouwadvies - Home"><svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/><path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/><path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/></svg><span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span></a><button class="tba-menu-close" id="tba-menu-close" type="button" aria-label="Menu sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+            <div class="tba-mobile-content"><details class="tba-mobile-services"><summary class="tba-mobile-summary"><span>Diensten</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="tba-mobile-service-list"></div></details><a href="index.html#werkwijze" class="tba-mobile-link">Werkwijze</a><a href="index.html#projecten" class="tba-mobile-link">Projecten</a><a href="index.html#prijzen" class="tba-mobile-link">Prijzen</a><a href="over-ons.html" class="tba-mobile-link" aria-current="page">Over ons</a><div class="tba-mobile-secondary"><a href="blog.html">Blog</a><a href="index.html#faq">FAQ</a><a href="testimonials.html">Reviews</a><a href="contact.html">Contact</a></div><a href="contact.html" class="tba-mobile-cta">Offerte aanvragen</a><div class="tba-mobile-contact"><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></div></div>
+        </aside>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="page-shell hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Over Technisch Bouwadvies</p>
+                    <h1>Een helder bouwplan begint met duidelijke afspraken.</h1>
+                    <p>Technisch Bouwadvies helpt verbouwingsideeën te vertalen naar een begrijpelijk en technisch uitgewerkt plan. Vooraf leggen we vast wat u ontvangt, welke informatie nodig is en welke begeleiding binnen de opdracht valt.</p>
+                    <div class="hero-actions"><a class="button" href="contact.html">Bespreek uw bouwplan</a><a class="button secondary" href="index.html#werkwijze">Bekijk de werkwijze</a></div>
+                </div>
+                <figure class="hero-visual">
+                    <img src="images/website-2026/over-ons-samenwerken-aan-bouwtekening.webp" alt="Illustratieve werksituatie waarin bouwtekeningen en materiaalkeuzes worden besproken" loading="eager" decoding="async" fetchpriority="high">
+                    <figcaption class="image-label">Illustratieve werksituatie</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="facts" aria-label="Bedrijfsgegevens">
+            <div class="page-shell facts-grid">
+                <div class="fact"><span>Handelsnaam</span><strong>Technisch Bouwadvies</strong></div>
+                <div class="fact"><span>Registratie</span><strong>KvK 95153756</strong></div>
+                <div class="fact"><span>Contact</span><strong>info@technischbouwadvies.nl<br>+31 (0)6 49 24 04 12</strong></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-shell">
+                <div class="split">
+                    <div><p class="eyebrow">Wat we doen</p><h2>Van eerste vraag naar een bruikbaar plan.</h2></div>
+                    <div class="prose">
+                        <p>Een verbouwing begint vaak met vragen: wat past bij de woning, welke tekeningen zijn nodig en welke vergunning- of meldingsroute kan van toepassing zijn? Technisch Bouwadvies brengt die uitgangspunten samen en zet ze om in een duidelijke opdrachtscope.</p>
+                        <p>De werkzaamheden kunnen bestaan uit <strong>bouwkundig tekenwerk, een eerste locatiegerichte beoordeling, voorbereiding van aanvraagstukken en begeleiding van gemeentecontact</strong>. Niet ieder project vraagt hetzelfde. Daarom staat in de offerte welke tekeningen, correctierondes, externe specialisten en contactmomenten wel of niet zijn inbegrepen.</p>
+                    </div>
+                </div>
+                <div class="principles">
+                    <article class="principle"><span>01 — Duidelijkheid</span><h3>Scope vóór de start</h3><p>Resultaat, prijs, planning, benodigde input en uitsluitingen worden vooraf vastgelegd.</p></article>
+                    <article class="principle"><span>02 — Begrijpelijk</span><h3>Techniek helder uitgelegd</h3><p>U ontvangt niet alleen bestanden, maar ook uitleg over het doel en de vervolgstappen.</p></article>
+                    <article class="principle"><span>03 — Zorgvuldig</span><h3>Geen vergunninggarantie</h3><p>Wij bereiden en begeleiden de afgesproken route; het bevoegd gezag neemt het besluit.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section alt">
+            <div class="page-shell">
+                <div class="section-head"><p class="eyebrow">Rollen en verantwoordelijkheid</p><h2>Voor iedere partij is duidelijk wie wat doet.</h2></div>
+                <div class="roles">
+                    <article class="role"><span>Uw rol</span><h3>Wensen en beschikbare informatie</h3><p>U deelt de projectwensen, adresgegevens, bestaande tekeningen, foto’s, maten en bekende afspraken die voor de opdracht relevant zijn.</p></article>
+                    <article class="role"><span>Onze rol</span><h3>Uitwerking binnen de offerte</h3><p>Technisch Bouwadvies maakt de afgesproken stukken, licht aandachtspunten toe en begeleidt alleen de onderdelen die in de opdracht zijn opgenomen.</p></article>
+                    <article class="role"><span>Externe specialisten</span><h3>Projectspecifieke expertise</h3><p>Een constructeur, inmeetdienst of andere specialist wordt waar nodig apart benoemd. De offerte vermeldt of diens werkzaamheden en kosten zijn inbegrepen.</p></article>
+                    <article class="role"><span>Bevoegd gezag</span><h3>Controle en besluitvorming</h3><p>De gemeente of een ander bevoegd gezag beoordeelt een aanvraag. Een goede voorbereiding kan de behandeling ondersteunen, maar garandeert geen vergunning.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-shell collaboration">
+                <div class="collaboration-copy">
+                    <p class="eyebrow">Plan in beeld</p>
+                    <h2>3D-uitwerking met ALKA Visuals.</h2>
+                    <p>Wilt u naast technische tekeningen ook begrijpen hoe de uitstraling of indeling kan worden? Fotorealistische 3D-visualisaties en ingerichte 3D-vloerplannen worden verzorgd in samenwerking met <a href="https://alkavisuals.nl/" target="_blank" rel="noopener noreferrer">ALKA Visuals</a>. De gekozen beelden, detailgraad, bestandsformaten en correctierondes worden vooraf afgesproken.</p>
+                    <a class="button" href="3d-visualisaties-vloerplannen.html">Bekijk de 3D-mogelijkheden</a>
+                </div>
+                <aside class="transparency">
+                    <h3>Waarom hier geen teamportret staat</h3>
+                    <p>Op deze pagina gebruiken we geen stockteam of gegenereerd persoonsportret als vervanging voor echte bedrijfsfotografie. Het getoonde procesbeeld is daarom zichtbaar als illustratie gelabeld. Een professioneel portret kan later worden toegevoegd zodra echte fotografie beschikbaar is.</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="page-shell">
+                <p class="eyebrow">Uw plan bespreken</p>
+                <h2>Vertel wat u wilt bouwen of verbouwen.</h2>
+                <p>Via het offerteformulier deelt u de locatie, gewenste dienstverlening en beschikbare informatie. U ontvangt daarna een voorstel waarin scope, prijs, planning en eventuele externe kosten worden benoemd.</p>
+                <a class="button" href="contact.html">Start uw offerteaanvraag</a>
+            </div>
+        </section>
+    </main>
+
+    <footer><div class="page-shell footer-row"><span>&copy; <span id="year">2026</span> Technisch Bouwadvies · KvK 95153756</span><span><a href="privacybeleid.html">Privacy</a> &nbsp;·&nbsp; <a href="algemene-voorwaarden.html">Algemene voorwaarden</a> &nbsp;·&nbsp; <a href="cookiebeleid.html">Cookies</a></span></div></footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
