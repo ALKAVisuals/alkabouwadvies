@@ -4804,22 +4804,6 @@ transform: translateY(-2px);
         dli.forEach(item=>{item.addEventListener('mouseenter',()=>{dli.forEach(i=>i.classList.remove('hovered'));item.classList.add('hovered');const sid=item.getAttribute('data-sub');if(sid&&sid!=='')showPanel('sub-'+sid)})});
         if(dc){dc.addEventListener('mouseleave',()=>{dli.forEach(i=>i.classList.remove('hovered'));const fi=dli[0];if(fi){fi.classList.add('hovered');const sid=fi.getAttribute('data-sub');if(sid&&sid!=='')showPanel('sub-'+sid)}})}
     })();
-
-            item.addEventListener('mouseenter', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                item.classList.add('hovered');
-                const subId = item.getAttribute('data-sub');
-                if (subId && subId !== '') showRightPanel('sub-' + subId);
-            });
-        });
-        if (dropdownContainer) {
-            dropdownContainer.addEventListener('mouseleave', () => {
-                dropdownLeftItems.forEach(i => i.classList.remove('hovered'));
-                const firstItem = dropdownLeftItems[0];
-                if (firstItem) { firstItem.classList.add('hovered'); const subId = firstItem.getAttribute('data-sub'); if (subId && subId !== '') showRightPanel('sub-' + subId); }
-            });
-        }
-    })();
 </script>
 
     <!-- Mobile Sticky CTA -->

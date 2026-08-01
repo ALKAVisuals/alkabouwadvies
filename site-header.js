@@ -303,6 +303,7 @@
         mobilePanel.removeAttribute('inert');
         mobilePanel.setAttribute('aria-hidden', 'false');
         menuToggle.setAttribute('aria-expanded', 'true');
+        menuToggle.setAttribute('aria-label', 'Menu sluiten');
         document.body.classList.add('tba-menu-open');
         window.setTimeout(() => menuClose.focus(), 60);
     }
@@ -314,6 +315,7 @@
         mobilePanel.setAttribute('inert', '');
         mobilePanel.setAttribute('aria-hidden', 'true');
         menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Menu openen');
         document.body.classList.remove('tba-menu-open');
         if (settings.restoreFocus && menuReturnFocus instanceof HTMLElement) menuReturnFocus.focus();
     }
