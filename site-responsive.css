@@ -70,3 +70,11 @@
         overscroll-behavior-inline: contain;
     }
 }
+
+.price-vat {
+    margin: -0.5rem 0 1.1rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: inherit;
+    opacity: 0.72;
+}
