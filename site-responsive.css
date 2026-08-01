@@ -1,0 +1,72 @@
+/*
+ * Shared mobile layout safeguards for active non-city pages.
+ * Loaded after page-specific styles so narrow layouts cannot retain desktop minimums.
+ */
+@media (max-width: 768px) {
+    .pricing-grid,
+    .tech-inner,
+    .tech-grid,
+    .footer-top {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .pricing-grid > *,
+    .tech-inner > *,
+    .tech-grid > *,
+    .footer-top > *,
+    .footer-logo-link,
+    .footer-logo-text,
+    .blog-card-content,
+    .blog-card-content h3 {
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .footer-logo-text {
+        font-size: clamp(1.4rem, 7vw, 1.75rem) !important;
+    }
+
+    .blog-card-content h3 {
+        overflow-wrap: anywhere !important;
+    }
+
+    .mid-cta-actions,
+    .mid-cta-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .mid-cta-actions {
+        align-items: stretch !important;
+    }
+
+    .mid-cta-btn {
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        text-align: center !important;
+    }
+
+    .mid-cta-note {
+        max-width: 100% !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    .footer-bottom,
+    .footer-legal {
+        min-width: 0 !important;
+        max-width: 100% !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        row-gap: 0.75rem !important;
+    }
+
+    .cookie-table {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow-x: auto !important;
+        overscroll-behavior-inline: contain;
+    }
+}
