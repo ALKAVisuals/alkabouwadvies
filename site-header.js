@@ -29,6 +29,21 @@
         'nokverhoging.html',
         'omgevingsvergunning-aanvragen.html'
     ]);
+    const cityPages = new Set([
+        'amsterdam.html',
+        'apeldoorn.html',
+        'arnhem.html',
+        'breda.html',
+        'den-haag.html',
+        'democity.html',
+        'demo-city-reference.html',
+        'eindhoven.html',
+        'groningen.html',
+        'nijmegen.html',
+        'rotterdam.html',
+        'tilburg.html',
+        'utrecht.html'
+    ]);
     const desktopServiceGroups = [
         {
             label: 'Bouwtekeningen',
@@ -222,6 +237,79 @@
             </div>
         `;
         contact.before(section);
+    }
+
+    function routePrimaryContactLinks() {
+        const filename = currentFilename();
+        if (filename === 'contact.html' || cityPages.has(filename)) return;
+
+        const contactHref = window.location.pathname.includes('/blog/') ? '../contact.html' : 'contact.html';
+        header.querySelectorAll('.tba-nav-cta, .tba-mobile-cta').forEach((link) => {
+            link.href = contactHref;
+        });
+        header.querySelectorAll('.tba-mobile-secondary a').forEach((link) => {
+            if (link.textContent.trim().toLowerCase() === 'contact') link.href = contactHref;
+        });
+    }
+
+    function formatEuro(amount) {
+        return new Intl.NumberFormat('nl-NL', {
+            style: 'currency',
+            currency: 'EUR',
+            minimumFractionDigits: Number.isInteger(amount) ? 0 : 2,
+            maximumFractionDigits: 2
+        }).format(amount);
+    }
+
+    function parseEuroAmount(value) {
+        const match = value.match(/€\s*([\d.]+(?:,\d{1,2})?)/);
+        if (!match) return null;
+        const parsed = Number(match[1].replace(/\./g, '').replace(',', '.'));
+        return Number.isFinite(parsed) ? parsed : null;
+    }
+
+    function normalisePricePresentation() {
+        if (!servicePages.has(currentFilename())) return;
+
+        document.querySelectorAll('.price-card .price-value').forEach((price) => {
+            if (price.dataset.tbaVatNormalised === 'true') return;
+            const excludingVat = parseEuroAmount(price.textContent);
+            if (excludingVat === null) return;
+
+            const includingVat = Math.round(excludingVat * 121) / 100;
+            price.innerHTML = `${formatEuro(excludingVat)}<span>/ eenmalig excl. btw</span><small class="tba-price-in-vat">${formatEuro(includingVat)} incl. 21% btw</small>`;
+            price.dataset.tbaVatNormalised = 'true';
+        });
+
+        document.querySelectorAll('.hero-right-badge').forEach((badge) => {
+            const label = badge.querySelector('span');
+            const amount = badge.querySelector('strong');
+            if (!label || !amount || !/excl\.?\s*btw/i.test(label.textContent)) return;
+            const excludingVat = parseEuroAmount(amount.textContent);
+            if (excludingVat === null) return;
+
+            amount.textContent = formatEuro(excludingVat);
+            label.textContent = 'Vanaf — excl. btw';
+            const includingLabel = document.createElement('small');
+            includingLabel.className = 'tba-hero-price-in-vat';
+            includingLabel.textContent = `${formatEuro(Math.round(excludingVat * 121) / 100)} incl. 21% btw`;
+            badge.appendChild(includingLabel);
+        });
+
+        const pricingSection = Array.from(document.querySelectorAll('section.pricing')).find((section) => section.querySelector('.price-card'));
+        const firstPriceCard = pricingSection?.querySelector('.price-card');
+        const priceGrid = firstPriceCard?.parentElement;
+        if (!pricingSection || !priceGrid || pricingSection.querySelector('.tba-price-scope')) return;
+
+        const scope = document.createElement('aside');
+        scope.className = 'tba-price-scope';
+        scope.setAttribute('aria-label', 'Uitleg over prijzen en opdrachtscope');
+        scope.innerHTML = `
+            <strong>De getoonde bedragen zijn projectgebonden vanafprijzen.</strong>
+            <p>Uw offerte legt de exacte tekeningen en bestanden, eventuele inmeting, indiening, correctierondes en planning vast. Gemeentelijke leges, archiefkosten, uitvoering en externe specialisten zijn alleen inbegrepen wanneer dat uitdrukkelijk in de offerte staat.</p>
+            <a href="contact.html">Vraag een projectspecifieke offerte aan <span aria-hidden="true">→</span></a>
+        `;
+        priceGrid.before(scope);
     }
 
     function setCurrentNavigation() {
@@ -474,7 +562,9 @@
 
     prepareDesktopServicesMenu();
     prepareMobileServicesMenu();
+    routePrimaryContactLinks();
     addVisualisationUpsell();
+    normalisePricePresentation();
     setCurrentNavigation();
     prepareSkipLink();
     observeHomepageSections();
