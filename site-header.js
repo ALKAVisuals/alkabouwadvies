@@ -19,6 +19,7 @@
         'bijgebouw.html',
         'bouwkundig-advies.html',
         'bouwtekening-digitaliseren.html',
+        '3d-visualisaties-vloerplannen.html',
         'carport-vergunning.html',
         'dakkapel.html',
         'dakopbouw-vergunningen.html',
@@ -53,10 +54,11 @@
             ]
         },
         {
-            label: 'Advies & digitaliseren',
-            description: 'Technische zekerheid voor bestaande en nieuwe plannen.',
+            label: 'Advies, 3D & digitaliseren',
+            description: 'Technische zekerheid en een begrijpelijk beeld van uw plan.',
             services: [
                 ['bouwkundig-advies.html', 'Bouwkundig advies', 'Praktisch advies van ervaren vakmensen'],
+                ['3d-visualisaties-vloerplannen.html', '3D-visualisaties & vloerplannen', 'Bekijk uitstraling en indeling vooraf'],
                 ['bouwtekening-digitaliseren.html', 'Tekeningen digitaliseren', 'Van papieren archief naar bruikbaar bestand']
             ]
         }
@@ -168,6 +170,58 @@
         });
 
         activateCategory(activeGroupIndex);
+    }
+
+    function prepareMobileServicesMenu() {
+        const list = header.querySelector('.tba-mobile-service-list');
+        if (!list) return;
+
+        const links = document.createDocumentFragment();
+        desktopServiceGroups.forEach((group) => {
+            group.services.forEach(([href, title]) => {
+                const link = document.createElement('a');
+                link.href = href;
+                link.textContent = title;
+                links.appendChild(link);
+            });
+        });
+        list.replaceChildren(links);
+    }
+
+    function addVisualisationUpsell() {
+        const supportedPages = new Set([
+            'aanbouw-uitbouw.html',
+            'bed-breakfast.html',
+            'bijgebouw.html',
+            'dakkapel.html',
+            'dakopbouw-vergunningen.html',
+            'erker.html',
+            'mantelzorg.html',
+            'nokverhoging.html'
+        ]);
+        if (!supportedPages.has(currentFilename())) return;
+
+        const contact = document.getElementById('contact');
+        if (!contact || document.querySelector('.tba-visualisation-upsell')) return;
+
+        const section = document.createElement('section');
+        section.className = 'tba-visualisation-upsell';
+        section.setAttribute('aria-label', 'Bekijk uw bouwplan vooraf in 3D');
+        section.innerHTML = `
+            <div class="tba-visualisation-upsell-inner">
+                <div class="tba-visualisation-upsell-copy">
+                    <span class="tba-visualisation-upsell-label">Aanvullende 3D-dienst</span>
+                    <h2>Zie vooraf hoe uw plan eruit kan zien.</h2>
+                    <p>Voeg een realistische 3D-visualisatie of een ingericht 3D-vloerplan toe. Zo worden uitstraling, indeling en ruimtelijke keuzes begrijpelijk naast de technische tekening.</p>
+                    <a href="3d-visualisaties-vloerplannen.html">Bekijk de 3D-mogelijkheden <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="tba-visualisation-upsell-images">
+                    <img src="images/website-2026/3d-visualisatie-aanbouw-schets-naar-realisatie.webp" alt="3D-visualisatie van een woningaanbouw" loading="lazy" decoding="async">
+                    <img src="images/website-2026/3d-vloerplan-woning-met-aanbouw.webp" alt="3D-vloerplan van een woning met aanbouw" loading="lazy" decoding="async">
+                </div>
+            </div>
+        `;
+        contact.before(section);
     }
 
     function setCurrentNavigation() {
@@ -419,6 +473,8 @@
     nav.addEventListener('focusin', () => nav.classList.remove('tba-nav-hidden'));
 
     prepareDesktopServicesMenu();
+    prepareMobileServicesMenu();
+    addVisualisationUpsell();
     setCurrentNavigation();
     prepareSkipLink();
     observeHomepageSections();

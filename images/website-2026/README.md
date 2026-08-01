@@ -30,6 +30,9 @@ De PNG-bestanden zijn de kwaliteitsbronnen. Gebruik op de website bij voorkeur d
 | `diensten/mantelzorgwoning-plattegrond-en-gevel.webp` | Mantelzorgwoning | `Toegankelijke mantelzorgwoning met plattegrond en geveltekening` |
 | `diensten/kozijnen-gevelwijziging-bouwdetail.webp` | Kozijnen of gevelwijziging | `Donkere kozijnen in een bakstenen gevel met technisch aansluitdetail` |
 | `diensten/staalconstructie-portaal-constructiedetail.webp` | Constructief advies | `Stalen portaalconstructie in een woning met bijbehorend constructiedetail` |
+| `diensten/carport-woning-van-schets-naar-realisatie.webp` | Carport | `Illustratieve moderne carport naast een Nederlandse woning die overgaat in een bouwschets` |
+| `diensten/nokverhoging-woning-dakdoorsnede.webp` | Nokverhoging | `Illustratieve nokverhoging van een Nederlandse woning die overgaat in een dakdoorsnede` |
+| `diensten/nokverhoging-3d-vloerplan-zolder.webp` | Nokverhoging / 3D-vloerplan | `Illustratief ingericht 3D-vloerplan van een zolder na een nokverhoging` |
 
 ## Vergelijking en illustratieve cases
 
@@ -41,3 +44,11 @@ De PNG-bestanden zijn de kwaliteitsbronnen. Gebruik op de website bij voorkeur d
 | `projecten/illustratieve-case-mantelzorgwoning.webp` | Illustratieve mantelzorgcase | `Mantelzorgwoning in een achtertuin met plattegrond en gevelaanzicht` |
 
 Deze casebeelden zijn conceptuele visualisaties. Gebruik daarbij termen als `impressie`, `concept` of `illustratieve case`; presenteer ze niet als gerealiseerde klantprojecten of testimonials.
+
+## Kennisbankbeeld
+
+| Bestand | Aanbevolen toepassing | Voorstel alt-tekst |
+| --- | --- | --- |
+| `blog/bestemmingsplan-perceel-en-regellagen.webp` | Blog over lokale bouwregels | `Illustratief perceel met verschillende lagen van lokale bouwregels` |
+
+Dit is een schematische uitlegillustratie en geen weergave van een officiële overheidsinterface of een bindende beoordeling voor een specifieke locatie.

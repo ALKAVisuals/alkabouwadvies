@@ -826,6 +826,99 @@ body.tba-menu-open {
     }
 }
 
+.tba-visualisation-upsell {
+    position: relative;
+    z-index: 1;
+    padding: clamp(4.5rem, 8vw, 8rem) 4vw;
+    color: #f8f5ed;
+    background: #1a1a18;
+}
+
+.tba-visualisation-upsell-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: center;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.tba-visualisation-upsell-label {
+    display: block;
+    margin-bottom: 1rem;
+    color: #c4a35a;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.tba-visualisation-upsell h2 {
+    margin: 0 0 1.25rem;
+    color: inherit;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 600;
+    line-height: 1.08;
+}
+
+.tba-visualisation-upsell p {
+    max-width: 590px;
+    margin: 0;
+    color: rgba(248, 245, 237, 0.68);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.tba-visualisation-upsell-copy > a {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: 1.75rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid #c4a35a;
+    color: #f8f5ed;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.tba-visualisation-upsell-images {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1rem;
+    align-items: end;
+}
+
+.tba-visualisation-upsell-images img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.tba-visualisation-upsell-images img:last-child {
+    transform: translateY(1.5rem);
+}
+
+@media (max-width: 850px) {
+    .tba-visualisation-upsell-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 540px) {
+    .tba-visualisation-upsell-images {
+        grid-template-columns: 1fr;
+    }
+
+    .tba-visualisation-upsell-images img:last-child {
+        display: none;
+    }
+}
+
 @media (max-width: 380px) {
     .tba-brand-mark {
         width: 35px;

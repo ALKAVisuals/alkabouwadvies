@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D-visualisaties &amp; 3D-vloerplannen | Technisch Bouwadvies</title>
+    <meta name="description" content="Bekijk uw verbouwing vooraf met een realistische 3D-visualisatie of een overzichtelijk 3D-vloerplan. Als aanvulling op bouwkundig advies en technische tekeningen.">
+    <link rel="canonical" href="https://technischbouwadvies.nl/3d-visualisaties-vloerplannen.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:title" content="3D-visualisaties &amp; 3D-vloerplannen | Technisch Bouwadvies">
+    <meta property="og:description" content="Maak uitstraling, indeling en ruimtelijke keuzes zichtbaar voordat de bouw start.">
+    <meta property="og:url" content="https://technischbouwadvies.nl/3d-visualisaties-vloerplannen.html">
+    <meta property="og:image" content="https://technischbouwadvies.nl/images/website-2026/3d-visualisatie-aanbouw-schets-naar-realisatie.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site-header.css">
+    <style>
+        :root {
+            --ink: #151515;
+            --muted: #69665f;
+            --paper: #f4f1ea;
+            --white: #fff;
+            --gold: #b3944d;
+            --line: rgba(21, 21, 21, 0.14);
+            --radius: 4px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; color: var(--ink); background: var(--white); font-family: "DM Sans", sans-serif; }
+        img { display: block; max-width: 100%; }
+        a { color: inherit; }
+        .page-shell { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+        .eyebrow { margin: 0 0 18px; color: var(--gold); font-size: .76rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+        h1, h2 { font-family: "Playfair Display", serif; font-weight: 600; line-height: 1.06; }
+        h1 { max-width: 850px; margin: 0; font-size: clamp(3rem, 6vw, 6rem); }
+        h2 { margin: 0 0 20px; font-size: clamp(2.2rem, 4vw, 4rem); }
+        h3 { margin: 0 0 12px; font-size: 1.25rem; }
+        p { line-height: 1.75; }
+        .lead { max-width: 720px; color: rgba(255,255,255,.72); font-size: 1.08rem; }
+        .button { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 24px; border: 1px solid var(--gold); background: var(--gold); color: var(--ink); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+        .button.secondary { background: transparent; color: var(--white); }
+        .button:hover { filter: brightness(1.08); }
+
+        .hero { padding: 176px 0 90px; overflow: hidden; color: var(--white); background: #171715; }
+        .hero-grid { display: grid; grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr); gap: 64px; align-items: center; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+        .hero-visual { position: relative; }
+        .hero-visual img { aspect-ratio: 3 / 2; width: 100%; object-fit: cover; }
+        .hero-note { position: absolute; right: -18px; bottom: -22px; max-width: 270px; padding: 18px 22px; background: var(--paper); color: var(--ink); font-size: .82rem; line-height: 1.55; }
+
+        .intro { padding: 110px 0; }
+        .intro-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 90px; }
+        .intro-copy { color: var(--muted); }
+        .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 32px; }
+        .service-card { padding: 30px; border: 1px solid var(--line); background: var(--paper); }
+        .service-number { color: var(--gold); font-size: .78rem; font-weight: 700; letter-spacing: .12em; }
+        .service-card ul { margin: 18px 0 0; padding-left: 20px; color: var(--muted); line-height: 1.8; }
+
+        .examples { padding: 110px 0; background: var(--paper); }
+        .examples-head { display: flex; justify-content: space-between; gap: 40px; align-items: end; margin-bottom: 42px; }
+        .examples-head p { max-width: 500px; margin: 0; color: var(--muted); }
+        .example-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 22px; }
+        .example { margin: 0; background: var(--white); }
+        .example:first-child { grid-column: span 7; }
+        .example:nth-child(2) { grid-column: span 5; }
+        .example:nth-child(3) { grid-column: 4 / span 6; }
+        .example img { aspect-ratio: 3 / 2; width: 100%; object-fit: cover; }
+        .example figcaption { padding: 18px 20px 21px; }
+        .example figcaption strong { display: block; margin-bottom: 5px; }
+        .example figcaption span { color: var(--muted); font-size: .9rem; }
+
+        .compare { padding: 110px 0; }
+        .table-wrap { margin-top: 36px; overflow-x: auto; }
+        table { width: 100%; min-width: 760px; border-collapse: collapse; }
+        th, td { padding: 20px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+        th { background: var(--ink); color: var(--white); font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; }
+        td:first-child { font-weight: 700; }
+        td:not(:first-child) { color: var(--muted); }
+
+        .process { padding: 110px 0; background: var(--ink); color: var(--white); }
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 42px; background: rgba(255,255,255,.16); }
+        .step { min-height: 250px; padding: 28px; background: var(--ink); }
+        .step span { display: block; margin-bottom: 42px; color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: .12em; }
+        .step p { margin-bottom: 0; color: rgba(255,255,255,.65); font-size: .94rem; }
+
+        .clarity { padding: 100px 0; }
+        .clarity-box { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; padding: 50px; border-left: 4px solid var(--gold); background: var(--paper); }
+        .clarity-box p { margin-top: 0; color: var(--muted); }
+        .clarity-box a { color: #7d642d; font-weight: 700; }
+
+        .cta { padding: 90px 0; color: var(--white); background: #262622; text-align: center; }
+        .cta p { max-width: 650px; margin: 0 auto 28px; color: rgba(255,255,255,.68); }
+        footer { padding: 36px 0; color: rgba(255,255,255,.62); background: #10100f; font-size: .86rem; }
+        .footer-row { display: flex; justify-content: space-between; gap: 24px; }
+        .footer-row a { color: inherit; text-decoration: none; }
+
+        @media (max-width: 900px) {
+            .hero-grid, .intro-grid, .clarity-box { grid-template-columns: 1fr; gap: 42px; }
+            .hero-visual { max-width: 720px; }
+            .steps { grid-template-columns: repeat(2, 1fr); }
+            .example:first-child, .example:nth-child(2), .example:nth-child(3) { grid-column: span 12; }
+        }
+        @media (max-width: 620px) {
+            .page-shell { width: min(100% - 32px, 1180px); }
+            .hero { padding: 134px 0 74px; }
+            .hero-grid { display: flex; flex-direction: column; }
+            .hero-note { position: static; max-width: none; }
+            .intro, .examples, .compare, .process, .clarity { padding: 76px 0; }
+            .service-grid, .steps { grid-template-columns: 1fr; }
+            .examples-head, .footer-row { display: block; }
+            .examples-head p { margin-top: 16px; }
+            .clarity-box { padding: 30px 24px; }
+        }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "3D-visualisaties en 3D-vloerplannen",
+      "provider": { "@type": "Organization", "name": "Technisch Bouwadvies", "url": "https://technischbouwadvies.nl/" },
+      "areaServed": "Nederland",
+      "description": "Visuele uitwerking van bouwplannen als aanvulling op bouwkundig advies en technische tekeningen."
+    }
+    </script>
+</head>
+<body>
+    <a class="tba-skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="tba-site-header" data-tba-header>
+        <nav class="tba-nav-shell" id="tba-site-nav" aria-label="Hoofdnavigatie">
+            <a href="index.html" class="tba-brand" aria-label="Technisch Bouwadvies - Home">
+                <svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/><path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/><path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/></svg>
+                <span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span>
+            </a>
+            <ul class="tba-nav-links">
+                <li class="tba-services-item"><button class="tba-services-trigger" id="tba-services-trigger" type="button" aria-expanded="false" aria-controls="tba-services-menu">Diensten<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="tba-dropdown" id="tba-services-menu"><div class="tba-dropdown-inner"></div></div></li>
+                <li><a class="tba-nav-link" href="index.html#werkwijze">Werkwijze</a></li>
+                <li><a class="tba-nav-link" href="index.html#projecten">Projecten</a></li>
+                <li><a class="tba-nav-link" href="index.html#calculator">Prijs berekenen</a></li>
+                <li><a class="tba-nav-link" href="index.html#over-ons">Over ons</a></li>
+            </ul>
+            <div class="tba-nav-actions"><a href="tel:+31649240412" class="tba-call" aria-label="Bel Technisch Bouwadvies op +31 6 49 24 04 12"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg><span>Bel direct</span></a><a href="index.html#contact" class="tba-nav-cta">Offerte aanvragen</a></div>
+            <div class="tba-mobile-controls"><a href="tel:+31649240412" class="tba-mobile-call" aria-label="Bel Technisch Bouwadvies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg></a><button class="tba-menu-toggle" id="tba-menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="tba-mobile-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button></div>
+        </nav>
+        <div class="tba-menu-backdrop" aria-hidden="true"></div>
+        <aside class="tba-mobile-panel" id="tba-mobile-panel" role="dialog" aria-modal="true" aria-label="Mobiel navigatiemenu" aria-hidden="true" inert>
+            <div class="tba-mobile-header"><a href="index.html" class="tba-mobile-brand" aria-label="Technisch Bouwadvies - Home"><svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/><path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/><path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/></svg><span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span></a><button class="tba-menu-close" id="tba-menu-close" type="button" aria-label="Menu sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+            <div class="tba-mobile-content"><details class="tba-mobile-services"><summary class="tba-mobile-summary"><span>Diensten</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="tba-mobile-service-list"></div></details><a href="index.html#werkwijze" class="tba-mobile-link">Werkwijze</a><a href="index.html#projecten" class="tba-mobile-link">Projecten</a><a href="index.html#prijzen" class="tba-mobile-link">Prijzen</a><a href="index.html#over-ons" class="tba-mobile-link">Over ons</a><div class="tba-mobile-secondary"><a href="blog.html">Blog</a><a href="index.html#faq">FAQ</a><a href="testimonials.html">Reviews</a><a href="index.html#contact">Contact</a></div><a href="index.html#contact" class="tba-mobile-cta">Offerte aanvragen</a><div class="tba-mobile-contact"><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></div></div>
+        </aside>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="page-shell hero-grid">
+                <div>
+                    <p class="eyebrow">3D-visualisaties &amp; vloerplannen</p>
+                    <h1>Bekijk uw bouwplan vooraf in 3D.</h1>
+                    <p class="lead">Maak de uitstraling, indeling en ruimtelijke verhoudingen begrijpelijk voordat de uitvoering begint. Als losse visuele dienst of als aanvulling op uw bouwkundige tekeningen.</p>
+                    <div class="hero-actions"><a href="index.html#contact" class="button">Bespreek uw plan</a><a href="#voorbeelden" class="button secondary">Bekijk voorbeelden</a></div>
+                </div>
+                <div class="hero-visual"><img src="images/website-2026/3d-visualisatie-aanbouw-schets-naar-realisatie.webp" alt="Van bouwkundige schets naar een realistische 3D-visualisatie van een woningaanbouw" loading="eager" decoding="async" fetchpriority="high"><div class="hero-note">Een visueel beeld helpt u keuzes bespreken met huisgenoten, adviseur en aannemer.</div></div>
+            </div>
+        </section>
+
+        <section class="intro">
+            <div class="page-shell intro-grid">
+                <div><p class="eyebrow">Twee manieren van kijken</p><h2>Van technische lijn naar een begrijpelijk beeld.</h2></div>
+                <div class="intro-copy"><p>Een bouwtekening legt maatvoering en technische informatie vast. Een 3D-visualisatie laat vooral zien hoe het ontwerp eruit kan zien; een 3D-vloerplan helpt de indeling en loopruimte te begrijpen. Ze vullen elkaar aan, maar hebben niet dezelfde functie.</p><div class="service-grid"><article class="service-card"><span class="service-number">01</span><h3>3D-visualisatie</h3><p>Een realistische impressie van exterieur of interieur, passend bij het ontwerp en de aangeleverde materiaalrichting.</p><ul><li>Uitstraling en materiaalkeuzes vergelijken</li><li>Volume en gevelopeningen beoordelen</li><li>Plan duidelijk presenteren</li></ul></article><article class="service-card"><span class="service-number">02</span><h3>3D-vloerplan</h3><p>Een ruimtelijk bovenaanzicht waarin vertrekken, meubels en gebruikszones overzichtelijk samenkomen.</p><ul><li>Indeling en routing begrijpen</li><li>Ruimtes onderling vergelijken</li><li>Woonideeën concreet bespreken</li></ul></article></div></div>
+            </div>
+        </section>
+
+        <section class="examples" id="voorbeelden">
+            <div class="page-shell"><div class="examples-head"><div><p class="eyebrow">Beeldvoorbeelden</p><h2>Ontwerpkeuzes zichtbaar gemaakt.</h2></div><p>De beelden hieronder zijn illustratieve voorbeelden van de mogelijke beeldtaal. Uw visualisatie wordt opgebouwd rond uw eigen woning, plan en afgesproken detailniveau.</p></div><div class="example-grid"><figure class="example"><img src="images/website-2026/3d-visualisatie-aanbouw-schets-naar-realisatie.webp" alt="Ontwerpontwikkeling van schets naar 3D-visualisatie van een moderne aanbouw" loading="lazy" decoding="async"><figcaption><strong>Exterieurvisualisatie</strong><span>Van ontwerpidee naar een realistische indruk van de aanbouw.</span></figcaption></figure><figure class="example"><img src="images/website-2026/3d-vloerplan-woning-met-aanbouw.webp" alt="Driedimensionaal vloerplan van een woning met ingerichte aanbouw" loading="lazy" decoding="async"><figcaption><strong>3D-vloerplan begane grond</strong><span>Ruimtelijk overzicht van indeling, meubels en looproutes.</span></figcaption></figure><figure class="example"><img src="images/website-2026/diensten/nokverhoging-3d-vloerplan-zolder.webp" alt="Driedimensionaal vloerplan van een ingerichte zolder na een nokverhoging" loading="lazy" decoding="async"><figcaption><strong>3D-vloerplan zolder</strong><span>Inzicht in de bruikbare ruimte na een dakaanpassing.</span></figcaption></figure></div></div>
+        </section>
+
+        <section class="compare">
+            <div class="page-shell"><p class="eyebrow">De juiste uitwerking kiezen</p><h2>Wat ontvangt u waarvoor?</h2><div class="table-wrap"><table><thead><tr><th>Onderdeel</th><th>Technische bouwtekening</th><th>3D-visualisatie</th><th>3D-vloerplan</th></tr></thead><tbody><tr><td>Hoofddoel</td><td>Technische en maatvaste vastlegging</td><td>Uitstraling en volume tonen</td><td>Indeling en ruimtelijk gebruik tonen</td></tr><tr><td>Geeft inzicht in</td><td>Maten, doorsneden en bouwkundige informatie</td><td>Materialen, gevelbeeld en sfeer</td><td>Verhoudingen, meubels en looproutes</td></tr><tr><td>Geschikt als visueel overlegstuk</td><td>Beperkt</td><td>Ja</td><td>Ja</td></tr><tr><td>Vervangt officiële aanvraagstukken</td><td>Afhankelijk van de afgesproken scope</td><td>Nee</td><td>Nee</td></tr></tbody></table></div></div>
+        </section>
+
+        <section class="process">
+            <div class="page-shell"><p class="eyebrow">Werkwijze</p><h2>In vier heldere stappen.</h2><div class="steps"><article class="step"><span>01 — Input</span><h3>Plan en materiaal verzamelen</h3><p>U deelt beschikbare tekeningen, foto’s, maten en gewenste sfeer of materiaalrichting.</p></article><article class="step"><span>02 — Scope</span><h3>Beeld en detailniveau afspreken</h3><p>We leggen vast welke ruimtes of aanzichten nodig zijn en waarvoor u de beelden gaat gebruiken.</p></article><article class="step"><span>03 — Uitwerking</span><h3>3D-model en presentatie</h3><p>Het ontwerp wordt opgebouwd en vertaald naar het afgesproken type visualisatie of vloerplan.</p></article><article class="step"><span>04 — Oplevering</span><h3>Beelden digitaal ontvangen</h3><p>Formaat, planning en eventuele correctierondes staan vooraf duidelijk in de offerte.</p></article></div></div>
+        </section>
+
+        <section class="clarity">
+            <div class="page-shell clarity-box"><div><p class="eyebrow">Belangrijk om te weten</p><h2>Visueel hulpmiddel, geen vergunninggarantie.</h2></div><div><p>Een 3D-visualisatie en een 3D-vloerplan zijn ontwerp- en communicatiemiddelen. Ze vervangen geen officiële bouwkundige, constructieve of aanvraagtekeningen en geven geen garantie op vergunningverlening of exacte uitvoering. Welke stukken nodig zijn, hangt af van het plan, de locatie en het beoogde gebruik.</p><p>Voor 3D-uitwerking werken we samen met <a href="https://alkavisuals.nl/" target="_blank" rel="noopener noreferrer">ALKA Visuals</a>. Technisch Bouwadvies blijft uw aanspreekpunt wanneer de visualisatie onderdeel is van een breder bouwkundig traject.</p></div></div>
+        </section>
+
+        <section class="cta"><div class="page-shell"><p class="eyebrow">Uw plan in beeld</p><h2>Benieuwd welke 3D-uitwerking bij uw plan past?</h2><p>Stuur uw tekeningen, schetsen of foto’s mee. U ontvangt een voorstel op basis van de gewenste beelden en het benodigde detailniveau.</p><a href="index.html#contact" class="button">Vraag een offerte aan</a></div></section>
+    </main>
+
+    <footer><div class="page-shell footer-row"><span>&copy; <span id="year">2026</span> Technisch Bouwadvies</span><span><a href="privacybeleid.html">Privacy</a> &nbsp;·&nbsp; <a href="algemene-voorwaarden.html">Algemene voorwaarden</a></span></div></footer>
+    <script src="site-header.js" defer></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
