@@ -1,7 +1,7 @@
 # ALKA Bouwadvies Website
 
-**Live URL:** https://alkavisuals.github.io/alkabouwadvies/  
-**Repository:** github.com/ALKAVisuals/alkabouwadvies  
+**Website:** https://technischbouwadvies.nl/
+**Project:** Technisch Bouwadvies
 **Versie:** 0.2 | **Laatste update:** 22-05-2026
 
 ## Overzicht

@@ -14,8 +14,10 @@
     <meta property="og:description" content="Van nokverhogingsplan tot bouwtekening, 3D-inzicht en voorbereiding van een eventuele vergunningaanvraag.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://technischbouwadvies.nl/nokverhoging">
-    <meta property="og:image" content="images/website-2026/diensten/nokverhoging-woning-dakdoorsnede.webp">
+    <meta property="og:image" content="https://technischbouwadvies.nl/images/website-2026/diensten/nokverhoging-ontwerp-antraciet-metaal.webp">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://technischbouwadvies.nl/images/website-2026/diensten/nokverhoging-ontwerp-antraciet-metaal.webp">
+    <link rel="preload" as="image" href="images/website-2026/diensten/nokverhoging-ontwerp-antraciet-metaal.webp" fetchpriority="high">
     <link rel="canonical" href="https://technischbouwadvies.nl/nokverhoging">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -841,9 +843,26 @@ transform: translateY(-2px);
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.7) saturate(0.8);
-            transform: scale(1.05);
-            will-change: transform;
+            object-position: 50% center;
+            filter: brightness(0.84) saturate(0.92);
+            transform: scale(1.015);
+        }
+
+        .hero-design-stage {
+            position: absolute;
+            inset: 0;
+        }
+
+        .hero-design-slide {
+            opacity: 0;
+            z-index: 0;
+            transition: opacity 0.75s ease;
+            will-change: opacity;
+        }
+
+        .hero-design-slide.is-active {
+            opacity: 1;
+            z-index: 1;
         }
 
         .hero-right-overlay {
@@ -2561,6 +2580,23 @@ transform: translateY(-2px);
                 min-height: 40vh;
             }
 
+            .hero-design-slide {
+                height: 100% !important;
+                max-width: none !important;
+            }
+
+            .hero-right-badge {
+                top: 1rem;
+                right: 1rem;
+                bottom: auto;
+                left: auto;
+                padding: 0.8rem 1rem;
+            }
+
+            .hero-right-badge strong {
+                font-size: 1.5rem;
+            }
+
             .usp-banner {
                 padding: 1.5rem 1.5rem;
             }
@@ -2603,6 +2639,12 @@ transform: translateY(-2px);
         .fade-up {
             opacity: 1;
             transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-design-slide {
+                transition: none;
+                transform: none;
+            }
         }
         .fade-in {
             opacity: 1;
@@ -3534,10 +3576,11 @@ transform: translateY(-2px);
     }
 </script>    <link rel="stylesheet" href="site-header.css">
     <link rel="stylesheet" href="css/service-responsive-fixes.css?v=20260731">
-    <script src="site-header.js" defer></script>
+    <script src="site-header.js?v=20260808-2" defer></script>
     <link rel="stylesheet" href="contact-section.css">
     <link rel="stylesheet" href="site-responsive.css?v=20260731">
     <script src="contact-section.js" defer></script>
+    <link rel="stylesheet" href="site-footer.css?v=20260808-2">
 </head>
 <body>
 <!-- TBA_SHARED_HEADER_START -->
@@ -3840,8 +3883,13 @@ transform: translateY(-2px);
                     <a href="#roi" class="hero-cta-secondary">Bouwen vs. Verhuizen: wat is slimmer?</a>
                 </div>
             </div>
-            <div class="hero-right">
-                <img src="images/website-2026/diensten/nokverhoging-woning-dakdoorsnede.webp" alt="Illustratieve nokverhoging van een Nederlandse woning die overgaat in een dakdoorsnede" class="hero-right-img" loading="eager" decoding="async" fetchpriority="high">
+            <div class="hero-right hero-design-carousel" data-hero-design-carousel aria-label="Vier automatisch wisselende nokverhogingsontwerpen voor dezelfde Nederlandse woning" aria-roledescription="carrousel">
+                <div class="hero-design-stage">
+                    <img src="images/website-2026/diensten/nokverhoging-ontwerp-antraciet-metaal.webp" alt="Nokverhogingsontwerp met antraciete metalen gevelbekleding en twee hoge ramen aan een Nederlandse woning" class="hero-right-img hero-design-slide is-active" data-hero-design-slide loading="eager" decoding="async" fetchpriority="high" aria-hidden="false">
+                    <img src="images/website-2026/diensten/nokverhoging-ontwerp-dakleien.webp" alt="Nokverhogingsontwerp met donkere dakleien, twee ramen en een bijbehorende dakdoorsnede" class="hero-right-img hero-design-slide" data-hero-design-slide loading="lazy" decoding="async" aria-hidden="true">
+                    <img src="images/website-2026/diensten/nokverhoging-ontwerp-licht-plaatmateriaal.webp" alt="Nokverhogingsontwerp met licht plaatmateriaal, slanke donkere kozijnen en een technische dakdoorsnede" class="hero-right-img hero-design-slide" data-hero-design-slide loading="lazy" decoding="async" aria-hidden="true">
+                    <img src="images/website-2026/diensten/nokverhoging-ontwerp-panoramisch-glas.webp" alt="Modern nokverhogingsontwerp met een grote panoramische glazen gevel in de verhoogde kap" class="hero-right-img hero-design-slide" data-hero-design-slide loading="lazy" decoding="async" aria-hidden="true">
+                </div>
                 <div class="hero-right-badge"><strong>€1.140</strong><span>Tekening + Constructie — excl. BTW</span></div>
                 <div class="hero-geo-line"></div>
             </div>
@@ -3869,7 +3917,7 @@ transform: translateY(-2px);
         <section class="roi-sectie" id="roi">
             <div class="roi-inner">
                 <div class="roi-visual">
-                    <img src="images/website-2026/diensten/nokverhoging-3d-vloerplan-zolder.webp" alt="Illustratief ingericht 3D-vloerplan van een zolder na een nokverhoging" loading="lazy" decoding="async">
+                    <img src="images/website-2026/3d/vloerplan-verdieping-meerdere-kamers.webp" alt="Professioneel ingericht vloerplan van een volledige woonverdieping met meerdere kamers" loading="lazy" decoding="async">
                 </div>
                 <div class="roi-content">
                     <div class="section-label">ROI Analyse</div>
@@ -4297,6 +4345,70 @@ transform: translateY(-2px);
             setTimeout(() => { ScrollTrigger.refresh(); }, 100);
         }
 
+        // Nokverhogingsontwerpen in de hero: een rustige, oneindige cyclus zonder zichtbare bediening.
+        (function initHeroDesignCarousel() {
+            const carousel = document.querySelector('[data-hero-design-carousel]');
+            if (!carousel) return;
+
+            const slides = Array.from(carousel.querySelectorAll('[data-hero-design-slide]'));
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            if (slides.length < 2) return;
+
+            let activeIndex = 0;
+            let timerId = null;
+
+            function clearTimer() {
+                if (timerId !== null) {
+                    window.clearTimeout(timerId);
+                    timerId = null;
+                }
+            }
+
+            function showSlide(index) {
+                activeIndex = (index + slides.length) % slides.length;
+
+                slides.forEach((slide, slideIndex) => {
+                    const isActive = slideIndex === activeIndex;
+                    slide.classList.toggle('is-active', isActive);
+                    slide.setAttribute('aria-hidden', String(!isActive));
+                });
+            }
+
+            function scheduleNextSlide() {
+                clearTimer();
+                if (document.hidden || reducedMotion.matches) return;
+
+                timerId = window.setTimeout(() => {
+                    showSlide(activeIndex + 1);
+                    scheduleNextSlide();
+                }, 3500);
+            }
+
+            document.addEventListener('visibilitychange', () => {
+                clearTimer();
+                if (!document.hidden) scheduleNextSlide();
+            });
+
+            function handleMotionPreference(event) {
+                if (event.matches) {
+                    clearTimer();
+                    showSlide(0);
+                } else {
+                    scheduleNextSlide();
+                }
+            }
+
+            if (typeof reducedMotion.addEventListener === 'function') {
+                reducedMotion.addEventListener('change', handleMotionPreference);
+            } else {
+                reducedMotion.addListener(handleMotionPreference);
+            }
+
+            showSlide(0);
+            window.setTimeout(scheduleNextSlide, 900);
+        })();
+
         // Navigatie schaduw bij scrollen
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
@@ -4567,14 +4679,12 @@ transform: translateY(-2px);
                 </ul>
             </div>
 
-
-
             <div class="footer-nav">
                 <h5>Contact</h5>
                 <ul>
                     <li><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></li>
                     <li><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></li>
-                    <li><a href="#contact">Contactformulier</a></li>
+                    <li><a href="contact.html">Contactformulier</a></li>
                     <li><a href="over-ons.html">Over Ons</a></li>
                 </ul>
             </div>
@@ -4588,7 +4698,7 @@ transform: translateY(-2px);
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="footer-copy">&copy; 2025&ndash;2026 Technisch Bouwadvies</div>
+            <div class="footer-copy">&copy; 2025&ndash;2026 Technisch Bouwadvies | KVK: 95153756</div>
             <div class="footer-legal">
                 <a href="privacybeleid.html">Privacybeleid</a>
                 <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>

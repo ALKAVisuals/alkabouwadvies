@@ -3,148 +3,1134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D-visualisaties &amp; 3D-vloerplannen | Technisch Bouwadvies</title>
-    <meta name="description" content="Bekijk uw verbouwing vooraf met een realistische 3D-visualisatie of een overzichtelijk 3D-vloerplan. Als aanvulling op bouwkundig advies en technische tekeningen.">
+    <title>3D-visualisaties en 3D-vloerplannen | Technisch Bouwadvies</title>
+    <meta name="description" content="Maak uw verbouwingsplan begrijpelijk met een 3D-visualisatie of ingericht 3D-vloerplan. Bekijk wat u ontvangt, wat wij nodig hebben en hoe de uitwerking verloopt.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://technischbouwadvies.nl/3d-visualisaties-vloerplannen.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="nl_NL">
-    <meta property="og:title" content="3D-visualisaties &amp; 3D-vloerplannen | Technisch Bouwadvies">
-    <meta property="og:description" content="Maak uitstraling, indeling en ruimtelijke keuzes zichtbaar voordat de bouw start.">
+    <meta property="og:title" content="3D-visualisaties en 3D-vloerplannen | Technisch Bouwadvies">
+    <meta property="og:description" content="Vergelijk uitstraling, indeling en ruimtegebruik voordat uw bouwplan wordt uitgevoerd.">
     <meta property="og:url" content="https://technischbouwadvies.nl/3d-visualisaties-vloerplannen.html">
     <meta property="og:image" content="https://technischbouwadvies.nl/images/website-2026/3d-visualisatie-aanbouw-schets-naar-realisatie.webp">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="site-header.css">
     <style>
         :root {
-            --ink: #151515;
-            --muted: #69665f;
-            --paper: #f4f1ea;
-            --white: #fff;
-            --gold: #b3944d;
-            --line: rgba(21, 21, 21, 0.14);
-            --radius: 4px;
+            --text: #171717;
+            --text-light: #686868;
+            --accent: #b3944d;
+            --accent-soft: rgba(179, 148, 77, 0.11);
+            --bg: #f7f6f2;
+            --bg-soft: #eeece5;
+            --bg-dark: #111111;
+            --white: #ffffff;
+            --line: #deddd8;
+            --success: #2e6544;
         }
 
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { margin: 0; color: var(--ink); background: var(--white); font-family: "DM Sans", sans-serif; }
-        img { display: block; max-width: 100%; }
-        a { color: inherit; }
-        .page-shell { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
-        .eyebrow { margin: 0 0 18px; color: var(--gold); font-size: .76rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-        h1, h2 { font-family: "Playfair Display", serif; font-weight: 600; line-height: 1.06; }
-        h1 { max-width: 850px; margin: 0; font-size: clamp(3rem, 6vw, 6rem); }
-        h2 { margin: 0 0 20px; font-size: clamp(2.2rem, 4vw, 4rem); }
-        h3 { margin: 0 0 12px; font-size: 1.25rem; }
-        p { line-height: 1.75; }
-        .lead { max-width: 720px; color: rgba(255,255,255,.72); font-size: 1.08rem; }
-        .button { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 24px; border: 1px solid var(--gold); background: var(--gold); color: var(--ink); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
-        .button.secondary { background: transparent; color: var(--white); }
-        .button:hover { filter: brightness(1.08); }
-
-        .hero { padding: 176px 0 90px; overflow: hidden; color: var(--white); background: #171715; }
-        .hero-grid { display: grid; grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr); gap: 64px; align-items: center; }
-        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-        .hero-visual { position: relative; }
-        .hero-visual img { aspect-ratio: 3 / 2; width: 100%; object-fit: cover; }
-        .hero-note { position: absolute; right: -18px; bottom: -22px; max-width: 270px; padding: 18px 22px; background: var(--paper); color: var(--ink); font-size: .82rem; line-height: 1.55; }
-
-        .intro { padding: 110px 0; }
-        .intro-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 90px; }
-        .intro-copy { color: var(--muted); }
-        .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 32px; }
-        .service-card { padding: 30px; border: 1px solid var(--line); background: var(--paper); }
-        .service-number { color: var(--gold); font-size: .78rem; font-weight: 700; letter-spacing: .12em; }
-        .service-card ul { margin: 18px 0 0; padding-left: 20px; color: var(--muted); line-height: 1.8; }
-
-        .offer { padding: 110px 0; background: var(--ink); color: var(--white); }
-        .offer-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: end; }
-        .offer-head > p { margin: 0; color: rgba(255,255,255,.66); }
-        .offer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 42px; }
-        .offer-card { padding: 34px; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.035); }
-        .offer-card-top { display: flex; justify-content: space-between; gap: 18px; align-items: start; margin-bottom: 24px; }
-        .offer-card-top span { padding: 7px 10px; color: var(--ink); background: var(--gold); font-size: .68rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; white-space: nowrap; }
-        .offer-card p { color: rgba(255,255,255,.65); }
-        .offer-card ul { margin: 24px 0 28px; padding-left: 20px; color: rgba(255,255,255,.78); line-height: 1.8; }
-        .offer-card .button { width: 100%; }
-        .offer-agreements { margin-top: 22px; padding: 28px 32px; color: var(--ink); background: var(--paper); }
-        .offer-agreements h3 { margin-bottom: 18px; }
-        .agreement-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 28px; }
-        .agreement-grid span { position: relative; padding-left: 18px; color: var(--muted); font-size: .86rem; line-height: 1.5; }
-        .agreement-grid span::before { content: ""; position: absolute; top: .58em; left: 0; width: 6px; height: 6px; background: var(--gold); }
-
-        .examples { padding: 110px 0; background: var(--paper); }
-        .examples-head { display: flex; justify-content: space-between; gap: 40px; align-items: end; margin-bottom: 42px; }
-        .examples-head p { max-width: 500px; margin: 0; color: var(--muted); }
-        .example-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 22px; }
-        .example { margin: 0; background: var(--white); }
-        .example:first-child { grid-column: span 7; }
-        .example:nth-child(2) { grid-column: span 5; }
-        .example:nth-child(3) { grid-column: 4 / span 6; }
-        .example img { aspect-ratio: 3 / 2; width: 100%; object-fit: cover; }
-        .example figcaption { padding: 18px 20px 21px; }
-        .example figcaption strong { display: block; margin-bottom: 5px; }
-        .example figcaption span { color: var(--muted); font-size: .9rem; }
-
-        .compare { padding: 110px 0; }
-        .table-wrap { margin-top: 36px; overflow-x: auto; }
-        table { width: 100%; min-width: 760px; border-collapse: collapse; }
-        th, td { padding: 20px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
-        th { background: var(--ink); color: var(--white); font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; }
-        td:first-child { font-weight: 700; }
-        td:not(:first-child) { color: var(--muted); }
-
-        .process { padding: 110px 0; background: var(--ink); color: var(--white); }
-        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 42px; background: rgba(255,255,255,.16); }
-        .step { min-height: 250px; padding: 28px; background: var(--ink); }
-        .step span { display: block; margin-bottom: 42px; color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: .12em; }
-        .step p { margin-bottom: 0; color: rgba(255,255,255,.65); font-size: .94rem; }
-
-        .clarity { padding: 100px 0; }
-        .clarity-box { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; padding: 50px; border-left: 4px solid var(--gold); background: var(--paper); }
-        .clarity-box p { margin-top: 0; color: var(--muted); }
-        .clarity-box a { color: #7d642d; font-weight: 700; }
-
-        .cta { padding: 90px 0; color: var(--white); background: #262622; text-align: center; }
-        .cta p { max-width: 650px; margin: 0 auto 28px; color: rgba(255,255,255,.68); }
-        footer { padding: 36px 0; color: rgba(255,255,255,.62); background: #10100f; font-size: .86rem; }
-        .footer-row { display: flex; justify-content: space-between; gap: 24px; }
-        .footer-row a { color: inherit; text-decoration: none; }
-
-        @media (max-width: 900px) {
-            .hero-grid, .intro-grid, .clarity-box, .offer-head { grid-template-columns: 1fr; gap: 42px; }
-            .hero-visual { max-width: 720px; }
-            .steps { grid-template-columns: repeat(2, 1fr); }
-            .agreement-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .example:first-child, .example:nth-child(2), .example:nth-child(3) { grid-column: span 12; }
+        * {
+            box-sizing: border-box;
         }
-        @media (max-width: 620px) {
-            .page-shell { width: min(100% - 32px, 1180px); }
-            .hero { padding: 134px 0 74px; }
-            .hero-grid { display: flex; flex-direction: column; }
-            .hero-note { position: static; max-width: none; }
-            .intro, .offer, .examples, .compare, .process, .clarity { padding: 76px 0; }
-            .service-grid, .offer-grid, .steps, .agreement-grid { grid-template-columns: 1fr; }
-            .examples-head, .footer-row { display: block; }
-            .examples-head p { margin-top: 16px; }
-            .clarity-box { padding: 30px 24px; }
+
+        html {
+            scroll-behavior: smooth;
         }
-        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+        body {
+            margin: 0;
+            background: var(--white);
+            color: var(--text);
+            font-family: "Inter", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body,
+        button,
+        input,
+        textarea,
+        select {
+            font-family: "Inter", sans-serif;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-shell {
+            width: min(1240px, calc(100% - 8vw));
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            margin: 0 0 1.25rem;
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+
+        .section-label::before {
+            width: 2rem;
+            height: 1px;
+            background: currentColor;
+            content: "";
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            max-width: 720px;
+            margin-bottom: 1.5rem;
+            font-size: clamp(2.65rem, 5vw, 4.9rem);
+            font-weight: 700;
+            letter-spacing: -0.055em;
+            line-height: 1.02;
+        }
+
+        h2 {
+            margin-bottom: 1.25rem;
+            font-size: clamp(2rem, 3.5vw, 3.25rem);
+            font-weight: 700;
+            letter-spacing: -0.045em;
+            line-height: 1.1;
+        }
+
+        h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+
+        p {
+            color: var(--text-light);
+            line-height: 1.75;
+        }
+
+        .button {
+            min-height: 52px;
+            padding: 0 1.6rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--text);
+            border-radius: 999px;
+            background: var(--text);
+            color: var(--white);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+        }
+
+        .button:hover {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            border-color: var(--line);
+            background: transparent;
+            color: var(--text);
+        }
+
+        .button-outline:hover {
+            border-color: var(--text);
+            background: var(--text);
+            color: var(--white);
+        }
+
+        .hero {
+            padding: 10.5rem 0 6.5rem;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.86fr) minmax(460px, 1.14fr);
+            gap: clamp(3rem, 6vw, 6.5rem);
+            align-items: center;
+        }
+
+        .hero-copy > p:not(.section-label) {
+            max-width: 630px;
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+
+        .hero-actions {
+            margin-top: 2.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .hero-checks {
+            margin: 2.4rem 0 0;
+            padding: 0;
+            display: grid;
+            gap: 0.65rem;
+            list-style: none;
+        }
+
+        .hero-checks li {
+            position: relative;
+            padding-left: 1.6rem;
+            color: #4d4d4d;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .hero-checks li::before {
+            position: absolute;
+            top: 0.4rem;
+            left: 0;
+            width: 0.65rem;
+            height: 0.65rem;
+            border: 1px solid var(--accent);
+            background: var(--accent-soft);
+            content: "";
+        }
+
+        .hero-visual {
+            position: relative;
+            padding: 0 0 2rem 2rem;
+        }
+
+        .hero-visual::before {
+            position: absolute;
+            inset: 2rem 2rem 0 0;
+            border: 1px solid var(--accent);
+            content: "";
+        }
+
+        .hero-visual figure {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            background: var(--white);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-visual img {
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+        }
+
+        .hero-visual figcaption {
+            padding: 1rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            color: var(--text-light);
+            font-size: 0.76rem;
+            line-height: 1.5;
+        }
+
+        .hero-visual figcaption strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .choice-strip {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            background: var(--white);
+        }
+
+        .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .choice-card {
+            min-height: 210px;
+            padding: 2.8rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.4rem;
+            align-content: center;
+            text-decoration: none;
+            transition: background 0.25s ease;
+        }
+
+        .choice-card + .choice-card {
+            border-left: 1px solid var(--line);
+        }
+
+        .choice-card:hover {
+            background: var(--bg);
+        }
+
+        .choice-number {
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+
+        .choice-card p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        .choice-link {
+            margin-top: 1.15rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .choice-link::after {
+            content: "→";
+        }
+
+        .service-detail {
+            padding: 8rem 0;
+        }
+
+        .service-detail.alt {
+            background: var(--bg);
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+            gap: clamp(3rem, 7vw, 7rem);
+            align-items: center;
+        }
+
+        .service-detail.alt .detail-media {
+            order: 2;
+        }
+
+        .detail-media {
+            margin: 0;
+            border: 1px solid var(--line);
+            background: var(--white);
+        }
+
+        .detail-media img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        .detail-media figcaption {
+            padding: 1rem 1.2rem;
+            color: var(--text-light);
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .detail-copy > p:not(.section-label) {
+            max-width: 570px;
+        }
+
+        .detail-points {
+            margin: 2rem 0 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .detail-points li {
+            padding: 1.1rem;
+            border-left: 2px solid var(--accent);
+            background: var(--bg);
+            color: #4e4e4e;
+            font-size: 0.86rem;
+            line-height: 1.55;
+        }
+
+        .service-detail.alt .detail-points li {
+            background: var(--white);
+        }
+
+        .source-section {
+            padding: 8rem 0;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+            gap: clamp(3rem, 6vw, 6rem);
+            align-items: center;
+        }
+
+        .source-copy > p:not(.section-label) {
+            max-width: 560px;
+        }
+
+        .source-proof {
+            margin-top: 2rem;
+            padding: 1.4rem 0 1.4rem 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .source-proof strong {
+            display: block;
+            margin-bottom: 0.55rem;
+            font-size: 0.9rem;
+        }
+
+        .source-proof p {
+            margin: 0;
+            font-size: 0.85rem;
+        }
+
+        .source-media {
+            margin: 0;
+            border: 1px solid var(--line);
+            background: var(--bg);
+        }
+
+        .source-media img {
+            width: 100%;
+            aspect-ratio: 20 / 13;
+            object-fit: cover;
+        }
+
+        .source-media figcaption {
+            padding: 1rem 1.2rem;
+            color: var(--text-light);
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .input-section {
+            padding: 7.5rem 0;
+            background: var(--bg-dark);
+            color: var(--white);
+        }
+
+        .input-head {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 4rem;
+            align-items: end;
+        }
+
+        .input-head h2 {
+            margin-bottom: 0;
+        }
+
+        .input-head > p {
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.62);
+        }
+
+        .input-grid {
+            margin-top: 3.5rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid rgba(255, 255, 255, 0.13);
+        }
+
+        .input-card {
+            min-height: 220px;
+            padding: 2rem;
+        }
+
+        .input-card + .input-card {
+            border-left: 1px solid rgba(255, 255, 255, 0.13);
+        }
+
+        .input-card span {
+            display: block;
+            margin-bottom: 2.2rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+
+        .input-card p {
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.58);
+            font-size: 0.88rem;
+        }
+
+        .input-note {
+            margin: 1.5rem 0 0;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.86rem;
+        }
+
+        .scope-section {
+            padding: 8rem 0;
+        }
+
+        .scope-head {
+            max-width: 760px;
+            margin-bottom: 3.25rem;
+        }
+
+        .scope-head p:last-child {
+            margin-bottom: 0;
+        }
+
+        .scope-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .scope-card {
+            padding: clamp(2rem, 4vw, 3.3rem);
+            border: 1px solid var(--line);
+            background: var(--white);
+        }
+
+        .scope-card-header {
+            margin-bottom: 1.6rem;
+            padding-bottom: 1.6rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: start;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .scope-card-header span {
+            padding: 0.45rem 0.65rem;
+            background: var(--accent-soft);
+            color: #705a27;
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .scope-card ul {
+            margin: 0 0 2rem;
+            padding: 0;
+            display: grid;
+            gap: 0.85rem;
+            list-style: none;
+        }
+
+        .scope-card li {
+            position: relative;
+            padding-left: 1.4rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        .scope-card li::before {
+            position: absolute;
+            top: 0.55rem;
+            left: 0;
+            width: 0.45rem;
+            height: 0.45rem;
+            background: var(--accent);
+            content: "";
+        }
+
+        .scope-agreements {
+            margin-top: 1.5rem;
+            padding: 1.6rem 1.8rem;
+            border-left: 3px solid var(--accent);
+            background: var(--bg);
+        }
+
+        .scope-agreements strong {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+        }
+
+        .scope-agreements p {
+            margin-bottom: 0;
+            font-size: 0.85rem;
+        }
+
+        .examples {
+            padding: 8rem 0;
+            background: var(--bg);
+        }
+
+        .examples-head {
+            max-width: 760px;
+            margin-bottom: 3rem;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .example-card {
+            margin: 0;
+            background: var(--white);
+            border: 1px solid var(--line);
+        }
+
+        .example-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        .example-card figcaption {
+            padding: 1.25rem;
+        }
+
+        .example-card strong {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-size: 0.9rem;
+        }
+
+        .example-card span {
+            color: var(--text-light);
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+
+        .compare-section {
+            padding: 8rem 0;
+        }
+
+        .table-wrap {
+            margin-top: 2.5rem;
+            overflow-x: auto;
+            border: 1px solid var(--line);
+        }
+
+        table {
+            width: 100%;
+            min-width: 780px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 1.2rem 1.3rem;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th + th,
+        td + td {
+            border-left: 1px solid var(--line);
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        th {
+            background: var(--text);
+            color: var(--white);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        td {
+            color: var(--text-light);
+            font-size: 0.87rem;
+            line-height: 1.55;
+        }
+
+        td:first-child {
+            color: var(--text);
+            font-weight: 650;
+        }
+
+        .process-section {
+            padding: 8rem 0;
+            background: var(--bg-dark);
+            color: var(--white);
+        }
+
+        .process-grid {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid rgba(255, 255, 255, 0.16);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .process-step {
+            min-height: 245px;
+            padding: 2rem;
+        }
+
+        .process-step + .process-step {
+            border-left: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .process-step > span {
+            display: block;
+            margin-bottom: 2.6rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+
+        .process-step p {
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.58);
+            font-size: 0.86rem;
+        }
+
+        .faq-section {
+            padding: 8rem 0;
+            background: var(--bg);
+        }
+
+        .faq-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+            gap: clamp(3rem, 7vw, 7rem);
+            align-items: start;
+        }
+
+        .faq-intro {
+            position: sticky;
+            top: 7.5rem;
+        }
+
+        .faq-list {
+            border-top: 1px solid var(--line);
+        }
+
+        .faq-list details {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .faq-list summary {
+            padding: 1.45rem 2.5rem 1.45rem 0;
+            position: relative;
+            cursor: pointer;
+            font-size: 0.96rem;
+            font-weight: 650;
+            line-height: 1.5;
+            list-style: none;
+        }
+
+        .faq-list summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-list summary::after {
+            position: absolute;
+            top: 50%;
+            right: 0.3rem;
+            color: var(--accent);
+            font-size: 1.25rem;
+            font-weight: 400;
+            transform: translateY(-50%);
+            content: "+";
+        }
+
+        .faq-list details[open] summary::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            max-width: 670px;
+            padding: 0 2.5rem 1.5rem 0;
+        }
+
+        .faq-answer p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        .clarity-section {
+            padding: 6.5rem 0;
+        }
+
+        .clarity-box {
+            padding: clamp(2rem, 5vw, 4rem);
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 4rem;
+            border-left: 4px solid var(--accent);
+            background: var(--bg);
+        }
+
+        .clarity-box h2,
+        .clarity-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .clarity-box a {
+            color: #725c29;
+            font-weight: 700;
+        }
+
+        .final-cta {
+            padding: 7rem 0;
+            background: #222220;
+            color: var(--white);
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .final-cta h2 {
+            max-width: 760px;
+            margin-bottom: 0.8rem;
+        }
+
+        .final-cta p:not(.section-label) {
+            max-width: 680px;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.62);
+        }
+
+        .final-cta .button {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--text);
+        }
+
+        footer {
+            background: var(--bg-dark);
+            color: var(--white);
+        }
+
+        .footer-top {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 4vw 4rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .footer-logo-link {
+            text-decoration: none;
+        }
+
+        .footer-logo-text {
+            display: block;
+            color: var(--white);
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-gold {
+            color: var(--accent);
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            margin: 2rem 0 0;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9375rem;
+            line-height: 1.75;
+        }
+
+        .footer-nav h5 {
+            margin: 0 0 1.5rem;
+            color: var(--accent);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .footer-nav ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.875rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.45;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 4vw;
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .footer-copy,
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.78rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .detail-grid,
+            .input-head,
+            .faq-layout,
+            .clarity-box {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                max-width: 760px;
+            }
+
+            .source-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-detail.alt .detail-media {
+                order: 0;
+            }
+
+            .input-grid,
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .input-card:nth-child(3),
+            .process-step:nth-child(3) {
+                border-left: 0;
+            }
+
+            .input-card:nth-child(n+3),
+            .process-step:nth-child(n+3) {
+                border-top: 1px solid rgba(255, 255, 255, 0.13);
+            }
+
+            .faq-intro {
+                position: static;
+            }
+
+            .footer-top {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .page-shell {
+                width: min(100% - 2.5rem, 1240px);
+            }
+
+            .hero {
+                padding: 8.2rem 0 4.5rem;
+            }
+
+            .hero-grid {
+                gap: 3rem;
+            }
+
+            h1 {
+                font-size: clamp(2.35rem, 11vw, 3.45rem);
+            }
+
+            h2 {
+                font-size: clamp(1.85rem, 8vw, 2.5rem);
+            }
+
+            .hero-actions,
+            .hero-actions .button {
+                width: 100%;
+            }
+
+            .hero-visual {
+                padding: 0 0 1rem 1rem;
+            }
+
+            .hero-visual figcaption {
+                display: block;
+            }
+
+            .hero-visual figcaption span {
+                display: block;
+                margin-top: 0.25rem;
+            }
+
+            .choice-grid,
+            .scope-grid,
+            .examples-grid,
+            .input-grid,
+            .process-grid,
+            .detail-points {
+                grid-template-columns: 1fr;
+            }
+
+            .choice-card {
+                min-height: 0;
+                padding: 2rem 0;
+            }
+
+            .choice-card + .choice-card {
+                border-top: 1px solid var(--line);
+                border-left: 0;
+            }
+
+            .service-detail,
+            .scope-section,
+            .examples,
+            .compare-section,
+            .process-section,
+            .faq-section {
+                padding: 5.5rem 0;
+            }
+
+            .input-section {
+                padding: 5.5rem 0;
+            }
+
+            .input-card,
+            .process-step {
+                min-height: 0;
+                padding: 1.75rem 0;
+            }
+
+            .input-card + .input-card,
+            .process-step + .process-step,
+            .input-card:nth-child(3),
+            .process-step:nth-child(3) {
+                border-top: 1px solid rgba(255, 255, 255, 0.13);
+                border-left: 0;
+            }
+
+            .scope-card-header {
+                display: block;
+            }
+
+            .scope-card-header span {
+                margin-top: 0.5rem;
+                display: inline-block;
+            }
+
+            .clarity-section {
+                padding: 4.5rem 0;
+            }
+
+            .clarity-box {
+                gap: 1.5rem;
+                padding: 2rem 1.5rem;
+            }
+
+            .cta-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .final-cta {
+                padding: 5rem 0;
+            }
+
+            .final-cta .button {
+                width: 100%;
+            }
+
+            .footer-top {
+                padding: 4.5rem 1.5rem 3rem;
+                grid-template-columns: 1fr;
+                gap: 2.6rem;
+            }
+
+            .footer-bottom {
+                padding: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
       "name": "3D-visualisaties en 3D-vloerplannen",
-      "provider": { "@type": "Organization", "name": "Technisch Bouwadvies", "url": "https://technischbouwadvies.nl/" },
+      "provider": {
+        "@type": "Organization",
+        "name": "Technisch Bouwadvies",
+        "url": "https://technischbouwadvies.nl/"
+      },
       "areaServed": "Nederland",
-      "description": "Visuele uitwerking van bouwplannen als aanvulling op bouwkundig advies en technische tekeningen."
+      "description": "Visuele uitwerking van verbouwingsplannen als aanvulling op bouwkundig advies en technische tekeningen."
     }
     </script>
+    <link rel="stylesheet" href="site-footer.css?v=20260808-2">
 </head>
 <body>
     <a class="tba-skip-link" href="#main-content">Ga naar de inhoud</a>
@@ -157,7 +1143,6 @@
             <ul class="tba-nav-links">
                 <li class="tba-services-item"><button class="tba-services-trigger" id="tba-services-trigger" type="button" aria-expanded="false" aria-controls="tba-services-menu">Diensten<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="tba-dropdown" id="tba-services-menu"><div class="tba-dropdown-inner"></div></div></li>
                 <li><a class="tba-nav-link" href="index.html#werkwijze">Werkwijze</a></li>
-
                 <li><a class="tba-nav-link" href="index.html#calculator">Prijs berekenen</a></li>
                 <li><a class="tba-nav-link" href="over-ons.html">Over ons</a></li>
             </ul>
@@ -167,61 +1152,166 @@
         <div class="tba-menu-backdrop" aria-hidden="true"></div>
         <aside class="tba-mobile-panel" id="tba-mobile-panel" role="dialog" aria-modal="true" aria-label="Mobiel navigatiemenu" aria-hidden="true" inert>
             <div class="tba-mobile-header"><a href="index.html" class="tba-mobile-brand" aria-label="Technisch Bouwadvies - Home"><svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/><path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/><path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/></svg><span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span></a><button class="tba-menu-close" id="tba-menu-close" type="button" aria-label="Menu sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
-            <div class="tba-mobile-content"><details class="tba-mobile-services"><summary class="tba-mobile-summary"><span>Diensten</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="tba-mobile-service-list"></div></details><a href="index.html#werkwijze" class="tba-mobile-link">Werkwijze</a><a href="index.html#prijzen" class="tba-mobile-link">Prijzen</a><a href="over-ons.html" class="tba-mobile-link">Over ons</a><div class="tba-mobile-secondary"><a href="blog.html">Blog</a><a href="index.html#faq">FAQ</a><a href="contact.html">Contact</a></div><a href="contact.html" class="tba-mobile-cta">Offerte aanvragen</a><div class="tba-mobile-contact"><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></div></div>
+            <div class="tba-mobile-content"><details class="tba-mobile-services"><summary class="tba-mobile-summary"><span>Diensten</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="tba-mobile-service-list"></div></details><a href="index.html#werkwijze" class="tba-mobile-link">Werkwijze</a><a href="index.html#prijzen" class="tba-mobile-link">Prijzen</a><a href="over-ons.html" class="tba-mobile-link">Over ons</a><div class="tba-mobile-secondary"><a href="blog.html">Blog</a><a href="#faq">FAQ</a><a href="contact.html">Contact</a></div><a href="contact.html" class="tba-mobile-cta">Offerte aanvragen</a><div class="tba-mobile-contact"><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></div></div>
         </aside>
     </header>
 
     <main id="main-content">
-        <section class="hero">
+        <section class="hero" aria-labelledby="page-title">
             <div class="page-shell hero-grid">
-                <div>
-                    <p class="eyebrow">3D-visualisaties &amp; vloerplannen</p>
-                    <h1>Bekijk uw bouwplan vooraf in 3D.</h1>
-                    <p class="lead">Maak de uitstraling, indeling en ruimtelijke verhoudingen begrijpelijk voordat de uitvoering begint. Als losse visuele dienst of als aanvulling op uw bouwkundige tekeningen.</p>
-                    <div class="hero-actions"><a href="contact.html?dienst=3d-visualisatie" class="button">Bespreek uw plan</a><a href="#voorbeelden" class="button secondary">Bekijk voorbeelden</a></div>
+                <div class="hero-copy">
+                    <p class="section-label">3D-visualisaties en vloerplannen</p>
+                    <h1 id="page-title">Van bouwtekening naar een beeld dat u direct begrijpt.</h1>
+                    <p>Bekijk vóór de uitvoering hoe uw verbouwing eruit kan zien en hoe de beschikbare ruimte wordt gebruikt. Kies een realistische 3D-visualisatie, een ingericht 3D-vloerplan of combineer beide.</p>
+                    <div class="hero-actions"><a href="contact.html?dienst=3d-visualisatie" class="button">Bespreek uw plan</a><a href="#verschil" class="button button-outline">Bekijk het verschil</a></div>
+                    <ul class="hero-checks"><li>Gebaseerd op uw eigen woning, tekeningen en keuzes</li><li>Scope, correctierondes en oplevering vooraf afgesproken</li><li>Inzetbaar als losse dienst of binnen een bouwkundig traject</li></ul>
                 </div>
-                <div class="hero-visual"><img src="images/website-2026/3d-visualisatie-aanbouw-schets-naar-realisatie.webp" alt="Van bouwkundige schets naar een realistische 3D-visualisatie van een woningaanbouw" loading="eager" decoding="async" fetchpriority="high"><div class="hero-note">Een visueel beeld helpt u keuzes bespreken met huisgenoten, adviseur en aannemer.</div></div>
+                <div class="hero-visual">
+                    <figure><img src="images/website-2026/3d-visualisatie-aanbouw-schets-naar-realisatie.webp" alt="Ontwerpvisualisatie waarin een bouwkundige schets overgaat in een uitgewerkte woningaanbouw" loading="eager" decoding="async" fetchpriority="high"><figcaption><strong>Ontwerpvisualisatie</strong><span>Schets en materiaalbeeld in één presentatie</span></figcaption></figure>
+                </div>
             </div>
         </section>
 
-        <section class="offer" aria-label="Offerte-inhoud voor 3D-visualisaties en 3D-vloerplannen">
+        <section class="choice-strip" aria-label="Kies tussen twee visuele uitwerkingen">
+            <div class="page-shell choice-grid">
+                <a class="choice-card" href="#visualisatie"><span class="choice-number">01</span><div><h3>3D-visualisatie</h3><p>Voor uitstraling, materiaalkeuzes, gevelopeningen en het volume van uw ontwerp.</p><span class="choice-link">Bekijk deze uitwerking</span></div></a>
+                <a class="choice-card" href="#vloerplan"><span class="choice-number">02</span><div><h3>3D-vloerplan</h3><p>Voor indeling, meubels, gebruikszones en de onderlinge verhouding van ruimtes.</p><span class="choice-link">Bekijk deze uitwerking</span></div></a>
+            </div>
+        </section>
+
+        <section class="service-detail" id="visualisatie" aria-labelledby="visualisatie-title">
+            <div class="page-shell detail-grid">
+                <figure class="detail-media"><img src="images/website-2026/projecten/illustratieve-case-aanbouw-rijwoning.webp" alt="3D-ontwerpbeeld van een moderne aanbouw aan een rijwoning" loading="lazy" decoding="async"><figcaption>Voorbeeld van een exterieuruitwerking voor een woninguitbreiding.</figcaption></figure>
+                <div class="detail-copy"><p class="section-label">3D-visualisatie</p><h2 id="visualisatie-title">Vergelijk het ontwerp voordat keuzes definitief worden.</h2><p>Een 3D-visualisatie vertaalt het bouwplan naar een herkenbaar beeld. Daardoor kunt u bijvoorbeeld verschillende gevelmaterialen, kleuren, raamverdelingen of ontwerpvarianten gerichter beoordelen.</p><ul class="detail-points"><li>Exterieur of interieur volgens afgesproken standpunten</li><li>Materialen en kleuren op basis van uw referenties</li><li>Geschikt voor aanbouw, dakkapel, dakopbouw en bijgebouw</li><li>Helder overlegstuk voor uzelf, adviseur en aannemer</li></ul></div>
+            </div>
+        </section>
+
+        <section class="service-detail alt" id="vloerplan" aria-labelledby="vloerplan-title">
+            <div class="page-shell detail-grid">
+                <div class="detail-copy"><p class="section-label">3D-vloerplan</p><h2 id="vloerplan-title">Zie direct wat een indeling in de praktijk betekent.</h2><p>Een ingericht vloerplan toont een verdieping van bovenaf, inclusief wanden, deuren en het afgesproken niveau van inrichting. De ruimtelijke opbouw baseren we op uw bestaande tekening, schets of gecontroleerde maatvoering. Zo worden looproutes en ruimteverhoudingen begrijpelijk zonder een indeling te verzinnen.</p><ul class="detail-points"><li>Opgebouwd vanuit aangeleverde broninformatie</li><li>Meubels en gebruikszones volgens afgesproken detailniveau</li><li>Inzicht in routing en onderlinge ruimteverhoudingen</li><li>Geschikt om indelingsvarianten naast elkaar te beoordelen</li></ul></div>
+                <figure class="detail-media"><img src="images/website-2026/3d/vloerplan-uitgebreide-woning.webp" alt="Professioneel ingericht vloerplan van een uitgebreide woning met meerdere woon- en buitenruimtes" loading="lazy" decoding="async"><figcaption>Portfolio-voorbeeld van een uitgebreide woningplattegrond met meerdere gebruikszones.</figcaption></figure>
+            </div>
+        </section>
+
+        <section class="source-section" id="bron-naar-vloerplan" aria-labelledby="source-title">
+            <div class="page-shell source-grid">
+                <div class="source-copy"><p class="section-label">Controleerbare basis</p><h2 id="source-title">Van onderlegger naar een leesbaar vloerplan.</h2><p>De technische of handmatig ingemeten plattegrond bepaalt de vaste indeling. Daarna voegen we materialen, meubels en gebruikszones toe om het plan begrijpelijk te presenteren.</p><div class="source-proof"><strong>We tekenen niet op basis van aannames</strong><p>Ontbreekt essentiële maatvoering of is een aansluiting niet duidelijk, dan vragen we die informatie eerst op. Presentatie-elementen worden altijd los gezien van de technische bron.</p></div></div>
+                <figure class="source-media"><img src="images/website-2026/3d/vloerplan-van-bouwtekening-naar-presentatie.webp" alt="Vergelijking tussen een maatgevoerde plattegrond en een ingericht visueel vloerplan" loading="lazy" decoding="async"><figcaption>Links de aangeleverde plattegrond; rechts de ingerichte presentatie op dezelfde ruimtelijke basis.</figcaption></figure>
+            </div>
+        </section>
+
+        <section class="input-section" aria-labelledby="input-title">
             <div class="page-shell">
-                <div class="offer-head"><div><p class="eyebrow">Kies uw visuele uitwerking</p><h2>Een voorstel op basis van het beeld dat u nodig heeft.</h2></div><p>De benodigde modelleer- en rendertijd hangt af van het aantal ruimtes of aanzichten, het detailniveau en de kwaliteit van uw input. Daarom ontvangt u vooraf een projectspecifieke prijs in plaats van een niet-passende standaardprijs.</p></div>
-                <div class="offer-grid">
-                    <article class="offer-card"><div class="offer-card-top"><h3>Fotorealistische 3D-visualisatie</h3><span>Prijs op maat</span></div><p>Voor het bespreken van uitstraling, volume, materialen en gevelopeningen bij bijvoorbeeld een aanbouw, dakkapel of dakopbouw.</p><ul><li>Exterieur of interieur volgens afgesproken camerastandpunten</li><li>Materialen en kleuren op basis van uw referenties</li><li>Digitale beelden in vooraf afgesproken resolutie en bestandsformaat</li><li>Aantal beelden, planning en correctierondes vooraf in de offerte</li></ul><a href="contact.html?dienst=3d-visualisatie" class="button">Offerte voor visualisatie</a></article>
-                    <article class="offer-card"><div class="offer-card-top"><h3>Ingericht 3D-vloerplan</h3><span>Prijs op maat</span></div><p>Voor een begrijpelijk bovenaanzicht van indeling, ruimteverhouding, meubels en looproutes per gekozen verdieping.</p><ul><li>Uitwerking per afgesproken verdieping of woningdeel</li><li>Inrichting en gebruikszones volgens afgesproken detailniveau</li><li>Digitaal beeld in vooraf afgesproken resolutie en bestandsformaat</li><li>Aantal plattegronden, planning en correctierondes vooraf in de offerte</li></ul><a href="contact.html?dienst=3d-vloerplan" class="button">Offerte voor vloerplan</a></article>
+                <div class="input-head"><div><p class="section-label">Benodigde input</p><h2 id="input-title">Dit hebben we nodig om zorgvuldig te starten.</h2></div><p>Goede broninformatie maakt het resultaat betrouwbaarder en voorkomt onnodige correcties. We controleren uw bestanden voordat de uitwerking begint.</p></div>
+                <div class="input-grid"><article class="input-card"><span>01</span><h3>Tekeningen of maten</h3><p>Beschikbare plattegronden, gevels, schetsen of betrouwbare hoofdmaatvoering van de bestaande en nieuwe situatie.</p></article><article class="input-card"><span>02</span><h3>Foto’s van de situatie</h3><p>Duidelijke foto’s van woning, ruimte en relevante aansluitingen helpen bij een passende visuele uitwerking.</p></article><article class="input-card"><span>03</span><h3>Materiaalrichting</h3><p>Voorkeuren voor kleuren, gevelmaterialen, kozijnen, vloeren of sfeerbeelden die richting geven aan het ontwerp.</p></article><article class="input-card"><span>04</span><h3>Doel van het beeld</h3><p>Vertel of u wilt vergelijken, presenteren of een indeling wilt beoordelen. Dat bepaalt standpunt en detailniveau.</p></article></div>
+                <p class="input-note">Nog niet alles beschikbaar? Stuur wat u al heeft; we geven aan welke aanvullende informatie nodig is voordat we een definitieve scope afspreken.</p>
+            </div>
+        </section>
+
+        <section class="scope-section" aria-labelledby="scope-title">
+            <div class="page-shell">
+                <div class="scope-head"><p class="section-label">Wat ontvangt u?</p><h2 id="scope-title">Een duidelijke offerte per type uitwerking.</h2><p>De prijs hangt af van omvang, detailniveau, beschikbare input en het aantal gewenste beelden of verdiepingen. Daarom leggen we eerst vast wat voor uw plan daadwerkelijk nodig is.</p></div>
+                <div class="scope-grid">
+                    <article class="scope-card"><div class="scope-card-header"><h3>Fotorealistische 3D-visualisatie</h3><span>Prijs op maat</span></div><ul><li>Afgesproken exterieur- of interieurbeelden</li><li>Vaste camerastandpunten en beeldverhouding</li><li>Materialen en kleuren volgens de gekozen richting</li><li>Digitale oplevering in afgesproken formaat</li><li>Correctierondes zoals vastgelegd in de offerte</li></ul><a href="contact.html?dienst=3d-visualisatie" class="button">Offerte visualisatie</a></article>
+                    <article class="scope-card"><div class="scope-card-header"><h3>Ingericht 3D-vloerplan</h3><span>Prijs op maat</span></div><ul><li>Afgesproken verdieping of woningdeel</li><li>Wanden, deuren en vaste ruimtelijke onderdelen</li><li>Inrichting volgens het gekozen detailniveau</li><li>Digitale oplevering in afgesproken formaat</li><li>Correctierondes zoals vastgelegd in de offerte</li></ul><a href="contact.html?dienst=3d-vloerplan" class="button">Offerte vloerplan</a></article>
                 </div>
-                <aside class="offer-agreements"><h3>Dit leggen we vóór de start schriftelijk vast</h3><div class="agreement-grid"><span>Exact aantal beelden of verdiepingen</span><span>Camerastandpunten en detailniveau</span><span>Benodigde tekeningen, foto’s en maatvoering</span><span>Resolutie en bestandsformaat</span><span>Inbegrepen correctierondes</span><span>Prijs inclusief btw en geplande oplevering</span></div></aside>
+                <div class="scope-agreements"><strong>Vooraf schriftelijk vastgelegd</strong><p>Aantal beelden of verdiepingen, camerastandpunten, detailniveau, bronbestanden, correctierondes, planning, bestandsformaat en prijs exclusief én inclusief btw.</p></div>
             </div>
         </section>
 
-        <section class="intro">
-            <div class="page-shell intro-grid">
-                <div><p class="eyebrow">Twee manieren van kijken</p><h2>Van technische lijn naar een begrijpelijk beeld.</h2></div>
-                <div class="intro-copy"><p>Een bouwtekening legt maatvoering en technische informatie vast. Een 3D-visualisatie laat vooral zien hoe het ontwerp eruit kan zien; een 3D-vloerplan helpt de indeling en loopruimte te begrijpen. Ze vullen elkaar aan, maar hebben niet dezelfde functie.</p><div class="service-grid"><article class="service-card"><span class="service-number">01</span><h3>3D-visualisatie</h3><p>Een realistische impressie van exterieur of interieur, passend bij het ontwerp en de aangeleverde materiaalrichting.</p><ul><li>Uitstraling en materiaalkeuzes vergelijken</li><li>Volume en gevelopeningen beoordelen</li><li>Plan duidelijk presenteren</li></ul></article><article class="service-card"><span class="service-number">02</span><h3>3D-vloerplan</h3><p>Een ruimtelijk bovenaanzicht waarin vertrekken, meubels en gebruikszones overzichtelijk samenkomen.</p><ul><li>Indeling en routing begrijpen</li><li>Ruimtes onderling vergelijken</li><li>Woonideeën concreet bespreken</li></ul></article></div></div>
+        <section class="examples" id="voorbeelden" aria-labelledby="examples-title">
+            <div class="page-shell">
+                <div class="examples-head"><p class="section-label">Vloerplanportfolio</p><h2 id="examples-title">Echte uitwerkingen met verschillende schaal en indeling.</h2><p>Deze portfolio-voorbeelden zijn opgebouwd vanuit bestaande plattegronden of maatvoering. De inrichting maakt het gebruik zichtbaar; de bouwkundige basis komt uit de aangeleverde bron.</p></div>
+                <div class="examples-grid"><figure class="example-card"><img src="images/website-2026/3d/vloerplan-verdieping-meerdere-kamers.webp" alt="Ingericht vloerplan van een volledige woonverdieping met meerdere kamers" loading="lazy" decoding="async"><figcaption><strong>Volledige woonverdieping</strong><span>Meerdere kamers, verkeerszones en functies in één overzicht.</span></figcaption></figure><figure class="example-card"><img src="images/website-2026/3d/vloerplan-appartement-met-terras.webp" alt="Ingericht vloerplan van een appartement met slaapkamer en groot terras" loading="lazy" decoding="async"><figcaption><strong>Appartement met terras</strong><span>Heldere verhouding tussen wonen, slapen, sanitair en buitenruimte.</span></figcaption></figure><figure class="example-card"><img src="images/website-2026/3d/vloerplan-compact-wonen-met-terras.webp" alt="Ingericht vloerplan van een compacte woning met leefruimte en terras" loading="lazy" decoding="async"><figcaption><strong>Compact woonconcept</strong><span>Praktisch inzicht in loopruimte, meubels en dagelijks gebruik.</span></figcaption></figure></div>
             </div>
         </section>
 
-        <section class="examples" id="voorbeelden">
-            <div class="page-shell"><div class="examples-head"><div><p class="eyebrow">Beeldvoorbeelden</p><h2>Ontwerpkeuzes zichtbaar gemaakt.</h2></div><p>De beelden hieronder zijn illustratieve voorbeelden van de mogelijke beeldtaal. Uw visualisatie wordt opgebouwd rond uw eigen woning, plan en afgesproken detailniveau.</p></div><div class="example-grid"><figure class="example"><img src="images/website-2026/projecten/illustratieve-case-aanbouw-rijwoning.webp" alt="Illustratieve exterieurvisualisatie van een moderne aanbouw aan een Nederlandse rijwoning" loading="lazy" decoding="async"><figcaption><strong>Exterieurvisualisatie</strong><span>Van ontwerpidee naar een realistische indruk van de aanbouw.</span></figcaption></figure><figure class="example"><img src="images/website-2026/3d-vloerplan-woning-met-aanbouw.webp" alt="Driedimensionaal vloerplan van een woning met ingerichte aanbouw" loading="lazy" decoding="async"><figcaption><strong>3D-vloerplan begane grond</strong><span>Ruimtelijk overzicht van indeling, meubels en looproutes.</span></figcaption></figure><figure class="example"><img src="images/website-2026/diensten/nokverhoging-3d-vloerplan-zolder.webp" alt="Driedimensionaal vloerplan van een ingerichte zolder na een nokverhoging" loading="lazy" decoding="async"><figcaption><strong>3D-vloerplan zolder</strong><span>Inzicht in de bruikbare ruimte na een dakaanpassing.</span></figcaption></figure></div></div>
+        <section class="compare-section" id="verschil" aria-labelledby="compare-title">
+            <div class="page-shell"><p class="section-label">De juiste uitwerking</p><h2 id="compare-title">Bouwtekening, visualisatie of vloerplan?</h2><p>De drie uitwerkingen hebben ieder een ander doel. Voor een compleet traject kunnen ze naast elkaar worden gebruikt.</p><div class="table-wrap"><table><thead><tr><th>Onderdeel</th><th>Technische bouwtekening</th><th>3D-visualisatie</th><th>3D-vloerplan</th></tr></thead><tbody><tr><td>Hoofddoel</td><td>Technische en maatvaste vastlegging</td><td>Uitstraling, volume en materialen beoordelen</td><td>Indeling, verhoudingen en routing begrijpen</td></tr><tr><td>Perspectief</td><td>Plattegrond, gevel of doorsnede</td><td>Realistisch gekozen camerastandpunt</td><td>Ruimtelijk bovenaanzicht</td></tr><tr><td>Inrichting</td><td>Alleen indien technisch relevant</td><td>Volgens afgesproken beeld en detailniveau</td><td>Onderdeel van de ruimtelijke presentatie</td></tr><tr><td>Vervangt aanvraagstukken</td><td>Afhankelijk van afgesproken scope en vereisten</td><td>Nee</td><td>Nee</td></tr></tbody></table></div></div>
         </section>
 
-        <section class="compare">
-            <div class="page-shell"><p class="eyebrow">De juiste uitwerking kiezen</p><h2>Wat ontvangt u waarvoor?</h2><div class="table-wrap"><table><thead><tr><th>Onderdeel</th><th>Technische bouwtekening</th><th>3D-visualisatie</th><th>3D-vloerplan</th></tr></thead><tbody><tr><td>Hoofddoel</td><td>Technische en maatvaste vastlegging</td><td>Uitstraling en volume tonen</td><td>Indeling en ruimtelijk gebruik tonen</td></tr><tr><td>Geeft inzicht in</td><td>Maten, doorsneden en bouwkundige informatie</td><td>Materialen, gevelbeeld en sfeer</td><td>Verhoudingen, meubels en looproutes</td></tr><tr><td>Geschikt als visueel overlegstuk</td><td>Beperkt</td><td>Ja</td><td>Ja</td></tr><tr><td>Vervangt officiële aanvraagstukken</td><td>Afhankelijk van de afgesproken scope</td><td>Nee</td><td>Nee</td></tr></tbody></table></div></div>
+        <section class="process-section" aria-labelledby="process-title">
+            <div class="page-shell"><p class="section-label">Werkwijze</p><h2 id="process-title">Van bestanden naar een bruikbaar eindbeeld.</h2><div class="process-grid"><article class="process-step"><span>01 — Intake</span><h3>Doel en input bekijken</h3><p>We bespreken wat u wilt beoordelen en controleren welke tekeningen, maten en referenties beschikbaar zijn.</p></article><article class="process-step"><span>02 — Scope</span><h3>Uitwerking vastleggen</h3><p>U ontvangt afspraken over beelden, standpunten, detailniveau, correcties, planning en prijs.</p></article><article class="process-step"><span>03 — Modelleren</span><h3>Plan in 3D opbouwen</h3><p>De aangeleverde informatie wordt vertaald naar het afgesproken model en type presentatie.</p></article><article class="process-step"><span>04 — Oplevering</span><h3>Controleren en ontvangen</h3><p>Na de afgesproken correctie ontvangt u de definitieve bestanden in het overeengekomen formaat.</p></article></div></div>
         </section>
 
-        <section class="process">
-            <div class="page-shell"><p class="eyebrow">Werkwijze</p><h2>In vier heldere stappen.</h2><div class="steps"><article class="step"><span>01 — Input</span><h3>Plan en materiaal verzamelen</h3><p>U deelt beschikbare tekeningen, foto’s, maten en gewenste sfeer of materiaalrichting.</p></article><article class="step"><span>02 — Scope</span><h3>Beeld en detailniveau afspreken</h3><p>We leggen vast welke ruimtes of aanzichten nodig zijn en waarvoor u de beelden gaat gebruiken.</p></article><article class="step"><span>03 — Uitwerking</span><h3>3D-model en presentatie</h3><p>Het ontwerp wordt opgebouwd en vertaald naar het afgesproken type visualisatie of vloerplan.</p></article><article class="step"><span>04 — Oplevering</span><h3>Beelden digitaal ontvangen</h3><p>Formaat, planning en eventuele correctierondes staan vooraf duidelijk in de offerte.</p></article></div></div>
+        <section class="faq-section" id="faq" aria-labelledby="faq-title">
+            <div class="page-shell faq-layout">
+                <div class="faq-intro"><p class="section-label">Veelgestelde vragen</p><h2 id="faq-title">Duidelijkheid vóór de uitwerking.</h2><p>Staat uw vraag er niet tussen? Stuur uw bestaande tekeningen of schetsen mee, dan kunnen we gerichter aangeven wat passend is.</p></div>
+                <div class="faq-list">
+                    <details><summary>Is een 3D-visualisatie hetzelfde als een bouwtekening?</summary><div class="faq-answer"><p>Nee. Een visualisatie is bedoeld om het ontwerp begrijpelijk te presenteren. Een technische bouwtekening bevat maatvoering en bouwkundige informatie voor de afgesproken toepassing.</p></div></details>
+                    <details><summary>Kan ik alleen een 3D-vloerplan laten maken?</summary><div class="faq-answer"><p>Ja, dat kan als losse visuele dienst. We beoordelen eerst of de beschikbare plattegrond en maatvoering voldoende basis bieden voor de gewenste uitwerking.</p></div></details>
+                    <details><summary>Kan ik meerdere materiaal- of indelingsvarianten vergelijken?</summary><div class="faq-answer"><p>Dat is mogelijk wanneer de varianten vooraf in de scope zijn opgenomen. Het aantal varianten beïnvloedt de modelleer- en rendertijd en daarmee de offerte.</p></div></details>
+                    <details><summary>Hoeveel correctierondes zijn inbegrepen?</summary><div class="faq-answer"><p>Het aantal correctierondes wordt vooraf in de offerte vermeld. Daardoor is duidelijk welke aanpassingen binnen de opdracht vallen en wanneer iets meerwerk is.</p></div></details>
+                    <details><summary>In welk bestandsformaat ontvang ik de beelden?</summary><div class="faq-answer"><p>Resolutie en bestandsformaat worden afgestemd op het gebruik, bijvoorbeeld digitaal overleg of presentatie. De overeengekomen oplevering staat in de offerte.</p></div></details>
+                    <details><summary>Kan ik de 3D-beelden gebruiken voor een vergunningsaanvraag?</summary><div class="faq-answer"><p>Een 3D-beeld kan een plan verduidelijken, maar vervangt geen vereiste officiële aanvraagstukken. Welke documenten nodig zijn, hangt af van het plan en de toepasselijke regels.</p></div></details>
+                </div>
+            </div>
         </section>
 
-        <section class="clarity">
-            <div class="page-shell clarity-box"><div><p class="eyebrow">Belangrijk om te weten</p><h2>Visueel hulpmiddel, geen vergunninggarantie.</h2></div><div><p>Een 3D-visualisatie en een 3D-vloerplan zijn ontwerp- en communicatiemiddelen. Ze vervangen geen officiële bouwkundige, constructieve of aanvraagtekeningen en geven geen garantie op vergunningverlening of exacte uitvoering. Welke stukken nodig zijn, hangt af van het plan, de locatie en het beoogde gebruik.</p><p>Voor 3D-uitwerking werken we samen met <a href="https://alkavisuals.nl/" target="_blank" rel="noopener noreferrer">ALKA Visuals</a>. Technisch Bouwadvies blijft uw aanspreekpunt wanneer de visualisatie onderdeel is van een breder bouwkundig traject.</p></div></div>
+        <section class="clarity-section" aria-labelledby="clarity-title">
+            <div class="page-shell clarity-box"><div><p class="section-label">Belangrijk onderscheid</p><h2 id="clarity-title">Een visueel hulpmiddel, geen technische goedkeuring.</h2></div><div><p>Een 3D-visualisatie en een 3D-vloerplan ondersteunen ontwerpkeuzes en communicatie. Ze zijn geen constructieberekening, uitvoeringstekening of garantie op vergunningverlening. De benodigde technische en officiële stukken worden afzonderlijk bepaald.</p><p>Technisch Bouwadvies verzorgt de visuele uitwerking als losse dienst of als onderdeel van een breder bouwkundig traject. U houdt daarbij één aanspreekpunt voor de afgesproken werkzaamheden, planning en oplevering.</p></div></div>
         </section>
 
-        <section class="cta"><div class="page-shell"><p class="eyebrow">Uw plan in beeld</p><h2>Benieuwd welke 3D-uitwerking bij uw plan past?</h2><p>Stuur uw tekeningen, schetsen of foto’s mee. U ontvangt een voorstel op basis van de gewenste beelden en het benodigde detailniveau.</p><a href="contact.html?dienst=3d-visualisatie,3d-vloerplan" class="button">Vraag een offerte aan</a></div></section>
+        <section class="final-cta" aria-labelledby="cta-title">
+            <div class="page-shell cta-grid"><div><p class="section-label">Uw plan in beeld</p><h2 id="cta-title">Laat eerst bepalen welke 3D-uitwerking echt nodig is.</h2><p>Stuur uw tekeningen, schetsen of foto’s mee. Daarna ontvangt u een voorstel dat past bij het gewenste beeld en detailniveau.</p></div><a href="contact.html?dienst=3d-visualisatie,3d-vloerplan" class="button">Vraag een voorstel aan</a></div>
+        </section>
     </main>
 
-    <footer><div class="page-shell footer-row"><span>&copy; <span id="year">2026</span> Technisch Bouwadvies</span><span><a href="privacybeleid.html">Privacy</a> &nbsp;·&nbsp; <a href="algemene-voorwaarden.html">Algemene voorwaarden</a></span></div></footer>
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-link">
+                    <span class="footer-logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>
+                </a>
+                <p>Persoonlijk bouwkundig teken- en adviesbureau voor verbouwingsplannen en vergunningstrajecten in Nederland.</p>
+            </div>
+            <div class="footer-nav">
+                <h5>Diensten</h5>
+                <ul>
+                    <li><a href="dakkapel.html">Dakkapel</a></li>
+                    <li><a href="dakopbouw-vergunningen.html">Dakopbouw</a></li>
+                    <li><a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a></li>
+                    <li><a href="erker.html">Erker</a></li>
+                    <li><a href="mantelzorg.html">Mantelzorgwoning</a></li>
+                    <li><a href="bijgebouw.html">Bijgebouwen</a></li>
+                    <li><a href="bed-breakfast.html">Bed &amp; Breakfast</a></li>
+                    <li><a href="nokverhoging.html">Nokverhoging</a></li>
+                    <li><a href="carport-vergunning.html">Carport</a></li>
+                    <li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li>
+                    <li><a href="bouwkundig-advies.html">Bouwkundig Advies</a></li>
+                    <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
+                    <li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></li>
+                    <li><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></li>
+                    <li><a href="contact.html">Contactformulier</a></li>
+                    <li><a href="over-ons.html">Over Ons</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h5>Kennis & inspiratie</h5>
+                <ul>
+                    <li><a href="blog.html">Blog en praktische uitleg</a></li>
+                    <li><a href="index.html#faq">Veelgestelde vragen</a></li>
+                    <li><a href="3d-visualisaties-vloerplannen.html">3D-visualisaties en vloerplannen</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2025&ndash;2026 Technisch Bouwadvies | KVK: 95153756</div>
+            <div class="footer-legal">
+                <a href="privacybeleid.html">Privacybeleid</a>
+                <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+                <a href="cookiebeleid.html">Cookiebeleid</a>
+            </div>
+        </div>
+    </footer>
+
     <script src="site-header.js" defer></script>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>

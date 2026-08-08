@@ -9,7 +9,11 @@ De PNG-bestanden zijn de kwaliteitsbronnen. Gebruik op de website bij voorkeur d
 | `bouwtekeningen-plattegrond-gevel-doorsnede.webp` | Bouwtekeningen | `Plattegrond, gevelaanzicht, doorsnede en bouwdetail voor een woninguitbreiding` |
 | `omgevingsvergunning-aanvraag-voorbereiden.webp` | Omgevingsvergunning | `Voorbereiding van een omgevingsvergunning met situatietekening en geveltekening` |
 | `3d-visualisatie-aanbouw-schets-naar-realisatie.webp` | 3D-visualisaties | `Ontwikkeling van bouwschets naar realistische visualisatie van een moderne aanbouw` |
-| `3d-vloerplan-woning-met-aanbouw.webp` | 3D-vloerplannen | `Driedimensionale beganegrondplattegrond van een woning met keukenaanbouw` |
+| `3d/vloerplan-uitgebreide-woning.webp` | Hoofdvoorbeeld vloerplannen | `Professioneel ingericht vloerplan van een uitgebreide woning met meerdere woon- en buitenruimtes` |
+| `3d/vloerplan-verdieping-meerdere-kamers.webp` | Vloerplan van een woonverdieping | `Professioneel ingericht vloerplan van een volledige woonverdieping met meerdere kamers` |
+| `3d/vloerplan-appartement-met-terras.webp` | Appartement of compacte woning | `Professioneel ingericht vloerplan van een appartement met slaapkamer en terras` |
+| `3d/vloerplan-compact-wonen-met-terras.webp` | Compact woonconcept | `Professioneel ingericht vloerplan van een compacte woning met leefruimte en terras` |
+| `3d/vloerplan-van-bouwtekening-naar-presentatie.webp` | Vergelijking bron en presentatie | `Vergelijking tussen een maatgevoerde plattegrond en een ingericht vloerplan` |
 | `over-ons-samenwerken-aan-bouwtekening.webp` | Over ons | `Illustratieve werksituatie waarin bouwprofessionals een bouwtekening en materiaalkeuzes controleren` |
 | `contact-adviesgesprek-werkplek.webp` | Contact | `Voorbereide gesprekstafel met bouwtekeningen en materiaalstalen` |
 
@@ -32,7 +36,6 @@ De PNG-bestanden zijn de kwaliteitsbronnen. Gebruik op de website bij voorkeur d
 | `diensten/staalconstructie-portaal-constructiedetail.webp` | Constructief advies | `Stalen portaalconstructie in een woning met bijbehorend constructiedetail` |
 | `diensten/carport-woning-van-schets-naar-realisatie.webp` | Carport | `Illustratieve moderne carport naast een Nederlandse woning die overgaat in een bouwschets` |
 | `diensten/nokverhoging-woning-dakdoorsnede.webp` | Nokverhoging | `Illustratieve nokverhoging van een Nederlandse woning die overgaat in een dakdoorsnede` |
-| `diensten/nokverhoging-3d-vloerplan-zolder.webp` | Nokverhoging / 3D-vloerplan | `Illustratief ingericht 3D-vloerplan van een zolder na een nokverhoging` |
 
 ## Vergelijking en illustratieve cases
 

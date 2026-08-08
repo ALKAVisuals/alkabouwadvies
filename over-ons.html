@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Over Technisch Bouwadvies | Werkwijze &amp; samenwerking</title>
-    <meta name="description" content="Maak kennis met Technisch Bouwadvies: bouwkundig tekenwerk, heldere opdrachtafspraken, vergunningbegeleiding en 3D-uitwerking met ALKA Visuals.">
+    <title>Over Technisch Bouwadvies | Persoonlijk bouwkundig advies</title>
+    <meta name="description" content="Maak kennis met Technisch Bouwadvies: persoonlijk bouwkundig tekenwerk, duidelijke opdrachtafspraken, vergunningbegeleiding en visuele 3D-uitwerking.">
     <meta name="author" content="Technisch Bouwadvies">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://technischbouwadvies.nl/over-ons.html">
@@ -41,11 +41,10 @@
         .hero-copy > p:not(.eyebrow) { max-width: 700px; margin-top: 1.5rem; color: var(--muted); font-size: 1.05rem; }
         .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
         .hero-visual { position: relative; }
-        .hero-visual img { width: 100%; aspect-ratio: 4/3; border-radius: 18px; object-fit: cover; box-shadow: 0 28px 70px rgba(0,0,0,.12); }
-        .image-label { position: absolute; right: 1rem; bottom: 1rem; padding: .55rem .75rem; border-radius: 999px; background: rgba(17,17,17,.86); color: var(--white); font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+        .hero-visual img { width: 100%; aspect-ratio: 4/3; border: 1px solid var(--line); object-fit: cover; box-shadow: 0 28px 70px rgba(0,0,0,.12); }
 
         .facts { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
-        .facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+        .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
         .fact { min-height: 138px; padding: 2rem; border-right: 1px solid var(--line); }
         .fact:last-child { border-right: 0; }
         .fact span { display: block; color: var(--gold); font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
@@ -58,39 +57,89 @@
         .prose { display: grid; gap: 1.15rem; color: var(--muted); }
         .prose strong { color: var(--ink); }
         .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
-        .principle { padding: 2rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+        .principle { padding: 2rem; border: 1px solid var(--line); background: var(--white); }
         .principle span, .role span { color: var(--gold); font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
         .principle h3, .role h3 { margin: .8rem 0 .65rem; font-size: 1.1rem; }
         .principle p, .role p { color: var(--muted); font-size: .93rem; }
 
         .section-head { max-width: 800px; margin-bottom: 2.75rem; }
         .roles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-        .role { padding: 2rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+        .role { padding: 2rem; border: 1px solid var(--line); background: var(--white); }
 
         .collaboration { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, .8fr); gap: 3rem; align-items: stretch; }
-        .collaboration-copy, .transparency { padding: 2.5rem; border-radius: 16px; }
+        .collaboration-copy, .transparency { padding: 2.5rem; }
         .collaboration-copy { background: var(--ink); color: var(--white); }
         .collaboration-copy p { margin: 1rem 0 1.5rem; color: rgba(255,255,255,.7); }
-        .collaboration-copy a { color: #d5bd7d; }
+        .collaboration-copy .button { border-color: var(--gold); background: var(--gold); color: var(--ink); }
+        .collaboration-copy .button:hover { border-color: var(--white); background: var(--white); }
         .transparency { border: 1px solid var(--line); background: var(--white); }
         .transparency h3 { margin-bottom: 1rem; }
         .transparency p { color: var(--muted); }
+
+        .person-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); gap: 5rem; align-items: center; }
+        .person-visual { margin: 0; border: 1px solid var(--line); background: var(--white); }
+        .person-visual img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+        .person-visual figcaption { padding: 1rem 1.2rem; color: var(--muted); font-size: .78rem; }
+        .person-copy > p:not(.eyebrow) { margin: 1.25rem 0; color: var(--muted); }
+        .person-card { margin-top: 2rem; padding: 1.5rem; border-left: 3px solid var(--gold); background: var(--white); }
+        .person-card strong { display: block; font-size: 1.15rem; }
+        .person-card span { display: block; margin-top: .2rem; color: var(--gold); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+        .person-card p { margin: .85rem 0 0; color: var(--muted); font-size: .88rem; }
+
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 3rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .process-step { min-height: 245px; padding: 2rem; }
+        .process-step + .process-step { border-left: 1px solid var(--line); }
+        .process-step span { display: block; margin-bottom: 2.5rem; color: var(--gold); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+        .process-step h3 { margin-bottom: .7rem; font-size: 1.05rem; }
+        .process-step p { color: var(--muted); font-size: .88rem; }
+
+        .commitments { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
+        .commitment { padding: 1.75rem; border-top: 3px solid var(--gold); background: var(--white); }
+        .commitment h3 { margin-bottom: .7rem; font-size: 1rem; }
+        .commitment p { color: var(--muted); font-size: .87rem; }
+
+        .faq-layout { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); gap: 5rem; align-items: start; }
+        .faq-intro { position: sticky; top: 7rem; }
+        .faq-intro p:last-child { margin-top: 1.25rem; color: var(--muted); }
+        .faq-list { border-top: 1px solid var(--line); }
+        .faq-list details { border-bottom: 1px solid var(--line); }
+        .faq-list summary { position: relative; padding: 1.35rem 2.5rem 1.35rem 0; cursor: pointer; font-weight: 650; line-height: 1.5; list-style: none; }
+        .faq-list summary::-webkit-details-marker { display: none; }
+        .faq-list summary::after { position: absolute; top: 50%; right: .25rem; color: var(--gold); font-size: 1.25rem; transform: translateY(-50%); content: "+"; }
+        .faq-list details[open] summary::after { content: "−"; }
+        .faq-answer { padding: 0 2.5rem 1.4rem 0; color: var(--muted); font-size: .9rem; }
 
         .cta { padding: 6rem 0; background: var(--ink); color: var(--white); text-align: center; }
         .cta p { max-width: 680px; margin: 1.25rem auto 2rem; color: rgba(255,255,255,.68); }
         .cta .button { border-color: var(--gold); background: var(--gold); color: var(--ink); }
         .cta .button:hover { border-color: var(--white); background: var(--white); }
-        footer { padding: 2rem 0; border-top: 1px solid rgba(255,255,255,.12); background: var(--ink); color: rgba(255,255,255,.65); font-size: .78rem; }
-        .footer-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-        footer a { color: inherit; }
+        footer { background: var(--ink); color: var(--white); }
+        .footer-top { max-width: 1400px; margin: 0 auto; padding: 6rem 4vw 4rem; display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 4rem; align-items: start; }
+        .footer-logo-link { text-decoration: none; }
+        .footer-logo-text { display: block; color: var(--white); font-size: 1.75rem; font-weight: 800; letter-spacing: -.02em; }
+        .logo-gold { color: var(--gold); }
+        .footer-brand p { max-width: 300px; margin-top: 2rem; color: rgba(255,255,255,.5); font-size: .9375rem; line-height: 1.75; }
+        .footer-nav h5 { margin-bottom: 1.5rem; color: var(--gold); font-size: .6875rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+        .footer-nav ul { display: flex; flex-direction: column; gap: .875rem; list-style: none; }
+        .footer-nav a { display: inline-block; color: rgba(255,255,255,.5); font-size: .875rem; font-weight: 500; text-decoration: none; transition: color .3s ease, transform .3s ease; }
+        .footer-nav a:hover { color: var(--white); transform: translateX(4px); }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; padding: 2rem 4vw; display: flex; justify-content: space-between; align-items: center; gap: 2rem; border-top: 1px solid rgba(255,255,255,.06); }
+        .footer-copy, .footer-legal a { color: rgba(255,255,255,.3); font-size: .8125rem; }
+        .footer-legal { display: flex; gap: 2rem; }
+        .footer-legal a { text-decoration: none; }
 
         @media (max-width: 860px) {
             .hero { padding-top: 6.5rem; }
-            .hero-grid, .split, .collaboration { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero-grid, .split, .collaboration, .person-grid, .faq-layout { grid-template-columns: 1fr; gap: 2.5rem; }
             .facts-grid, .principles { grid-template-columns: 1fr; }
             .fact { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
             .fact:last-child { border-bottom: 0; }
             .roles { grid-template-columns: 1fr; }
+            .process-grid, .commitments { grid-template-columns: repeat(2, 1fr); }
+            .process-step:nth-child(3) { border-left: 0; }
+            .process-step:nth-child(n+3) { border-top: 1px solid var(--line); }
+            .faq-intro { position: static; }
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 3rem; }
         }
         @media (max-width: 560px) {
             .page-shell { width: min(100% - 32px, 1180px); }
@@ -99,6 +148,12 @@
             .button { width: 100%; }
             .content-section, .cta { padding: 4.5rem 0; }
             .principle, .role, .collaboration-copy, .transparency { padding: 1.5rem; }
+            .process-grid, .commitments { grid-template-columns: 1fr; }
+            .process-step { min-height: 0; padding: 1.75rem 0; }
+            .process-step + .process-step, .process-step:nth-child(3) { border-top: 1px solid var(--line); border-left: 0; }
+            .footer-top { padding: 4.5rem 1.5rem 3rem; grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+            .footer-legal { flex-wrap: wrap; gap: 1.25rem; }
         }
     </style>
     <script type="application/ld+json">
@@ -117,6 +172,7 @@
       }
     }
     </script>
+    <link rel="stylesheet" href="site-footer.css?v=20260808-2">
 </head>
 <body>
     <a class="tba-skip-link" href="#main-content">Ga naar de inhoud</a>
@@ -153,8 +209,7 @@
                     <div class="hero-actions"><a class="button" href="contact.html">Bespreek uw bouwplan</a><a class="button secondary" href="index.html#werkwijze">Bekijk de werkwijze</a></div>
                 </div>
                 <figure class="hero-visual">
-                    <img src="images/website-2026/over-ons-samenwerken-aan-bouwtekening.webp" alt="Illustratieve werksituatie waarin bouwtekeningen en materiaalkeuzes worden besproken" loading="eager" decoding="async" fetchpriority="high">
-                    <figcaption class="image-label">Illustratieve werksituatie</figcaption>
+                    <img src="images/website-2026/over-ons-samenwerken-aan-bouwtekening.webp" alt="Bouwtekeningen en materiaalkeuzes worden samen aan tafel besproken" loading="eager" decoding="async" fetchpriority="high">
                 </figure>
             </div>
         </section>
@@ -163,6 +218,7 @@
             <div class="page-shell facts-grid">
                 <div class="fact"><span>Handelsnaam</span><strong>Technisch Bouwadvies</strong></div>
                 <div class="fact"><span>Registratie</span><strong>KvK 95153756</strong></div>
+                <div class="fact"><span>Werkgebied</span><strong>Heel Nederland</strong></div>
                 <div class="fact"><span>Contact</span><strong>info@technischbouwadvies.nl<br>+31 (0)6 49 24 04 12</strong></div>
             </div>
         </section>
@@ -184,7 +240,14 @@
             </div>
         </section>
 
-        <section class="content-section alt">
+        <section class="content-section alt" aria-labelledby="persoonlijk-title">
+            <div class="page-shell person-grid">
+                <figure class="person-visual"><img src="images/website-2026/werkwijze-bouwadvies-tekeningen-bespreken.webp" alt="Bouwtekening en materiaalmonsters tijdens een inhoudelijk adviesgesprek" loading="lazy" decoding="async"><figcaption>Uw bouwplan wordt inhoudelijk besproken voordat de technische uitwerking begint.</figcaption></figure>
+                <div class="person-copy"><p class="eyebrow">Persoonlijke aanpak</p><h2 id="persoonlijk-title">Eén vast aanspreekpunt voor uw bouwplan.</h2><p>U hoeft uw verhaal niet steeds opnieuw uit te leggen. Vanaf de eerste inventarisatie tot de afgesproken oplevering houdt Technisch Bouwadvies de uitgangspunten, keuzes en openstaande vragen bij elkaar.</p><p>Levi begeleidt de intake, technische uitwerking en afstemming binnen de opdracht. Wanneer een constructeur, inmeetdienst of andere specialist nodig is, wordt vooraf duidelijk gemaakt wie welke verantwoordelijkheid heeft en welke kosten daarbij horen.</p><div class="person-card"><strong>Levi</strong><span>Tekenaar &amp; adviseur</span><p>Uw vaste contactpersoon voor tekenwerk, planbeoordeling en de afgesproken begeleiding van het bouwtraject.</p></div></div>
+            </div>
+        </section>
+
+        <section class="content-section">
             <div class="page-shell">
                 <div class="section-head"><p class="eyebrow">Rollen en verantwoordelijkheid</p><h2>Voor iedere partij is duidelijk wie wat doet.</h2></div>
                 <div class="roles">
@@ -200,14 +263,35 @@
             <div class="page-shell collaboration">
                 <div class="collaboration-copy">
                     <p class="eyebrow">Plan in beeld</p>
-                    <h2>3D-uitwerking met ALKA Visuals.</h2>
-                    <p>Wilt u naast technische tekeningen ook begrijpen hoe de uitstraling of indeling kan worden? Fotorealistische 3D-visualisaties en ingerichte 3D-vloerplannen worden verzorgd in samenwerking met <a href="https://alkavisuals.nl/" target="_blank" rel="noopener noreferrer">ALKA Visuals</a>. De gekozen beelden, detailgraad, bestandsformaten en correctierondes worden vooraf afgesproken.</p>
+                    <h2>3D-uitwerking binnen Technisch Bouwadvies.</h2>
+                    <p>Wilt u naast technische tekeningen ook begrijpen hoe de uitstraling of indeling kan worden? Technisch Bouwadvies levert fotorealistische 3D-visualisaties en ingerichte 3D-vloerplannen als losse dienst of als aanvulling op het tekenwerk. De gekozen beelden, detailgraad, bestandsformaten en correctierondes worden vooraf afgesproken.</p>
                     <a class="button" href="3d-visualisaties-vloerplannen.html">Bekijk de 3D-mogelijkheden</a>
                 </div>
                 <aside class="transparency">
-                    <h3>Waarom hier geen teamportret staat</h3>
-                    <p>Op deze pagina gebruiken we geen stockteam of gegenereerd persoonsportret als vervanging voor echte bedrijfsfotografie. Het getoonde procesbeeld is daarom zichtbaar als illustratie gelabeld. Een professioneel portret kan later worden toegevoegd zodra echte fotografie beschikbaar is.</p>
+                    <h3>Eén merk en één aanspreekpunt</h3>
+                    <p>Uw aanvraag, offerte, communicatie en oplevering lopen via Technisch Bouwadvies. Ook wanneer uw opdracht uit meerdere onderdelen bestaat, blijft helder wat binnen de afgesproken scope valt en bij wie u met vragen terechtkunt.</p>
                 </aside>
+            </div>
+        </section>
+
+        <section class="content-section alt" aria-labelledby="proces-title">
+            <div class="page-shell">
+                <div class="section-head"><p class="eyebrow">Zo werken we</p><h2 id="proces-title">Van eerste contact tot een duidelijke oplevering.</h2></div>
+                <div class="process-grid"><article class="process-step"><span>01 — Kennismaken</span><h3>Uw plan en locatie begrijpen</h3><p>U deelt uw wensen, adres, beschikbare stukken en het doel van de opdracht.</p></article><article class="process-step"><span>02 — Afbakenen</span><h3>Scope en prijs vastleggen</h3><p>De offerte benoemt werkzaamheden, input, correcties, planning en eventuele externe kosten.</p></article><article class="process-step"><span>03 — Uitwerken</span><h3>Tekeningen en advies opbouwen</h3><p>We werken volgens de afgesproken uitgangspunten en bespreken relevante keuzes of ontbrekende informatie.</p></article><article class="process-step"><span>04 — Opleveren</span><h3>Bestanden en vervolg toelichten</h3><p>U ontvangt de afgesproken stukken en duidelijkheid over een eventuele aanvraag of vervolgstap.</p></article></div>
+            </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="verwachtingen-title">
+            <div class="page-shell">
+                <div class="section-head"><p class="eyebrow">Wat u mag verwachten</p><h2 id="verwachtingen-title">Zakelijk duidelijk en persoonlijk bereikbaar.</h2></div>
+                <div class="commitments"><article class="commitment"><h3>Heldere offerte</h3><p>U ziet vooraf wat wel en niet is inbegrepen, inclusief planning en afgesproken correctierondes.</p></article><article class="commitment"><h3>Vast contact</h3><p>Vragen en wijzigingen lopen via één aanspreekpunt dat uw plan en afspraken kent.</p></article><article class="commitment"><h3>Realistische verwachtingen</h3><p>We beloven geen vergunning of uitkomst die door gemeente of andere beoordelaar wordt bepaald.</p></article><article class="commitment"><h3>Zichtbare vervolgstap</h3><p>Na de oplevering weet u welke stukken u heeft en wat eventueel nog nodig is.</p></article></div>
+            </div>
+        </section>
+
+        <section class="content-section alt" id="faq" aria-labelledby="faq-title">
+            <div class="page-shell faq-layout">
+                <div class="faq-intro"><p class="eyebrow">Veelgestelde vragen</p><h2 id="faq-title">Praktische duidelijkheid over onze samenwerking.</h2><p>Staat uw situatie er niet tussen? Stuur uw vraag en beschikbare stukken mee via het contactformulier.</p></div>
+                <div class="faq-list"><details><summary>Werkt Technisch Bouwadvies door heel Nederland?</summary><div class="faq-answer">Ja. Veel inventarisatie en afstemming kan digitaal plaatsvinden. Als een locatiebezoek of inmeting nodig is, wordt dit vooraf in de scope en prijs benoemd.</div></details><details><summary>Heb ik tijdens het traject één contactpersoon?</summary><div class="faq-answer">Ja. U houdt één vast aanspreekpunt voor de werkzaamheden van Technisch Bouwadvies en de afstemming over uw opdracht.</div></details><details><summary>Worden constructieberekeningen ook verzorgd?</summary><div class="faq-answer">Wanneer constructieve berekeningen nodig zijn, wordt aangegeven of hiervoor een externe constructeur nodig is. De offerte vermeldt of diens werkzaamheden en kosten zijn inbegrepen of afzonderlijk worden aangeboden.</div></details><details><summary>Kan Technisch Bouwadvies een vergunning garanderen?</summary><div class="faq-answer">Nee. Wij kunnen afgesproken tekeningen en aanvraagstukken voorbereiden en het traject begeleiden, maar het bevoegd gezag beoordeelt de aanvraag en neemt het besluit.</div></details><details><summary>Wat gebeurt er na mijn aanvraag?</summary><div class="faq-answer">We bekijken uw vraag en beschikbare informatie. Daarna ontvangt u gerichte vervolgvragen of een voorstel met scope, prijs, planning, benodigde input en eventuele uitsluitingen.</div></details></div>
             </div>
         </section>
 
@@ -221,7 +305,60 @@
         </section>
     </main>
 
-    <footer><div class="page-shell footer-row"><span>&copy; <span id="year">2026</span> Technisch Bouwadvies · KvK 95153756</span><span><a href="privacybeleid.html">Privacy</a> &nbsp;·&nbsp; <a href="algemene-voorwaarden.html">Algemene voorwaarden</a> &nbsp;·&nbsp; <a href="cookiebeleid.html">Cookies</a></span></div></footer>
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-link">
+                    <span class="footer-logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span>
+                </a>
+                <p>Persoonlijk bouwkundig teken- en adviesbureau voor verbouwingsplannen en vergunningstrajecten in Nederland.</p>
+            </div>
+            <div class="footer-nav">
+                <h5>Diensten</h5>
+                <ul>
+                    <li><a href="dakkapel.html">Dakkapel</a></li>
+                    <li><a href="dakopbouw-vergunningen.html">Dakopbouw</a></li>
+                    <li><a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a></li>
+                    <li><a href="erker.html">Erker</a></li>
+                    <li><a href="mantelzorg.html">Mantelzorgwoning</a></li>
+                    <li><a href="bijgebouw.html">Bijgebouwen</a></li>
+                    <li><a href="bed-breakfast.html">Bed &amp; Breakfast</a></li>
+                    <li><a href="nokverhoging.html">Nokverhoging</a></li>
+                    <li><a href="carport-vergunning.html">Carport</a></li>
+                    <li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li>
+                    <li><a href="bouwkundig-advies.html">Bouwkundig Advies</a></li>
+                    <li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li>
+                    <li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></li>
+                    <li><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></li>
+                    <li><a href="contact.html">Contactformulier</a></li>
+                    <li><a href="over-ons.html">Over Ons</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h5>Kennis & inspiratie</h5>
+                <ul>
+                    <li><a href="blog.html">Blog en praktische uitleg</a></li>
+                    <li><a href="index.html#faq">Veelgestelde vragen</a></li>
+                    <li><a href="3d-visualisaties-vloerplannen.html">3D-visualisaties en vloerplannen</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2025&ndash;2026 Technisch Bouwadvies | KVK: 95153756</div>
+            <div class="footer-legal">
+                <a href="privacybeleid.html">Privacybeleid</a>
+                <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+                <a href="cookiebeleid.html">Cookiebeleid</a>
+            </div>
+        </div>
+    </footer>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

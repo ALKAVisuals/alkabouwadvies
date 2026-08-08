@@ -212,38 +212,38 @@
             }],
             ['bed-breakfast.html', {
                 heading: 'Maak indeling en gastverblijf vooraf zichtbaar.',
-                src: 'images/website-2026/3d/3d-bb-gastenverblijf-vloerplan.webp',
-                alt: '3D-visualisatie en vloerplan van een B&B-gastenverblijf aan een Nederlandse woning'
+                src: 'images/website-2026/3d/vloerplan-compact-wonen-met-terras.webp',
+                alt: 'Portfolio-voorbeeld van een professioneel ingericht compact vloerplan'
             }],
             ['bijgebouw.html', {
                 heading: 'Zie hoe uw bijgebouw in tuin en gebruik past.',
-                src: 'images/website-2026/3d/3d-bijgebouw-hobbyruimte-vloerplan.webp',
-                alt: '3D-visualisatie en vloerplan van een bijgebouw voor werk, hobby en opslag'
+                src: 'images/website-2026/3d/vloerplan-appartement-met-terras.webp',
+                alt: 'Portfolio-voorbeeld van een professioneel ingericht vloerplan met buitenruimte'
             }],
             ['dakkapel.html', {
                 heading: 'Beoordeel ruimte en uitstraling van uw dakkapel vooraf.',
-                src: 'images/website-2026/3d/3d-dakkapel-zolder-vloerplan.webp',
-                alt: '3D-visualisatie van een dakkapel met een ingericht vloerplan van de zolder'
+                src: 'images/website-2026/3d/vloerplan-verdieping-meerdere-kamers.webp',
+                alt: 'Portfolio-voorbeeld van een professioneel ingericht vloerplan van een woonverdieping'
             }],
             ['dakopbouw-vergunningen.html', {
                 heading: 'Breng de nieuwe verdieping vooraf volledig in beeld.',
-                src: 'images/website-2026/3d/3d-dakopbouw-verdieping-vloerplan.webp',
-                alt: '3D-visualisatie van een dakopbouw met vloerplan van de nieuwe verdieping'
+                src: 'images/website-2026/3d/vloerplan-uitgebreide-woning.webp',
+                alt: 'Portfolio-voorbeeld van een uitgebreid professioneel ingericht vloerplan'
             }],
             ['erker.html', {
                 heading: 'Zie vooraf wat een erker met uw woonkamer doet.',
-                src: 'images/website-2026/3d/3d-erker-woonkamer-vloerplan.webp',
-                alt: '3D-visualisatie van een erker met vloerplan van de vergrote woonkamer'
+                src: 'images/website-2026/3d/vloerplan-van-bouwtekening-naar-presentatie.webp',
+                alt: 'Vergelijking tussen een maatgevoerde plattegrond en een ingericht vloerplan'
             }],
             ['mantelzorg.html', {
                 heading: 'Maak toegankelijkheid en indeling vooraf bespreekbaar.',
-                src: 'images/website-2026/3d/3d-mantelzorgwoning-toegankelijk-vloerplan.webp',
-                alt: '3D-visualisatie en toegankelijk vloerplan van een mantelzorgwoning in de tuin'
+                src: 'images/website-2026/3d/vloerplan-compact-wonen-met-terras.webp',
+                alt: 'Portfolio-voorbeeld van een professioneel ingericht compact vloerplan'
             }],
             ['nokverhoging.html', {
                 heading: 'Zie vooraf hoeveel bruikbare zolderruimte ontstaat.',
-                src: 'images/website-2026/3d/3d-nokverhoging-zolder-vloerplan.webp',
-                alt: '3D-visualisatie van een nokverhoging met ingericht vloerplan van de zolder'
+                src: 'images/website-2026/3d/vloerplan-verdieping-meerdere-kamers.webp',
+                alt: 'Portfolio-voorbeeld van een professioneel ingericht vloerplan van een woonverdieping'
             }]
         ]);
         const visualisation = visualisationByPage.get(currentFilename());
