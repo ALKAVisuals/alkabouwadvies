@@ -364,12 +364,6 @@
             });
         }
 
-        if (filename === 'testimonials.html') {
-            header.querySelectorAll('[data-tba-page="reviews"]').forEach((link) => {
-                link.classList.add('is-current');
-                link.setAttribute('aria-current', 'page');
-            });
-        }
     }
 
     function prepareSkipLink() {
