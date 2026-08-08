@@ -204,17 +204,50 @@
     }
 
     function addVisualisationUpsell() {
-        const supportedPages = new Set([
-            'aanbouw-uitbouw.html',
-            'bed-breakfast.html',
-            'bijgebouw.html',
-            'dakkapel.html',
-            'dakopbouw-vergunningen.html',
-            'erker.html',
-            'mantelzorg.html',
-            'nokverhoging.html'
+        const visualisationByPage = new Map([
+            ['aanbouw-uitbouw.html', {
+                heading: 'Bekijk uw aanbouw voordat er gebouwd wordt.',
+                src: 'images/website-2026/3d-visualisatie-aanbouw-schets-naar-realisatie.webp',
+                alt: '3D-visualisatie van een moderne aanbouw aan een Nederlandse woning'
+            }],
+            ['bed-breakfast.html', {
+                heading: 'Maak indeling en gastverblijf vooraf zichtbaar.',
+                src: 'images/website-2026/3d/3d-bb-gastenverblijf-vloerplan.webp',
+                alt: '3D-visualisatie en vloerplan van een B&B-gastenverblijf aan een Nederlandse woning'
+            }],
+            ['bijgebouw.html', {
+                heading: 'Zie hoe uw bijgebouw in tuin en gebruik past.',
+                src: 'images/website-2026/3d/3d-bijgebouw-hobbyruimte-vloerplan.webp',
+                alt: '3D-visualisatie en vloerplan van een bijgebouw voor werk, hobby en opslag'
+            }],
+            ['dakkapel.html', {
+                heading: 'Beoordeel ruimte en uitstraling van uw dakkapel vooraf.',
+                src: 'images/website-2026/3d/3d-dakkapel-zolder-vloerplan.webp',
+                alt: '3D-visualisatie van een dakkapel met een ingericht vloerplan van de zolder'
+            }],
+            ['dakopbouw-vergunningen.html', {
+                heading: 'Breng de nieuwe verdieping vooraf volledig in beeld.',
+                src: 'images/website-2026/3d/3d-dakopbouw-verdieping-vloerplan.webp',
+                alt: '3D-visualisatie van een dakopbouw met vloerplan van de nieuwe verdieping'
+            }],
+            ['erker.html', {
+                heading: 'Zie vooraf wat een erker met uw woonkamer doet.',
+                src: 'images/website-2026/3d/3d-erker-woonkamer-vloerplan.webp',
+                alt: '3D-visualisatie van een erker met vloerplan van de vergrote woonkamer'
+            }],
+            ['mantelzorg.html', {
+                heading: 'Maak toegankelijkheid en indeling vooraf bespreekbaar.',
+                src: 'images/website-2026/3d/3d-mantelzorgwoning-toegankelijk-vloerplan.webp',
+                alt: '3D-visualisatie en toegankelijk vloerplan van een mantelzorgwoning in de tuin'
+            }],
+            ['nokverhoging.html', {
+                heading: 'Zie vooraf hoeveel bruikbare zolderruimte ontstaat.',
+                src: 'images/website-2026/3d/3d-nokverhoging-zolder-vloerplan.webp',
+                alt: '3D-visualisatie van een nokverhoging met ingericht vloerplan van de zolder'
+            }]
         ]);
-        if (!supportedPages.has(currentFilename())) return;
+        const visualisation = visualisationByPage.get(currentFilename());
+        if (!visualisation) return;
 
         const contact = document.getElementById('contact');
         if (!contact || document.querySelector('.tba-visualisation-upsell')) return;
@@ -226,13 +259,12 @@
             <div class="tba-visualisation-upsell-inner">
                 <div class="tba-visualisation-upsell-copy">
                     <span class="tba-visualisation-upsell-label">Aanvullende 3D-dienst</span>
-                    <h2>Zie vooraf hoe uw plan eruit kan zien.</h2>
+                    <h2>${visualisation.heading}</h2>
                     <p>Voeg een realistische 3D-visualisatie of een ingericht 3D-vloerplan toe. Zo worden uitstraling, indeling en ruimtelijke keuzes begrijpelijk naast de technische tekening.</p>
                     <a href="3d-visualisaties-vloerplannen.html">Bekijk de 3D-mogelijkheden <span aria-hidden="true">→</span></a>
                 </div>
-                <div class="tba-visualisation-upsell-images">
-                    <img src="images/website-2026/3d-visualisatie-aanbouw-schets-naar-realisatie.webp" alt="3D-visualisatie van een woningaanbouw" loading="lazy" decoding="async">
-                    <img src="images/website-2026/3d-vloerplan-woning-met-aanbouw.webp" alt="3D-vloerplan van een woning met aanbouw" loading="lazy" decoding="async">
+                <div class="tba-visualisation-upsell-images is-single">
+                    <img src="${visualisation.src}" alt="${visualisation.alt}" loading="lazy" decoding="async">
                 </div>
             </div>
         `;
