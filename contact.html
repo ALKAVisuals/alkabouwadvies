@@ -74,6 +74,7 @@
         .form-progress li.is-complete { border-color: var(--success); color: var(--success); }
         .step-kicker { display: block; margin-bottom: 7px; color: var(--gold-dark); font-size: .72rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
         .form-step { margin: 0; padding: 0; border: 0; }
+        .quote-form .form-step[hidden] { display: none !important; }
         .form-step legend { width: 100%; margin: 0 0 8px; padding: 0; font-family: "Playfair Display", serif; font-size: clamp(1.65rem, 3vw, 2.45rem); font-weight: 600; }
         .step-help { margin: 0 0 28px; color: var(--muted); }
         .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
@@ -199,12 +200,13 @@
                     <p>Bel of mail gerust. Voor een concrete prijs en planning hebben we meestal wel projectinformatie en beschikbare tekeningen nodig.</p>
                     <div class="contact-card"><h3>Bel Technisch Bouwadvies</h3><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a><small>Als we niet direct kunnen opnemen, kunt u het offerteformulier gebruiken.</small></div>
                     <div class="contact-card"><h3>Stuur een e-mail</h3><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a><small>Vermeld bij voorkeur het projectadres en type verbouwing.</small></div>
+                    <div class="contact-card"><h3>Bedrijfsgegevens</h3><p><strong>Technisch Bouwadvies</strong><br>Schutkolk 4 d 1<br>6582 DB Heumen</p><small>KvK: 95153756 &middot; Vestigingsnummer: 000060582847</small></div>
                 </aside>
 
                 <div class="form-panel">
                     <p class="eyebrow">Gerichte aanvraag</p>
                     <h2>Vraag een projectofferte aan.</h2>
-                    <p class="form-intro">Na beoordeling ontvangt u een voorstel waarin werkzaamheden, op te leveren bestanden, prijs exclusief én inclusief btw, eventuele correctierondes, planning en uitsluitingen duidelijk worden vastgelegd.</p>
+                    <p class="form-intro">Na beoordeling ontvangt u een voorstel waarin werkzaamheden, op te leveren bestanden, de consumentenprijs inclusief btw en aanvullend de prijs exclusief btw, eventuele correctierondes, planning en uitsluitingen duidelijk worden vastgelegd.</p>
                     <p class="package-selection" id="package-selection" hidden><strong id="package-selection-name"></strong> <span>Deze voorkeurskeuze staat alvast in uw aanvraag; na beoordeling bevestigt de offerte de definitieve scope en prijs.</span></p>
 
                     <ol class="form-progress" aria-label="Voortgang offerteaanvraag">
@@ -220,7 +222,7 @@
                         <input type="hidden" name="bron" id="bron" value="contactpagina">
                         <input type="hidden" name="pakket" id="pakket" value="">
 
-                        <fieldset class="form-step" data-step="1">
+                        <fieldset class="form-step" data-step="1" aria-hidden="false">
                             <legend><span class="step-kicker">Stap 1 van 4</span>Over welk project gaat het?</legend>
                             <p class="step-help">De locatie en het soort ingreep bepalen mede welke regels, tekeningen en aanvullende onderzoeken relevant kunnen zijn.</p>
                             <div class="field-grid">
@@ -232,7 +234,7 @@
                             <div class="step-actions"><span></span><button class="button next-step" type="button">Naar diensten</button></div>
                         </fieldset>
 
-                        <fieldset class="form-step" data-step="2">
+                        <fieldset class="form-step" data-step="2" hidden aria-hidden="true">
                             <legend><span class="step-kicker">Stap 2 van 4</span>Waarmee kunnen we helpen?</legend>
                             <p class="step-help">Kies één of meerdere onderdelen. We controleren vervolgens welke combinatie voor uw plan logisch is.</p>
                             <div class="choice-grid" id="diensten-groep">
@@ -248,19 +250,19 @@
                             <div class="step-actions"><button class="button secondary previous-step" type="button">Terug</button><button class="button next-step" type="button">Naar bestanden</button></div>
                         </fieldset>
 
-                        <fieldset class="form-step" data-step="3">
+                        <fieldset class="form-step" data-step="3" hidden aria-hidden="true">
                             <legend><span class="step-kicker">Stap 3 van 4</span>Welke informatie is al beschikbaar?</legend>
                             <p class="step-help">Bestanden zijn niet verplicht, maar helpen om de opdracht en benodigde uitwerking beter te beoordelen.</p>
                             <div class="field-grid">
                                 <div class="field"><label for="archieftekening">Bestaande of archieftekening</label><input id="archieftekening" name="archieftekening" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp,.dwg,.dxf"><span class="field-note">Eén PDF, afbeelding, DWG of DXF.</span></div>
                                 <div class="field"><label for="schets-foto">Schets of situatiefoto</label><input id="schets-foto" name="schets-foto" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp"><span class="field-note">Eén PDF of afbeelding.</span></div>
                                 <div class="field full"><label for="projectomschrijving">Omschrijf uw plan</label><textarea id="projectomschrijving" name="projectomschrijving" required aria-describedby="error-projectomschrijving" placeholder="Wat wilt u veranderen, welke afmetingen kent u al en wat is voor u belangrijk?"></textarea><span class="field-error" id="error-projectomschrijving">Geef een korte omschrijving van uw plan.</span></div>
-                                <div class="field full"><div class="upload-note"><strong>Bestandslimiet en privacy:</strong> de gekozen bestanden mogen samen maximaal 7 MB zijn, zodat de volledige aanvraag binnen de Netlify-limiet van 8 MB blijft. Upload geen identiteitsbewijs, BSN, financiële gegevens of andere onnodig gevoelige documenten. U kunt aanvullende bestanden na persoonlijk contact veilig afstemmen.</div><span class="field-error" id="error-files">De gekozen bestanden zijn samen groter dan 7 MB.</span></div>
+                                <div class="field full"><div class="upload-note"><strong>Bestandslimiet en privacy:</strong> de gekozen bestanden mogen samen maximaal 7 MB zijn. Upload geen identiteitsbewijs, BSN, financiële gegevens of andere onnodig gevoelige documenten. U kunt aanvullende bestanden na persoonlijk contact veilig afstemmen.</div><span class="field-error" id="error-files">De gekozen bestanden zijn samen groter dan 7 MB.</span></div>
                             </div>
                             <div class="step-actions"><button class="button secondary previous-step" type="button">Terug</button><button class="button next-step" type="button">Naar contactgegevens</button></div>
                         </fieldset>
 
-                        <fieldset class="form-step" data-step="4">
+                        <fieldset class="form-step" data-step="4" hidden aria-hidden="true">
                             <legend><span class="step-kicker">Stap 4 van 4</span>Hoe kunnen we u bereiken?</legend>
                             <p class="step-help">We gebruiken deze gegevens alleen om uw aanvraag te beoordelen en hierover contact met u op te nemen.</p>
                             <div class="field-grid">
@@ -283,7 +285,7 @@
         </section>
 
         <section class="expectations">
-            <div class="page-shell"><p class="eyebrow">Vooraf duidelijk</p><h2>Wat staat straks in uw voorstel?</h2><div class="expectation-grid"><article class="expectation"><span>01 — Scope</span><h3>Wat we precies opleveren</h3><p>De offerte benoemt tekeningen, bestanden, 3D-beelden en begeleiding die binnen de opdracht vallen.</p></article><article class="expectation"><span>02 — Afspraken</span><h3>Prijs, planning en correcties</h3><p>Bedragen worden eerst exclusief en daarnaast inclusief btw vermeld. Ook planning en eventuele inbegrepen correctierondes worden vastgelegd.</p></article><article class="expectation"><span>03 — Uitsluitingen</span><h3>Welke kosten apart blijven</h3><p>Gemeentelijke leges, archiefkosten en externe specialisten zijn niet automatisch inbegrepen en worden waar relevant apart benoemd.</p></article></div></div>
+            <div class="page-shell"><p class="eyebrow">Vooraf duidelijk</p><h2>Wat staat straks in uw voorstel?</h2><div class="expectation-grid"><article class="expectation"><span>01 — Scope</span><h3>Wat we precies opleveren</h3><p>De offerte benoemt tekeningen, bestanden, 3D-beelden en begeleiding die binnen de opdracht vallen.</p></article><article class="expectation"><span>02 — Afspraken</span><h3>Prijs, planning en correcties</h3><p>Bij consumenten wordt het bedrag inclusief btw als eerste prijs vermeld, met de prijs exclusief btw als aanvullende informatie. Ook planning en eventuele inbegrepen correctierondes worden vastgelegd.</p></article><article class="expectation"><span>03 — Uitsluitingen</span><h3>Welke kosten apart blijven</h3><p>Gemeentelijke leges, archiefkosten en externe specialisten zijn niet automatisch inbegrepen en worden waar relevant apart benoemd.</p></article></div></div>
         </section>
     </main>
 
@@ -345,7 +347,6 @@
     <script>
         (function () {
             'use strict';
-            document.getElementById('year').textContent = new Date().getFullYear();
 
             const form = document.querySelector('.quote-form');
             const steps = Array.from(form.querySelectorAll('.form-step'));
@@ -359,7 +360,11 @@
 
             function showStep(index, focus) {
                 currentStep = Math.max(0, Math.min(index, steps.length - 1));
-                steps.forEach((step, stepIndex) => { step.hidden = stepIndex !== currentStep; });
+                steps.forEach((step, stepIndex) => {
+                    const isCurrent = stepIndex === currentStep;
+                    step.hidden = !isCurrent;
+                    step.setAttribute('aria-hidden', String(!isCurrent));
+                });
                 progressItems.forEach((item, itemIndex) => {
                     item.classList.toggle('is-active', itemIndex === currentStep);
                     item.classList.toggle('is-complete', itemIndex < currentStep);
@@ -447,9 +452,9 @@
                 });
             }
             const packageLabels = {
-                'pakket-a': 'Gekozen: Pakket A — vanaf €250 excl. btw (€302,50 incl. btw).',
-                'pakket-b': 'Gekozen: Pakket B — vanaf €330 excl. btw (€399,30 incl. btw).',
-                'pakket-c': 'Gekozen: Pakket C — vanaf €620 excl. btw (€750,20 incl. btw).'
+                'pakket-a': 'Gekozen: Pakket A — vanaf €302,50 incl. btw (€250 excl. btw).',
+                'pakket-b': 'Gekozen: Pakket B — vanaf €399,30 incl. btw (€330 excl. btw).',
+                'pakket-c': 'Gekozen: Pakket C — vanaf €750,20 incl. btw (€620 excl. btw).'
             };
             if (selectedPackage && packageLabels[selectedPackage]) {
                 document.getElementById('pakket').value = selectedPackage;
