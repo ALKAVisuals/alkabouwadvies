@@ -224,12 +224,17 @@
                         <input type="hidden" name="form-name" value="offerteaanvraag">
                         <input type="hidden" name="bron" id="bron" value="contactpagina">
                         <input type="hidden" name="pakket" id="pakket" value="">
+                        <input type="hidden" name="prijsindicatie" id="prijsindicatie" value="">
+                        <input type="hidden" name="vergunningstatus" id="vergunningstatus" value="">
+                        <input type="hidden" name="constructiewijziging" id="constructiewijziging" value="">
+                        <input type="hidden" name="bestaandetekeningen" id="bestaandetekeningen" value="">
+                        <input type="hidden" name="pakketadvies" id="pakketadvies" value="">
 
                         <fieldset class="form-step" data-step="1" aria-hidden="false">
                             <legend><span class="step-kicker">Stap 1 van 4</span>Over welk project gaat het?</legend>
                             <p class="step-help">De locatie en het soort ingreep bepalen mede welke regels, tekeningen en aanvullende onderzoeken relevant kunnen zijn.</p>
                             <div class="field-grid">
-                                <div class="field full"><label for="projecttype">Type project</label><select id="projecttype" name="projecttype" required aria-describedby="error-projecttype"><option value="">Maak een keuze</option><option value="aanbouw-uitbouw">Aanbouw of uitbouw</option><option value="dakkapel">Dakkapel</option><option value="dakopbouw">Dakopbouw</option><option value="nokverhoging">Nokverhoging</option><option value="erker">Erker</option><option value="bijgebouw">Bijgebouw, schuur of tuinkamer</option><option value="mantelzorgwoning">Mantelzorgwoning</option><option value="bed-breakfast">Bed &amp; Breakfast</option><option value="carport">Carport</option><option value="kozijnen">Kozijnen vervangen</option><option value="digitaliseren">Bestaande tekeningen digitaliseren</option><option value="overig">Anders</option></select><span class="field-error" id="error-projecttype">Selecteer het type project.</span></div>
+                                <div class="field full"><label for="projecttype">Type project</label><select id="projecttype" name="projecttype" required aria-describedby="error-projecttype"><option value="">Maak een keuze</option><option value="aanbouw-uitbouw">Aanbouw of uitbouw</option><option value="dakkapel">Dakkapel</option><option value="dakopbouw">Dakopbouw</option><option value="nokverhoging">Nokverhoging</option><option value="erker">Erker</option><option value="bijgebouw">Bijgebouw, schuur of tuinkamer</option><option value="mantelzorgwoning">Mantelzorgwoning</option><option value="bed-breakfast">Bed &amp; Breakfast</option><option value="carport">Carport</option><option value="kozijnen">Kozijnen of gevelwijziging</option><option value="doorbraak">Doorbraak of dragende wand</option><option value="digitaliseren">Bestaande tekeningen digitaliseren</option><option value="overig">Anders of nog niet zeker</option></select><span class="field-error" id="error-projecttype">Selecteer het type project.</span></div>
                                 <div class="field"><label for="postcode">Postcode project</label><input id="postcode" name="postcode" type="text" inputmode="text" autocomplete="postal-code" placeholder="1234 AB" required aria-describedby="error-postcode"><span class="field-error" id="error-postcode">Vul de postcode van het project in.</span></div>
                                 <div class="field"><label for="gemeente">Gemeente</label><input id="gemeente" name="gemeente" type="text" autocomplete="address-level2" required aria-describedby="error-gemeente"><span class="field-error" id="error-gemeente">Vul de gemeente in.</span></div>
                                 <div class="field full"><span class="field-label" id="situatie-label">Situatie</span><div class="choice-grid" role="radiogroup" aria-labelledby="situatie-label"><label class="choice"><input type="radio" name="situatie" value="bestaande-woning" required><span><strong>Bestaande woning</strong><span>Verbouwing, uitbreiding of wijziging van een bestaand gebouw.</span></span></label><label class="choice"><input type="radio" name="situatie" value="nieuw-plan"><span><strong>Nieuw plan</strong><span>Een nieuw bijgebouw, nieuwe woonfunctie of ander nieuw ontwerp.</span></span></label></div><span class="field-error" id="error-situatie">Kies welke situatie van toepassing is.</span></div>
@@ -247,6 +252,7 @@
                                 <label class="choice"><input type="checkbox" name="diensten[]" value="constructieve-afstemming"><span><strong>Constructieve afstemming</strong><span>Afstemmen welke constructieve berekening of specialist nodig is.</span></span></label>
                                 <label class="choice"><input type="checkbox" name="diensten[]" value="3d-visualisatie"><span><strong>3D-visualisatie</strong><span>Realistische indruk van uitstraling, volume en materialen.</span></span></label>
                                 <label class="choice"><input type="checkbox" name="diensten[]" value="3d-vloerplan"><span><strong>3D-vloerplan</strong><span>Ruimtelijk overzicht van indeling, meubels en looproutes.</span></span></label>
+                                <label class="choice"><input type="checkbox" name="diensten[]" value="inmeting"><span><strong>Inmeting</strong><span>Bestaande situatie en relevante maatvoering op locatie opnemen.</span></span></label>
                                 <label class="choice"><input type="checkbox" name="diensten[]" value="digitaliseren"><span><strong>Tekeningen digitaliseren</strong><span>Bestaande papieren of digitale informatie omzetten naar bruikbare tekenbestanden.</span></span></label>
                             </div>
                             <span class="field-error" id="error-diensten">Kies minimaal één gewenste dienst.</span>
@@ -447,6 +453,8 @@
             const project = params.get('project');
             const service = params.get('dienst') || params.get('service');
             const selectedPackage = params.get('pakket');
+            const selectedPackageLabel = params.get('pakketlabel');
+            const selectedIndication = params.get('indicatie');
             if (project && form.elements.projecttype.querySelector(`option[value="${CSS.escape(project)}"]`)) form.elements.projecttype.value = project;
             if (service) {
                 service.split(',').forEach((value) => {
@@ -456,14 +464,30 @@
             }
             const packageLabels = {
                 'pakket-a': 'Gekozen: Pakket A — vanaf €302,50 incl. btw (€250 excl. btw).',
-                'pakket-b': 'Gekozen: Pakket B — vanaf €399,30 incl. btw (€330 excl. btw).',
-                'pakket-c': 'Gekozen: Pakket C — vanaf €750,20 incl. btw (€620 excl. btw).'
+                'pakket-b': 'Gekozen: Pakket B — vanaf €598,95 incl. btw (€495 excl. btw).',
+                'pakket-c': 'Gekozen: Pakket C — vanaf €907,50 incl. btw (€750 excl. btw).',
+                'route-tekening': 'Alleen bouwtekening',
+                'route-aanvraag': 'Bouwtekening + aanvraagbegeleiding',
+                'route-constructie': 'Bouwtekening + constructie',
+                'route-compleet': 'Compleet dossier'
             };
-            if (selectedPackage && packageLabels[selectedPackage]) {
+            if (selectedPackage) {
+                const legacyText = packageLabels[selectedPackage];
+                const routeLabel = selectedPackageLabel || legacyText;
+                const displayText = selectedPackage.startsWith('route-')
+                    ? `Gekozen: ${routeLabel}${selectedIndication ? ` — ${selectedIndication}` : ''}.`
+                    : legacyText;
                 document.getElementById('pakket').value = selectedPackage;
-                document.getElementById('package-selection-name').textContent = packageLabels[selectedPackage];
-                document.getElementById('package-selection').hidden = false;
+                if (displayText) {
+                    document.getElementById('package-selection-name').textContent = displayText;
+                    document.getElementById('package-selection').hidden = false;
+                }
             }
+            document.getElementById('prijsindicatie').value = selectedIndication || '';
+            document.getElementById('vergunningstatus').value = params.get('vergunningstatus') || '';
+            document.getElementById('constructiewijziging').value = params.get('constructiewijziging') || '';
+            document.getElementById('bestaandetekeningen').value = params.get('bestaandetekeningen') || '';
+            document.getElementById('pakketadvies').value = params.get('advies') || '';
             if (params.toString()) document.getElementById('bron').value = `contactpagina:${params.toString()}`;
 
             form.addEventListener('submit', async (event) => {

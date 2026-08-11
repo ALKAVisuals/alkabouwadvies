@@ -6,7 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="shortcut icon" href="images/favicon.svg">
     <title>Technisch Bouwadvies | Bouwtekeningen vanaf &euro;302,50 incl. btw</title>
-    <meta name="description" content="Bouwtekeningen vanaf &euro;302,50 inclusief btw (&euro;250 exclusief). Kies uit tekenwerk, vergunningbegeleiding of een compleet pakket met constructieberekening.">
+    <meta name="description" content="Bouwtekeningen vanaf &euro;302,50 inclusief btw (&euro;250 exclusief). Kies tekenwerk, tekenwerk met constructie of een compleet dossier met aanvraagbegeleiding.">
     <meta name="keywords" content="bouwtekening, omgevingsvergunning, bouwkundig advies, tekenbureau, uitbouw, dakkapel, erker">
     <meta name="author" content="Technisch Bouwadvies">
     <meta name="robots" content="index, follow">
@@ -103,7 +103,7 @@
                 "name": "Wat zijn de totale kosten inclusief leges?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "De drie pakketten starten inclusief 21% btw op €302,50, €399,30 en €750,20. Exclusief btw is dat €250, €330 en €620. Gemeentelijke leges en archiefkosten komen daar apart bij. De offerte bevestigt de projectspecifieke totaalprijs."
+                  "text": "De drie hoofdroutes starten inclusief 21% btw op €302,50, €598,95 en €907,50. Exclusief btw is dat €250, €495 en €750. De exacte vanafprijs verschilt per projecttype. Gemeentelijke leges en archiefkosten komen daar apart bij. De offerte bevestigt de projectspecifieke totaalprijs."
                 }
               },
               {
@@ -1980,6 +1980,23 @@ transform: translateY(-2px);
             color: var(--white);
             max-width: 700px;
         }
+        .calc-intro {
+            max-width: 720px;
+            margin: 1.25rem 0 0;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+        .calc-live-total {
+            margin: 1.5rem 0 -2rem;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        .calc-live-total[hidden] {
+            display: none;
+        }
         .calc-container {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -2065,6 +2082,12 @@ transform: translateY(-2px);
             line-height: 1.5;
             word-spacing: 0.1em;
         }
+        .calc-step-help {
+            margin: -1.15rem 0 2rem;
+            color: rgba(255, 255, 255, 0.58);
+            font-size: 0.86rem;
+            line-height: 1.7;
+        }
         .calc-options {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -2093,6 +2116,9 @@ transform: translateY(-2px);
             background: rgba(196, 163, 90, 0.1);
             box-shadow: 0 4px 20px rgba(196, 163, 90, 0.1);
         }
+        .calc-option[hidden] {
+            display: none;
+        }
         .calc-option .opt-label {
             display: block;
             font-weight: 600;
@@ -2119,6 +2145,92 @@ transform: translateY(-2px);
         .calc-option.selected .opt-price {
             opacity: 1;
             transform: translateY(0);
+        }
+        .calc-panel[data-step="2"] .opt-price {
+            opacity: 1;
+            transform: none;
+        }
+        .calc-fieldset {
+            margin: 0 0 1.5rem;
+            padding: 0;
+            border: 0;
+        }
+        .calc-fieldset legend {
+            margin-bottom: 0.8rem;
+            color: var(--white);
+            font-size: 0.92rem;
+            font-weight: 650;
+            line-height: 1.5;
+        }
+        .calc-compact-options {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.65rem;
+        }
+        .calc-detail-option {
+            min-height: 48px;
+            padding: 0.75rem 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            font: inherit;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+        .calc-detail-option:hover,
+        .calc-detail-option.selected {
+            border-color: var(--accent);
+            background: rgba(196, 163, 90, 0.1);
+            color: var(--white);
+        }
+        .calc-addons {
+            margin-top: 2rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .calc-check-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.65rem;
+        }
+        .calc-check {
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+            min-height: 72px;
+            padding: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            cursor: pointer;
+        }
+        .calc-check:has(input:checked) {
+            border-color: var(--accent);
+            background: rgba(196, 163, 90, 0.08);
+        }
+        .calc-check input {
+            width: 18px;
+            height: 18px;
+            margin: 0.15rem 0 0;
+            accent-color: var(--accent);
+        }
+        .calc-check strong,
+        .calc-check small {
+            display: block;
+        }
+        .calc-check strong {
+            margin-bottom: 0.2rem;
+            color: var(--white);
+            font-size: 0.82rem;
+        }
+        .calc-check small {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.72rem;
+            line-height: 1.45;
+        }
+        .calc-validation {
+            margin: 1rem 0 0;
+            color: #f2c8c8;
+            font-size: 0.82rem;
         }
         .calc-nav {
             display: flex;
@@ -2205,6 +2317,11 @@ transform: translateY(-2px);
             margin-bottom: 0.6rem;
             z-index: 10;
         }
+        .calc-result-amount.is-quote {
+            max-width: 620px;
+            font-size: clamp(2.35rem, 6vw, 4rem);
+            line-height: 1.1;
+        }
         .calc-result-vat {
             margin-bottom: 2rem;
             color: rgba(255, 255, 255, 0.62);
@@ -2249,6 +2366,14 @@ transform: translateY(-2px);
         .calc-result-details li .price {
             color: var(--accent);
             font-weight: 600;
+        }
+        .calc-result-note {
+            max-width: 650px;
+            margin: -0.5rem auto 2rem;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 0.86rem;
+            line-height: 1.7;
+            text-align: left;
         }
         .calc-cta-group {
             display: flex;
@@ -3720,10 +3845,13 @@ color: var(--white);
             }
             .calc-steps {
                 display: grid;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
+                grid-template-columns: repeat(4, minmax(0, 1fr));
                 gap: 0.5rem;
                 align-items: start;
                 margin-bottom: 0;
+            }
+            .calc-step-line {
+                display: none;
             }
             .calc-step {
                 min-width: 0;
@@ -3774,6 +3902,16 @@ color: var(--white);
             }
             .calc-panel[data-step="2"] .calc-option {
                 padding: 1rem;
+            }
+            .calc-compact-options,
+            .calc-check-grid {
+                grid-template-columns: 1fr;
+            }
+            .calc-fieldset legend {
+                font-size: 0.84rem;
+            }
+            .calc-result-note {
+                width: 100%;
             }
             .calc-nav {
                 gap: 0.75rem;
@@ -4801,7 +4939,7 @@ color: var(--white);
             <div class="prijzen-inner">
                 <div class="section-label">Pakketten en tarieven</div>
                 <h2 class="section-title">Duidelijk wat u wel en niet uit handen geeft</h2>
-                <p class="prijzen-intro">Kies alleen het tekenwerk, laat ook de aanvraag verzorgen of neem de constructieve uitwerking mee. De drie pakketten zijn opgebouwd rond &eacute;&eacute;n bouwplan; uw offerte legt de projectspecifieke omvang definitief vast.</p>
+                <p class="prijzen-intro">Voor verbouwingsprojecten werken we met drie hoofdroutes: alleen tekenwerk, tekenwerk met constructie of een compleet dossier met aanvraagbegeleiding. Alleen tekenwerk met aanvraagbegeleiding kan ook; daarvoor bepalen we de prijs na beoordeling van het project. De pakketkiezer hieronder toont de gepubliceerde projectspecifieke vanafprijs.</p>
                 <div class="prijzen-toggle" aria-label="Kies prijsweergave inclusief of exclusief btw"><span>Excl. btw</span><button class="toggle-switch active" id="btw-toggle" type="button" role="switch" aria-checked="true" aria-label="Exclusief btw tonen"></button><span>Incl. btw (21%)</span></div>
                 <div class="prijzen-grid">
                     <article class="prijs-card" data-price="250" data-package-name="Pakket A - Bouwtekening" aria-labelledby="pakket-a-title">
@@ -4813,30 +4951,30 @@ color: var(--white);
                         <div class="prijs-scope-label">Wat zit erin?</div>
                         <ul class="prijs-features"><li class="included">Bouwkundig tekenadvies</li><li class="included">Plattegronden, gevelaanzichten en doorsneden volgens de opdracht</li><li class="not-included">Indiening via het Omgevingsloket</li><li class="not-included">Contact over vragen van de gemeente</li><li class="not-included">Tekenaanpassingen na vragen van de gemeente</li><li class="not-included">Constructieberekening</li></ul>
                         <p class="prijs-exclusion"><strong>Niet inbegrepen:</strong> vergunningsaanvraag, gemeentecontact, constructieberekening, leges en archiefkosten.</p>
-                        <a href="contact.html?dienst=bouwtekening&amp;pakket=pakket-a" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor Pakket A Bouwtekening">Vraag offerte aan</a>
+                        <a href="contact.html?dienst=bouwtekening&amp;pakket=route-tekening&amp;pakketlabel=Alleen%20bouwtekening&amp;indicatie=Vanaf%20%E2%82%AC302%2C50%20incl.%20btw%20%28%E2%82%AC250%20excl.%20btw%29" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor alleen een bouwtekening">Vraag offerte aan</a>
                     </article>
-                    <article class="prijs-card featured" data-price="330" data-package-name="Pakket B - Bouwtekening en aanvraag" aria-labelledby="pakket-b-title">
+                    <article class="prijs-card featured" data-price="495" data-package-name="Pakket B - Bouwtekening en constructie" aria-labelledby="pakket-b-title">
                         <div class="prijs-badge">Meest gekozen</div>
                         <div class="prijs-code">Pakket B</div>
-                        <h3 class="prijs-name" id="pakket-b-title">Bouwtekening + aanvraag</h3>
-                        <p class="prijs-for"><strong>Past bij u als:</strong> u naast de tekeningen ook de indiening en afstemming over de aanvraag wilt uitbesteden.</p>
-                        <div class="prijs-amount"><span class="currency">&euro;</span>399,30</div>
-                        <div class="prijs-sub">Vanaf, inclusief 21% btw <span class="prijs-secondary">(&euro;330 excl. btw)</span></div>
+                        <h3 class="prijs-name" id="pakket-b-title">Bouwtekening + constructie</h3>
+                        <p class="prijs-for"><strong>Past bij u als:</strong> uw bouwplan naast tekeningen ook een constructieve berekening of rapportage nodig heeft.</p>
+                        <div class="prijs-amount"><span class="currency">&euro;</span>598,95</div>
+                        <div class="prijs-sub">Vanaf, inclusief 21% btw <span class="prijs-secondary">(&euro;495 excl. btw)</span></div>
                         <div class="prijs-scope-label">Wat zit erin?</div>
-                        <ul class="prijs-features"><li class="included">Bouwkundig tekenadvies</li><li class="included">Plattegronden, gevelaanzichten en doorsneden volgens de opdracht</li><li class="included">Indiening via het Omgevingsloket</li><li class="included">Contact over vragen van de gemeente binnen de opdracht</li><li class="included">Tekenaanpassingen na vragen, binnen de afgesproken scope</li><li class="not-included">Constructieberekening</li></ul>
-                        <p class="prijs-exclusion"><strong>Niet inbegrepen:</strong> constructieberekening, gemeentelijke leges, archiefkosten en werk buiten de afgesproken scope.</p>
-                        <a href="contact.html?dienst=bouwtekening%2Cvergunningbegeleiding&amp;pakket=pakket-b" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor Pakket B Bouwtekening en aanvraag">Vraag offerte aan</a>
+                        <ul class="prijs-features"><li class="included">Alles uit het tekenpakket</li><li class="included">Constructieberekening of rapportage volgens de afgesproken ingreep</li><li class="included">Constructieve afstemming binnen de opdracht</li><li class="not-included">Indiening via het Omgevingsloket</li><li class="not-included">Contact over vragen van de gemeente</li><li class="not-included">Aanpassingen buiten de afgesproken scope</li></ul>
+                        <p class="prijs-exclusion"><strong>Niet inbegrepen:</strong> vergunningsaanvraag, gemeentecontact, gemeentelijke leges, archiefkosten en werk buiten de afgesproken scope.</p>
+                        <a href="contact.html?dienst=bouwtekening%2Cconstructieve-afstemming&amp;pakket=route-constructie&amp;pakketlabel=Bouwtekening%20%2B%20constructie&amp;indicatie=Vanaf%20%E2%82%AC598%2C95%20incl.%20btw%20%28%E2%82%AC495%20excl.%20btw%29" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor bouwtekening met constructie">Vraag offerte aan</a>
                     </article>
-                    <article class="prijs-card" data-price="620" data-package-name="Pakket C - Compleet met constructie" aria-labelledby="pakket-c-title">
+                    <article class="prijs-card" data-price="750" data-package-name="Pakket C - Compleet dossier" aria-labelledby="pakket-c-title">
                         <div class="prijs-code">Pakket C</div>
-                        <h3 class="prijs-name" id="pakket-c-title">Compleet + constructie</h3>
-                        <p class="prijs-for"><strong>Past bij u als:</strong> uw bouwplan ook een constructieve onderbouwing vraagt en u &eacute;&eacute;n compleet aanvraagdossier wilt.</p>
-                        <div class="prijs-amount"><span class="currency">&euro;</span>750,20</div>
-                        <div class="prijs-sub">Vanaf, inclusief 21% btw <span class="prijs-secondary">(&euro;620 excl. btw)</span></div>
+                        <h3 class="prijs-name" id="pakket-c-title">Compleet dossier</h3>
+                        <p class="prijs-for"><strong>Past bij u als:</strong> u tekenwerk, constructieve uitwerking en begeleiding van een eventuele aanvraag als &eacute;&eacute;n opdracht wilt laten verzorgen.</p>
+                        <div class="prijs-amount"><span class="currency">&euro;</span>907,50</div>
+                        <div class="prijs-sub">Vanaf, inclusief 21% btw <span class="prijs-secondary">(&euro;750 excl. btw)</span></div>
                         <div class="prijs-scope-label">Wat zit erin?</div>
                         <ul class="prijs-features"><li class="included">Bouwkundig tekenadvies</li><li class="included">Plattegronden, gevelaanzichten en doorsneden volgens de opdracht</li><li class="included">Indiening via het Omgevingsloket</li><li class="included">Contact over vragen van de gemeente binnen de opdracht</li><li class="included">Tekenaanpassingen na vragen, binnen de afgesproken scope</li><li class="included">Constructieberekening voor de afgesproken ingreep</li></ul>
                         <p class="prijs-exclusion"><strong>Niet inbegrepen:</strong> gemeentelijke leges, archiefkosten, aanvullende onderzoeken, uitvoering en wijzigingen buiten de scope.</p>
-                        <a href="contact.html?dienst=bouwtekening%2Cvergunningbegeleiding%2Cconstructieve-afstemming&amp;pakket=pakket-c" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor Pakket C Compleet met constructie">Vraag offerte aan</a>
+                        <a href="contact.html?dienst=bouwtekening%2Cvergunningbegeleiding%2Cconstructieve-afstemming&amp;pakket=route-compleet&amp;pakketlabel=Compleet%20dossier&amp;indicatie=Vanaf%20%E2%82%AC907%2C50%20incl.%20btw%20%28%E2%82%AC750%20excl.%20btw%29" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor een compleet dossier">Vraag offerte aan</a>
                     </article>
                 </div>
                 <aside class="pakket-kaders" aria-labelledby="pakket-kaders-title">
@@ -4845,7 +4983,7 @@ color: var(--white);
                         <div class="pakket-kader"><strong>Vanafprijs per bouwplan</strong>De definitieve prijs hangt af van omvang, complexiteit en beschikbare bestaande informatie.</div>
                         <div class="pakket-kader"><strong>Scope vooraf vastgelegd</strong>De offerte benoemt de tekeningen, begeleiding, correcties en eventuele externe werkzaamheden.</div>
                         <div class="pakket-kader"><strong>Externe kosten apart</strong>Gemeentelijke leges, archiefkosten en niet-genoemde onderzoeken zijn niet automatisch inbegrepen.</div>
-                        <div class="pakket-kader"><strong>Controle per locatie</strong>De benodigde aanvraagroute en constructieve stukken worden voor het concrete plan bekeken.</div>
+                        <div class="pakket-kader"><strong>Geen locatietoeslag</strong>Uw locatie verandert onze pakketprijs niet. De benodigde stukken worden wel voor het concrete plan gecontroleerd.</div>
                     </div>
                 </aside>
                 <aside class="pakket-addons" aria-labelledby="pakket-addons-title">
@@ -4863,11 +5001,118 @@ color: var(--white);
             </div>
         </section>
 
-        <section class="calculator" id="calculator" aria-label="Pakketprijs calculator"><div class="calculator-inner"><div class="section-label">Pakketkiezer</div><h2 class="section-title">Vind in 30 seconden het passende pakket</h2><div id="live-total-bar" style="text-align:center;margin-bottom:1rem;font-size:0.9rem;color:var(--accent);font-weight:600;opacity:0;pointer-events:none;transition:opacity 0.3s ease;">Pakketprijs vanaf: <span id="live-price">&euro;0,-</span> incl. btw <span id="live-price-incl">(&euro;0,- excl. btw)</span></div><div class="calc-container"><div class="calc-steps" role="tablist" aria-label="Calculator stappen"><div class="calc-step active" role="tab" aria-selected="true" aria-label="Stap 1 van 3: Type project"><div class="calc-step-num">1</div><span>Type project</span></div><div class="calc-step-line" aria-hidden="true"></div><div class="calc-step" role="tab" aria-selected="false" aria-label="Stap 2 van 3: Pakket"><div class="calc-step-num">2</div><span>Pakket</span></div><div class="calc-step-line" aria-hidden="true"></div><div class="calc-step" role="tab" aria-selected="false" aria-label="Stap 3 van 3: Resultaat"><div class="calc-step-num">3</div><span>Resultaat</span></div></div>
-                <div class="calc-panel active" data-step="1" role="tabpanel" aria-label="Kies uw type project"><div class="calc-question">Welk type project gaat u realiseren?</div><div class="calc-options" role="radiogroup" aria-label="Project type opties"><button class="calc-option" data-value="dakkapel" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Dakkapel</span><span class="opt-desc">Een dakkapel plaatsen of vervangen</span><span class="opt-price">Pakketprijs volgt in stap 2</span></button><button class="calc-option" data-value="dakopbouw" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Dakopbouw</span><span class="opt-desc">Woning verhogen voor extra verdieping</span><span class="opt-price">Pakketprijs volgt in stap 2</span></button><button class="calc-option" data-value="uitbouw" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Uitbouw / Aanbouw</span><span class="opt-desc">Uitbreiding aan de achter- of zijkant</span><span class="opt-price">Pakketprijs volgt in stap 2</span></button><button class="calc-option" data-value="erker" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Erker</span><span class="opt-desc">Een erker toevoegen aan de gevel</span><span class="opt-price">Pakketprijs volgt in stap 2</span></button><button class="calc-option" data-value="mantelzorg" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Mantelzorgwoning</span><span class="opt-desc">Woonruimte voor zorg in of aan de woning</span><span class="opt-price">Pakketprijs volgt in stap 2</span></button><button class="calc-option" data-value="nieuwbouw" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Bed &amp; Breakfast</span><span class="opt-desc">Ontwerp en vergunning voor een Bed &amp; Breakfast</span><span class="opt-price">Pakketprijs volgt in stap 2</span></button><button class="calc-option" data-value="nok" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Nokverhoging / Doorbraak</span><span class="opt-desc">Nok verhogen of een dragende wand verwijderen</span><span class="opt-price">Pakketprijs volgt in stap 2</span></button><button class="calc-option" data-value="bijgebouw" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Bijgebouw</span><span class="opt-desc">Schuur, tuinmuur of overkapping</span><span class="opt-price">Pakketprijs volgt in stap 2</span></button></div><div class="calc-nav"><div></div><button class="calc-btn" id="calc-next-1" disabled aria-label="Ga naar stap 2">Volgende</button></div></div>
-                <div class="calc-panel" data-step="2" role="tabpanel" aria-label="Kies uw pakket" hidden><div class="calc-question">Hoeveel wilt u uit handen geven?</div><div class="calc-options" role="radiogroup" aria-label="Pakketopties"><button class="calc-option" data-package="pakket-a" data-package-price="250" data-services="bouwtekening" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Pakket A &mdash; Bouwtekening</span><span class="opt-desc">Tekeningen en tekenadvies; u verzorgt zelf een eventuele aanvraag.</span><span class="opt-price">Vanaf &euro;302,50 incl. btw (&euro;250 excl.)</span></button><button class="calc-option" data-package="pakket-b" data-package-price="330" data-services="bouwtekening,vergunningbegeleiding" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Pakket B &mdash; Bouwtekening + aanvraag</span><span class="opt-desc">Inclusief indiening, gemeentecontact en tekenaanpassingen binnen de afgesproken scope.</span><span class="opt-price">Vanaf &euro;399,30 incl. btw (&euro;330 excl.)</span></button><button class="calc-option" data-package="pakket-c" data-package-price="620" data-services="bouwtekening,vergunningbegeleiding,constructieve-afstemming" role="radio" aria-checked="false" tabindex="0"><span class="opt-label">Pakket C &mdash; Compleet + constructie</span><span class="opt-desc">Inclusief Pakket B en een constructieberekening voor de afgesproken ingreep.</span><span class="opt-price">Vanaf &euro;750,20 incl. btw (&euro;620 excl.)</span></button></div><div class="calc-nav"><button class="calc-btn-secondary" id="calc-back-2" aria-label="Terug naar stap 1">Terug</button><button class="calc-btn" id="calc-next-2" disabled aria-label="Bekijk mijn prijsindicatie">Bekijk mijn prijsindicatie</button></div></div>
-                <div class="calc-panel" data-step="3" role="tabpanel" aria-label="Uw prijsindicatie" hidden><div class="calc-result"><div class="calc-result-label">Uw pakketprijs vanaf, inclusief btw</div><div class="calc-result-amount" id="calc-result-price"><span class="currency">&euro;</span>0<span class="period">,-</span></div><div class="calc-result-vat" id="calc-result-price-incl">&euro;0,- exclusief btw</div><ul class="calc-result-details" id="calc-result-details"><li><span>Project</span><strong class="price" id="calc-detail-base">-</strong></li><li><span>Gekozen pakket</span><strong class="price" id="calc-detail-addon">-</strong></li></ul><div class="calc-cta-group"><a href="contact.html" id="calc-final-cta" class="calc-cta-primary metal-btn" aria-label="Bevestig pakketkeuze en vraag een projectspecifieke offerte aan">Bevestig pakketkeuze &amp; vraag offerte aan</a><button class="calc-cta-secondary" id="calc-reset" aria-label="Opnieuw berekenen">Opnieuw kiezen</button></div></div></div>
-            </div></div></section>
+        <section class="calculator" id="calculator" aria-label="Keuzehulp voor diensten en prijsindicatie">
+            <div class="calculator-inner">
+                <div class="section-label">Pakketkiezer</div>
+                <h2 class="section-title">Maak een eerste keuze voor uw bouwplan</h2>
+                <p class="calc-intro">Het projecttype bepaalt welke gepubliceerde vanafprijs van toepassing is. Uw locatie verandert onze pakketprijs niet. De vergunningroute, constructieve wijziging en beschikbare tekeningen bepalen wel welke werkzaamheden waarschijnlijk nodig zijn.</p>
+                <div id="live-total-bar" class="calc-live-total" aria-live="polite" hidden>Indicatieve prijs: <span id="live-price">&euro;0,-</span> incl. btw <span id="live-price-incl">(&euro;0,- excl. btw)</span></div>
+
+                <div class="calc-container">
+                    <div class="calc-steps" role="list" aria-label="Voortgang pakketkeuze">
+                        <div class="calc-step active" role="listitem" aria-current="step" aria-label="Stap 1 van 4: Project"><div class="calc-step-num">1</div><span>Project</span></div>
+                        <div class="calc-step-line" aria-hidden="true"></div>
+                        <div class="calc-step" role="listitem" aria-label="Stap 2 van 4: Hulpvraag"><div class="calc-step-num">2</div><span>Hulpvraag</span></div>
+                        <div class="calc-step-line" aria-hidden="true"></div>
+                        <div class="calc-step" role="listitem" aria-label="Stap 3 van 4: Details"><div class="calc-step-num">3</div><span>Details</span></div>
+                        <div class="calc-step-line" aria-hidden="true"></div>
+                        <div class="calc-step" role="listitem" aria-label="Stap 4 van 4: Advies"><div class="calc-step-num">4</div><span>Advies</span></div>
+                    </div>
+
+                    <div class="calc-panel active" data-step="1" aria-label="Kies uw type project">
+                        <div class="calc-question">Wat wilt u laten uitwerken?</div>
+                        <div class="calc-options" role="radiogroup" aria-label="Projecttype">
+                            <button class="calc-option" data-value="dakkapel" role="radio" aria-checked="false"><span class="opt-label">Dakkapel</span><span class="opt-desc">Plaatsen, vergroten of vervangen</span><span class="opt-price">Prijs volgt na uw hulpvraag</span></button>
+                            <button class="calc-option" data-value="dakopbouw" role="radio" aria-checked="false"><span class="opt-label">Dakopbouw</span><span class="opt-desc">Extra woonlaag op een plat dak</span><span class="opt-price">Prijs volgt na uw hulpvraag</span></button>
+                            <button class="calc-option" data-value="aanbouw-uitbouw" role="radio" aria-checked="false"><span class="opt-label">Aanbouw of uitbouw</span><span class="opt-desc">Uitbreiding aan achter- of zijgevel</span><span class="opt-price">Prijs volgt na uw hulpvraag</span></button>
+                            <button class="calc-option" data-value="erker" role="radio" aria-checked="false"><span class="opt-label">Erker</span><span class="opt-desc">Uitbreiding aan de gevel</span><span class="opt-price">Prijs volgt na uw hulpvraag</span></button>
+                            <button class="calc-option" data-value="mantelzorgwoning" role="radio" aria-checked="false"><span class="opt-label">Mantelzorgwoning</span><span class="opt-desc">Zelfstandige zorg- of woonruimte</span><span class="opt-price">Prijs volgt na uw hulpvraag</span></button>
+                            <button class="calc-option" data-value="bed-breakfast" role="radio" aria-checked="false"><span class="opt-label">Bed &amp; Breakfast</span><span class="opt-desc">Nieuwe of gewijzigde logiesfunctie</span><span class="opt-price">Prijs volgt na uw hulpvraag</span></button>
+                            <button class="calc-option" data-value="nokverhoging" role="radio" aria-checked="false"><span class="opt-label">Nokverhoging</span><span class="opt-desc">Meer bruikbare ruimte onder het dak</span><span class="opt-price">Prijs volgt na uw hulpvraag</span></button>
+                            <button class="calc-option" data-value="bijgebouw" role="radio" aria-checked="false"><span class="opt-label">Bijgebouw of tuinkamer</span><span class="opt-desc">Los gebouw, schuur of werkruimte</span><span class="opt-price">Prijs volgt na uw hulpvraag</span></button>
+                            <button class="calc-option" data-value="carport" role="radio" aria-checked="false"><span class="opt-label">Carport</span><span class="opt-desc">Overkapping voor een voertuig</span><span class="opt-price">Prijs volgt na uw hulpvraag</span></button>
+                            <button class="calc-option" data-value="kozijnen" role="radio" aria-checked="false"><span class="opt-label">Kozijnen of gevelwijziging</span><span class="opt-desc">Nieuwe kozijnen of aangepaste gevelopening</span><span class="opt-price">Prijs volgt na uw hulpvraag</span></button>
+                            <button class="calc-option" data-value="doorbraak" role="radio" aria-checked="false"><span class="opt-label">Doorbraak of dragende wand</span><span class="opt-desc">Constructieve wijziging in de woning</span><span class="opt-price">Prijs na beoordeling</span></button>
+                            <button class="calc-option" data-value="digitaliseren" role="radio" aria-checked="false"><span class="opt-label">Tekeningen digitaliseren</span><span class="opt-desc">Bestaande tekeningen bruikbaar maken</span><span class="opt-price">Vanafprijs volgt in stap 2</span></button>
+                            <button class="calc-option" data-value="overig" role="radio" aria-checked="false"><span class="opt-label">Anders of nog niet zeker</span><span class="opt-desc">Laat ons de juiste route bepalen</span><span class="opt-price">Prijs na beoordeling</span></button>
+                        </div>
+                        <div class="calc-nav"><span></span><button class="calc-btn" id="calc-next-1" type="button" disabled>Door naar hulpvraag</button></div>
+                    </div>
+
+                    <div class="calc-panel" data-step="2" aria-label="Kies wat u wilt uitbesteden" hidden>
+                        <div class="calc-question">Wat wilt u aan ons uitbesteden?</div>
+                        <p class="calc-step-help" id="calc-project-price-note">De prijs wordt afgestemd op het gekozen project.</p>
+                        <div class="calc-options" role="radiogroup" aria-label="Gewenste dienstverlening">
+                            <button class="calc-option" data-route="drawing" role="radio" aria-checked="false"><span class="opt-label">Alleen bouwtekening</span><span class="opt-desc">Bouwkundige tekeningen volgens de afgesproken scope; u regelt een eventuele aanvraag zelf.</span><span class="opt-price">Prijs wordt geladen</span></button>
+                            <button class="calc-option" data-route="application" role="radio" aria-checked="false"><span class="opt-label">Bouwtekening + aanvraagbegeleiding</span><span class="opt-desc">Tekenwerk, indiening en afgesproken contact tijdens de behandeling; constructie niet inbegrepen.</span><span class="opt-price">Prijs na beoordeling</span></button>
+                            <button class="calc-option" data-route="construction" role="radio" aria-checked="false"><span class="opt-label">Bouwtekening + constructie</span><span class="opt-desc">Tekenwerk met de constructieve berekening of rapportage die binnen de offerte is vastgelegd.</span><span class="opt-price">Prijs wordt geladen</span></button>
+                            <button class="calc-option" data-route="complete" role="radio" aria-checked="false"><span class="opt-label">Compleet dossier</span><span class="opt-desc">Tekenwerk, constructieve uitwerking en aanvraagbegeleiding binnen de afgesproken scope.</span><span class="opt-price">Prijs wordt geladen</span></button>
+                        </div>
+                        <div class="calc-nav"><button class="calc-btn-secondary" id="calc-back-2" type="button">Terug</button><button class="calc-btn" id="calc-next-2" type="button" disabled>Door naar details</button></div>
+                    </div>
+
+                    <div class="calc-panel" data-step="3" aria-label="Beantwoord enkele inhoudelijke vragen" hidden>
+                        <div class="calc-question">Welke aandachtspunten zijn al bekend?</div>
+                        <p class="calc-step-help">Deze antwoorden veranderen de prijs niet op basis van locatie. Ze helpen wel voorkomen dat een noodzakelijke aanvraag of constructieve uitwerking ontbreekt.</p>
+
+                        <fieldset class="calc-fieldset" data-detail-group="permit">
+                            <legend>Is al bekend of een vergunningaanvraag nodig is?</legend>
+                            <div class="calc-compact-options" role="radiogroup" aria-label="Vergunningstatus">
+                                <button class="calc-detail-option" data-value="unknown" type="button" role="radio" aria-checked="false">Nog niet bekend</button>
+                                <button class="calc-detail-option" data-value="yes" type="button" role="radio" aria-checked="false">Ja</button>
+                                <button class="calc-detail-option" data-value="no" type="button" role="radio" aria-checked="false">Nee</button>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="calc-fieldset" data-detail-group="structural">
+                            <legend>Wordt waarschijnlijk iets aan de draagconstructie gewijzigd?</legend>
+                            <div class="calc-compact-options" role="radiogroup" aria-label="Constructieve wijziging">
+                                <button class="calc-detail-option" data-value="unknown" type="button" role="radio" aria-checked="false">Nog niet bekend</button>
+                                <button class="calc-detail-option" data-value="yes" type="button" role="radio" aria-checked="false">Ja</button>
+                                <button class="calc-detail-option" data-value="no" type="button" role="radio" aria-checked="false">Nee</button>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="calc-fieldset" data-detail-group="drawings">
+                            <legend>Zijn er bruikbare bestaande tekeningen beschikbaar?</legend>
+                            <div class="calc-compact-options" role="radiogroup" aria-label="Beschikbare tekeningen">
+                                <button class="calc-detail-option" data-value="unknown" type="button" role="radio" aria-checked="false">Nog niet bekend</button>
+                                <button class="calc-detail-option" data-value="yes" type="button" role="radio" aria-checked="false">Ja</button>
+                                <button class="calc-detail-option" data-value="no" type="button" role="radio" aria-checked="false">Nee</button>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="calc-fieldset calc-addons">
+                            <legend>Optioneel mee offreren</legend>
+                            <div class="calc-check-grid">
+                                <label class="calc-check"><input type="checkbox" value="3d-visualisatie"><span><strong>3D-visualisatie</strong><small>Uitstraling, volume en materialen</small></span></label>
+                                <label class="calc-check"><input type="checkbox" value="3d-vloerplan"><span><strong>Vloerplan</strong><small>Indeling, functies en loopruimte</small></span></label>
+                                <label class="calc-check"><input type="checkbox" value="inmeting"><span><strong>Inmeting</strong><small>Bestaande situatie opnemen</small></span></label>
+                                <label class="calc-check"><input type="checkbox" value="digitaliseren"><span><strong>Digitaliseren</strong><small>Bestaande tekeningen omzetten</small></span></label>
+                            </div>
+                        </fieldset>
+
+                        <p class="calc-validation" id="calc-detail-error" role="alert" hidden>Beantwoord de drie vragen voordat u het advies bekijkt.</p>
+                        <div class="calc-nav"><button class="calc-btn-secondary" id="calc-back-3" type="button">Terug</button><button class="calc-btn" id="calc-next-3" type="button" disabled>Bekijk eerste advies</button></div>
+                    </div>
+
+                    <div class="calc-panel" data-step="4" aria-label="Uw eerste pakketadvies" hidden>
+                        <div class="calc-result">
+                            <div class="calc-result-label">Indicatieve vanafprijs voor de geadviseerde route</div>
+                            <div class="calc-result-amount" id="calc-result-price">&euro;0,-</div>
+                            <div class="calc-result-vat" id="calc-result-price-incl">Inclusief 21% btw</div>
+                            <ul class="calc-result-details" id="calc-result-details">
+                                <li><span>Project</span><strong id="calc-detail-base">-</strong></li>
+                                <li><span>Waarschijnlijk passende route</span><strong class="price" id="calc-detail-addon">-</strong></li>
+                                <li><span>Optionele aanvullingen</span><strong id="calc-detail-extras">Geen</strong></li>
+                            </ul>
+                            <p class="calc-result-note" id="calc-result-note"></p>
+                            <div class="calc-cta-group"><a href="contact.html" id="calc-final-cta" class="calc-cta-primary metal-btn">Neem deze keuze mee naar de offerte</a><button class="calc-cta-secondary" id="calc-reset" type="button">Opnieuw kiezen</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="gallery" id="gallery" aria-label="Bouwtekeningen, constructiedetails en ontwerpvisualisaties"><div class="gallery-inner"><div class="section-label">Van plan tot uitvoering</div><h2 class="section-title">Precisie zichtbaar in elk detail</h2><div class="gallery-grid"><figure class="gallery-item"><img src="images/website-2026/diensten/staalconstructie-portaal-constructiedetail.webp" alt="Stalen portaalconstructie met bijbehorend technisch constructiedetail" loading="lazy" decoding="async"><figcaption class="gallery-caption">Constructiedetail</figcaption></figure><figure class="gallery-item"><img src="images/website-2026/bouwtekeningen-plattegrond-gevel-doorsnede.webp" alt="Plattegrond, gevelaanzicht, doorsnede en bouwdetail voor een woninguitbreiding" loading="lazy" decoding="async"><figcaption class="gallery-caption">Bouwtekeningen</figcaption></figure><figure class="gallery-item"><img src="images/website-2026/projecten/voor-en-na-aanbouw-woning.webp" alt="Illustratieve overgang van bestaande woning naar een ontwerp met moderne aanbouw" loading="lazy" decoding="async"><figcaption class="gallery-caption">Van bestaand naar ontwerp</figcaption></figure><figure class="gallery-item"><img src="images/website-2026/diensten/kozijnen-gevelwijziging-bouwdetail.webp" alt="Illustratieve gevelwijziging met een technisch kozijn- en aansluitdetail" loading="lazy" decoding="async"><figcaption class="gallery-caption">Gevel- en kozijndetail</figcaption></figure><figure class="gallery-item"><img src="images/website-2026/omgevingsvergunning-aanvraag-voorbereiden.webp" alt="Voorbereiding van een omgevingsvergunning met situatietekening en geveltekening" loading="lazy" decoding="async"><figcaption class="gallery-caption">Vergunningvoorbereiding</figcaption></figure><figure class="gallery-item"><img src="images/website-2026/werkwijze-bouwadvies-tekeningen-bespreken.webp" alt="Bouwkundig adviseur bespreekt een woninguitbreiding aan de hand van bouwtekeningen" loading="lazy" decoding="async"><figcaption class="gallery-caption">Persoonlijk bouwadvies</figcaption></figure></div></div></section>
 
@@ -4883,7 +5128,7 @@ color: var(--white);
                         <h2 class="section-title">Alles wat u moet weten over vergunningen en kosten</h2>
                         <div class="faq-list">
                             <div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">Hoe lang duurt het vergunningstraject gemiddeld?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-1"><p>De procedure en doorlooptijd verschillen per aanvraag en bevoegd gezag. Na beoordeling van uw plan lichten wij de verwachte route toe; de gemeente bepaalt de formele behandeltermijn.</p></div></div>
-                            <div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Wat zijn de totale kosten inclusief leges?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-2"><p>De drie pakketten starten inclusief 21% btw op &euro;302,50, &euro;399,30 en &euro;750,20. Exclusief btw is dat &euro;250, &euro;330 en &euro;620. Gemeentelijke leges en archiefkosten komen daar apart bij. De offerte bevestigt de projectspecifieke totaalprijs.</p></div></div>
+                            <div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Wat zijn de totale kosten inclusief leges?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-2"><p>De drie hoofdroutes starten inclusief 21% btw op &euro;302,50 voor alleen tekenwerk, &euro;598,95 voor tekenwerk met constructie en &euro;907,50 voor een compleet dossier. Exclusief btw is dat &euro;250, &euro;495 en &euro;750. De exacte vanafprijs verschilt per projecttype. Gemeentelijke leges en archiefkosten komen daar apart bij. De offerte bevestigt de projectspecifieke totaalprijs.</p></div></div>
                             <div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Is een omgevingsvergunning altijd nodig?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-3"><p>Niet altijd. De uitkomst hangt af van het plan, de locatie en lokale regels. Gebruik de officiële Vergunningcheck en Regels op de kaart in het Omgevingsloket en laat de uitkomst bij twijfel beoordelen.</p></div></div>
                             <div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Kan ik de tekeningen ook gebruiken voor aannemers?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-4"><p>Dat hangt af van het afgesproken detailniveau. Een aanvraagtekening is niet automatisch een volledige werktekening. We leggen vooraf vast welke tekeningen en bestandsformaten u ontvangt.</p></div></div>
                             <div class="faq-item"><button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">Wat gebeurt er als de gemeente vragen stelt?<div class="faq-icon" aria-hidden="true"><span></span><span></span></div></button><div class="faq-answer" id="faq-answer-5"><p>Wij kunnen binnen de afgesproken opdracht reageren op technische vragen en benodigde aanvullingen voorbereiden. Als de gemeente om een wezenlijke planwijziging vraagt, bespreken we eerst de gevolgen voor scope en planning.</p></div></div>
@@ -4948,8 +5193,9 @@ color: var(--white);
                             <option value="uitbouw">Uitbouw / Aanbouw</option>
                             <option value="erker">Erker</option>
                             <option value="mantelzorg">Mantelzorgwoning</option>
-                            <option value="nieuwbouw">Bed &amp; Breakfast</option>
-                            <option value="nok">Nokverhoging / Doorbraak</option>
+                            <option value="bed-breakfast">Bed &amp; Breakfast</option>
+                            <option value="nokverhoging">Nokverhoging</option>
+                            <option value="doorbraak">Doorbraak of dragende wand</option>
                             <option value="bijgebouw">Bijgebouwen</option>
                             <option value="digitaliseren">Bouwtekeningen digitaliseren</option>
                             <option value="3d-visualisatie">3D-visualisatie</option>
@@ -5325,11 +5571,11 @@ color: var(--white);
                 price: 'Pakketten vanaf &euro;302,50 incl. btw (&euro;250 excl.)', features: ['Compleet tekenpakket', 'Omgevingsvergunning',
                     'Constructieberekening', 'BENG-berekening', 'Volledige begeleiding'
                 ] },
-            nok: { title: 'Nokverhoging / Doorbraak', desc: 'Nok verhogen of dragende wand verwijderen.',
+            nok: { title: 'Nokverhoging', desc: 'De nok verhogen om meer bruikbare ruimte onder het dak te maken.',
                 price: 'Pakketten vanaf &euro;399,30 incl. btw (&euro;330 excl.)', features: ['Constructieve berekening', 'Bouwtekeningen',
                     'Vergunningaanvraag', 'Veiligheidscontrole', 'Aannemersadvies'
                 ] },
-            bijgebouw: { title: 'Bijgebouwen', desc: 'Schuren, tuinmuren, overkappingen en meer.',
+            bijgebouw: { title: 'Bijgebouwen', desc: 'Een schuur, tuinkamer, garage of andere zelfstandige ruimte.',
                 price: 'Pakketten vanaf &euro;302,50 incl. btw (&euro;250 excl.)', features: ['Bouwtekeningen', 'Vergunningaanvraag',
                     'Omgevingsplancheck', 'Maatwerkadvies', 'Planning volgens offerte'
                 ] }
@@ -5378,118 +5624,271 @@ color: var(--white);
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalOverlay.classList.contains(
                 'active')) closeModal(); });
 
-        // Calculator Logic
+        // Pakketkiezer: projectprijzen komen overeen met de gepubliceerde dienstpagina's.
+        const projectCatalog = {
+            dakkapel: { prices: { drawing: 250, application: null, construction: 495, complete: 750 } },
+            dakopbouw: { prices: { drawing: 330, application: null, construction: 675, complete: 1140 } },
+            'aanbouw-uitbouw': { prices: { drawing: 330, application: null, construction: 675, complete: 1140 } },
+            erker: { prices: { drawing: 250, application: null, construction: 495, complete: 750 } },
+            mantelzorgwoning: { prices: { drawing: 330, application: null, construction: 575, complete: 950 } },
+            'bed-breakfast': { prices: { drawing: 250, application: null, construction: 495, complete: 1140 } },
+            nokverhoging: { prices: { drawing: 330, application: null, construction: 1140, complete: 1450 } },
+            bijgebouw: { prices: { drawing: 250, application: null, construction: 495, complete: 750 } },
+            carport: { prices: { drawing: 250, application: 350, construction: null, complete: null }, available: ['drawing', 'application'] },
+            kozijnen: { prices: { drawing: 200, application: 300, construction: null, complete: null }, available: ['drawing', 'application'] },
+            doorbraak: { prices: { drawing: null, application: null, construction: null, complete: null }, available: ['construction', 'complete'] },
+            digitaliseren: { prices: { drawing: 150, application: null, construction: null, complete: null }, available: ['drawing'], serviceOverride: ['digitaliseren'] },
+            overig: { prices: { drawing: null, application: null, construction: null, complete: null } }
+        };
+        const routeCatalog = {
+            drawing: { id: 'route-tekening', label: 'Alleen bouwtekening', services: ['bouwtekening'] },
+            application: { id: 'route-aanvraag', label: 'Bouwtekening + aanvraagbegeleiding', services: ['bouwtekening', 'vergunningbegeleiding'] },
+            construction: { id: 'route-constructie', label: 'Bouwtekening + constructie', services: ['bouwtekening', 'constructieve-afstemming'] },
+            complete: { id: 'route-compleet', label: 'Compleet dossier', services: ['bouwtekening', 'vergunningbegeleiding', 'constructieve-afstemming'] }
+        };
+        const addonLabels = {
+            '3d-visualisatie': '3D-visualisatie',
+            '3d-vloerplan': 'Vloerplan',
+            inmeting: 'Inmeting',
+            digitaliseren: 'Digitaliseren'
+        };
         let calcState = {
             projectType: '',
             projectLabel: '',
-            packageId: '',
-            packageLabel: '',
-            packagePrice: 0,
-            services: []
+            selectedRoute: '',
+            recommendedRoute: '',
+            permit: '',
+            structural: '',
+            drawings: '',
+            addons: []
         };
-        document.querySelectorAll('.calc-panel[data-step="2"] .calc-option').forEach((option) => {
-            const price = Number(option.dataset.packagePrice);
-            const label = option.querySelector('.opt-price');
-            if (label && Number.isFinite(price)) label.textContent = `Vanaf ${formatConsumerPrice(includeVat(price))} incl. btw (${formatConsumerPrice(price)} excl.)`;
-        });
-        const resultLabel = document.querySelector('.calc-result-label');
-        if (resultLabel) resultLabel.textContent = 'Uw pakketprijs vanaf, inclusief btw';
+
+        const getProjectConfig = () => projectCatalog[calcState.projectType] || projectCatalog.overig;
+        const getRoutePrice = (route) => {
+            const value = getProjectConfig().prices[route];
+            return Number.isFinite(value) ? value : null;
+        };
+        const formatRoutePrice = (price) => price === null
+            ? 'Prijs na beoordeling van de scope'
+            : `Vanaf ${formatConsumerPrice(includeVat(price))} incl. btw (${formatConsumerPrice(price)} excl.)`;
         const updateLiveTotal = () => {
             const liveBar = document.getElementById('live-total-bar');
-            const livePrice = document.getElementById('live-price');
-            const livePriceIncl = document.getElementById('live-price-incl');
-            if (liveBar) {
-                liveBar.style.opacity = calcState.packagePrice > 0 ? '1' : '0';
-                livePrice.textContent = formatConsumerPrice(includeVat(calcState.packagePrice));
-                livePriceIncl.textContent = `(${formatConsumerPrice(calcState.packagePrice)} excl. btw)`;
+            const price = calcState.selectedRoute ? getRoutePrice(calcState.selectedRoute) : null;
+            if (price === null) {
+                liveBar.hidden = true;
+                return;
             }
+            liveBar.hidden = false;
+            document.getElementById('live-price').textContent = formatConsumerPrice(includeVat(price));
+            document.getElementById('live-price-incl').textContent = `(${formatConsumerPrice(price)} excl. btw)`;
         };
         const showCalcStep = (step) => {
-            document.querySelectorAll('.calc-panel').forEach(p => { p.classList.remove('active');
-                p.hidden = true; });
-            document.querySelectorAll('.calc-step').forEach((s, i) => {
-                s.classList.remove('active', 'completed');
-                if (i + 1 < step) s.classList.add('completed');
-                if (i + 1 === step) s.classList.add('active');
-                s.setAttribute('aria-selected', String(i + 1 === step));
+            document.querySelectorAll('.calc-panel').forEach((panel) => {
+                panel.classList.remove('active');
+                panel.hidden = true;
+            });
+            document.querySelectorAll('.calc-step').forEach((item, index) => {
+                item.classList.remove('active', 'completed');
+                item.removeAttribute('aria-current');
+                if (index + 1 < step) item.classList.add('completed');
+                if (index + 1 === step) {
+                    item.classList.add('active');
+                    item.setAttribute('aria-current', 'step');
+                }
             });
             const panel = document.querySelector(`.calc-panel[data-step="${step}"]`);
-            if (panel) { panel.classList.add('active');
-                panel.hidden = false; }
+            if (panel) {
+                panel.classList.add('active');
+                panel.hidden = false;
+            }
         };
-        document.querySelectorAll('.calc-panel[data-step="1"] .calc-option').forEach(opt => {
-            opt.addEventListener('click', () => {
-                document.querySelectorAll('.calc-panel[data-step="1"] .calc-option').forEach(o => { o
-                        .classList.remove('selected');
-                    o.setAttribute('aria-checked', 'false'); });
-                opt.classList.add('selected');
-                opt.setAttribute('aria-checked', 'true');
-                calcState.projectType = opt.dataset.value;
-                calcState.projectLabel = opt.querySelector('.opt-label').textContent;
+        const clearRadioGroup = (selector) => {
+            document.querySelectorAll(selector).forEach((option) => {
+                option.classList.remove('selected');
+                option.setAttribute('aria-checked', 'false');
+            });
+        };
+        const updateRouteOptions = () => {
+            const project = getProjectConfig();
+            const available = project.available || Object.keys(routeCatalog);
+            document.querySelectorAll('.calc-panel[data-step="2"] .calc-option').forEach((option) => {
+                const route = option.dataset.route;
+                const definition = routeCatalog[route];
+                option.hidden = !available.includes(route);
+                option.querySelector('.opt-label').textContent = definition.label;
+                option.querySelector('.opt-price').textContent = formatRoutePrice(getRoutePrice(route));
+            });
+            if (calcState.projectType === 'digitaliseren') {
+                const option = document.querySelector('.calc-option[data-route="drawing"]');
+                option.querySelector('.opt-label').textContent = 'Tekeningen digitaliseren';
+                option.querySelector('.opt-desc').textContent = 'Vanafprijs per bestaande tekening; een complete set wordt afzonderlijk beoordeeld.';
+            }
+            document.getElementById('calc-project-price-note').textContent = calcState.projectType === 'overig'
+                ? 'Voor een ander project bepalen we de prijs nadat de gewenste uitwerking duidelijk is.'
+                : `De getoonde bedragen horen bij ${calcState.projectLabel.toLowerCase()} en zijn inclusief btw als eerste prijs weergegeven.`;
+        };
+
+        document.querySelectorAll('.calc-panel[data-step="1"] .calc-option').forEach((option) => {
+            option.addEventListener('click', () => {
+                clearRadioGroup('.calc-panel[data-step="1"] .calc-option');
+                option.classList.add('selected');
+                option.setAttribute('aria-checked', 'true');
+                calcState.projectType = option.dataset.value;
+                calcState.projectLabel = option.querySelector('.opt-label').textContent;
                 document.getElementById('calc-next-1').disabled = false;
             });
         });
         document.getElementById('calc-next-1').addEventListener('click', () => {
-            calcState.packageId = '';
-            calcState.packageLabel = '';
-            calcState.packagePrice = 0;
-            calcState.services = [];
-            document.querySelectorAll('.calc-panel[data-step="2"] .calc-option').forEach(opt => {
-                opt.classList.remove('selected');
-                opt.setAttribute('aria-checked', 'false');
-            });
+            if (!calcState.projectType) return;
+            calcState.selectedRoute = '';
+            calcState.recommendedRoute = '';
+            calcState.permit = '';
+            calcState.structural = '';
+            calcState.drawings = '';
+            calcState.addons = [];
+            clearRadioGroup('.calc-panel[data-step="2"] .calc-option');
+            clearRadioGroup('.calc-detail-option');
+            document.querySelectorAll('.calc-check input').forEach((input) => { input.checked = false; });
+            document.querySelectorAll('[data-detail-group]').forEach((group) => { group.hidden = false; });
             document.getElementById('calc-next-2').disabled = true;
+            document.getElementById('calc-next-3').disabled = true;
+            updateRouteOptions();
             updateLiveTotal();
             showCalcStep(2);
         });
-        document.querySelectorAll('.calc-panel[data-step="2"] .calc-option').forEach(opt => {
-            opt.addEventListener('click', () => {
-                document.querySelectorAll('.calc-panel[data-step="2"] .calc-option').forEach(option => {
-                    option.classList.remove('selected');
-                    option.setAttribute('aria-checked', 'false');
-                });
-                opt.classList.add('selected');
-                opt.setAttribute('aria-checked', 'true');
-                calcState.packageId = opt.dataset.package;
-                calcState.packageLabel = opt.querySelector('.opt-label').textContent;
-                calcState.packagePrice = Number(opt.dataset.packagePrice);
-                calcState.services = (opt.dataset.services || '').split(',').filter(Boolean);
+        document.querySelectorAll('.calc-panel[data-step="2"] .calc-option').forEach((option) => {
+            option.addEventListener('click', () => {
+                if (option.hidden) return;
+                clearRadioGroup('.calc-panel[data-step="2"] .calc-option');
+                option.classList.add('selected');
+                option.setAttribute('aria-checked', 'true');
+                calcState.selectedRoute = option.dataset.route;
                 document.getElementById('calc-next-2').disabled = false;
                 updateLiveTotal();
             });
         });
         document.getElementById('calc-back-2').addEventListener('click', () => showCalcStep(1));
         document.getElementById('calc-next-2').addEventListener('click', () => {
-            if (!calcState.packageId) return;
-            document.getElementById('calc-result-price').textContent = formatConsumerPrice(includeVat(calcState.packagePrice));
-            document.getElementById('calc-result-price-incl').textContent =
-                `${formatConsumerPrice(calcState.packagePrice)} exclusief btw`;
-            document.getElementById('calc-detail-base').textContent = calcState.projectLabel;
-            document.getElementById('calc-detail-addon').textContent =
-                `${calcState.packageLabel} — ${formatConsumerPrice(includeVat(calcState.packagePrice))} incl. btw (${formatConsumerPrice(calcState.packagePrice)} excl.)`;
-            const finalCta = document.getElementById('calc-final-cta');
-            const contactParams = new URLSearchParams({
-                project: calcState.projectType,
-                dienst: calcState.services.join(','),
-                pakket: calcState.packageId
+            if (!calcState.selectedRoute) return;
+            const isDigitalizing = calcState.projectType === 'digitaliseren';
+            document.querySelectorAll('[data-detail-group="permit"], [data-detail-group="structural"]').forEach((group) => {
+                group.hidden = isDigitalizing;
             });
-            finalCta.href = `contact.html?${contactParams.toString()}`;
+            if (isDigitalizing) {
+                calcState.permit = 'no';
+                calcState.structural = 'no';
+            }
+            const detailsComplete = calcState.permit && calcState.structural && calcState.drawings;
+            document.getElementById('calc-next-3').disabled = !detailsComplete;
             showCalcStep(3);
         });
+
+        document.querySelectorAll('.calc-detail-option').forEach((option) => {
+            option.addEventListener('click', () => {
+                const group = option.closest('[data-detail-group]');
+                const field = group.dataset.detailGroup;
+                clearRadioGroup(`[data-detail-group="${field}"] .calc-detail-option`);
+                option.classList.add('selected');
+                option.setAttribute('aria-checked', 'true');
+                calcState[field] = option.dataset.value;
+                document.getElementById('calc-detail-error').hidden = true;
+                document.getElementById('calc-next-3').disabled = !(calcState.permit && calcState.structural && calcState.drawings);
+            });
+        });
+        document.querySelectorAll('.calc-check input').forEach((input) => {
+            input.addEventListener('change', () => {
+                calcState.addons = Array.from(document.querySelectorAll('.calc-check input:checked')).map((item) => item.value);
+            });
+        });
+        document.getElementById('calc-back-3').addEventListener('click', () => showCalcStep(2));
+
+        const determineRecommendedRoute = () => {
+            let route = calcState.selectedRoute;
+            if (calcState.permit === 'yes' && calcState.structural === 'yes') return 'complete';
+            if (calcState.permit === 'yes' && route === 'drawing') route = 'application';
+            if (calcState.permit === 'yes' && route === 'construction') route = 'complete';
+            if (calcState.structural === 'yes' && route === 'drawing') route = 'construction';
+            if (calcState.structural === 'yes' && route === 'application') route = 'complete';
+            return route;
+        };
+        const buildAdviceNotes = (recommendedRoute, price) => {
+            const notes = [];
+            if (recommendedRoute !== calcState.selectedRoute) {
+                notes.push(`Op basis van uw antwoorden adviseren we ${routeCatalog[recommendedRoute].label.toLowerCase()} in plaats van alleen uw oorspronkelijke keuze.`);
+            }
+            if (calcState.permit === 'unknown') notes.push('Of aanvraagbegeleiding nodig is, moet nog worden gecontroleerd.');
+            if (calcState.structural === 'unknown') notes.push('Of een constructieve berekening nodig is, moet nog worden vastgesteld.');
+            if (calcState.drawings === 'no') notes.push('Omdat bruikbare bestaande tekeningen ontbreken, kan inmeten of digitaliseren als extra werkzaamheid nodig zijn.');
+            if (price === null) notes.push('Voor deze combinatie staat nog geen betrouwbare vaste vanafprijs gepubliceerd; daarom wordt de prijs na beoordeling in de offerte vastgelegd.');
+            if (calcState.addons.length) notes.push('De prijs van de gekozen aanvullingen is nog niet bij de pakketprijs opgeteld.');
+            notes.push('Uw locatie verandert onze pakketprijs niet. Lokale regels kunnen wel invloed hebben op de benodigde aanvraagstukken en daarmee op de uiteindelijke opdrachtomvang.');
+            return notes.join(' ');
+        };
+
+        document.getElementById('calc-next-3').addEventListener('click', () => {
+            if (!(calcState.permit && calcState.structural && calcState.drawings)) {
+                document.getElementById('calc-detail-error').hidden = false;
+                return;
+            }
+            calcState.recommendedRoute = determineRecommendedRoute();
+            const route = routeCatalog[calcState.recommendedRoute];
+            const price = getRoutePrice(calcState.recommendedRoute);
+            const priceElement = document.getElementById('calc-result-price');
+            const priceSub = document.getElementById('calc-result-price-incl');
+            const resultLabel = document.querySelector('.calc-result-label');
+
+            if (price === null) {
+                resultLabel.textContent = 'Prijs voor deze combinatie';
+                priceElement.textContent = 'Prijs op offerte';
+                priceElement.classList.add('is-quote');
+                priceSub.textContent = 'Na beoordeling van scope en beschikbare informatie';
+            } else {
+                resultLabel.textContent = 'Indicatieve vanafprijs voor de geadviseerde route';
+                priceElement.textContent = formatConsumerPrice(includeVat(price));
+                priceElement.classList.remove('is-quote');
+                priceSub.textContent = `${formatConsumerPrice(price)} exclusief btw`;
+            }
+
+            const extras = calcState.addons.map((addon) => addonLabels[addon]).join(', ');
+            document.getElementById('calc-detail-base').textContent = calcState.projectLabel;
+            document.getElementById('calc-detail-addon').textContent = route.label;
+            document.getElementById('calc-detail-extras').textContent = extras || 'Geen geselecteerd';
+            const advice = buildAdviceNotes(calcState.recommendedRoute, price);
+            document.getElementById('calc-result-note').textContent = advice;
+
+            const project = getProjectConfig();
+            const services = project.serviceOverride || route.services;
+            const allServices = Array.from(new Set([...services, ...calcState.addons]));
+            const indication = price === null
+                ? 'Prijs op offerte'
+                : `Vanaf ${formatConsumerPrice(includeVat(price))} incl. btw (${formatConsumerPrice(price)} excl. btw)`;
+            const contactParams = new URLSearchParams({
+                project: calcState.projectType,
+                dienst: allServices.join(','),
+                pakket: route.id,
+                pakketlabel: route.label,
+                indicatie: indication,
+                vergunningstatus: calcState.permit,
+                constructiewijziging: calcState.structural,
+                bestaandetekeningen: calcState.drawings,
+                advies: advice
+            });
+            document.getElementById('calc-final-cta').href = `contact.html?${contactParams.toString()}`;
+            showCalcStep(4);
+        });
+
         document.getElementById('calc-reset').addEventListener('click', () => {
             calcState = {
-                projectType: '',
-                projectLabel: '',
-                packageId: '',
-                packageLabel: '',
-                packagePrice: 0,
-                services: []
+                projectType: '', projectLabel: '', selectedRoute: '', recommendedRoute: '',
+                permit: '', structural: '', drawings: '', addons: []
             };
-            document.querySelectorAll('.calc-option').forEach(o => { o.classList.remove('selected');
-                o.setAttribute('aria-checked', 'false');
-            });
+            clearRadioGroup('.calc-option, .calc-detail-option');
+            document.querySelectorAll('.calc-check input').forEach((input) => { input.checked = false; });
+            document.querySelectorAll('[data-detail-group]').forEach((group) => { group.hidden = false; });
             document.getElementById('calc-next-1').disabled = true;
             document.getElementById('calc-next-2').disabled = true;
+            document.getElementById('calc-next-3').disabled = true;
+            document.getElementById('calc-detail-error').hidden = true;
             updateLiveTotal();
             showCalcStep(1);
         });
@@ -5721,8 +6120,8 @@ color: var(--white);
         // Map pakketten naar bestaande subject opties
         var pakketToSubject = {
             'Pakket A - Bouwtekening': 'dakkapel',
-            'Pakket B - Bouwtekening en aanvraag': 'dakopbouw',
-            'Pakket C - Compleet met constructie': 'nieuwbouw'
+            'Pakket B - Bouwtekening en constructie': 'dakopbouw',
+            'Pakket C - Compleet dossier': 'nieuwbouw'
         };
 
         // Selecteer bestaande optie in dropdown
@@ -5780,62 +6179,6 @@ color: var(--white);
             });
         });
 
-        // Calculator CTA
-        var calcCta = document.getElementById('calc-final-cta');
-        if (calcCta) {
-            calcCta.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                var baseEl = document.getElementById('calc-detail-base');
-                var addonEl = document.getElementById('calc-detail-addon');
-                var resultEl = document.getElementById('calc-result-price');
-
-                var base = baseEl ? baseEl.textContent.trim() : '';
-                var addon = addonEl ? addonEl.textContent.trim() : '';
-                var totaal = resultEl ? resultEl.textContent.trim() : '';
-
-                // Map calculator basis naar subject optie
-                var calcSubject = 'overig';
-                var baseLower = base.toLowerCase();
-                if (baseLower.indexOf('dakkapel') !== -1) calcSubject = 'dakkapel';
-                else if (baseLower.indexOf('dakopbouw') !== -1) calcSubject = 'dakopbouw';
-                else if (baseLower.indexOf('uitbouw') !== -1 || baseLower.indexOf('aanbouw') !== -1) calcSubject = 'uitbouw';
-                else if (baseLower.indexOf('erker') !== -1) calcSubject = 'erker';
-                else if (baseLower.indexOf('mantelzorg') !== -1) calcSubject = 'mantelzorg';
-                else if (baseLower.indexOf('bed') !== -1 || baseLower.indexOf('breakfast') !== -1) calcSubject = 'nieuwbouw';
-                else if (baseLower.indexOf('nok') !== -1) calcSubject = 'nok';
-                else if (baseLower.indexOf('bijgebouw') !== -1) calcSubject = 'bijgebouw';
-
-                var projectMap = {
-                    dakkapel: 'dakkapel',
-                    dakopbouw: 'dakopbouw',
-                    uitbouw: 'aanbouw-uitbouw',
-                    erker: 'erker',
-                    mantelzorg: 'mantelzorgwoning',
-                    nieuwbouw: 'bed-breakfast',
-                    nok: 'nokverhoging',
-                    bijgebouw: 'bijgebouw',
-                    overig: 'overig'
-                };
-                var requestedServices = ['bouwtekening'];
-                var pakket = 'pakket-a';
-                var addonLower = addon.toLowerCase();
-                if (addonLower.indexOf('pakket b') !== -1) {
-                    pakket = 'pakket-b';
-                    requestedServices.push('vergunningbegeleiding');
-                }
-                if (addonLower.indexOf('pakket c') !== -1) {
-                    pakket = 'pakket-c';
-                    requestedServices.push('vergunningbegeleiding', 'constructieve-afstemming');
-                }
-                var target = new URL('contact.html', window.location.href);
-                target.searchParams.set('project', projectMap[calcSubject] || 'overig');
-                target.searchParams.set('dienst', requestedServices.join(','));
-                target.searchParams.set('pakket', pakket);
-                if (totaal) target.searchParams.set('indicatie', `${totaal} incl. btw`);
-                window.location.href = target.href;
-            });
-        }
     })();
 </script>
 
