@@ -21,14 +21,10 @@
     <link rel="canonical" href="https://technischbouwadvies.nl/nokverhoging.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js">
-    </script>
 
     <noscript>
 
@@ -3505,8 +3501,9 @@ transform: translateY(-2px);
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Technisch Bouwadvies",
+  "@type": "Organization",
+  "@id": "https://technischbouwadvies.nl/#organization",
+  "name": "Technisch Bouwadvies",
       "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en omgevingsplanadvies.",
       "url": "https://technischbouwadvies.nl/",
       "telephone": "+31649240412",
@@ -3569,8 +3566,7 @@ transform: translateY(-2px);
 <!-- TBA_SHARED_HEADER_START -->
 <header class="tba-site-header" data-tba-header>
     <a class="tba-skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
-    <nav id="tba-site-nav" aria-label="Hoofdnavigatie">
-        <div class="tba-nav-shell">
+    <nav class="tba-nav-shell" id="tba-site-nav" aria-label="Hoofdnavigatie">
             <a href="index.html" class="tba-brand" aria-label="Technisch Bouwadvies - Home">
                 <svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
     <rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/>
@@ -3637,7 +3633,6 @@ transform: translateY(-2px);
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
                 </button>
             </div>
-        </div>
     </nav>
 
     <div class="tba-menu-backdrop" aria-hidden="true"></div>
@@ -3993,7 +3988,7 @@ transform: translateY(-2px);
                 </div>
                 <div class="vergunning-plicht-visual fade-in">
                     <div class="waardestijging-visual" style="aspect-ratio:4/5;">
-                        <img src="images/Nok_.webp" alt="Stijlvolle nokverhoging geïntegreerd in de bestaande woningarchitectuur">
+                        <img src="images/Nok_.webp" alt="Stijlvolle nokverhoging geïntegreerd in de bestaande woningarchitectuur" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -4239,6 +4234,9 @@ transform: translateY(-2px);
 
     <button class="back-to-top" id="back-to-top" aria-label="Terug naar boven"><i class="fa-solid fa-chevron-up"></i></button>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
 

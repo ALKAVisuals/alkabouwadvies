@@ -132,28 +132,46 @@ Dit document is de vaste overdracht voor de afronding van de website. Werk wordt
 **Bewust niet gepubliceerd:** geregistreerde contractnaam en btw-identificatienummer. De eigenaar heeft bevestigd dat deze op de consumentenofferte vóór acceptatie en daarna op de factuur komen.
 **Operationeel bevestigd:** toegang tot aanvragen en klantbestanden blijft beperkt tot bevoegde personen; niet-doorgegane aanvragen kunnen na maximaal twaalf maanden worden verwijderd; de offerte- en herroepingsworkflow en e-mailtemplates worden gebruikt; bij vroeg starten wordt afzonderlijke schriftelijke instemming vastgelegd.
 **Rapport:** `concurrentie-analyse/vertrouwen-prijzen-juridische-consistentie.md`
-**Git-status:** niet gecommit en niet gepusht.
+**Git-status:** hoge-prioriteitsniveau gecommit als `0adc8c9` en verwerkt in `main`.
 
 **Afsluitende controle hoge prioriteit:** 31 actieve niet-stadspagina's, 2.931 lokale links en bestanden gecontroleerd, 0 ontbrekende verwijzingen, 0 dubbele HTML-id's, 40 geldige JSON-LD-blokken, geldige sitemap-XML, 0 openbare ALKA-verwijzingen, 0 zichtbare prijsregels met excl. btw vóór incl. btw, 0 gewijzigde stadspagina's en `git diff --check` geslaagd.
 
+**Visuele nacorrectie op 11 augustus 2026:** op 27 niet-stadspagina's is de dubbel gestijlde headercontainer gelijkgetrokken met de correcte structuur van Contact, Over ons en de 3D-pagina. Alle 30 niet-redirectpagina's met de gedeelde navigatie hebben nu precies één header, één `tba-site-nav` en één `tba-nav-shell`. Geen stadspagina gewijzigd. Deze nacorrectie is nog niet gecommit of gepusht.
+
 ## MIDDELHOGE PRIORITEIT
+
+**Status prioriteitsniveau:** WACHT OP GEBRUIKER — M1 en M3 zijn lokaal gereed; alleen de uitgestelde accountgebonden stappen van M2 staan nog open.
 
 ### M1 — Performancecontrole en optimalisatie
 
-**Status:** NOG TE DOEN
+**Status:** GEREED — lokaal afgerond en technisch gevalideerd op 11 augustus 2026
 **Doel:** mobiele laadtijd, renderblokkering en zware assets controleren en verbeteren.
 **Buiten scope:** vaste afbeeldingsafmetingen blijven uitgesteld op verzoek van de gebruiker.
+**Uitgevoerd:** 42 parserblokkerende scriptverwijzingen uit de `<head>` gehaald, 16 ontbrekende hero-preloads toegevoegd en 24 niet-kritieke afbeeldingen voorzien van lazy-loading en asynchrone decodering.
+**Validatie:** 30 niet-redirectpagina's gecontroleerd; 0 ontbrekende lokale verwijzingen, 0 dubbele id's, 0 afbeeldingen zonder laadstrategie, 0 eager hero-afbeeldingen zonder preload, 0 synchrone externe scripts in de `<head>`, 0 browserfouten en 0 gewijzigde stadspagina's.
+**Rapport:** `concurrentie-analyse/performancecontrole-niet-stadspaginas.md`
+**Aanvullende assetopschoning:** 72 ongebruikte bestanden verwijderd, samen 130.246.920 bytes (circa 124,2 MiB). De mediaverzameling is teruggebracht van 157 naar 87 bestanden; op 31 actieve niet-stadspagina's zijn geen verwijzingen naar verwijderde bestanden aangetroffen. Volledige vastlegging: `concurrentie-analyse/repository-assetopschoning.md`.
+**Git-status:** onderdeel van de nog niet gecommitteerde of gepushte middelhoge-prioriteitswijzigingsset.
 
 ### M2 — Zoekmachine-activatie
 
-**Status:** NOG TE DOEN
+**Status:** WACHT OP GEBRUIKER — alle accountonafhankelijke controles en correcties lokaal afgerond op 11 augustus 2026
 **Doel:** Google Search Console en Bing Webmaster Tools controleren, sitemap indienen en kern-URL's laten inspecteren.
-**Afhankelijkheid:** accounttoegang of handelingen door de gebruiker kunnen nodig zijn.
+**Uitgevoerd:** openbare en lokale robots- en sitemapcontrole, canonical- en metadatacontrole, HTTP/HTTPS/www/404-controle en live bereikbaarheidscontrole van alle 29 niet-stad-URL's uit de sitemap. Voor de vervallen aankoopadviesroute is in `_redirects` een geforceerde permanente 301 naar de homepage voorbereid.
+**Validatie:** `robots.txt` en `sitemap.xml` geven live status 200; de sitemap is geldige XML; 29/29 indexeerbare niet-stadspagina's staan exact eenmaal in de sitemap en geven live status 200; HTTP en www leiden met 301 naar het voorkeursdomein; onbekende URL's geven status 404; geen stadspagina gewijzigd.
+**Afhankelijkheid:** voor volledige afronding zijn verificatie van de Google Search Console-domeinproperty, sitemapindiening, URL-inspectie en import/controle in Bing Webmaster Tools nodig. Hiervoor is account- en DNS-toegang van de gebruiker vereist.
+**Rapport:** `concurrentie-analyse/zoekmachine-activatie.md`
+**Git-status:** onderdeel van de nog niet gecommitteerde of gepushte middelhoge-prioriteitswijzigingsset.
 
 ### M3 — AI-ready optimalisatie
 
-**Status:** NOG TE DOEN
+**Status:** GEREED — lokaal afgerond en technisch gevalideerd op 11 augustus 2026
 **Doel:** de site technisch vindbaar, inhoudelijk citeerbaar en betrouwbaar maken voor AI-zoekdiensten, zonder aanbevelingen of posities te garanderen.
+**Uitgevoerd:** OAI-SearchBot expliciet toegestaan, een centrale organisatie- en `WebSite`-identiteit toegevoegd, kennisbank/Over ons/Contact aan die identiteit gekoppeld en de auteur- en uitgevergegevens van alle acht artikelen aangevuld met herkenbare URL's en het officiële logo.
+**Validatie:** alle JSON-LD is geldige JSON; acht van acht artikelen hebben zichtbare redactionele informatie, officiële bronverwijzingen en consistente auteur-/uitgeverdata; 128 van 128 afbeeldingen hebben niet-lege alt-tekst; lokale robotsregels laten relevante zoek- en AI-crawlers toe; live OAI-SearchBot- en Googlebot-verzoeken geven status 200; geen stadspagina gewijzigd.
+**Bewuste keuze:** geen experimenteel `llms.txt` en geen kunstmatige AI-landingspagina's toegevoegd; Google en OpenAI vereisen dit niet voor hun zoekfuncties.
+**Rapport:** `concurrentie-analyse/ai-ready-optimalisatie.md`
+**Git-status:** onderdeel van de nog niet gecommitteerde of gepushte middelhoge-prioriteitswijzigingsset.
 
 ## LATER
 
@@ -164,4 +182,4 @@ Dit document is de vaste overdracht voor de afronding van de website. Werk wordt
 
 ## Eerstvolgende stap
 
-Na expliciete toestemming: het afgeronde hoge-prioriteitsniveau als één gecontroleerde wijzigingsset committen en pushen. Daarna volgt M1: performancecontrole en optimalisatie, waarbij vaste afbeeldingsafmetingen op verzoek uitgesteld blijven.
+M2 — accountgebonden zoekmachine-activatie blijft op verzoek uitgesteld. Wanneer dit wordt hervat, wordt eerst de Google Search Console-domeinproperty voor `technischbouwadvies.nl` geverifieerd; daarna volgen sitemapindiening en kern-URL-inspectie bij Google en Bing. M1 en M3 zijn gereed, maar de middelhoge-prioriteitswijzigingsset wordt pas gecommit en gepusht nadat het volledige prioriteitsniveau is afgerond of de gebruiker de uitgestelde M2-stappen bewust van deze release loskoppelt.

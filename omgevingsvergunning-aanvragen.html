@@ -15,14 +15,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://technischbouwadvies.nl/omgevingsvergunning-aanvragen.html">
     <meta property="og:image" content="images/website-2026/omgevingsvergunning-aanvraag-voorbereiden.webp">
+    <link rel="preload" as="image" href="images/website-2026/omgevingsvergunning-aanvraag-voorbereiden.webp" fetchpriority="high">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://technischbouwadvies.nl/omgevingsvergunning-aanvragen.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
     <style>
         /* =============================================
@@ -2786,8 +2786,9 @@ color: var(--white);
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Technisch Bouwadvies",
+  "@type": "Organization",
+  "@id": "https://technischbouwadvies.nl/#organization",
+  "name": "Technisch Bouwadvies",
       "description": "Bouwkundig teken- en adviesbureau gespecialiseerd in bouwtekeningen, omgevingsvergunningen en omgevingsplanadvies.",
       "url": "https://technischbouwadvies.nl/",
       "telephone": "+31649240412",
@@ -2836,8 +2837,7 @@ color: var(--white);
 <!-- TBA_SHARED_HEADER_START -->
 <header class="tba-site-header" data-tba-header>
     <a class="tba-skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
-    <nav id="tba-site-nav" aria-label="Hoofdnavigatie">
-        <div class="tba-nav-shell">
+    <nav class="tba-nav-shell" id="tba-site-nav" aria-label="Hoofdnavigatie">
             <a href="index.html" class="tba-brand" aria-label="Technisch Bouwadvies - Home">
                 <svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
     <rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/>
@@ -2904,7 +2904,6 @@ color: var(--white);
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
                 </button>
             </div>
-        </div>
     </nav>
 
     <div class="tba-menu-backdrop" aria-hidden="true"></div>
@@ -3491,6 +3490,9 @@ color: var(--white);
 
     <button class="back-to-top" id="back-to-top" aria-label="Terug naar boven"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script>
         // ═══ GSAP + LENIS ═══
         gsap.registerPlugin(ScrollTrigger);

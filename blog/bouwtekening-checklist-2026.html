@@ -13,6 +13,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://technischbouwadvies.nl/blog/bouwtekening-checklist-2026.html">
     <meta property="og:image" content="https://technischbouwadvies.nl/images/website-2026/bouwtekeningen-plattegrond-gevel-doorsnede.webp">
+    <link rel="preload" as="image" href="../images/website-2026/bouwtekeningen-plattegrond-gevel-doorsnede.webp" fetchpriority="high">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://technischbouwadvies.nl/blog/bouwtekening-checklist-2026.html">
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
@@ -650,8 +651,9 @@ transform: translateY(-2px);
       "@type": "BlogPosting",
       "headline": "Wat moet er in een bouwtekening staan? Praktische checklist voor uw aanvraag",
       "description": "Praktische checklist voor plattegronden, gevelaanzichten, doorsneden en andere gegevens in een bouwtekeningenset.",
-      "author": {"@type": "Organization", "name": "Technisch Bouwadvies"},
-      "publisher": {"@type": "Organization", "name": "Technisch Bouwadvies"},
+      "author": {"@type": "Organization", "@id": "https://technischbouwadvies.nl/#organization", "name": "Technisch Bouwadvies", "url": "https://technischbouwadvies.nl/over-ons.html"},
+      "publisher": {"@type": "Organization", "@id": "https://technischbouwadvies.nl/#organization", "name": "Technisch Bouwadvies", "url": "https://technischbouwadvies.nl/", "logo": {"@type": "ImageObject", "url": "https://technischbouwadvies.nl/images/logo.png"}},
+      "isPartOf": {"@id": "https://technischbouwadvies.nl/#website"},
       "datePublished": "2026-07-01",
       "dateModified": "2026-08-08",
       "mainEntityOfPage": "https://technischbouwadvies.nl/blog/bouwtekening-checklist-2026.html",
@@ -668,8 +670,7 @@ transform: translateY(-2px);
 <!-- TBA_SHARED_HEADER_START -->
 <header class="tba-site-header" data-tba-header>
     <a class="tba-skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
-    <nav id="tba-site-nav" aria-label="Hoofdnavigatie">
-        <div class="tba-nav-shell">
+    <nav class="tba-nav-shell" id="tba-site-nav" aria-label="Hoofdnavigatie">
             <a href="../index.html" class="tba-brand" aria-label="Technisch Bouwadvies - Home">
                 <svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
     <rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/>
@@ -736,7 +737,6 @@ transform: translateY(-2px);
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
                 </button>
             </div>
-        </div>
     </nav>
 
     <div class="tba-menu-backdrop" aria-hidden="true"></div>
