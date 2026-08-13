@@ -511,6 +511,7 @@
                 try {
                     const response = await fetch('/', { method: 'POST', body: new FormData(form) });
                     if (!response.ok) throw new Error('Netlify Forms gaf geen succesvolle status terug.');
+                    if (typeof window.tbaTrackLead === 'function') window.tbaTrackLead('offerteaanvraag');
                     form.hidden = true;
                     successPanel.hidden = false;
                     successPanel.focus();

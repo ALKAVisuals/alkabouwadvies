@@ -80,6 +80,7 @@
 
                 if (!response.ok) throw new Error('Formulier kon niet worden verzonden');
 
+                if (typeof window.tbaTrackLead === 'function') window.tbaTrackLead(form.getAttribute('name') || 'contact');
                 form.reset();
                 validationRules.forEach(({ field }) => setFieldState(field, true));
                 submitButton.textContent = 'Verzonden!';

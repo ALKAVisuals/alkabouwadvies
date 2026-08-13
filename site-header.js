@@ -1,6 +1,21 @@
 (function () {
     'use strict';
 
+    const consentExcludedPages = new Set([
+        '404.html',
+        'amsterdam.html', 'apeldoorn.html', 'arnhem.html', 'breda.html', 'den-haag.html',
+        'democity.html', 'demo-city-reference.html', 'eindhoven.html', 'groningen.html',
+        'nijmegen.html', 'rotterdam.html', 'tilburg.html', 'utrecht.html'
+    ]);
+    const consentFilename = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'index.html';
+
+    if (!consentExcludedPages.has(consentFilename) && !document.querySelector('script[src$="privacy-consent.js"]')) {
+        const consentScript = document.createElement('script');
+        consentScript.src = window.location.pathname.includes('/blog/') ? '../privacy-consent.js' : 'privacy-consent.js';
+        consentScript.defer = true;
+        document.head.appendChild(consentScript);
+    }
+
     const header = document.querySelector('[data-tba-header]');
     if (!header) return;
 
