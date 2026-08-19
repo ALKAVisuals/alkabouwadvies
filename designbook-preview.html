@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Ontwerpboek integratiepreview — Technisch Bouwadvies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="designbook/designbook.css">
+  <style>
+    :root { --bg:#fafafa; --text:#1a1a1a; --accent:#b3944d; }
+    * { box-sizing:border-box; }
+    html { overflow-x:clip; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; }
+    .preview-bar { min-height:72px; padding:0 4vw; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e5e5e5; background:#fafafa; }
+    .preview-brand { font-weight:700; letter-spacing:-.02em; }
+    .preview-brand span { color:var(--accent); }
+    .preview-label { color:#777; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
+    .preview-note { width:min(900px,calc(100% - 40px)); margin:28px auto; padding:14px 18px; border:1px solid #e5e5e5; color:#666; font-size:12px; line-height:1.6; }
+    @media(max-width:600px){.preview-label{display:none}.preview-bar{min-height:62px}.preview-note{margin:18px auto}}
+  </style>
+</head>
+<body>
+  <header class="preview-bar">
+    <div class="preview-brand">TECHNISCH <span>BOUWADVIES</span></div>
+    <div class="preview-label">Integratiepreview · niet gekoppeld aan homepage</div>
+  </header>
+
+  <div class="preview-note">
+    Deze pagina test de productie-geïsoleerde versie van het interactieve ontwerpboek. De component staat op een aparte branch en is nog niet in de homepage opgenomen.
+  </div>
+
+  <section class="tba-designbook" data-designbook aria-label="Interactief ontwerpboek"></section>
+
+  <section id="contact" style="min-height:260px;padding:70px 24px;text-align:center;background:#0f0f0f;color:#fff">
+    <p style="margin:0 0 12px;color:#d4b76a;font-size:11px;letter-spacing:.16em">VOLGENDE STAP</p>
+    <h2 style="margin:0;font-size:clamp(30px,5vw,54px)">Bespreek uw bouwplan</h2>
+  </section>
+
+  <noscript>JavaScript is nodig voor de interactieve preview.</noscript>
+  <script type="module" src="designbook/designbook.js"></script>
+</body>
+</html>
