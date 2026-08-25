@@ -4501,6 +4501,101 @@ color: var(--white);
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ==============================================================
+           HOMEPAGE FLUID DESKTOP SCALE
+           Houd de beeldlaag schermbreed en laat visuele secties op grote
+           schermen meegroeien zonder tekstregels onbeperkt uit te rekken.
+           ============================================================== */
+        :root {
+            --home-fluid-gutter: clamp(1.5rem, 4vw, 6.5rem);
+            --home-wide-shell: 1760px;
+            --home-balanced-shell: 1480px;
+        }
+
+        main .hero {
+            width: 100%;
+            max-width: none;
+            margin-inline: 0;
+            padding-inline: var(--home-fluid-gutter);
+        }
+
+        .hero-inner {
+            max-width: var(--home-wide-shell);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 120px);
+        }
+
+        .hero p {
+            max-width: 620px;
+            font-size: clamp(1.125rem, 1.05vw, 1.35rem);
+        }
+
+        @media (min-width: 769px) {
+            .hero h1 {
+                max-width: min(1440px, 72vw);
+            }
+        }
+
+        @media (min-width: 1441px) {
+            .project-categorieen-inner,
+            .usp-strip-inner,
+            .proces-inner,
+            .trust-inner,
+            .gallery-inner,
+            .visualisatie-dienst-inner,
+            .waarom-inner,
+            .officiele-check-inner {
+                max-width: var(--home-wide-shell);
+            }
+
+            .contact.tba-contact.homepage-contact .contact-inner {
+                max-width: var(--home-wide-shell);
+            }
+
+            .diensten,
+            .visualisatie-dienst {
+                width: 100%;
+                max-width: min(1840px, 100%);
+            }
+
+            .prijzen-inner,
+            .over-ons-inner {
+                max-width: var(--home-balanced-shell);
+            }
+
+            .section-title {
+                max-width: 760px;
+                font-size: clamp(3.5rem, 3vw, 4.25rem);
+            }
+
+            .project-categorieen .section-title,
+            .trust-section .section-title {
+                max-width: 920px;
+            }
+
+            .gallery .section-title {
+                max-width: 820px;
+            }
+
+            .categorieen-grid,
+            .gallery-grid {
+                gap: clamp(1.5rem, 1.5vw, 2.25rem);
+            }
+
+            .proces-steps,
+            .diensten-grid {
+                gap: clamp(2rem, 1.75vw, 2.75rem);
+            }
+        }
+
+        @media (min-width: 2200px) {
+            html {
+                font-size: 18px;
+            }
+        }
 </style>
     <link rel="stylesheet" href="site-header.css">
     <script src="site-header.js" defer></script>
