@@ -46,6 +46,8 @@
 .tba-consent__actions {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     gap: 0.75rem;
 }
 
@@ -57,6 +59,7 @@
     font: 700 0.78rem/1 inherit;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    white-space: nowrap;
     cursor: pointer;
     background: #b3944d;
     color: #111;

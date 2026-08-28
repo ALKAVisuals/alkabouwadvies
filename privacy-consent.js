@@ -2,18 +2,31 @@
     'use strict';
 
     const CONSENT_KEY = 'tbaConsent';
-    const CONSENT_VERSION = '2026-08-13';
+    const CONSENT_VERSION = '2026-08-28';
     const CONSENT_MAX_AGE_MS = 180 * 24 * 60 * 60 * 1000;
     const MEASUREMENT_ID = 'G-3LX2KFD76S';
     const PRODUCTION_HOSTS = new Set(['technischbouwadvies.nl', 'www.technischbouwadvies.nl']);
-    const ALLOWED_FORMS = new Set(['contact', 'offerteaanvraag']);
-    let analyticsLoaded = false;
+    const ALLOWED_FORMS = new Set(['contact', 'contactaanvraag', 'offerteaanvraag']);
+    const ALLOWED_CLICK_IDS = new Set(['gclid', 'gbraid', 'wbraid']);
+    const CLICK_ID_PATTERN = /^[A-Za-z0-9_-]{10,200}$/;
+    let measurementLoaded = false;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+    });
 
     function readConsent() {
         try {
             const parsed = JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null');
             if (!parsed || parsed.version !== CONSENT_VERSION) return null;
             if (parsed.analytics !== 'granted' && parsed.analytics !== 'denied') return null;
+            if (parsed.ads !== 'granted' && parsed.ads !== 'denied') return null;
             if (!parsed.updatedAt || Date.now() - Date.parse(parsed.updatedAt) > CONSENT_MAX_AGE_MS) return null;
             return parsed;
         } catch (error) {
@@ -21,9 +34,10 @@
         }
     }
 
-    function writeConsent(analytics) {
+    function writeConsent(choice) {
         const consent = {
-            analytics,
+            analytics: choice === 'denied' ? 'denied' : 'granted',
+            ads: choice === 'ads' ? 'granted' : 'denied',
             version: CONSENT_VERSION,
             updatedAt: new Date().toISOString()
         };
@@ -40,52 +54,42 @@
         return window.location.pathname || '/';
     }
 
-    function purgeQueryFromAddressBar() {
-        if (!window.location.search || typeof window.history?.replaceState !== 'function') return;
-        try {
-            window.history.replaceState(window.history.state, document.title, `${cleanPath()}${window.location.hash}`);
-        } catch (error) {
-            // De pagina blijft functioneren als de browser de adresbalk niet laat aanpassen.
-        }
+    function measurementPageLocation() {
+        const measuredUrl = new URL(`${window.location.origin}${cleanPath()}`);
+        const currentUrl = new URL(window.location.href);
+        ALLOWED_CLICK_IDS.forEach((parameter) => {
+            const value = currentUrl.searchParams.get(parameter);
+            if (value && CLICK_ID_PATTERN.test(value)) measuredUrl.searchParams.set(parameter, value);
+        });
+        return measuredUrl.toString();
     }
 
     function mayLoadAnalytics(consent) {
         return consent?.analytics === 'granted' && PRODUCTION_HOSTS.has(window.location.hostname);
     }
 
-    function loadAnalytics(consent) {
+    function loadMeasurement(consent) {
         if (!mayLoadAnalytics(consent)) return;
-        if (analyticsLoaded) {
+        const adsConsent = consent.ads === 'granted' ? 'granted' : 'denied';
+        if (measurementLoaded) {
             window.gtag('consent', 'update', {
                 analytics_storage: 'granted',
-                ad_storage: 'denied',
-                ad_user_data: 'denied',
+                ad_storage: adsConsent,
+                ad_user_data: adsConsent,
                 ad_personalization: 'denied'
             });
             return;
         }
-        // Formulier- en pakketkeuzes kunnen tijdens het laden nog uit de querystring
-        // worden gelezen. Verwijder die pas vlak voordat Analytics wordt gestart.
-        purgeQueryFromAddressBar();
-
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-        window.gtag('consent', 'default', {
-            analytics_storage: 'denied',
-            ad_storage: 'denied',
-            ad_user_data: 'denied',
-            ad_personalization: 'denied'
-        });
         window.gtag('consent', 'update', {
             analytics_storage: 'granted',
-            ad_storage: 'denied',
-            ad_user_data: 'denied',
+            ad_storage: adsConsent,
+            ad_user_data: adsConsent,
             ad_personalization: 'denied'
         });
         window.gtag('js', new Date());
-        analyticsLoaded = true;
+        measurementLoaded = true;
         window.gtag('config', MEASUREMENT_ID, {
-            page_location: `${window.location.origin}${cleanPath()}`,
+            page_location: measurementPageLocation(),
             page_path: cleanPath(),
             allow_google_signals: false,
             allow_ad_personalization_signals: false,
@@ -99,7 +103,19 @@
         document.head.appendChild(script);
     }
 
-    function revokeAnalytics() {
+    function removeGoogleCookies(includeAnalytics) {
+        const cookiePattern = includeAnalytics
+            ? /^(?:_ga(?:_|$)|_gcl_(?:au|aw|dc)$)/
+            : /^_gcl_(?:au|aw|dc)$/;
+        document.cookie.split(';').forEach((cookie) => {
+            const name = cookie.split('=')[0].trim();
+            if (!cookiePattern.test(name)) return;
+            document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
+            document.cookie = `${name}=; Max-Age=0; path=/; domain=.technischbouwadvies.nl; SameSite=Lax`;
+        });
+    }
+
+    function revokeMeasurement() {
         if (typeof window.gtag === 'function') {
             window.gtag('consent', 'update', {
                 analytics_storage: 'denied',
@@ -108,12 +124,7 @@
                 ad_personalization: 'denied'
             });
         }
-        document.cookie.split(';').forEach((cookie) => {
-            const name = cookie.split('=')[0].trim();
-            if (!/^_ga(?:_|$)/.test(name)) return;
-            document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
-            document.cookie = `${name}=; Max-Age=0; path=/; domain=.technischbouwadvies.nl; SameSite=Lax`;
-        });
+        removeGoogleCookies(true);
         window.setTimeout(() => window.location.reload(), 0);
     }
 
@@ -133,12 +144,13 @@
         banner.innerHTML = `
             <div class="tba-consent__inner">
                 <div class="tba-consent__copy">
-                    <strong id="tba-consent-title">Uw keuze voor websiteanalyse</strong>
-                    <p>Functionele opslag is nodig om uw keuze te onthouden. Met uw toestemming gebruiken we Google Analytics om geaggregeerd websitegebruik en geslaagde aanvragen te meten. We gebruiken geen advertentiemeting. <a href="${policyHref()}">Lees het cookiebeleid</a>.</p>
+                    <strong id="tba-consent-title">Uw keuze voor analyse en conversiemeting</strong>
+                    <p>Functionele opslag is nodig om uw keuze te onthouden. Kies alleen websiteanalyse of ook Google Ads-conversiemeting. Formulierinhoud wordt niet met Google gedeeld en advertentiepersonalisatie blijft uit. <a href="${policyHref()}">Lees het cookiebeleid</a>.</p>
                 </div>
                 <div class="tba-consent__actions">
                     <button class="tba-consent__button tba-consent__button--reject" type="button" data-consent-choice="denied">Weigeren</button>
-                    <button class="tba-consent__button tba-consent__button--accept" type="button" data-consent-choice="granted">Accepteren</button>
+                    <button class="tba-consent__button tba-consent__button--reject" type="button" data-consent-choice="analytics">Alleen analyse</button>
+                    <button class="tba-consent__button tba-consent__button--accept" type="button" data-consent-choice="ads">Analyse + conversiemeting</button>
                 </div>
             </div>`;
         document.body.appendChild(banner);
@@ -179,16 +191,19 @@
 
         const banner = createBanner();
         const existing = readConsent();
-        if (existing) loadAnalytics(existing);
+        if (existing) loadMeasurement(existing);
         else banner.hidden = false;
 
         banner.addEventListener('click', (event) => {
             const choice = event.target.closest('[data-consent-choice]')?.dataset.consentChoice;
-            if (choice !== 'granted' && choice !== 'denied') return;
+            if (!['denied', 'analytics', 'ads'].includes(choice)) return;
             const consent = writeConsent(choice);
             banner.hidden = true;
-            if (choice === 'granted') loadAnalytics(consent);
-            else revokeAnalytics();
+            if (choice === 'denied') revokeMeasurement();
+            else {
+                loadMeasurement(consent);
+                if (choice === 'analytics') removeGoogleCookies(false);
+            }
         });
 
         document.addEventListener('click', (event) => {
