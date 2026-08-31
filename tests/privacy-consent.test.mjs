@@ -81,6 +81,8 @@ test('privacy and cookie policies describe the consent-gated implementation', ()
     assert.match(privacy, /Zonder die toestemming wordt de Google-tag niet geladen/);
     assert.match(privacy, /bestandsinhoud worden niet naar Google Analytics of Google Ads gestuurd/);
     assert.match(privacy, /Verbeterde conversies en user-provided data zijn uitgeschakeld/);
+    assert.match(privacy, /Wanneer wij een contact- of offerteaanvraag intern beoordelen en opvolgen/);
+    assert.match(privacy, /Dashboardkopie van een contact- of offerteaanvraag/);
     assert.match(cookies, /Google Ads-cookies en klik-ID's worden alleen gebruikt als u afzonderlijk ook conversiemeting toestaat/);
     assert.match(cookies, /<strong>_ga<\/strong>/);
     assert.match(cookies, /<strong>_ga_\*<\/strong>/);
