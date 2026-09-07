@@ -1,3 +1,4 @@
+# Cloudflare static asset exclusions; keep Netlify-specific files out of Worker assets
 .git/
 .github/
 .gitignore
