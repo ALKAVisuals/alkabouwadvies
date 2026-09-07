@@ -1,0 +1,16 @@
+.git/
+.github/
+.gitignore
+.assetsignore
+wrangler.jsonc
+ALKAVisuals/
+Vervallen/
+analyses/
+concurrentie-analyse/
+tests/
+ANALYSE.md
+README.md
+netlify.toml
+verbeterpunten site.pdf
+demo-city-reference.html
+democity.html
