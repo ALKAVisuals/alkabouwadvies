@@ -3,6 +3,7 @@
 .gitignore
 .assetsignore
 wrangler.jsonc
+_redirects
 ALKAVisuals/
 Vervallen/
 analyses/
