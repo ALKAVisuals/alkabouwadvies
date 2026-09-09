@@ -249,7 +249,7 @@
                                 <label class="choice"><input type="checkbox" name="diensten[]" value="bouwtekening"><span><strong>Bouwtekening</strong><span>Technische uitwerking volgens de afgesproken scope.</span></span></label>
                                 <label class="choice"><input type="checkbox" name="diensten[]" value="vergunningcheck"><span><strong>Vergunning- of haalbaarheidscheck</strong><span>Beoordeling van de vermoedelijke route op basis van plan en locatie.</span></span></label>
                                 <label class="choice"><input type="checkbox" name="diensten[]" value="vergunningbegeleiding"><span><strong>Vergunningbegeleiding</strong><span>Voorbereiden of begeleiden van de indiening zoals afgesproken.</span></span></label>
-                                <label class="choice"><input type="checkbox" name="diensten[]" value="constructieve-afstemming"><span><strong>Constructieve afstemming</strong><span>Afstemmen welke constructieve berekening of specialist nodig is.</span></span></label>
+                                <label class="choice"><input type="checkbox" name="diensten[]" value="constructieberekening"><span><strong>Constructieberekening</strong><span>Berekening en constructierapport voor de afgesproken constructieve wijziging.</span></span></label>
                                 <label class="choice"><input type="checkbox" name="diensten[]" value="3d-visualisatie"><span><strong>3D-visualisatie</strong><span>Realistische indruk van uitstraling, volume en materialen.</span></span></label>
                                 <label class="choice"><input type="checkbox" name="diensten[]" value="3d-vloerplan"><span><strong>3D-vloerplan</strong><span>Ruimtelijk overzicht van indeling, meubels en looproutes.</span></span></label>
                                 <label class="choice"><input type="checkbox" name="diensten[]" value="inmeting"><span><strong>Inmeting</strong><span>Bestaande situatie en relevante maatvoering op locatie opnemen.</span></span></label>
@@ -467,9 +467,13 @@
                 'pakket-b': 'Gekozen: Pakket B — vanaf €598,95 incl. btw (€495 excl. btw).',
                 'pakket-c': 'Gekozen: Pakket C — vanaf €907,50 incl. btw (€750 excl. btw).',
                 'route-tekening': 'Alleen bouwtekening',
-                'route-aanvraag': 'Bouwtekening + aanvraagbegeleiding',
-                'route-constructie': 'Bouwtekening + constructie',
-                'route-compleet': 'Compleet dossier'
+                'route-constructie': 'Alleen constructieberekening',
+                'route-vergunning': 'Alleen vergunningbegeleiding',
+                'route-tekening-constructie': 'Bouwtekening + constructieberekening',
+                'route-tekening-vergunning': 'Bouwtekening + vergunningbegeleiding',
+                'route-constructie-vergunning': 'Constructieberekening + vergunningbegeleiding',
+                'route-alles': 'Bouwtekening + constructie + vergunningbegeleiding',
+                'route-advies': 'Advies over de benodigde diensten'
             };
             if (selectedPackage) {
                 const legacyText = packageLabels[selectedPackage];

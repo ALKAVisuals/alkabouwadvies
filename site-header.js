@@ -36,6 +36,7 @@
         'bouwtekening-digitaliseren.html',
         '3d-visualisaties-vloerplannen.html',
         'carport-vergunning.html',
+        'constructieberekening.html',
         'dakkapel.html',
         'dakopbouw-vergunningen.html',
         'erker.html',
@@ -75,6 +76,13 @@
             ]
         },
         {
+            label: 'Constructieberekeningen',
+            description: 'Berekening en constructierapport voor wijzigingen aan de draagconstructie.',
+            services: [
+                ['constructieberekening.html', 'Constructieberekening', 'Voor draagmuur, balk, dak en andere constructieve wijzigingen']
+            ]
+        },
+        {
             label: 'Vergunningen',
             description: 'Van vergunningcheck tot complete aanvraag bij de gemeente.',
             services: [
@@ -104,6 +112,10 @@
     function currentFilename() {
         const pathname = window.location.pathname.replace(/\/+$/, '');
         return pathname.split('/').pop() || 'index.html';
+    }
+
+    function localHref(href) {
+        return window.location.pathname.includes('/blog/') ? `../${href}` : href;
     }
 
     function prepareDesktopServicesMenu() {
@@ -153,7 +165,7 @@
                 </div>
                 <div class="tba-service-panel-links">
                     ${group.services.map(([href, title, description]) => `
-                        <a href="${href}" class="tba-service-option">
+                        <a href="${localHref(href)}" class="tba-service-option">
                             <strong>${title}</strong>
                             <span>${description}</span>
                         </a>
@@ -210,7 +222,7 @@
         desktopServiceGroups.forEach((group) => {
             group.services.forEach(([href, title]) => {
                 const link = document.createElement('a');
-                link.href = href;
+                link.href = localHref(href);
                 link.textContent = title;
                 links.appendChild(link);
             });
@@ -286,9 +298,57 @@
         contact.before(section);
     }
 
+    function addConstructionCrossSell() {
+        const relevantPages = new Set([
+            'aanbouw-uitbouw.html',
+            'bijgebouw.html',
+            'dakkapel.html',
+            'dakopbouw-vergunningen.html',
+            'erker.html',
+            'mantelzorg.html',
+            'nokverhoging.html'
+        ]);
+        if (!relevantPages.has(currentFilename())) return;
+
+        const contact = document.getElementById('contact');
+        if (!contact || document.querySelector('.tba-construction-cross-sell')) return;
+
+        const section = document.createElement('section');
+        section.className = 'tba-construction-cross-sell';
+        section.setAttribute('aria-labelledby', 'tba-construction-cross-sell-title');
+        section.innerHTML = `
+            <div class="tba-construction-cross-sell-inner">
+                <span class="tba-construction-cross-sell-label">Aanvullende kerndienst</span>
+                <h2 id="tba-construction-cross-sell-title">Ook een constructieve berekening nodig?</h2>
+                <p>Voor bepaalde wijzigingen aan een draagmuur, balk, fundering of dak kan een constructieberekening nodig zijn. U kunt deze dienst los aanvragen of combineren met tekenwerk en vergunningbegeleiding.</p>
+                <a href="constructieberekening.html">Bekijk constructieberekeningen <span aria-hidden="true">→</span></a>
+            </div>
+        `;
+        contact.before(section);
+    }
+
+    function ensureFooterConstructionLink() {
+        const footerDescription = document.querySelector('footer .footer-brand p');
+        if (footerDescription) {
+            footerDescription.textContent = 'Persoonlijk bureau voor bouwtekeningen, constructieberekeningen en vergunningbegeleiding bij verbouwingsplannen in Nederland.';
+        }
+
+        const headings = Array.from(document.querySelectorAll('footer h2, footer h3, footer h4, footer h5, footer h6'));
+        const servicesHeading = headings.find((heading) => heading.textContent.trim().toLowerCase() === 'diensten');
+        const list = servicesHeading?.parentElement?.querySelector('ul');
+        if (!list || list.querySelector('a[href$="constructieberekening.html"]')) return;
+
+        const item = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = localHref('constructieberekening.html');
+        link.textContent = 'Constructieberekeningen';
+        item.appendChild(link);
+        list.appendChild(item);
+    }
+
     function routePrimaryContactLinks() {
         const filename = currentFilename();
-        if (filename === 'contact.html' || cityPages.has(filename)) return;
+        if (filename === 'contact.html' || filename === 'constructieberekening.html' || cityPages.has(filename)) return;
 
         const contactHref = window.location.pathname.includes('/blog/') ? '../contact.html' : 'contact.html';
         header.querySelectorAll('.tba-nav-cta, .tba-mobile-cta').forEach((link) => {
@@ -631,8 +691,10 @@
 
     prepareDesktopServicesMenu();
     prepareMobileServicesMenu();
+    ensureFooterConstructionLink();
     routePrimaryContactLinks();
     routeSectionLinks();
+    addConstructionCrossSell();
     addVisualisationUpsell();
     normalisePricePresentation();
     setCurrentNavigation();

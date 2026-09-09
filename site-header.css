@@ -931,6 +931,62 @@ body.tba-menu-open {
     background: #1a1a18;
 }
 
+.tba-construction-cross-sell {
+    position: relative;
+    z-index: 1;
+    padding: clamp(3.5rem, 7vw, 6.5rem) 4vw;
+    color: #1a1a18;
+    background: #f3efe6;
+    border-top: 1px solid rgba(137, 105, 49, 0.2);
+}
+
+.tba-construction-cross-sell-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tba-construction-cross-sell-label {
+    display: block;
+    margin-bottom: 0.9rem;
+    color: #9a762f;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.tba-construction-cross-sell h2 {
+    margin: 0 auto 1rem;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.08;
+}
+
+.tba-construction-cross-sell p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #65635e;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.tba-construction-cross-sell a {
+    display: inline-flex;
+    gap: 0.55rem;
+    align-items: center;
+    margin-top: 1.6rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #a9853e;
+    color: #1a1a18;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
 .tba-visualisation-upsell-inner {
     display: grid;
     grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
