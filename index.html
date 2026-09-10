@@ -5086,24 +5086,29 @@ color: var(--white);
                 <div class="section-label">Diensten en tarieven</div>
                 <h2 class="section-title">Kies alleen de ondersteuning die uw project nodig heeft</h2>
                 <p class="prijzen-intro">Bouwtekeningen, constructieberekeningen en vergunningbegeleiding zijn los of gecombineerd af te nemen. De dienstenkiezer hieronder helpt u de juiste combinatie bepalen; waar geen betrouwbare vaste prijs bestaat, ontvangt u een prijsopgave na beoordeling.</p>
+                <div class="prijzen-toggle" aria-label="Kies prijsweergave inclusief of exclusief btw">
+                    <span>Excl. btw</span>
+                    <button class="toggle-switch active" id="btw-toggle" type="button" role="switch" aria-checked="true" aria-label="Exclusief btw tonen"></button>
+                    <span>Incl. btw</span>
+                </div>
                 <div class="prijzen-grid">
-                    <article class="prijs-card" aria-labelledby="dienst-tekening-title">
+                    <article class="prijs-card" data-price-including="250" data-price-excluding="206.61" aria-labelledby="dienst-tekening-title">
                         <div class="prijs-code">Kerndienst 01</div>
                         <h3 class="prijs-name" id="dienst-tekening-title">Bouwtekening</h3>
                         <p class="prijs-for"><strong>Past bij u als:</strong> u de bouwkundige tekeningen nodig heeft en een eventuele aanvraag zelf wilt regelen.</p>
-                        <div class="prijs-amount">&euro;&#8239;302,50</div>
-                        <div class="prijs-sub">Vanafprijs inclusief btw <span class="prijs-secondary">(&euro;250 excl. btw)</span></div>
+                        <div class="prijs-amount">&euro;&#8239;250</div>
+                        <div class="prijs-sub">Vanafprijs inclusief btw <span class="prijs-secondary">(&euro;206,61 excl. btw)</span></div>
                         <div class="prijs-scope-label">Wat zit erin?</div>
                         <ul class="prijs-features"><li class="included">Bouwkundig tekenadvies</li><li class="included">Plattegronden, gevelaanzichten en doorsneden volgens de opdracht</li><li class="not-included">Indiening via het Omgevingsloket</li><li class="not-included">Contact over vragen van de gemeente</li><li class="not-included">Tekenaanpassingen na vragen van de gemeente</li><li class="not-included">Constructieberekening</li></ul>
                         <p class="prijs-exclusion"><strong>Niet inbegrepen:</strong> vergunningsaanvraag, gemeentecontact, constructieberekening, leges en archiefkosten.</p>
-                        <a href="contact.html?dienst=bouwtekening&amp;pakket=route-tekening&amp;pakketlabel=Alleen%20bouwtekening&amp;indicatie=Vanaf%20%E2%82%AC302%2C50%20incl.%20btw%20%28%E2%82%AC250%20excl.%20btw%29" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor alleen een bouwtekening">Vraag offerte aan</a>
+                        <a href="contact.html?dienst=bouwtekening&amp;pakket=route-tekening&amp;pakketlabel=Alleen%20bouwtekening&amp;indicatie=Vanaf%20%E2%82%AC250%20incl.%20btw%20%28%E2%82%AC206%2C61%20excl.%20btw%29" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor alleen een bouwtekening">Vraag offerte aan</a>
                     </article>
-                    <article class="prijs-card" aria-labelledby="dienst-constructie-title">
+                    <article class="prijs-card" data-price-including="399" data-price-excluding="329.75" aria-labelledby="dienst-constructie-title">
                         <div class="prijs-code">Kerndienst 02</div>
                         <h3 class="prijs-name" id="dienst-constructie-title">Constructieberekening</h3>
                         <p class="prijs-for"><strong>Past bij u als:</strong> u een wijziging aan de draagconstructie technisch wilt laten beoordelen en berekenen.</p>
                         <div class="prijs-amount">&euro;&#8239;399</div>
-                        <div class="prijs-sub">Vanafprijs inclusief btw</div>
+                        <div class="prijs-sub">Vanafprijs inclusief btw <span class="prijs-secondary">(&euro;329,75 excl. btw)</span></div>
                         <div class="prijs-scope-label">Wat zit erin?</div>
                         <ul class="prijs-features"><li class="included">Constructieberekening voor de afgesproken ingreep</li><li class="included">Opgesteld constructierapport</li><li class="included">Vaste prijsopgave na beoordeling van uw informatie</li><li class="not-included">Bouwkundige of constructietekening</li><li class="not-included">Indiening via het Omgevingsloket</li><li class="not-included">Werk buiten de afgesproken scope</li></ul>
                         <p class="prijs-exclusion"><strong>Niet inbegrepen:</strong> tekenwerk, vergunningbegeleiding, gemeentelijke leges, archiefkosten en aanvullende onderzoeken.</p>
@@ -5695,44 +5700,43 @@ color: var(--white);
         let modalReturnFocus = null;
         const modalData = {
             dakkapel: { title: 'Dakkapel / Dakopbouw', desc: 'Een dakkapel plaatsen of vervangen voor extra ruimte en licht.',
-                price: 'Pakketten vanaf &euro;302,50 incl. btw (&euro;250 excl.)', features: ['Bouwkundige tekeningen op schaal',
+                price: 'Bouwtekeningen vanaf &euro;250 incl. btw (&euro;206,61 excl.)', features: ['Bouwkundige tekeningen op schaal',
                     'Vergunningaanvraag (optioneel)', 'Advies over afmetingen en plaatsing',
                     'Rekening houdend met omgevingsplan', 'Constructieve controle indien nodig'
                 ] },
             dakopbouw: { title: 'Dakopbouw', desc: 'Woning verhogen voor extra verdieping.',
-                price: 'Pakketten vanaf &euro;399,30 incl. btw (&euro;330 excl.)', features: ['Bouwkundige tekeningen op schaal',
+                price: 'Bouwtekeningen vanaf &euro;330 incl. btw (&euro;272,73 excl.)', features: ['Bouwkundige tekeningen op schaal',
                     'Vergunningaanvraag (optioneel)', 'Advies over afmetingen en plaatsing',
                     'Rekening houdend met omgevingsplan', 'Constructieve controle indien nodig'
                 ] },
             aanbouw: { title: 'Aanbouw / Uitbouw', desc: 'Uw woning uitbreiden aan de achter- of zijkant voor meer woonruimte.',
-                price: 'Pakketten vanaf &euro;399,30 incl. btw (&euro;330 excl.)', features: ['Complete bouwtekeningenset',
+                price: 'Bouwtekeningen vanaf &euro;330 incl. btw (&euro;272,73 excl.)', features: ['Complete bouwtekeningenset',
                     'Omgevingsvergunning aanvraag', 'Omgevingsplancontrole', 'Constructieberekening (optioneel)',
                     'Contact met gemeente en welstandscommissie'
                 ] },
             erker: { title: 'Erker', desc: 'Een stijlvolle erker toevoegen voor karakter en extra ruimte.',
-                price: 'Pakketten vanaf &euro;302,50 incl. btw (&euro;250 excl.)', features: ['Ontwerp op maat', 'Bouwkundige tekeningen',
+                price: 'Bouwtekeningen vanaf &euro;250 incl. btw (&euro;206,61 excl.)', features: ['Ontwerp op maat', 'Bouwkundige tekeningen',
                     'Vergunningaanvraag', 'Welstandsadvies', 'Materialenadvies'
                 ] },
             mantelzorg: { title: 'Mantelzorgwoning', desc: 'Woonruimte voor zorg in/aan de woning.',
-                price: 'Pakketten vanaf &euro;399,30 incl. btw (&euro;330 excl.)', features: ['Ontwerp op maat', 'Bouwkundige tekeningen',
+                price: 'Bouwtekeningen vanaf &euro;330 incl. btw (&euro;272,73 excl.)', features: ['Ontwerp op maat', 'Bouwkundige tekeningen',
                     'Vergunningaanvraag', 'Welstandsadvies', 'Materialenadvies'
                 ] },
             nieuwbouw: { title: 'Bed & breakfast',
                 desc: 'Bouwkundige uitwerking en vergunningbegeleiding voor een bed & breakfast, afgestemd op de afgesproken scope.',
-                price: 'Pakketten vanaf &euro;302,50 incl. btw (&euro;250 excl.)', features: ['Compleet tekenpakket', 'Omgevingsvergunning',
+                price: 'Bouwtekeningen vanaf &euro;250 incl. btw (&euro;206,61 excl.)', features: ['Compleet tekenpakket', 'Omgevingsvergunning',
                     'Constructieberekening', 'BENG-berekening', 'Volledige begeleiding'
                 ] },
             nok: { title: 'Nokverhoging', desc: 'De nok verhogen om meer bruikbare ruimte onder het dak te maken.',
-                price: 'Pakketten vanaf &euro;399,30 incl. btw (&euro;330 excl.)', features: ['Constructieve berekening', 'Bouwtekeningen',
+                price: 'Bouwtekeningen vanaf &euro;330 incl. btw (&euro;272,73 excl.)', features: ['Constructieve berekening', 'Bouwtekeningen',
                     'Vergunningaanvraag', 'Veiligheidscontrole', 'Aannemersadvies'
                 ] },
             bijgebouw: { title: 'Bijgebouwen', desc: 'Een schuur, tuinkamer, garage of andere zelfstandige ruimte.',
-                price: 'Pakketten vanaf &euro;302,50 incl. btw (&euro;250 excl.)', features: ['Bouwtekeningen', 'Vergunningaanvraag',
+                price: 'Bouwtekeningen vanaf &euro;250 incl. btw (&euro;206,61 excl.)', features: ['Bouwtekeningen', 'Vergunningaanvraag',
                     'Omgevingsplancheck', 'Maatwerkadvies', 'Planning volgens offerte'
                 ] }
         };
 
-        const includeVat = (amount) => Math.round(amount * 121) / 100;
         const formatConsumerPrice = (amount) => new Intl.NumberFormat('nl-NL', {
             style: 'currency',
             currency: 'EUR',
@@ -5740,21 +5744,12 @@ color: var(--white);
             maximumFractionDigits: 2
         }).format(amount);
 
-        function consumerPriceMarkup(value) {
-            const readable = value.replace(/&euro;/g, '€');
-            const match = readable.match(/€\s*([\d.]+(?:,\d{1,2})?)/);
-            if (!match || !/excl\.?\s*btw/i.test(readable)) return value;
-            const excludingVat = Number(match[1].replace(/\./g, '').replace(',', '.'));
-            if (!Number.isFinite(excludingVat)) return value;
-            return `Vanaf ${formatConsumerPrice(includeVat(excludingVat))} incl. 21% btw <small>(${formatConsumerPrice(excludingVat)} excl. btw)</small>`;
-        }
-
         function openModal(key) {
             const data = modalData[key];
             if (!data) return;
             modalTitle.textContent = data.title;
             modalDesc.textContent = data.desc;
-            modalBody.innerHTML = `<div class="modal-price">${consumerPriceMarkup(data.price)}</div><ul>${data.features.map(f => `<li>${f}</li>`).join('')}</ul><p class="modal-scope-note">Dit is een eerste prijsindicatie. De offerte legt de exacte werkzaamheden, btw, correctierondes en uitsluitingen vast.</p>`;
+            modalBody.innerHTML = `<div class="modal-price">${data.price}</div><ul>${data.features.map(f => `<li>${f}</li>`).join('')}</ul><p class="modal-scope-note">Dit is een eerste prijsindicatie. De offerte legt de exacte werkzaamheden, btw, correctierondes en uitsluitingen vast.</p>`;
             modalReturnFocus = document.activeElement;
             modalOverlay.removeAttribute('inert');
             modalOverlay.classList.add('active');
@@ -5775,30 +5770,30 @@ color: var(--white);
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalOverlay.classList.contains(
                 'active')) closeModal(); });
 
-        // Dienstenkiezer: bestaande projectprijzen blijven de commerciële bron voor bekende combinaties.
+        // Dienstenkiezer: alleen gepubliceerde losse vanafprijzen; combinaties worden altijd beoordeeld.
         const projectCatalog = {
-            dakkapel: { prices: { drawing: 250, application: null, construction: 495, complete: 750 } },
-            dakopbouw: { prices: { drawing: 330, application: null, construction: 675, complete: 1140 } },
-            'aanbouw-uitbouw': { prices: { drawing: 330, application: null, construction: 675, complete: 1140 } },
-            erker: { prices: { drawing: 250, application: null, construction: 495, complete: 750 } },
-            mantelzorgwoning: { prices: { drawing: 330, application: null, construction: 575, complete: 950 } },
-            'bed-breakfast': { prices: { drawing: 250, application: null, construction: 495, complete: 1140 } },
-            nokverhoging: { prices: { drawing: 330, application: null, construction: 1140, complete: 1450 } },
-            bijgebouw: { prices: { drawing: 250, application: null, construction: 495, complete: 750 } },
-            carport: { prices: { drawing: 250, application: 350, construction: null, complete: null } },
-            kozijnen: { prices: { drawing: 200, application: 300, construction: null, complete: null } },
-            doorbraak: { prices: { drawing: null, application: null, construction: null, complete: null } },
-            digitaliseren: { prices: { drawing: 150, application: null, construction: null, complete: null }, available: ['drawing', 'advice'], serviceOverride: ['digitaliseren'] },
-            overig: { prices: { drawing: null, application: null, construction: null, complete: null } }
+            dakkapel: { drawingPriceIncluding: 250 },
+            dakopbouw: { drawingPriceIncluding: 330 },
+            'aanbouw-uitbouw': { drawingPriceIncluding: 330 },
+            erker: { drawingPriceIncluding: 250 },
+            mantelzorgwoning: { drawingPriceIncluding: 330 },
+            'bed-breakfast': { drawingPriceIncluding: 250 },
+            nokverhoging: { drawingPriceIncluding: 330 },
+            bijgebouw: { drawingPriceIncluding: 250 },
+            carport: { drawingPriceIncluding: 250 },
+            kozijnen: { drawingPriceIncluding: 200 },
+            doorbraak: { drawingPriceIncluding: null },
+            digitaliseren: { drawingPriceIncluding: 150, available: ['drawing', 'advice'], serviceOverride: ['digitaliseren'] },
+            overig: { drawingPriceIncluding: null }
         };
         const routeCatalog = {
-            drawing: { id: 'route-tekening', label: 'Alleen bouwtekening', services: ['bouwtekening'], legacyPriceKey: 'drawing' },
+            drawing: { id: 'route-tekening', label: 'Alleen bouwtekening', services: ['bouwtekening'] },
             constructionOnly: { id: 'route-constructie', label: 'Alleen constructieberekening', services: ['constructieberekening'] },
             permitOnly: { id: 'route-vergunning', label: 'Alleen vergunningbegeleiding', services: ['vergunningbegeleiding'] },
-            drawingConstruction: { id: 'route-tekening-constructie', label: 'Bouwtekening + constructieberekening', services: ['bouwtekening', 'constructieberekening'], legacyPriceKey: 'construction' },
-            drawingPermit: { id: 'route-tekening-vergunning', label: 'Bouwtekening + vergunningbegeleiding', services: ['bouwtekening', 'vergunningbegeleiding'], legacyPriceKey: 'application' },
+            drawingConstruction: { id: 'route-tekening-constructie', label: 'Bouwtekening + constructieberekening', services: ['bouwtekening', 'constructieberekening'] },
+            drawingPermit: { id: 'route-tekening-vergunning', label: 'Bouwtekening + vergunningbegeleiding', services: ['bouwtekening', 'vergunningbegeleiding'] },
             constructionPermit: { id: 'route-constructie-vergunning', label: 'Constructieberekening + vergunningbegeleiding', services: ['constructieberekening', 'vergunningbegeleiding'] },
-            all: { id: 'route-alles', label: 'Bouwtekening + constructie + vergunningbegeleiding', services: ['bouwtekening', 'constructieberekening', 'vergunningbegeleiding'], legacyPriceKey: 'complete' },
+            all: { id: 'route-alles', label: 'Bouwtekening + constructie + vergunningbegeleiding', services: ['bouwtekening', 'constructieberekening', 'vergunningbegeleiding'] },
             advice: { id: 'route-advies', label: 'Graag advies over de benodigde diensten', services: [] }
         };
         const addonLabels = {
@@ -5820,10 +5815,12 @@ color: var(--white);
 
         const getProjectConfig = () => projectCatalog[calcState.projectType] || projectCatalog.overig;
         const getRoutePrice = (route) => {
-            if (route === 'constructionOnly') return { including: 399, excluding: null };
-            const legacyPriceKey = routeCatalog[route]?.legacyPriceKey;
-            const value = legacyPriceKey ? getProjectConfig().prices[legacyPriceKey] : null;
-            return Number.isFinite(value) ? { including: includeVat(value), excluding: value } : null;
+            if (route === 'constructionOnly') return { including: 399, excluding: 329.75 };
+            if (route !== 'drawing') return null;
+            const including = getProjectConfig().drawingPriceIncluding;
+            return Number.isFinite(including)
+                ? { including, excluding: Math.round((including / 1.21) * 100) / 100 }
+                : null;
         };
         const formatRoutePrice = (price) => price === null
             ? 'Prijs na beoordeling van de scope'
@@ -6088,14 +6085,14 @@ color: var(--white);
                 btwToggle.classList.toggle('active', btwActive);
                 btwToggle.setAttribute('aria-checked', String(btwActive));
                 btwToggle.setAttribute('aria-label', btwActive ? 'Exclusief btw tonen' : 'Inclusief btw tonen');
-                document.querySelectorAll('.prijs-card[data-price]').forEach(card => {
+                document.querySelectorAll('.prijs-card[data-price-including][data-price-excluding]').forEach(card => {
                     const priceEl = card.querySelector('.prijs-amount');
                     const sub = card.querySelector('.prijs-sub');
-                    const basePrice = Number(card.dataset.price);
-                    if (!priceEl || !sub || !Number.isFinite(basePrice)) return;
-                    const includingVat = Math.round(basePrice * 121) / 100;
-                    const primaryPrice = btwActive ? includingVat : basePrice;
-                    const secondaryPrice = btwActive ? basePrice : includingVat;
+                    const includingVat = Number(card.dataset.priceIncluding);
+                    const excludingVat = Number(card.dataset.priceExcluding);
+                    if (!priceEl || !sub || !Number.isFinite(includingVat) || !Number.isFinite(excludingVat)) return;
+                    const primaryPrice = btwActive ? includingVat : excludingVat;
+                    const secondaryPrice = btwActive ? excludingVat : includingVat;
                     const secondaryLabel = btwActive ? 'excl. btw' : 'incl. 21% btw';
                     priceEl.textContent = formatBtwPrice(primaryPrice);
                     sub.innerHTML = `${btwActive ? 'Vanafprijs inclusief btw' : 'Vanafprijs exclusief btw'} <span class="prijs-secondary">(${formatBtwPrice(secondaryPrice)} ${secondaryLabel})</span>`;

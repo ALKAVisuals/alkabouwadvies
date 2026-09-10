@@ -17,7 +17,7 @@ test('the corrected public construction price is used consistently', () => {
         assert.doesNotMatch(source, /€482,79|&euro;482,79/);
     }
     assert.match(landing, /"price": "399"/);
-    assert.match(homepage, /if \(route === 'constructionOnly'\) return \{ including: 399, excluding: null \}/);
+    assert.match(homepage, /if \(route === 'constructionOnly'\) return \{ including: 399, excluding: 329\.75 \}/);
 });
 
 test('shared navigation and footer expose construction as a core service', () => {
@@ -40,6 +40,9 @@ test('homepage presents the three modular core services', () => {
     assert.match(homepage, /\.dienst-card::after/);
     assert.match(homepage, /Vanafprijs inclusief btw/);
     assert.doesNotMatch(homepage, /Vanaf, inclusief/);
+    assert.match(homepage, /id="btw-toggle"/);
+    assert.match(homepage, /data-price-including="250" data-price-excluding="206\.61"/);
+    assert.doesNotMatch(homepage, /<div class="prijs-amount">&euro;&#8239;302,50<\/div>/);
 });
 
 test('construction visuals and process numbering remain honest and accessible', () => {
@@ -64,6 +67,8 @@ test('the service chooser exposes every standalone and combined route', () => {
     ]);
     assert.match(homepage, /Prijs na beoordeling van de scope/);
     assert.match(homepage, /services: \['constructieberekening'\]/);
+    assert.doesNotMatch(homepage, /legacyPriceKey/);
+    assert.match(homepage, /if \(route !== 'drawing'\) return null/);
 });
 
 test('general request forms recognize construction without a parallel lead flow', () => {
