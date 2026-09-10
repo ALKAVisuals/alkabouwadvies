@@ -109,61 +109,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://technischbouwadvies.nl/apeldoorn.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://technischbouwadvies.nl/amsterdam.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://technischbouwadvies.nl/arnhem.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://technischbouwadvies.nl/breda.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://technischbouwadvies.nl/den-haag.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://technischbouwadvies.nl/eindhoven.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://technischbouwadvies.nl/groningen.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://technischbouwadvies.nl/nijmegen.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://technischbouwadvies.nl/rotterdam.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://technischbouwadvies.nl/tilburg.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://technischbouwadvies.nl/utrecht.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://technischbouwadvies.nl/blog.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>

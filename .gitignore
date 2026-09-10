@@ -5,3 +5,5 @@ compare/
 compare-shots/
 *.py
 css/styles-clean.css
+_site/
+.netlify/
