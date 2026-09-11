@@ -110,6 +110,20 @@ test('Google font stylesheets do not block first paint', async () => {
   assert.match(homepage, /if \(enableRichMotion\) \{[\s\S]*?initHeroAnimations\(\);[\s\S]*?initScrollAnimations\(\);/);
 });
 
+test('public Inter pages use the self-hosted font without a layout-shifting swap', async () => {
+  const htmlFiles = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .map((entry) => path.join(entry.parentPath, entry.name));
+
+  for (const htmlFile of htmlFiles) {
+    const html = await readFile(htmlFile, 'utf8');
+    if (!/font-family:\s*['"]?Inter/i.test(html)) continue;
+    assert.doesNotMatch(html, /fonts\.googleapis\.com\/css2\?family=Inter:wght@300;400;500;600;700;800/);
+    assert.match(html, /href="\/fonts\/inter-latin-variable\.woff2"/);
+    assert.match(html, /href="\/fonts\.css\?v=20260911"/);
+  }
+});
+
 test('homepage serves right-sized responsive images', async () => {
   const homepage = await readFile(path.join(outputDirectory, 'index.html'), 'utf8');
   const responsiveImages = [
@@ -141,6 +155,19 @@ test('homepage serves right-sized responsive images', async () => {
     assert.match(imageTag[0], /\bheight="\d+"/);
     assert.match(imageTag[0], /\bsrcset="[^"]+"/);
     assert.match(imageTag[0], /\bsizes="[^"]+"/);
+  }
+});
+
+test('dakkapel hero slider reserves space and serves responsive images', async () => {
+  const page = await readFile(path.join(outputDirectory, 'dakkapel.html'), 'utf8');
+  const slides = [...page.matchAll(/<img\b[^>]*class="hero-right-img hero-design-slide[^"]*"[^>]*>/g)];
+  assert.equal(slides.length, 4);
+
+  for (const slide of slides) {
+    assert.match(slide[0], /\bwidth="1280"/);
+    assert.match(slide[0], /\bheight="853"/);
+    assert.match(slide[0], /\bsrcset="[^"]+-800\.webp 800w,[^"]+\.webp 1280w"/);
+    assert.match(slide[0], /\bsizes="\(max-width: 767px\) calc\(100vw - 42px\), 50vw"/);
   }
 });
 

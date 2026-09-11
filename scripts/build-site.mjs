@@ -92,6 +92,11 @@ for (const pageFile of pageFiles) {
     .replace(/<h5(?![^>]*\baria-level=)([^>]*)>/g, '<h5 role="heading" aria-level="3"$1>')
     .replace(/(<div class="footer-nav">\s*<h5 role="heading" aria-level=")3/g, '$12')
     .replace(
+      /<link href="https:\/\/fonts\.googleapis\.com\/css2\?family=Inter:wght@300;400;500;600;700;800(?:&|&amp;)display=swap" rel="stylesheet"(?: crossorigin)?>/g,
+      '<link rel="preload" href="/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>' +
+        '<link rel="stylesheet" href="/fonts.css?v=20260911">'
+    )
+    .replace(
       /<link href="(https:\/\/fonts\.googleapis\.com\/[^\"]+)" rel="stylesheet"(?: crossorigin)?>/g,
       '<link rel="preload" as="style" href="$1" onload="this.onload=null;this.rel=\'stylesheet\'">' +
         '<noscript><link href="$1" rel="stylesheet"></noscript>'
