@@ -171,6 +171,16 @@ test('dakkapel hero slider reserves space and serves responsive images', async (
   }
 });
 
+test('permit service hero reserves space and serves a responsive image', async () => {
+  const page = await readFile(path.join(outputDirectory, 'omgevingsvergunning-aanvragen.html'), 'utf8');
+  const heroImage = page.match(/<img\b[^>]*class="hero-right-img"[^>]*>/)?.[0] || '';
+
+  assert.match(heroImage, /\bwidth="1857"/);
+  assert.match(heroImage, /\bheight="847"/);
+  assert.match(heroImage, /\bsrcset="[^"]+-800\.webp 800w,[^"]+\.webp 1857w"/);
+  assert.match(heroImage, /\bsizes="\(max-width: 767px\) calc\(100vw - 30px\), 50vw"/);
+});
+
 test('public build excludes internal and retired source material', async () => {
   for (const relativePath of [
     'ANALYSE.md',
