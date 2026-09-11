@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, rm } from 'node:fs/promises';
+import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -32,6 +32,7 @@ for (const url of sitemapUrls) {
 
 const publicRootFiles = [
   '_redirects',
+  'accessibility-fixes.css',
   'css/service-responsive-fixes.css',
   'constructieberekening.css',
   'constructieberekening.js',
@@ -55,8 +56,33 @@ await mkdir(outputDirectory, { recursive: true });
 for (const pageFile of pageFiles) {
   const source = path.join(repositoryRoot, pageFile);
   const destination = path.join(outputDirectory, pageFile);
+  let html = await readFile(source, 'utf8');
+
+  const redundantAccessibleNames = [
+    'Technisch Bouwadvies - Home',
+    'Bekijk uw prijsindicatie',
+    'Bekijk voorbeelden',
+    'Gratis en vrijblijvend adviesgesprek aanvragen',
+    'Bel ons op +31 6 49 24 04 12',
+    'Bel Technisch Bouwadvies op +31 6 49 24 04 12',
+    'Verstuur uw aanvraag; onze streeftijd is één werkdag'
+  ];
+
+  for (const accessibleName of redundantAccessibleNames) {
+    html = html.replaceAll(` aria-label="${accessibleName}"`, '');
+  }
+
+  html = html
+    .replace(/<h4(?![^>]*\baria-level=)([^>]*)>/g, '<h4 role="heading" aria-level="3"$1>')
+    .replace(/<h5(?![^>]*\baria-level=)([^>]*)>/g, '<h5 role="heading" aria-level="3"$1>')
+    .replace(/(<div class="footer-nav">\s*<h5 role="heading" aria-level=")3/g, '$12')
+    .replace(
+      '</head>',
+      '    <link rel="stylesheet" href="accessibility-fixes.css?v=20260911">\n</head>'
+    );
+
   await mkdir(path.dirname(destination), { recursive: true });
-  await cp(source, destination);
+  await writeFile(destination, html);
 }
 
 for (const file of publicRootFiles) {

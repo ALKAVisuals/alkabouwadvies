@@ -41,8 +41,44 @@ test('public build contains every sitemap page', async () => {
 });
 
 test('public build contains required platform files and assets', async () => {
-  for (const relativePath of ['404.html', '_redirects', 'robots.txt', 'sitemap.xml', 'images/favicon.svg']) {
+  for (const relativePath of [
+    '404.html',
+    '_redirects',
+    'accessibility-fixes.css',
+    'robots.txt',
+    'sitemap.xml',
+    'images/favicon.svg'
+  ]) {
     assert.equal(await exists(path.join(outputDirectory, relativePath)), true, `${relativePath} is missing`);
+  }
+});
+
+test('public pages receive the shared accessibility layer and semantic corrections', async () => {
+  const htmlFiles = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .map((entry) => path.join(entry.parentPath, entry.name));
+  const removedLabels = [
+    'Technisch Bouwadvies - Home',
+    'Bekijk uw prijsindicatie',
+    'Bekijk voorbeelden',
+    'Gratis en vrijblijvend adviesgesprek aanvragen',
+    'Bel ons op +31 6 49 24 04 12',
+    'Bel Technisch Bouwadvies op +31 6 49 24 04 12',
+    'Verstuur uw aanvraag; onze streeftijd is één werkdag'
+  ];
+
+  for (const htmlFile of htmlFiles) {
+    const html = await readFile(htmlFile, 'utf8');
+    assert.match(html, /href="accessibility-fixes\.css\?v=20260911"/);
+
+    for (const label of removedLabels) {
+      assert.equal(html.includes(`aria-label="${label}"`), false, `${path.basename(htmlFile)} keeps ${label}`);
+    }
+
+    for (const heading of html.matchAll(/<h([45])\b([^>]*)>/g)) {
+      assert.match(heading[2], /role="heading"/);
+      assert.match(heading[2], /aria-level="[23]"/);
+    }
   }
 });
 

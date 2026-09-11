@@ -1,0 +1,48 @@
+/* Sitebrede toegankelijkheidslaag voor de publieke build. */
+
+/* Het bronzen merkaccent blijft behouden, maar tekst op lichte vlakken
+   krijgt voldoende contrast voor kleine tekst en koppen. */
+.tba-brand-kicker,
+.section-label,
+.section-title em,
+.hero h1 em,
+.contact-detail strong,
+.price-value,
+.tba-construction-cross-sell-label {
+    color: #87691f !important;
+}
+
+.tba-brand-kicker {
+    color: #76591c !important;
+}
+
+/* Op donkere vlakken blijft een lichtere bronsvariant nodig. */
+.calculator .section-label,
+.calculator .section-title em,
+.legal-framework .section-label,
+.legal-framework .section-title em {
+    color: #d4b76a !important;
+}
+
+.calc-step:not(.active) span {
+    color: #a3a3a3 !important;
+}
+
+.legal-box a {
+    color: #f0d38a;
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+}
+
+.tba-consent__copy a {
+    text-decoration: underline;
+}
+
+.tba-construction-cross-sell-label {
+    color: #76591c !important;
+}
+
+.footer-copy,
+.footer-legal a {
+    color: #adadad !important;
+}
