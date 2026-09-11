@@ -181,6 +181,16 @@ test('permit service hero reserves space and serves a responsive image', async (
   assert.match(heroImage, /\bsizes="\(max-width: 767px\) calc\(100vw - 30px\), 50vw"/);
 });
 
+test('construction service hero serves a responsive image', async () => {
+  const page = await readFile(path.join(outputDirectory, 'constructieberekening.html'), 'utf8');
+  const heroImage = page.match(/<img\b[^>]*class="construction-hero__image"[^>]*>/)?.[0] || '';
+
+  assert.match(heroImage, /\bwidth="1717"/);
+  assert.match(heroImage, /\bheight="916"/);
+  assert.match(heroImage, /\bsrcset="[^"]+-900\.webp 900w,[^"]+\.webp 1717w"/);
+  assert.match(heroImage, /\bsizes="\(max-width: 1020px\) calc\(100vw - 32px\), 46vw"/);
+});
+
 test('public build excludes internal and retired source material', async () => {
   for (const relativePath of [
     'ANALYSE.md',
