@@ -109,6 +109,40 @@ test('Google font stylesheets do not block first paint', async () => {
   assert.match(homepage, /matchMedia\('\(min-width: 768px\)'\)\.matches/);
 });
 
+test('homepage serves right-sized responsive images', async () => {
+  const homepage = await readFile(path.join(outputDirectory, 'index.html'), 'utf8');
+  const responsiveImages = [
+    'homepage-hero-ontwerp-naar-realisatie-768.webp',
+    'dakkapel-dakopbouw-van-schets-naar-realisatie-640.webp',
+    'Dakopbouw_-homepage-640.webp',
+    'uitbouw-homepage-640.webp',
+    'erker-gevelaanzicht-en-bouwdetail-640.webp',
+    'mantelzorgwoning-plattegrond-en-gevel-640.webp',
+    'B&B_-homepage-640.webp',
+    'nokverhoging-woning-dakdoorsnede-640.webp',
+    'bijgebouw-tuinkantoor-plan-en-gevel-640.webp'
+  ];
+
+  for (const imageName of responsiveImages) {
+    assert.match(homepage, new RegExp(`${imageName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} (?:640|768)w`));
+    const relativePath = imageName === 'Dakopbouw_-homepage-640.webp' ||
+      imageName === 'uitbouw-homepage-640.webp' ||
+      imageName === 'B&B_-homepage-640.webp'
+      ? path.join('images', imageName)
+      : imageName.startsWith('homepage-hero-')
+        ? path.join('images', 'website-2026', imageName)
+        : path.join('images', 'website-2026', 'diensten', imageName);
+    assert.equal(await exists(path.join(outputDirectory, relativePath)), true, `${relativePath} is missing`);
+  }
+
+  for (const imageTag of homepage.matchAll(/<img\b[^>]*class="categorie-image"[^>]*>/g)) {
+    assert.match(imageTag[0], /\bwidth="\d+"/);
+    assert.match(imageTag[0], /\bheight="\d+"/);
+    assert.match(imageTag[0], /\bsrcset="[^"]+"/);
+    assert.match(imageTag[0], /\bsizes="[^"]+"/);
+  }
+});
+
 test('public build excludes internal and retired source material', async () => {
   for (const relativePath of [
     'ANALYSE.md',
