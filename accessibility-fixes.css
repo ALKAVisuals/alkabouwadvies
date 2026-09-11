@@ -62,3 +62,47 @@
 .footer-legal a {
     color: #adadad !important;
 }
+
+/* Kleine bronzen labels en tekstlinks op lichte vlakken hebben een
+   donkerdere merkvariant nodig om ook op mobiel WCAG AA te halen. */
+.eyebrow,
+.checklist-wizard #progress-text,
+.proces-stap-nummer,
+.proces-stap-tag,
+.showcase-tag,
+.blog-card-date,
+.blog-card-content .read-more,
+.blog-container > a,
+.blog-container .blog-toc h3,
+.blog-container h2 em,
+.blog-container .highlight strong,
+.blog-container .highlight a,
+.blog-container > ul a,
+.legal-content a,
+.fact > span,
+.role > span,
+.process-step > span,
+.principle > span,
+.expectation > span,
+.choice-number,
+.person-card > span,
+.vergunning-plicht-caption > span,
+.waardestijging-content h3 em,
+.complexiteit-content h3 em,
+.roi-content h3 em {
+    color: #76591c !important;
+}
+
+.vc-col-vrij .vc-tag {
+    color: #246b3a !important;
+}
+
+.vc-col-plicht .vc-tag {
+    color: #76591c !important;
+}
+
+/* Eyebrow-labels binnen donkere panelen houden de lichte merkvariant. */
+.collaboration-copy .eyebrow,
+.cta .eyebrow {
+    color: #d4b76a !important;
+}

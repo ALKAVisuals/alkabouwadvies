@@ -73,6 +73,10 @@ for (const pageFile of pageFiles) {
     html = html.replaceAll(` aria-label="${accessibleName}"`, '');
   }
 
+  const accessibilityStylesheet = pageFile.includes('/')
+    ? '../accessibility-fixes.css?v=20260911-2'
+    : 'accessibility-fixes.css?v=20260911-2';
+
   if (pageFile === 'index.html') {
     const inlineStyles = [];
     html = html.replace(/<style(?:\s[^>]*)?>([\s\S]*?)<\/style>/gi, (_match, css) => {
@@ -88,6 +92,14 @@ for (const pageFile of pageFiles) {
   }
 
   html = html
+    .replace(
+      /(<div class="(?:waardestijging-content|complexiteit-content|roi-content|blog-toc|blog-card-content)"[^>]*>[\s\S]*?)<h3(?![^>]*\baria-level=)([^>]*)>/g,
+      '$1<h3 role="heading" aria-level="2"$2>'
+    )
+    .replace(
+      /(<a[^>]*class="choice-card"[^>]*>[\s\S]*?)<h3(?![^>]*\baria-level=)([^>]*)>/g,
+      '$1<h3 role="heading" aria-level="2"$2>'
+    )
     .replace(/<h4(?![^>]*\baria-level=)([^>]*)>/g, '<h4 role="heading" aria-level="3"$1>')
     .replace(/<h5(?![^>]*\baria-level=)([^>]*)>/g, '<h5 role="heading" aria-level="3"$1>')
     .replace(/(<div class="footer-nav">\s*<h5 role="heading" aria-level=")3/g, '$12')
@@ -103,7 +115,7 @@ for (const pageFile of pageFiles) {
     )
     .replace(
       '</head>',
-      '    <link rel="stylesheet" href="accessibility-fixes.css?v=20260911-2">\n</head>'
+      `    <link rel="stylesheet" href="${accessibilityStylesheet}">\n</head>`
     );
 
   await mkdir(path.dirname(destination), { recursive: true });

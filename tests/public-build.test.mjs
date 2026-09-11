@@ -72,7 +72,15 @@ test('public pages receive the shared accessibility layer and semantic correctio
 
   for (const htmlFile of htmlFiles) {
     const html = await readFile(htmlFile, 'utf8');
-    assert.match(html, /href="accessibility-fixes\.css\?v=20260911-2"/);
+    const relativePage = path.relative(outputDirectory, htmlFile);
+    const expectedStylesheet = relativePage.includes(path.sep)
+      ? '../accessibility-fixes.css?v=20260911-2'
+      : 'accessibility-fixes.css?v=20260911-2';
+    assert.equal(
+      html.includes(`href="${expectedStylesheet}"`),
+      true,
+      `${relativePage} does not use ${expectedStylesheet}`
+    );
 
     for (const label of removedLabels) {
       assert.equal(html.includes(`aria-label="${label}"`), false, `${path.basename(htmlFile)} keeps ${label}`);
@@ -81,6 +89,35 @@ test('public pages receive the shared accessibility layer and semantic correctio
     for (const heading of html.matchAll(/<h([45])\b([^>]*)>/g)) {
       assert.match(heading[2], /role="heading"/);
       assert.match(heading[2], /aria-level="[23]"/);
+    }
+  }
+});
+
+test('legacy section and blog card headings expose a sequential public level', async () => {
+  const affectedPages = [
+    'aanbouw-uitbouw.html',
+    'bed-breakfast.html',
+    'bijgebouw.html',
+    'blog.html',
+    'dakopbouw-vergunningen.html',
+    'erker.html',
+    'mantelzorg.html',
+    'nokverhoging.html',
+    '3d-visualisaties-vloerplannen.html',
+    path.join('blog', 'dakkapel-plaatsen-2026.html')
+  ];
+
+  for (const relativePage of affectedPages) {
+    const html = await readFile(path.join(outputDirectory, relativePage), 'utf8');
+    const targetHeadings = [
+      ...html.matchAll(/<div class="(?:waardestijging-content|complexiteit-content|roi-content|blog-toc|blog-card-content)"[^>]*>[\s\S]*?<h3([^>]*)>/g),
+      ...html.matchAll(/<a[^>]*class="choice-card"[^>]*>[\s\S]*?<h3([^>]*)>/g)
+    ];
+
+    assert.ok(targetHeadings.length > 0, `${relativePage} has no expected legacy heading`);
+    for (const heading of targetHeadings) {
+      assert.match(heading[1], /role="heading"/);
+      assert.match(heading[1], /aria-level="2"/);
     }
   }
 });
