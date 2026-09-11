@@ -45,6 +45,9 @@ test('public build contains required platform files and assets', async () => {
     '404.html',
     '_redirects',
     'accessibility-fixes.css',
+    'fonts.css',
+    'fonts/inter-latin-variable.woff2',
+    'page-styles/home.css',
     'robots.txt',
     'sitemap.xml',
     'images/favicon.svg'
@@ -80,6 +83,30 @@ test('public pages receive the shared accessibility layer and semantic correctio
       assert.match(heading[2], /aria-level="[23]"/);
     }
   }
+});
+
+test('Google font stylesheets do not block first paint', async () => {
+  const htmlFiles = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .map((entry) => path.join(entry.parentPath, entry.name));
+
+  for (const htmlFile of htmlFiles) {
+    const html = await readFile(htmlFile, 'utf8');
+    const scriptEnabledHtml = html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '');
+    assert.doesNotMatch(
+      scriptEnabledHtml,
+      /<link href="https:\/\/fonts\.googleapis\.com\/[^\"]+" rel="stylesheet"(?: crossorigin)?>/
+    );
+  }
+
+  const homepage = await readFile(path.join(outputDirectory, 'index.html'), 'utf8');
+  assert.doesNotMatch(homepage, /fonts\.googleapis\.com/);
+  assert.match(homepage, /<link rel="preload" href="fonts\/inter-latin-variable\.woff2" as="font"/);
+  assert.match(homepage, /href="page-styles\/home\.css\?v=20260911"/);
+  assert.equal((homepage.match(/<style\b/gi) || []).length, 0);
+  const homepageStyles = await readFile(path.join(outputDirectory, 'page-styles', 'home.css'), 'utf8');
+  assert.match(homepageStyles, /@media \(max-width: 767px\)[\s\S]*?\.hero h1,[\s\S]*?opacity: 1;/);
+  assert.match(homepage, /matchMedia\('\(min-width: 768px\)'\)\.matches/);
 });
 
 test('public build excludes internal and retired source material', async () => {

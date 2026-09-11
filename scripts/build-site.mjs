@@ -38,6 +38,7 @@ const publicRootFiles = [
   'constructieberekening.js',
   'contact-section.css',
   'contact-section.js',
+  'fonts.css',
   'privacy-consent.css',
   'privacy-consent.js',
   'robots.txt',
@@ -48,7 +49,7 @@ const publicRootFiles = [
   'sitemap.xml'
 ];
 
-const publicDirectories = ['images'];
+const publicDirectories = ['fonts', 'images'];
 
 await rm(outputDirectory, { recursive: true, force: true });
 await mkdir(outputDirectory, { recursive: true });
@@ -72,10 +73,29 @@ for (const pageFile of pageFiles) {
     html = html.replaceAll(` aria-label="${accessibleName}"`, '');
   }
 
+  if (pageFile === 'index.html') {
+    const inlineStyles = [];
+    html = html.replace(/<style(?:\s[^>]*)?>([\s\S]*?)<\/style>/gi, (_match, css) => {
+      inlineStyles.push(css.trim());
+      return inlineStyles.length === 1
+        ? '<link rel="stylesheet" href="page-styles/home.css?v=20260911">'
+        : '';
+    });
+
+    const homepageStyles = path.join(outputDirectory, 'page-styles', 'home.css');
+    await mkdir(path.dirname(homepageStyles), { recursive: true });
+    await writeFile(homepageStyles, `${inlineStyles.join('\n\n')}\n`);
+  }
+
   html = html
     .replace(/<h4(?![^>]*\baria-level=)([^>]*)>/g, '<h4 role="heading" aria-level="3"$1>')
     .replace(/<h5(?![^>]*\baria-level=)([^>]*)>/g, '<h5 role="heading" aria-level="3"$1>')
     .replace(/(<div class="footer-nav">\s*<h5 role="heading" aria-level=")3/g, '$12')
+    .replace(
+      /<link href="(https:\/\/fonts\.googleapis\.com\/[^\"]+)" rel="stylesheet"(?: crossorigin)?>/g,
+      '<link rel="preload" as="style" href="$1" onload="this.onload=null;this.rel=\'stylesheet\'">' +
+        '<noscript><link href="$1" rel="stylesheet"></noscript>'
+    )
     .replace(
       '</head>',
       '    <link rel="stylesheet" href="accessibility-fixes.css?v=20260911">\n</head>'

@@ -18,11 +18,10 @@
     <link rel="preload" as="image" href="images/website-2026/homepage-hero-ontwerp-naar-realisatie.webp" fetchpriority="high">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://technischbouwadvies.nl/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="fonts.css?v=20260911">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script type="application/ld+json">
         [
           {
@@ -1019,6 +1018,15 @@ transform: translateY(-2px);
             transform: translateY(20px);
             position: relative;
             z-index: 5;
+        }
+        @media (max-width: 767px) {
+            .hero h1,
+            .hero p,
+            .hero-cta-group,
+            .hero-badge {
+                opacity: 1;
+                transform: none;
+            }
         }
         .hero-badge span {
             display: inline-block;
@@ -5454,7 +5462,9 @@ color: var(--white);
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.hero-bg').classList.add('loaded');
             if (!prefersReducedMotion) {
-                initHeroAnimations();
+                if (window.matchMedia('(min-width: 768px)').matches) {
+                    initHeroAnimations();
+                }
                 initScrollAnimations();
             }
         });
