@@ -5109,7 +5109,7 @@ color: var(--white);
                         <div class="prijs-scope-label">Wat zit erin?</div>
                         <ul class="prijs-features"><li class="included">Bouwkundig tekenadvies</li><li class="included">Plattegronden, gevelaanzichten en doorsneden volgens de opdracht</li><li class="not-included">Indiening via het Omgevingsloket</li><li class="not-included">Contact over vragen van de gemeente</li><li class="not-included">Tekenaanpassingen na vragen van de gemeente</li><li class="not-included">Constructieberekening</li></ul>
                         <p class="prijs-exclusion"><strong>Niet inbegrepen:</strong> vergunningsaanvraag, gemeentecontact, constructieberekening, leges en archiefkosten.</p>
-                        <a href="contact.html?dienst=bouwtekening&amp;pakket=route-tekening&amp;pakketlabel=Alleen%20bouwtekening&amp;indicatie=Vanaf%20%E2%82%AC250%20incl.%20btw%20%28%E2%82%AC206%2C61%20excl.%20btw%29" class="prijs-btn metal-btn metal-btn-sm" aria-label="Offerte aanvragen voor alleen een bouwtekening">Vraag offerte aan</a>
+                        <a href="contact.html?dienst=bouwtekening&amp;pakket=route-tekening&amp;pakketlabel=Alleen%20bouwtekening&amp;indicatie=Vanaf%20%E2%82%AC250%20incl.%20btw%20%28%E2%82%AC206%2C61%20excl.%20btw%29" class="prijs-btn metal-btn metal-btn-sm">Vraag offerte aan</a>
                     </article>
                     <article class="prijs-card" data-price-including="399" data-price-excluding="329.75" aria-labelledby="dienst-constructie-title">
                         <div class="prijs-code">Kerndienst 02</div>
@@ -5131,7 +5131,7 @@ color: var(--white);
                         <div class="prijs-scope-label">Wat zit erin?</div>
                         <ul class="prijs-features"><li class="included">Voorbereiding van de aanvraag binnen de opdracht</li><li class="included">Indiening via het Omgevingsloket indien afgesproken</li><li class="included">Afgesproken contact tijdens de behandeling</li><li class="not-included">Bouwtekeningen tenzij toegevoegd</li><li class="not-included">Constructieberekening tenzij toegevoegd</li><li class="not-included">Gemeentelijke leges en archiefkosten</li></ul>
                         <p class="prijs-exclusion"><strong>Niet inbegrepen:</strong> diensten en externe kosten die niet uitdrukkelijk in de offerte staan.</p>
-                        <a href="contact.html?dienst=vergunningbegeleiding&amp;pakket=route-vergunning&amp;pakketlabel=Alleen%20vergunningbegeleiding&amp;indicatie=Prijs%20na%20beoordeling" class="prijs-btn metal-btn metal-btn-sm" aria-label="Prijsopgave aanvragen voor vergunningbegeleiding">Vraag prijsopgave aan</a>
+                        <a href="contact.html?dienst=vergunningbegeleiding&amp;pakket=route-vergunning&amp;pakketlabel=Alleen%20vergunningbegeleiding&amp;indicatie=Prijs%20na%20beoordeling" class="prijs-btn metal-btn metal-btn-sm">Vraag prijsopgave aan</a>
                     </article>
                 </div>
                 <aside class="pakket-kaders" aria-labelledby="pakket-kaders-title">
@@ -5411,12 +5411,13 @@ color: var(--white);
     <script>
         gsap.registerPlugin(ScrollTrigger);
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const enableRichMotion = !prefersReducedMotion && window.matchMedia('(min-width: 768px)').matches;
         let lenis = {
             start() {},
             stop() {},
             scrollTo(target) { target.scrollIntoView({ block: 'start' }); }
         };
-        if (!prefersReducedMotion) {
+        if (enableRichMotion) {
             lenis = new Lenis({
                 duration: 1.2,
                 easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -5461,10 +5462,8 @@ color: var(--white);
         // init hero + scroll (preloader verwijderd)
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.hero-bg').classList.add('loaded');
-            if (!prefersReducedMotion) {
-                if (window.matchMedia('(min-width: 768px)').matches) {
-                    initHeroAnimations();
-                }
+            if (enableRichMotion) {
+                initHeroAnimations();
                 initScrollAnimations();
             }
         });

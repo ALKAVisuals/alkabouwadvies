@@ -98,7 +98,7 @@ for (const pageFile of pageFiles) {
     )
     .replace(
       '</head>',
-      '    <link rel="stylesheet" href="accessibility-fixes.css?v=20260911">\n</head>'
+      '    <link rel="stylesheet" href="accessibility-fixes.css?v=20260911-2">\n</head>'
     );
 
   await mkdir(path.dirname(destination), { recursive: true });

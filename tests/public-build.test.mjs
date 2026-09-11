@@ -72,7 +72,7 @@ test('public pages receive the shared accessibility layer and semantic correctio
 
   for (const htmlFile of htmlFiles) {
     const html = await readFile(htmlFile, 'utf8');
-    assert.match(html, /href="accessibility-fixes\.css\?v=20260911"/);
+    assert.match(html, /href="accessibility-fixes\.css\?v=20260911-2"/);
 
     for (const label of removedLabels) {
       assert.equal(html.includes(`aria-label="${label}"`), false, `${path.basename(htmlFile)} keeps ${label}`);
@@ -106,7 +106,8 @@ test('Google font stylesheets do not block first paint', async () => {
   assert.equal((homepage.match(/<style\b/gi) || []).length, 0);
   const homepageStyles = await readFile(path.join(outputDirectory, 'page-styles', 'home.css'), 'utf8');
   assert.match(homepageStyles, /@media \(max-width: 767px\)[\s\S]*?\.hero h1,[\s\S]*?opacity: 1;/);
-  assert.match(homepage, /matchMedia\('\(min-width: 768px\)'\)\.matches/);
+  assert.match(homepage, /const enableRichMotion = !prefersReducedMotion && window\.matchMedia\('\(min-width: 768px\)'\)\.matches/);
+  assert.match(homepage, /if \(enableRichMotion\) \{[\s\S]*?initHeroAnimations\(\);[\s\S]*?initScrollAnimations\(\);/);
 });
 
 test('homepage serves right-sized responsive images', async () => {

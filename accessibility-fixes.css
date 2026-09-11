@@ -42,6 +42,22 @@
     color: #76591c !important;
 }
 
+.proces-step-num,
+.prijs-code,
+.visualisatie-dienst .section-label,
+.over-ons-stat h5 {
+    color: #76591c !important;
+}
+
+.prijs-secondary {
+    color: #666666 !important;
+    opacity: 1 !important;
+}
+
+.gallery .section-label {
+    color: #d4b76a !important;
+}
+
 .footer-copy,
 .footer-legal a {
     color: #adadad !important;
