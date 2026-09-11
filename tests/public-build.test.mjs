@@ -147,6 +147,85 @@ test('Google font stylesheets do not block first paint', async () => {
   assert.match(homepage, /if \(enableRichMotion\) \{[\s\S]*?initHeroAnimations\(\);[\s\S]*?initScrollAnimations\(\);/);
 });
 
+test('Font Awesome does not block first paint', async () => {
+  const htmlFiles = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .map((entry) => path.join(entry.parentPath, entry.name));
+
+  for (const htmlFile of htmlFiles) {
+    const html = await readFile(htmlFile, 'utf8');
+    if (!/cdnjs\.cloudflare\.com\/ajax\/libs\/font-awesome/.test(html)) continue;
+    const scriptEnabledHtml = html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '');
+
+    assert.doesNotMatch(
+      scriptEnabledHtml,
+      /<link rel="stylesheet" href="https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/font-awesome\/[^\"]+\/css\/all\.min\.css">/
+    );
+    assert.match(
+      scriptEnabledHtml,
+      /<link rel="preload" as="style" href="https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/font-awesome\/[^\"]+\/css\/all\.min\.css"/
+    );
+  }
+});
+
+test('service hero carousels load only the active image on compact screens', async () => {
+  const carouselPages = [
+    'aanbouw-uitbouw.html',
+    'bed-breakfast.html',
+    'bijgebouw.html',
+    'dakkapel.html',
+    'dakopbouw-vergunningen.html',
+    'erker.html',
+    'mantelzorg.html',
+    'nokverhoging.html'
+  ];
+
+  for (const page of carouselPages) {
+    const html = await readFile(path.join(outputDirectory, page), 'utf8');
+    const inactiveSlides = [...html.matchAll(/<img\b[^>]*\bhero-design-slide\b[^>]*>/g)]
+      .filter(([imageTag]) => !/\bis-active\b/.test(imageTag));
+
+    assert.ok(inactiveSlides.length > 0, `${page} should expose inactive hero slides`);
+    for (const [imageTag] of inactiveSlides) {
+      assert.doesNotMatch(imageTag, /\ssrc=/);
+      assert.match(imageTag, /\sdata-src=/);
+    }
+
+    assert.match(html, /const compactViewport = window\.matchMedia\('\(max-width: 767px\)'\);/);
+    assert.match(html, /if \(compactViewport\.matches\) return;/);
+  }
+});
+
+test('public pages apply every style before body content can paint', async () => {
+  const htmlFiles = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .map((entry) => path.join(entry.parentPath, entry.name));
+
+  for (const htmlFile of htmlFiles) {
+    const html = await readFile(htmlFile, 'utf8');
+    const body = html.slice(html.indexOf('<body'));
+    assert.doesNotMatch(body, /<style\b/i, `${htmlFile} contains a late style block`);
+  }
+});
+
+test('consent UI assets are discovered before first paint', async () => {
+  const pages = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .map((entry) => path.join(entry.parentPath, entry.name));
+
+  for (const page of pages) {
+    if (page.endsWith('404.html')) continue;
+    const html = await readFile(page, 'utf8');
+    const head = html.slice(0, html.indexOf('</head>'));
+    const prefix = page.includes(`${path.sep}blog${path.sep}`) ? '../' : '';
+
+    assert.match(head, new RegExp(`<link rel="stylesheet" href="${prefix}privacy-consent\\.css">`));
+    assert.match(head, new RegExp(`<script src="${prefix}privacy-consent\\.js" defer></script>`));
+    assert.match(html, /<section class="tba-consent" id="tba-consent" role="dialog"/);
+    assert.doesNotMatch(html, /<section class="tba-consent" id="tba-consent"[^>]* hidden/);
+  }
+});
+
 test('public Inter pages use the self-hosted font without a layout-shifting swap', async () => {
   const htmlFiles = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
     .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
@@ -205,6 +284,51 @@ test('dakkapel hero slider reserves space and serves responsive images', async (
     assert.match(slide[0], /\bheight="853"/);
     assert.match(slide[0], /\bsrcset="[^"]+-800\.webp 800w,[^"]+\.webp 1280w"/);
     assert.match(slide[0], /\bsizes="\(max-width: 767px\) calc\(100vw - 42px\), 50vw"/);
+  }
+});
+
+test('legacy service heroes reserve space and serve right-sized mobile images', async () => {
+  const pages = [
+    ['aanbouw-uitbouw.html', 'aanbouw-ontwerp-metselwerk-hout-800.webp'],
+    ['erker.html', 'erker-ontwerp-glazen-hoek-800.webp'],
+    ['bijgebouw.html', 'bijgebouw-ontwerp-warm-hout-800.webp'],
+    ['dakopbouw-vergunningen.html', 'dakopbouw-ontwerp-hout-panorama-800.webp'],
+    ['nokverhoging.html', 'nokverhoging-ontwerp-antraciet-metaal-800.webp'],
+    ['bed-breakfast.html', 'bb-ontwerp-warm-hout-800.webp'],
+    ['mantelzorg.html', 'mantelzorgwoning-ontwerp-lichte-baksteen-800.webp'],
+    ['carport-vergunning.html', 'carport-woning-van-schets-naar-realisatie-800.webp'],
+    ['kozijnen-vervangen-vergunning.html', 'kozijnen-gevelwijziging-bouwdetail-800.webp'],
+    ['3d-visualisaties-vloerplannen.html', '3d-visualisatie-aanbouw-schets-naar-realisatie-800.webp'],
+    ['bouwkundig-advies.html', 'werkwijze-bouwadvies-tekeningen-bespreken-800.webp'],
+    ['bouwtekening-digitaliseren.html', 'bouwtekeningen-plattegrond-gevel-doorsnede-800.webp']
+  ];
+
+  for (const [page, mobileImage] of pages) {
+    const html = await readFile(path.join(outputDirectory, page), 'utf8');
+    assert.match(html, new RegExp(`imagesrcset="[^"]*${mobileImage.replace('.', '\\.')} 800w`));
+    assert.match(html, new RegExp(`srcset="[^"]*${mobileImage.replace('.', '\\.')} 800w`));
+    assert.match(html, /<img[^>]+\bwidth="\d+"[^>]+\bheight="\d+"/);
+  }
+});
+
+test('image-heavy service sections avoid loading oversized originals on mobile', async () => {
+  const pages = [
+    ['erker.html', [
+      'erker-modern-daglicht-rijwoning-800.webp',
+      'erker-tot-vloerniveau-rijwoning-800.webp',
+      'erker-klassiek-jaren-dertig-800.webp'
+    ]],
+    ['bijgebouw.html', [
+      'Bijgebouw_-homepage-800.webp',
+      'bijgebouw-opslag-hobbyruimte-800.webp'
+    ]]
+  ];
+
+  for (const [page, responsiveImages] of pages) {
+    const html = await readFile(path.join(outputDirectory, page), 'utf8');
+    for (const responsiveImage of responsiveImages) {
+      assert.match(html, new RegExp(`srcset="[^"]*${responsiveImage.replace('.', '\\.')} 800w`));
+    }
   }
 });
 

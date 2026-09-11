@@ -7,3 +7,4 @@ compare-shots/
 css/styles-clean.css
 _site/
 .netlify/
+.lighthouse-*.json

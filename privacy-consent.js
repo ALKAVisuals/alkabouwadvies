@@ -134,6 +134,9 @@
 
     function createBanner() {
         document.querySelectorAll('#cookie-consent, .cookie-consent').forEach((oldBanner) => oldBanner.remove());
+        const existingBanner = document.getElementById('tba-consent');
+        if (existingBanner) return existingBanner;
+
         const banner = document.createElement('section');
         banner.className = 'tba-consent';
         banner.id = 'tba-consent';
@@ -191,7 +194,10 @@
 
         const banner = createBanner();
         const existing = readConsent();
-        if (existing) loadMeasurement(existing);
+        if (existing) {
+            banner.hidden = true;
+            loadMeasurement(existing);
+        }
         else banner.hidden = false;
 
         banner.addEventListener('click', (event) => {

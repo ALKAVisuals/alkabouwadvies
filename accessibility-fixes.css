@@ -103,6 +103,13 @@
 
 /* Eyebrow-labels binnen donkere panelen houden de lichte merkvariant. */
 .collaboration-copy .eyebrow,
-.cta .eyebrow {
+.cta .eyebrow,
+.input-section .section-label,
+.process-section .section-label,
+.process-section .process-step > span,
+.final-cta .section-label,
+.vergunning-plicht-caption > span,
+.hero .eyebrow,
+.blog-hero .section-label {
     color: #d4b76a !important;
 }
