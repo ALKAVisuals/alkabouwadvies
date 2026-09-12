@@ -133,3 +133,33 @@
         flex: 0 0 auto;
     }
 }
+
+/* Contextual service link used inside the constructie sections of service pages. */
+.constructie-service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 1.1rem;
+    color: var(--accent, #9a7330);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    line-height: 1.5;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.constructie-service-link::after {
+    content: "\2192";
+    transition: transform 180ms ease;
+}
+
+.constructie-service-link:hover::after,
+.constructie-service-link:focus-visible::after {
+    transform: translateX(0.25rem);
+}
+
+.constructie-service-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 0.3rem;
+}

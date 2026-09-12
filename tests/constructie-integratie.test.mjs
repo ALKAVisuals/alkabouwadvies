@@ -10,6 +10,13 @@ const contact = read('contact.html');
 const about = read('over-ons.html');
 const header = read('site-header.js');
 const sitemap = read('sitemap.xml');
+const relevantServicePages = [
+    'aanbouw-uitbouw.html',
+    'dakkapel.html',
+    'dakopbouw-vergunningen.html',
+    'erker.html',
+    'nokverhoging.html'
+].map(read);
 
 test('the corrected public construction price is used consistently', () => {
     for (const source of [homepage, landing]) {
@@ -84,6 +91,9 @@ test('company positioning, FAQ and crawl paths include construction', () => {
     assert.match(about, /De basisdienst bestaat uit een constructieberekening en een opgesteld constructierapport/);
     assert.match(homepage, /Wat krijg ik bij een constructieberekening\?/);
     assert.match(sitemap, /https:\/\/technischbouwadvies\.nl\/constructieberekening\.html/);
+    for (const page of relevantServicePages) {
+        assert.match(page, /href="constructieberekening\.html">Bekijk de losse constructieberekening<\/a>/);
+    }
 });
 
 test('relevant service pages use modular language instead of rigid packages', () => {
