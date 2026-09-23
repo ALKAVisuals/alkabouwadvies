@@ -3663,7 +3663,7 @@ color: var(--white);
                     var subject = document.getElementById('subject');
                     var message = document.getElementById('message');
                     if (subject) { subject.value = 'Carport: ' + title; subject.dispatchEvent(new Event('change')); }
-                    if (message) { message.value = 'Hallo, ik ben geinteresseerd in de dienstcombinatie "' + title + '" voor een carport vergunning.'; message.dispatchEvent(new Event('input')); }
+                    if (message) { message.value = '"Hallo, ik ben geinteresseerd in de dienst "' + title + '" voor een carport vergunning.'; message.dispatchEvent(new Event('input')); }
                     var contactSection = document.getElementById('contact');
                     if (contactSection) {
                         if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 });
