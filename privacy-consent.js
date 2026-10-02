@@ -2,14 +2,16 @@
     'use strict';
 
     const CONSENT_KEY = 'tbaConsent';
-    const CONSENT_VERSION = '2026-08-28';
+    const CONSENT_VERSION = '2026-10-02';
     const CONSENT_MAX_AGE_MS = 180 * 24 * 60 * 60 * 1000;
     const MEASUREMENT_ID = 'G-3LX2KFD76S';
+    const CONTENTSQUARE_TAG_ID = '75e1b0df2acc7';
     const PRODUCTION_HOSTS = new Set(['technischbouwadvies.nl', 'www.technischbouwadvies.nl']);
     const ALLOWED_FORMS = new Set(['contact', 'contactaanvraag', 'offerteaanvraag']);
     const ALLOWED_CLICK_IDS = new Set(['gclid', 'gbraid', 'wbraid']);
     const CLICK_ID_PATTERN = /^[A-Za-z0-9_-]{10,200}$/;
     let measurementLoaded = false;
+    let contentsquareLoaded = false;
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
@@ -68,8 +70,22 @@
         return consent?.analytics === 'granted' && PRODUCTION_HOSTS.has(window.location.hostname);
     }
 
+    function loadContentsquare(consent) {
+        if (!mayLoadAnalytics(consent) || contentsquareLoaded) return;
+        contentsquareLoaded = true;
+        window._uxa = window._uxa || [];
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.src = `https://t.contentsquare.net/uxa/${CONTENTSQUARE_TAG_ID}.js`;
+        script.dataset.tbaContentsquare = 'true';
+        document.head.appendChild(script);
+    }
+
     function loadMeasurement(consent) {
         if (!mayLoadAnalytics(consent)) return;
+        loadContentsquare(consent);
         const adsConsent = consent.ads === 'granted' ? 'granted' : 'denied';
         if (measurementLoaded) {
             window.gtag('consent', 'update', {
@@ -115,6 +131,15 @@
         });
     }
 
+    function removeContentsquareCookies() {
+        document.cookie.split(';').forEach((cookie) => {
+            const name = cookie.split('=')[0].trim();
+            if (!name.startsWith('_cs_')) return;
+            document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
+            document.cookie = `${name}=; Max-Age=0; path=/; domain=.technischbouwadvies.nl; SameSite=Lax`;
+        });
+    }
+
     function revokeMeasurement() {
         if (typeof window.gtag === 'function') {
             window.gtag('consent', 'update', {
@@ -124,7 +149,10 @@
                 ad_personalization: 'denied'
             });
         }
+        window._uxa = window._uxa || [];
+        window._uxa.push(['optout']);
         removeGoogleCookies(true);
+        removeContentsquareCookies();
         window.setTimeout(() => window.location.reload(), 0);
     }
 
@@ -148,7 +176,7 @@
             <div class="tba-consent__inner">
                 <div class="tba-consent__copy">
                     <strong id="tba-consent-title">Uw keuze voor analyse en conversiemeting</strong>
-                    <p>Functionele opslag is nodig om uw keuze te onthouden. Kies alleen websiteanalyse of ook Google Ads-conversiemeting. Formulierinhoud wordt niet met Google gedeeld en advertentiepersonalisatie blijft uit. <a href="${policyHref()}">Lees het cookiebeleid</a>.</p>
+                    <p>Functionele opslag is nodig om uw keuze te onthouden. Kies websiteanalyse met Google Analytics en Contentsquare, of ook Google Ads-conversiemeting. Formulierinhoud wordt niet met deze analysediensten gedeeld en advertentiepersonalisatie blijft uit. <a href="${policyHref()}">Lees het cookiebeleid</a>.</p>
                 </div>
                 <div class="tba-consent__actions">
                     <button class="tba-consent__button tba-consent__button--reject" type="button" data-consent-choice="denied">Weigeren</button>

@@ -8,3 +8,6 @@ css/styles-clean.css
 _site/
 .netlify/
 .lighthouse-*.json
+
+# Contentsquare wizard (generated)
+.cs-wizard/

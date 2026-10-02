@@ -17,6 +17,16 @@ test('measurement loads only after explicit analytics consent on the production 
     assert.match(consent, /if \(!mayLoadAnalytics\(consent\)\) return/);
 });
 
+test('Contentsquare uses the same analytics consent and production-host gate', () => {
+    assert.match(consent, /CONTENTSQUARE_TAG_ID = '75e1b0df2acc7'/);
+    assert.match(consent, /function loadContentsquare\(consent\)/);
+    assert.match(consent, /if \(!mayLoadAnalytics\(consent\) \|\| contentsquareLoaded\) return/);
+    assert.match(consent, /https:\/\/t\.contentsquare\.net\/uxa\/\$\{CONTENTSQUARE_TAG_ID\}\.js/);
+    assert.match(consent, /loadContentsquare\(consent\)/);
+    assert.match(consent, /window\._uxa\.push\(\['optout'\]\)/);
+    assert.match(consent, /name\.startsWith\('_cs_'\)/);
+});
+
 test('consent defaults are denied and measurement grants do not enable personalization', () => {
     assert.match(consent, /ad_storage: 'denied'/);
     assert.match(consent, /ad_user_data: 'denied'/);
@@ -78,7 +88,7 @@ test('city pages are explicitly excluded from this rollout', () => {
 });
 
 test('privacy and cookie policies describe the consent-gated implementation', () => {
-    assert.match(privacy, /Zonder die toestemming wordt de Google-tag niet geladen/);
+    assert.match(privacy, /tags van Google Analytics en Contentsquare niet geladen/);
     assert.match(privacy, /bestandsinhoud worden niet naar Google Analytics of Google Ads gestuurd/);
     assert.match(privacy, /Verbeterde conversies en user-provided data zijn uitgeschakeld/);
     assert.match(privacy, /Wanneer wij een contact- of offerteaanvraag intern beoordelen en opvolgen/);
@@ -87,4 +97,8 @@ test('privacy and cookie policies describe the consent-gated implementation', ()
     assert.match(cookies, /<strong>_ga<\/strong>/);
     assert.match(cookies, /<strong>_ga_\*<\/strong>/);
     assert.match(cookies, /<strong>_gcl_\*<\/strong>/);
+    assert.match(cookies, /<strong>_cs_id<\/strong>/);
+    assert.match(cookies, /<strong>_cs_s<\/strong>/);
+    assert.match(cookies, /<strong>_cs_c<\/strong>/);
+    assert.match(cookies, /Intrekken van toestemming stopt de meting/);
 });

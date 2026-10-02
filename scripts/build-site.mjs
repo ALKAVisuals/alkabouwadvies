@@ -121,7 +121,7 @@ for (const pageFile of pageFiles) {
     <div class="tba-consent__inner">
         <div class="tba-consent__copy">
             <strong id="tba-consent-title">Uw keuze voor analyse en conversiemeting</strong>
-            <p>Functionele opslag is nodig om uw keuze te onthouden. Kies alleen websiteanalyse of ook Google Ads-conversiemeting. Formulierinhoud wordt niet met Google gedeeld en advertentiepersonalisatie blijft uit. <a href="${assetPrefix}cookiebeleid.html">Lees het cookiebeleid</a>.</p>
+            <p>Functionele opslag is nodig om uw keuze te onthouden. Kies websiteanalyse met Google Analytics en Contentsquare, of ook Google Ads-conversiemeting. Formulierinhoud wordt niet met deze analysediensten gedeeld en advertentiepersonalisatie blijft uit. <a href="${assetPrefix}cookiebeleid.html">Lees het cookiebeleid</a>.</p>
         </div>
         <div class="tba-consent__actions">
             <button class="tba-consent__button tba-consent__button--reject" type="button" data-consent-choice="denied">Weigeren</button>
