@@ -83,6 +83,10 @@
         document.head.appendChild(script);
     }
 
+    function mayTrackLead(consent) {
+        return mayLoadAnalytics(consent) && consent?.ads === 'granted';
+    }
+
     function loadMeasurement(consent) {
         if (!mayLoadAnalytics(consent)) return;
         loadContentsquare(consent);
@@ -248,7 +252,7 @@
     }
 
     window.tbaTrackLead = function (formType) {
-        if (!ALLOWED_FORMS.has(formType) || !mayLoadAnalytics(readConsent()) || typeof window.gtag !== 'function') return false;
+        if (!ALLOWED_FORMS.has(formType) || !mayTrackLead(readConsent()) || typeof window.gtag !== 'function') return false;
         window.gtag('event', 'generate_lead', { form_type: formType });
         return true;
     };

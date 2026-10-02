@@ -440,7 +440,7 @@
         scope.className = 'tba-price-scope';
         scope.setAttribute('aria-label', 'Uitleg over prijzen en opdrachtscope');
         scope.innerHTML = `
-            <strong>De getoonde bedragen zijn projectgebonden vanafprijzen.</strong>
+            <strong>Waar een vanafprijs wordt getoond, geldt deze voor de afzonderlijke dienst.</strong>
             <p>Uw offerte legt de exacte tekeningen en bestanden, eventuele inmeting, indiening, correctierondes en planning vast. Gemeentelijke leges, archiefkosten, uitvoering en externe specialisten zijn alleen inbegrepen wanneer dat uitdrukkelijk in de offerte staat.</p>
             <a href="contact.html">Vraag een projectspecifieke offerte aan <span aria-hidden="true">→</span></a>
         `;
