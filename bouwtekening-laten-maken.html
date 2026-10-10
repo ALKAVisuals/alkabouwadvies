@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="shortcut icon" href="images/favicon.svg">
+    <title>Bouwtekening laten maken vanaf €250 | Technisch Bouwadvies</title>
+    <meta name="description" content="Bouwtekening laten maken voor uw verbouwing of bouwplan. Vanaf €250 incl. btw. Vraag binnen ongeveer één minuut vrijblijvend een offerte aan.">
+    <meta name="author" content="Technisch Bouwadvies">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://technischbouwadvies.nl/bouwtekening-laten-maken.html">
+    <meta property="og:title" content="Bouwtekening laten maken | Technisch Bouwadvies">
+    <meta property="og:description" content="Uw bouwtekening professioneel uitgewerkt. Bouwtekeningen vanaf €250 incl. btw.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://technischbouwadvies.nl/bouwtekening-laten-maken.html">
+    <meta property="og:image" content="https://technischbouwadvies.nl/images/website-2026/bouwtekeningen-plattegrond-gevel-doorsnede.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://technischbouwadvies.nl/images/website-2026/bouwtekeningen-plattegrond-gevel-doorsnede.webp">
+    <link rel="preload" href="/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="fonts.css?v=20260911">
+    <link rel="stylesheet" href="site-header.css">
+    <link rel="stylesheet" href="site-responsive.css?v=20260731">
+    <link rel="stylesheet" href="site-footer.css?v=20260808-2">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Bouwtekening laten maken",
+      "provider": {
+        "@type": "Organization",
+        "name": "Technisch Bouwadvies",
+        "url": "https://technischbouwadvies.nl/"
+      },
+      "areaServed": "NL",
+      "url": "https://technischbouwadvies.nl/bouwtekening-laten-maken.html",
+      "description": "Bouwkundige tekeningen voor verbouwing en uitbreiding, vanaf €250 inclusief btw."
+    }
+    </script>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --bg-dark: #0f0f0f;
+            --text: #1a1a1a;
+            --text-light: #666666;
+            --accent: #b3944d;
+            --accent-light: #d4b76a;
+            --white: #ffffff;
+            --gray: #e5e5e5;
+            --gray-dark: #d0d0d0;
+            --error: #dc2626;
+            --success: #15803d;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Inter", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        img { display: block; max-width: 100%; }
+        button, input, select, textarea { font: inherit; }
+        a { color: inherit; }
+        :where(a, button, input, select, textarea):focus-visible {
+            outline: 3px solid var(--accent-light);
+            outline-offset: 3px;
+        }
+
+        .bt-main { overflow: clip; }
+        .bt-shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+        .bt-section { padding: clamp(3.4rem, 7vw, 6.5rem) 0; }
+        .bt-section--white { background: var(--white); }
+        .bt-section--soft { background: #f5f3ee; }
+        .bt-eyebrow {
+            margin: 0 0 0.8rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        .bt-section h2 {
+            max-width: 760px;
+            margin: 0 0 0.85rem;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            letter-spacing: -0.035em;
+            line-height: 1.08;
+        }
+        .bt-lead {
+            max-width: 720px;
+            margin: 0;
+            color: var(--text-light);
+            font-size: clamp(0.98rem, 1.6vw, 1.08rem);
+            line-height: 1.75;
+        }
+
+        .bt-button {
+            min-height: 50px;
+            padding: 0.9rem 1.35rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            border: 1px solid var(--accent);
+            border-radius: 3px;
+            background: var(--accent);
+            color: #111;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.055em;
+            line-height: 1.2;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bt-button:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 28px rgba(179, 148, 77, 0.2);
+        }
+
+        .bt-hero {
+            min-height: 570px;
+            padding: 9.3rem 0 5.2rem;
+            display: grid;
+            align-items: end;
+            color: var(--white);
+            background:
+                linear-gradient(90deg, rgba(15,15,15,0.96) 0%, rgba(15,15,15,0.88) 48%, rgba(15,15,15,0.55) 100%),
+                url("images/website-2026/bouwtekeningen-plattegrond-gevel-doorsnede.webp") center/cover no-repeat;
+        }
+        .bt-hero__content { max-width: 790px; }
+        .bt-hero .bt-eyebrow { color: var(--accent-light); }
+        .bt-hero h1 {
+            margin: 0 0 1rem;
+            font-size: clamp(2.55rem, 6vw, 5rem);
+            font-weight: 750;
+            letter-spacing: -0.055em;
+            line-height: 0.98;
+        }
+        .bt-hero__subtitle {
+            margin: 0 0 0.8rem;
+            color: rgba(255,255,255,0.84);
+            font-size: clamp(1.08rem, 2.4vw, 1.4rem);
+            line-height: 1.5;
+        }
+        .bt-hero__price {
+            margin: 0 0 1.8rem;
+            color: var(--accent-light);
+            font-size: 1rem;
+            font-weight: 650;
+        }
+
+        .bt-project-head { margin-bottom: 1.6rem; }
+        .bt-project-hint {
+            margin: 1.1rem 0 0;
+            color: #806520;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+        .bt-project-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.85rem;
+        }
+        .bt-project {
+            position: relative;
+            min-width: 0;
+            padding: 0;
+            overflow: hidden;
+            aspect-ratio: 0.92;
+            border: 2px solid transparent;
+            border-radius: 2px;
+            background: #222;
+            cursor: pointer;
+            text-align: left;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .bt-project:hover { transform: translateY(-2px); }
+        .bt-project[aria-pressed="true"] { border-color: var(--accent); }
+        .bt-project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9);
+            transition: transform 0.35s ease;
+        }
+        .bt-project:hover img { transform: scale(1.025); }
+        .bt-project__overlay {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            min-height: 72px;
+            padding: 0.85rem 0.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            background: linear-gradient(180deg, rgba(10,10,10,0.05), rgba(10,10,10,0.92));
+            color: var(--white);
+        }
+        .bt-project__number {
+            margin-bottom: 0.32rem;
+            color: var(--accent-light);
+            font-size: 0.66rem;
+            font-weight: 800;
+            letter-spacing: 0.13em;
+        }
+        .bt-project__name {
+            font-size: 0.82rem;
+            font-weight: 800;
+            line-height: 1.25;
+            text-transform: uppercase;
+        }
+        .bt-project__tick {
+            position: absolute;
+            top: 0.6rem;
+            right: 0.6rem;
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #111;
+            font-size: 0.85rem;
+            font-weight: 900;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .bt-project[aria-pressed="true"] .bt-project__tick {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .bt-project-note {
+            max-width: 820px;
+            margin: 1.3rem 0 0;
+            color: var(--text-light);
+            font-size: 0.86rem;
+            line-height: 1.65;
+        }
+
+        .bt-copy-card {
+            max-width: 820px;
+            padding-left: 1.4rem;
+            border-left: 3px solid var(--accent);
+        }
+        .bt-copy-card p {
+            margin: 0 0 0.9rem;
+            color: #4d4d4d;
+            font-size: 1rem;
+            line-height: 1.78;
+        }
+        .bt-copy-card p:last-child { margin-bottom: 0; }
+
+        .bt-price-card {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: clamp(1.6rem, 4vw, 2.5rem);
+            background: var(--white);
+            border: 1px solid #ddd8cc;
+            box-shadow: 0 18px 50px rgba(15,15,15,0.05);
+        }
+        .bt-price-card__top {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding-bottom: 1.3rem;
+            border-bottom: 1px solid var(--gray);
+        }
+        .bt-price-card h2 { margin: 0 0 0.35rem; font-size: 1.6rem; }
+        .bt-price-card__intro {
+            max-width: 440px;
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+        .bt-price-card__price {
+            flex: 0 0 auto;
+            color: var(--text);
+            font-size: clamp(1.65rem, 4vw, 2.35rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            white-space: nowrap;
+        }
+        .bt-price-card__price small {
+            display: block;
+            margin-top: 0.2rem;
+            color: var(--text-light);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0;
+            text-align: right;
+        }
+        .bt-price-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 1.4rem 0 0.7rem;
+        }
+        .bt-price-columns h3 {
+            margin: 0 0 0.7rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .bt-price-columns ul {
+            margin: 0;
+            padding-left: 1.1rem;
+            color: #555;
+            font-size: 0.87rem;
+            line-height: 1.65;
+        }
+        .bt-price-foot {
+            margin: 0.65rem 0 0;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray);
+            color: var(--text-light);
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+
+        .bt-example {
+            display: grid;
+            grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+            gap: clamp(2rem, 6vw, 5rem);
+            align-items: center;
+        }
+        .bt-example__image {
+            overflow: hidden;
+            border: 1px solid var(--gray);
+            background: var(--white);
+        }
+        .bt-example__image img { width: 100%; height: auto; }
+
+        .bt-steps {
+            margin-top: 2.2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .bt-step {
+            padding: 1.15rem 0;
+            border-top: 2px solid var(--accent);
+        }
+        .bt-step__num {
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+        }
+        .bt-step h3 {
+            margin: 0.55rem 0 0.4rem;
+            font-size: 1rem;
+        }
+        .bt-step p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.86rem;
+            line-height: 1.55;
+        }
+
+        .bt-form-section { background: #f3f1ec; }
+        .bt-form-wrap {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+            gap: clamp(2.5rem, 7vw, 6rem);
+            align-items: start;
+        }
+        .bt-form-copy { position: sticky; top: 100px; }
+        .bt-form-copy ul {
+            margin: 1.4rem 0 0;
+            padding: 0;
+            display: grid;
+            gap: 0.65rem;
+            list-style: none;
+            color: #555;
+            font-size: 0.88rem;
+        }
+        .bt-form-copy li {
+            position: relative;
+            padding-left: 1.15rem;
+        }
+        .bt-form-copy li::before {
+            content: "";
+            position: absolute;
+            top: 0.55em;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .bt-form {
+            padding: clamp(1.4rem, 4vw, 2.2rem);
+            display: grid;
+            gap: 1rem;
+            background: var(--white);
+            border: 1px solid #dfdbd1;
+            box-shadow: 0 18px 50px rgba(15,15,15,0.05);
+        }
+        .bt-form__honeypot { position: absolute; left: -9999px; }
+        .bt-field { display: grid; gap: 0.42rem; }
+        .bt-field label,
+        .bt-fieldset legend {
+            color: #282828;
+            font-size: 0.8rem;
+            font-weight: 750;
+        }
+        .bt-required::after { content: " *"; color: var(--accent); }
+        .bt-field input,
+        .bt-field select,
+        .bt-field textarea {
+            width: 100%;
+            min-height: 48px;
+            padding: 0.78rem 0.85rem;
+            border: 1px solid #cfcfcf;
+            border-radius: 2px;
+            background: #fff;
+            color: var(--text);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bt-field textarea { min-height: 105px; resize: vertical; }
+        .bt-field input:focus,
+        .bt-field select:focus,
+        .bt-field textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(179,148,77,0.1);
+        }
+        .bt-field input[type="file"] {
+            min-height: auto;
+            border-style: dashed;
+            background: #fbfaf7;
+            font-size: 0.82rem;
+        }
+        .bt-help {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.75rem;
+            line-height: 1.55;
+        }
+        .bt-file-feedback {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.75rem;
+            line-height: 1.5;
+        }
+        .bt-file-feedback.is-error { color: var(--error); font-weight: 650; }
+        .bt-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .bt-form-grid .bt-field--full { grid-column: 1 / -1; }
+        .bt-privacy {
+            padding: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            background: #f8f7f3;
+            border: 1px solid #e6e1d6;
+        }
+        .bt-privacy input { width: 18px; height: 18px; margin-top: 0.1rem; flex: 0 0 auto; }
+        .bt-privacy span {
+            color: #555;
+            font-size: 0.76rem;
+            line-height: 1.55;
+        }
+        .bt-privacy a { text-underline-offset: 0.18em; }
+        .bt-submit { width: 100%; }
+        .bt-submit:disabled { opacity: 0.65; cursor: wait; transform: none; }
+        .bt-form-status {
+            min-height: 1.2em;
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+        .bt-form-status.is-error { color: var(--error); }
+        .bt-form-status.is-success { color: var(--success); font-weight: 650; }
+        .bt-success {
+            padding: 2rem;
+            background: var(--white);
+            border: 1px solid var(--accent);
+        }
+        .bt-success h3 { margin: 0 0 0.5rem; font-size: 1.35rem; }
+        .bt-success p { margin: 0; color: var(--text-light); line-height: 1.65; }
+
+        .bt-sticky {
+            display: none;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 9000;
+            padding: 0.65rem 0.8rem calc(0.65rem + env(safe-area-inset-bottom));
+            background: rgba(250,250,250,0.97);
+            border-top: 1px solid #ddd;
+            box-shadow: 0 -8px 24px rgba(0,0,0,0.08);
+        }
+        .bt-sticky .bt-button { width: 100%; min-height: 46px; }
+        .tba-consent:not([hidden]) ~ .bt-sticky { display: none !important; }
+
+        @media (max-width: 820px) {
+            .bt-shell { width: min(100% - 32px, 720px); }
+            .bt-hero {
+                min-height: 510px;
+                padding-top: 8rem;
+                background-position: 62% center;
+            }
+            .bt-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; }
+            .bt-project__overlay { min-height: 60px; padding: 0.65rem; }
+            .bt-project__name { font-size: 0.72rem; }
+            .bt-price-card__top { display: block; }
+            .bt-price-card__price { margin-top: 1rem; }
+            .bt-price-card__price small { text-align: left; }
+            .bt-price-columns { grid-template-columns: 1fr; gap: 1.15rem; }
+            .bt-example, .bt-form-wrap { grid-template-columns: 1fr; }
+            .bt-form-copy { position: static; }
+            .bt-steps { grid-template-columns: 1fr; gap: 0.45rem; }
+            .bt-form-grid { grid-template-columns: 1fr; }
+            .bt-form-grid .bt-field--full { grid-column: auto; }
+        }
+
+        @media (max-width: 600px) {
+            .bt-shell { width: min(100% - 28px, 560px); }
+            .bt-section { padding: 3.2rem 0; }
+            .bt-hero {
+                min-height: 490px;
+                padding: 7.2rem 0 3.4rem;
+                background:
+                    linear-gradient(90deg, rgba(15,15,15,0.96), rgba(15,15,15,0.73)),
+                    url("images/website-2026/bouwtekeningen-plattegrond-gevel-doorsnede.webp") center/cover no-repeat;
+            }
+            .bt-hero h1 { font-size: clamp(2.35rem, 12vw, 3.6rem); }
+            .bt-hero .bt-button { width: 100%; }
+            .bt-project { aspect-ratio: 0.97; }
+            .bt-price-card { padding: 1.25rem; }
+            .bt-form { padding: 1.1rem; }
+            .bt-sticky { display: block; }
+            body { padding-bottom: 70px; }
+            footer { padding-bottom: 72px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <a class="tba-skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="tba-site-header" data-tba-header>
+        <nav class="tba-nav-shell" id="tba-site-nav" aria-label="Hoofdnavigatie">
+            <a href="index.html" class="tba-brand" aria-label="Technisch Bouwadvies - Home">
+                <svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/><path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/><path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/></svg>
+                <span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span>
+            </a>
+            <ul class="tba-nav-links">
+                <li class="tba-services-item"><button class="tba-services-trigger" id="tba-services-trigger" type="button" aria-expanded="false" aria-controls="tba-services-menu">Diensten<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="tba-dropdown" id="tba-services-menu"><div class="tba-dropdown-inner"></div></div></li>
+                <li><a class="tba-nav-link" href="index.html#werkwijze">Werkwijze</a></li>
+                <li><a class="tba-nav-link" href="index.html#calculator">Prijs berekenen</a></li>
+                <li><a class="tba-nav-link" href="over-ons.html">Over ons</a></li>
+            </ul>
+            <div class="tba-nav-actions">
+                <a href="tel:+31649240412" class="tba-call" aria-label="Bel Technisch Bouwadvies op +31 6 49 24 04 12"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg><span>Bel direct</span></a>
+                <a href="#aanvraag" class="tba-nav-cta">Offerte aanvragen</a>
+            </div>
+            <div class="tba-mobile-controls"><a href="tel:+31649240412" class="tba-mobile-call" aria-label="Bel Technisch Bouwadvies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg></a><button class="tba-menu-toggle" id="tba-menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="tba-mobile-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button></div>
+        </nav>
+        <div class="tba-menu-backdrop" aria-hidden="true"></div>
+        <aside class="tba-mobile-panel" id="tba-mobile-panel" role="dialog" aria-modal="true" aria-label="Mobiel navigatiemenu" aria-hidden="true" inert>
+            <div class="tba-mobile-header"><a href="index.html" class="tba-mobile-brand" aria-label="Technisch Bouwadvies - Home"><svg class="tba-brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 31V18.5L22 10l13 8.5V31" stroke="currentColor" stroke-width="1.5"/><path d="M14 31V22h16v9M19.5 22v9M24.5 22v9" stroke="currentColor" stroke-width="1.5"/><path d="M7 35h30" stroke="currentColor" stroke-width="1.5"/></svg><span class="tba-brand-copy"><span class="tba-brand-kicker">TECHNISCH</span><span class="tba-brand-name">BOUWADVIES</span></span></a><button class="tba-menu-close" id="tba-menu-close" type="button" aria-label="Menu sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+            <div class="tba-mobile-content"><details class="tba-mobile-services"><summary class="tba-mobile-summary"><span>Diensten</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="tba-mobile-service-list"></div></details><a href="index.html#werkwijze" class="tba-mobile-link">Werkwijze</a><a href="index.html#prijzen" class="tba-mobile-link">Prijzen</a><a href="over-ons.html" class="tba-mobile-link">Over ons</a><div class="tba-mobile-secondary"><a href="blog.html">Blog</a><a href="index.html#faq">FAQ</a><a href="#aanvraag">Contact</a></div><a href="#aanvraag" class="tba-mobile-cta">Offerte aanvragen</a><div class="tba-mobile-contact"><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></div></div>
+        </aside>
+    </header>
+
+    <main class="bt-main" id="main-content">
+        <section class="bt-hero" aria-labelledby="bt-title">
+            <div class="bt-shell">
+                <div class="bt-hero__content">
+                    <p class="bt-eyebrow">Bouwtekeningen op maat</p>
+                    <h1 id="bt-title">Uw bouwtekening professioneel uitgewerkt.</h1>
+                    <p class="bt-hero__subtitle">Van bouwidee naar een helder plan.</p>
+                    <p class="bt-hero__price">Bouwtekeningen vanaf <strong>€250 incl. btw.</strong></p>
+                    <a class="bt-button" href="#aanvraag">Vraag vrijblijvend een offerte aan <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bt-section bt-section--white" aria-labelledby="projectkeuze-title">
+            <div class="bt-shell">
+                <div class="bt-project-head">
+                    <p class="bt-eyebrow">Uw project</p>
+                    <h2 id="projectkeuze-title">Waarvoor heeft u een bouwtekening nodig?</h2>
+                    <p class="bt-lead">Wij verzorgen bouwtekeningen voor verschillende soorten bouw- en verbouwprojecten.</p>
+                    <p class="bt-project-hint">Klik op uw gewenste dienst om deze direct te selecteren voor uw aanvraag.</p>
+                </div>
+                <div class="bt-project-grid" aria-label="Kies uw type bouwproject">
+                    <button class="bt-project" type="button" data-project="dakkapel" aria-pressed="false">
+                        <img src="images/website-2026/diensten/dakkapel-dakopbouw-van-schets-naar-realisatie.webp" srcset="images/website-2026/diensten/dakkapel-dakopbouw-van-schets-naar-realisatie-640.webp 640w, images/website-2026/diensten/dakkapel-dakopbouw-van-schets-naar-realisatie.webp 1537w" sizes="(max-width: 820px) 50vw, 25vw" width="1537" height="1023" alt="Dakkapel op een Nederlandse woning met aansluitende technische dakschets" loading="lazy" decoding="async">
+                        <span class="bt-project__overlay"><span class="bt-project__number">01</span><span class="bt-project__name">Dakkapel</span></span><span class="bt-project__tick" aria-hidden="true">✓</span>
+                    </button>
+                    <button class="bt-project" type="button" data-project="dakopbouw" aria-pressed="false">
+                        <img src="images/Dakopbouw_-homepage.webp" srcset="images/Dakopbouw_-homepage-640.webp 640w, images/Dakopbouw_-homepage.webp 1600w" sizes="(max-width: 820px) 50vw, 25vw" width="1600" height="867" alt="Illustratieve moderne dakopbouw op een bestaande Nederlandse woning" loading="lazy" decoding="async">
+                        <span class="bt-project__overlay"><span class="bt-project__number">02</span><span class="bt-project__name">Dakopbouw</span></span><span class="bt-project__tick" aria-hidden="true">✓</span>
+                    </button>
+                    <button class="bt-project" type="button" data-project="aanbouw-uitbouw" aria-pressed="false">
+                        <img src="images/uitbouw-homepage.webp" srcset="images/uitbouw-homepage-640.webp 640w, images/uitbouw-homepage.webp 1504w" sizes="(max-width: 820px) 50vw, 25vw" width="1504" height="704" alt="Illustratieve moderne uitbouw aan de achterzijde van een Nederlandse woning" loading="lazy" decoding="async">
+                        <span class="bt-project__overlay"><span class="bt-project__number">03</span><span class="bt-project__name">Aanbouw / uitbouw</span></span><span class="bt-project__tick" aria-hidden="true">✓</span>
+                    </button>
+                    <button class="bt-project" type="button" data-project="erker" aria-pressed="false">
+                        <img src="images/website-2026/diensten/erker-gevelaanzicht-en-bouwdetail.webp" srcset="images/website-2026/diensten/erker-gevelaanzicht-en-bouwdetail-640.webp 640w, images/website-2026/diensten/erker-gevelaanzicht-en-bouwdetail.webp 1727w" sizes="(max-width: 820px) 50vw, 25vw" width="1727" height="911" alt="Moderne erker met gevelaanzicht en technisch bouwdetail" loading="lazy" decoding="async">
+                        <span class="bt-project__overlay"><span class="bt-project__number">04</span><span class="bt-project__name">Erker</span></span><span class="bt-project__tick" aria-hidden="true">✓</span>
+                    </button>
+                    <button class="bt-project" type="button" data-project="mantelzorgwoning" aria-pressed="false">
+                        <img src="images/website-2026/diensten/mantelzorgwoning-plattegrond-en-gevel.webp" srcset="images/website-2026/diensten/mantelzorgwoning-plattegrond-en-gevel-640.webp 640w, images/website-2026/diensten/mantelzorgwoning-plattegrond-en-gevel.webp 1693w" sizes="(max-width: 820px) 50vw, 25vw" width="1693" height="929" alt="Toegankelijke mantelzorgwoning met plattegrond en geveltekening" loading="lazy" decoding="async">
+                        <span class="bt-project__overlay"><span class="bt-project__number">05</span><span class="bt-project__name">Mantelzorgwoning</span></span><span class="bt-project__tick" aria-hidden="true">✓</span>
+                    </button>
+                    <button class="bt-project" type="button" data-project="bed-breakfast" aria-pressed="false">
+                        <img src="images/B&amp;B_-homepage.webp" srcset="images/B&amp;B_-homepage-640.webp 640w, images/B&amp;B_-homepage.webp 1600w" sizes="(max-width: 820px) 50vw, 25vw" width="1600" height="854" alt="Bed & Breakfast bouwtekening" loading="lazy" decoding="async">
+                        <span class="bt-project__overlay"><span class="bt-project__number">06</span><span class="bt-project__name">Bed &amp; Breakfast</span></span><span class="bt-project__tick" aria-hidden="true">✓</span>
+                    </button>
+                    <button class="bt-project" type="button" data-project="nokverhoging" aria-pressed="false">
+                        <img src="images/website-2026/diensten/nokverhoging-woning-dakdoorsnede.webp" srcset="images/website-2026/diensten/nokverhoging-woning-dakdoorsnede-640.webp 640w, images/website-2026/diensten/nokverhoging-woning-dakdoorsnede.webp 1536w" sizes="(max-width: 820px) 50vw, 25vw" width="1536" height="1024" alt="Illustratieve nokverhoging met aansluitende dakdoorsnede" loading="lazy" decoding="async">
+                        <span class="bt-project__overlay"><span class="bt-project__number">07</span><span class="bt-project__name">Nokverhoging / doorbraak</span></span><span class="bt-project__tick" aria-hidden="true">✓</span>
+                    </button>
+                    <button class="bt-project" type="button" data-project="bijgebouw" aria-pressed="false">
+                        <img src="images/website-2026/diensten/bijgebouw-tuinkantoor-plan-en-gevel.webp" srcset="images/website-2026/diensten/bijgebouw-tuinkantoor-plan-en-gevel-640.webp 640w, images/website-2026/diensten/bijgebouw-tuinkantoor-plan-en-gevel.webp 1693w" sizes="(max-width: 820px) 50vw, 25vw" width="1693" height="929" alt="Bijgebouw of tuinkantoor met plattegrond en gevelschets" loading="lazy" decoding="async">
+                        <span class="bt-project__overlay"><span class="bt-project__number">08</span><span class="bt-project__name">Bijgebouwen</span></span><span class="bt-project__tick" aria-hidden="true">✓</span>
+                    </button>
+                </div>
+                <p class="bt-project-note">Staat uw gewenste bouwproject er niet tussen? Selecteer ‘Anders’ bij uw aanvraag. Wij bekijken graag of we hiervoor een passende bouwtekening kunnen verzorgen.</p>
+            </div>
+        </section>
+
+        <section class="bt-section" aria-labelledby="uitleg-title">
+            <div class="bt-shell">
+                <p class="bt-eyebrow">Duidelijke basis</p>
+                <h2 id="uitleg-title">Wat is een bouwtekening?</h2>
+                <div class="bt-copy-card">
+                    <p>Een bouwtekening vormt de basis voor een goed voorbereid bouw- of verbouwproject. Hierin worden onder andere de indeling, afmetingen en constructieve uitgangspunten van uw plannen inzichtelijk gemaakt, voor zover deze binnen de opdracht vallen.</p>
+                    <p>Zo weet u beter hoe uw plannen worden uitgewerkt en beschikken betrokken partijen, zoals uw aannemer, over duidelijke informatie. Ook kan een bouwtekening nodig zijn bij het aanvragen van een omgevingsvergunning.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bt-section bt-section--soft" aria-labelledby="prijs-title">
+            <div class="bt-shell">
+                <article class="bt-price-card">
+                    <div class="bt-price-card__top">
+                        <div>
+                            <p class="bt-eyebrow">Compact prijsoverzicht</p>
+                            <h2 id="prijs-title">Bouwtekening</h2>
+                            <p class="bt-price-card__intro">Voor wie bouwkundige tekeningen nodig heeft en een eventuele vergunningsaanvraag zelf regelt.</p>
+                        </div>
+                        <div class="bt-price-card__price">Vanaf €250<small>incl. btw (€206,61 excl. btw)</small></div>
+                    </div>
+                    <div class="bt-price-columns">
+                        <div>
+                            <h3>Wat zit erin?</h3>
+                            <ul>
+                                <li>Bouwkundig tekenadvies.</li>
+                                <li>Plattegronden, gevelaanzichten en doorsneden volgens de opdracht.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Niet inbegrepen</h3>
+                            <ul>
+                                <li>Vergunningsaanvraag en gemeentecontact.</li>
+                                <li>Constructieberekening.</li>
+                                <li>Eventuele aanvullende tekenaanpassingen buiten de opdracht.</li>
+                                <li>Leges en archiefkosten.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="bt-price-foot">De definitieve prijs hangt af van uw project en de benodigde tekeningen.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="bt-section bt-section--white" aria-labelledby="voorbeeld-title">
+            <div class="bt-shell bt-example">
+                <div>
+                    <p class="bt-eyebrow">Voorbeeld</p>
+                    <h2 id="voorbeeld-title">Voorbeeld van een bouwtekening</h2>
+                    <p class="bt-lead">Zo kan een bouwkundige uitwerking eruitzien. Welke tekeningen u ontvangt, stemmen we vooraf met u af.</p>
+                </div>
+                <figure class="bt-example__image">
+                    <img src="images/website-2026/bouwtekeningen-plattegrond-gevel-doorsnede.webp" srcset="images/website-2026/bouwtekeningen-plattegrond-gevel-doorsnede-800.webp 800w, images/website-2026/bouwtekeningen-plattegrond-gevel-doorsnede.webp 1600w" sizes="(max-width: 820px) calc(100vw - 32px), 56vw" alt="Voorbeeld van een bouwkundige uitwerking met plattegrond, gevelaanzicht en doorsnede" loading="lazy" decoding="async">
+                </figure>
+            </div>
+        </section>
+
+        <section class="bt-section" aria-labelledby="werkwijze-title">
+            <div class="bt-shell">
+                <p class="bt-eyebrow">Eenvoudig proces</p>
+                <h2 id="werkwijze-title">Zo werkt het</h2>
+                <div class="bt-steps">
+                    <article class="bt-step"><span class="bt-step__num">01</span><h3>Aanvraag</h3><p>Vertel ons kort uw bouwplannen.</p></article>
+                    <article class="bt-step"><span class="bt-step__num">02</span><h3>Offerte</h3><p>Ontvang een vrijblijvende prijsopgave.</p></article>
+                    <article class="bt-step"><span class="bt-step__num">03</span><h3>Uitwerking</h3><p>Na akkoord werken wij uw bouwtekening uit.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="bt-section bt-form-section" id="aanvraag" aria-labelledby="aanvraag-title">
+            <div class="bt-shell bt-form-wrap">
+                <div class="bt-form-copy">
+                    <p class="bt-eyebrow">Vrijblijvende aanvraag</p>
+                    <h2 id="aanvraag-title">Vraag vrijblijvend een offerte aan</h2>
+                    <p class="bt-lead">Vertel ons kort wat u nodig heeft. Uw aanvraag is geheel vrijblijvend en binnen ongeveer één minuut in te vullen.</p>
+                    <ul>
+                        <li>Geen technische voorkennis nodig.</li>
+                        <li>Bestanden toevoegen is optioneel.</li>
+                        <li>Uw project wordt eerst beoordeeld voordat een definitieve prijs wordt bevestigd.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <form class="bt-form" name="offerteaanvraag" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+                        <p class="bt-form__honeypot" aria-hidden="true"><label>Laat dit veld leeg: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+                        <input type="hidden" name="form-name" value="offerteaanvraag">
+                        <input type="hidden" name="bron" value="bouwtekening-laten-maken">
+                        <input type="hidden" name="diensten[]" value="bouwtekening">
+
+                        <div class="bt-field">
+                            <label class="bt-required" for="projecttype">Gewenste bouwtekening</label>
+                            <select id="projecttype" name="projecttype" required aria-required="true">
+                                <option value="">Maak een keuze</option>
+                                <option value="dakkapel">Dakkapel</option>
+                                <option value="dakopbouw">Dakopbouw</option>
+                                <option value="aanbouw-uitbouw">Aanbouw / uitbouw</option>
+                                <option value="erker">Erker</option>
+                                <option value="mantelzorgwoning">Mantelzorgwoning</option>
+                                <option value="bed-breakfast">Bed &amp; Breakfast</option>
+                                <option value="nokverhoging">Nokverhoging / doorbraak</option>
+                                <option value="bijgebouw">Bijgebouwen</option>
+                                <option value="overig">Anders</option>
+                            </select>
+                        </div>
+
+                        <div class="bt-field">
+                            <label for="projectomschrijving">Uw bouwplannen <span aria-hidden="true">(optioneel)</span></label>
+                            <textarea id="projectomschrijving" name="projectomschrijving" placeholder="Beschrijf kort wat u wilt bouwen of verbouwen..."></textarea>
+                        </div>
+
+                        <div class="bt-form-grid">
+                            <div class="bt-field">
+                                <label class="bt-required" for="naam">Naam</label>
+                                <input id="naam" name="naam" type="text" autocomplete="name" required aria-required="true">
+                            </div>
+                            <div class="bt-field">
+                                <label class="bt-required" for="email">E-mailadres</label>
+                                <input id="email" name="email" type="email" autocomplete="email" required aria-required="true">
+                            </div>
+                            <div class="bt-field bt-field--full">
+                                <label for="telefoon">Telefoonnummer <span aria-hidden="true">(optioneel)</span></label>
+                                <input id="telefoon" name="telefoon" type="tel" autocomplete="tel">
+                            </div>
+                            <div class="bt-field bt-field--full">
+                                <label for="bijlagen">Bestaande materialen toevoegen <span aria-hidden="true">(optioneel)</span></label>
+                                <p class="bt-help">Voeg eventueel foto’s, schetsen of bestaande bouwtekeningen toe. PDF, JPG, PNG en WebP; maximaal 7 MB totaal. Upload geen identiteitsbewijs, BSN of financiële gegevens.</p>
+                                <input id="bijlagen" name="bijlagen[]" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp" multiple>
+                                <p class="bt-file-feedback" id="file-feedback" aria-live="polite">Geen bestanden geselecteerd.</p>
+                            </div>
+                        </div>
+
+                        <label class="bt-privacy" for="privacy-akkoord">
+                            <input id="privacy-akkoord" name="privacy-akkoord" type="checkbox" value="akkoord" required>
+                            <span>Ik heb het <a href="privacybeleid.html" target="_blank" rel="noopener">privacybeleid</a> gelezen en begrijp dat mijn gegevens en eventuele bestanden worden gebruikt om deze aanvraag te beoordelen en op te volgen.</span>
+                        </label>
+
+                        <button class="bt-button bt-submit" type="submit">Verstuur vrijblijvende aanvraag <span aria-hidden="true">→</span></button>
+                        <p class="bt-form-status" role="status" aria-live="polite"></p>
+                    </form>
+
+                    <div class="bt-success" tabindex="-1" hidden>
+                        <h3>Dank u. Uw aanvraag is verzonden.</h3>
+                        <p>We hebben uw aanvraag ontvangen en nemen contact met u op nadat we uw project hebben beoordeeld.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-link"><span class="footer-logo-text"><span class="logo-gold">Technisch</span>Bouwadvies</span></a>
+                <p>Persoonlijk bouwkundig teken- en adviesbureau voor verbouwingsplannen en vergunningstrajecten in Nederland.</p>
+            </div>
+            <div class="footer-nav">
+                <h5>Diensten</h5>
+                <ul>
+                    <li><a href="dakkapel.html">Dakkapel</a></li><li><a href="dakopbouw-vergunningen.html">Dakopbouw</a></li><li><a href="aanbouw-uitbouw.html">Aanbouw &amp; Uitbouw</a></li><li><a href="erker.html">Erker</a></li><li><a href="mantelzorg.html">Mantelzorgwoning</a></li><li><a href="bijgebouw.html">Bijgebouwen</a></li><li><a href="bed-breakfast.html">Bed &amp; Breakfast</a></li><li><a href="nokverhoging.html">Nokverhoging</a></li><li><a href="carport-vergunning.html">Carport</a></li><li><a href="kozijnen-vervangen-vergunning.html">Kozijnen</a></li><li><a href="bouwkundig-advies.html">Bouwkundig Advies</a></li><li><a href="omgevingsvergunning-aanvragen.html">Omgevingsvergunning</a></li><li><a href="bouwtekening-digitaliseren.html">Digitaliseren</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h5>Contact</h5>
+                <ul><li><a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a></li><li><a href="tel:+31649240412">+31 (0)6 49 24 04 12</a></li><li><a href="contact.html">Contactformulier</a></li><li><a href="over-ons.html">Over Ons</a></li></ul>
+            </div>
+            <div class="footer-nav">
+                <h5>Kennis & inspiratie</h5>
+                <ul><li><a href="blog.html">Blog en praktische uitleg</a></li><li><a href="index.html#faq">Veelgestelde vragen</a></li><li><a href="3d-visualisaties-vloerplannen.html">3D-visualisaties en vloerplannen</a></li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2025&ndash;2026 Technisch Bouwadvies | KVK: 95153756</div>
+            <div class="footer-legal"><a href="privacybeleid.html">Privacybeleid</a><a href="algemene-voorwaarden.html">Algemene Voorwaarden</a><a href="cookiebeleid.html">Cookiebeleid</a></div>
+        </div>
+    </footer>
+
+    <div class="bt-sticky" data-bt-sticky>
+        <a class="bt-button" href="#aanvraag">Vraag vrijblijvend een offerte aan</a>
+    </div>
+
+    <script src="site-header.js" defer></script>
+    <script>
+    (function () {
+        "use strict";
+
+        var form = document.querySelector(".bt-form");
+        var select = document.getElementById("projecttype");
+        var projectButtons = Array.from(document.querySelectorAll(".bt-project"));
+        var fileInput = document.getElementById("bijlagen");
+        var fileFeedback = document.getElementById("file-feedback");
+        var status = form.querySelector(".bt-form-status");
+        var submitButton = form.querySelector(".bt-submit");
+        var successPanel = document.querySelector(".bt-success");
+        var sticky = document.querySelector("[data-bt-sticky]");
+        var maxBytes = 7 * 1024 * 1024;
+        var allowedExtensions = new Set(["pdf", "jpg", "jpeg", "png", "webp"]);
+        var defaultSubmitText = submitButton.innerHTML;
+
+        function setProject(value) {
+            select.value = value;
+            projectButtons.forEach(function (button) {
+                button.setAttribute("aria-pressed", String(button.dataset.project === value));
+            });
+        }
+
+        projectButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                setProject(button.dataset.project);
+            });
+        });
+
+        select.addEventListener("change", function () {
+            projectButtons.forEach(function (button) {
+                button.setAttribute("aria-pressed", String(button.dataset.project === select.value));
+            });
+        });
+
+        function validateFiles() {
+            var files = Array.from(fileInput.files || []);
+            var total = files.reduce(function (sum, file) { return sum + file.size; }, 0);
+            var invalidFile = files.find(function (file) {
+                var parts = file.name.toLowerCase().split(".");
+                var extension = parts.length > 1 ? parts.pop() : "";
+                return !allowedExtensions.has(extension);
+            });
+
+            if (invalidFile) {
+                fileFeedback.textContent = "Dit bestandstype wordt niet ondersteund: " + invalidFile.name + ". Gebruik PDF, JPG, PNG of WebP.";
+                fileFeedback.classList.add("is-error");
+                return false;
+            }
+
+            if (total > maxBytes) {
+                fileFeedback.textContent = "De gekozen bestanden zijn samen groter dan 7 MB. Verwijder één of meer bestanden.";
+                fileFeedback.classList.add("is-error");
+                return false;
+            }
+
+            fileFeedback.classList.remove("is-error");
+            if (!files.length) {
+                fileFeedback.textContent = "Geen bestanden geselecteerd.";
+            } else {
+                var names = files.map(function (file) { return file.name; }).join(", ");
+                fileFeedback.textContent = files.length + " bestand(en) geselecteerd: " + names;
+            }
+            return true;
+        }
+
+        fileInput.addEventListener("change", validateFiles);
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            status.className = "bt-form-status";
+            status.textContent = "";
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                status.textContent = "Controleer de verplichte velden.";
+                status.classList.add("is-error");
+                return;
+            }
+
+            if (!validateFiles()) {
+                fileInput.focus();
+                status.textContent = "Controleer de geselecteerde bestanden.";
+                status.classList.add("is-error");
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = "Aanvraag verzenden…";
+
+            if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+                status.textContent = "Lokale preview: de aanvraag is niet verstuurd naar de productieomgeving.";
+                submitButton.disabled = false;
+                submitButton.innerHTML = defaultSubmitText;
+                return;
+            }
+
+            try {
+                var response = await fetch("/", {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: { "Accept": "application/json" }
+                });
+
+                if (!response.ok) throw new Error("Formulier kon niet worden verwerkt.");
+
+                if (typeof window.tbaTrackLead === "function") window.tbaTrackLead("offerteaanvraag");
+                form.hidden = true;
+                successPanel.hidden = false;
+                successPanel.focus();
+                status.textContent = "";
+            } catch (error) {
+                status.textContent = "De aanvraag kon niet worden verzonden. Probeer het opnieuw of mail naar info@technischbouwadvies.nl.";
+                status.classList.add("is-error");
+                submitButton.disabled = false;
+                submitButton.innerHTML = defaultSubmitText;
+            }
+        });
+
+        if ("IntersectionObserver" in window && sticky) {
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    sticky.style.visibility = entry.isIntersecting ? "hidden" : "";
+                    sticky.style.pointerEvents = entry.isIntersecting ? "none" : "";
+                });
+            }, { threshold: 0.12 });
+            observer.observe(document.getElementById("aanvraag"));
+        }
+
+        window.addEventListener("load", function () {
+            document.querySelectorAll(".tba-nav-cta, .tba-mobile-cta").forEach(function (link) {
+                link.setAttribute("href", "#aanvraag");
+            });
+            document.querySelectorAll(".tba-mobile-secondary a").forEach(function (link) {
+                if (link.textContent.trim().toLowerCase() === "contact") link.setAttribute("href", "#aanvraag");
+            });
+        });
+    }());
+    </script>
+</body>
+</html>
