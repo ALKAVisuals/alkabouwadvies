@@ -2072,7 +2072,7 @@ transform: translateY(-2px);
             line-height: 1.75;
         }
         .calc-live-total {
-            margin: 1.5rem 0 -2rem;
+            margin: 1.5rem 0 0;
             color: var(--accent);
             font-size: 0.9rem;
             font-weight: 700;
@@ -2582,6 +2582,81 @@ transform: translateY(-2px);
         .calc-summary-row dt { color: rgba(255, 255, 255, 0.52); }
         .calc-summary-row dd { margin: 0; color: rgba(255, 255, 255, 0.9); font-weight: 650; }
         .calc-summary-empty { margin: 0; color: rgba(255, 255, 255, 0.6); font-size: 0.8rem; line-height: 1.55; }
+        .calc-request-choices { display: grid; gap: 1rem; }
+        .calc-request-choice { min-width: 0; }
+        .calc-request-choice > label,
+        .calc-request-choice-label { display: block; margin: 0 0 0.42rem; color: rgba(255, 255, 255, 0.9); font-size: 0.8rem; font-weight: 750; }
+        .calc-request-select-wrap { position: relative; }
+        .calc-request-select-wrap::after,
+        .calc-request-multiselect > summary::after {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-right: 1.5px solid rgba(255, 255, 255, 0.68);
+            border-bottom: 1.5px solid rgba(255, 255, 255, 0.68);
+            content: "";
+            pointer-events: none;
+        }
+        .calc-request-select-wrap::after { position: absolute; top: 50%; right: 1rem; transform: translateY(-65%) rotate(45deg); }
+        .calc-request-choice select,
+        .calc-request-multiselect > summary {
+            width: 100%;
+            min-height: 50px;
+            padding: 0.78rem 2.8rem 0.78rem 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 0;
+            background: rgba(255, 255, 255, 0.055);
+            color: rgba(255, 255, 255, 0.46);
+            font: inherit;
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+        .calc-request-choice select { appearance: none; cursor: pointer; }
+        .calc-request-choice select.has-value,
+        .calc-request-multiselect.has-value > summary { color: var(--white); }
+        .calc-request-choice select option { background: #24231f; color: var(--white); }
+        .calc-request-choice select:focus-visible,
+        .calc-request-multiselect > summary:focus-visible { outline: 3px solid rgba(196, 163, 90, 0.36); outline-offset: 2px; border-color: var(--accent); }
+        .calc-request-multiselect { position: relative; }
+        .calc-request-multiselect > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; list-style: none; cursor: pointer; }
+        #calc-request-addons-summary { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .calc-request-multiselect > summary::-webkit-details-marker { display: none; }
+        .calc-request-multiselect > summary::after { transform: rotate(45deg) translateY(-2px); }
+        .calc-request-multiselect[open] > summary::after { transform: rotate(225deg) translate(-2px, -2px); }
+        .calc-request-multiselect-menu {
+            position: absolute;
+            z-index: 12;
+            top: calc(100% + 0.35rem);
+            left: 0;
+            width: 100%;
+            padding: 0.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: #24231f;
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+        }
+        .calc-request-addon-option {
+            display: flex;
+            min-height: 44px;
+            margin: 0;
+            padding: 0.65rem 0.7rem;
+            align-items: center;
+            gap: 0.7rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.84rem;
+            line-height: 1.35;
+            cursor: pointer;
+        }
+        .calc-request-addon-option:hover { background: rgba(196, 163, 90, 0.16); }
+        .calc-request-addon-option input { width: 1.1rem; height: 1.1rem; margin: 0; flex: 0 0 auto; accent-color: var(--accent); }
+        .calc-request-choice-help,
+        .calc-request-choices-note { margin: 0.55rem 0 0; color: rgba(255, 255, 255, 0.62); font-size: 0.78rem; line-height: 1.55; }
+        .calc-request-choice-help a { display: inline-block; margin-top: 0.25rem; color: var(--accent); font-weight: 750; text-decoration: underline; text-underline-offset: 3px; }
+        .calc-request-choices-note { padding-top: 0.1rem; }
+        @media (max-width: 431px) {
+            .calc-selection-summary { padding-right: 0.7rem; padding-left: 0.7rem; }
+            .calc-request-choice select,
+            .calc-request-multiselect > summary { height: 66px; min-height: 66px; padding-right: 2.15rem; padding-left: 0.65rem; font-size: 0.8rem; }
+            #calc-request-addons-summary { display: -webkit-box; overflow: hidden; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+        }
         .calc-request-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
         .calc-request-field { min-width: 0; }
         .calc-request-field.full { grid-column: 1 / -1; }
@@ -5064,6 +5139,8 @@ color: var(--white);
         }
 </style>
     <link rel="stylesheet" href="site-header.css">
+    <link rel="stylesheet" href="review-section.css">
+    <script src="review-section.js" defer></script>
     <script src="site-header.js" defer></script>
     <link rel="stylesheet" href="contact-section.css">
     <link rel="stylesheet" href="site-responsive.css?v=20260731">
@@ -5565,12 +5642,35 @@ color: var(--white);
             </div>
         </section>
 
+        <section class="klantervaringen" id="klantervaringen" data-review-section aria-labelledby="klantervaringen-title">
+            <div class="ervaringen-inner">
+                <header class="ervaringen-header">
+                    <p class="ervaringen-eyebrow">VOORBEELDEN VAN ERVARINGEN</p>
+                    <h2 id="klantervaringen-title">Wat klanten over onze dienstverlening zeggen</h2>
+                    <p class="ervaringen-intro">Een selectie van klantervaringen over bouwtekeningen, constructieberekeningen, vergunningbegeleiding en/of visualisaties.</p>
+                </header>
+                <div class="ervaringen-grid" data-review-desktop aria-live="polite" aria-busy="true">
+                    <p class="ervaringen-loading">Klantervaringen laden&hellip;</p>
+                </div>
+                <div class="ervaringen-mobile" data-review-mobile>
+                    <article class="ervaring-card" data-review-card tabindex="0" aria-live="polite">
+                        <div class="ervaring-sterren" aria-label="5 van 5 sterren">★★★★★</div>
+                        <h3 class="ervaring-auteur" data-review-name>Klantervaring</h3>
+                        <p class="ervaring-bron">Review via Google</p>
+                        <p class="ervaring-tekst" data-review-text>Klantervaringen laden&hellip;</p>
+                        <button class="ervaring-volgende" type="button" data-review-next aria-label="Volgende beoordeling">→</button>
+                    </article>
+                    <div class="ervaring-dots" data-review-dots aria-label="Kies een beoordeling"></div>
+                </div>
+                <a class="ervaringen-google-link" href="https://www.google.com/maps/place/Technisch+Bouwadvies/@51.7696007,5.8580223,16.32z/data=!4m8!3m7!1s0x47c70f775769c3a5:0x1956c077fa87201f!8m2!3d51.7690666!4d5.8597112!9m1!1b1!16s%2Fg%2F11ntdwt9gy?entry=ttu&amp;g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Bekijk onze beoordelingen op Google <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+
         <section class="calculator" id="calculator" aria-label="Keuzehulp voor diensten en prijsindicatie">
             <div class="calculator-inner">
                 <div class="section-label">Hulp bij uw keuze</div>
                 <h2 class="section-title">Nog niet zeker welke diensten u nodig heeft?</h2>
                 <p class="calc-intro">Doorloop onze dienstenkiezer en geef stap voor stap aan wat uw plannen zijn. Op basis van uw antwoorden kunt u eenvoudig een vrijblijvende offerteaanvraag indienen.</p>
-                <div id="live-total-bar" class="calc-live-total" aria-live="polite" hidden>Indicatieve prijs: <span id="live-price">&euro;0,-</span> incl. btw <span id="live-price-incl">(&euro;0,- excl. btw)</span></div>
 
                 <div class="calc-container">
                     <div class="calc-steps" role="list" aria-label="Voortgang dienstenkeuze">
@@ -5616,12 +5716,13 @@ color: var(--white);
                             <button class="calc-option" data-route="all" role="radio" aria-checked="false"><span class="opt-label">Bouwtekening + constructie + vergunningbegeleiding</span><span class="opt-desc">Alle drie de kerndiensten binnen één duidelijk afgebakende opdracht.</span><span class="opt-price">Prijs wordt geladen</span></button>
                             <button class="calc-option" data-route="advice" role="radio" aria-checked="false"><span class="opt-label">Weet ik nog niet / graag advies</span><span class="opt-desc">Laat ons op basis van uw informatie bepalen welke ondersteuning nodig is.</span><span class="opt-price">Prijs na beoordeling</span></button>
                         </div>
+                        <div id="live-total-bar" class="calc-live-total" aria-live="polite" hidden>Indicatieve prijs: <span id="live-price">&euro;0,-</span> incl. btw <span id="live-price-incl">(&euro;0,- excl. btw)</span></div>
                         <div class="calc-nav"><button class="calc-btn-secondary" id="calc-back-2" type="button">Terug</button><button class="calc-btn" id="calc-next-2" type="button" disabled>Door naar details</button></div>
                     </div>
 
                     <div class="calc-panel" data-step="3" aria-label="Beantwoord enkele inhoudelijke vragen" hidden>
                         <div class="calc-question">Welke aandachtspunten zijn al bekend?</div>
-                        <p class="calc-step-help">Deze antwoorden veranderen de prijs niet op basis van locatie. Ze helpen wel voorkomen dat een noodzakelijke aanvraag of constructieve uitwerking ontbreekt.</p>
+                        <p class="calc-step-help">Beantwoord de onderstaande vragen voor zover u dit weet. Uw antwoorden helpen ons om beter in te schatten welke werkzaamheden mogelijk nodig zijn.</p>
 
                         <fieldset class="calc-fieldset" data-detail-group="permit">
                             <legend>Is al bekend of een vergunningaanvraag nodig is?</legend>
@@ -5653,8 +5754,7 @@ color: var(--white);
                         <fieldset class="calc-fieldset calc-addons">
                             <legend>Optioneel mee offreren</legend>
                             <div class="calc-check-grid">
-                                <label class="calc-check"><input type="checkbox" value="3d-visualisatie"><span><strong>3D-visualisatie</strong><small>Uitstraling, volume en materialen</small></span></label>
-                                <label class="calc-check"><input type="checkbox" value="3d-vloerplan"><span><strong>Vloerplan</strong><small>Indeling, functies en loopruimte</small></span></label>
+                                <label class="calc-check"><input type="checkbox" value="3d-pakket"><span><strong>3D-visualisatie(s) en vloerplan</strong><small>Uitstraling, volume en ruimtelijke indeling</small></span></label>
                                 <label class="calc-check"><input type="checkbox" value="inmeting"><span><strong>Inmeting</strong><small>Bestaande situatie opnemen</small></span></label>
                                 <label class="calc-check"><input type="checkbox" value="digitaliseren"><span><strong>Digitaliseren</strong><small>Bestaande tekeningen omzetten</small></span></label>
                             </div>
@@ -5680,9 +5780,24 @@ color: var(--white);
                                 <p class="calc-request-intro">Uw keuzes zijn automatisch overgenomen. Vul uw gegevens aan om uw aanvraag te versturen.</p>
 
                                 <section class="calc-selection-summary" aria-labelledby="calc-summary-title">
-                                    <div class="calc-summary-heading"><strong id="calc-summary-title">Uw gekozen uitgangspunten</strong><button class="calc-summary-edit" id="calc-edit-choices" type="button">Wijzig keuzes</button></div>
-                                    <dl class="calc-summary-list" id="calc-summary-list"></dl>
-                                    <p class="calc-summary-empty" id="calc-summary-empty" hidden>Nog geen keuzes gemaakt. Beschrijf uw bouwplannen hieronder; wij bekijken welke ondersteuning passend is.</p>
+                                    <div class="calc-summary-heading"><strong id="calc-summary-title">Waarvoor wilt u een offerte aanvragen?</strong></div>
+                                    <div class="calc-request-choices">
+                                        <div class="calc-request-choice">
+                                            <label for="calc-request-support">Welke ondersteuning zoekt u?</label>
+                                            <div class="calc-request-select-wrap"><select id="calc-request-support"><option value="">Selecteer de gewenste ondersteuning</option><option value="drawing">Bouwtekening</option><option value="constructionOnly">Constructieberekening</option><option value="permitOnly">Vergunningbegeleiding</option><option value="all">Combinatie van alle drie</option><option value="advice">Ik weet het nog niet</option></select></div>
+                                            <p class="calc-request-choice-help" id="calc-request-support-help" hidden>Hulp nodig bij uw keuze? Gebruik onze dienstenkiezer om stap voor stap uw aanvraag samen te stellen.<br><a href="#calculator" id="calc-start-chooser">Start de dienstenkiezer →</a></p>
+                                        </div>
+                                        <div class="calc-request-choice">
+                                            <span class="calc-request-choice-label" id="calc-request-addons-label">Aanvullende diensten (optioneel)</span>
+                                            <details class="calc-request-multiselect" id="calc-request-addons"><summary aria-labelledby="calc-request-addons-label"><span id="calc-request-addons-summary">Selecteer aanvullende diensten</span></summary><div class="calc-request-multiselect-menu"><label class="calc-request-addon-option"><input type="checkbox" value="3d-pakket"><span>3D-visualisatie(s) en vloerplan</span></label><label class="calc-request-addon-option"><input type="checkbox" value="inmeting"><span>Inmeting op locatie</span></label><label class="calc-request-addon-option"><input type="checkbox" value="extra-ontwerpvariant"><span>Extra ontwerpvariant of correctieronde</span></label><label class="calc-request-addon-option"><input type="checkbox" value="digitaliseren"><span>Digitaliseren van bestaande tekeningen</span></label></div></details>
+                                        </div>
+                                        <div class="calc-request-choice">
+                                            <label for="calc-request-project">Wat voor project heeft u voor ogen?</label>
+                                            <div class="calc-request-select-wrap"><select id="calc-request-project"><option value="">Selecteer uw project</option><option value="dakkapel">Dakkapel</option><option value="dakopbouw">Dakopbouw</option><option value="aanbouw-uitbouw">Aanbouw of uitbouw</option><option value="erker">Erker</option><option value="mantelzorgwoning">Mantelzorgwoning</option><option value="bed-breakfast">Bed &amp; Breakfast</option><option value="nokverhoging">Nokverhoging</option><option value="bijgebouw">Bijgebouw of tuinkamer</option><option value="carport">Carport</option><option value="kozijnen">Kozijnen of gevelwijziging</option><option value="doorbraak">Doorbraak of dragende wand</option><option value="digitaliseren">Tekeningen digitaliseren</option><option value="overig">Anders of nog niet zeker</option></select></div>
+                                            <p class="calc-request-choice-help" id="calc-request-project-help" hidden>Staat uw project er niet tussen? Geen probleem. Beschrijf uw plannen hieronder, dan bekijken wij wat we voor u kunnen betekenen.</p>
+                                        </div>
+                                        <p class="calc-request-choices-note">Staat uw gewenste ondersteuning er niet tussen? U kunt uw aanvraag gewoon verder invullen en uw wensen hieronder toelichten.</p>
+                                    </div>
                                 </section>
 
                                 <form class="calc-request-form" id="calc-request-form" name="offerteaanvraag" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" novalidate>
@@ -5776,15 +5891,17 @@ color: var(--white);
     <script>
         (function () {
             const heroCta = document.querySelector('.hero-offer-cta');
+            const calculatorSection = document.getElementById('calculator');
             const requestSection = document.getElementById('calc-request-form-panel');
             const form = document.getElementById('calc-request-form');
             const stickyCta = document.getElementById('mobile-sticky-cta');
             const stickyLink = stickyCta?.querySelector('a');
             let heroCtaAboveViewport = false;
+            let calculatorSectionVisible = false;
             let requestSectionVisible = false;
             let formControlFocused = false;
 
-            if (!heroCta || !requestSection || !form || !stickyCta || !stickyLink) return;
+            if (!heroCta || !calculatorSection || !requestSection || !form || !stickyCta || !stickyLink) return;
 
             function consentIsVisible() {
                 const legacyConsent = document.getElementById('cookie-consent');
@@ -5804,6 +5921,7 @@ color: var(--white);
                 const requestSectionPassed = requestSection.getBoundingClientRect().bottom <= 0;
                 const requestSectionOutOfView = requestSectionPassed || !requestSectionVisible;
                 const shouldShow = heroCtaAboveViewport &&
+                    !calculatorSectionVisible &&
                     requestSectionOutOfView &&
                     !formControlFocused &&
                     !consentIsVisible() &&
@@ -5820,6 +5938,11 @@ color: var(--white);
                 heroCtaAboveViewport = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
                 updateStickyCta();
             }, { threshold: [0, 1] }).observe(heroCta);
+
+            new IntersectionObserver((entries) => {
+                calculatorSectionVisible = entries[0].isIntersecting;
+                updateStickyCta();
+            }, { threshold: 0 }).observe(calculatorSection);
 
             new IntersectionObserver((entries) => {
                 requestSectionVisible = entries[0].isIntersecting;
@@ -6266,9 +6389,9 @@ color: var(--white);
             advice: { id: 'route-advies', label: 'Graag advies over de benodigde diensten', services: [] }
         };
         const addonLabels = {
-            '3d-visualisatie': '3D-visualisatie',
-            '3d-vloerplan': 'Vloerplan',
+            '3d-pakket': '3D-visualisatie(s) en vloerplan',
             inmeting: 'Inmeting',
+            'extra-ontwerpvariant': 'Extra ontwerpvariant of correctieronde',
             digitaliseren: 'Digitaliseren'
         };
         let calcState = {
@@ -6326,6 +6449,18 @@ color: var(--white);
             if (step === 3) return Boolean(calcState.permit && calcState.structural && calcState.drawings);
             return false;
         };
+        const scrollToCalculator = () => {
+            const calculatorSection = document.getElementById('calculator');
+            if (!calculatorSection) return;
+            const target = calculatorSection.classList.contains('is-request-step')
+                ? calculatorSection.querySelector('.calc-container')
+                : calculatorSection.querySelector('.section-title');
+            if (!target) return;
+            const headerHeight = document.getElementById('tba-site-nav')?.offsetHeight || 72;
+            const targetTop = window.scrollY + target.getBoundingClientRect().top - headerHeight - 12;
+            if (enableRichMotion) lenis.scrollTo(targetTop);
+            else window.scrollTo({ top: targetTop, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        };
         const showCalcStep = (step, { markReached = true } = {}) => {
             currentCalcStep = step;
             if (markReached) maxReachedCalcStep = Math.max(maxReachedCalcStep, step);
@@ -6351,6 +6486,9 @@ color: var(--white);
             }
             updateStepNavigation();
             window.dispatchEvent(new CustomEvent('tba:calculator-step-change', { detail: { step } }));
+            window.requestAnimationFrame(() => {
+                window.requestAnimationFrame(scrollToCalculator);
+            });
         };
         const clearRadioGroup = (selector) => {
             document.querySelectorAll(selector).forEach((option) => {
@@ -6501,6 +6639,129 @@ color: var(--white);
         const allowedRequestExtensions = new Set(['pdf', 'jpg', 'jpeg', 'png', 'webp']);
         const allowedRequestMimeTypes = new Set(['application/pdf', 'image/jpeg', 'image/png', 'image/webp']);
 
+        const requestSupportSelect = document.getElementById('calc-request-support');
+        const requestProjectSelect = document.getElementById('calc-request-project');
+        const requestAddons = document.getElementById('calc-request-addons');
+        const requestAddonInputs = Array.from(requestAddons.querySelectorAll('input[type="checkbox"]'));
+        const requestAddonMap = {
+            '3d-pakket': ['3d-pakket'],
+            inmeting: ['inmeting'],
+            'extra-ontwerpvariant': ['extra-ontwerpvariant'],
+            digitaliseren: ['digitaliseren']
+        };
+        const requestRouteValues = new Set(['drawing', 'constructionOnly', 'permitOnly', 'all', 'advice']);
+
+        const updateRequestAddonSummary = () => {
+            const selectedInputs = requestAddonInputs.filter((input) => input.checked);
+            const selectedLabels = selectedInputs.map((input) => input.closest('label').textContent.trim());
+            const summary = document.getElementById('calc-request-addons-summary');
+            summary.textContent = selectedLabels.length === 0
+                ? 'Selecteer aanvullende diensten'
+                : selectedLabels.join(', ');
+            summary.title = selectedLabels.join(', ');
+            const selectedCount = selectedInputs.length;
+            requestAddons.classList.toggle('has-value', selectedCount > 0);
+        };
+
+        const syncRequestChoiceControls = () => {
+            const routeKey = calcState.recommendedRoute || calcState.selectedRoute;
+            requestSupportSelect.querySelector('[data-current-route]')?.remove();
+            if (routeKey && !requestRouteValues.has(routeKey) && routeCatalog[routeKey]) {
+                const currentRouteOption = document.createElement('option');
+                currentRouteOption.value = routeKey;
+                currentRouteOption.textContent = routeCatalog[routeKey].label;
+                currentRouteOption.dataset.currentRoute = 'true';
+                requestSupportSelect.options[0].after(currentRouteOption);
+            }
+            requestSupportSelect.value = routeKey && routeCatalog[routeKey] ? routeKey : '';
+            requestSupportSelect.classList.toggle('has-value', Boolean(requestSupportSelect.value));
+            document.getElementById('calc-request-support-help').hidden = requestSupportSelect.value !== 'advice';
+            requestProjectSelect.value = projectCatalog[calcState.projectType] ? calcState.projectType : '';
+            requestProjectSelect.classList.toggle('has-value', Boolean(requestProjectSelect.value));
+            document.getElementById('calc-request-project-help').hidden = requestProjectSelect.value !== 'overig';
+
+            const selectedAddons = new Set(calcState.addons);
+            requestAddonInputs.forEach((input) => {
+                const mappedValues = requestAddonMap[input.value];
+                const selectedValues = mappedValues.filter((value) => selectedAddons.has(value));
+                input.checked = selectedValues.length > 0;
+                input.indeterminate = selectedValues.length > 0 && selectedValues.length < mappedValues.length;
+            });
+            updateRequestAddonSummary();
+        };
+
+        const syncStepProjectSelection = () => {
+            clearRadioGroup('.calc-panel[data-step="1"] .calc-option');
+            const selectedOption = document.querySelector(`.calc-panel[data-step="1"] .calc-option[data-value="${calcState.projectType}"]`);
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+                selectedOption.setAttribute('aria-checked', 'true');
+                calcState.projectLabel = selectedOption.querySelector('.opt-label').textContent;
+            } else {
+                calcState.projectLabel = '';
+            }
+            document.getElementById('calc-next-1').disabled = !selectedOption;
+        };
+
+        const syncStepRouteSelection = () => {
+            clearRadioGroup('.calc-panel[data-step="2"] .calc-option');
+            const selectedOption = document.querySelector(`.calc-panel[data-step="2"] .calc-option[data-route="${calcState.selectedRoute}"]`);
+            if (selectedOption) {
+                selectedOption.hidden = false;
+                selectedOption.classList.add('selected');
+                selectedOption.setAttribute('aria-checked', 'true');
+            }
+            document.getElementById('calc-next-2').disabled = !selectedOption;
+        };
+
+        requestSupportSelect.addEventListener('change', () => {
+            calcState.selectedRoute = requestSupportSelect.value;
+            calcState.recommendedRoute = '';
+            calcState.directRoute = '';
+            syncStepRouteSelection();
+            updateLiveTotal();
+            renderRequestSummary();
+        });
+
+        requestProjectSelect.addEventListener('change', () => {
+            calcState.projectType = requestProjectSelect.value;
+            calcState.recommendedRoute = '';
+            calcState.directRoute = '';
+            syncStepProjectSelection();
+            const availableRoutes = calcState.projectType ? getProjectConfig().available : null;
+            if (calcState.selectedRoute && availableRoutes && !availableRoutes.includes(calcState.selectedRoute)) {
+                calcState.selectedRoute = '';
+                syncStepRouteSelection();
+            }
+            updateRouteOptions();
+            updateLiveTotal();
+            renderRequestSummary();
+        });
+
+        requestAddonInputs.forEach((input) => {
+            input.addEventListener('change', () => {
+                input.indeterminate = false;
+                const selectedAddons = new Set(calcState.addons);
+                requestAddonMap[input.value].forEach((value) => selectedAddons.delete(value));
+                if (input.checked) requestAddonMap[input.value].forEach((value) => selectedAddons.add(value));
+                calcState.addons = Array.from(selectedAddons);
+                document.querySelectorAll('.calc-check input').forEach((stepInput) => {
+                    stepInput.checked = selectedAddons.has(stepInput.value);
+                });
+                renderRequestSummary();
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (requestAddons.open && !requestAddons.contains(event.target)) requestAddons.open = false;
+        });
+        requestAddons.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                requestAddons.open = false;
+                requestAddons.querySelector('summary').focus();
+            }
+        });
+
         const getRequestData = () => {
             const routeKey = calcState.recommendedRoute || calcState.selectedRoute;
             const route = routeCatalog[routeKey] || null;
@@ -6517,30 +6778,8 @@ color: var(--white);
         };
 
         const renderRequestSummary = () => {
-            const list = document.getElementById('calc-summary-list');
-            const empty = document.getElementById('calc-summary-empty');
             const { route, allServices, priceLabel } = getRequestData();
-            const rows = [];
-            if (calcState.projectLabel) rows.push(['Project', calcState.projectLabel]);
-            if (route) rows.push(['Route / diensten', route.label]);
-            if (calcState.addons.length) rows.push(['Aanvullingen', calcState.addons.map((addon) => addonLabels[addon]).join(', ')]);
-            if (calcState.permit) rows.push(['Vergunning nodig', detailLabels.permit[calcState.permit]]);
-            if (calcState.structural) rows.push(['Constructieve wijziging', detailLabels.structural[calcState.structural]]);
-            if (calcState.drawings) rows.push(['Bestaande tekeningen', detailLabels.drawings[calcState.drawings]]);
-            if (priceLabel) rows.push(['Prijsinformatie', priceLabel]);
-
-            list.replaceChildren(...rows.map(([label, value]) => {
-                const wrapper = document.createElement('div');
-                wrapper.className = 'calc-summary-row';
-                const term = document.createElement('dt');
-                const description = document.createElement('dd');
-                term.textContent = label;
-                description.textContent = value;
-                wrapper.append(term, description);
-                return wrapper;
-            }));
-            list.hidden = rows.length === 0;
-            empty.hidden = rows.length !== 0;
+            syncRequestChoiceControls();
 
             document.getElementById('calc-form-projecttype').value = calcState.projectType;
             document.getElementById('calc-form-route').value = route?.label || '';
@@ -6552,20 +6791,12 @@ color: var(--white);
             document.getElementById('calc-form-price').value = priceLabel;
         };
 
-        const scrollToCalculator = () => {
-            const target = document.getElementById('calculator');
-            if (enableRichMotion) lenis.scrollTo(target, { offset: -82 });
-            else target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-        };
-        const openRequestStep = ({ scroll = false } = {}) => {
+        const openRequestStep = () => {
             if (!calcState.directRoute && calcState.selectedRoute && calcState.permit && calcState.structural && calcState.drawings) {
                 calcState.recommendedRoute = determineRecommendedRoute();
             }
             renderRequestSummary();
             showCalcStep(4);
-            if (scroll) {
-                window.setTimeout(scrollToCalculator, 0);
-            }
         };
 
         document.querySelectorAll('.calc-step').forEach((button) => {
@@ -6580,7 +6811,6 @@ color: var(--white);
         document.querySelector('.prijzen-calculator-link')?.addEventListener('click', (event) => {
             event.preventDefault();
             showCalcStep(1, { markReached: false });
-            scrollToCalculator();
         });
 
         document.querySelectorAll('[data-direct-route]').forEach((link) => {
@@ -6611,7 +6841,7 @@ color: var(--white);
                 document.getElementById('calc-next-2').disabled = false;
                 updateRouteOptions();
                 updateLiveTotal();
-                openRequestStep({ scroll: true });
+                openRequestStep();
             });
         });
 
@@ -6623,15 +6853,15 @@ color: var(--white);
             openRequestStep();
         });
 
-        document.getElementById('calc-edit-choices').addEventListener('click', () => {
+        document.getElementById('calc-start-chooser').addEventListener('click', (event) => {
+            event.preventDefault();
             showCalcStep(1, { markReached: false });
-            scrollToCalculator();
         });
 
-        window.addEventListener('tba:open-calculator-request', () => openRequestStep({ scroll: true }));
+        window.addEventListener('tba:open-calculator-request', openRequestStep);
         document.querySelector('.contact-request-cta')?.addEventListener('click', (event) => {
             event.preventDefault();
-            openRequestStep({ scroll: true });
+            openRequestStep();
         });
 
         const setRequestFieldError = (field, invalid) => {

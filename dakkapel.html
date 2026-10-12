@@ -23,6 +23,8 @@
     <link rel="preload" as="image" href="images/website-2026/diensten/dakkapel-ontwerp-panoramisch-raam.webp" imagesrcset="images/website-2026/diensten/dakkapel-ontwerp-panoramisch-raam-800.webp 800w, images/website-2026/diensten/dakkapel-ontwerp-panoramisch-raam.webp 1280w" imagesizes="(max-width: 767px) calc(100vw - 32px), 50vw" fetchpriority="high">
     <link rel="stylesheet" href="site-header.css">
     <link rel="stylesheet" href="site-footer.css?v=20260808-2">
+    <link rel="stylesheet" href="review-section.css">
+    <script src="review-section.js" defer></script>
     <style>
         :root { --ink:#151515; --muted:#68655f; --paper:#f4f1ea; --white:#fff; --gold:#b3944d; --gold-light:#d4b76a; --gold-dark:#7d642d; --line:rgba(21,21,21,.14); --error:#a42c2c; --success:#246c45; }
         * { box-sizing: border-box; }
@@ -193,6 +195,30 @@
         </div></div></section>
 
         <section class="cost-section" aria-labelledby="cost-title"><div class="page-shell compact-copy"><p class="eyebrow">Kosten</p><h2 id="cost-title">Wat kost vergunningbegeleiding?</h2><p>De kosten voor onze begeleiding zijn afhankelijk van uw bouwplan en de benodigde werkzaamheden. Op basis van uw aanvraag ontvangt u een vrijblijvende offerte.</p><p>Ook de eventuele kosten die de gemeente rekent voor het behandelen van uw vergunningsaanvraag (gemeentelijke leges) nemen wij, waar mogelijk, mee in de offerte. Zo heeft u vooraf een zo duidelijk mogelijk beeld van de totale kosten.</p><p class="related-service">Heeft uw plan ook een constructieve onderbouwing nodig? <a href="constructieberekening.html">Bekijk de losse constructieberekening</a>.</p></div></section>
+
+        <section class="klantervaringen" id="klantervaringen" data-review-section aria-labelledby="klantervaringen-title">
+            <div class="ervaringen-inner">
+                <header class="ervaringen-header">
+                    <p class="ervaringen-eyebrow">VOORBEELDEN VAN ERVARINGEN</p>
+                    <h2 id="klantervaringen-title">Wat klanten over onze dienstverlening zeggen</h2>
+                    <p class="ervaringen-intro">Een selectie van klantervaringen over bouwtekeningen, constructieberekeningen, vergunningbegeleiding en/of visualisaties.</p>
+                </header>
+                <div class="ervaringen-grid" data-review-desktop aria-live="polite" aria-busy="true">
+                    <p class="ervaringen-loading">Klantervaringen laden&hellip;</p>
+                </div>
+                <div class="ervaringen-mobile" data-review-mobile>
+                    <article class="ervaring-card" data-review-card tabindex="0" aria-live="polite">
+                        <div class="ervaring-sterren" aria-label="5 van 5 sterren">★★★★★</div>
+                        <h3 class="ervaring-auteur" data-review-name>Klantervaring</h3>
+                        <p class="ervaring-bron">Review via Google</p>
+                        <p class="ervaring-tekst" data-review-text>Klantervaringen laden&hellip;</p>
+                        <button class="ervaring-volgende" type="button" data-review-next aria-label="Volgende beoordeling">→</button>
+                    </article>
+                    <div class="ervaring-dots" data-review-dots aria-label="Kies een beoordeling"></div>
+                </div>
+                <a class="ervaringen-google-link" href="https://www.google.com/maps/place/Technisch+Bouwadvies/@51.7696007,5.8580223,16.32z/data=!4m8!3m7!1s0x47c70f775769c3a5:0x1956c077fa87201f!8m2!3d51.7690666!4d5.8597112!9m1!1b1!16s%2Fg%2F11ntdwt9gy?entry=ttu&amp;g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Bekijk onze beoordelingen op Google <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
 
         <section class="form-section" id="aanvraag" aria-labelledby="form-title"><div class="page-shell"><div class="form-panel">
             <p class="eyebrow">Vrijblijvende aanvraag</p><h2 id="form-title">Vraag vrijblijvend een offerte aan</h2><p class="form-intro">Vertel ons kort wat uw plannen zijn. Uw aanvraag is geheel vrijblijvend en binnen ongeveer één minuut in te vullen.</p>

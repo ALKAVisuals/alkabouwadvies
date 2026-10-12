@@ -344,6 +344,12 @@
 
     function routePrimaryContactLinks() {
         const filename = currentFilename();
+        if (filename === 'index.html') {
+            header.querySelectorAll('.tba-nav-cta, .tba-mobile-cta').forEach((link) => {
+                link.href = '#calculator';
+            });
+            return;
+        }
         if (filename === 'contact.html' || filename === 'constructieberekening.html' || cityPages.has(filename)) return;
 
         const contactHref = window.location.pathname.includes('/blog/') ? '../contact.html' : 'contact.html';
@@ -602,6 +608,12 @@
     header.addEventListener('click', (event) => {
         const link = event.target.closest('a[href]');
         if (!link || link.classList.contains('tba-skip-link')) return;
+
+        if (currentFilename() === 'index.html' && link.matches('.tba-nav-cta, .tba-mobile-cta')) {
+            event.preventDefault();
+            window.dispatchEvent(new CustomEvent('tba:open-calculator-request'));
+            return;
+        }
 
         const linkUrl = new URL(link.href, window.location.href);
         const normalizedPath = (value) => value.replace(/index\.html$/, '').replace(/\/+$/, '/');

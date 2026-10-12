@@ -42,6 +42,8 @@ const publicRootFiles = [
   'fonts.css',
   'privacy-consent.css',
   'privacy-consent.js',
+  'review-section.css',
+  'review-section.js',
   'robots.txt',
   'site-footer.css',
   'site-header.css',
