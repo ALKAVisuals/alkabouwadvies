@@ -33,6 +33,7 @@
         'bed-breakfast.html',
         'bijgebouw.html',
         'bouwkundig-advies.html',
+        'bouwtekening-laten-maken.html',
         'bouwtekening-digitaliseren.html',
         '3d-visualisaties-vloerplannen.html',
         'carport-vergunning.html',
@@ -65,6 +66,7 @@
             label: 'Bouwtekeningen',
             description: 'Ontwerp en tekenwerk voor verbouwing en uitbreiding.',
             services: [
+                ['bouwtekening-laten-maken.html', 'Bouwtekeningen laten maken', 'Professionele tekeningen voor uw bouwplan'],
                 ['dakkapel.html', 'Dakkapel', 'Meer licht en ruimte op zolder'],
                 ['aanbouw-uitbouw.html', 'Aanbouw & uitbouw', 'Vergroot uw woonoppervlak zorgvuldig'],
                 ['dakopbouw-vergunningen.html', 'Dakopbouw', 'Een complete extra verdieping'],
@@ -232,11 +234,6 @@
 
     function addVisualisationUpsell() {
         const visualisationByPage = new Map([
-            ['aanbouw-uitbouw.html', {
-                heading: 'Bekijk uw aanbouw voordat er gebouwd wordt.',
-                src: 'images/website-2026/3d-visualisatie-aanbouw-schets-naar-realisatie.webp',
-                alt: '3D-visualisatie van een moderne aanbouw aan een Nederlandse woning'
-            }],
             ['bed-breakfast.html', {
                 heading: 'Maak indeling en gastverblijf vooraf zichtbaar.',
                 src: 'images/website-2026/3d/vloerplan-compact-wonen-met-terras.webp',
@@ -300,7 +297,6 @@
 
     function addConstructionCrossSell() {
         const relevantPages = new Set([
-            'aanbouw-uitbouw.html',
             'bijgebouw.html',
             'dakkapel.html',
             'dakopbouw-vergunningen.html',

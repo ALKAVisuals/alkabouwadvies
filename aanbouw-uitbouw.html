@@ -233,9 +233,6 @@
             .nav-phone {
                 font-size: 0.75rem;
             }
-            .mobile-sticky-cta {
-                display: none !important;
-            }
         }
         .logo span {
             font-weight: 400;
@@ -826,20 +823,6 @@ transform: translateY(-2px);
             transform: translateY(-2px);
             box-shadow: 0 12px 30px rgba(179, 148, 77, 0.3);
         }
-        .hero-cta-secondary {
-            font-size: 0.8125rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.5);
-            text-decoration: none;
-            letter-spacing: 0.04em;
-            transition: color 0.3s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            padding-bottom: 2px;
-        }
-        .hero-cta-secondary:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
         .hero-right {
             position: relative;
             overflow: hidden;
@@ -874,33 +857,6 @@ transform: translateY(-2px);
             inset: 0;
             background: linear-gradient(135deg, rgba(15, 15, 15, 0.5) 0%, transparent 60%);
         }
-        .hero-right-badge {
-            position: absolute;
-            bottom: 3rem;
-            left: 3rem;
-            background: rgba(15, 15, 15, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(179, 148, 77, 0.3);
-            padding: 1.25rem 1.75rem;
-            z-index: 2;
-        }
-        .hero-right-badge strong {
-            display: block;
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: var(--accent);
-            letter-spacing: -0.04em;
-            line-height: 1;
-        }
-        .hero-right-badge span {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.5);
-            margin-top: 0.375rem;
-            display: block;
-        }
         .hero-geo-line {
             position: absolute;
             bottom: 0;
@@ -908,55 +864,6 @@ transform: translateY(-2px);
             right: 0;
             height: 1px;
             background: linear-gradient(to right, transparent, rgba(179, 148, 77, 0.3), transparent);
-        }
-
-        /* USP BANNER */
-        .usp-banner {
-            background: var(--white);
-            border-bottom: 1px solid var(--gray);
-            padding: 2.5rem 4vw;
-            position: relative;
-            z-index: 5;
-        }
-        .usp-banner-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            text-align: center;
-        }
-        .usp-banner-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.5rem;
-            transition: all 0.3s ease;
-        }
-        .usp-banner-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(179, 148, 77, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            font-size: 0.9rem;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-        .usp-banner-item:hover .usp-banner-icon {
-            background: var(--accent);
-            color: var(--white);
-            transform: scale(1.1);
-        }
-        .usp-banner-text {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text);
-            letter-spacing: -0.01em;
         }
 
         /* WAARDE STIJGING */
@@ -975,10 +882,30 @@ transform: translateY(-2px);
         }
         .waardestijging-visual {
             position: relative;
-            aspect-ratio: 4/3;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0;
+            aspect-ratio: 6/5;
             overflow: hidden;
             border-radius: 4px;
             background: #1a1a1a;
+        }
+        .waardestijging-visual::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            z-index: 2;
+            width: 1px;
+            background: rgba(196, 163, 90, 0.72);
+            transform: translateX(-0.5px);
+        }
+        .waardestijging-visual.waardestijging-visual--single {
+            grid-template-columns: 1fr;
+        }
+        .waardestijging-visual.waardestijging-visual--single::after {
+            display: none;
         }
         .waardestijging-visual img {
             width: 100%;
@@ -1206,6 +1133,9 @@ transform: translateY(-2px);
         .vergunning-plicht-inner {
             max-width: 1400px;
             margin: 0 auto;
+            padding: clamp(1.5rem, 4vw, 3.5rem);
+            border: 1px solid var(--gray);
+            background: var(--white);
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 6rem;
@@ -1281,390 +1211,24 @@ transform: translateY(-2px);
         .welstand-blok strong {
             color: var(--text);
         }
-
-        /* === CHECKLIST WIZARD PREMIUM STYLES === */
-        .checklist-sectie {
-            background: var(--white);
-            padding: 10rem 4vw;
-            border-top: 1px solid var(--gray);
-            position: relative;
-            overflow: hidden;
-        }
-        .checklist-inner {
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        .checklist-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        /* Glassmorphism container */
-        .checklist-wizard {
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.8);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Progress bar */
-        .wizard-progress {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            color: var(--text-light);
-            text-transform: uppercase;
-        }
-        .wizard-progress span {
-            color: var(--accent);
-            margin-right: 0.5rem;
-        }
-        .wizard-progress .step-indicator {
-            display: inline-block;
-            width: 60px;
-            height: 2px;
-            background: var(--gray);
-            margin: 0 0.75rem;
-            position: relative;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .wizard-progress .step-indicator::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            background: var(--accent);
-            width: 0%;
-            transition: width 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        /* Vraag transitie container */
-        .wizard-questions {
-            position: relative;
-            min-height: 200px;
-        }
-        .wizard-vraag {
-            position: absolute;
+        .vergunning-plicht-img-wrap img {
+            display: block;
             width: 100%;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(50px);
         }
-        .wizard-vraag.active {
-            position: relative;
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-        .wizard-vraag h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.01em;
-        }
-
-        /* Premium Interactieve Tiles */
-        .wizard-opties {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1rem;
-        }
-        .wizard-tile {
-            background: var(--white);
-            border: 1.5px solid var(--gray);
-            border-radius: 12px;
-            padding: 1.5rem 1.25rem;
-            font-family: inherit;
-            font-size: 0.9375rem;
-            font-weight: 500;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.25s ease;
+        .vergunning-plicht-caption {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            position: relative;
-            outline: none;
-            user-select: none;
+            gap: 0.25rem;
+            margin-top: 1rem;
         }
-        .wizard-tile i {
-            font-size: 1.5rem;
-            color: var(--accent);
-            opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.25s ease;
+        .vergunning-plicht-caption strong {
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
-        .wizard-tile:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-            box-shadow: 0 8px 24px rgba(179,148,77,0.1);
-        }
-        .wizard-tile:active {
-            transform: scale(0.95);
-        }
-        .wizard-tile.selected {
-            background: rgba(179,148,77,0.05);
-            border-color: var(--accent);
-            border-width: 2px;
-            box-shadow: 0 0 15px rgba(179,148,77,0.3), 0 0 0 4px rgba(179,148,77,0.15);
-            font-weight: 600;
-        }
-        .wizard-tile.selected i {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Resultaat reveal */
-        .wizard-resultaat {
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 12px;
-            border: 2px solid var(--accent);
-            margin-top: 2rem;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: none;
-            display: none;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-        }
-        .wizard-resultaat.visible {
-            display: block;
-            opacity: 1;
-            transform: scale(1);
-        }
-        .wizard-resultaat-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .wizard-resultaat.vergunning-nodig .wizard-resultaat-icon {
-            color: var(--accent);
-        }
-        .wizard-resultaat.vergunning-vrij .wizard-resultaat-icon {
-            color: var(--success);
-        }
-        .wizard-resultaat h4 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-        .wizard-resultaat p {
+        .vergunning-plicht-caption span {
             color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        .wizard-cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent);
-            color: var(--text);
-            padding: 0.875rem 2rem;
-            font-weight: 700;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-        .wizard-cta-btn:hover {
-            background: var(--text);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        /* Resultaat badge */
-        .result-badge {
-            display: inline-block;
-            font-size: 0.625rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 0.35rem 0.85rem;
-            margin-bottom: 1.25rem;
-            background: rgba(179,148,77,0.04);
-            border-radius: 4px;
-            font-family: 'Inter', sans-serif;
-        }
-        .result-urgentie {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            margin-bottom: 1.25rem;
-            font-style: italic;
+            font-size: 0.82rem;
             line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            .checklist-wizard {
-                padding: 1.5rem;
-            }
-            .wizard-opties {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .wizard-back-btn {
-            background: none;
-            border: 1px solid var(--gray);
-            border-radius: 8px;
-            padding: 0.5rem 1rem;
-            font-family: inherit;
-            font-size: 0.875rem;
-            color: var(--text);
-            cursor: pointer;
-            margin-right: 1rem;
-            transition: all 0.2s;
-        }
-        .wizard-back-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* Reset knop — premium outline stijl */
-        #wizard-reset-btn {
-            display: none;
-            margin-top: 1.25rem;
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--text);
-            border-radius: 8px;
-            padding: 0.75rem 1.5rem;
-            font-family: inherit;
-            font-size: 0.875rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        #wizard-reset-btn:hover {
-            background: transparent;
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(179,148,77,0.2);
-        }
-
-        /* MID CTA */
-        .mid-cta {
-            background: #1a1a1a;
-            border-top: 1px solid rgba(179, 148, 77, 0.25);
-            border-bottom: 1px solid rgba(179, 148, 77, 0.25);
-            padding: 5rem 4vw;
-            position: relative;
-            overflow: hidden;
-        }
-        .mid-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at 20% 50%, rgba(179, 148, 77, 0.07) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 50%, rgba(179, 148, 77, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .mid-cta-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-        .mid-cta-text {
-            max-width: 640px;
-        }
-        .mid-cta-label {
-            font-size: 0.6875rem;
-            font-weight: 700;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .mid-cta-label::before {
-            content: '';
-            display: block;
-            width: 24px;
-            height: 1px;
-            background: var(--accent);
-        }
-        .mid-cta h2 {
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.15;
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-        .mid-cta p {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.45);
-            line-height: 1.7;
-        }
-        .mid-cta-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            align-items: flex-end;
-            flex-shrink: 0;
-        }
-        .mid-cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1.125rem 2.5rem;
-            background: var(--accent);
-            color: var(--text);
-            font-size: 0.8125rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .mid-cta-btn:hover {
-            background: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(179, 148, 77, 0.3);
-        }
-        .mid-cta-note {
-            font-size: 0.6875rem;
-            color: rgba(255, 255, 255, 0.25);
-            letter-spacing: 0.05em;
-            text-align: right;
         }
 
         /* ONS PROCES */
@@ -1874,30 +1438,6 @@ transform: translateY(-2px);
             inset: 0;
             background: linear-gradient(to top, rgba(15, 15, 15, 0.7) 0%, transparent 50%);
         }
-        .constructie-caption {
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            right: 2rem;
-            background: rgba(15, 15, 15, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(179, 148, 77, 0.2);
-            padding: 1.25rem 1.5rem;
-        }
-        .constructie-caption strong {
-            display: block;
-            font-size: 0.8125rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 0.02em;
-            margin-bottom: 0.375rem;
-        }
-        .constructie-caption span {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.4);
-            line-height: 1.5;
-        }
-
         /* PROJECT SHOWCASE */
         .project-showcase {
             background: var(--white);
@@ -1968,175 +1508,325 @@ transform: translateY(-2px);
 
         /* KLANTERVARINGEN */
         .klantervaringen {
-            background: var(--bg);
+            background: #fbfaf7;
             padding: 8rem 4vw;
+            border-top: 1px solid var(--gray);
+            border-bottom: 1px solid var(--gray);
         }
         .ervaringen-inner {
             max-width: 1200px;
             margin: 0 auto;
+            padding: clamp(2rem, 5vw, 4rem);
+            border: 1px solid var(--gray);
+            background: var(--white);
+            box-shadow: 0 18px 44px rgba(31, 28, 21, 0.045);
             text-align: center;
         }
         .ervaringen-header {
-            margin-bottom: 4rem;
+            max-width: 900px;
+            margin: 0 auto 3.5rem;
+        }
+        .ervaringen-header .section-title {
+            max-width: 800px;
+            margin: 0 auto 1.25rem;
+        }
+        .ervaringen-intro {
+            max-width: 820px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.7;
         }
         .ervaringen-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            text-align: left;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+            min-height: 480px;
         }
         .ervaring-card {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 480px;
+            padding: 2rem 1.65rem;
+            overflow: hidden;
             background: var(--white);
             border: 1px solid var(--gray);
-            padding: 2rem;
-            transition: all 0.3s ease;
+            box-shadow: 0 16px 38px rgba(31, 28, 21, 0.06);
+            text-align: center;
+            transition: opacity 0.18s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .ervaring-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            border-color: rgba(179, 148, 77, 0.65);
+            box-shadow: 0 20px 44px rgba(31, 28, 21, 0.1);
+            transform: translateY(-3px);
         }
         .ervaring-sterren {
-            color: var(--accent);
             margin-bottom: 1rem;
-        }
-        .ervaring-tekst {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: var(--text-light);
-            font-style: italic;
-            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 1.05rem;
+            letter-spacing: 0.18em;
+            line-height: 1;
         }
         .ervaring-auteur {
+            margin: 0 0 0.25rem;
+            color: var(--text);
+            font-size: 1.18rem;
             font-weight: 700;
-            font-size: 0.875rem;
         }
-        .ervaring-auteur span {
-            display: block;
-            font-weight: 400;
+        .ervaring-bron {
+            margin: 0 0 1.35rem;
             color: var(--text-light);
             font-size: 0.75rem;
-            margin-top: 0.25rem;
+        }
+        .ervaring-tekst {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.825rem;
+            line-height: 1.62;
+            white-space: pre-line;
+        }
+        .ervaringen-loading {
+            grid-column: 1 / -1;
+            align-self: center;
+            color: var(--text-light);
+        }
+        .ervaringen-mobile {
+            display: none;
+        }
+        .ervaring-volgende {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            display: grid;
+            width: 46px;
+            height: 46px;
+            place-items: center;
+            padding: 0;
+            border: 0;
+            border-radius: 4px;
+            background: var(--accent);
+            color: var(--text);
+            font: inherit;
+            font-size: 1.35rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .ervaring-volgende:hover,
+        .ervaring-volgende:focus-visible {
+            background: var(--accent-light);
+            transform: translateX(2px);
+        }
+        .ervaring-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.65rem;
+            margin-top: 1.35rem;
+        }
+        .ervaring-dot {
+            width: 10px;
+            height: 10px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: #d8d5ce;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .ervaring-dot.is-active {
+            background: var(--accent);
+            transform: scale(1.12);
+        }
+        .ervaringen-google-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2.25rem;
+            color: var(--text);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-underline-offset: 4px;
+        }
+        .ervaringen-google-link:hover {
+            color: var(--accent);
         }
 
         /* PRICING */
         .pricing {
             background: var(--bg);
-            padding: 10rem 4vw;
+            padding: 8rem 4vw;
         }
         .pricing-inner {
-            max-width: 1400px;
+            max-width: 960px;
             margin: 0 auto;
-        }
-        .pricing-grid {
-            display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 2rem;
-            margin-top: 4rem;
-            width: 100%;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .price-card {
-            opacity: 1 !important;
-            visibility: visible !important;
-            background: var(--white);
+            padding: clamp(2rem, 5vw, 4rem);
             border: 1px solid var(--gray);
-            padding: 3rem 2rem;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: var(--white);
+            box-shadow: 0 18px 44px rgba(31, 28, 21, 0.045);
+        }
+        .services-header {
+            max-width: 720px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+        .services-header .section-title {
+            margin-bottom: 1rem;
+        }
+        .services-intro {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        .package-discount-note {
+            margin-bottom: 1.25rem;
+            padding: 1.5rem 1.75rem;
+            border: 1px solid rgba(179, 148, 77, 0.24);
+            background: #f7f1e5;
+        }
+        .package-discount-note strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .package-discount-note p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            line-height: 1.65;
+        }
+        .services-help-note {
+            margin: 0 0 1rem;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+        .service-selection {
+            display: grid;
+            gap: 0.875rem;
+        }
+        .service-card {
             position: relative;
+            display: block;
+            padding: 1.75rem 4.5rem 1.75rem 1.75rem;
+            border: 1px solid var(--gray-dark);
+            background: var(--white);
             color: var(--text);
+            cursor: pointer;
+            transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
         }
-        .price-card.featured {
-            border: 2px solid var(--accent) !important;
-            box-shadow: 0 20px 40px rgba(179, 148, 77, 0.15) !important;
-            transform: scale(1.05);
-            z-index: 2;
+        .service-card:hover {
+            border-color: rgba(179, 148, 77, 0.7);
         }
-        .price-card.featured::before {
-            content: 'MEEST GEKOZEN';
+        .service-card.is-selected {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent);
+            background: #fffefa;
+        }
+        .service-checkbox {
             position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+            opacity: 0;
+        }
+        .service-card:has(.service-checkbox:focus-visible) {
+            outline: 3px solid rgba(179, 148, 77, 0.42);
+            outline-offset: 3px;
+        }
+        .service-checkmark {
+            position: absolute;
+            top: 1.4rem;
+            right: 1.4rem;
+            display: grid;
+            width: 26px;
+            height: 26px;
+            place-items: center;
+            border: 1px solid var(--gray-dark);
+            background: var(--white);
+            color: transparent;
+            font-size: 0.8rem;
+            font-weight: 800;
+            transition: all 0.18s ease;
+        }
+        .service-card.is-selected .service-checkmark {
+            border-color: var(--accent);
             background: var(--accent);
             color: var(--text);
+        }
+        .service-card-title-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .service-card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            letter-spacing: -0.015em;
+        }
+        .service-badge {
+            color: var(--accent);
             font-size: 0.625rem;
             font-weight: 800;
-            letter-spacing: 0.1em;
-            padding: 0.4rem 1rem;
-            white-space: nowrap;
-        }
-        .price-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-        .price-value {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-        .price-value span {
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 400;
-        }
-        .price-features {
-            list-style: none;
-            margin: 2rem 0;
-            flex-grow: 1;
-        }
-        .price-features li {
-            font-size: 0.875rem;
-            color: var(--text-light);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .price-features li i {
-            color: var(--accent);
-            flex-shrink: 0;
-            font-size: 0.9rem;
-        }
-        .price-btn {
-            width: 100%;
-            text-align: center;
-            padding: 1rem;
-            border: 1px solid var(--text);
-            color: var(--text);
-            font-size: 0.75rem;
-            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
         }
-        .price-card.featured .price-btn {
-            background: var(--text) !important;
-            color: var(--white) !important;
+        .service-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-top: 0.7rem;
+            font-size: 1.55rem;
+            font-weight: 800;
         }
-        .price-card:hover .price-btn {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: var(--text);
+        .service-price small {
+            color: var(--text-light);
+            font-size: 0.72rem;
+            font-weight: 500;
         }
-
+        .service-features {
+            list-style: none;
+            margin: 1.25rem 0 0;
+        }
+        .service-features li {
+            display: flex;
+            gap: 0.7rem;
+            margin-top: 0.55rem;
+            color: var(--text-light);
+            font-size: 0.84rem;
+            line-height: 1.5;
+        }
+        .service-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 800;
+        }
+        .service-selection-hint {
+            display: block;
+            margin-top: 1rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
         /* FAQ */
         .faq {
             background: var(--bg);
-            padding: 10rem 4vw;
+            padding: 6rem 4vw 10rem;
         }
         .faq-inner {
-            max-width: 800px;
+            max-width: 960px;
             margin: 0 auto;
+            padding: clamp(2rem, 6vw, 4rem);
+            border: 1px solid var(--gray);
+            background: var(--white);
+            box-shadow: 0 18px 44px rgba(31, 28, 21, 0.045);
+            transition: border-color 0.3s ease;
+        }
+        .faq-inner:hover {
+            border-color: rgba(179, 148, 77, 0.75);
         }
         .faq-container {
             margin-top: 4rem;
@@ -2384,6 +2074,251 @@ transform: translateY(-2px);
             font-weight: 400;
         }
 
+        .contact.form-request {
+            padding: 7rem 4vw 8rem;
+            background: var(--white);
+        }
+        .pricing .contact.form-request {
+            margin-top: 2rem;
+            padding: 0;
+            border-top: 0;
+            background: transparent;
+        }
+        .pricing .request-panel {
+            padding: 0;
+            border: 0;
+            background: transparent;
+        }
+        .form-request .contact-inner {
+            display: block;
+            max-width: 860px;
+        }
+        .pricing .form-request .contact-inner {
+            display: block;
+            width: 100%;
+            max-width: none;
+        }
+        .request-panel {
+            padding: clamp(1.5rem, 5vw, 3rem);
+            border: 1px solid var(--gray);
+            background: var(--white);
+        }
+        .request-header {
+            margin-bottom: 2rem;
+        }
+        .request-header .section-title {
+            margin-bottom: 0.75rem;
+        }
+        .request-intro {
+            margin: 0;
+            color: var(--text-light);
+            line-height: 1.65;
+        }
+        .pricing .form-request .contact-form {
+            display: block;
+            gap: 0;
+        }
+        .request-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.125rem;
+        }
+        .request-field {
+            min-width: 0;
+        }
+        .request-field.full {
+            grid-column: 1 / -1;
+        }
+        .request-field label,
+        .request-field-label {
+            display: block;
+            margin-bottom: 0.45rem;
+            color: var(--text);
+            font-size: 0.82rem;
+            font-weight: 750;
+        }
+        .required-mark {
+            margin-left: 0.18em;
+            color: var(--error);
+        }
+        .optional-mark {
+            color: var(--text-light);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .request-field input:not([type="checkbox"]),
+        .request-field textarea {
+            width: 100%;
+            min-height: 50px;
+            padding: 0.75rem 0.8rem;
+            border: 1px solid rgba(26, 26, 26, 0.24);
+            border-radius: 0;
+            background: var(--white);
+            color: var(--text);
+            font: inherit;
+        }
+        .request-field textarea {
+            min-height: 112px;
+            resize: vertical;
+        }
+        .request-field input:focus-visible,
+        .request-field textarea:focus-visible {
+            outline: 3px solid rgba(179, 148, 77, 0.24);
+            outline-offset: 1px;
+            border-color: var(--accent);
+        }
+        .request-field input[aria-invalid="true"],
+        .request-field textarea[aria-invalid="true"] {
+            border-color: var(--error);
+        }
+        .request-field .form-error {
+            display: none;
+            margin-top: 0.4rem;
+            color: var(--error);
+            font-size: 0.76rem;
+            font-weight: 650;
+        }
+        .request-field .form-error.is-visible {
+            display: block;
+        }
+        .upload-field {
+            position: relative;
+        }
+        .upload-input {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            min-height: 1px !important;
+            margin: -1px !important;
+            padding: 0 !important;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            border: 0 !important;
+            white-space: nowrap;
+            opacity: 0;
+        }
+        .upload-dropzone {
+            display: flex !important;
+            min-height: 112px;
+            margin: 0 !important;
+            padding: 1.125rem 0.875rem;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            border: 1px dashed rgba(125, 100, 45, 0.42);
+            background: var(--white);
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.18s ease, background-color 0.18s ease;
+        }
+        .upload-dropzone:hover {
+            border-color: var(--accent);
+            background: #fffdf8;
+        }
+        .upload-input:focus-visible + .upload-dropzone {
+            outline: 3px solid rgba(179, 148, 77, 0.42);
+            outline-offset: 3px;
+        }
+        .upload-icon {
+            width: 22px;
+            height: 22px;
+            color: var(--accent);
+        }
+        .upload-title {
+            font-size: 0.84rem;
+            font-weight: 750;
+        }
+        .upload-optional,
+        .upload-note {
+            color: var(--text-light);
+            font-size: 0.74rem;
+        }
+        .upload-filename {
+            max-width: 100%;
+            color: #806625;
+            font-size: 0.74rem;
+            font-weight: 650;
+            overflow-wrap: anywhere;
+        }
+        .privacy-choice {
+            display: flex !important;
+            gap: 0.65rem;
+            align-items: flex-start;
+            margin: 0 !important;
+            padding: 0.875rem;
+            border: 1px solid var(--gray);
+            cursor: pointer;
+        }
+        .privacy-choice input {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: var(--accent);
+            flex: 0 0 auto;
+        }
+        .privacy-choice span {
+            color: var(--text-light);
+            font-size: 0.78rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        .privacy-choice a {
+            color: #806625;
+            font-weight: 700;
+        }
+        .submit-row {
+            margin-top: 1.4rem;
+        }
+        .submit-row .gold-button {
+            width: 100%;
+        }
+        .submit-note {
+            margin: 0.75rem 0 0;
+            color: var(--text-light);
+            font-size: 0.74rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .contact-status {
+            min-height: 22px;
+            margin: 0.875rem 0 0;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+        .contact-status.is-error {
+            color: var(--error);
+        }
+        @media (max-width: 700px) {
+            .pricing {
+                padding-right: 1rem;
+                padding-left: 1rem;
+            }
+            .services-header {
+                margin-bottom: 2rem;
+            }
+            .package-discount-note,
+            .service-card {
+                padding-left: 1.25rem;
+            }
+            .service-card {
+                padding-right: 3.75rem;
+            }
+            .service-checkmark {
+                top: 1.2rem;
+                right: 1.2rem;
+            }
+            .request-form-grid {
+                grid-template-columns: 1fr;
+            }
+            .request-field.full {
+                grid-column: auto;
+            }
+            .request-panel {
+                padding: 1.5rem 1rem;
+            }
+        }
+
         /* FOOTER */
         footer {
             background: var(--bg-dark);
@@ -2535,10 +2470,6 @@ transform: translateY(-2px);
             .hero-left {
                 padding: 8rem 4vw 4rem;
             }
-            .usp-banner-inner {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
             .waardestijging-inner {
                 grid-template-columns: 1fr;
                 gap: 4rem;
@@ -2565,13 +2496,6 @@ transform: translateY(-2px);
             .footer-top {
                 grid-template-columns: 1fr 1fr;
                 gap: 3rem;
-            }
-            .mid-cta-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .mid-cta-actions {
-                align-items: flex-start;
             }
             .pricing-grid {
                 grid-template-columns: 1fr !important;
@@ -2609,19 +2533,6 @@ transform: translateY(-2px);
                 height: 100% !important;
                 max-width: none !important;
             }
-            .hero-right-badge {
-                top: 1rem;
-                right: 1rem;
-                bottom: auto;
-                left: auto;
-                padding: 0.8rem 1rem;
-            }
-            .hero-right-badge strong {
-                font-size: 1.5rem;
-            }
-            .usp-banner {
-                padding: 1.5rem 1.5rem;
-            }
             .waardestijging,
             .verschil-sectie,
             .populaire-vormen,
@@ -2630,16 +2541,12 @@ transform: translateY(-2px);
             .proces-visueel,
             .pricing,
             .faq,
-            .checklist-sectie,
             .project-showcase,
             .klantervaringen {
                 padding: 5rem 1.5rem;
             }
             .contact {
                 padding: 5rem 1.5rem;
-            }
-            .mid-cta {
-                padding: 4rem 1.5rem;
             }
             .footer-top {
                 grid-template-columns: 1fr;
@@ -2659,10 +2566,50 @@ transform: translateY(-2px);
             .showcase-grid {
                 grid-template-columns: 1fr;
             }
+            .ervaringen-grid {
+                display: none;
+            }
+            .ervaringen-inner,
+            .pricing-inner,
+            .faq-inner {
+                padding: 1.5rem 1rem;
+            }
+            .ervaringen-mobile {
+                display: block;
+            }
+            .ervaringen-header {
+                margin-bottom: 2.25rem;
+            }
+            .ervaringen-header .section-title {
+                font-size: 1.65rem !important;
+                line-height: 1.2;
+            }
+            .ervaringen-intro {
+                font-size: 0.9rem;
+            }
+            .ervaringen-mobile .ervaring-card {
+                position: relative;
+                height: 390px;
+                min-height: 390px;
+                padding: 1.75rem 1.25rem;
+                touch-action: pan-y;
+            }
+            .ervaringen-mobile .ervaring-volgende {
+                position: static;
+                align-self: flex-end;
+                flex: 0 0 auto;
+                margin-top: auto;
+            }
+            .ervaringen-mobile .ervaring-tekst {
+                font-size: 0.8rem;
+                line-height: 1.58;
+            }
+            .ervaringen-mobile .ervaring-card.is-changing {
+                opacity: 0;
+                transform: translateX(8px);
+            }
 
-            .mobile-sticky-cta {
-                display: none !important;
-            }}
+        }
 
         .fade-up {
             opacity: 1;
@@ -2672,6 +2619,11 @@ transform: translateY(-2px);
             .hero-design-slide {
                 transition: none;
                 transform: none;
+            }
+            .ervaring-card,
+            .ervaring-volgende,
+            .ervaring-dot {
+                transition: none;
             }
         }
         .fade-in {
@@ -3375,41 +3327,104 @@ transform: translateY(-2px);
         .metal-btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
 
 
-        /* ── MOBILE STICKY CTA ── */
-        .mobile-sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--gray);
-            z-index: 999;
-            display: none;
+        .gold-button {
+            display: inline-flex;
+            min-height: 52px;
+            padding: 0 24px;
+            align-items: center;
             justify-content: center;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
-        }
-        .sticky-cta-btn {
-            color: var(--white);
-            text-decoration: none;
-            padding: 0.8rem 2rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            width: 100%;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: var(--text);
+            font-size: 0.78rem;
+            font-weight: 750;
+            letter-spacing: 0.045em;
             text-align: center;
-            transition: background 0.3s ease;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
         }
-        .sticky-cta-btn:hover {
+        .gold-button:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
         }
-
-        /* ── STICKY CTA: HIDE ON DESKTOP ── */
-        @media (min-width: 1025px) {
+        .gold-button:focus-visible {
+            outline: 3px solid rgba(179, 148, 77, 0.42);
+            outline-offset: 3px;
+        }
+        .gold-button:disabled {
+            opacity: 0.58;
+            cursor: wait;
+        }
+        .mobile-sticky-cta {
+            display: none;
+        }
+        @media (max-width: 700px) {
+            body.has-mobile-cta {
+                padding-bottom: 76px;
+            }
             .mobile-sticky-cta {
-                display: none !important;
+                position: fixed;
+                z-index: 9000;
+                right: 12px;
+                bottom: 10px;
+                left: 12px;
+                display: block;
+                pointer-events: none;
+                visibility: hidden;
+                opacity: 0;
+                transform: translateY(18px);
+                transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+            }
+            .mobile-sticky-cta .gold-button {
+                width: 100%;
+                min-height: 54px;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
+            }
+            .mobile-sticky-cta.is-visible {
+                pointer-events: auto;
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+                transition-delay: 0s;
+            }
+        }
+        @media (min-width: 701px) {
+            body.has-mobile-cta {
+                padding-bottom: 0;
+            }
+            .mobile-sticky-cta {
+                position: fixed;
+                z-index: 9000;
+                right: 24px;
+                bottom: 20px;
+                display: block;
+                width: min(300px, calc(100vw - 48px));
+                pointer-events: none;
+                visibility: hidden;
+                opacity: 0;
+                transform: translateY(18px);
+                transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+            }
+            .mobile-sticky-cta .gold-button {
+                width: 100%;
+                min-height: 40px;
+                padding: 0 16px;
+                font-size: 0.7rem;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
+            }
+            .mobile-sticky-cta.is-visible {
+                pointer-events: auto;
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+                transition-delay: 0s;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .mobile-sticky-cta {
+                transition: none;
             }
         }
 </style>
@@ -3492,7 +3507,7 @@ transform: translateY(-2px);
     <script src="contact-section.js" defer></script>
     <link rel="stylesheet" href="site-footer.css?v=20260808-2">
 </head>
-<body>
+<body class="has-mobile-cta">
 <!-- TBA_SHARED_HEADER_START -->
 <header class="tba-site-header" data-tba-header>
     <a class="tba-skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
@@ -3552,7 +3567,7 @@ transform: translateY(-2px);
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
                     <span>Bel direct</span>
                 </a>
-                <a href="index.html#contact" class="tba-nav-cta">Offerte aanvragen</a>
+                <a href="#contact" class="tba-nav-cta">Vraag vrijblijvend een offerte aan</a>
             </div>
 
             <div class="tba-mobile-controls">
@@ -3616,7 +3631,7 @@ transform: translateY(-2px);
 
                 <a href="index.html#contact">Contact</a>
             </div>
-            <a href="index.html#contact" class="tba-mobile-cta">Offerte aanvragen</a>
+            <a href="#contact" class="tba-mobile-cta">Vraag vrijblijvend een offerte aan</a>
             <div class="tba-mobile-contact">
                 <a href="tel:+31649240412">+31 (0)6 49 24 04 12</a>
                 <a href="mailto:info@technischbouwadvies.nl">info@technischbouwadvies.nl</a>
@@ -3698,19 +3713,19 @@ transform: translateY(-2px);
                     <div class="dropdown-right" id="sub-vergunning">
                         <div class="dropdown-info">
                             <p>Ik bereid de afgesproken aanvraagstukken voor, dien deze desgewenst in via het Omgevingsloket en begeleid het gemeentecontact binnen de vastgelegde opdracht.</p>
-                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Vraag vrijblijvend een offerte aan</a>
                         </div>
                     </div>
                     <div class="dropdown-right" id="sub-digitaliseren">
                         <div class="dropdown-info">
                             <p>Heeft u papieren bouwtekeningen die gedigitaliseerd moeten worden? Ik zet uw oude tekeningen om naar professionele digitale bestanden, geschikt voor vergunningsaanvragen en aannemers.</p>
-                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Vraag vrijblijvend een offerte aan</a>
                         </div>
                     </div>
                     <div class="dropdown-right" id="sub-advies">
                         <div class="dropdown-info">
                             <p>Ik analyseer het omgevingsplan en eventuele nog geldende ruimtelijke plannen voor uw perceel. Zo krijgt u vroeg inzicht in relevante lokale regels en aandachtspunten.</p>
-                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Offerte aanvragen</a>
+                            <a href="#contact" class="dropdown-cta-btn metal-btn metal-btn-sm">Vraag vrijblijvend een offerte aan</a>
                         </div>
                     </div>
                 </div>
@@ -3724,7 +3739,7 @@ transform: translateY(-2px);
 
             <li role="none"><a href="#contact" role="menuitem" data-section="contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="nav-cta metal-btn" aria-label="Vraag direct een vrijblijvende offerte aan">Offerte aanvragen</a>
+        <a href="#contact" class="nav-cta metal-btn" aria-label="Vraag vrijblijvend een offerte aan">Vraag vrijblijvend een offerte aan</a>
         <a href="tel:+31649240412" class="nav-phone" aria-label="Bel ons">+31 (0)6 49 24 04 12</a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Menu openen of sluiten" aria-expanded="false" aria-controls="mobile-nav">
             <span></span><span></span>
@@ -3782,13 +3797,11 @@ transform: translateY(-2px);
             <div class="hero-left">
                 <h1 class="hero-h1">Uw aanbouw of uitbouw:<br>deskundig begeleid<br>van idee tot vergunning.</h1>
                 <ul class="hero-usps">
-                    <li class="hero-usp"><div class="usp-icon"><i class="fa-solid fa-clock"></i></div><div class="usp-text"><strong>Planning vooraf afgestemd</strong><span>Onze levertijd en de gemeentelijke behandeling worden apart benoemd</span></div></li>
                     <li class="hero-usp"><div class="usp-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="usp-text"><strong>Zorgvuldige voorbereiding</strong><span>Locatie en aanvraagdoel meegenomen</span></div></li>
                     <li class="hero-usp"><div class="usp-icon"><i class="fa-solid fa-check"></i></div><div class="usp-text"><strong>Duidelijke opdrachtscope</strong><span>Plan en aanvraagstukken afgestemd op de afgesproken scope</span></div></li>
                 </ul>
                 <div class="hero-cta-row">
-                    <a href="#contact" class="hero-cta-primary">Vrijblijvend adviesgesprek <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#checklist" class="hero-cta-secondary">Check: heb ik een vergunning nodig?</a>
+                    <a href="#contact" class="hero-cta-primary gold-button hero-offer-cta">Vraag vrijblijvend een offerte aan</a>
                 </div>
             </div>
             <div class="hero-right hero-design-carousel" data-hero-design-carousel aria-label="Vier automatisch wisselende aanbouwontwerpen voor dezelfde Nederlandse woning" aria-roledescription="carrousel">
@@ -3798,34 +3811,15 @@ transform: translateY(-2px);
                     <img src="images/website-2026/diensten/aanbouw-ontwerp-volledig-hout.webp" alt="Warm houten aanbouwontwerp met geïntegreerde glazen schuifpui aan dezelfde Nederlandse woning" class="hero-right-img hero-design-slide" data-hero-design-slide loading="lazy" decoding="async" aria-hidden="true">
                     <img src="images/website-2026/diensten/aanbouw-ontwerp-antraciet.webp" alt="Antraciet aanbouwontwerp met verticale gevelbekleding en een brede glazen pui aan dezelfde woning" class="hero-right-img hero-design-slide" data-hero-design-slide loading="lazy" decoding="async" aria-hidden="true">
                 </div>
-                <div class="hero-right-badge"><strong>€250</strong><span>Bouwtekening — vanaf incl. btw</span></div>
                 <div class="hero-geo-line"></div>
-            </div>
-        </section>
-
-        <!-- USP BANNER -->
-        <section class="usp-banner" aria-label="Onze kernvoordelen">
-            <div class="usp-banner-inner">
-                <div class="usp-banner-item">
-                    <div class="usp-banner-icon"><i class="fa-solid fa-certificate"></i></div>
-                    <span class="usp-banner-text">Persoonlijk aanspreekpunt</span>
-                </div>
-                <div class="usp-banner-item">
-                    <div class="usp-banner-icon"><i class="fa-solid fa-thumbs-up"></i></div>
-                    <span class="usp-banner-text">Plancontrole volgens afgesproken scope</span>
-                </div>
-                <div class="usp-banner-item">
-                    <div class="usp-banner-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <span class="usp-banner-text">Planning vooraf afgestemd</span>
-                </div>
             </div>
         </section>
 
         <!-- WAARDE STIJGING -->
         <section class="waardestijging" id="waardestijging">
             <div class="waardestijging-inner">
-                <div class="waardestijging-visual">
-                    <img src="images/website-2026/projecten/voor-en-na-aanbouw-woning.webp" alt="Dezelfde achtergevel voor en na plaatsing van een moderne aanbouw" loading="lazy" decoding="async">
+                <div class="waardestijging-visual waardestijging-visual--single">
+                    <img src="images/website-2026/projecten/uitbouw-voor-na-renovatie.png" width="1127" height="929" alt="Voor-en-na vergelijking van de bestaande achtergevel en de gerealiseerde moderne uitbouw" loading="lazy" decoding="async">
                 </div>
                 <div class="waardestijging-content">
                     <div class="section-label">Slimme investering</div>
@@ -3908,9 +3902,9 @@ transform: translateY(-2px);
         <section class="vergunning-plicht" id="vergunning-plicht">
             <div class="vergunning-plicht-inner">
                 <div class="vergunning-plicht-content">
-                    <div class="section-label">Vergunning nodig?</div>
-                    <h2 class="section-title">Wél of geen <em>vergunning</em> voor uw uitbouw?</h2>
-                    <p class="vergunning-plicht-intro">Of een aanbouw of uitbouw vergunningvrij kan worden uitgevoerd, hangt af van de plaats op het perceel, afmetingen, woning en lokale regels. Gebruik de Vergunningcheck en Regels op de kaart voor het adres en laat twijfelpunten beoordelen voordat u bouwt.</p>
+                    <div class="section-label">Factoren bij uw aanvraag</div>
+                    <h2 class="section-title">Welke factoren beïnvloeden de <em>aanvraag</em> voor uw aanbouw of uitbouw?</h2>
+                    <p class="vergunning-plicht-intro">Welke stappen, documenten en eventuele vergunningen nodig zijn, verschilt per situatie. De plaats op het perceel, de afmetingen, de bestaande woning, de uitstraling van de uitbreiding en lokale regels bepalen samen welke route en onderbouwing bij uw plan passen.</p>
                     <ul class="vergunning-plicht-points">
                         <li class="vergunning-plicht-point fade-up">
                             <span class="vp-icon"><i class="fa-solid fa-ruler-combined"></i></span>
@@ -3937,91 +3931,9 @@ transform: translateY(-2px);
                 <div class="vergunning-plicht-visual fade-in">
                     <div class="vergunning-plicht-img-wrap">
                         <img src="images/uitbouw.webp" alt="Uitbouw aan de achterzijde met veel glas" loading="lazy" decoding="async">
-                        <div class="vergunning-plicht-caption"><strong>Uitbouw achterzijde</strong><span>Soms vergunningsvrij, altijd maatwerk</span></div>
+                        <div class="vergunning-plicht-caption"><strong>Voorbeeld: uitbouw aan de achterzijde</strong><span>Een uitbouw aan de achterzijde kan onder bepaalde voorwaarden vergunningsvrij zijn.</span></div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- CHECKLIST WIZARD (UPGRADE) -->
-        <section class="checklist-sectie" id="checklist">
-            <div class="checklist-inner">
-                <div class="checklist-header fade-up">
-                    <div class="section-label">Zelftest</div>
-                    <h2 class="section-title">Check: <em>Heeft u een vergunning nodig?</em></h2>
-                    <p>Beantwoord drie vragen voor een eerste indicatie. Controleer de definitieve route altijd voor het adres en het concrete plan.</p>
-                </div>
-
-                <div class="checklist-wizard fade-up">
-                    <div class="wizard-progress" id="wizard-progress">
-                        <span id="progress-text">Stap 1 van 3</span>
-                        <div class="step-indicator" id="step-fill"></div>
-                    </div>
-
-                    <div class="wizard-questions" id="wizard-questions">
-                        <!-- Vraag 1 -->
-                        <div class="wizard-vraag active" data-step="1">
-                            <h3>1. Aan welke zijde van de woning bouwt u?</h3>
-                            <div class="wizard-opties">
-                                <button class="wizard-tile" onclick="selectAnswer('zijde', 'achter')">
-                                    <i class="fa-solid fa-tree"></i> Achterzijde (tuin)
-                                </button>
-                                <button class="wizard-tile" onclick="selectAnswer('zijde', 'voor')">
-                                    <i class="fa-solid fa-road"></i> Voorzijde (straat)
-                                </button>
-                                <button class="wizard-tile" onclick="selectAnswer('zijde', 'zijkant')">
-                                    <i class="fa-solid fa-house-chimney"></i> Zijkant
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Vraag 2 -->
-                        <div class="wizard-vraag" data-step="2">
-                            <h3>2. Ligt de uitbreiding volledig binnen 4 meter van het oorspronkelijke hoofdgebouw?</h3>
-                            <div class="wizard-opties">
-                                <button class="wizard-tile" onclick="selectAnswer('diepte', 'minder')">
-                                    <i class="fa-solid fa-ruler-combined"></i> Ja
-                                </button>
-                                <button class="wizard-tile" onclick="selectAnswer('diepte', 'meer')">
-                                    <i class="fa-solid fa-maximize"></i> Nee of weet ik niet
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Vraag 3 -->
-                        <div class="wizard-vraag" data-step="3">
-                            <h3>3. Past de gewenste hoogte binnen de regels van het omgevingsplan?</h3>
-                            <div class="wizard-opties">
-                                <button class="wizard-tile" onclick="selectAnswer('hoogte', 'ja')">
-                                    <i class="fa-solid fa-circle-check"></i> Ja, waarschijnlijk wel
-                                </button>
-                                <button class="wizard-tile" onclick="selectAnswer('hoogte', 'nee')">
-                                    <i class="fa-solid fa-triangle-exclamation"></i> Nee, ik wil hoger bouwen
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Resultaat (Diagnose Rapport) -->
-                    <div class="wizard-resultaat" id="wizard-resultaat">
-                        <div class="result-badge">EERSTE ORIËNTATIE — ALTIJD CONTROLEREN</div>
-                        <div class="wizard-resultaat-icon" id="result-icon"></div>
-                        <h4 id="result-title"></h4>
-                        <p id="result-text"></p>
-                        <a href="#contact" class="wizard-cta-btn metal-btn" id="result-cta">
-                            <i class="fa-solid fa-calendar-check"></i> Vraag een vrijblijvende plancheck aan
-                        </a>
-                        <button id="wizard-reset-btn" style="display:none;">
-                            <i class="fa-solid fa-arrow-rotate-left"></i> Opnieuw testen
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MID CTA -->
-        <section class="mid-cta">
-            <div class="mid-cta-inner">
-                <div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u?</div><h2>Eerste inventarisatie: wat is er mogelijk op uw kavel?</h2><p>Stuur een foto en de maten voor een eerste indicatie van de aandachtspunten. Definitieve haalbaarheid volgt pas na controle van het adres en het concrete plan.</p></div>
-                <div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn metal-btn">Gratis check aanvragen →</a><p class="mid-cta-note">Vrijblijvend · streeftijd: één werkdag</p></div>
             </div>
         </section>
 
@@ -4081,7 +3993,7 @@ transform: translateY(-2px);
                         <li class="constructie-point"><div class="cp-num">04</div><div class="cp-body"><strong>Dossier voor uitvoering</strong><p>De afgesproken constructieve uitgangspunten worden vastgelegd; verzekeringsvoorwaarden controleert u bij uw verzekeraar.</p></div></li>
                     </ul>
                 </div>
-                <div class="constructie-visual fade-in"><div class="constructie-accent-line"></div><div class="constructie-img-wrap"><img src="images/website-2026/diensten/staalconstructie-portaal-constructiedetail.webp" alt="Stalen portaalconstructie voor een brede opening met bijbehorend constructiedetail" loading="lazy" decoding="async"><div class="constructie-img-overlay"></div><div class="constructie-caption"><strong>Constructieve uitwerking</strong><span>Afgestemd op het bouwplan</span></div></div></div>
+                <div class="constructie-visual fade-in"><div class="constructie-accent-line"></div><div class="constructie-img-wrap"><img src="images/website-2026/diensten/staalconstructie-portaal-constructiedetail.webp" alt="Stalen portaalconstructie voor een brede opening met bijbehorend constructiedetail" loading="lazy" decoding="async"><div class="constructie-img-overlay"></div></div></div>
             </div>
         </section>
 
@@ -4125,14 +4037,138 @@ transform: translateY(-2px);
             </div>
         </section>
 
+        <!-- KLANTERVARINGEN -->
+        <section class="klantervaringen" id="klantervaringen" aria-labelledby="klantervaringen-title">
+            <div class="ervaringen-inner">
+                <header class="ervaringen-header fade-up">
+                    <div class="section-label">VOORBEELDEN VAN ERVARINGEN</div>
+                    <h2 class="section-title" id="klantervaringen-title">Wat klanten over onze dienstverlening zeggen</h2>
+                    <p class="ervaringen-intro">Een selectie van klantervaringen over bouwtekeningen, constructieberekeningen, vergunningbegeleiding en/of visualisaties.</p>
+                </header>
+                <div class="ervaringen-grid" data-review-desktop aria-live="polite" aria-busy="true">
+                    <p class="ervaringen-loading">Klantervaringen laden&hellip;</p>
+                </div>
+                <div class="ervaringen-mobile" data-review-mobile>
+                    <article class="ervaring-card" data-review-card tabindex="0" aria-live="polite">
+                        <div class="ervaring-sterren" aria-label="5 van 5 sterren">★★★★★</div>
+                        <h3 class="ervaring-auteur" data-review-name>Klantervaring</h3>
+                        <p class="ervaring-bron">Review via Google</p>
+                        <p class="ervaring-tekst" data-review-text>Klantervaringen laden&hellip;</p>
+                        <button class="ervaring-volgende" type="button" data-review-next aria-label="Volgende beoordeling">→</button>
+                    </article>
+                    <div class="ervaring-dots" data-review-dots aria-label="Kies een beoordeling"></div>
+                </div>
+                <a class="ervaringen-google-link" href="https://www.google.com/maps/place/Technisch+Bouwadvies/@51.7696007,5.8580223,16.32z/data=!4m8!3m7!1s0x47c70f775769c3a5:0x1956c077fa87201f!8m2!3d51.7690666!4d5.8597112!9m1!1b1!16s%2Fg%2F11ntdwt9gy?entry=ttu&amp;g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Bekijk onze beoordelingen op Google <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+
         <!-- PRICING -->
         <section class="pricing" id="prijzen">
             <div class="pricing-inner">
-                <div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;"><div class="section-label">Investering</div><h2 class="section-title">Kies de ondersteuning die bij uw <em>aanbouw</em> past.</h2><p>Bedragen staan eerst inclusief 21% btw en daarnaast exclusief. De offerte bevestigt de scope, planning en eventuele bijkomende kosten.</p></div>
-                <div class="pricing-grid" id="pricing-grid">
-                    <div class="price-card fade-up"><h3>Bouwtekening</h3><div class="price-value">&euro;250<span>incl. btw</span></div><p class="price-vat">Vanaf &middot; &euro;206,61 excl. btw</p><ul class="price-features"><li><i class="fa-solid fa-check"></i> Bouwkundige tekeningen voor uw aanbouw of uitbouw</li><li><i class="fa-solid fa-check"></i> Plattegrond, gevels en doorsneden volgens de afgesproken scope</li><li><i class="fa-solid fa-check"></i> Plancontrole volgens afgesproken scope</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('aanbouw-tekening', 'Ik heb interesse in de dienst \'Bouwtekening\' voor mijn aanbouw/uitbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
-                <div class="price-card featured fade-up"><h3>Constructieberekening</h3><div class="price-value">&euro;399<span>incl. btw</span></div><p class="price-vat">Vanaf &middot; &euro;329,75 excl. btw</p><ul class="price-features"><li><i class="fa-solid fa-check"></i> Indien voor de gekozen constructieve wijziging een berekening nodig is</li><li><i class="fa-solid fa-check"></i> Constructieberekening voor de afgesproken ingreep</li><li><i class="fa-solid fa-check"></i> Constructieve rapportage volgens toepasselijke normen</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('aanbouw-constructie', 'Ik heb interesse in de dienst \'Constructieberekening\' voor mijn aanbouw/uitbouw. Graag ontvang ik meer informatie.')">Vrijblijvend bespreken</a></div>
-                <div class="price-card fade-up"><h3>Vergunningbegeleiding</h3><div class="price-value">Prijs na beoordeling</div><p class="price-vat">Afgestemd op plan, locatie en benodigde aanvraagstukken</p><ul class="price-features"><li><i class="fa-solid fa-check"></i> Begeleiding afgestemd op plan, locatie en benodigde aanvraagstukken</li><li><i class="fa-solid fa-check"></i> Indiening via het Omgevingsloket wanneer dit is afgesproken</li><li><i class="fa-solid fa-check"></i> Begeleiding tijdens de behandeling binnen de afgesproken scope</li></ul><a href="#contact" class="price-btn metal-btn" onclick="event.preventDefault(); setContactForm('aanbouw-fullservice', 'Ik heb interesse in de dienst \'Vergunningbegeleiding\' voor mijn aanbouw/uitbouw. Graag ontvang ik een prijsopgave na beoordeling.')">Vrijblijvend bespreken</a></div>
+                <div class="services-header fade-up">
+                    <div class="section-label">Vrijblijvende aanvraag</div>
+                    <h2 class="section-title">Kies de ondersteuning die bij uw <em>aanbouw of uitbouw</em> past.</h2>
+                    <p class="services-intro">Selecteer één of meerdere diensten. Uw keuzes worden automatisch meegenomen in uw vrijblijvende offerteaanvraag.<br>Vertel ons kort wat uw plannen zijn. U zit nergens aan vast.</p>
+                </div>
+                <aside class="package-discount-note fade-up" aria-label="Korting compleet pakket">
+                    <strong>€100 korting bij een compleet pakket</strong>
+                    <p>Alle genoemde vanafprijzen zijn inclusief btw. Bij afname van het complete pakket ontvangt u €100 korting inclusief btw op de uiteindelijke offerteprijs.</p>
+                </aside>
+                <p class="services-help-note">Weet u niet precies welke diensten u nodig heeft? Geen probleem. Beschrijf uw bouwplannen en wij bekijken welke ondersteuning passend is.</p>
+                <div class="service-selection" id="service-selection" role="group" aria-label="Kies desgewenst één of meerdere diensten">
+                    <label class="service-card fade-up" data-service-label="Bouwtekening" data-service-price="Vanaf €250">
+                        <input class="service-checkbox" type="checkbox" value="bouwtekening" aria-label="Bouwtekening selecteren">
+                        <span class="service-checkmark" aria-hidden="true">✓</span>
+                        <span class="service-card-title-row"><h3>Bouwtekening</h3></span>
+                        <span class="service-price">€250 <small>vanaf, incl. btw</small></span>
+                        <ul class="service-features"><li>Bouwkundige tekeningen voor uw aanbouw of uitbouw</li><li>Plattegronden, gevels en doorsneden volgens opdracht</li></ul>
+                        <span class="service-selection-hint" aria-hidden="true">Klik om te selecteren</span>
+                    </label>
+                    <label class="service-card fade-up" data-service-label="3D-visualisaties &amp; vloerplan" data-service-price="Vanaf €150">
+                        <input class="service-checkbox" type="checkbox" value="3d-visualisaties-vloerplan" aria-label="3D-visualisaties en vloerplan selecteren">
+                        <span class="service-checkmark" aria-hidden="true">✓</span>
+                        <span class="service-card-title-row"><h3>3D-visualisaties &amp; vloerplan</h3><span class="service-badge">Aanvullende dienst</span></span>
+                        <span class="service-price">€150 <small>vanaf, incl. btw</small></span>
+                        <ul class="service-features"><li>Twee realistische 3D-visualisaties</li><li>Eén ingericht 3D-vloerplan</li><li>Bekijk vooraf hoe uw aanbouw of uitbouw eruit kan zien</li></ul>
+                        <span class="service-selection-hint" aria-hidden="true">Klik om te selecteren</span>
+                    </label>
+                    <label class="service-card fade-up" data-service-label="Constructieberekening" data-service-price="Vanaf €399">
+                        <input class="service-checkbox" type="checkbox" value="constructieberekening" aria-label="Constructieberekening selecteren">
+                        <span class="service-checkmark" aria-hidden="true">✓</span>
+                        <span class="service-card-title-row"><h3>Constructieberekening</h3></span>
+                        <span class="service-price">€399 <small>vanaf, incl. btw</small></span>
+                        <ul class="service-features"><li>Berekening voor de afgesproken constructieve ingreep</li><li>Constructieve rapportage volgens toepasselijke normen</li></ul>
+                        <span class="service-selection-hint" aria-hidden="true">Klik om te selecteren</span>
+                    </label>
+                    <label class="service-card fade-up" data-service-label="Vergunningbegeleiding" data-service-price="Op aanvraag">
+                        <input class="service-checkbox" type="checkbox" value="vergunningbegeleiding" aria-label="Vergunningbegeleiding selecteren">
+                        <span class="service-checkmark" aria-hidden="true">✓</span>
+                        <span class="service-card-title-row"><h3>Vergunningbegeleiding</h3></span>
+                        <span class="service-price">Prijs na beoordeling</span>
+                        <ul class="service-features"><li>Voorbereiden en eventueel indienen van uw aanvraag</li><li>Begeleiding binnen de afgesproken werkzaamheden</li></ul>
+                        <span class="service-selection-hint" aria-hidden="true">Klik om te selecteren</span>
+                    </label>
+                </div>
+                <div class="contact tba-contact form-request" id="contact">
+                    <div class="contact-inner">
+                        <div class="request-panel">
+                            <form class="contact-form" id="service-request-form" name="contactaanvraag" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" aria-label="Offerteaanvraag aanbouw of uitbouw" novalidate>
+                                <p hidden aria-hidden="true"><label>Laat dit veld leeg: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+                                <input type="hidden" name="form-name" value="contactaanvraag">
+                                <input type="hidden" name="bron" value="aanbouw-uitbouw-diensten">
+                                <input type="hidden" name="subject" value="Aanbouw / Uitbouw">
+                                <input type="hidden" name="diensten-overzicht" id="selected-services-value" value="">
+                                <input type="hidden" name="compleet-pakket" id="complete-package-value" value="Nee">
+                                <input type="hidden" name="pakketkorting" id="package-discount-value" value="Niet van toepassing">
+                                <div id="selected-service-fields"></div>
+                                <div class="request-form-grid">
+                                    <div class="request-field full">
+                                        <label for="message">Uw bouwplannen <span class="required-mark" aria-hidden="true">*</span></label>
+                                        <textarea name="message" id="message" placeholder="Beschrijf kort wat u wilt bouwen of verbouwen." required aria-required="true" aria-describedby="error-message" aria-invalid="false"></textarea>
+                                        <span class="form-error" id="error-message" role="alert">Beschrijf kort wat u wilt bouwen of verbouwen.</span>
+                                    </div>
+                                    <div class="request-field full">
+                                        <span class="request-field-label">Bestanden toevoegen <span class="optional-mark">(optioneel)</span></span>
+                                        <div class="upload-field">
+                                            <input class="upload-input" id="schets-foto" name="schets-foto" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp" aria-describedby="upload-note error-files" aria-invalid="false">
+                                            <label class="upload-dropzone" for="schets-foto">
+                                                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4m0 0-4 4m4-4 4 4"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg>
+                                                <span class="upload-title">Foto's, schetsen of tekeningen toevoegen</span>
+                                                <span class="upload-optional">Optioneel</span>
+                                                <span class="upload-filename" data-upload-filename hidden aria-live="polite"></span>
+                                            </label>
+                                        </div>
+                                        <span class="upload-note" id="upload-note">PDF, JPG, PNG of WebP. Maximaal 7 MB.</span>
+                                        <span class="form-error" id="error-files" role="alert">Kies een PDF-, JPG-, PNG- of WebP-bestand van maximaal 7 MB.</span>
+                                    </div>
+                                    <div class="request-field">
+                                        <label for="name">Naam en achternaam <span class="required-mark" aria-hidden="true">*</span></label>
+                                        <input type="text" name="name" id="name" placeholder="Naam en achternaam" autocomplete="name" required aria-required="true" aria-describedby="error-name" aria-invalid="false">
+                                        <span class="form-error" id="error-name" role="alert">Vul uw naam en achternaam in.</span>
+                                    </div>
+                                    <div class="request-field">
+                                        <label for="email">E-mailadres <span class="required-mark" aria-hidden="true">*</span></label>
+                                        <input type="email" name="email" id="email" placeholder="E-mailadres" autocomplete="email" required aria-required="true" aria-describedby="error-email" aria-invalid="false">
+                                        <span class="form-error" id="error-email" role="alert">Vul een geldig e-mailadres in.</span>
+                                    </div>
+                                    <div class="request-field full">
+                                        <label for="phone">Telefoonnummer <span class="optional-mark">(optioneel)</span></label>
+                                        <input type="tel" name="phone" id="phone" placeholder="Telefoonnummer" autocomplete="tel">
+                                    </div>
+                                    <div class="request-field full">
+                                        <label class="privacy-choice" for="privacy-akkoord">
+                                            <input id="privacy-akkoord" name="privacy-akkoord" type="checkbox" value="akkoord" required aria-required="true" aria-describedby="error-privacy" aria-invalid="false">
+                                            <span>Ik heb het <a href="privacybeleid.html" target="_blank" rel="noopener">privacybeleid</a> gelezen en begrijp dat mijn gegevens en bestanden worden gebruikt om mijn aanvraag te beoordelen en op te volgen.</span>
+                                        </label>
+                                        <span class="form-error" id="error-privacy" role="alert">Bevestig dat u het privacybeleid heeft gelezen.</span>
+                                    </div>
+                                </div>
+                                <div class="submit-row"><button type="submit" class="gold-button contact-submit">Verstuur vrijblijvende aanvraag</button></div>
+                                <p class="submit-note">Uw aanvraag is gratis en vrijblijvend. Wij bekijken uw aanvraag en sturen u een passende offerte. Pas na uw akkoord starten wij met de werkzaamheden.</p>
+                                <p class="contact-status" role="status" aria-live="polite"></p>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -4153,82 +4189,6 @@ transform: translateY(-2px);
             </div>
         </section>
 
-        <!-- CONTACT -->
-                        <section class="contact tba-contact" id="contact" aria-label="Contactformulier en contactgegevens">
-            <div class="contact-inner">
-                <div class="contact-info">
-                    <div class="section-label">Contact</div>
-                    <h3>Start vandaag uw bouwtraject</h3>
-                    <p>Vul het formulier in voor een vrijblijvend adviesgesprek of vraag direct een offerte aan. Onze streeftijd voor een persoonlijke reactie is één werkdag &mdash; en u zit nergens aan vast.</p>
-                    <div class="contact-detail">
-                        <strong>E-mail</strong>
-                        <a href="mailto:info@technischbouwadvies.nl" aria-label="Stuur een e-mail naar info@technischbouwadvies.nl">info@technischbouwadvies.nl</a>
-                    </div>
-                    <div class="contact-detail">
-                        <strong>Telefoon</strong>
-                        <a href="tel:+31649240412" aria-label="Bel ons op +31 6 49 24 04 12">+31 (0)6 49 24 04 12</a>
-                    </div>
-                    <div class="contact-detail">
-                        <strong>Werkgebied</strong>
-                        <span>Heel Nederland</span>
-                    </div>
-                    <ul class="contact-trust-list" aria-label="Voordelen van contact opnemen">
-                        <li>Streeftijd: één werkdag voor een persoonlijke reactie</li>
-                        <li>Vrijblijvend advies, zonder verplichtingen</li>
-                        <li>Ondersteuning bij lokale vergunning- en omgevingsplanvragen</li>
-                    </ul>
-                </div>
-                <form class="contact-form" name="contactaanvraag" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-unified-contact="true" aria-label="Contactformulier" novalidate>
-                    <p hidden aria-hidden="true"><label>Laat dit veld leeg: <input name="bot-field"></label></p>
-                    <input type="hidden" name="form-name" value="contactaanvraag">
-                    <div class="form-group">
-                        <input type="text" name="name" id="name" placeholder=" " autocomplete="name" required aria-required="true" aria-describedby="error-name" aria-invalid="false">
-                        <label for="name">Naam</label>
-                        <div class="form-error" id="error-name" role="alert">Vul uw naam in</div>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" id="email" placeholder=" " autocomplete="email" required aria-required="true" aria-describedby="error-email" aria-invalid="false">
-                        <label for="email">E-mail</label>
-                        <div class="form-error" id="error-email" role="alert">Vul een geldig e-mailadres in</div>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="phone" id="phone" placeholder=" " autocomplete="tel">
-                        <label for="phone">Telefoon (optioneel)</label>
-                    </div>
-                    <div class="form-group">
-                        <select name="subject" id="subject" required aria-required="true" aria-describedby="error-subject" aria-invalid="false">
-                            <option value="" disabled selected></option>
-                            <option value="dakkapel">Dakkapel</option>
-                            <option value="dakopbouw">Dakopbouw</option>
-                            <option value="uitbouw">Uitbouw / Aanbouw</option>
-                            <option value="erker">Erker</option>
-                            <option value="mantelzorg">Mantelzorgwoning</option>
-                            <option value="nieuwbouw">Bed &amp; Breakfast</option>
-                            <option value="nok">Nokverhoging / Doorbraak</option>
-                            <option value="bijgebouw">Bijgebouwen</option>
-                            <option value="digitaliseren">Bouwtekeningen digitaliseren</option>
-                            <option value="advies">Advies omgevingsplan</option>
-                            <option value="overig">Overig / Vrijblijvend gesprek</option>
-                        </select>
-                        <label for="subject">Onderwerp</label>
-                        <div class="form-error" id="error-subject" role="alert">Selecteer een onderwerp</div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="gemeente" id="gemeente" placeholder=" " autocomplete="address-level2" required aria-required="true" aria-describedby="error-gemeente" aria-invalid="false">
-                        <label for="gemeente">Gemeente</label>
-                        <div class="form-error" id="error-gemeente" role="alert">Vul uw gemeente in</div>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" id="message" placeholder=" " required aria-required="true" aria-describedby="error-message" aria-invalid="false"></textarea>
-                        <label for="message">Bericht</label>
-                        <div class="form-error" id="error-message" role="alert">Vul uw bericht in</div>
-                    </div>
-                    <button type="submit" class="btn contact-submit" aria-label="Verstuur uw aanvraag; onze streeftijd is één werkdag">Verstuur aanvraag &mdash; gratis advies</button>
-                    <p class="form-privacy">Vrijblijvend en zonder verplichtingen. Wij gebruiken uw gegevens alleen voor uw aanvraag. Lees ons <a href="privacybeleid.html">privacybeleid</a>.</p>
-                    <p class="contact-status" role="status" aria-live="polite"></p>
-                </form>
-            </div>
-        </section>
     </main>
 
 
@@ -4283,17 +4243,6 @@ transform: translateY(-2px);
                 stagger: 0.15,
                 duration: 0.8,
                 delay: 0.4,
-                ease: 'power3.out'
-            });
-            gsap.from('.usp-banner-item', {
-                opacity: 0,
-                y: 20,
-                stagger: 0.1,
-                duration: 0.7,
-                scrollTrigger: {
-                    trigger: '.usp-banner',
-                    start: 'top 95%',
-                },
                 ease: 'power3.out'
             });
             ScrollTrigger.refresh();
@@ -4434,233 +4383,140 @@ transform: translateY(-2px);
             });
         });
 
-        // functie om contactformulier in te vullen
-        function setContactForm(subjectValue, messageText) {
-            const subjectSelect = document.getElementById('subject');
-            const messageTextarea = document.getElementById('message');
-            if (subjectSelect) {
-                subjectSelect.value = subjectValue;
-                subjectSelect.dispatchEvent(new Event('change'));
-            }
-            if (messageTextarea) {
-                messageTextarea.value = messageText;
-                messageTextarea.dispatchEvent(new Event('input'));
-            }
-            lenis.scrollTo('#contact', { offset: -80 });
+        // Selecteerbare diensten en gekoppelde formulierwaarden
+        const serviceCards = Array.from(document.querySelectorAll('.service-card'));
+        const serviceCheckboxes = serviceCards.map(card => card.querySelector('.service-checkbox'));
+        const selectedServiceFields = document.getElementById('selected-service-fields');
+        const selectedServicesValue = document.getElementById('selected-services-value');
+        const completePackageValue = document.getElementById('complete-package-value');
+        const packageDiscountValue = document.getElementById('package-discount-value');
+
+        function getSelectedServices() {
+            return serviceCards.filter(card => card.querySelector('.service-checkbox').checked);
         }
 
-        // form submit
+        function updateServiceSelection() {
+            const selectedCards = getSelectedServices();
+            const completePackage = selectedCards.length === serviceCards.length;
+
+            serviceCards.forEach(card => {
+                const checkbox = card.querySelector('.service-checkbox');
+                const hint = card.querySelector('.service-selection-hint');
+                card.classList.toggle('is-selected', checkbox.checked);
+                hint.textContent = checkbox.checked ? 'Geselecteerd — klik om te verwijderen' : 'Klik om te selecteren';
+            });
+
+            selectedServiceFields.replaceChildren();
+            selectedCards.forEach(card => {
+                const label = card.dataset.serviceLabel;
+                const hiddenService = document.createElement('input');
+                hiddenService.type = 'hidden';
+                hiddenService.name = 'diensten[]';
+                hiddenService.value = label;
+                selectedServiceFields.appendChild(hiddenService);
+            });
+
+            const labels = selectedCards.map(card => card.dataset.serviceLabel);
+            selectedServicesValue.value = labels.join('; ');
+            completePackageValue.value = completePackage ? 'Ja' : 'Nee';
+            packageDiscountValue.value = completePackage
+                ? '€100 inclusief btw op de uiteindelijke offerteprijs bij afname van het complete pakket'
+                : 'Niet van toepassing';
+        }
+
+        serviceCheckboxes.forEach(checkbox => checkbox.addEventListener('change', updateServiceSelection));
+        updateServiceSelection();
+
+        // Formuliervalidatie, uploadcontrole en verzending
         const contactForm = document.querySelector('.contact-form');
         if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const formData = new FormData(contactForm);
-                fetch('/', { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
-                    .then(r => {
-                        if (!r.ok) throw new Error();
-                        showToast(
-                    'Uw aanbouw-aanvraag is verzonden! Onze streeftijd is om binnen één werkdag contact op te nemen.',
-                    'success');
-                        contactForm.reset();
-                        const subjectSelect = document.getElementById('subject'); if (subjectSelect) { subjectSelect.value = ''; subjectSelect.dispatchEvent(new Event('change')); }
-                    })
-                    .catch(() => {
-                        showToast('Er ging iets mis. Probeer het opnieuw.', 'error');
-                    });
+            const submitButton = contactForm.querySelector('.contact-submit');
+            const formStatus = contactForm.querySelector('.contact-status');
+            const fileInput = document.getElementById('schets-foto');
+            const uploadFilename = contactForm.querySelector('[data-upload-filename]');
+            const maxFileBytes = 7 * 1024 * 1024;
+            const allowedExtensions = new Set(['pdf', 'jpg', 'jpeg', 'png', 'webp']);
+            const allowedMimeTypes = new Set(['application/pdf', 'image/jpeg', 'image/png', 'image/webp']);
+
+            function setFieldError(field, invalid) {
+                field.setAttribute('aria-invalid', String(invalid));
+                const errorIds = (field.getAttribute('aria-describedby') || '').split(/\s+/);
+                const error = errorIds.map(id => document.getElementById(id)).find(element => element?.classList.contains('form-error'));
+                error?.classList.toggle('is-visible', invalid);
+            }
+
+            function validateFile() {
+                const file = fileInput.files?.[0];
+                const extension = file?.name.includes('.') ? file.name.split('.').pop().toLowerCase() : '';
+                const invalidType = Boolean(file && (!allowedExtensions.has(extension) || (file.type && !allowedMimeTypes.has(file.type))));
+                const tooLarge = Boolean(file && file.size > maxFileBytes);
+                const invalid = invalidType || tooLarge;
+                setFieldError(fileInput, invalid);
+                return !invalid;
+            }
+
+            function updateUploadFilename() {
+                const file = fileInput.files?.[0];
+                uploadFilename.textContent = file ? file.name : '';
+                uploadFilename.hidden = !file;
+            }
+
+            contactForm.addEventListener('input', event => {
+                if (event.target.matches('input, textarea')) setFieldError(event.target, false);
+            });
+            fileInput.addEventListener('change', () => {
+                updateUploadFilename();
+                validateFile();
+            });
+
+            contactForm.addEventListener('submit', async event => {
+                event.preventDefault();
+                const privacy = document.getElementById('privacy-akkoord');
+                let valid = true;
+
+                contactForm.querySelectorAll('input[required]:not([type="checkbox"]), textarea[required]').forEach(field => {
+                    const fieldValid = field.checkValidity();
+                    setFieldError(field, !fieldValid);
+                    valid = fieldValid && valid;
                 });
+                setFieldError(privacy, !privacy.checked);
+                valid = privacy.checked && validateFile() && valid;
+
+                if (!valid) {
+                    formStatus.textContent = 'Controleer de gemarkeerde velden.';
+                    formStatus.className = 'contact-status is-error';
+                    contactForm.querySelector('[aria-invalid="true"]')?.focus();
+                    return;
+                }
+
+                submitButton.disabled = true;
+                submitButton.textContent = 'Aanvraag verzenden…';
+                formStatus.textContent = 'Uw aanvraag wordt veilig verzonden.';
+                formStatus.className = 'contact-status';
+
+                try {
+                    const formData = new FormData(contactForm);
+                    const response = await fetch('/', { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+                    if (!response.ok) throw new Error();
+                    if (typeof window.tbaTrackLead === 'function') window.tbaTrackLead(contactForm.getAttribute('name') || 'contactaanvraag');
+                    showToast('Uw aanbouw-aanvraag is verzonden! Onze streeftijd is om binnen één werkdag contact op te nemen.', 'success');
+                    contactForm.reset();
+                    serviceCheckboxes.forEach(checkbox => { checkbox.checked = false; });
+                    updateUploadFilename();
+                    updateServiceSelection();
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Verstuur vrijblijvende aanvraag';
+                    formStatus.textContent = '';
+                } catch (error) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Verstuur vrijblijvende aanvraag';
+                    formStatus.textContent = 'De aanvraag kon niet worden verzonden. Probeer het opnieuw of mail naar info@technischbouwadvies.nl.';
+                    formStatus.className = 'contact-status is-error';
+                    showToast('Er ging iets mis. Probeer het opnieuw.', 'error');
+                }
+            });
         }
 
-        // === WIZARD LOGICA (UPGRADE) ===
-        class UitbouwWizard {
-            constructor() {
-                this.answers = { zijde: null, diepte: null, hoogte: null };
-                this.currentStep = 1;
-                this.totalSteps = 3;
-                this.wizardQuestions = document.querySelectorAll('.wizard-vraag');
-                this.progressText = document.getElementById('progress-text');
-                this.stepFill = document.getElementById('step-fill');
-                this.resultContainer = document.getElementById('wizard-resultaat');
-                this.resultIcon = document.getElementById('result-icon');
-                this.resultTitle = document.getElementById('result-title');
-                this.resultText = document.getElementById('result-text');
-                this.backButtons = document.querySelectorAll('.wizard-back-btn');
-                this.resetButton = document.getElementById('wizard-reset-btn');
-
-                this.init();
-            }
-
-            init() {
-                this.backButtons.forEach(btn => {
-                    btn.addEventListener('click', (e) => this.previousStep(e));
-                });
-
-                if (this.resetButton) {
-                    this.resetButton.addEventListener('click', () => this.reset());
-                }
-
-                this.updateProgress();
-            }
-
-            selectAnswer(question, value, tileElement) {
-                const activeQ = document.querySelector('.wizard-vraag.active');
-                if (!activeQ) return;
-
-                activeQ.querySelectorAll('.wizard-tile').forEach(t => t.classList.remove('selected'));
-                tileElement.classList.add('selected');
-
-                this.answers[question] = value;
-
-                setTimeout(() => this.nextStep(), 200);
-            }
-
-            nextStep() {
-                if (this.currentStep < this.totalSteps) {
-                    const currentQ = document.querySelector(`.wizard-vraag[data-step="${this.currentStep}"]`);
-                    const nextQ = document.querySelector(`.wizard-vraag[data-step="${this.currentStep + 1}"]`);
-
-                    gsap.to(currentQ, {
-                        x: -50,
-                        opacity: 0,
-                        duration: 0.3,
-                        ease: 'power2.inOut',
-                        onComplete: () => {
-                            currentQ.classList.remove('active');
-                            nextQ.classList.add('active');
-                            gsap.fromTo(nextQ, { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: 'power2.out' });
-                        }
-                    });
-
-                    this.currentStep++;
-                    this.updateProgress();
-                } else {
-                    this.showResult();
-                }
-            }
-
-            previousStep(e) {
-                e.stopPropagation();
-                if (this.currentStep <= 1) return;
-
-                const currentQ = document.querySelector(`.wizard-vraag[data-step="${this.currentStep}"]`);
-                const prevQ = document.querySelector(`.wizard-vraag[data-step="${this.currentStep - 1}"]`);
-
-                const currentKey = this.getKeyForStep(this.currentStep);
-                if (currentKey) this.answers[currentKey] = null;
-
-                gsap.to(currentQ, {
-                    x: 50,
-                    opacity: 0,
-                    duration: 0.3,
-                    ease: 'power2.inOut',
-                    onComplete: () => {
-                        currentQ.classList.remove('active');
-                        prevQ.classList.add('active');
-                        gsap.fromTo(prevQ, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: 'power2.out' });
-                    }
-                });
-
-                this.currentStep--;
-                this.updateProgress();
-            }
-
-            getKeyForStep(step) {
-                const map = { 1: 'zijde', 2: 'diepte', 3: 'hoogte' };
-                return map[step] || null;
-            }
-
-            updateProgress() {
-                this.progressText.textContent = `Stap ${this.currentStep} van ${this.totalSteps}`;
-                this.stepFill.style.width = ((this.currentStep / this.totalSteps) * 100) + '%';
-            }
-
-            showResult() {
-                let extraControleNodig = false;
-                if (this.answers.zijde === 'voor' || this.answers.zijde === 'zijkant') {
-                    extraControleNodig = true;
-                } else if (this.answers.zijde === 'achter') {
-                    if (this.answers.diepte === 'meer' || this.answers.hoogte === 'nee') {
-                        extraControleNodig = true;
-                    }
-                }
-
-                const lastQ = document.querySelector(`.wizard-vraag[data-step="${this.currentStep}"]`);
-                gsap.to(lastQ, {
-                    x: -50,
-                    opacity: 0,
-                    duration: 0.3,
-                    ease: 'power2.inOut',
-                    onComplete: () => {
-                        lastQ.classList.remove('active');
-                    }
-                });
-
-                this.resultContainer.style.display = 'block';
-
-                if (extraControleNodig) {
-                    this.resultIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
-                    this.resultTitle.textContent = 'Extra controle nodig';
-                    this.resultText.textContent = 'Eén of meer antwoorden vragen om een adresgerichte controle. Gebruik de officiële Vergunningcheck en laat het omgevingsplan en de bouwtechnische route beoordelen.';
-                    this.resultContainer.classList.add('vergunning-nodig');
-                    this.resultContainer.classList.remove('vergunning-vrij');
-                } else {
-                    this.resultIcon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
-                    this.resultTitle.textContent = 'Controle blijft nodig';
-                    this.resultText.textContent = 'Deze antwoorden geven geen definitieve vergunninguitkomst. Controleer voor het adres zowel de technische bouwactiviteit als de omgevingsplanactiviteit via het Omgevingsloket.';
-                    this.resultContainer.classList.add('vergunning-vrij');
-                    this.resultContainer.classList.remove('vergunning-nodig');
-                }
-
-                // GSAP scale pop-up animatie
-                gsap.fromTo(this.resultContainer,
-                    { scale: 0.8, opacity: 0 },
-                    { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.4)' }
-                );
-                this.resultContainer.classList.add('visible');
-
-                lenis.scrollTo('#checklist', { offset: -50 });
-
-                this.progressText.textContent = 'Resultaat';
-                this.stepFill.style.width = '100%';
-
-                if (this.resetButton) this.resetButton.style.display = 'inline-flex';
-            }
-
-            reset() {
-                this.answers = { zijde: null, diepte: null, hoogte: null };
-                this.currentStep = 1;
-
-                // Reset GSAP inline styles
-                gsap.set(this.resultContainer, { scale: 1, opacity: 1 });
-                this.resultContainer.classList.remove('visible', 'vergunning-nodig', 'vergunning-vrij');
-                this.resultContainer.style.display = 'none';
-
-                this.wizardQuestions.forEach(q => q.classList.remove('active'));
-                const firstQ = document.querySelector('.wizard-vraag[data-step="1"]');
-                if (firstQ) {
-                    firstQ.classList.add('active');
-                    gsap.fromTo(firstQ, { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: 'power2.out' });
-                }
-
-                document.querySelectorAll('.wizard-tile').forEach(t => t.classList.remove('selected'));
-
-                this.updateProgress();
-
-                if (this.resetButton) this.resetButton.style.display = 'none';
-
-                lenis.scrollTo('#checklist', { offset: -50 });
-            }
-        }
-
-        // Instantieer de wizard na DOM geladen
-        document.addEventListener('DOMContentLoaded', () => {
-            window.wizard = new UitbouwWizard();
-
-            // Koppel de onclick handler aan de global scope zoals gebruikt in HTML
-            window.selectAnswer = function(question, value) {
-                const tile = event.currentTarget;
-                if (window.wizard) window.wizard.selectAnswer(question, value, tile);
-            };
-        });
     </script>
 
 <footer>
@@ -4807,36 +4663,244 @@ transform: translateY(-2px);
         });
     })();
 
-    // ═══ ZELFTEST → CONTACT ═══
-    (function() {
-        const ctaBtn = document.getElementById('result-cta');
-        if (ctaBtn) {
-            ctaBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const subject = document.getElementById('subject');
-                const message = document.getElementById('message');
-                if (subject) { subject.value = 'Expert-check Vergunning'; subject.dispatchEvent(new Event('change')); }
-                if (message) { message.value = 'Hallo, ik heb de zelftest gedaan en wil graag een expert-check voor een vergunning.'; message.dispatchEvent(new Event('input')); }
-                const contactSection = document.getElementById('contact');
-                if (contactSection) { if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 }); else contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-            });
-        }
-    })();
 </script>
 
+    <script>
+        (function () {
+            const desktopGrid = document.querySelector('[data-review-desktop]');
+            const mobileRoot = document.querySelector('[data-review-mobile]');
+            const mobileCard = mobileRoot?.querySelector('[data-review-card]');
+            const mobileName = mobileRoot?.querySelector('[data-review-name]');
+            const mobileText = mobileRoot?.querySelector('[data-review-text]');
+            const nextButton = mobileRoot?.querySelector('[data-review-next]');
+            const dotsRoot = mobileRoot?.querySelector('[data-review-dots]');
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            let selectedReviews = [];
+            let activeIndex = 0;
+            let touchStartX = 0;
+            let touchStartY = 0;
+
+            if (!desktopGrid || !mobileRoot || !mobileCard || !mobileName || !mobileText || !nextButton || !dotsRoot) return;
+
+            function shuffledSelection(reviews, count) {
+                const shuffled = reviews.slice();
+                for (let index = shuffled.length - 1; index > 0; index -= 1) {
+                    const randomIndex = Math.floor(Math.random() * (index + 1));
+                    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+                }
+                return shuffled.slice(0, count);
+            }
+
+            function createReviewCard(review) {
+                const card = document.createElement('article');
+                card.className = 'ervaring-card';
+
+                const stars = document.createElement('div');
+                stars.className = 'ervaring-sterren';
+                stars.setAttribute('aria-label', review.rating + ' van 5 sterren');
+                stars.textContent = '★'.repeat(review.rating);
+
+                const name = document.createElement('h3');
+                name.className = 'ervaring-auteur';
+                name.textContent = review.name;
+
+                const source = document.createElement('p');
+                source.className = 'ervaring-bron';
+                source.textContent = 'Review via Google';
+
+                const reviewText = document.createElement('p');
+                reviewText.className = 'ervaring-tekst';
+                reviewText.textContent = review.text;
+
+                card.append(stars, name, source, reviewText);
+                return card;
+            }
+
+            function updateDots() {
+                dotsRoot.querySelectorAll('.ervaring-dot').forEach((dot, index) => {
+                    const active = index === activeIndex;
+                    dot.classList.toggle('is-active', active);
+                    dot.setAttribute('aria-current', active ? 'true' : 'false');
+                });
+            }
+
+            function renderMobileReview(index, animate) {
+                activeIndex = (index + selectedReviews.length) % selectedReviews.length;
+                const render = function () {
+                    const review = selectedReviews[activeIndex];
+                    mobileName.textContent = review.name;
+                    mobileText.textContent = review.text;
+                    updateDots();
+                    mobileCard.classList.remove('is-changing');
+                };
+
+                if (animate && !reducedMotion.matches) {
+                    mobileCard.classList.add('is-changing');
+                    window.setTimeout(render, 140);
+                } else {
+                    render();
+                }
+            }
+
+            function buildDots() {
+                dotsRoot.replaceChildren();
+                selectedReviews.forEach(function (_review, index) {
+                    const dot = document.createElement('button');
+                    dot.type = 'button';
+                    dot.className = 'ervaring-dot';
+                    dot.setAttribute('aria-label', 'Toon beoordeling ' + (index + 1));
+                    dot.addEventListener('click', function () {
+                        renderMobileReview(index, true);
+                    });
+                    dotsRoot.appendChild(dot);
+                });
+            }
+
+            function showLoadError() {
+                desktopGrid.replaceChildren();
+                const message = document.createElement('p');
+                message.className = 'ervaringen-loading';
+                message.textContent = 'De klantervaringen konden niet worden geladen.';
+                desktopGrid.appendChild(message);
+                desktopGrid.setAttribute('aria-busy', 'false');
+                mobileName.textContent = 'Klantervaringen';
+                mobileText.textContent = 'De klantervaringen konden niet worden geladen.';
+                nextButton.hidden = true;
+            }
+
+            fetch('aanbouw-uitbouw-reviews.json', { credentials: 'same-origin' })
+                .then(function (response) {
+                    if (!response.ok) throw new Error('Reviews konden niet worden geladen.');
+                    return response.json();
+                })
+                .then(function (reviews) {
+                    if (!Array.isArray(reviews) || reviews.length < 3) throw new Error('Onvoldoende reviews.');
+                    selectedReviews = shuffledSelection(reviews, 3);
+                    desktopGrid.replaceChildren(...selectedReviews.map(createReviewCard));
+                    desktopGrid.setAttribute('aria-busy', 'false');
+                    buildDots();
+                    renderMobileReview(0, false);
+                })
+                .catch(showLoadError);
+
+            nextButton.addEventListener('click', function () {
+                if (selectedReviews.length) renderMobileReview(activeIndex + 1, true);
+            });
+
+            mobileCard.addEventListener('keydown', function (event) {
+                if (!selectedReviews.length) return;
+                if (event.key === 'ArrowRight') {
+                    event.preventDefault();
+                    renderMobileReview(activeIndex + 1, true);
+                }
+                if (event.key === 'ArrowLeft') {
+                    event.preventDefault();
+                    renderMobileReview(activeIndex - 1, true);
+                }
+            });
+
+            mobileCard.addEventListener('touchstart', function (event) {
+                const touch = event.changedTouches[0];
+                touchStartX = touch.clientX;
+                touchStartY = touch.clientY;
+            }, { passive: true });
+
+            mobileCard.addEventListener('touchend', function (event) {
+                if (!selectedReviews.length) return;
+                const touch = event.changedTouches[0];
+                const deltaX = touch.clientX - touchStartX;
+                const deltaY = touch.clientY - touchStartY;
+                if (Math.abs(deltaX) < 45 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+                renderMobileReview(activeIndex + (deltaX < 0 ? 1 : -1), true);
+            }, { passive: true });
+        })();
+    </script>
+
     <!-- Mobile Sticky CTA -->
-    <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-        <a href="#contact" class="sticky-cta-btn metal-btn">Offerte aanvragen</a>
+    <div class="mobile-sticky-cta" id="mobile-sticky-cta" aria-hidden="true">
+        <a href="#contact" class="gold-button" tabindex="-1">Vraag vrijblijvend een offerte aan</a>
     </div>
 
     <script>
-// Mobile sticky CTA scroll
-        window.addEventListener('scroll', () => {
+        (function () {
+            const heroCta = document.querySelector('.hero-offer-cta');
+            const pricingSection = document.getElementById('prijzen');
+            const requestSection = document.getElementById('contact');
             const stickyCta = document.getElementById('mobile-sticky-cta');
-            if (stickyCta) {
-                stickyCta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+            const stickyLink = stickyCta?.querySelector('a');
+            const form = requestSection?.querySelector('form');
+            const mobileViewport = window.matchMedia('(max-width: 700px)');
+            let heroCtaAboveViewport = false;
+            let desktopRequestFlowVisible = false;
+            let formControlFocused = false;
+
+            if (!heroCta || !pricingSection || !requestSection || !stickyCta || !stickyLink || !form) return;
+
+            function consentIsVisible() {
+                const legacyConsent = document.getElementById('cookie-consent');
+                const currentConsent = document.getElementById('tba-consent');
+                return Boolean(
+                    legacyConsent?.classList.contains('show') ||
+                    (currentConsent && !currentConsent.hidden)
+                );
             }
-        }, { passive: true });
+
+            function updateStickyCta() {
+                const shouldShow = heroCtaAboveViewport &&
+                    !desktopRequestFlowVisible &&
+                    !formControlFocused &&
+                    !consentIsVisible();
+
+                if (!shouldShow && document.activeElement === stickyLink) stickyLink.blur();
+                stickyCta.classList.toggle('is-visible', shouldShow);
+                stickyCta.setAttribute('aria-hidden', String(!shouldShow));
+                stickyLink.tabIndex = shouldShow ? 0 : -1;
+            }
+
+            new IntersectionObserver((entries) => {
+                const entry = entries[0];
+                heroCtaAboveViewport = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
+                updateStickyCta();
+            }, { threshold: [0, 1] }).observe(heroCta);
+
+            new IntersectionObserver((entries) => {
+                desktopRequestFlowVisible = entries[0].isIntersecting;
+                updateStickyCta();
+            }, { rootMargin: '0px', threshold: 0 }).observe(pricingSection);
+
+            form.addEventListener('focusin', () => {
+                formControlFocused = true;
+                updateStickyCta();
+            });
+            form.addEventListener('focusout', () => {
+                window.setTimeout(() => {
+                    formControlFocused = form.contains(document.activeElement);
+                    updateStickyCta();
+                }, 0);
+            });
+
+            stickyLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                const scrollTarget = mobileViewport.matches
+                    ? pricingSection
+                    : document.querySelector('.services-header');
+                if (typeof lenis !== 'undefined') {
+                    lenis.scrollTo(scrollTarget, { offset: -80 });
+                } else {
+                    scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+
+            const consentObserver = new MutationObserver(updateStickyCta);
+            window.addEventListener('DOMContentLoaded', () => {
+                const legacyConsent = document.getElementById('cookie-consent');
+                const currentConsent = document.getElementById('tba-consent');
+                if (legacyConsent) consentObserver.observe(legacyConsent, { attributes: true, attributeFilter: ['class'] });
+                if (currentConsent) consentObserver.observe(currentConsent, { attributes: true, attributeFilter: ['hidden'] });
+                updateStickyCta();
+            });
+            mobileViewport.addEventListener('change', updateStickyCta);
+        })();
     </script>
 
 <!-- ═══════════ COOKIE CONSENT BANNER ═══════════ -->
@@ -4912,8 +4976,11 @@ transform: translateY(-2px);
     .hero h1, .hero-left h1, .hero-dark h1 { font-size: 1.75rem !important; line-height: 1.2 !important; }
     .hero p, .hero-left p, .hero-dark p { font-size: 1rem !important; }
     .hero-cta-row { flex-direction: column !important; gap: 0.75rem !important; }
-    .hero-cta-primary, .hero-cta-secondary { width: 100% !important; text-align: center !important; }
+    .hero-cta-primary { width: 100% !important; text-align: center !important; }
     section, .section { padding: 4rem 1.5rem !important; }
+    .vergunning-plicht { padding-top: 1.5rem !important; }
+    .constructie-img-wrap { aspect-ratio: auto; }
+    .constructie-img-wrap img { display: block; }
     .section-inner { padding: 0 !important; }
     h1 { font-size: 1.75rem !important; }
     h2 { font-size: 1.35rem !important; }

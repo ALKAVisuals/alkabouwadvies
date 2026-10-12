@@ -33,6 +33,7 @@ for (const url of sitemapUrls) {
 const publicRootFiles = [
   '_redirects',
   'accessibility-fixes.css',
+  'aanbouw-uitbouw-reviews.json',
   'css/service-responsive-fixes.css',
   'constructieberekening.css',
   'constructieberekening.js',
