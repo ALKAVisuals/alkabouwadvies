@@ -186,8 +186,12 @@ test('lead measurement is allowlisted and called only after successful form resp
     assert.match(consent, /return mayLoadAnalytics\(consent\) && consent\?\.ads === 'granted'/);
     assert.match(consent, /!mayTrackLead\(readConsent\(\)\)/);
     assert.match(consent, /window\.gtag\('event', 'generate_lead', \{ form_type: formType \}\)/);
-    assert.match(homepage, /<form[^>]+name="contactaanvraag"[^>]+data-unified-contact="true"/);
+    assert.match(homepage, /<form[^>]+name="offerteaanvraag"[^>]+data-netlify="true"/);
     assert.match(permitPage, /<form[^>]+name="contactaanvraag"[^>]+data-unified-contact="true"/);
+
+    const homepageSuccess = homepage.indexOf("if (!response.ok) throw new Error('Formulier kon niet worden verzonden.');");
+    const homepageEvent = homepage.indexOf("window.tbaTrackLead('offerteaanvraag')");
+    assert.ok(homepageSuccess >= 0 && homepageEvent > homepageSuccess);
 
     const contactSuccess = sharedContact.indexOf("if (!response.ok) throw new Error('Formulier kon niet worden verzonden');");
     const contactEvent = sharedContact.indexOf('window.tbaTrackLead');

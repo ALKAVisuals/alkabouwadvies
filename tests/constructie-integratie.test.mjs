@@ -61,7 +61,8 @@ test('construction visuals and process numbering remain honest and accessible', 
 });
 
 test('the service chooser exposes every standalone and combined route', () => {
-    const routes = [...new Set([...homepage.matchAll(/data-route="([^"]+)"/g)].map((match) => match[1]))];
+    const routes = [...homepage.matchAll(/<button class="calc-option" data-route="([^"]+)"/g)]
+        .map((match) => match[1]);
     assert.deepEqual(routes, [
         'drawing',
         'constructionOnly',
@@ -81,7 +82,8 @@ test('the service chooser exposes every standalone and combined route', () => {
 test('general request forms recognize construction without a parallel lead flow', () => {
     assert.match(contact, /name="diensten\[\]" value="constructieberekening"/);
     assert.doesNotMatch(contact, /name="diensten\[\]" value="constructieve-afstemming"/);
-    assert.match(homepage, /<option value="constructieberekening">Constructieberekening<\/option>/);
+    assert.match(homepage, /<form[^>]+name="offerteaanvraag"[^>]+data-netlify="true"/);
+    assert.match(homepage, /constructionOnly: \{[^}]+services: \['constructieberekening'\]/);
     assert.match(landing, /<form name="offerteaanvraag"[^>]+data-netlify="true"/);
     assert.match(landing, /name="diensten\[\]" value="constructieberekening"/);
 });

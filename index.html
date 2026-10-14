@@ -5557,6 +5557,7 @@ color: var(--white);
         <section class="diensten" id="diensten" aria-label="Onze diensten">
             <div class="section-label">Wat wij doen</div>
             <h2 class="section-title">Drie kerndiensten, afgestemd op uw bouwplan.</h2>
+            <p>Kies alleen de ondersteuning die uw project nodig heeft.</p>
             <div class="diensten-grid">
                 <article class="dienst-card"><div class="dienst-num">01</div><h3>Bouwtekeningen</h3><p>Een duidelijke tekeningset voor het vooraf afgesproken aanvraag- of uitvoeringsdoel. Inhoud en detailniveau worden per opdracht vastgelegd.</p><a class="dienst-link" href="#calculator">Kies tekenwerk <span aria-hidden="true">→</span></a></article>
                 <article class="dienst-card"><div class="dienst-num">02</div><h3>Constructieberekeningen</h3><p>Voor een draagmuur, balk, dakconstructie of andere wijziging aan de draagconstructie. Inclusief berekening en constructierapport.</p><a class="dienst-link" href="constructieberekening.html">Bekijk constructie <span aria-hidden="true">→</span></a></article>
@@ -5904,12 +5905,8 @@ color: var(--white);
             if (!heroCta || !calculatorSection || !requestSection || !form || !stickyCta || !stickyLink) return;
 
             function consentIsVisible() {
-                const legacyConsent = document.getElementById('cookie-consent');
                 const currentConsent = document.getElementById('tba-consent');
-                return Boolean(
-                    legacyConsent?.classList.contains('show') ||
-                    (currentConsent && !currentConsent.hidden)
-                );
+                return Boolean(currentConsent && !currentConsent.hidden);
             }
 
             function navigationIsOpen() {
@@ -5969,10 +5966,8 @@ color: var(--white);
 
             const stateObserver = new MutationObserver(updateStickyCta);
             window.addEventListener('DOMContentLoaded', () => {
-                const legacyConsent = document.getElementById('cookie-consent');
                 const currentConsent = document.getElementById('tba-consent');
                 const legacyMenu = document.getElementById('mobile-nav');
-                if (legacyConsent) stateObserver.observe(legacyConsent, { attributes: true, attributeFilter: ['class'] });
                 if (currentConsent) stateObserver.observe(currentConsent, { attributes: true, attributeFilter: ['hidden'] });
                 if (legacyMenu) stateObserver.observe(legacyMenu, { attributes: true, attributeFilter: ['class'] });
                 stateObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
@@ -6705,7 +6700,8 @@ color: var(--white);
 
         const syncStepRouteSelection = () => {
             clearRadioGroup('.calc-panel[data-step="2"] .calc-option');
-            const selectedOption = document.querySelector(`.calc-panel[data-step="2"] .calc-option[data-route="${calcState.selectedRoute}"]`);
+            const selectedOption = Array.from(document.querySelectorAll('.calc-panel[data-step="2"] .calc-option'))
+                .find(option => option.dataset.route === calcState.selectedRoute);
             if (selectedOption) {
                 selectedOption.hidden = false;
                 selectedOption.classList.add('selected');
@@ -6832,7 +6828,8 @@ color: var(--white);
                 calcState.recommendedRoute = '';
                 calcState.directRoute = routeKey;
                 clearRadioGroup('.calc-panel[data-step="2"] .calc-option');
-                const selectedOption = document.querySelector(`.calc-panel[data-step="2"] .calc-option[data-route="${routeKey}"]`);
+                const selectedOption = Array.from(document.querySelectorAll('.calc-panel[data-step="2"] .calc-option'))
+                    .find(option => option.dataset.route === routeKey);
                 if (selectedOption) {
                     selectedOption.hidden = false;
                     selectedOption.classList.add('selected');
@@ -7156,93 +7153,5 @@ color: var(--white);
             </div>
         </div>
     </footer>
-<!-- ═══════════ COOKIE CONSENT BANNER ═══════════ -->
-    <div class="cookie-consent" id="cookie-consent" role="dialog" aria-label="Cookie toestemming">
-        <div class="cookie-consent-inner">
-            <p>Deze website gebruikt functionele browseropslag om uw keuze voor deze melding te onthouden. <a href="cookiebeleid.html" target="_blank">Lees ons cookiebeleid</a></p>
-            <button class="cookie-accept" id="cookie-accept">Akkoord</button>
-        </div>
-    </div>
-    <style>
-        .cookie-consent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 10000;
-            background: #0f0f0f;
-            border-top: 1px solid rgba(179, 148, 77, 0.15);
-            padding: 1rem 2rem;
-            transform: translateY(100%);
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .cookie-consent.show {
-            transform: translateY(0);
-        }
-        .cookie-consent-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .cookie-consent p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.875rem;
-            line-height: 1.6;
-            margin: 0;
-            flex: 1;
-            min-width: 200px;
-        }
-        .cookie-consent a {
-            color: var(--accent, #b3944d);
-            text-decoration: underline;
-        }
-        .cookie-consent a:hover {
-            color: var(--white, #fff);
-        }
-        .cookie-accept {
-            flex-shrink: 0;
-            padding: 0.75rem 2rem;
-            background: var(--accent, #b3944d);
-            color: #0f0f0f;
-            border: none;
-            border-radius: 50px;
-            font-family: inherit;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        .cookie-accept:hover {
-            background: var(--white, #fff);
-            transform: translateY(-1px);
-        }
-        @media (max-width: 768px) {
-            .cookie-consent { padding: 1rem 1.5rem; }
-            .cookie-consent-inner { flex-direction: column; text-align: center; }
-            .cookie-accept { width: 100%; }
-        }
-    </style>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const banner = document.getElementById('cookie-consent');
-        const acceptBtn = document.getElementById('cookie-accept');
-        if (banner && acceptBtn) {
-            if (!localStorage.getItem('cookieConsent')) {
-                setTimeout(() => banner.classList.add('show'), 500);
-            }
-            acceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookieConsent', 'accepted');
-                banner.classList.remove('show');
-            });
-        }
-    });
-    </script>
-
 </body>
 </html>

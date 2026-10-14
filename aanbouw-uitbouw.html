@@ -1677,23 +1677,6 @@ transform: translateY(-2px);
             color: var(--text-light);
             line-height: 1.7;
         }
-        .package-discount-note {
-            margin-bottom: 1.25rem;
-            padding: 1.5rem 1.75rem;
-            border: 1px solid rgba(179, 148, 77, 0.24);
-            background: #f7f1e5;
-        }
-        .package-discount-note strong {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-        .package-discount-note p {
-            margin: 0;
-            color: var(--text-light);
-            font-size: 0.875rem;
-            line-height: 1.65;
-        }
         .services-help-note {
             margin: 0 0 1rem;
             color: var(--text-light);
@@ -2297,7 +2280,6 @@ transform: translateY(-2px);
             .services-header {
                 margin-bottom: 2rem;
             }
-            .package-discount-note,
             .service-card {
                 padding-left: 1.25rem;
             }
@@ -3951,28 +3933,28 @@ transform: translateY(-2px);
                         <span class="proces-stap-icoon"><i class="fa-solid fa-comments"></i></span>
                         <h3>Intake & Inventarisatie</h3>
                         <p>We bespreken uw wensen, bekijken het omgevingsplan en beoordelen de eerste haalbaarheid. U ontvangt een helder advies binnen de afgesproken scope.</p>
-                        <span class="proces-stap-tag">Dag 1-2</span>
+                        <span class="proces-stap-tag">Inventarisatie</span>
                     </div>
                     <div class="proces-stap-card fade-up">
                         <div class="proces-stap-nummer">02</div>
                         <span class="proces-stap-icoon"><i class="fa-solid fa-pencil-ruler"></i></span>
                         <h3>Ontwerp & Tekening</h3>
                         <p>Wij maken de afgesproken bouwkundige tekeningen, zoals plattegronden, gevels en doorsneden. Relevante normen en het Besluit bouwwerken leefomgeving worden meegenomen voor zover ze binnen de opdracht vallen.</p>
-                        <span class="proces-stap-tag">Dag 3-5</span>
+                        <span class="proces-stap-tag">Technische uitwerking</span>
                     </div>
                     <div class="proces-stap-card fade-up">
                         <div class="proces-stap-nummer">03</div>
                         <span class="proces-stap-icoon"><i class="fa-solid fa-calculator"></i></span>
                         <h3>Constructieberekening</h3>
                         <p>Is er sprake van een dragende wand, grote gevelopening of fundering? Dan bepaalt de betrokken constructeur welke projectspecifieke berekening en uitwerking nodig is.</p>
-                        <span class="proces-stap-tag">Dag 6-8</span>
+                        <span class="proces-stap-tag">Constructieve beoordeling</span>
                     </div>
                     <div class="proces-stap-card fade-up">
                         <div class="proces-stap-nummer">04</div>
                         <span class="proces-stap-icoon"><i class="fa-solid fa-file-signature"></i></span>
                         <h3>Vergunning &amp; begeleiding</h3>
                         <p>Als indiening is inbegrepen, dienen wij de afgesproken stukken in via het Omgevingsloket en begeleiden we vragen tijdens de behandeling. Het bevoegd gezag neemt het besluit.</p>
-                        <span class="proces-stap-tag">Week 2-8</span>
+                        <span class="proces-stap-tag">Begeleiding volgens afspraak</span>
                     </div>
                 </div>
             </div>
@@ -4070,10 +4052,6 @@ transform: translateY(-2px);
                     <h2 class="section-title">Kies de ondersteuning die bij uw <em>aanbouw of uitbouw</em> past.</h2>
                     <p class="services-intro">Selecteer één of meerdere diensten. Uw keuzes worden automatisch meegenomen in uw vrijblijvende offerteaanvraag.<br>Vertel ons kort wat uw plannen zijn. U zit nergens aan vast.</p>
                 </div>
-                <aside class="package-discount-note fade-up" aria-label="Korting compleet pakket">
-                    <strong>€100 korting bij een compleet pakket</strong>
-                    <p>Alle genoemde vanafprijzen zijn inclusief btw. Bij afname van het complete pakket ontvangt u €100 korting inclusief btw op de uiteindelijke offerteprijs.</p>
-                </aside>
                 <p class="services-help-note">Weet u niet precies welke diensten u nodig heeft? Geen probleem. Beschrijf uw bouwplannen en wij bekijken welke ondersteuning passend is.</p>
                 <div class="service-selection" id="service-selection" role="group" aria-label="Kies desgewenst één of meerdere diensten">
                     <label class="service-card fade-up" data-service-label="Bouwtekening" data-service-price="Vanaf €250">
@@ -4118,8 +4096,6 @@ transform: translateY(-2px);
                                 <input type="hidden" name="bron" value="aanbouw-uitbouw-diensten">
                                 <input type="hidden" name="subject" value="Aanbouw / Uitbouw">
                                 <input type="hidden" name="diensten-overzicht" id="selected-services-value" value="">
-                                <input type="hidden" name="compleet-pakket" id="complete-package-value" value="Nee">
-                                <input type="hidden" name="pakketkorting" id="package-discount-value" value="Niet van toepassing">
                                 <div id="selected-service-fields"></div>
                                 <div class="request-form-grid">
                                     <div class="request-field full">
@@ -4388,8 +4364,6 @@ transform: translateY(-2px);
         const serviceCheckboxes = serviceCards.map(card => card.querySelector('.service-checkbox'));
         const selectedServiceFields = document.getElementById('selected-service-fields');
         const selectedServicesValue = document.getElementById('selected-services-value');
-        const completePackageValue = document.getElementById('complete-package-value');
-        const packageDiscountValue = document.getElementById('package-discount-value');
 
         function getSelectedServices() {
             return serviceCards.filter(card => card.querySelector('.service-checkbox').checked);
@@ -4397,8 +4371,6 @@ transform: translateY(-2px);
 
         function updateServiceSelection() {
             const selectedCards = getSelectedServices();
-            const completePackage = selectedCards.length === serviceCards.length;
-
             serviceCards.forEach(card => {
                 const checkbox = card.querySelector('.service-checkbox');
                 const hint = card.querySelector('.service-selection-hint');
@@ -4418,10 +4390,6 @@ transform: translateY(-2px);
 
             const labels = selectedCards.map(card => card.dataset.serviceLabel);
             selectedServicesValue.value = labels.join('; ');
-            completePackageValue.value = completePackage ? 'Ja' : 'Nee';
-            packageDiscountValue.value = completePackage
-                ? '€100 inclusief btw op de uiteindelijke offerteprijs bij afname van het complete pakket'
-                : 'Niet van toepassing';
         }
 
         serviceCheckboxes.forEach(checkbox => checkbox.addEventListener('change', updateServiceSelection));
@@ -4837,12 +4805,8 @@ transform: translateY(-2px);
             if (!heroCta || !pricingSection || !requestSection || !stickyCta || !stickyLink || !form) return;
 
             function consentIsVisible() {
-                const legacyConsent = document.getElementById('cookie-consent');
                 const currentConsent = document.getElementById('tba-consent');
-                return Boolean(
-                    legacyConsent?.classList.contains('show') ||
-                    (currentConsent && !currentConsent.hidden)
-                );
+                return Boolean(currentConsent && !currentConsent.hidden);
             }
 
             function updateStickyCta() {
@@ -4893,9 +4857,7 @@ transform: translateY(-2px);
 
             const consentObserver = new MutationObserver(updateStickyCta);
             window.addEventListener('DOMContentLoaded', () => {
-                const legacyConsent = document.getElementById('cookie-consent');
                 const currentConsent = document.getElementById('tba-consent');
-                if (legacyConsent) consentObserver.observe(legacyConsent, { attributes: true, attributeFilter: ['class'] });
                 if (currentConsent) consentObserver.observe(currentConsent, { attributes: true, attributeFilter: ['hidden'] });
                 updateStickyCta();
             });
@@ -4903,74 +4865,7 @@ transform: translateY(-2px);
         })();
     </script>
 
-<!-- ═══════════ COOKIE CONSENT BANNER ═══════════ -->
-    <div class="cookie-consent" id="cookie-consent" role="dialog" aria-label="Cookie toestemming">
-        <div class="cookie-consent-inner">
-            <p>Deze website gebruikt functionele browseropslag om uw keuze voor deze melding te onthouden. <a href="cookiebeleid.html" target="_blank">Lees ons cookiebeleid</a></p>
-            <button class="cookie-accept" id="cookie-accept">Akkoord</button>
-        </div>
-    </div>
     <style>
-        .cookie-consent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 10000;
-            background: #0f0f0f;
-            border-top: 1px solid rgba(179, 148, 77, 0.15);
-            padding: 1rem 2rem;
-            transform: translateY(100%);
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .cookie-consent.show {
-            transform: translateY(0);
-        }
-        .cookie-consent-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .cookie-consent p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.875rem;
-            line-height: 1.6;
-            margin: 0;
-            flex: 1;
-            min-width: 200px;
-        }
-        .cookie-consent a {
-            color: var(--accent, #b3944d);
-            text-decoration: underline;
-        }
-        .cookie-consent a:hover {
-            color: var(--white, #fff);
-        }
-        .cookie-accept {
-            flex-shrink: 0;
-            padding: 0.75rem 2rem;
-            background: var(--accent, #b3944d);
-            color: #0f0f0f;
-            border: none;
-            border-radius: 50px;
-            font-family: inherit;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        .cookie-accept:hover {
-            background: var(--white, #fff);
-            transform: translateY(-1px);
-        }
-
-
 @media (max-width: 768px) {
     .hero-left, .hero, .hero-dark { padding: 7rem 1.5rem 4rem !important; }
     .hero h1, .hero-left h1, .hero-dark h1 { font-size: 1.75rem !important; line-height: 1.2 !important; }
@@ -4998,29 +4893,6 @@ transform: translateY(-2px);
     .nav-logo-img { display: none !important; }
 }
 
-
-
-@media (max-width: 768px) {
-            .cookie-consent { padding: 1rem 1.5rem; }
-            .cookie-consent-inner { flex-direction: column; text-align: center; }
-            .cookie-accept { width: 100%; }
-        }
     </style>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const banner = document.getElementById('cookie-consent');
-        const acceptBtn = document.getElementById('cookie-accept');
-        if (banner && acceptBtn) {
-            if (!localStorage.getItem('cookieConsent')) {
-                setTimeout(() => banner.classList.add('show'), 500);
-            }
-            acceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookieConsent', 'accepted');
-                banner.classList.remove('show');
-            });
-        }
-    });
-    </script>
-
 </body>
 </html>
