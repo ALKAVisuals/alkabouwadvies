@@ -66,6 +66,8 @@
 /* Kleine bronzen labels en tekstlinks op lichte vlakken hebben een
    donkerdere merkvariant nodig om ook op mobiel WCAG AA te halen. */
 .eyebrow,
+.ervaringen-header .ervaringen-eyebrow,
+.step-number,
 .checklist-wizard #progress-text,
 .proces-stap-nummer,
 .proces-stap-tag,
@@ -93,6 +95,42 @@
     color: #76591c !important;
 }
 
+/* Reviewnavigatie houdt visueel kleine stippen, maar geeft ieder knopje een
+   volwaardig aanraakvlak van 44 x 44 px. */
+.ervaring-dots {
+    gap: 0 !important;
+}
+
+.ervaring-dot {
+    position: relative;
+    display: inline-grid;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    place-items: center;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
+
+.ervaring-dot::before {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #b8b4aa;
+    content: "";
+}
+
+.ervaring-dot.is-active::before {
+    background: #87691f;
+    transform: scale(1.12);
+}
+
+.ervaring-dot:focus-visible {
+    outline: 3px solid rgba(118, 89, 28, 0.55);
+    outline-offset: -5px;
+}
+
 .vc-col-vrij .vc-tag {
     color: #246b3a !important;
 }
@@ -104,6 +142,8 @@
 /* Eyebrow-labels binnen donkere panelen houden de lichte merkvariant. */
 .collaboration-copy .eyebrow,
 .cta .eyebrow,
+.landing-hero .eyebrow,
+.price-summary .eyebrow,
 .input-section .section-label,
 .process-section .section-label,
 .process-section .process-step > span,

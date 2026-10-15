@@ -34,6 +34,8 @@ test('public build contains every sitemap page', async () => {
   const sitemap = await readFile(path.join(repositoryRoot, 'sitemap.xml'), 'utf8');
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => new URL(match[1]));
 
+  assert.equal(new Set(urls.map((url) => url.href)).size, urls.length, 'sitemap contains duplicate URLs');
+
   for (const url of urls) {
     const relativePath = url.pathname === '/' ? 'index.html' : decodeURIComponent(url.pathname).slice(1);
     assert.equal(await exists(path.join(outputDirectory, relativePath)), true, `${relativePath} is missing`);
@@ -226,9 +228,49 @@ test('consent UI assets are discovered before first paint', async () => {
 
     assert.match(head, new RegExp(`<link rel="stylesheet" href="${prefix}privacy-consent\\.css">`));
     assert.match(head, new RegExp(`<script src="${prefix}privacy-consent\\.js" defer></script>`));
-    assert.match(html, /<section class="tba-consent" id="tba-consent" role="dialog"/);
+    assert.match(
+      html,
+      /<section class="tba-consent" id="tba-consent" style="position:fixed;inset:auto 0 0;z-index:10000" role="dialog"/
+    );
     assert.doesNotMatch(html, /<section class="tba-consent" id="tba-consent"[^>]* hidden/);
   }
+});
+
+test('review dots expose WCAG-sized touch targets while retaining the dot visual', async () => {
+  const accessibility = await readFile(path.join(outputDirectory, 'accessibility-fixes.css'), 'utf8');
+  assert.match(accessibility, /\.ervaring-dot\s*\{[\s\S]*?width:\s*44px\s*!important;[\s\S]*?height:\s*44px\s*!important;/);
+  assert.match(accessibility, /\.ervaring-dot::before\s*\{[\s\S]*?width:\s*10px;[\s\S]*?height:\s*10px;/);
+  assert.match(accessibility, /\.ervaring-dot:focus-visible\s*\{/);
+});
+
+test('consent banner uses a stable system font and service menus initialise on demand', async () => {
+  const consentStyles = await readFile(path.join(outputDirectory, 'privacy-consent.css'), 'utf8');
+  const headerScript = await readFile(path.join(outputDirectory, 'site-header.js'), 'utf8');
+
+  assert.match(consentStyles, /\.tba-consent\s*\{[\s\S]*?font-family:\s*Arial, Helvetica, sans-serif;/);
+  assert.match(headerScript, /function prepareServiceMenusOnce\(\)/);
+  assert.match(headerScript, /function setServicesOpen\(isOpen, returnFocus\)\s*\{[\s\S]*?if \(isOpen\) prepareServiceMenusOnce\(\);/);
+  assert.match(headerScript, /function openMobileMenu\(\)\s*\{\s*prepareServiceMenusOnce\(\);/);
+  assert.doesNotMatch(headerScript, /\n\s*prepareDesktopServicesMenu\(\);\s*\n\s*prepareMobileServicesMenu\(\);\s*\n\s*ensureFooterConstructionLink\(\);/);
+});
+
+test('bouwtekening page serves a right-sized responsive drawing in the hero', async () => {
+  const page = await readFile(path.join(outputDirectory, 'bouwtekening-laten-maken.html'), 'utf8');
+  const responsiveDrawings = [
+    'images/website-2026/technische-tekeningen/complete-tekening-presentatie-400.webp',
+    'images/website-2026/technische-tekeningen/complete-tekening-presentatie-768.webp',
+    'images/website-2026/technische-tekeningen/complete-tekening-presentatie-1200.webp'
+  ];
+
+  for (const drawing of responsiveDrawings) {
+    assert.equal(await exists(path.join(outputDirectory, drawing)), true, `${drawing} is missing`);
+    assert.match(page, new RegExp(drawing.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  }
+
+  const heroDrawing = page.match(/<figure class="hero-drawing"[^>]*>[\s\S]*?<img\b[^>]*>/)?.[0] || '';
+  assert.match(heroDrawing, /srcset="[^"]*complete-tekening-presentatie-400\.webp 400w,[^"]*complete-tekening-presentatie-768\.webp 768w,[^"]*complete-tekening-presentatie-1200\.webp 1200w/);
+  assert.match(heroDrawing, /sizes="[^"]+"/);
+  assert.match(heroDrawing, /fetchpriority="high"/);
 });
 
 test('public Inter pages use the self-hosted font without a layout-shifting swap', async () => {

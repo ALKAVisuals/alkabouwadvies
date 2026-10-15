@@ -121,7 +121,7 @@ for (const pageFile of pageFiles) {
       `    <script src="${assetPrefix}privacy-consent.js" defer></script>\n`;
   const consentMarkup = pageFile === '404.html'
     ? ''
-    : `<section class="tba-consent" id="tba-consent" role="dialog" aria-modal="false" aria-labelledby="tba-consent-title">
+    : `<section class="tba-consent" id="tba-consent" style="position:fixed;inset:auto 0 0;z-index:10000" role="dialog" aria-modal="false" aria-labelledby="tba-consent-title">
     <div class="tba-consent__inner">
         <div class="tba-consent__copy">
             <strong id="tba-consent-title">Uw keuze voor analyse en conversiemeting</strong>

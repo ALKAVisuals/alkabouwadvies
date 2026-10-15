@@ -106,6 +106,7 @@
 
     let menuReturnFocus = null;
     let desktopCategoryButtons = [];
+    let serviceMenusPrepared = false;
     let previousScrollY = Math.max(window.scrollY, 0);
     let scrollTicking = false;
     const hideThreshold = 140;
@@ -230,6 +231,13 @@
             });
         });
         list.replaceChildren(links);
+    }
+
+    function prepareServiceMenusOnce() {
+        if (serviceMenusPrepared) return;
+        prepareDesktopServicesMenu();
+        prepareMobileServicesMenu();
+        serviceMenusPrepared = true;
     }
 
     function addVisualisationUpsell() {
@@ -523,6 +531,7 @@
 
     function setServicesOpen(isOpen, returnFocus) {
         if (!servicesItem || !servicesTrigger) return;
+        if (isOpen) prepareServiceMenusOnce();
         servicesItem.classList.toggle('is-open', isOpen);
         servicesTrigger.setAttribute('aria-expanded', String(isOpen));
         if (!isOpen && returnFocus) servicesTrigger.focus();
@@ -569,6 +578,7 @@
     }
 
     function openMobileMenu() {
+        prepareServiceMenusOnce();
         menuReturnFocus = document.activeElement;
         nav.classList.remove('tba-nav-hidden');
         mobilePanel.classList.add('is-open');
@@ -697,8 +707,6 @@
 
     nav.addEventListener('focusin', () => nav.classList.remove('tba-nav-hidden'));
 
-    prepareDesktopServicesMenu();
-    prepareMobileServicesMenu();
     ensureFooterConstructionLink();
     routePrimaryContactLinks();
     routeSectionLinks();
