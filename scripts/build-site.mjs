@@ -40,6 +40,7 @@ const publicRootFiles = [
   'contact-section.css',
   'contact-section.js',
   'fonts.css',
+  'netlify-forms.html',
   'privacy-consent.css',
   'privacy-consent.js',
   'review-section.css',
@@ -149,6 +150,11 @@ for (const pageFile of pageFiles) {
   }
 
   html = html
+    // Netlify receives one canonical definition per form name from
+    // netlify-forms.html. Visible forms keep their form-name input and POST
+    // normally, but must not redefine a partial field schema during deploy.
+    .replace(/(<form\b[^>]*?)\sdata-netlify=(['"])true\2/gi, '$1')
+    .replace(/(<form\b[^>]*?)\snetlify-honeypot=(['"])[^'"]+\2/gi, '$1')
     .replace(
       /(<div class="(?:waardestijging-content|complexiteit-content|roi-content|blog-toc|blog-card-content)"[^>]*>[\s\S]*?)<h3(?![^>]*\baria-level=)([^>]*)>/g,
       '$1<h3 role="heading" aria-level="2"$2>'

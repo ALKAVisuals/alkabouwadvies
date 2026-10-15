@@ -50,7 +50,8 @@ test('public build contains required platform files and assets', async () => {
     'page-styles/home.css',
     'robots.txt',
     'sitemap.xml',
-    'images/favicon.svg'
+    'images/favicon.svg',
+    'netlify-forms.html'
   ]) {
     assert.equal(await exists(path.join(outputDirectory, relativePath)), true, `${relativePath} is missing`);
   }
@@ -59,6 +60,7 @@ test('public build contains required platform files and assets', async () => {
 test('public pages receive the shared accessibility layer and semantic corrections', async () => {
   const htmlFiles = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
     .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .filter((entry) => entry.name !== 'netlify-forms.html')
     .map((entry) => path.join(entry.parentPath, entry.name));
   const removedLabels = [
     'Technisch Bouwadvies - Home',
@@ -125,6 +127,7 @@ test('legacy section and blog card headings expose a sequential public level', a
 test('Google font stylesheets do not block first paint', async () => {
   const htmlFiles = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
     .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .filter((entry) => entry.name !== 'netlify-forms.html')
     .map((entry) => path.join(entry.parentPath, entry.name));
 
   for (const htmlFile of htmlFiles) {
@@ -150,6 +153,7 @@ test('Google font stylesheets do not block first paint', async () => {
 test('Font Awesome does not block first paint', async () => {
   const htmlFiles = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
     .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .filter((entry) => entry.name !== 'netlify-forms.html')
     .map((entry) => path.join(entry.parentPath, entry.name));
 
   for (const htmlFile of htmlFiles) {
@@ -211,6 +215,7 @@ test('public pages apply every style before body content can paint', async () =>
 test('consent UI assets are discovered before first paint', async () => {
   const pages = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
     .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .filter((entry) => entry.name !== 'netlify-forms.html')
     .map((entry) => path.join(entry.parentPath, entry.name));
 
   for (const page of pages) {
@@ -229,6 +234,7 @@ test('consent UI assets are discovered before first paint', async () => {
 test('public Inter pages use the self-hosted font without a layout-shifting swap', async () => {
   const htmlFiles = (await readdir(outputDirectory, { recursive: true, withFileTypes: true }))
     .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .filter((entry) => entry.name !== 'netlify-forms.html')
     .map((entry) => path.join(entry.parentPath, entry.name));
 
   for (const htmlFile of htmlFiles) {

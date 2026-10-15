@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Formulierdefinities</title>
+</head>
+<body>
+    <!--
+      Centrale Netlify Forms-schema's. De zichtbare formulieren posten onder
+      deze twee bestaande namen, zodat website en dashboard dezelfde leadflow
+      blijven gebruiken zonder concurrerende deeldefinities per pagina.
+    -->
+    <form name="offerteaanvraag" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="offerteaanvraag">
+        <input type="hidden" name="bot-field">
+        <input type="text" name="naam">
+        <input type="email" name="email">
+        <input type="tel" name="telefoon">
+        <textarea name="projectomschrijving"></textarea>
+        <input type="hidden" name="bron">
+        <input type="hidden" name="projecttype">
+        <input type="hidden" name="gekozen-route">
+        <input type="hidden" name="diensten">
+        <input type="hidden" name="diensten[]">
+        <input type="hidden" name="aanvullingen">
+        <input type="hidden" name="vergunningstatus">
+        <input type="hidden" name="constructiewijziging">
+        <input type="hidden" name="bestaande-tekeningen">
+        <input type="hidden" name="bestaandetekeningen">
+        <input type="hidden" name="prijsindicatie">
+        <input type="hidden" name="pakket">
+        <input type="hidden" name="pakketadvies">
+        <input type="hidden" name="planning">
+        <input type="hidden" name="postcode">
+        <input type="hidden" name="gemeente">
+        <input type="hidden" name="situatie">
+        <input type="file" name="archieftekening">
+        <input type="file" name="schets-foto">
+        <input type="checkbox" name="privacy-akkoord">
+    </form>
+
+    <form name="contactaanvraag" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="contactaanvraag">
+        <input type="hidden" name="bot-field">
+        <input type="text" name="name">
+        <input type="email" name="email">
+        <input type="tel" name="phone">
+        <input type="text" name="subject">
+        <input type="text" name="gemeente">
+        <textarea name="message"></textarea>
+        <input type="hidden" name="bron">
+        <input type="hidden" name="diensten-overzicht">
+        <input type="file" name="schets-foto">
+        <input type="checkbox" name="privacy-akkoord">
+    </form>
+</body>
+</html>
