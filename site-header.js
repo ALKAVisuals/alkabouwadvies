@@ -16,6 +16,14 @@
         document.head.appendChild(consentScript);
     }
 
+    // ChatGPT-attributie is onafhankelijk van de bestaande Google-metingen.
+    if (!consentExcludedPages.has(consentFilename) && !document.querySelector('script[src$="chatgpt-attribution.js"]')) {
+        const chatgptScript = document.createElement('script');
+        chatgptScript.src = window.location.pathname.includes('/blog/') ? '../chatgpt-attribution.js' : 'chatgpt-attribution.js';
+        chatgptScript.defer = true;
+        document.head.appendChild(chatgptScript);
+    }
+
     const header = document.querySelector('[data-tba-header]');
     if (!header) return;
 
