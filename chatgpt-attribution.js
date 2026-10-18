@@ -66,7 +66,16 @@
       return null;
     }
     const params = new URL(window.location.href).searchParams;
-    if ((params.get('utm_source') || '').toLowerCase() !== 'chatgpt') return readAttribution();
+    const source = (params.get('utm_source') || '').toLowerCase();
+    const hasGoogleClick = ['gclid', 'gbraid', 'wbraid'].some((key) => params.has(key));
+
+    // Een latere Google Ads- of andere expliciete campagneklik neemt de
+    // sessie over. Zo schrijven we die aanvraag niet onterecht toe aan ChatGPT.
+    if (hasGoogleClick || (source && source !== 'chatgpt')) {
+      clearAttribution();
+      return null;
+    }
+    if (source !== 'chatgpt') return readAttribution();
 
     const campaign = {
       source: 'chatgpt',
