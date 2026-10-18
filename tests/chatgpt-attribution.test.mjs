@@ -81,6 +81,23 @@ test('Google campaign traffic is untouched', () => {
   assert.match(googleTracking, /window\.gtag\('event', 'generate_lead', \{ form_type: formType \}\)/);
 });
 
+test('later Google or another explicit campaign takes over a ChatGPT session', () => {
+  const s = sandbox({ url: 'https://technischbouwadvies.nl/?utm_source=chatgpt&utm_campaign=bouwtekeningen' });
+  assert.equal(s.submit().marketing_source, 'chatgpt');
+
+  // Een latere Google Ads-klik moet alle oude ChatGPT-toeschrijving verwijderen.
+  s.win.location.href = 'https://technischbouwadvies.nl/contact.html?gclid=abcdefghijk';
+  assert.deepEqual(s.submit(), {});
+  assert.equal(s.sessionStore.size, 0);
+
+  // Ook een expliciete campagne van een andere herkomst wint.
+  s.win.location.href = 'https://technischbouwadvies.nl/?utm_source=chatgpt&utm_campaign=vergunningbegeleiding';
+  assert.equal(s.submit().marketing_source, 'chatgpt');
+  s.win.location.href = 'https://technischbouwadvies.nl/contact.html?utm_source=google&utm_medium=cpc';
+  assert.deepEqual(s.submit(), {});
+  assert.equal(s.sessionStore.size, 0);
+});
+
 test('denied and analytics-only consent prevent ChatGPT attribution', () => {
   for (const ads of ['denied']) {
     const s = sandbox({ url: 'https://technischbouwadvies.nl/?utm_source=chatgpt&utm_campaign=bouwtekeningen', ads });
