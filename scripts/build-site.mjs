@@ -38,6 +38,7 @@ const publicRootFiles = [
   'constructieberekening.css',
   'constructieberekening.js',
   'contact-section.css',
+  'chatgpt-attribution.js',
   'contact-section.js',
   'fonts.css',
   'netlify-forms.html',
