@@ -1115,3 +1115,111 @@ body.tba-menu-open {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Gedeelde offerte- en terug-naar-bovenbediening */
+.tba-floating-actions-ready .mobile-sticky-cta,
+.tba-floating-actions-ready .back-to-top {
+    display: none !important;
+}
+
+.tba-floating-actions {
+    position: fixed;
+    z-index: 8990;
+    right: 24px;
+    bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.tba-floating-top,
+.tba-floating-offer {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+}
+
+.tba-floating-actions.show-top .tba-floating-top,
+.tba-floating-actions.show-offer .tba-floating-offer {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: 0s;
+}
+
+.tba-floating-top {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid rgba(183, 148, 73, .72);
+    border-radius: 50%;
+    background: #151513;
+    color: #d8b96c;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    place-items: center;
+}
+
+.tba-floating-top svg {
+    width: 20px;
+    height: 20px;
+}
+
+.tba-floating-offer {
+    display: inline-flex;
+    min-height: 48px;
+    padding: 0 22px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #b79449;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #b28d3f, #dfc77f);
+    color: #151513;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .2);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .035em;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.tba-floating-top:focus-visible,
+.tba-floating-offer:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+    .tba-floating-actions {
+        right: 12px;
+        bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+        left: 12px;
+    }
+
+    .tba-floating-top {
+        width: 42px;
+        height: 42px;
+    }
+
+    .tba-floating-offer {
+        width: 100%;
+        min-height: 54px;
+        padding-inline: 16px;
+        font-size: .76rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tba-floating-top,
+    .tba-floating-offer {
+        transition-duration: .01ms !important;
+    }
+}

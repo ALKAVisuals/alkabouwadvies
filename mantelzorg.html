@@ -4318,12 +4318,12 @@ transform: translateY(-2px);
                     </div>
                     <div class="form-group">
                         <select name="subject" id="subject" required aria-required="true" aria-describedby="error-subject" aria-invalid="false">
-                            <option value="" disabled selected></option>
+                            <option value="" disabled></option>
                             <option value="dakkapel">Dakkapel</option>
                             <option value="dakopbouw">Dakopbouw</option>
                             <option value="uitbouw">Uitbouw / Aanbouw</option>
                             <option value="erker">Erker</option>
-                            <option value="mantelzorg">Mantelzorgwoning</option>
+                            <option value="mantelzorg" selected>Mantelzorgwoning</option>
                             <option value="nieuwbouw">Bed &amp; Breakfast</option>
                             <option value="nok">Nokverhoging / Doorbraak</option>
                             <option value="bijgebouw">Bijgebouwen</option>
@@ -4564,16 +4564,11 @@ transform: translateY(-2px);
         });
 
         // Contactformulier voorinvullen vanuit prijsknoppen
-        function setContactForm(subjectValue, messageText) {
+        function setContactForm(subjectValue) {
             const subjectSelect = document.getElementById('subject');
-            const messageTextarea = document.getElementById('message');
             if (subjectSelect) {
                 subjectSelect.value = subjectValue;
                 subjectSelect.dispatchEvent(new Event('change'));
-            }
-            if (messageTextarea) {
-                messageTextarea.value = messageText;
-                messageTextarea.dispatchEvent(new Event('input'));
             }
             lenis.scrollTo('#contact', { offset: -80 });
         }

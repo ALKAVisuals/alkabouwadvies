@@ -171,7 +171,6 @@
             panel.setAttribute('aria-labelledby', tabId);
             panel.innerHTML = `
                 <div class="tba-service-panel-head">
-                    <span class="tba-dropdown-label">${group.label}</span>
                     <p>${group.description}</p>
                 </div>
                 <div class="tba-service-panel-links">
@@ -619,6 +618,182 @@
     menuClose?.addEventListener('click', () => closeMobileMenu());
     menuBackdrop?.addEventListener('click', () => closeMobileMenu());
 
+    function normaliseFormCopy() {
+        document.querySelectorAll('button[type="submit"], input[type="submit"]').forEach((button) => {
+            if (!/gratis advies/i.test(button.textContent || button.value || '')) return;
+            if (button.tagName === 'INPUT') button.value = 'Verstuur de aanvraag';
+            else button.textContent = 'Verstuur de aanvraag';
+            button.setAttribute('aria-label', 'Verstuur de aanvraag');
+        });
+
+        if (typeof window.setContactForm === 'function' && !window.setContactForm.tbaNoMessagePrefill) {
+            const originalSetContactForm = window.setContactForm;
+            const wrappedSetContactForm = function (subjectValue) {
+                originalSetContactForm(subjectValue, '');
+                const message = document.getElementById('message');
+                if (message) {
+                    message.value = '';
+                    message.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            };
+            wrappedSetContactForm.tbaNoMessagePrefill = true;
+            window.setContactForm = wrappedSetContactForm;
+        }
+    }
+
+    function prepareServiceReviews() {
+        const reviewPages = new Set([
+            'bed-breakfast.html', 'bijgebouw.html', 'erker.html', 'mantelzorg.html', 'nokverhoging.html'
+        ]);
+        if (!reviewPages.has(currentFilename()) || document.querySelector('[data-review-section]')) return;
+
+        const faq = document.getElementById('faq');
+        const requestSection = document.getElementById('contact');
+        if (!faq || !requestSection) return;
+
+        const reviewSection = document.createElement('section');
+        reviewSection.className = 'klantervaringen';
+        reviewSection.id = 'klantervaringen';
+        reviewSection.dataset.reviewSection = '';
+        reviewSection.setAttribute('aria-labelledby', 'klantervaringen-title');
+        reviewSection.innerHTML = `
+            <div class="ervaringen-inner">
+                <div class="ervaringen-kop">
+                    <p class="ervaringen-label">Voorbeelden van ervaringen</p>
+                    <h2 id="klantervaringen-title">Wat klanten over onze dienstverlening zeggen</h2>
+                    <p class="ervaringen-intro">Een selectie van klantervaringen over bouwtekeningen, constructieberekeningen, vergunningbegeleiding en/of visualisaties.</p>
+                </div>
+                <div class="ervaringen-grid" data-review-desktop aria-live="polite" aria-busy="true">
+                    <p class="ervaringen-loading">Klantervaringen laden&hellip;</p>
+                </div>
+                <div class="ervaringen-slider" data-review-mobile aria-live="polite">
+                    <article class="ervaring-card" data-review-card tabindex="0">
+                        <div class="ervaring-sterren" aria-label="5 van 5 sterren">★★★★★</div>
+                        <h3 class="ervaring-auteur" data-review-name>Klantervaring</h3>
+                        <p class="ervaring-bron">Review via Google</p>
+                        <p class="ervaring-tekst" data-review-text>Klantervaringen laden&hellip;</p>
+                        <button class="ervaring-volgende" type="button" data-review-next aria-label="Toon de volgende beoordeling"><span aria-hidden="true">→</span></button>
+                    </article>
+                    <div class="ervaring-dots" data-review-dots aria-label="Beoordelingen kiezen"></div>
+                </div>
+                <a class="ervaringen-google-link" href="https://www.google.com/maps/place/Technisch+Bouwadvies/@51.7696007,5.8580223,16.32z/data=!4m8!3m7!1s0x47c70f775769c3a5:0x1956c077fa87201f!8m2!3d51.7690666!4d5.8597112!9m1!1b1!16s%2Fg%2F11ntdwt9gy?entry=ttu&amp;g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Bekijk onze beoordelingen op Google <span aria-hidden="true">↗</span></a>
+            </div>`;
+
+        requestSection.before(reviewSection);
+        requestSection.after(faq);
+
+        if (!document.querySelector('link[href$="review-section.css"]')) {
+            const stylesheet = document.createElement('link');
+            stylesheet.rel = 'stylesheet';
+            stylesheet.href = localHref('review-section.css');
+            document.head.appendChild(stylesheet);
+        }
+        if (!document.querySelector('script[src$="review-section.js"]')) {
+            const script = document.createElement('script');
+            script.src = localHref('review-section.js');
+            document.body.appendChild(script);
+        }
+    }
+
+    function prepareFloatingActions() {
+        const targetSelectors = ['#aanvraag', '#constructie-aanvraag', '#contact', '#offerteformulier', '#calculator'];
+        const requestTarget = targetSelectors.map((selector) => document.querySelector(selector)).find(Boolean);
+        const requestScrollTarget = requestTarget?.closest('section') || requestTarget;
+        const targetId = requestTarget?.id;
+        const offerHref = targetId ? `#${targetId}` : localHref('index.html?request=1#calculator');
+
+        const actions = document.createElement('div');
+        actions.className = 'tba-floating-actions';
+        actions.setAttribute('aria-label', 'Snelle paginanavigatie');
+        actions.innerHTML = `
+            <button class="tba-floating-top" type="button" aria-label="Terug naar boven">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+            </button>
+            <a class="tba-floating-offer" href="${offerHref}">Vraag vrijblijvend een offerte aan</a>`;
+        document.body.appendChild(actions);
+        document.body.classList.add('tba-floating-actions-ready');
+
+        const topButton = actions.querySelector('.tba-floating-top');
+        const offerButton = actions.querySelector('.tba-floating-offer');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        const scrollToPosition = (target, offset = 0) => {
+            const immediate = reducedMotion.matches;
+            let smoothScroller = null;
+
+            try {
+                if (typeof lenis !== 'undefined' && lenis && typeof lenis.scrollTo === 'function') {
+                    smoothScroller = lenis;
+                }
+            } catch (_error) {
+                smoothScroller = null;
+            }
+
+            if (!smoothScroller && window.lenis && typeof window.lenis.scrollTo === 'function') {
+                smoothScroller = window.lenis;
+            }
+
+            if (smoothScroller) {
+                try {
+                    smoothScroller.scrollTo(target, { offset: -offset, immediate });
+                    return;
+                } catch (_error) {
+                    // Fall back to the native document scroller below.
+                }
+            }
+
+            const top = typeof target === 'number'
+                ? target
+                : target.getBoundingClientRect().top + window.scrollY - offset;
+            const scrollOptions = { top: Math.max(0, top), behavior: immediate ? 'auto' : 'smooth' };
+            const scrollingElement = document.scrollingElement || document.documentElement;
+
+            if (scrollingElement && typeof scrollingElement.scrollTo === 'function') {
+                scrollingElement.scrollTo(scrollOptions);
+            } else {
+                window.scrollTo(scrollOptions);
+            }
+        };
+
+        topButton.addEventListener('click', () => {
+            scrollToPosition(0);
+        });
+
+        offerButton.addEventListener('click', (event) => {
+            if (!requestTarget) return;
+            event.preventDefault();
+            if (currentFilename() === 'index.html') {
+                window.dispatchEvent(new CustomEvent('tba:open-calculator-request'));
+                return;
+            }
+            const offset = mobileBreakpoint.matches ? 76 : 92;
+            scrollToPosition(requestScrollTarget, offset);
+            window.history.pushState(null, '', `#${targetId}`);
+        });
+
+        const update = () => {
+            const consent = document.getElementById('tba-consent');
+            const consentVisible = consent && !consent.hidden;
+            const rect = requestTarget?.getBoundingClientRect();
+            const requestVisible = Boolean(rect && rect.top < window.innerHeight && rect.bottom > 0);
+            actions.classList.toggle('show-top', window.scrollY > 600 && !consentVisible);
+            actions.classList.toggle('show-offer', window.scrollY > 420 && !requestVisible && !consentVisible);
+        };
+
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        document.addEventListener('click', (event) => {
+            if (event.target.closest('[data-consent-choice]')) window.setTimeout(update, 0);
+        });
+        update();
+
+        if (currentFilename() === 'index.html' && new URLSearchParams(window.location.search).get('request') === '1') {
+            window.addEventListener('load', () => window.setTimeout(() => {
+                window.dispatchEvent(new CustomEvent('tba:open-calculator-request'));
+            }, 0), { once: true });
+        }
+    }
+
     mobilePanel?.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => closeMobileMenu({ restoreFocus: false }));
     });
@@ -721,6 +896,9 @@
     addConstructionCrossSell();
     addVisualisationUpsell();
     normalisePricePresentation();
+    normaliseFormCopy();
+    prepareServiceReviews();
+    prepareFloatingActions();
     setCurrentNavigation();
     prepareSkipLink();
     observeHomepageSections();

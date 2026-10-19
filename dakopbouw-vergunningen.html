@@ -3304,7 +3304,7 @@ transform: translateY(-2px);
                 <div class="vergunning-plicht-content">
                     <div class="section-label">Vergunning nodig?</div>
                     <h2 class="section-title">Controleer vooraf de <em>vergunning- en meldingsroute</em>.</h2>
-                    <p class="vergunning-plicht-intro">Een dakopbouw of nokverhoging verandert meestal de constructie en het uiterlijk van de woning. Welke vergunning, melding of technische onderbouwing nodig is, hangt af van het plan, het adres en de lokale regels. Gebruik daarom eerst de Vergunningcheck in het Omgevingsloket.</p>
+                    <p class="vergunning-plicht-intro">Een dakopbouw of nokverhoging verandert vaak de constructie en het uiterlijk van uw woning. Of u hiervoor een vergunning nodig heeft, hangt onder andere af van uw bouwplannen, de locatie en de gemeentelijke regels. Wij kunnen voor u beoordelen welke regels van toepassing zijn en welke stappen nodig zijn om uw plannen te realiseren.</p>
                     <ul class="vergunning-plicht-points">
                         <li class="vergunning-plicht-point fade-up">
                             <span class="vp-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
@@ -3337,7 +3337,7 @@ transform: translateY(-2px);
         <section class="mid-cta">
             <div class="mid-cta-inner">
                 <div class="mid-cta-text fade-up"><div class="mid-cta-label">Twijfelt u?</div><h2>Eerste inventarisatie: wat is er mogelijk op uw dak?</h2><p>Stuur een foto en de maten voor een eerste indicatie. Constructie, omgevingsplan en vergunningroute worden daarna projectspecifiek beoordeeld.</p></div>
-                <div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn metal-btn">Gratis check aanvragen →</a><p class="mid-cta-note">Vrijblijvend · streeftijd: één werkdag</p></div>
+                <div class="mid-cta-actions fade-up"><a href="#contact" class="mid-cta-btn metal-btn">Vraag vrijblijvend advies aan →</a><p class="mid-cta-note">Vrijblijvend · streeftijd: één werkdag</p></div>
             </div>
         </section>
 
@@ -3496,9 +3496,9 @@ transform: translateY(-2px);
                     </div>
                     <div class="form-group">
                         <select name="subject" id="subject" required aria-required="true" aria-describedby="error-subject" aria-invalid="false">
-                            <option value="" disabled selected></option>
+                            <option value="" disabled></option>
                             <option value="dakkapel">Dakkapel</option>
-                            <option value="dakopbouw">Dakopbouw</option>
+                            <option value="dakopbouw" selected>Dakopbouw</option>
                             <option value="uitbouw">Uitbouw / Aanbouw</option>
                             <option value="erker">Erker</option>
                             <option value="mantelzorg">Mantelzorgwoning</option>
@@ -3734,16 +3734,11 @@ transform: translateY(-2px);
         });
 
         // functie om contactformulier in te vullen en soepel te scrollen
-        function setContactForm(subjectValue, messageText) {
+        function setContactForm(subjectValue) {
             const subjectSelect = document.getElementById('subject');
-            const messageTextarea = document.getElementById('message');
             if (subjectSelect) {
                 subjectSelect.value = subjectValue;
                 subjectSelect.dispatchEvent(new Event('change'));
-            }
-            if (messageTextarea) {
-                messageTextarea.value = messageText;
-                messageTextarea.dispatchEvent(new Event('input'));
             }
             lenis.scrollTo('#contact', { offset: -80 });
         }

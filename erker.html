@@ -4515,11 +4515,11 @@ transform: translateY(-2px);
                     </div>
                     <div class="form-group">
                         <select name="subject" id="subject" required aria-required="true" aria-describedby="error-subject" aria-invalid="false">
-                            <option value="" disabled selected></option>
+                            <option value="" disabled></option>
                             <option value="dakkapel">Dakkapel</option>
                             <option value="dakopbouw">Dakopbouw</option>
                             <option value="uitbouw">Uitbouw / Aanbouw</option>
-                            <option value="erker">Erker</option>
+                            <option value="erker" selected>Erker</option>
                             <option value="mantelzorg">Mantelzorgwoning</option>
                             <option value="nieuwbouw">Bed &amp; Breakfast</option>
                             <option value="nok">Nokverhoging / Doorbraak</option>
@@ -4792,16 +4792,11 @@ transform: translateY(-2px);
         });
 
         // Contactformulier voorinvullen vanuit prijsknoppen
-        function setContactForm(subjectValue, messageText) {
+        function setContactForm(subjectValue) {
             const subjectSelect = document.getElementById('subject');
-            const messageTextarea = document.getElementById('message');
             if (subjectSelect) {
                 subjectSelect.value = subjectValue;
                 subjectSelect.dispatchEvent(new Event('change'));
-            }
-            if (messageTextarea) {
-                messageTextarea.value = messageText;
-                messageTextarea.dispatchEvent(new Event('input'));
             }
             lenis.scrollTo('#contact', { offset: -80 });
         }
@@ -5117,7 +5112,7 @@ transform: translateY(-2px);
                 const subject = document.getElementById('subject');
                 const message = document.getElementById('message');
                 if (subject) { subject.value = 'Ontwerproute Erker'; subject.dispatchEvent(new Event('change')); }
-                if (message) { message.value = 'Hallo, ik heb de diagnose gedaan en wil graag de projectspecifieke ontwerproute voor een erker bespreken.'; message.dispatchEvent(new Event('input')); }
+                if (message) { message.value = ''; message.dispatchEvent(new Event('input')); }
                 const contactSection = document.getElementById('contact');
                 if (contactSection) { if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 }); else contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
             });

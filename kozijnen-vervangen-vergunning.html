@@ -3552,16 +3552,11 @@ color: var(--white);
         });
 
         // ═══ CONTACTFORMULIER: functie om in te vullen ═══
-        function setContactForm(subjectValue, messageText) {
+        function setContactForm(subjectValue) {
             const subjectSelect = document.getElementById('subject');
-            const messageTextarea = document.getElementById('message');
             if (subjectSelect) {
                 subjectSelect.value = subjectValue;
                 subjectSelect.dispatchEvent(new Event('change'));
-            }
-            if (messageTextarea) {
-                messageTextarea.value = messageText;
-                messageTextarea.dispatchEvent(new Event('input'));
             }
             lenis.scrollTo('#contact', { offset: -80 });
         }
@@ -3682,7 +3677,7 @@ color: var(--white);
                     var subject = document.getElementById('subject');
                     var message = document.getElementById('message');
                     if (subject) { subject.value = 'Kozijnen: ' + title; subject.dispatchEvent(new Event('change')); }
-                    if (message) { message.value = '"Hallo, ik ben geinteresseerd in de dienst "' + title + '" voor kozijnen vervangen.'; message.dispatchEvent(new Event('input')); }
+                    if (message) { message.value = ''; message.dispatchEvent(new Event('input')); }
                     var contactSection = document.getElementById('contact');
                     if (contactSection) {
                         if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 });
@@ -3701,7 +3696,7 @@ color: var(--white);
                     var subject = document.getElementById('subject');
                     var message = document.getElementById('message');
                     if (subject) { subject.value = 'Vergunningscheck Kozijnen'; subject.dispatchEvent(new Event('change')); }
-                    if (message) { message.value = 'Hallo, ik wil een vrijblijvende vergunningscheck voor het vervangen van kozijnen.'; message.dispatchEvent(new Event('input')); }
+                    if (message) { message.value = ''; message.dispatchEvent(new Event('input')); }
                     var contactSection = document.getElementById('contact');
                     if (contactSection) {
                         if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 });
@@ -3720,7 +3715,7 @@ color: var(--white);
                     var subject = document.getElementById('subject');
                     var message = document.getElementById('message');
                     if (subject) { subject.value = 'Vergunningscheck Kozijnen'; subject.dispatchEvent(new Event('change')); }
-                    if (message) { message.value = 'Hallo, ik wil een vrijblijvende vergunningscheck voor het vervangen van kozijnen.'; message.dispatchEvent(new Event('input')); }
+                    if (message) { message.value = ''; message.dispatchEvent(new Event('input')); }
                     var contactSection = document.getElementById('contact');
                     if (contactSection) {
                         if (typeof lenis !== 'undefined') lenis.scrollTo(contactSection, { offset: -80 });

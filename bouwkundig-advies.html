@@ -3534,16 +3534,11 @@ color: var(--white);
         });
 
         // functie om contactformulier in te vullen en soepel te scrollen
-        function setContactForm(subjectValue, messageText) {
+        function setContactForm(subjectValue) {
             const subjectSelect = document.getElementById('subject');
-            const messageTextarea = document.getElementById('message');
             if (subjectSelect) {
                 subjectSelect.value = subjectValue;
                 subjectSelect.dispatchEvent(new Event('change'));
-            }
-            if (messageTextarea) {
-                messageTextarea.value = messageText;
-                messageTextarea.dispatchEvent(new Event('input'));
             }
             lenis.scrollTo('#contact', { offset: -80 });
         }

@@ -1000,6 +1000,22 @@ transform: translateY(-2px);
             transform: scale(1.05);
         }
 
+        .waardestijging-visual .visual-example-label {
+            position: absolute;
+            z-index: 2;
+            bottom: 16px;
+            left: 16px;
+            padding: 8px 11px;
+            border-left: 2px solid var(--accent);
+            background: rgba(15, 15, 14, 0.86);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 750;
+            letter-spacing: 0.08em;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
         .waardestijging-content .section-label {
             color: var(--accent);
         }
@@ -3792,6 +3808,7 @@ transform: translateY(-2px);
             <div class="waardestijging-inner">
                 <div class="waardestijging-visual">
                     <img src="images/B&B_A1.webp" alt="Illustratief landelijk logiesgebouw met meerdere gastenkamers en een aangelegde tuin" loading="lazy" decoding="async">
+                    <span class="visual-example-label">Voorbeeld 3D-visualisatie</span>
                 </div>
                 <div class="waardestijging-content">
                     <div class="section-label">Gebruik en haalbaarheid</div>
@@ -4084,13 +4101,13 @@ transform: translateY(-2px);
                     </div>
                     <div class="form-group">
                         <select name="subject" id="subject" required aria-required="true" aria-describedby="error-subject" aria-invalid="false">
-                            <option value="" disabled selected></option>
+                            <option value="" disabled></option>
                             <option value="dakkapel">Dakkapel</option>
                             <option value="dakopbouw">Dakopbouw</option>
                             <option value="uitbouw">Uitbouw / Aanbouw</option>
                             <option value="erker">Erker</option>
                             <option value="mantelzorg">Mantelzorgwoning</option>
-                            <option value="nieuwbouw">Bed &amp; Breakfast</option>
+                            <option value="nieuwbouw" selected>Bed &amp; Breakfast</option>
                             <option value="nok">Nokverhoging / Doorbraak</option>
                             <option value="bijgebouw">Bijgebouwen</option>
                             <option value="digitaliseren">Bouwtekeningen digitaliseren</option>
@@ -4324,16 +4341,11 @@ transform: translateY(-2px);
         });
 
         // Contactformulier voorinvullen vanuit prijsknoppen
-        function setContactForm(subjectValue, messageText) {
+        function setContactForm(subjectValue) {
             const subjectSelect = document.getElementById('subject');
-            const messageTextarea = document.getElementById('message');
             if (subjectSelect) {
                 subjectSelect.value = subjectValue;
                 subjectSelect.dispatchEvent(new Event('change'));
-            }
-            if (messageTextarea) {
-                messageTextarea.value = messageText;
-                messageTextarea.dispatchEvent(new Event('input'));
             }
             lenis.scrollTo('#contact', { offset: -80 });
         }
