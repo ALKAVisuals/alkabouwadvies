@@ -1,0 +1,48 @@
+.delete-selection {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #d8b9b9;
+  border-radius: 8px;
+  color: #9b2c2c;
+  display: flex;
+  font-size: 11px;
+  font-weight: 700;
+  gap: 7px;
+  padding: 9px 12px;
+}
+
+.delete-selection svg {
+  height: 15px;
+  width: 15px;
+}
+
+.delete-selection:hover:not(:disabled) {
+  background: #fff1f1;
+  border-color: #c98f8f;
+}
+
+.delete-selection:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.select-cell {
+  padding-left: 13px !important;
+  padding-right: 4px !important;
+  width: 38px;
+}
+
+.select-cell input {
+  accent-color: #0b6471;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+}
+
+.selected-row {
+  background: #edf7f8;
+}
+
+.selected-row:hover {
+  background: #e5f3f5;
+}

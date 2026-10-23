@@ -1,0 +1,50 @@
+.form-mode-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.import-quote {
+  border: 1px solid #d7dee2;
+  background: #fff;
+  color: #39505d;
+  border-radius: 8px;
+  padding: 8px 11px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.import-quote:hover { background: #f5f7f8; }
+.import-quote:disabled { cursor: wait; opacity: .65; }
+.import-quote svg { width: 14px; height: 14px; }
+
+.import-notice {
+  position: relative;
+  margin: -8px 0 20px;
+  border: 1px solid #cbdde2;
+  border-radius: 9px;
+  padding: 11px 38px 10px 12px;
+  background: #f1f8fa;
+  color: #274652;
+}
+
+.import-notice strong,
+.import-notice span { display: block; }
+.import-notice strong { font-size: 11px; margin-bottom: 4px; }
+.import-notice span { font-size: 10px; line-height: 1.45; }
+.import-notice.warning { border-color: #e6d19d; background: #fff8e8; color: #76531b; }
+.import-notice.error { border-color: #e5b8b8; background: #fff2f2; color: #7b2727; }
+.import-notice button {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 18px;
+  line-height: 1;
+}

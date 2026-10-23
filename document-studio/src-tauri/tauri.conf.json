@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Document Studio",
+  "version": "1.4.4",
+  "identifier": "nl.alkagroup.documentstudio",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Document Studio",
+        "width": 1500,
+        "height": 960,
+        "minWidth": 1180,
+        "minHeight": 720,
+        "center": true
+      }
+    ],
+    "security": { "csp": null }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "shortDescription": "Offertes, facturen en administratie",
+    "longDescription": "Offline desktopapplicatie voor ALKA Visuals en Technisch Bouwadvies.",
+    "windows": { "nsis": { "installMode": "currentUser" } }
+  }
+}
