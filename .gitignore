@@ -11,9 +11,3 @@ _site/
 
 # Contentsquare wizard (generated)
 .cs-wizard/
-
-# Document Studio local build output
-/document-studio/node_modules/
-/document-studio/dist/
-/document-studio/tmp/
-/document-studio/src-tauri/target/
